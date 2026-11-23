@@ -1,0 +1,13 @@
+<!doctype html><html lang="vi"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">{% if job.running %}<meta http-equiv="refresh" content="5">{% endif %}<title>Security Review · Tiến độ</title><link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}"><link rel="stylesheet" href="{{ url_for('static', filename='jobs.css') }}"></head>
+<body class="analysis-page"><header><a class="brand" href="{{ url_for('index') }}"><span class="logo">SR</span><strong>Security Review</strong></a><span class="mode">Nhật ký tác vụ</span></header><main><a href="{{ url_for('analysis_home') }}">← Chọn lượt phân tích</a>
+<h1>{{ job.label }}</h1><p>{{ job.project }} · {{ job.collection_name }}</p>
+<section class="panel"><p><strong>Thao tác:</strong> {{ 'Kiểm tra cấu hình' if job.mode == 'check' else 'Kiểm tra rồi phân tích AI' }} · Tối đa {{ job.max_calls }} lượt AI mới.</p>
+<ul>{% for c in job.components %}<li style="overflow-wrap:anywhere">{{ c }}</li>{% endfor %}</ul>
+{% if job.error %}<p class="warning">{{ job.error }}</p>{% endif %}
+{% if job.running %}<p>Trang tự cập nhật mỗi 5 giây. Nhật ký cho biết bước đang thực hiện; số thứ tự cảnh báo không phải phần trăm công việc đã hoàn tất.</p>{% endif %}
+{% if job.state == 'INTERRUPTED' %}<p class="warning">Worker không còn hoạt động. Hệ thống không tự gọi lại AI. Kiểm tra kết quả/checkpoint trước khi quyết định chạy lại.</p>{% endif %}
+{% if job.state == 'CHECK_OK' %}<p class="success">Cấu hình đã qua kiểm tra offline. Chưa xác nhận Docker/Ollama đang hoạt động. Quay lại để chọn phân tích bằng AI.</p>{% endif %}
+{% if job.result_name %}<p><a class="export-link" href="{{ url_for('run_detail', group_id=0, name=job.result_name) }}">Mở kết quả và thẩm định →</a></p>{% endif %}
+<p class="hint-text">Hoàn tất tiến trình không đồng nghĩa mọi cảnh báo đều có kết luận hoặc AI nhận định đúng. Xem trạng thái và bằng chứng của từng cảnh báo.</p></section>
+<section class="panel"><h2>Nhật ký gần nhất</h2><pre style="white-space:pre-wrap;overflow-wrap:anywhere;max-height:65vh;overflow:auto">{{ job.log or 'Đang chờ nhật ký…' }}</pre></section>
+<p><a href="{{ url_for('analysis_job', job_id=job.id) }}">Tải lại ngay</a></p></main></body></html>

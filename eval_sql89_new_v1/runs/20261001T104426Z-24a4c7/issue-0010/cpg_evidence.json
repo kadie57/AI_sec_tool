@@ -1,0 +1,6 @@
+{
+  "flow_count": 1,
+  "paths": "┌─────────────────┬───────────────────────────────────────┬────┬──────┬────┐\n│nodeType         │tracked                                │line│method│file│\n├─────────────────┼───────────────────────────────────────┼────┼──────┼────┤\n│MethodParameterIn│main(String[] args)                    │4   │main  │    │\n│Call             │parseInt(args[0])                      │6   │main  │    │\n│Call             │parseInt(args[0])                      │6   │main  │    │\n│Identifier       │int maxRows = Integer.parseInt(args[0])│6   │main  │    │\n│Identifier       │setMaxRows(maxRows)                    │11  │main  │    │\n│Identifier       │setMaxRows(maxRows)                    │11  │main  │    │\n│Identifier       │executeQuery(sql)                      │12  │main  │    │\n│Identifier       │executeQuery(sql)                      │12  │main  │    │\n└─────────────────┴───────────────────────────────────────┴────┴──────┴────┘",
+  "scope": "single_file",
+  "source_policy": "all_non_receiver_parameters_are_candidates"
+}

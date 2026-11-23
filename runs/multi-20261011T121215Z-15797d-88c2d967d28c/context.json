@@ -1,0 +1,180 @@
+{
+  "version": "multi-sql89-path22-command78-v2-sql-fallback",
+  "script_sha256": "a892b15c5e002259e2bc70b87cf5f73d8fec44c7f9426587c3b2df71d0c9b382",
+  "collection": "/home/khanh/AI_sec_tool/runs/20261011T121215Z-15797d",
+  "collection_manifest_sha256": "be551ace6e9efcd572d09f860c5a3f076058142de1db8dd0e93af0bb455a4199",
+  "collection_issues_sha256": "6ee7b88c703ca63bd8b36eb11a08ff7f3ae2193ad50135dae2fc8662ccf3aef9",
+  "config_sha256": "e3bc505a31373d1e04e73c87fc3e4771ad659d99909b80d495b21275a436c905",
+  "dependency_sha256": {
+    "check_sql_prompt_controls.py": "f24df75851b0707b626a94b4f90ec6b5eacd5c1d5d20cd8d46a16b848163feb8",
+    "cwe_mapper.py": "a7a15bbc4a2d1eb84f4ea23a341ce85d8d1b23bece18d975d1da09c1d163f28c",
+    "iris_prompter.py": "2ab8daf9250b3716f1fc47599c83a6996db7df4da908a687b7a3050d4c8de5cb",
+    "master_pipeline.py": "dd0165e2145edc00fa76506a6cb08380d58b2fcf7e97eb957cd5edcda156660c",
+    "master_pipeline_combined_v1.py": "4e82fb698e59b7bece50a436eaef7b905f69072c81f8b224674115a4955173d9",
+    "master_pipeline_multi_v1.py": "a892b15c5e002259e2bc70b87cf5f73d8fec44c7f9426587c3b2df71d0c9b382",
+    "master_pipeline_source_v1.py": "83f698155e111098ab8466ddf95b3633bc742b62e7309fbe886e924e13004105",
+    "master_pipeline_v6.py": "57dadd796396bb53d9246385607a64da891033223da83d91606db2317a1ccfcf",
+    "replay_source_merge.py": "7a656c8154c1cadd2955e4ecdf29e97971a4dca453ddf610adc829f700b3b414",
+    "source_audit_v2.py": "74e68f5bcd6f2d8df663707782f274c9099bf83199d2e122d39c208dd2f97381",
+    "triage_v5.py": "a52fa7d8ea4909644e90036f89150c605469e7a9804f4aeee732db2ef03cab22",
+    "triage_v6.py": "f88ff5921dbabbb259577888dea1f414190cb6e44a69efabe3dcb790a469a90d",
+    "validate_v6.py": "57a67d2d69730d6f6a10a4b9926747ba5b84c75615952851c5f4652091127ad4"
+  },
+  "items": [
+    {
+      "index": 12,
+      "issue": {
+        "key": "73c62dfd-ece6-40bd-a9bf-417fd5bcfd61",
+        "rule": "findsecbugs:SQL_INJECTION_JDBC",
+        "severity": "CRITICAL",
+        "component": "project_1:Clean_Code/pilot_sql89/Trial01.java",
+        "project": "project_1",
+        "line": 20,
+        "hash": "e508bd6bd485fe4f415a81a3cc6c3399",
+        "textRange": {
+          "startLine": 20,
+          "endLine": 20,
+          "startOffset": 0,
+          "endOffset": 62
+        },
+        "flows": [],
+        "status": "OPEN",
+        "message": "This use of java/sql/Statement.executeQuery(Ljava/lang/String;)Ljava/sql/ResultSet; can be vulnerable to SQL injection (with JDBC)",
+        "author": "",
+        "tags": [
+          "cwe",
+          "owasp-a1",
+          "injection",
+          "wasc"
+        ],
+        "creationDate": "2026-09-25T15:38:47+0000",
+        "updateDate": "2026-09-25T15:38:47+0000",
+        "type": "VULNERABILITY",
+        "scope": "MAIN",
+        "quickFixAvailable": false,
+        "messageFormattings": [],
+        "codeVariants": [],
+        "cleanCodeAttribute": "CONVENTIONAL",
+        "cleanCodeAttributeCategory": "CONSISTENT",
+        "impacts": [
+          {
+            "softwareQuality": "SECURITY",
+            "severity": "HIGH"
+          }
+        ],
+        "issueStatus": "OPEN",
+        "prioritizedRule": false,
+        "fromSonarQubeUpdate": false,
+        "internalTags": [],
+        "linkedTicketStatus": "NOT_LINKED"
+      },
+      "route": "sql",
+      "source_sha256": "dd8786ea91517d9836ded4f67a3441704575297eff02336001c1a534fc77b268"
+    },
+    {
+      "index": 21,
+      "issue": {
+        "key": "2c454a0e-fad8-45d9-b5ff-8074e53bc5a8",
+        "rule": "findsecbugs:SQL_INJECTION_JDBC",
+        "severity": "CRITICAL",
+        "component": "project_1:Clean_Code/pilot_sql89/Trial04.java",
+        "project": "project_1",
+        "line": 20,
+        "hash": "e508bd6bd485fe4f415a81a3cc6c3399",
+        "textRange": {
+          "startLine": 20,
+          "endLine": 20,
+          "startOffset": 0,
+          "endOffset": 62
+        },
+        "flows": [],
+        "status": "OPEN",
+        "message": "This use of java/sql/Statement.executeQuery(Ljava/lang/String;)Ljava/sql/ResultSet; can be vulnerable to SQL injection (with JDBC)",
+        "author": "",
+        "tags": [
+          "cwe",
+          "owasp-a1",
+          "injection",
+          "wasc"
+        ],
+        "creationDate": "2026-09-25T15:38:47+0000",
+        "updateDate": "2026-09-25T15:38:47+0000",
+        "type": "VULNERABILITY",
+        "scope": "MAIN",
+        "quickFixAvailable": false,
+        "messageFormattings": [],
+        "codeVariants": [],
+        "cleanCodeAttribute": "CONVENTIONAL",
+        "cleanCodeAttributeCategory": "CONSISTENT",
+        "impacts": [
+          {
+            "softwareQuality": "SECURITY",
+            "severity": "HIGH"
+          }
+        ],
+        "issueStatus": "OPEN",
+        "prioritizedRule": false,
+        "fromSonarQubeUpdate": false,
+        "internalTags": [],
+        "linkedTicketStatus": "NOT_LINKED"
+      },
+      "route": "sql",
+      "source_sha256": "72c8351f1feee4c7b38202d9cd3b3c50664d2b0a6738288bc4ae17c1ede3977c"
+    },
+    {
+      "index": 27,
+      "issue": {
+        "key": "07a6b931-3130-414f-826c-f14849f593ac",
+        "rule": "findsecbugs:SQL_INJECTION_JDBC",
+        "severity": "CRITICAL",
+        "component": "project_1:Clean_Code/pilot_sql89/Trial06.java",
+        "project": "project_1",
+        "line": 12,
+        "hash": "e508bd6bd485fe4f415a81a3cc6c3399",
+        "textRange": {
+          "startLine": 12,
+          "endLine": 12,
+          "startOffset": 0,
+          "endOffset": 62
+        },
+        "flows": [],
+        "status": "OPEN",
+        "message": "This use of java/sql/Statement.executeQuery(Ljava/lang/String;)Ljava/sql/ResultSet; can be vulnerable to SQL injection (with JDBC)",
+        "author": "",
+        "tags": [
+          "cwe",
+          "owasp-a1",
+          "injection",
+          "wasc"
+        ],
+        "creationDate": "2026-09-25T15:38:47+0000",
+        "updateDate": "2026-09-25T15:38:47+0000",
+        "type": "VULNERABILITY",
+        "scope": "MAIN",
+        "quickFixAvailable": false,
+        "messageFormattings": [],
+        "codeVariants": [],
+        "cleanCodeAttribute": "CONVENTIONAL",
+        "cleanCodeAttributeCategory": "CONSISTENT",
+        "impacts": [
+          {
+            "softwareQuality": "SECURITY",
+            "severity": "HIGH"
+          }
+        ],
+        "issueStatus": "OPEN",
+        "prioritizedRule": false,
+        "fromSonarQubeUpdate": false,
+        "internalTags": [],
+        "linkedTicketStatus": "NOT_LINKED"
+      },
+      "route": "sql",
+      "source_sha256": "99d24095a714523c935748469d01abe833031729c914810df754e11abe90b060"
+    }
+  ],
+  "selection": [
+    "project_1:Clean_Code/pilot_sql89/Trial01.java",
+    "project_1:Clean_Code/pilot_sql89/Trial04.java",
+    "project_1:Clean_Code/pilot_sql89/Trial06.java"
+  ]
+}

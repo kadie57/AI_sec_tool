@@ -1,0 +1,110 @@
+{
+  "issue_id": "a0b83a09-38be-4ab0-9be5-56c43a811134",
+  "rule": "findsecbugs:SQL_INJECTION_JDBC",
+  "component": "thesis_owasp_holdout_v1:experiments/owasp_holdout_v1/inputs/a452b3aafd232245d0753e54eb243d6651f8ef96/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01558.java",
+  "line": 55,
+  "source_sha256": "1d363629c834eb8e1a05824364ec2af04e92bbbf3cb7e71982c79935764e2dca",
+  "artifact_dir": "issue-0264",
+  "verdict": "LIKELY_TP",
+  "explanation": "Kết luận: LIKELY_TP. Có cơ sở đề xuất cảnh báo đúng: kiểm tra nguồn báo cáo đầu vào bên ngoài và phân tích SQL báo cáo khả năng thay đổi cú pháp truy vấn.\n\nNguồn dữ liệu: Kiểm tra nguồn báo cáo có thao tác đọc đầu vào bên ngoài liên quan tới truy vấn.\n\nTác động SQL: Bước 2 báo cáo dữ liệu có thể thay đổi cú pháp SQL (CHANGEABLE). Điều này tự nó chưa chứng minh nguồn do người bên ngoài kiểm soát.\n\nCác dòng mã được bước 2 dẫn (cần đối chiếu lập luận):\n50:         String sql = \"SELECT * from USERS where USERNAME='foo' and PASSWORD='\" + bar + \"'\";\n55:             statement.execute(sql, java.sql.Statement.RETURN_GENERATED_KEYS);",
+  "evidence_lines": [
+    45,
+    48,
+    50,
+    55
+  ],
+  "missing_context": [],
+  "error_kind": null,
+  "decision_basis": "EXTERNAL_CONTROL_AND_CHANGEABLE_SQL_REPORTED",
+  "model_assessment": {
+    "explanation": "Kết luận: LIKELY_TP. Có cơ sở đề xuất cảnh báo đúng: kiểm tra nguồn báo cáo đầu vào bên ngoài và phân tích SQL báo cáo khả năng thay đổi cú pháp truy vấn.\n\nNguồn dữ liệu: Kiểm tra nguồn báo cáo có thao tác đọc đầu vào bên ngoài liên quan tới truy vấn.\n\nTác động SQL: Bước 2 báo cáo dữ liệu có thể thay đổi cú pháp SQL (CHANGEABLE). Điều này tự nó chưa chứng minh nguồn do người bên ngoài kiểm soát.\n\nCác dòng mã được bước 2 dẫn (cần đối chiếu lập luận):\n50:         String sql = \"SELECT * from USERS where USERNAME='foo' and PASSWORD='\" + bar + \"'\";\n55:             statement.execute(sql, java.sql.Statement.RETURN_GENERATED_KEYS);",
+    "evidence_lines": [
+      45,
+      48,
+      50,
+      55
+    ],
+    "source_control": "CONFIRMED",
+    "sql_effect": "CHANGEABLE",
+    "missing_context": []
+  },
+  "requires_review": true,
+  "gap_resolution": [],
+  "source_gap_merge_policy_version": "legacy-source-only-gap-guard-v1",
+  "gap_resolution_origin": null,
+  "explanation_version": "sql-source-merge-explanation-v2",
+  "explanation_origin": "DETERMINISTIC_COMPOSITION_OF_MODEL_FACTS",
+  "stage2_explanation_original": "Dữ liệu đầu vào là `param` được lấy từ request HTTP và đi qua biến `bar`. Câu SQL được tạo bằng cách ghép chuỗi với giá trị của `bar`, sau đó được thực thi ở dòng 55. Trước khi gọi SQL, có một bước kiểm tra trong hàm `doSomething` để xác định giá trị của `switchTarget`. Tuy nhiên, không có bất kỳ biến đổi dữ liệu nào đối với `param` trước khi nó được sử dụng trong câu SQL. Điều kiện cho phép chương trình đi tới lời gọi SQL là khi `param` không phải là null. Từ những điều trên, người cung cấp đầu vào có thể làm thay đổi cấu trúc truy vấn thông qua việc nhập các ký tự đặc biệt như dấu nháy đơn (') hoặc dấu chấm phẩy (;) vào `param`. Điều này cho phép họ đóng chuỗi hiện tại và mở một chuỗi mới, có thể chứa các câu lệnh SQL khác.",
+  "source_explanation_original": "Dữ liệu từ HttpServletRequest.getParameter được sử dụng để xây dựng câu SQL.",
+  "stage2_assessment_original": {
+    "explanation": "Dữ liệu đầu vào là `param` được lấy từ request HTTP và đi qua biến `bar`. Câu SQL được tạo bằng cách ghép chuỗi với giá trị của `bar`, sau đó được thực thi ở dòng 55. Trước khi gọi SQL, có một bước kiểm tra trong hàm `doSomething` để xác định giá trị của `switchTarget`. Tuy nhiên, không có bất kỳ biến đổi dữ liệu nào đối với `param` trước khi nó được sử dụng trong câu SQL. Điều kiện cho phép chương trình đi tới lời gọi SQL là khi `param` không phải là null. Từ những điều trên, người cung cấp đầu vào có thể làm thay đổi cấu trúc truy vấn thông qua việc nhập các ký tự đặc biệt như dấu nháy đơn (') hoặc dấu chấm phẩy (;) vào `param`. Điều này cho phép họ đóng chuỗi hiện tại và mở một chuỗi mới, có thể chứa các câu lệnh SQL khác.",
+    "evidence_lines": [
+      50,
+      55
+    ],
+    "source_control": "CONFIRMED",
+    "sql_effect": "CHANGEABLE",
+    "missing_context": []
+  },
+  "stage2_evidence_resolved": [
+    {
+      "line": 50,
+      "code": "        String sql = \"SELECT * from USERS where USERNAME='foo' and PASSWORD='\" + bar + \"'\";"
+    },
+    {
+      "line": 55,
+      "code": "            statement.execute(sql, java.sql.Statement.RETURN_GENERATED_KEYS);"
+    }
+  ],
+  "source_assessment_changed": false,
+  "explanation_limitations": [
+    "Việc ghép không thẩm định ngữ nghĩa của nhận định AI hoặc chọn lại dòng bằng chứng.",
+    "Giải thích gốc từng bước được lưu riêng; nhận định nguồn bước 2 có thể đã bị sửa."
+  ],
+  "prompt_version": "sql-source-http-gap-review-v4",
+  "decision_policy_version": "sql89-compact-facts-v5",
+  "review_status": "PENDING",
+  "reviewed_verdict": null,
+  "ai_verdict": "LIKELY_TP",
+  "baseline_ai_verdict": "LIKELY_TP",
+  "source_kind": "EXTERNAL_READ",
+  "sql_effect_reused": "CHANGEABLE",
+  "model": "qwen2.5-coder:14b-instruct-q4_K_M",
+  "analysis_route": "sql",
+  "combined_verdict": "LIKELY_TP",
+  "previous_final_verdict": "LIKELY_TP",
+  "previous_error_kind": null,
+  "stage2_verdict_reused": "LIKELY_TP",
+  "stage2_sql_effect_reused": "CHANGEABLE",
+  "processing_status": "AI_PROPOSED",
+  "source_audit_facts": {
+    "source_kind": "EXTERNAL_READ",
+    "source_evidence": [
+      {
+        "line": 45
+      }
+    ],
+    "flow_evidence": [
+      {
+        "line": 48
+      },
+      {
+        "line": 50
+      },
+      {
+        "line": 55
+      }
+    ],
+    "explanation": "Dữ liệu từ HttpServletRequest.getParameter được sử dụng để xây dựng câu SQL.",
+    "missing_context": []
+  },
+  "source_audit_error_kind": null,
+  "source_audit_attempt_count": 1,
+  "gap_reviews": [],
+  "elapsed_seconds": 106.572,
+  "elapsed_scope": "saved_source_attempts_only",
+  "decision_origin": "SAVED_MODEL_OUTPUTS_WITH_SOURCE_GAP_GUARD",
+  "source_audit_version_reused": "sql-source-http-gap-review-v4",
+  "merge_policy_version": "legacy-source-only-gap-guard-v1",
+  "new_model_calls": 0
+}

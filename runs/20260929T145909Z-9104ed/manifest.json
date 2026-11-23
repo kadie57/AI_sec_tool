@@ -1,0 +1,47 @@
+{
+  "pipeline_version": "baseline-repair-1",
+  "prompt_version": "sql89-evidence-v4",
+  "mapping_version": "sql89-v2",
+  "collect_only": false,
+  "state": "COMPLETED",
+  "started_at": "2026-09-29T14:59:09.986684+00:00",
+  "limitations": [
+    "Single-file CPG; JDBC sinks at issue line only.",
+    "No Security Hotspots API in this version.",
+    "No concurrent scans of the same SonarQube project.",
+    "Line-reference validation does not prove semantic correctness."
+  ],
+  "project": "project_1",
+  "sonar_url": "http://127.0.0.1:9000",
+  "source_hashes": {
+    "Clean_Code/VulnerableCommand.java": "60bf07b3429060f34328c66e8260e6b9b986104a05c3453a1cae82a3b2e0e9d2",
+    "Clean_Code/VulnerableLogin.java": "1021a3db829f5fff7338fcec356b69d6529ec73f7134dbd10bca91edfec8647d",
+    "Clean_Code/VulnerablePath.java": "69cae2e81c358bc448b57790b16aeeda691c5ff1fd2ed89b6c7704439cee9347",
+    "Clean_Code/lab/Case01.java": "9efdfff1edc26ca7c4336c043130b0ca423daba7a920fbb491f5138a17b84c17",
+    "Clean_Code/lab/Case02.java": "8c640eb7419a2cace7fbf04a7ed6f141c7c340703b98a126b1b4b8f264436d1d",
+    "Clean_Code/lab/Case03.java": "aa76a238ddc264d720eb4ab607a057956241348353f7232b892ef91029354c01",
+    "Clean_Code/pilot_sql89/Trial01.java": "dd8786ea91517d9836ded4f67a3441704575297eff02336001c1a534fc77b268",
+    "Clean_Code/pilot_sql89/Trial02.java": "4a6379ed198071964c0acf358e9e833607466c2ed2d240fad419d505ae68d5d8",
+    "Clean_Code/pilot_sql89/Trial03.java": "72d83433543c28d8c8290283f4b33233e18403d756d66e111aab25ee315ab9a7",
+    "Clean_Code/pilot_sql89/Trial04.java": "72c8351f1feee4c7b38202d9cd3b3c50664d2b0a6738288bc4ae17c1ede3977c",
+    "Clean_Code/pilot_sql89/Trial05.java": "d55dbf4c0fd2ce6df6a7f2e016c42ab45ed4d1bb8ba8f2a2be45fa19ff654d19",
+    "Clean_Code/pilot_sql89/Trial06.java": "99d24095a714523c935748469d01abe833031729c914810df754e11abe90b060",
+    "Clean_Code/pilot_sql89/Trial07.java": "15284d9a507d2649cca7f8928318cda06316b03ee0956414e87a27e586940ade",
+    "Clean_Code/pilot_sql89/Trial08.java": "5e940a09ef1e0bd674bc8e9adfbf427a3f675f25e46831b8201f52f54549c05e"
+  },
+  "analysis_id": "047ae62b-e8e5-4c9b-b660-55301b6d21cd",
+  "joern_image_id": "sha256:f47692f8334d2eeca9fc83395023773da566ce8397563ff7c66d34a23bfc75c4",
+  "issue_count": 41,
+  "supported_issue_count": 10,
+  "result_count": 41,
+  "verdict_counts": {
+    "UNKNOWN": 41
+  },
+  "processing_status_counts": {
+    "SKIPPED": 31,
+    "ANALYZED": 3,
+    "ERROR": 6,
+    "ABSTAINED": 1
+  },
+  "finished_at": "2026-09-29T15:18:03.740040+00:00"
+}

@@ -1,0 +1,148 @@
+{
+  "findsecbugs:SQL_INJECTION_JDBC": {
+    "rule": {
+      "key": "findsecbugs:SQL_INJECTION_JDBC",
+      "repo": "findsecbugs",
+      "name": "Security - Potential JDBC Injection",
+      "createdAt": "2026-07-02T16:53:29+0000",
+      "severity": "CRITICAL",
+      "status": "READY",
+      "internalKey": "SQL_INJECTION_JDBC",
+      "isTemplate": false,
+      "tags": [],
+      "sysTags": [
+        "cwe",
+        "owasp-a1",
+        "injection",
+        "wasc"
+      ],
+      "lang": "java",
+      "langName": "Java",
+      "params": [],
+      "type": "VULNERABILITY",
+      "remFnOverloaded": false,
+      "scope": "MAIN",
+      "isExternal": false,
+      "descriptionSections": [
+        {
+          "key": "default",
+          "content": "<p>\nThe input values included in SQL queries need to be passed in safely.\nBind variables in prepared statements can be used to easily mitigate the risk of SQL injection.\n</p>\n\n<p>\n    <b>Vulnerable Code:</b><br/>\n    <pre>Connection conn = [...];\nStatement stmt = con.createStatement();\nResultSet rs = stmt.executeQuery(\"update COFFEES set SALES = \"+nbSales+\" where COF_NAME = '\"+coffeeName+\"'\");</pre>\n</p>\n<p>\n    <b>Solution:</b><br/>\n    <pre>Connection conn = [...];\nconn.prepareStatement(\"update COFFEES set SALES = ? where COF_NAME = ?\");\nupdateSales.setInt(1, nbSales);\nupdateSales.setString(2, coffeeName);</pre>\n</p>\n<br/>\n\n<b>References (JDBC)</b><br/>\n<a href=\"https://docs.oracle.com/javase/tutorial/jdbc/basics/prepared.html\">Oracle Documentation: The Java Tutorials &gt; Prepared Statements</a><br/>\n<b>References (SQL injection)</b><br/>\n<a href=\"http://projects.webappsec.org/w/page/13246963/SQL%20Injection\">WASC-19: SQL Injection</a><br/>\n<a href=\"https://capec.mitre.org/data/definitions/66.html\">CAPEC-66: SQL Injection</a><br/>\n<a href=\"https://cwe.mitre.org/data/definitions/89.html\">CWE-89: Improper Neutralization of Special Elements used in an SQL Command ('SQL Injection')</a><br/>\n<a href=\"https://www.owasp.org/index.php/Top_10_2013-A1-Injection\">OWASP: Top 10 2013-A1-Injection</a><br/>\n<a href=\"https://www.owasp.org/index.php/SQL_Injection_Prevention_Cheat_Sheet\">OWASP: SQL Injection Prevention Cheat Sheet</a><br/>\n<a href=\"https://www.owasp.org/index.php/Query_Parameterization_Cheat_Sheet\">OWASP: Query Parameterization Cheat Sheet</a><br/>\n</p>"
+        }
+      ],
+      "educationPrinciples": [],
+      "updatedAt": "2026-07-02T16:53:29+0000",
+      "cleanCodeAttribute": "CONVENTIONAL",
+      "cleanCodeAttributeCategory": "CONSISTENT",
+      "impacts": [
+        {
+          "softwareQuality": "SECURITY",
+          "severity": "HIGH"
+        }
+      ]
+    },
+    "actives": []
+  },
+  "java:S106": {
+    "rule": {
+      "key": "java:S106",
+      "repo": "java",
+      "name": "Standard outputs should not be used directly to log anything",
+      "createdAt": "2026-04-25T15:07:27+0000",
+      "severity": "MAJOR",
+      "status": "READY",
+      "isTemplate": false,
+      "tags": [],
+      "sysTags": [
+        "bad-practice",
+        "cert"
+      ],
+      "lang": "java",
+      "langName": "Java",
+      "params": [],
+      "defaultDebtRemFnType": "CONSTANT_ISSUE",
+      "debtRemFnType": "CONSTANT_ISSUE",
+      "type": "CODE_SMELL",
+      "defaultRemFnType": "CONSTANT_ISSUE",
+      "defaultRemFnBaseEffort": "10min",
+      "remFnType": "CONSTANT_ISSUE",
+      "remFnBaseEffort": "10min",
+      "remFnOverloaded": false,
+      "scope": "MAIN",
+      "isExternal": false,
+      "descriptionSections": [
+        {
+          "key": "resources",
+          "content": "<h3>Documentation</h3>\n<ul>\n  <li><a href=\"https://docs.oracle.com/javase/7/docs/api/java/util/logging/Logger.html\">Java SE 7 API Specification: java.util.logging.Logger</a></li>\n  <li>OWASP - <a href=\"https://owasp.org/Top10/A09_2021-Security_Logging_and_Monitoring_Failures/\">Top 10 2021 Category A9 - Security Logging and\n  Monitoring Failures</a></li>\n  <li>OWASP - <a href=\"https://owasp.org/www-project-top-ten/2017/A3_2017-Sensitive_Data_Exposure\">Top 10 2017 Category A3 - Sensitive Data\n  Exposure</a></li>\n  <li><a href=\"https://wiki.sei.cmu.edu/confluence/x/nzdGBQ\">CERT, ERR02-J.</a> - Prevent exceptions while logging data</li>\n</ul>"
+        },
+        {
+          "key": "root_cause",
+          "content": "<p>In software development, logs serve as a record of events within an application, providing crucial insights for debugging. When logging, it is\nessential to ensure that the logs are:</p>\n<ul>\n  <li>easily accessible</li>\n  <li>uniformly formatted for readability</li>\n  <li>properly recorded</li>\n  <li>securely logged when dealing with sensitive data</li>\n</ul>\n<p>Those requirements are not met if a program directly writes to the standard outputs (e.g., System.out, System.err, IO). That is why defining and\nusing a dedicated logger is highly recommended.</p>\n\n<p>The following noncompliant code:</p>\n<pre data-diff-id=\"1\" data-diff-type=\"noncompliant\">\nclass MyClass {\n  public void doSomething() {\n    System.out.println(\"My Message\");  // Noncompliant, output directly to System.out without a logger\n    IO.println(\"Second Message\"); // Noncompliant, same problem, but using Java 25 API.\n  }\n}\n</pre>\n<p>Could be replaced by:</p>\n<pre data-diff-id=\"1\" data-diff-type=\"compliant\">\nimport java.util.logging.Logger;\n\nclass MyClass {\n\n  Logger logger = Logger.getLogger(getClass().getName());\n\n  public void doSomething() {\n    logger.info(\"My Message\");  // Compliant, output via logger\n    logger.info(\"Second Message\");  // Compliant, output via logger\n  }\n}\n</pre>"
+        }
+      ],
+      "educationPrinciples": [],
+      "updatedAt": "2026-04-25T15:07:27+0000",
+      "cleanCodeAttribute": "MODULAR",
+      "cleanCodeAttributeCategory": "ADAPTABLE",
+      "impacts": [
+        {
+          "softwareQuality": "MAINTAINABILITY",
+          "severity": "MEDIUM"
+        }
+      ]
+    },
+    "actives": []
+  },
+  "java:S1220": {
+    "rule": {
+      "key": "java:S1220",
+      "repo": "java",
+      "name": "The default unnamed package should not be used",
+      "createdAt": "2026-04-25T15:07:27+0000",
+      "severity": "MINOR",
+      "status": "READY",
+      "isTemplate": false,
+      "tags": [],
+      "sysTags": [
+        "convention"
+      ],
+      "lang": "java",
+      "langName": "Java",
+      "params": [],
+      "defaultDebtRemFnType": "CONSTANT_ISSUE",
+      "debtRemFnType": "CONSTANT_ISSUE",
+      "type": "CODE_SMELL",
+      "defaultRemFnType": "CONSTANT_ISSUE",
+      "defaultRemFnBaseEffort": "10min",
+      "remFnType": "CONSTANT_ISSUE",
+      "remFnBaseEffort": "10min",
+      "remFnOverloaded": false,
+      "scope": "ALL",
+      "isExternal": false,
+      "descriptionSections": [
+        {
+          "key": "resources",
+          "content": "<h3>Articles &amp; blog posts</h3>\n<ul>\n  <li><a href=\"https://www.baeldung.com/java-packages\">Baeldung - Guide to Java Packages</a></li>\n  <li><a\n  href=\"https://www.tutorialspoint.com/what-are-the-best-practices-to-keep-in-mind-while-using-packages-in-java#:~:text=Naming%20conventions%20and%20best%20practices%20for%20packages\">tutorialspoint - What are the best practices to keep in mind while using packages in Java?</a></li>\n</ul>"
+        },
+        {
+          "key": "root_cause",
+          "content": "<p>Java packages serve two purposes:</p>\n<ol>\n  <li>Structure — Packages give a structure to the set of classes of your project. It is a bad practice to put all classes flat into the source\n  directory of a project without a package structure. A structure helps to mentally break down a project into smaller parts, simplifying readers'\n  understanding of how components are connected and how they interact.</li>\n  <li>Avoiding name clashes — a class part of the <em>default package</em> if no explicit package name is specified. This can easily cause name\n  collisions when other projects define a class of the same name.</li>\n</ol>\n<p>When no package is explicitly specified for the classes in your project, this makes the project harder to understand and may cause name collisions\nwith other projects. Also, classes located in the default package not be accessed from classes within named packages since Java 1.4.</p>"
+        },
+        {
+          "key": "how_to_fix",
+          "content": "<p>Move your class to a package directory and explicitly state the package’s name at the top of the class. If your project does not have a package\nstructure, think of a structure that fits your needs. The package names should be unique to your project. You can find some best practices when\nchoosing package names in the Ressources section below.</p>\n\n<h4>Noncompliant code example</h4>\n<pre data-diff-id=\"1\" data-diff-type=\"noncompliant\">\npublic class MyClass { /* ... */ } // Noncompliant, no package spacified\n</pre>\n<h4>Compliant solution</h4>\n<pre data-diff-id=\"1\" data-diff-type=\"compliant\">\npackage org.example; // Compliant\n\npublic class MyClass{ /* ... */ }\n</pre>"
+        }
+      ],
+      "educationPrinciples": [],
+      "updatedAt": "2026-04-25T15:07:27+0000",
+      "cleanCodeAttribute": "MODULAR",
+      "cleanCodeAttributeCategory": "ADAPTABLE",
+      "impacts": [
+        {
+          "softwareQuality": "MAINTAINABILITY",
+          "severity": "LOW"
+        }
+      ]
+    },
+    "actives": []
+  }
+}

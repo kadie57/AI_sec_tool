@@ -1,0 +1,31 @@
+{
+  "issue_id": "916cd285-b734-43ff-b849-bf7e9a129b6c",
+  "rule": "findsecbugs:COMMAND_INJECTION",
+  "component": "thesis_owasp_holdout_v1:experiments/owasp_holdout_v1/inputs/a452b3aafd232245d0753e54eb243d6651f8ef96/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01608.java",
+  "line": 59,
+  "message": "This usage of java/lang/Runtime.exec([Ljava/lang/String;[Ljava/lang/String;Ljava/io/File;)Ljava/lang/Process; can be vulnerable to Command Injection",
+  "cwe_id": "CWE-78",
+  "source_sha256": "aa12a046fffe1432c96deb566980875cd3ed6aee52e14ea0297860dec3f21698",
+  "artifact_dir": "issue-0273",
+  "verdict": "UNKNOWN",
+  "ai_verdict": null,
+  "requires_review": true,
+  "review_status": "PENDING",
+  "reviewed_verdict": null,
+  "evidence_lines": [],
+  "missing_context": [
+    "Cần Runtime.getRuntime().exec(biến_String) tại dòng cảnh báo."
+  ],
+  "error_kind": "UNSUPPORTED_EXECUTION_FORM",
+  "prompt_version": "command78-direct-exec-pilot-v1",
+  "model": "qwen2.5-coder:14b-instruct-q4_K_M",
+  "execution_guard": {
+    "execution_kind": "UNRESOLVED",
+    "supported": false,
+    "reason": "Cần Runtime.getRuntime().exec(biến_String) tại dòng cảnh báo.",
+    "evidence_lines": []
+  },
+  "processing_status": "ABSTAINED",
+  "explanation": "Cần Runtime.getRuntime().exec(biến_String) tại dòng cảnh báo.",
+  "total_seconds": 0.0
+}

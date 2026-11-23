@@ -1,0 +1,49 @@
+{
+  "scope": "single_file",
+  "configuration": {
+    "id": 30064771103,
+    "line": 68,
+    "name": "command",
+    "method_full_name": "<unresolvedNamespace>.command:<unresolvedSignature>(1)",
+    "code": "command(argList)",
+    "arguments": [
+      {
+        "index": 0,
+        "line": 68,
+        "code": "pb"
+      },
+      {
+        "index": 1,
+        "line": 68,
+        "code": "argList"
+      }
+    ]
+  },
+  "process_start": {
+    "id": 30064771105,
+    "line": 71,
+    "name": "start",
+    "method_full_name": "<unresolvedNamespace>.start:<unresolvedSignature>(0)",
+    "code": "start()",
+    "arguments": [
+      {
+        "index": 0,
+        "line": 71,
+        "code": "pb"
+      }
+    ]
+  },
+  "flow_queries": [
+    {
+      "call_id": 30064771103,
+      "argument_index": 1,
+      "flow_count": 2
+    },
+    {
+      "call_id": 30064771105,
+      "argument_index": 0,
+      "flow_count": 2
+    }
+  ],
+  "limitation": "Parameter flows may overapproximate helper returns; counts do not prove external control. Full paths saved on disk."
+}

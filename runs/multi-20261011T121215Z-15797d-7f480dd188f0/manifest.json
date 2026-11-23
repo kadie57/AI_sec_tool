@@ -1,0 +1,58 @@
+{
+  "started_at": "2026-10-12T15:32:06.696080+00:00",
+  "analysis_id": "0fb435b3-c98f-4b09-9ad6-47085ee96925",
+  "project": "project_1",
+  "pipeline_version": "multi-sql89-path22-command78-v1",
+  "parent_run": "/home/khanh/AI_sec_tool/runs/20261011T121215Z-15797d",
+  "source_hashes": {
+    "Clean_Code/pilot_command78/CommandCase02.java": "f9274f4f5af8ca57de21a5a1bffafdedd27fae70ee929d54f37954a5e9c213b3",
+    "Clean_Code/pilot_path22/PathCase01.java": "cd52945fba3047ebbffb2e963993d05f26acad1be5843c5c3b203034978550a2",
+    "Clean_Code/pilot_path22/PathCase02.java": "46432cdaabbead130d0b7d63f663400275aec5101ceb32c3bc6aa6130e2a599c",
+    "Clean_Code/pilot_sql89/Trial01.java": "dd8786ea91517d9836ded4f67a3441704575297eff02336001c1a534fc77b268",
+    "Clean_Code/pilot_sql89/Trial03.java": "72d83433543c28d8c8290283f4b33233e18403d756d66e111aab25ee315ab9a7",
+    "Clean_Code/pilot_sql89/Trial04.java": "72c8351f1feee4c7b38202d9cd3b3c50664d2b0a6738288bc4ae17c1ede3977c",
+    "Clean_Code/pilot_sql89/Trial05.java": "d55dbf4c0fd2ce6df6a7f2e016c42ab45ed4d1bb8ba8f2a2be45fa19ff654d19",
+    "Clean_Code/pilot_sql89/Trial06.java": "99d24095a714523c935748469d01abe833031729c914810df754e11abe90b060",
+    "Clean_Code/pilot_sql89/Trial07.java": "15284d9a507d2649cca7f8928318cda06316b03ee0956414e87a27e586940ade",
+    "Clean_Code/pilot_sql89/Trial08.java": "5e940a09ef1e0bd674bc8e9adfbf427a3f675f25e46831b8201f52f54549c05e",
+    "Clean_Code/lab/Case03.java": "aa76a238ddc264d720eb4ab607a057956241348353f7232b892ef91029354c01",
+    "Clean_Code/lab/Case01.java": "9efdfff1edc26ca7c4336c043130b0ca423daba7a920fbb491f5138a17b84c17",
+    "Clean_Code/VulnerableCommand.java": "60bf07b3429060f34328c66e8260e6b9b986104a05c3453a1cae82a3b2e0e9d2",
+    "Clean_Code/VulnerableLogin.java": "1021a3db829f5fff7338fcec356b69d6529ec73f7134dbd10bca91edfec8647d",
+    "Clean_Code/VulnerablePath.java": "69cae2e81c358bc448b57790b16aeeda691c5ff1fd2ed89b6c7704439cee9347"
+  },
+  "issue_count": 53,
+  "supported_issue_count": 15,
+  "prompt_versions": {
+    "command": "command78-direct-exec-plus-static-v2",
+    "path": "path22-file-read-pilot-v2-guard",
+    "sql": "sql89-v7-stage2-plus-source-v2-candidate-1"
+  },
+  "limitations": [
+    "Uses saved Sonar issues; does not rescan. Only explicitly routed rules.",
+    "Single-file context; SQL JDBC, Path File(String) read, and bounded direct exec only.",
+    "AI and static rules are proposals; human review is separate. No automatic issue closure.",
+    "Resume is per completed issue, not per AI stage. Partial retry can repeat calls.",
+    "Prior standalone runs and their human reviews are not imported."
+  ],
+  "state": "COMPLETED",
+  "error": null,
+  "runtime": {
+    "model": "qwen2.5-coder:14b-instruct-q4_K_M",
+    "model_digest": "9ec8897f747e246e970bc5cfdda85d22f1123dc2e3d34978a010a75968716849",
+    "joern_image_id": "sha256:f47692f8334d2eeca9fc83395023773da566ce8397563ff7c66d34a23bfc75c4",
+    "ollama_url": "http://127.0.0.1:11434"
+  },
+  "result_count": 53,
+  "verdict_counts": {
+    "UNKNOWN": 44,
+    "LIKELY_FP": 4,
+    "LIKELY_TP": 5
+  },
+  "processing_status_counts": {
+    "SKIPPED": 38,
+    "AI_PROPOSED": 14,
+    "ABSTAINED": 1
+  },
+  "finished_at": "2026-10-12T16:51:00.304685+00:00"
+}

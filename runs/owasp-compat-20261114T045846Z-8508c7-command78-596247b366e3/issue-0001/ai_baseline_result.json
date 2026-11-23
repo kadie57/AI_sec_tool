@@ -1,0 +1,96 @@
+{
+  "issue_id": "28d734a1-3c8b-462f-ad3c-4ee01af023b5",
+  "rule": "findsecbugs:COMMAND_INJECTION",
+  "component": "thesis_owasp_compat_v1:experiments/owasp_compat_v1/inputs/a452b3aafd232245d0753e54eb243d6651f8ef96/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00006.java",
+  "line": 66,
+  "message": "This usage of java/lang/ProcessBuilder.command(Ljava/util/List;)Ljava/lang/ProcessBuilder; can be vulnerable to Command Injection",
+  "cwe_id": "CWE-78",
+  "source_sha256": "8671e8cd2686594b31abba5a17021472e25c5e3d074362a164dae2a5a4e8deda",
+  "artifact_dir": "issue-0001",
+  "verdict": "LIKELY_TP",
+  "ai_verdict": "LIKELY_TP",
+  "requires_review": true,
+  "review_status": "PENDING",
+  "reviewed_verdict": null,
+  "evidence_lines": [
+    45,
+    62,
+    64,
+    66,
+    69
+  ],
+  "helper_evidence": [],
+  "missing_context": [],
+  "error_kind": null,
+  "prompt_version": "command78-processbuilder-context-v2-source-contract",
+  "pipeline_version": "command78-direct-plus-processbuilder-v3",
+  "model": "qwen2.5-coder:14b-instruct-q4_K_M",
+  "decision_origin": "AI_PIPELINE",
+  "static_assessment": {
+    "status": "NOT_APPLICABLE",
+    "reason": "Runtime.exec allowlist guard không áp dụng cho ProcessBuilder."
+  },
+  "execution_guard": {
+    "supported": true,
+    "api_form": "COMMAND_LIST",
+    "builder_variable": "pb",
+    "argument_variable": "argList",
+    "call_name": "command",
+    "warning_line": 66,
+    "start_line": 69,
+    "evidence_lines": [
+      64,
+      66,
+      69
+    ],
+    "reason": "Một biến ProcessBuilder được cấu hình rồi gọi start trên cùng biến; descriptor Sonar khớp.",
+    "limitation": "Chỉ nhận dạng cú pháp và API; chưa chứng minh thực thi shell, đường đi khả thi hay bảo vệ."
+  },
+  "helper_context_sha256": "c52769e5d21e4f558d803dd9812f64cb45afe443705c705f21ae2bcaa8e86a72",
+  "helper_hashes": {},
+  "flow_count": 2,
+  "cpg_usage": "compact_api_and_flow_counts_sent; full_paths_saved; zero_flow_not_safety_proof",
+  "processing_status": "AI_PROPOSED",
+  "decision_basis": "EXTERNAL_SOURCE_AND_COMMAND_EFFECT_REPORTED",
+  "source_kind": "EXTERNAL_READ",
+  "execution_kind": "SHELL_EXEC",
+  "command_effect": "DANGEROUS_ARGUMENTS",
+  "model_assessment": {
+    "source": {
+      "source_kind": "EXTERNAL_READ",
+      "explanation": "Giá trị của biến 'param' được đọc từ request header 'BenchmarkTest00006'. Sau đó, giá trị này được thêm vào danh sách đối số của ProcessBuilder. Giá trị cuối cùng của đối số lệnh là 'echo ' + param', trong đó 'param' có nguồn gốc từ request.",
+      "evidence_lines": [
+        45,
+        62
+      ],
+      "helper_evidence": [],
+      "missing_context": []
+    },
+    "command": {
+      "explanation": "Trong đoạn mã nguồn, giá trị của biến 'param' được lấy từ header HTTP request và sau đó được thêm vào danh sách lệnh của ProcessBuilder mà không có bất kỳ biện pháp bảo vệ nào. Điều này cho phép người dùng truyền vào các tham số độc hại để thực hiện command injection.",
+      "evidence_lines": [
+        64,
+        66,
+        69
+      ],
+      "helper_evidence": [],
+      "missing_context": [],
+      "execution_kind": "SHELL_EXEC",
+      "command_effect": "DANGEROUS_ARGUMENTS"
+    }
+  },
+  "explanation": "Nguồn: Giá trị của biến 'param' được đọc từ request header 'BenchmarkTest00006'. Sau đó, giá trị này được thêm vào danh sách đối số của ProcessBuilder. Giá trị cuối cùng của đối số lệnh là 'echo ' + param', trong đó 'param' có nguồn gốc từ request.\nLệnh: Trong đoạn mã nguồn, giá trị của biến 'param' được lấy từ header HTTP request và sau đó được thêm vào danh sách lệnh của ProcessBuilder mà không có bất kỳ biện pháp bảo vệ nào. Điều này cho phép người dùng truyền vào các tham số độc hại để thực hiện command injection.",
+  "elapsed_seconds": 323.733,
+  "total_seconds": 331.68,
+  "combined_verdict": "LIKELY_TP",
+  "ai_explanation": "Nguồn: Giá trị của biến 'param' được đọc từ request header 'BenchmarkTest00006'. Sau đó, giá trị này được thêm vào danh sách đối số của ProcessBuilder. Giá trị cuối cùng của đối số lệnh là 'echo ' + param', trong đó 'param' có nguồn gốc từ request.\nLệnh: Trong đoạn mã nguồn, giá trị của biến 'param' được lấy từ header HTTP request và sau đó được thêm vào danh sách lệnh của ProcessBuilder mà không có bất kỳ biện pháp bảo vệ nào. Điều này cho phép người dùng truyền vào các tham số độc hại để thực hiện command injection.",
+  "ai_evidence_lines": [
+    45,
+    62,
+    64,
+    66,
+    69
+  ],
+  "ai_missing_context": [],
+  "ai_decision_basis": "EXTERNAL_SOURCE_AND_COMMAND_EFFECT_REPORTED"
+}

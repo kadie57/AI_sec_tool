@@ -1,0 +1,78 @@
+{
+  "issue_id": "4c71cb36-a6d5-4f8c-b92a-d75d21e64d26",
+  "rule": "findsecbugs:COMMAND_INJECTION",
+  "component": "project_1:Clean_Code/pilot_command78/CommandCase02.java",
+  "line": 14,
+  "message": "This usage of java/lang/Runtime.exec(Ljava/lang/String;)Ljava/lang/Process; can be vulnerable to Command Injection",
+  "cwe_id": "CWE-78",
+  "source_sha256": "f9274f4f5af8ca57de21a5a1bffafdedd27fae70ee929d54f37954a5e9c213b3",
+  "artifact_dir": "issue-0003",
+  "verdict": "UNKNOWN",
+  "ai_verdict": "UNKNOWN",
+  "requires_review": true,
+  "review_status": "PENDING",
+  "reviewed_verdict": null,
+  "evidence_lines": [
+    4,
+    8,
+    9,
+    13,
+    14
+  ],
+  "missing_context": [
+    "Kiểm tra kỹ lưỡng hơn về định dạng địa chỉ IP",
+    "Sử dụng mảng đối số thay vì chuỗi để tránh việc chèn lệnh"
+  ],
+  "error_kind": null,
+  "prompt_version": "command78-direct-exec-pilot-v1",
+  "model": "qwen2.5-coder:14b-instruct-q4_K_M",
+  "execution_guard": {
+    "execution_kind": "DIRECT_EXEC",
+    "supported": true,
+    "executable": "ping",
+    "command_variable": "command",
+    "evidence_lines": [
+      13,
+      14
+    ],
+    "reason": "Runtime.exec(String), tiền tố chương trình cố định; không tự gọi shell.",
+    "limitation": "Không chứng minh binary thực tế, tác động đối số hay nguồn ngoài."
+  },
+  "flow_count": 1,
+  "decision_basis": "COMMAND_EFFECT_UNRESOLVED",
+  "processing_status": "AI_PROPOSED",
+  "source_kind": "EXTERNAL_READ",
+  "command_effect": "DANGEROUS_ARGUMENTS",
+  "execution_kind": "DIRECT_EXEC",
+  "model_assessment": {
+    "source": {
+      "source_kind": "EXTERNAL_READ",
+      "explanation": "Đọc đầu vào từ args của main và sử dụng trong lệnh exec.",
+      "evidence_lines": [
+        4,
+        8,
+        13,
+        14
+      ],
+      "missing_context": []
+    },
+    "command": {
+      "command_effect": "DANGEROUS_ARGUMENTS",
+      "explanation": "Đầu vào targetIp có thể điều khiển đối số của lệnh ping. Mặc dù có kiểm tra ràng buộc địa chỉ IP, nhưng nếu người dùng nhập một giá trị không được kiểm soát đầy đủ (ví dụ: '127.0.0.1; rm -rf /'), nó vẫn có thể gây ra hành vi nguy hiểm.",
+      "evidence_lines": [
+        8,
+        9,
+        13,
+        14
+      ],
+      "missing_context": [
+        "Kiểm tra kỹ lưỡng hơn về định dạng địa chỉ IP",
+        "Sử dụng mảng đối số thay vì chuỗi để tránh việc chèn lệnh"
+      ],
+      "execution_kind": "DIRECT_EXEC"
+    }
+  },
+  "explanation": "Nguồn: Đọc đầu vào từ args của main và sử dụng trong lệnh exec.\nLệnh: Đầu vào targetIp có thể điều khiển đối số của lệnh ping. Mặc dù có kiểm tra ràng buộc địa chỉ IP, nhưng nếu người dùng nhập một giá trị không được kiểm soát đầy đủ (ví dụ: '127.0.0.1; rm -rf /'), nó vẫn có thể gây ra hành vi nguy hiểm.",
+  "elapsed_seconds": 254.082,
+  "total_seconds": 264.218
+}

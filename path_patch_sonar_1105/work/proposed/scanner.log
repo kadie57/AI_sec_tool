@@ -1,0 +1,118 @@
+13:46:05.842 INFO  Scanner configuration file: /home/khanh/Downloads/sonar-scanner-8.0.1.6346-linux-x64/conf/sonar-scanner.properties
+13:46:05.844 INFO  Project root configuration file: /home/khanh/AI_sec_tool/path_patch_sonar_1105/work/proposed/sonar-project.properties
+13:46:05.854 INFO  SonarScanner CLI 8.0.1.6346
+13:46:05.858 INFO  Linux 7.0.0-38-generic amd64
+13:46:08.395 INFO  Communicating with SonarQube Community Build 26.4.0.121862
+13:46:08.396 INFO  JRE provisioning: os[linux], arch[x86_64]
+13:46:08.654 INFO  Starting SonarScanner Engine...
+13:46:08.655 INFO  Java 21.0.9 Eclipse Adoptium (64-bit)
+13:46:11.492 INFO  Load global settings
+13:46:11.552 INFO  Load global settings (done) | time=59ms
+13:46:11.554 INFO  Server id: 4F833BF3-AZ3FLkwzsNhSbbNHKBtO
+13:46:11.565 INFO  Loading required plugins
+13:46:11.566 INFO  Load plugins index
+13:46:11.576 INFO  Load plugins index (done) | time=11ms
+13:46:11.577 INFO  Load/download plugins
+13:46:11.598 INFO  Load/download plugins (done) | time=22ms
+13:46:11.812 INFO  Process project properties
+13:46:11.822 INFO  Process project properties (done) | time=10ms
+13:46:11.830 INFO  Project key: pathpatch_20261105T064544Z_2034bf07f113_proposed
+13:46:11.831 INFO  Base dir: /home/khanh/AI_sec_tool/path_patch_sonar_1105/work/proposed
+13:46:11.831 INFO  Working dir: /home/khanh/AI_sec_tool/path_patch_sonar_1105/work/proposed/.scannerwork
+13:46:11.838 INFO  Load project settings for component key: 'pathpatch_20261105T064544Z_2034bf07f113_proposed'
+13:46:11.853 INFO  Load project settings for component key: 'pathpatch_20261105T064544Z_2034bf07f113_proposed' (done) | time=14ms
+13:46:11.880 INFO  Load quality profiles
+13:46:11.917 INFO  Load quality profiles (done) | time=37ms
+13:46:11.954 INFO  Load active rules
+13:46:12.213 INFO  Load active rules (done) | time=260ms
+13:46:12.218 INFO  Load analysis cache
+13:46:12.226 INFO  Load analysis cache (404) | time=8ms
+13:46:12.290 INFO  Preprocessing files...
+13:46:12.300 INFO  1 language detected in 1 preprocessed file (done) | time=10ms
+13:46:12.302 INFO  0 files ignored because of inclusion/exclusion patterns
+13:46:12.302 INFO  Loading plugins for detected languages
+13:46:12.302 INFO  Load/download plugins
+13:46:12.314 INFO  Load/download plugins (done) | time=11ms
+13:46:12.341 INFO  SonarQube plugin API version is 13.5.0.4319, disabling the deprecated SpotBugs profile exporter
+13:46:12.416 INFO  Load project repositories
+13:46:12.485 INFO  Load project repositories (done) | time=68ms
+13:46:12.505 INFO  Indexing files...
+13:46:12.505 INFO  Project configuration:
+13:46:12.506 INFO    Included sources: **/*.java
+13:46:12.514 INFO  1 file indexed (done) | time=8ms
+13:46:12.515 INFO  Quality profile for java: KhoaLuan-Java-SQLi
+13:46:12.515 INFO  ------------- Run sensors on module pathpatch_20261105T064544Z_2034bf07f113_proposed
+13:46:12.520 INFO  SonarQube plugin API version is 13.5.0.4319, disabling the deprecated SpotBugs profile exporter
+13:46:12.610 INFO  Load metrics repository
+13:46:12.624 INFO  Load metrics repository (done) | time=15ms
+13:46:13.191 INFO  Sensor JavaSensor [java]
+13:46:13.206 INFO  Server-side caching is enabled. The Java analyzer will not try to leverage data from a previous analysis.
+13:46:13.207 INFO  Using ECJ batch to parse 1 Main java source files with batch size 417 KB.
+13:46:13.406 INFO  Starting batch processing.
+13:46:13.738 INFO  The Java analyzer cannot skip unchanged files in this context. A full analysis is performed for all files.
+13:46:14.031 INFO  100% analyzed
+13:46:14.031 INFO  Batch processing: Done.
+13:46:14.032 INFO  Did not optimize analysis for any files, performed a full analysis for all 1 files.
+13:46:14.033 INFO  No "Test" source files to scan.
+13:46:14.033 INFO  No "Generated" source files to scan.
+13:46:14.033 INFO  Sensor JavaSensor [java] (done) | time=843ms
+13:46:14.033 INFO  Sensor FindBugs Sensor [findbugs]
+13:46:14.034 INFO  Findbugs plugin version: 4.6.0
+13:46:14.742 INFO  Loading findbugs plugin: /home/khanh/AI_sec_tool/path_patch_sonar_1105/work/proposed/.scannerwork/findbugs/findsecbugs-plugin.jar
+13:46:14.758 INFO  Findbugs output report: /home/khanh/AI_sec_tool/path_patch_sonar_1105/work/proposed/.scannerwork/findbugs-result.xml
+13:46:16.258 INFO  Sensor FindBugs Sensor [findbugs] (done) | time=2225ms
+13:46:16.259 INFO  Sensor SurefireSensor [java]
+13:46:16.259 INFO  parsing [/home/khanh/AI_sec_tool/path_patch_sonar_1105/work/proposed/target/surefire-reports]
+13:46:16.260 INFO  Sensor SurefireSensor [java] (done) | time=2ms
+13:46:16.260 INFO  Sensor JaCoCo XML Report Importer [jacoco]
+13:46:16.262 INFO  'sonar.coverage.jacoco.xmlReportPaths' is not defined. Using default locations: target/site/jacoco/jacoco.xml,target/site/jacoco-it/jacoco.xml,build/reports/jacoco/test/jacocoTestReport.xml
+13:46:16.263 INFO  No report imported, no coverage information will be imported by JaCoCo XML Report Importer
+13:46:16.263 INFO  Sensor JaCoCo XML Report Importer [jacoco] (done) | time=2ms
+13:46:16.263 INFO  Sensor IaC hadolint report Sensor [iac]
+13:46:16.263 INFO  Sensor IaC hadolint report Sensor [iac] (done) | time=1ms
+13:46:16.263 INFO  Sensor Java Config Sensor [iac]
+13:46:16.271 INFO  There are no files to be analyzed for the Java language
+13:46:16.271 INFO  Sensor Java Config Sensor [iac] (done) | time=8ms
+13:46:16.272 INFO  Sensor IaC Docker Sensor [iac]
+13:46:16.272 INFO  There are no files to be analyzed for the Docker language
+13:46:16.272 INFO  Sensor IaC Docker Sensor [iac] (done) | time=1ms
+13:46:16.272 INFO  Sensor TextAndSecretsSensor [text]
+13:46:16.276 INFO  Available processors: 8
+13:46:16.276 INFO  Using 8 threads for analysis.
+13:46:16.516 INFO  The property "sonar.tests" is not set. To improve the analysis accuracy, we categorize a file as a test file if any of the following is true:
+  * The filename starts with "test"
+  * The filename contains "test." or "tests."
+  * Any directory in the file path is named: "doc", "docs", "test", "tests", "mock" or "mocks"
+  * Any directory in the file path has a name ending in "test" or "tests"
+
+13:46:16.540 INFO  Start fetching files for the text and secrets analysis
+13:46:16.554 INFO  Using Git CLI to retrieve dirty files
+13:46:16.557 WARN  Retrieving only language associated files, make sure to run the analysis inside a git repository to make use of inclusions specified via "sonar.text.inclusions"
+13:46:16.557 INFO  Starting the text and secrets analysis
+13:46:16.559 INFO  1 source file to be analyzed for the text and secrets analysis
+13:46:16.568 INFO  1/1 source file has been analyzed for the text and secrets analysis
+13:46:16.569 INFO  Sensor TextAndSecretsSensor [text] (done) | time=296ms
+13:46:16.572 INFO  ------------- Run sensors on project
+13:46:16.670 INFO  Sensor JaCoCo Aggregate XML Report Importer [jacoco]
+13:46:16.670 INFO  Sensor JaCoCo Aggregate XML Report Importer [jacoco] (done) | time=0ms
+13:46:16.670 INFO  Sensor JavaProjectSensor [java]
+13:46:16.672 INFO  Sensor JavaProjectSensor [java] (done) | time=2ms
+13:46:16.672 INFO  Sensor Zero Coverage Sensor
+13:46:16.675 INFO  Sensor Zero Coverage Sensor (done) | time=4ms
+13:46:16.676 INFO  Sensor Java CPD Block Indexer
+13:46:16.685 INFO  Sensor Java CPD Block Indexer (done) | time=10ms
+13:46:16.686 INFO  ------------- Gather SCA dependencies on project
+13:46:16.689 INFO  Dependency analysis skipped
+13:46:16.690 INFO  SCM Publisher is disabled
+13:46:16.692 INFO  CPD Executor Calculating CPD for 1 file
+13:46:16.702 INFO  CPD Executor CPD calculation finished (done) | time=9ms
+13:46:16.774 INFO  Analysis report generated in 64ms, dir size=269.5 kB
+13:46:16.785 INFO  Analysis report compressed in 11ms, zip size=30.8 kB
+13:46:16.856 INFO  Analysis report uploaded in 71ms
+13:46:16.859 INFO  ANALYSIS SUCCESSFUL, you can find the results at: http://127.0.0.1:9000/dashboard?id=pathpatch_20261105T064544Z_2034bf07f113_proposed
+13:46:16.859 INFO  Note that you will be able to access the updated dashboard once the server has processed the submitted analysis report
+13:46:16.860 INFO  More about the report processing at http://127.0.0.1:9000/api/ce/task?id=b30cea33-b4a1-46f8-9e97-c52a7bf9e999
+13:46:16.877 INFO  Analysis total time: 5.250 s
+13:46:16.878 INFO  SonarScanner Engine completed successfully
+13:46:16.969 INFO  EXECUTION SUCCESS
+13:46:16.969 INFO  Total time: 11.130s

@@ -1,0 +1,136 @@
+{
+  "issue_id": "a1e3c378-0145-459e-9575-eb10632c612f",
+  "rule": "findsecbugs:SQL_INJECTION_JDBC",
+  "component": "thesis_owasp_compat_v1:experiments/owasp_compat_v1/inputs/a452b3aafd232245d0753e54eb243d6651f8ef96/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00008.java",
+  "line": 57,
+  "type": "VULNERABILITY",
+  "message": "This use of java/sql/Connection.prepareCall(Ljava/lang/String;)Ljava/sql/CallableStatement; can be vulnerable to SQL injection (with JDBC)",
+  "cwe_id": "CWE-89",
+  "mapping": {
+    "cwe_id": "CWE-89",
+    "name": "SQL Injection in JDBC",
+    "supported": true,
+    "mapping_source": "https://find-sec-bugs.github.io/bugs.htm#SQL_INJECTION_JDBC",
+    "reason": ""
+  },
+  "source_sha256": "9bc49dbe491a39162c97b0c43b8ce5e42a4de5c0552c52117b1a51b0a541dfbe",
+  "flow_count": 2,
+  "sql_gate_version": "sql-no-flow-gate-v1",
+  "sink_call_count": 1,
+  "sink_argument_count": 1,
+  "analysis_mode": "FLOW_PRESENT",
+  "llm_invoked": true,
+  "verdict": "LIKELY_TP",
+  "explanation": "Kết luận: LIKELY_TP. Có cơ sở đề xuất cảnh báo đúng: kiểm tra nguồn báo cáo đầu vào bên ngoài và phân tích SQL báo cáo khả năng thay đổi cú pháp truy vấn.\n\nNguồn dữ liệu: Kiểm tra nguồn báo cáo có thao tác đọc đầu vào bên ngoài liên quan tới truy vấn.\n\nTác động SQL: Bước 2 báo cáo dữ liệu có thể thay đổi cú pháp SQL (CHANGEABLE). Điều này tự nó chưa chứng minh nguồn do người bên ngoài kiểm soát.\n\nCác dòng mã được bước 2 dẫn (cần đối chiếu lập luận):\n46:             param = request.getHeader(\"BenchmarkTest00008\");\n50:         param = java.net.URLDecoder.decode(param, \"UTF-8\");\n52:         String sql = \"{call \" + param + \"}\";\n57:             java.sql.CallableStatement statement = connection.prepareCall(sql);",
+  "evidence_lines": [
+    46,
+    50,
+    52,
+    57
+  ],
+  "missing_context": [],
+  "error_kind": null,
+  "decision_basis": "EXTERNAL_CONTROL_AND_CHANGEABLE_SQL_REPORTED",
+  "model_assessment": {
+    "explanation": "Kết luận: LIKELY_TP. Có cơ sở đề xuất cảnh báo đúng: kiểm tra nguồn báo cáo đầu vào bên ngoài và phân tích SQL báo cáo khả năng thay đổi cú pháp truy vấn.\n\nNguồn dữ liệu: Kiểm tra nguồn báo cáo có thao tác đọc đầu vào bên ngoài liên quan tới truy vấn.\n\nTác động SQL: Bước 2 báo cáo dữ liệu có thể thay đổi cú pháp SQL (CHANGEABLE). Điều này tự nó chưa chứng minh nguồn do người bên ngoài kiểm soát.\n\nCác dòng mã được bước 2 dẫn (cần đối chiếu lập luận):\n46:             param = request.getHeader(\"BenchmarkTest00008\");\n50:         param = java.net.URLDecoder.decode(param, \"UTF-8\");\n52:         String sql = \"{call \" + param + \"}\";\n57:             java.sql.CallableStatement statement = connection.prepareCall(sql);",
+    "evidence_lines": [
+      46,
+      50,
+      52,
+      57
+    ],
+    "source_control": "CONFIRMED",
+    "sql_effect": "CHANGEABLE",
+    "missing_context": []
+  },
+  "requires_review": true,
+  "prompt_version": "sql89-v7-stage2-plus-source-v2-explanation-2",
+  "format_normalization": "NONE",
+  "elapsed_seconds": 597.982,
+  "decision_policy_version": "sql89-compact-facts-v5",
+  "model": "qwen2.5-coder:14b-instruct-q4_K_M",
+  "ai_verdict": "LIKELY_TP",
+  "review_status": "PENDING",
+  "reviewed_verdict": null,
+  "review_notes": null,
+  "cpg_usage": "eligibility_gate_only_not_sent_to_llm",
+  "baseline_ai_verdict": "LIKELY_TP",
+  "source_audit_status": "PROPOSED_REQUIRES_REVIEW",
+  "explanation_version": "sql-source-merge-explanation-v2",
+  "explanation_origin": "DETERMINISTIC_COMPOSITION_OF_MODEL_FACTS",
+  "stage2_explanation_original": "Dữ liệu đầu vào là giá trị của header 'BenchmarkTest00008' được lấy từ yêu cầu HTTP (dòng 46). Giá trị này sau đó được giải mã URL (dòng 50) và được sử dụng để tạo chuỗi SQL động (dòng 52). Câu lệnh SQL này sau đó được thực thi thông qua một CallableStatement (dòng 57).\n\nTrước khi gọi SQL, chỉ có bước giải mã URL duy nhất đối với dữ liệu đầu vào. Không có bất kỳ kiểm tra hoặc biến đổi nào khác trên giá trị của header trước khi nó được sử dụng trong câu lệnh SQL. Điều kiện cho phép chương trình đi tới lời gọi SQL là chỉ cần yêu cầu HTTP chứa header 'BenchmarkTest00008'.\n\nVới cách thức này, người cung cấp đầu vào có thể thay đổi cấu trúc truy vấn SQL thông qua việc nhập các ký tự đặc biệt như dấu nháy đơn hoặc dấu chấm phẩy. Điều này cho phép thực hiện các cuộc tấn công SQL injection nếu không có biện pháp bảo vệ thích hợp.",
+  "source_explanation_original": "Dữ liệu được đọc từ header HTTP 'BenchmarkTest00008' và truyền vào truy vấn SQL.",
+  "stage2_assessment_original": {
+    "explanation": "Dữ liệu đầu vào là giá trị của header 'BenchmarkTest00008' được lấy từ yêu cầu HTTP (dòng 46). Giá trị này sau đó được giải mã URL (dòng 50) và được sử dụng để tạo chuỗi SQL động (dòng 52). Câu lệnh SQL này sau đó được thực thi thông qua một CallableStatement (dòng 57).\n\nTrước khi gọi SQL, chỉ có bước giải mã URL duy nhất đối với dữ liệu đầu vào. Không có bất kỳ kiểm tra hoặc biến đổi nào khác trên giá trị của header trước khi nó được sử dụng trong câu lệnh SQL. Điều kiện cho phép chương trình đi tới lời gọi SQL là chỉ cần yêu cầu HTTP chứa header 'BenchmarkTest00008'.\n\nVới cách thức này, người cung cấp đầu vào có thể thay đổi cấu trúc truy vấn SQL thông qua việc nhập các ký tự đặc biệt như dấu nháy đơn hoặc dấu chấm phẩy. Điều này cho phép thực hiện các cuộc tấn công SQL injection nếu không có biện pháp bảo vệ thích hợp.",
+    "evidence_lines": [
+      46,
+      50,
+      52,
+      57
+    ],
+    "source_control": "CONFIRMED",
+    "sql_effect": "CHANGEABLE",
+    "missing_context": []
+  },
+  "stage2_evidence_resolved": [
+    {
+      "line": 46,
+      "code": "            param = request.getHeader(\"BenchmarkTest00008\");"
+    },
+    {
+      "line": 50,
+      "code": "        param = java.net.URLDecoder.decode(param, \"UTF-8\");"
+    },
+    {
+      "line": 52,
+      "code": "        String sql = \"{call \" + param + \"}\";"
+    },
+    {
+      "line": 57,
+      "code": "            java.sql.CallableStatement statement = connection.prepareCall(sql);"
+    }
+  ],
+  "source_assessment_changed": false,
+  "explanation_limitations": [
+    "Việc ghép không thẩm định ngữ nghĩa của nhận định AI hoặc chọn lại dòng bằng chứng.",
+    "Giải thích gốc từng bước được lưu riêng; nhận định nguồn bước 2 có thể đã bị sửa."
+  ],
+  "source_kind": "EXTERNAL_READ",
+  "sql_effect_reused": "CHANGEABLE",
+  "source_audit_facts": {
+    "source_kind": "EXTERNAL_READ",
+    "source_evidence": [
+      {
+        "line": 46
+      }
+    ],
+    "flow_evidence": [
+      {
+        "line": 52
+      },
+      {
+        "line": 57
+      }
+    ],
+    "explanation": "Dữ liệu được đọc từ header HTTP 'BenchmarkTest00008' và truyền vào truy vấn SQL.",
+    "missing_context": []
+  },
+  "source_audit_reference_check": "LINES_RESOLVED_REVIEW_REQUIRED",
+  "analysis_limitations": [],
+  "artifact_dir": "issue-0016",
+  "processing_status": "AI_PROPOSED",
+  "total_seconds": 607.298,
+  "analysis_route": "sql",
+  "router_version": "multi-sql89-path22-command78-v2-sql-fallback",
+  "combined_verdict": "LIKELY_TP",
+  "decision_origin": "AI_PIPELINE",
+  "ai_explanation": "Kết luận: LIKELY_TP. Có cơ sở đề xuất cảnh báo đúng: kiểm tra nguồn báo cáo đầu vào bên ngoài và phân tích SQL báo cáo khả năng thay đổi cú pháp truy vấn.\n\nNguồn dữ liệu: Kiểm tra nguồn báo cáo có thao tác đọc đầu vào bên ngoài liên quan tới truy vấn.\n\nTác động SQL: Bước 2 báo cáo dữ liệu có thể thay đổi cú pháp SQL (CHANGEABLE). Điều này tự nó chưa chứng minh nguồn do người bên ngoài kiểm soát.\n\nCác dòng mã được bước 2 dẫn (cần đối chiếu lập luận):\n46:             param = request.getHeader(\"BenchmarkTest00008\");\n50:         param = java.net.URLDecoder.decode(param, \"UTF-8\");\n52:         String sql = \"{call \" + param + \"}\";\n57:             java.sql.CallableStatement statement = connection.prepareCall(sql);",
+  "ai_evidence_lines": [
+    46,
+    50,
+    52,
+    57
+  ],
+  "ai_missing_context": [],
+  "ai_decision_basis": "EXTERNAL_CONTROL_AND_CHANGEABLE_SQL_REPORTED"
+}

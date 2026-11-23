@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="vi"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Security Review · Thống kê</title><link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}"></head>
+<body><header><a class="brand" href="{{ url_for('index') }}"><span class="logo">SR</span><strong>Security Review</strong></a><span class="mode">Thống kê · Không gọi AI</span></header>
+<main><a href="{{ url_for('run_detail', group_id=group_id, name=name) }}">← Quay lại thẩm định</a>
+<h1>Thống kê lượt phân tích</h1><p class="sub">{{ manifest.get('project', '') }} · {{ name }} · {{ manifest.get('state', '') }}</p>
+{% for w in warnings %}<p class="warning">{{ w }}</p>{% endfor %}
+<section class="stats"><article><span>Bản ghi hiện có</span><b>{{ stats.total }}</b></article><article><span>Đã có đề xuất</span><b>{{ stats.proposed }}</b></article><article><span>Đã thẩm định hợp lệ</span><b>{{ stats.reviews.get('REVIEWED', 0) }}</b></article><article><span>Đang chờ thẩm định</span><b>{{ stats.reviews.get('PENDING', 0) }}</b></article></section>
+<section class="panel"><h2>Nhãn theo nhóm lỗ hổng</h2>
+<p>Mỗi ô ghi số lượng <strong>TP / FP / UNKNOWN / chưa ghi nhãn</strong>. TP và FP là nhãn LIKELY, không phải bảo đảm chắc chắn.</p>
+<div style="overflow-x:auto"><table><thead><tr><th>Nhóm</th><th>Tổng bản ghi</th><th>Đã có đề xuất</th><th>AI ban đầu</th><th>Hệ thống kết hợp</th><th>Thẩm định hợp lệ</th></tr></thead><tbody>
+{% for g in stats.groups %}<tr><td>{{ g.name }}</td><td>{{ g.total }}</td><td>{{ g.proposed }}</td>{% for key in ['ai','system','human'] %}<td>{{ g[key].get('LIKELY_TP',0) }} / {{ g[key].get('LIKELY_FP',0) }} / {{ g[key].get('UNKNOWN',0) }} / {{ g[key].get('NOT_RECORDED',0) }}</td>{% endfor %}</tr>{% endfor %}
+</tbody></table></div>
+<p class="hint-text">AI và hệ thống chỉ đếm AI_PROPOSED/ANALYZED, không cộng UNKNOWN mặc định của SKIPPED hoặc ABSTAINED. Thẩm định chỉ đếm revision mới nhất khớp bản ghi và mã nguồn; có thể bao gồm ABSTAINED đã được người dùng thẩm định.</p></section>
+<section class="panel"><h2>Trạng thái xử lý</h2><ul>{% for status, count in stats.statuses.items() %}<li>{{ status }}: <strong>{{ count }}</strong></li>{% else %}<li>Chưa có bản ghi.</li>{% endfor %}</ul>
+<p>Không đủ điều kiện thẩm định: <strong>{{ stats.reviews.get('UNAVAILABLE',0) }}</strong> (gồm ngoài phạm vi, nguồn thiếu/không khớp hoặc lượt chưa hoàn tất).</p></section>
+<section class="panel"><h2>Thời gian và nguồn quyết định</h2><p>Thời gian toàn lượt: <strong>{{ stats.duration or 'Chưa đủ mốc thời gian hợp lệ' }}</strong>.</p><p class="hint-text">Tính từ started_at tới finished_at. Không phải thời gian riêng của AI; lượt dùng --from-run không bao gồm quét SonarQube mới.</p>
+<ul>{% for origin, count in stats.origins.items() %}<li>{{ origin }}: {{ count }} đề xuất</li>{% else %}<li>Chưa có đề xuất.</li>{% endfor %}</ul></section>
+<p class="warning">Thống kê toàn lượt, không phụ thuộc bộ lọc trang thẩm định. UNKNOWN không có nghĩa an toàn. Nhãn khớp với thẩm định không tự chứng minh độ chính xác trên dữ liệu độc lập. Không gộp các lượt chạy lại thành mẫu độc lập.</p>
+</main></body></html>

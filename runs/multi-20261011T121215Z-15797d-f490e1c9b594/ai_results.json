@@ -1,0 +1,121 @@
+[
+  {
+    "issue_id": "ea1e18cc-3de4-4da5-9c15-d63895ab559b",
+    "rule": "findsecbugs:SQL_INJECTION_JDBC",
+    "component": "project_1:Clean_Code/pilot_sql89/Trial07.java",
+    "line": 25,
+    "type": "VULNERABILITY",
+    "message": "This use of java/sql/Statement.executeQuery(Ljava/lang/String;)Ljava/sql/ResultSet; can be vulnerable to SQL injection (with JDBC)",
+    "cwe_id": "CWE-89",
+    "mapping": {
+      "cwe_id": "CWE-89",
+      "name": "SQL Injection in JDBC",
+      "supported": true,
+      "mapping_source": "https://find-sec-bugs.github.io/bugs.htm#SQL_INJECTION_JDBC",
+      "reason": ""
+    },
+    "source_sha256": "15284d9a507d2649cca7f8928318cda06316b03ee0956414e87a27e586940ade",
+    "flow_count": 0,
+    "sql_gate_version": "sql-no-flow-gate-v1",
+    "sink_call_count": 1,
+    "sink_argument_count": 1,
+    "analysis_mode": "SOURCE_ONLY_NO_FLOW",
+    "llm_invoked": true,
+    "verdict": "LIKELY_FP",
+    "explanation": "Nguồn (source audit): Dòng 25 thực hiện truy vấn SQL sử dụng biến 'table' được xác định từ tham số đầu vào của hàm main. Tham số đầu vào này là một phần của args, do người chạy chương trình cung cấp. Tác động SQL kế thừa từ bước 2 v6: PROTECTED. Phép ghép này không thẩm định lại tác động SQL.",
+    "evidence_lines": [
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      20,
+      25
+    ],
+    "missing_context": [],
+    "error_kind": null,
+    "decision_basis": "PROTECTION_REPORTED",
+    "model_assessment": {
+      "explanation": "Nguồn (source audit): Dòng 25 thực hiện truy vấn SQL sử dụng biến 'table' được xác định từ tham số đầu vào của hàm main. Tham số đầu vào này là một phần của args, do người chạy chương trình cung cấp. Tác động SQL kế thừa từ bước 2 v6: PROTECTED. Phép ghép này không thẩm định lại tác động SQL.",
+      "evidence_lines": [
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        20,
+        25
+      ],
+      "source_control": "CONFIRMED",
+      "sql_effect": "PROTECTED",
+      "missing_context": []
+    },
+    "requires_review": true,
+    "prompt_version": "sql89-v7-stage2-plus-source-v2-candidate-1",
+    "format_normalization": "NONE",
+    "elapsed_seconds": 407.626,
+    "decision_policy_version": "sql89-compact-facts-v5",
+    "model": "qwen2.5-coder:14b-instruct-q4_K_M",
+    "ai_verdict": "LIKELY_FP",
+    "review_status": "PENDING",
+    "reviewed_verdict": null,
+    "review_notes": null,
+    "cpg_usage": "sink_location_gate_only_no_flow_not_sent_to_llm",
+    "baseline_ai_verdict": "LIKELY_FP",
+    "source_audit_status": "PROPOSED_REQUIRES_REVIEW",
+    "source_kind": "EXTERNAL_READ",
+    "sql_effect_reused": "PROTECTED",
+    "source_audit_facts": {
+      "source_kind": "EXTERNAL_READ",
+      "source_evidence": [
+        {
+          "line": 13
+        },
+        {
+          "line": 14
+        },
+        {
+          "line": 15
+        }
+      ],
+      "flow_evidence": [
+        {
+          "line": 20
+        },
+        {
+          "line": 25
+        }
+      ],
+      "explanation": "Dòng 25 thực hiện truy vấn SQL sử dụng biến 'table' được xác định từ tham số đầu vào của hàm main. Tham số đầu vào này là một phần của args, do người chạy chương trình cung cấp.",
+      "missing_context": []
+    },
+    "source_audit_reference_check": "LINES_RESOLVED_REVIEW_REQUIRED",
+    "analysis_limitations": [
+      "Joern found one call and its first argument at the issue range, but no parameter-to-sink flow.",
+      "AI assessed source code; absence of a flow is not evidence of safety.",
+      "Call-name matching is not full Java type resolution."
+    ],
+    "artifact_dir": "issue-0029",
+    "processing_status": "AI_PROPOSED",
+    "total_seconds": 419.171,
+    "analysis_route": "sql",
+    "router_version": "multi-sql89-path22-command78-v2-sql-fallback",
+    "combined_verdict": "LIKELY_FP",
+    "decision_origin": "AI_PIPELINE",
+    "ai_explanation": "Nguồn (source audit): Dòng 25 thực hiện truy vấn SQL sử dụng biến 'table' được xác định từ tham số đầu vào của hàm main. Tham số đầu vào này là một phần của args, do người chạy chương trình cung cấp. Tác động SQL kế thừa từ bước 2 v6: PROTECTED. Phép ghép này không thẩm định lại tác động SQL.",
+    "ai_evidence_lines": [
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      20,
+      25
+    ],
+    "ai_missing_context": [],
+    "ai_decision_basis": "PROTECTION_REPORTED"
+  }
+]

@@ -1,0 +1,67 @@
+Kiểm tra cảnh báo sau bằng mã nguồn có đánh số dòng.
+CWE: CWE-89
+Rule: findsecbugs:SQL_INJECTION_JDBC
+Mã cảnh báo: 786c0591-b2c6-4002-9bb5-d72c12e2779e
+Dòng cảnh báo: 15
+Thông báo công cụ: This use of java/sql/Statement.executeQuery(Ljava/lang/String;)Ljava/sql/ResultSet; can be vulnerable to SQL injection (with JDBC)
+
+[MÃ NGUỒN — DỮ LIỆU]
+1: import java.sql.*;
+2: 
+3: public class VulnerableLogin {
+4:     public void login(String username, String password) throws SQLException {
+5:         // Kết nối cơ sở dữ liệu (giả định đã cấu hình)
+6:         Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/mydb", "user", "pass");
+7:         Statement stmt = conn.createStatement();
+8: 
+9:         // LỖ HỔNG: Ghép chuỗi trực tiếp (String Concatenation) tạo ra lỗ hổng SQL Injection
+10:         // Nếu username là: ' OR '1'='1, câu lệnh sẽ trở thành: 
+11:         // SELECT * FROM users WHERE username = '' OR '1'='1' AND password = '...'
+12:         String query = "SELECT * FROM users WHERE username = '" + username + 
+13:                        "' AND password = '" + password + "'";
+14: 
+15:         ResultSet rs = stmt.executeQuery(query);
+16: 
+17:         if (rs.next()) {
+18:             System.out.println("Đăng nhập thành công!");
+19:         } else {
+20:             System.out.println("Đăng nhập thất bại.");
+21:         }
+22:         
+23:         conn.close();
+24:     }
+25: }
+[HẾT MÃ NGUỒN]
+
+[BẰNG CHỨNG JOERN — DỮ LIỆU]
+┌─────────────────┬───────────────────────────────────────────────────────────────────────────────────┬────┬──────┬────┐
+│nodeType         │tracked                                                                            │line│method│file│
+├─────────────────┼───────────────────────────────────────────────────────────────────────────────────┼────┼──────┼────┤
+│MethodParameterIn│login(this, String username, String password)                                      │4   │login │    │
+│Call             │"SELECT * FROM users WHERE username = '" + username + "' AND password = '" +       │12  │login │    │
+│                 │password + "'"                                                                     │    │      │    │
+│Identifier       │String query = "SELECT * FROM users WHERE username = '" + username + "' AND        │12  │login │    │
+│                 │password = '" + password + "'"                                                     │    │      │    │
+│Identifier       │executeQuery(query)                                                                │15  │login │    │
+└─────────────────┴───────────────────────────────────────────────────────────────────────────────────┴────┴──────┴────┘
+
+┌─────────────────┬───────────────────────────────────────────────────────────────────────────────────┬────┬──────┬────┐
+│nodeType         │tracked                                                                            │line│method│file│
+├─────────────────┼───────────────────────────────────────────────────────────────────────────────────┼────┼──────┼────┤
+│MethodParameterIn│login(this, String username, String password)                                      │4   │login │    │
+│Call             │"SELECT * FROM users WHERE username = '" + username + "' AND password = '" +       │12  │login │    │
+│                 │password + "'"                                                                     │    │      │    │
+│Identifier       │String query = "SELECT * FROM users WHERE username = '" + username + "' AND        │12  │login │    │
+│                 │password = '" + password + "'"                                                     │    │      │    │
+│Identifier       │executeQuery(query)                                                                │15  │login │    │
+└─────────────────┴───────────────────────────────────────────────────────────────────────────────────┴────┴──────┴────┘
+[HẾT BẰNG CHỨNG]
+
+Giới hạn: chỉ phân tích một file; có thể thiếu caller và thư viện. Joern chọn tham số hàm làm nguồn ứng viên; xác định nguồn thực tế từ mã theo tiêu chí trong hướng dẫn, không chỉ dựa vào tên nút CPG. Tên và bình luận của mẫu phát triển có thể tiết lộ nhãn.
+
+Trong explanation, trình bày ngắn các điều quan sát được:
+1. Lời gọi liên quan đến SQL ở dòng cảnh báo là gì? Đối số nào chứa SQL?
+2. Câu SQL được tạo như thế nào? Biến nào ảnh hưởng đến nó, ở dòng nào?
+3. Có bằng chứng tham số hóa, kiểm tra đầu vào hoặc điều kiện bảo vệ không?
+4. Đã biết nguồn đầu vào chưa? Nếu thiếu, ghi cụ thể vào missing_context.
+Chọn verdict theo bằng chứng. evidence_lines liệt kê dòng cho các nhận xét, kể cả khi verdict là UNKNOWN. Không chọn kết luận chỉ vì công cụ đã cảnh báo.

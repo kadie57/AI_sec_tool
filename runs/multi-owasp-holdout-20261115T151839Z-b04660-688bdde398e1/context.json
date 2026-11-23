@@ -1,0 +1,469 @@
+{
+  "version": "multi-sql89-path22-command78-v5-sql-source-size",
+  "script_sha256": "50d051f77bd2bba15937460ac7642707a64d7cc32d768646ee1f85d8c8b1a90a",
+  "collection": "/home/khanh/AI_sec_tool/runs/owasp-holdout-20261115T151839Z-b04660",
+  "collection_manifest_sha256": "9745334f511fa1828b568f313bfe189d15eb775e2895c6557c09b770aaaa594b",
+  "collection_issues_sha256": "cf5f4f39deb78d9f2da4fd2f15eca7b5c1ff97da9c3fb5e90d5d01c6e24f4ea3",
+  "config_sha256": "4cf5ff31e616ae79e3f6024059f7e83549d8f01ef6cc74f7d5743386a638b7c3",
+  "dependency_sha256": {
+    "check_sql_prompt_controls.py": "f24df75851b0707b626a94b4f90ec6b5eacd5c1d5d20cd8d46a16b848163feb8",
+    "cwe_mapper.py": "a7a15bbc4a2d1eb84f4ea23a341ce85d8d1b23bece18d975d1da09c1d163f28c",
+    "iris_prompter.py": "2ab8daf9250b3716f1fc47599c83a6996db7df4da908a687b7a3050d4c8de5cb",
+    "master_pipeline.py": "4e07778cafa6214049f93ad06638d8bb2d23a06f48a3f8bc3e4b68d110b45215",
+    "master_pipeline_combined_v1.py": "6839ca9b284fc725c59c2311b0304a279278bbf71bcc89482392c59db084cbac",
+    "master_pipeline_multi_v1.py": "50d051f77bd2bba15937460ac7642707a64d7cc32d768646ee1f85d8c8b1a90a",
+    "master_pipeline_source_v1.py": "e71ef6ee92bc5778dc31edb53d97dc55668a0d767181971aed0a6cb6bdc6d820",
+    "master_pipeline_v6.py": "57dadd796396bb53d9246385607a64da891033223da83d91606db2317a1ccfcf",
+    "recheck_sql_context.py": "79df539ec1192966c98364ff1c19d241bae960f277df666374f653d0178986f0",
+    "replay_source_merge.py": "f08b8d1eaa68bfdabf1973a3af9fd49e1e26cdf8f79813401ae76b7a9cf6a066",
+    "run_holdout_system.py": "05920f81bc3f2ce0fb685a13b73dbe23190b08acc071820ef2cc72c66fc3bbef",
+    "source_audit_v2.py": "d352094d47d0b8d5523d573f7996c4616dce45d2db32816f3fd72038a3bf0cf4",
+    "triage_v5.py": "a52fa7d8ea4909644e90036f89150c605469e7a9804f4aeee732db2ef03cab22",
+    "triage_v6.py": "f88ff5921dbabbb259577888dea1f414190cb6e44a69efabe3dcb790a469a90d",
+    "validate_v6.py": "57a67d2d69730d6f6a10a4b9926747ba5b84c75615952851c5f4652091127ad4"
+  },
+  "items": [
+    {
+      "index": 164,
+      "issue": {
+        "key": "cdeb1d77-373a-4bf5-9b38-7117ab0d4d7d",
+        "rule": "findsecbugs:SQL_INJECTION_JDBC",
+        "severity": "CRITICAL",
+        "component": "thesis_owasp_holdout_v1:experiments/owasp_holdout_v1/inputs/a452b3aafd232245d0753e54eb243d6651f8ef96/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00999.java",
+        "project": "thesis_owasp_holdout_v1",
+        "line": 75,
+        "hash": "7594990a16c9b24ae73a86d59ab65076",
+        "textRange": {
+          "startLine": 75,
+          "endLine": 75,
+          "startOffset": 0,
+          "endOffset": 43
+        },
+        "flows": [],
+        "status": "OPEN",
+        "message": "This use of java/sql/Connection.prepareCall(Ljava/lang/String;II)Ljava/sql/CallableStatement; can be vulnerable to SQL injection (with JDBC)",
+        "author": "",
+        "tags": [
+          "cwe",
+          "owasp-a1",
+          "injection",
+          "wasc"
+        ],
+        "creationDate": "2026-11-15T15:18:54+0000",
+        "updateDate": "2026-11-15T15:18:54+0000",
+        "type": "VULNERABILITY",
+        "scope": "MAIN",
+        "quickFixAvailable": false,
+        "messageFormattings": [],
+        "codeVariants": [],
+        "cleanCodeAttribute": "CONVENTIONAL",
+        "cleanCodeAttributeCategory": "CONSISTENT",
+        "impacts": [
+          {
+            "softwareQuality": "SECURITY",
+            "severity": "HIGH"
+          }
+        ],
+        "issueStatus": "OPEN",
+        "prioritizedRule": false,
+        "fromSonarQubeUpdate": false,
+        "internalTags": [],
+        "linkedTicketStatus": "NOT_LINKED"
+      },
+      "route": "sql",
+      "source_sha256": "0949425071b41e3e5c7aef480da8ddf838c235738b2f65da3bd0b11083e93a01"
+    },
+    {
+      "index": 174,
+      "issue": {
+        "key": "42fe8b5f-5d89-4d3b-815b-12adc58a2461",
+        "rule": "findsecbugs:SQL_INJECTION_JDBC",
+        "severity": "CRITICAL",
+        "component": "thesis_owasp_holdout_v1:experiments/owasp_holdout_v1/inputs/a452b3aafd232245d0753e54eb243d6651f8ef96/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01093.java",
+        "project": "thesis_owasp_holdout_v1",
+        "line": 58,
+        "hash": "c9bbb2c8300ce58690d888f91c67aac4",
+        "textRange": {
+          "startLine": 58,
+          "endLine": 58,
+          "startOffset": 0,
+          "endOffset": 53
+        },
+        "flows": [],
+        "status": "OPEN",
+        "message": "This use of java/sql/Statement.execute(Ljava/lang/String;[I)Z can be vulnerable to SQL injection (with JDBC)",
+        "author": "",
+        "tags": [
+          "cwe",
+          "owasp-a1",
+          "injection",
+          "wasc"
+        ],
+        "creationDate": "2026-11-15T15:18:54+0000",
+        "updateDate": "2026-11-15T15:18:54+0000",
+        "type": "VULNERABILITY",
+        "scope": "MAIN",
+        "quickFixAvailable": false,
+        "messageFormattings": [],
+        "codeVariants": [],
+        "cleanCodeAttribute": "CONVENTIONAL",
+        "cleanCodeAttributeCategory": "CONSISTENT",
+        "impacts": [
+          {
+            "softwareQuality": "SECURITY",
+            "severity": "HIGH"
+          }
+        ],
+        "issueStatus": "OPEN",
+        "prioritizedRule": false,
+        "fromSonarQubeUpdate": false,
+        "internalTags": [],
+        "linkedTicketStatus": "NOT_LINKED"
+      },
+      "route": "sql",
+      "source_sha256": "647e261e7ea672836bcd1375476637827e2dc537e3582a2e0f968c06cfd505d0"
+    },
+    {
+      "index": 235,
+      "issue": {
+        "key": "07951150-c656-48e8-a94d-c3d8bcd0a08a",
+        "rule": "findsecbugs:SQL_INJECTION_JDBC",
+        "severity": "CRITICAL",
+        "component": "thesis_owasp_holdout_v1:experiments/owasp_holdout_v1/inputs/a452b3aafd232245d0753e54eb243d6651f8ef96/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01311.java",
+        "project": "thesis_owasp_holdout_v1",
+        "line": 53,
+        "hash": "f43b42871e14ad9169129e91209b92ee",
+        "textRange": {
+          "startLine": 53,
+          "endLine": 53,
+          "startOffset": 0,
+          "endOffset": 35
+        },
+        "flows": [],
+        "status": "OPEN",
+        "message": "This use of java/sql/Statement.execute(Ljava/lang/String;)Z can be vulnerable to SQL injection (with JDBC)",
+        "author": "",
+        "tags": [
+          "cwe",
+          "owasp-a1",
+          "injection",
+          "wasc"
+        ],
+        "creationDate": "2026-11-15T15:18:54+0000",
+        "updateDate": "2026-11-15T15:18:54+0000",
+        "type": "VULNERABILITY",
+        "scope": "MAIN",
+        "quickFixAvailable": false,
+        "messageFormattings": [],
+        "codeVariants": [],
+        "cleanCodeAttribute": "CONVENTIONAL",
+        "cleanCodeAttributeCategory": "CONSISTENT",
+        "impacts": [
+          {
+            "softwareQuality": "SECURITY",
+            "severity": "HIGH"
+          }
+        ],
+        "issueStatus": "OPEN",
+        "prioritizedRule": false,
+        "fromSonarQubeUpdate": false,
+        "internalTags": [],
+        "linkedTicketStatus": "NOT_LINKED"
+      },
+      "route": "sql",
+      "source_sha256": "a994ead8fea2618bc3916f9ab3b0fa6c57d8ee53bb27b8946babe8adf044c870"
+    },
+    {
+      "index": 264,
+      "issue": {
+        "key": "a0b83a09-38be-4ab0-9be5-56c43a811134",
+        "rule": "findsecbugs:SQL_INJECTION_JDBC",
+        "severity": "CRITICAL",
+        "component": "thesis_owasp_holdout_v1:experiments/owasp_holdout_v1/inputs/a452b3aafd232245d0753e54eb243d6651f8ef96/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01558.java",
+        "project": "thesis_owasp_holdout_v1",
+        "line": 55,
+        "hash": "db7fa2a88c5c056393b97e00ad77baa0",
+        "textRange": {
+          "startLine": 55,
+          "endLine": 55,
+          "startOffset": 0,
+          "endOffset": 77
+        },
+        "flows": [],
+        "status": "OPEN",
+        "message": "This use of java/sql/Statement.execute(Ljava/lang/String;I)Z can be vulnerable to SQL injection (with JDBC)",
+        "author": "",
+        "tags": [
+          "cwe",
+          "owasp-a1",
+          "injection",
+          "wasc"
+        ],
+        "creationDate": "2026-11-15T15:18:54+0000",
+        "updateDate": "2026-11-15T15:18:54+0000",
+        "type": "VULNERABILITY",
+        "scope": "MAIN",
+        "quickFixAvailable": false,
+        "messageFormattings": [],
+        "codeVariants": [],
+        "cleanCodeAttribute": "CONVENTIONAL",
+        "cleanCodeAttributeCategory": "CONSISTENT",
+        "impacts": [
+          {
+            "softwareQuality": "SECURITY",
+            "severity": "HIGH"
+          }
+        ],
+        "issueStatus": "OPEN",
+        "prioritizedRule": false,
+        "fromSonarQubeUpdate": false,
+        "internalTags": [],
+        "linkedTicketStatus": "NOT_LINKED"
+      },
+      "route": "sql",
+      "source_sha256": "1d363629c834eb8e1a05824364ec2af04e92bbbf3cb7e71982c79935764e2dca"
+    },
+    {
+      "index": 383,
+      "issue": {
+        "key": "8040d43a-6c70-4928-b324-f6c4abda92d2",
+        "rule": "findsecbugs:SQL_INJECTION_JDBC",
+        "severity": "CRITICAL",
+        "component": "thesis_owasp_holdout_v1:experiments/owasp_holdout_v1/inputs/a452b3aafd232245d0753e54eb243d6651f8ef96/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02088.java",
+        "project": "thesis_owasp_holdout_v1",
+        "line": 61,
+        "hash": "b8c256562753ca687938050f1503f83d",
+        "textRange": {
+          "startLine": 61,
+          "endLine": 61,
+          "startOffset": 0,
+          "endOffset": 48
+        },
+        "flows": [],
+        "status": "OPEN",
+        "message": "This use of java/sql/Connection.prepareStatement(Ljava/lang/String;II)Ljava/sql/PreparedStatement; can be vulnerable to SQL injection (with JDBC)",
+        "author": "",
+        "tags": [
+          "cwe",
+          "owasp-a1",
+          "injection",
+          "wasc"
+        ],
+        "creationDate": "2026-11-15T15:18:54+0000",
+        "updateDate": "2026-11-15T15:18:54+0000",
+        "type": "VULNERABILITY",
+        "scope": "MAIN",
+        "quickFixAvailable": false,
+        "messageFormattings": [],
+        "codeVariants": [],
+        "cleanCodeAttribute": "CONVENTIONAL",
+        "cleanCodeAttributeCategory": "CONSISTENT",
+        "impacts": [
+          {
+            "softwareQuality": "SECURITY",
+            "severity": "HIGH"
+          }
+        ],
+        "issueStatus": "OPEN",
+        "prioritizedRule": false,
+        "fromSonarQubeUpdate": false,
+        "internalTags": [],
+        "linkedTicketStatus": "NOT_LINKED"
+      },
+      "route": "sql",
+      "source_sha256": "e3525d174198bbd0c6ca2600ddb57b5042674c4b4e7ba254129eb121828fa203"
+    },
+    {
+      "index": 394,
+      "issue": {
+        "key": "a59329b9-c85d-488c-9cb3-cef8e94aad66",
+        "rule": "findsecbugs:SQL_INJECTION_JDBC",
+        "severity": "CRITICAL",
+        "component": "thesis_owasp_holdout_v1:experiments/owasp_holdout_v1/inputs/a452b3aafd232245d0753e54eb243d6651f8ef96/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02093.java",
+        "project": "thesis_owasp_holdout_v1",
+        "line": 60,
+        "hash": "f43b42871e14ad9169129e91209b92ee",
+        "textRange": {
+          "startLine": 60,
+          "endLine": 60,
+          "startOffset": 0,
+          "endOffset": 35
+        },
+        "flows": [],
+        "status": "OPEN",
+        "message": "This use of java/sql/Statement.execute(Ljava/lang/String;)Z can be vulnerable to SQL injection (with JDBC)",
+        "author": "",
+        "tags": [
+          "cwe",
+          "owasp-a1",
+          "injection",
+          "wasc"
+        ],
+        "creationDate": "2026-11-15T15:18:54+0000",
+        "updateDate": "2026-11-15T15:18:54+0000",
+        "type": "VULNERABILITY",
+        "scope": "MAIN",
+        "quickFixAvailable": false,
+        "messageFormattings": [],
+        "codeVariants": [],
+        "cleanCodeAttribute": "CONVENTIONAL",
+        "cleanCodeAttributeCategory": "CONSISTENT",
+        "impacts": [
+          {
+            "softwareQuality": "SECURITY",
+            "severity": "HIGH"
+          }
+        ],
+        "issueStatus": "OPEN",
+        "prioritizedRule": false,
+        "fromSonarQubeUpdate": false,
+        "internalTags": [],
+        "linkedTicketStatus": "NOT_LINKED"
+      },
+      "route": "sql",
+      "source_sha256": "b89538163bb013758c3dff3fc4d89935379f5f85ff876b6fd3d50dbb309ccb2f"
+    },
+    {
+      "index": 423,
+      "issue": {
+        "key": "eb1d6188-8f9d-406f-b766-9abc0851368f",
+        "rule": "findsecbugs:SQL_INJECTION_JDBC",
+        "severity": "CRITICAL",
+        "component": "thesis_owasp_holdout_v1:experiments/owasp_holdout_v1/inputs/a452b3aafd232245d0753e54eb243d6651f8ef96/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02171.java",
+        "project": "thesis_owasp_holdout_v1",
+        "line": 54,
+        "hash": "b8c256562753ca687938050f1503f83d",
+        "textRange": {
+          "startLine": 54,
+          "endLine": 54,
+          "startOffset": 0,
+          "endOffset": 48
+        },
+        "flows": [],
+        "status": "OPEN",
+        "message": "This use of java/sql/Connection.prepareStatement(Ljava/lang/String;II)Ljava/sql/PreparedStatement; can be vulnerable to SQL injection (with JDBC)",
+        "author": "",
+        "tags": [
+          "cwe",
+          "owasp-a1",
+          "injection",
+          "wasc"
+        ],
+        "creationDate": "2026-11-15T15:18:54+0000",
+        "updateDate": "2026-11-15T15:18:54+0000",
+        "type": "VULNERABILITY",
+        "scope": "MAIN",
+        "quickFixAvailable": false,
+        "messageFormattings": [],
+        "codeVariants": [],
+        "cleanCodeAttribute": "CONVENTIONAL",
+        "cleanCodeAttributeCategory": "CONSISTENT",
+        "impacts": [
+          {
+            "softwareQuality": "SECURITY",
+            "severity": "HIGH"
+          }
+        ],
+        "issueStatus": "OPEN",
+        "prioritizedRule": false,
+        "fromSonarQubeUpdate": false,
+        "internalTags": [],
+        "linkedTicketStatus": "NOT_LINKED"
+      },
+      "route": "sql",
+      "source_sha256": "53aeb1daa5eccc7668c855f9b888311d9d5ae6520eb3f0b2f851466dee146fac"
+    },
+    {
+      "index": 470,
+      "issue": {
+        "key": "d2d8166a-90af-4679-8c1d-7b87d662292a",
+        "rule": "findsecbugs:SQL_INJECTION_JDBC",
+        "severity": "CRITICAL",
+        "component": "thesis_owasp_holdout_v1:experiments/owasp_holdout_v1/inputs/a452b3aafd232245d0753e54eb243d6651f8ef96/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02186.java",
+        "project": "thesis_owasp_holdout_v1",
+        "line": 53,
+        "hash": "f43b42871e14ad9169129e91209b92ee",
+        "textRange": {
+          "startLine": 53,
+          "endLine": 53,
+          "startOffset": 0,
+          "endOffset": 35
+        },
+        "flows": [],
+        "status": "OPEN",
+        "message": "This use of java/sql/Statement.execute(Ljava/lang/String;)Z can be vulnerable to SQL injection (with JDBC)",
+        "author": "",
+        "tags": [
+          "cwe",
+          "owasp-a1",
+          "injection",
+          "wasc"
+        ],
+        "creationDate": "2026-11-15T15:18:54+0000",
+        "updateDate": "2026-11-15T15:18:54+0000",
+        "type": "VULNERABILITY",
+        "scope": "MAIN",
+        "quickFixAvailable": false,
+        "messageFormattings": [],
+        "codeVariants": [],
+        "cleanCodeAttribute": "CONVENTIONAL",
+        "cleanCodeAttributeCategory": "CONSISTENT",
+        "impacts": [
+          {
+            "softwareQuality": "SECURITY",
+            "severity": "HIGH"
+          }
+        ],
+        "issueStatus": "OPEN",
+        "prioritizedRule": false,
+        "fromSonarQubeUpdate": false,
+        "internalTags": [],
+        "linkedTicketStatus": "NOT_LINKED"
+      },
+      "route": "sql",
+      "source_sha256": "18f6c9fdd5a391894ae09fdab9414cf3dfefbb029062625f8137ff2eb4bc7690"
+    }
+  ],
+  "selection": [
+    "thesis_owasp_holdout_v1:experiments/owasp_holdout_v1/inputs/a452b3aafd232245d0753e54eb243d6651f8ef96/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00999.java",
+    "thesis_owasp_holdout_v1:experiments/owasp_holdout_v1/inputs/a452b3aafd232245d0753e54eb243d6651f8ef96/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01093.java",
+    "thesis_owasp_holdout_v1:experiments/owasp_holdout_v1/inputs/a452b3aafd232245d0753e54eb243d6651f8ef96/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01311.java",
+    "thesis_owasp_holdout_v1:experiments/owasp_holdout_v1/inputs/a452b3aafd232245d0753e54eb243d6651f8ef96/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01558.java",
+    "thesis_owasp_holdout_v1:experiments/owasp_holdout_v1/inputs/a452b3aafd232245d0753e54eb243d6651f8ef96/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02088.java",
+    "thesis_owasp_holdout_v1:experiments/owasp_holdout_v1/inputs/a452b3aafd232245d0753e54eb243d6651f8ef96/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02093.java",
+    "thesis_owasp_holdout_v1:experiments/owasp_holdout_v1/inputs/a452b3aafd232245d0753e54eb243d6651f8ef96/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02171.java",
+    "thesis_owasp_holdout_v1:experiments/owasp_holdout_v1/inputs/a452b3aafd232245d0753e54eb243d6651f8ef96/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02186.java"
+  ],
+  "evaluation_input_policy": {
+    "version": "holdout-system-comment-mask-v1",
+    "script_sha256": "05920f81bc3f2ce0fb685a13b73dbe23190b08acc071820ef2cc72c66fc3bbef",
+    "plan_sha256": "2e6bc2bd5ccd03c13463be32e87a4a00e60ffc944e414e273cfdb99732575436",
+    "source_policy": "mask_all_java_comments_keep_lines",
+    "original_sources_unchanged": true,
+    "limitations": [
+      "Public benchmark identifiers remain; no claim of training-data independence.",
+      "Comments are removed from model source blocks, not from archived sources.",
+      "ProcessBuilder uses its existing code_only preprocessing.",
+      "The direct-LLM baseline must use the same source comment policy."
+    ]
+  },
+  "repair_evaluation": {
+    "version": "sql-context-recheck-v1",
+    "script_sha256": "79df539ec1192966c98364ff1c19d241bae960f277df666374f653d0178986f0",
+    "previous_run": "/home/khanh/AI_sec_tool/runs/multi-owasp-holdout-20261115T151839Z-b04660-f56d1218dcb6",
+    "previous_results_sha256": "84d4b361c49a405cd1f730bacd3cbc5538263037956745676f4f535b88550fe6",
+    "previous_context_sha256": "dd335064cd064cf137ac2bbca6955d11bd8fa91334456f216092fa6116485b3e",
+    "selection_reason": "SQL CONTEXT_TOO_LARGE in previous completed processing",
+    "changed": "Count source characters without unsent CPG text in the preliminary SQL gate",
+    "unchanged": [
+      "model/digest",
+      "prompts",
+      "generation options",
+      "source and issue",
+      "comment masking",
+      "verdict policy"
+    ],
+    "independent_holdout": false,
+    "reference_labels_loaded": false
+  }
+}

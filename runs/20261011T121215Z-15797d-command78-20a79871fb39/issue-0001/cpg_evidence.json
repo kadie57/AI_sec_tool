@@ -1,0 +1,6 @@
+{
+  "flow_count": 1,
+  "paths": "┌─────────────────┬────────────────────────────────────────┬────┬──────┬──────────────────┐\n│nodeType         │tracked                                 │line│method│file              │\n├─────────────────┼────────────────────────────────────────┼────┼──────┼──────────────────┤\n│MethodParameterIn│main(String[] args)                     │4   │main  │CommandCase02.java│\n│Call             │String targetIp = args[0]               │8   │main  │CommandCase02.java│\n│Identifier       │String targetIp = args[0]               │8   │main  │CommandCase02.java│\n│Identifier       │equals(\"127.0.0.1\")                     │9   │main  │CommandCase02.java│\n│Identifier       │equals(\"192.0.2.1\")                     │10  │main  │CommandCase02.java│\n│Call             │\"ping -c 3 \" + targetIp                 │13  │main  │CommandCase02.java│\n│Identifier       │String command = \"ping -c 3 \" + targetIp│13  │main  │CommandCase02.java│\n│Identifier       │getRuntime().exec(command)              │14  │main  │CommandCase02.java│\n└─────────────────┴────────────────────────────────────────┴────┴──────┴──────────────────┘",
+  "scope": "single_file",
+  "source_policy": "parameters_are_candidates_not_proven_external"
+}

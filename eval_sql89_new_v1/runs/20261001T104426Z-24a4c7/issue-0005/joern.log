@@ -1,0 +1,131 @@
+=======================================================================================================
+Invoking CPG generator in a separate process. Note that the new process will consume additional memory.
+If you are importing a large codebase (and/or running into memory issues), please try the following:
+1) exit joern
+2) invoke the frontend: /opt/joern/joern-cli/javasrc2cpg -J-Xmx7956m /project/Clean_Code/Probe22.java --output /work/workspace/Probe22.java/cpg.bin.zip
+3) start joern, import the cpg: `importCpg("path/to/cpg")`
+=======================================================================================================
+
+[INFO ] initialising from existing storage (/work/workspace/Probe22.java/cpg.bin.tmp)
+[INFO ] Start of pass: io.joern.x2cpg.passes.base.FileCreationPass
+[INFO ] Pass io.joern.x2cpg.passes.base.FileCreationPass completed in 29 ms (71% on mutations). 6 + 0 changes committed from 1 parts.
+[INFO ] Start of pass: io.joern.x2cpg.passes.base.NamespaceCreator
+[INFO ] Pass io.joern.x2cpg.passes.base.NamespaceCreator completed in 5 ms (40% on mutations). 3 + 0 changes committed from 1 parts.
+[INFO ] Start of pass: io.joern.x2cpg.passes.base.TypeDeclStubCreator
+[INFO ] Pass io.joern.x2cpg.passes.base.TypeDeclStubCreator completed in 6 ms (33% on mutations). 6 + 0 changes committed from 1 parts.
+[INFO ] Start of pass: io.joern.x2cpg.passes.base.MethodStubCreator
+[INFO ] Inconsistent/erroneous callInfo on calls to method fullname <operator>.alloc (we have 1 many variants)
+[INFO ] Pass io.joern.x2cpg.passes.base.MethodStubCreator completed in 23 ms (15% on mutations). 64 + 0 changes committed from 1 parts.
+[INFO ] Start of pass: io.joern.x2cpg.passes.base.ParameterIndexCompatPass
+[INFO ] Pass io.joern.x2cpg.passes.base.ParameterIndexCompatPass completed in 3 ms (42% on mutations). 0 + 0 changes committed from 1 parts.
+[INFO ] Start of pass: io.joern.x2cpg.passes.base.MethodDecoratorPass
+[INFO ] Pass io.joern.x2cpg.passes.base.MethodDecoratorPass completed in 6 ms (30% on mutations). 48 + 0 changes committed from 1 parts.
+[INFO ] Start of pass: io.joern.x2cpg.passes.base.AstLinkerPass
+[INFO ] Pass io.joern.x2cpg.passes.base.AstLinkerPass completed in 5 ms (15% on mutations). 14 + 0 changes committed from 1 parts.
+[INFO ] Start of pass: io.joern.x2cpg.passes.base.ContainsEdgePass
+[INFO ] Pass io.joern.x2cpg.passes.base.ContainsEdgePass completed in 4 ms (18% on mutations). 41 + 0 changes committed from 19 parts.
+[INFO ] Start of pass: io.joern.x2cpg.passes.base.TypeRefPass
+[INFO ] Pass io.joern.x2cpg.passes.base.TypeRefPass completed in 3 ms (25% on mutations). 7 + 0 changes committed from 1 parts.
+[INFO ] Start of pass: io.joern.x2cpg.passes.base.TypeEvalPass
+[INFO ] Could not create edge. Destination lookup failed. edgeType=EVAL_TYPE, srcNodeType=METHOD_RETURN, srcNodeId=124554051585, dstNodeType=TYPE, dstFullName=void
+[INFO ] Could not create edge. Destination lookup failed. edgeType=EVAL_TYPE, srcNodeType=CALL, srcNodeId=30064771078, dstNodeType=TYPE, dstFullName=void
+[INFO ] Pass io.joern.x2cpg.passes.base.TypeEvalPass completed in 4 ms (20% on mutations). 79 + 0 changes committed from 1 parts.
+[INFO ] Start of pass: io.shiftleft.semanticcpg.Overlays$$anon$1
+[INFO ] Pass io.shiftleft.semanticcpg.Overlays$$anon$1 completed in 4 ms (38% on mutations). 1 + 0 changes committed from 1 parts.
+[INFO ] Start of pass: io.joern.x2cpg.passes.controlflow.CfgCreationPass
+[WARN ] Using order fallback for try statement catch body
+[WARN ] Using order fallback for try statement finally body
+[INFO ] Pass io.joern.x2cpg.passes.controlflow.CfgCreationPass completed in 38 ms (3% on mutations). 38 + 0 changes committed from 10 parts.
+[INFO ] Start of pass: io.joern.x2cpg.passes.controlflow.cfgdominator.CfgDominatorPass
+[INFO ] Pass io.joern.x2cpg.passes.controlflow.cfgdominator.CfgDominatorPass completed in 9 ms (12% on mutations). 74 + 0 changes committed from 10 parts.
+[INFO ] Start of pass: io.joern.x2cpg.passes.controlflow.codepencegraph.CdgPass
+[INFO ] Pass io.joern.x2cpg.passes.controlflow.codepencegraph.CdgPass completed in 5 ms (9% on mutations). 1 + 0 changes committed from 10 parts.
+[INFO ] Start of pass: io.shiftleft.semanticcpg.Overlays$$anon$1
+[INFO ] Pass io.shiftleft.semanticcpg.Overlays$$anon$1 completed in 1 ms (73% on mutations). 1 + 0 changes committed from 1 parts.
+[INFO ] Start of pass: io.joern.x2cpg.passes.typerelations.TypeHierarchyPass
+[INFO ] Pass io.joern.x2cpg.passes.typerelations.TypeHierarchyPass completed in 2 ms (24% on mutations). 1 + 0 changes committed from 1 parts.
+[INFO ] Start of pass: io.joern.x2cpg.passes.typerelations.AliasLinkerPass
+[INFO ] Pass io.joern.x2cpg.passes.typerelations.AliasLinkerPass completed in 1 ms (26% on mutations). 0 + 0 changes committed from 1 parts.
+[INFO ] Start of pass: io.joern.x2cpg.passes.typerelations.FieldAccessLinkerPass
+[INFO ] Pass io.joern.x2cpg.passes.typerelations.FieldAccessLinkerPass completed in 2 ms (15% on mutations). 0 + 0 changes committed from 1 parts.
+[INFO ] Start of pass: io.shiftleft.semanticcpg.Overlays$$anon$1
+[INFO ] Pass io.shiftleft.semanticcpg.Overlays$$anon$1 completed in 1 ms (68% on mutations). 1 + 0 changes committed from 1 parts.
+[INFO ] Start of pass: io.joern.x2cpg.passes.callgraph.MethodRefLinker
+[INFO ] Pass io.joern.x2cpg.passes.callgraph.MethodRefLinker completed in 1 ms (39% on mutations). 0 + 0 changes committed from 1 parts.
+[INFO ] Start of pass: io.joern.x2cpg.passes.callgraph.StaticCallLinker
+[INFO ] Pass io.joern.x2cpg.passes.callgraph.StaticCallLinker completed in 1 ms (32% on mutations). 6 + 0 changes committed from 1 parts.
+[INFO ] Start of pass: io.joern.x2cpg.passes.callgraph.DynamicCallLinker
+[INFO ] Pass io.joern.x2cpg.passes.callgraph.DynamicCallLinker completed in 8 ms (6% on mutations). 6 + 0 changes committed from 1 parts.
+[INFO ] Start of pass: io.shiftleft.semanticcpg.Overlays$$anon$1
+[INFO ] Pass io.shiftleft.semanticcpg.Overlays$$anon$1 completed in 1 ms (67% on mutations). 1 + 0 changes committed from 1 parts.
+[INFO ] Start of pass: io.joern.dataflowengineoss.passes.reachingdef.ReachingDefPass
+[INFO ] Calculating reaching definitions for: <unresolvedNamespace>.executeQuery:<unresolvedSignature>(1) in <empty>
+[INFO ] Calculating reaching definitions for: ANY.<init>:<unresolvedSignature>(1) in <empty>
+[INFO ] Calculating reaching definitions for: <unresolvedNamespace>.toString:<unresolvedSignature>(0) in <empty>
+[INFO ] Calculating reaching definitions for: <operator>.alloc in <empty>
+[INFO ] Calculating reaching definitions for: <unresolvedNamespace>.next:<unresolvedSignature>(0) in <empty>
+[INFO ] Calculating reaching definitions for: Probe22.search:boolean(java.sql.Connection,java.sql.String) in 
+[INFO ] Calculating reaching definitions for: Probe22.<init>:void() in 
+[INFO ] Calculating reaching definitions for: java.sql.Connection.createStatement:<unresolvedSignature>(0) in <empty>
+[INFO ] Number of definitions for <unresolvedNamespace>.executeQuery:<unresolvedSignature>(1): 2
+[INFO ] Number of definitions for <unresolvedNamespace>.toString:<unresolvedSignature>(0): 1
+[INFO ] Number of definitions for ANY.<init>:<unresolvedSignature>(1): 2
+[INFO ] Number of definitions for java.sql.Connection.createStatement:<unresolvedSignature>(0): 1
+[INFO ] Number of definitions for <operator>.alloc: 1
+[INFO ] Number of definitions for Probe22.<init>:void(): 1
+[INFO ] Number of definitions for <unresolvedNamespace>.next:<unresolvedSignature>(0): 1
+[INFO ] Number of definitions for Probe22.search:boolean(java.sql.Connection,java.sql.String): 31
+[INFO ] Calculating reaching definitions for: <unresolvedNamespace>.append:<unresolvedSignature>(1) in <empty>
+[INFO ] Calculating reaching definitions for: <operator>.assignment in <empty>
+[INFO ] Number of definitions for <operator>.assignment: 2
+[INFO ] Number of definitions for <unresolvedNamespace>.append:<unresolvedSignature>(1): 2
+[INFO ] Pass io.joern.dataflowengineoss.passes.reachingdef.ReachingDefPass completed in 65 ms (2% on mutations). 115 + 0 changes committed from 10 parts.
+[INFO ] Start of pass: io.shiftleft.semanticcpg.Overlays$$anon$1
+[INFO ] Pass io.shiftleft.semanticcpg.Overlays$$anon$1 completed in 1 ms (73% on mutations). 1 + 0 changes committed from 1 parts.
+CPG_RESULT_BEGIN
+FLOW_COUNT=2
+
+┌─────────────────┬──────────────────────────────────────┬────┬──────┬────┐
+│nodeType         │tracked                               │line│method│file│
+├─────────────────┼──────────────────────────────────────┼────┼──────┼────┤
+│MethodParameterIn│search(this, Connection c, String key)│4   │search│    │
+│Identifier       │createStatement()                     │7   │search│    │
+│Call             │createStatement()                     │7   │search│    │
+│Identifier       │Statement s = c.createStatement()     │7   │search│    │
+│Identifier       │executeQuery(sql)                     │8   │search│    │
+│Identifier       │executeQuery(sql)                     │8   │search│    │
+└─────────────────┴──────────────────────────────────────┴────┴──────┴────┘
+
+┌─────────────────┬───────────────────────────────────────────────────────────────────────────────────┬────┬──────┬────┐
+│nodeType         │tracked                                                                            │line│method│file│
+├─────────────────┼───────────────────────────────────────────────────────────────────────────────────┼────┼──────┼────┤
+│MethodParameterIn│search(this, Connection c, String key)                                             │4   │search│    │
+│Identifier       │append(key)                                                                        │6   │search│    │
+│Call             │append(key)                                                                        │5   │search│    │
+│Call             │append(key).append("'")                                                            │5   │search│    │
+│Call             │append(key).append("'").toString()                                                 │5   │search│    │
+│Identifier       │String sql = new StringBuilder("SELECT id FROM users WHERE username =              │5   │search│    │
+│                 │'").append(key).append("'").toString()                                             │    │      │    │
+│Identifier       │executeQuery(sql)                                                                  │8   │search│    │
+└─────────────────┴───────────────────────────────────────────────────────────────────────────────────┴────┴──────┴────┘
+CPG_RESULT_END
+[INFO ] writing to storage at `/work/workspace/Probe22.java/cpg.bin.tmp`
+[INFO ] closed graph at /work/workspace/Probe22.java/cpg.bin.tmp
+
+[STDERR]
+executing /work/slice.sc
+Using generator for language: JAVASRC: JavaSrcCpgGenerator
+Creating project `Probe22.java` for code at `/project/Clean_Code/Probe22.java`
+moving cpg.bin.zip to cpg.bin because it is already a database file
+Creating working copy of CPG to be safe
+Loading base CPG from: /work/workspace/Probe22.java/cpg.bin.tmp
+Code successfully imported. You can now query it using `cpg`.
+For an overview of all imported code, type `workspace`.
+Adding default overlays to base CPG
+The graph has been modified. You may want to use the `save` command to persist changes to disk.  All changes will also be saved collectively on exit
+The graph has been modified. You may want to use the `save` command to persist changes to disk.  All changes will also be saved collectively on exit
+Oct 01, 2026 10:52:07 AM org.jline.utils.Log logr
+WARNING: Unable to create a system terminal, creating a dumb terminal (enable debug logging for more information)
+Oct 01, 2026 10:52:07 AM org.jline.utils.Log logr
+WARNING: Unable to create a system terminal, creating a dumb terminal (enable debug logging for more information)
+closing/saving project `Probe22.java`

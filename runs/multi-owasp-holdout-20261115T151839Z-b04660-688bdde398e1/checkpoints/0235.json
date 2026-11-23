@@ -1,0 +1,115 @@
+{
+  "context_sha256": "688bdde398e102ccc7840a5476732b399e76139447eade1d112299661f317f28",
+  "row_sha256": "dfd9d493d17ef682bda7f7fdee0afb6bf9521bcc4ca53dc2e34d5f3cd395f8c7",
+  "row": {
+    "issue_id": "07951150-c656-48e8-a94d-c3d8bcd0a08a",
+    "rule": "findsecbugs:SQL_INJECTION_JDBC",
+    "component": "thesis_owasp_holdout_v1:experiments/owasp_holdout_v1/inputs/a452b3aafd232245d0753e54eb243d6651f8ef96/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01311.java",
+    "line": 53,
+    "type": "VULNERABILITY",
+    "message": "This use of java/sql/Statement.execute(Ljava/lang/String;)Z can be vulnerable to SQL injection (with JDBC)",
+    "cwe_id": "CWE-89",
+    "mapping": {
+      "cwe_id": "CWE-89",
+      "name": "SQL Injection in JDBC",
+      "supported": true,
+      "mapping_source": "https://find-sec-bugs.github.io/bugs.htm#SQL_INJECTION_JDBC",
+      "reason": ""
+    },
+    "source_sha256": "a994ead8fea2618bc3916f9ab3b0fa6c57d8ee53bb27b8946babe8adf044c870",
+    "flow_count": 3,
+    "sql_gate_version": "sql-no-flow-gate-v1",
+    "sink_call_count": 1,
+    "sink_argument_count": 1,
+    "analysis_mode": "FLOW_PRESENT",
+    "llm_invoked": true,
+    "context_size_gate": {
+      "version": "sql-source-size-v2",
+      "source_chars": 2897,
+      "cpg_chars": 7503,
+      "counted_chars": 2897,
+      "limit_chars": 10000,
+      "is_token_count": false
+    },
+    "verdict": "UNKNOWN",
+    "explanation": "Kiểm tra nguồn chưa hợp lệ: Số dòng ngoài phạm vi",
+    "evidence_lines": [],
+    "missing_context": [
+      "Kiểm tra nguồn chưa hợp lệ: Số dòng ngoài phạm vi"
+    ],
+    "error_kind": "SOURCE_AUDIT_ERROR",
+    "decision_basis": "SOURCE_AUDIT_FAILED",
+    "requires_review": true,
+    "prompt_version": "sql89-v7-stage2-plus-source-v2-explanation-2",
+    "format_normalization": "NONE",
+    "elapsed_seconds": 591.83,
+    "decision_policy_version": "sql89-compact-facts-v5",
+    "model": "qwen2.5-coder:14b-instruct-q4_K_M",
+    "ai_verdict": "UNKNOWN",
+    "review_status": "CALL_ERROR",
+    "reviewed_verdict": null,
+    "review_notes": null,
+    "cpg_usage": "eligibility_gate_only_not_sent_to_llm",
+    "baseline_ai_verdict": "LIKELY_TP",
+    "source_audit_status": "ERROR",
+    "baseline_model_assessment": {
+      "explanation": "Dữ liệu đầu vào là `param` được lấy từ request HTTP (`request.getParameter(\"BenchmarkTest01311\")`). Giá trị này sau đó được chuyển qua hàm `doSomething()` trong lớp `Test`, và kết quả được gán cho biến `bar`. Câu SQL được tạo bằng cách ghép chuỗi với giá trị của `bar` và thực thi thông qua đối tượng `Statement`. Trước khi gọi SQL, có một điều kiện kiểm tra: nếu `(500 / 42) + num > 200`, thì `bar` sẽ nhận giá trị của `param`; ngược lại, `bar` sẽ là chuỗi \"This should never happen\". Điều kiện này luôn đúng vì `(500 / 42)` kết quả là một số nhỏ hơn 12, cộng với `num = 196` sẽ luôn lớn hơn 200. Do đó, chương trình luôn đi tới lời gọi SQL. Từ những điều trên, người cung cấp đầu vào có thể làm thay đổi cấu trúc truy vấn thông qua việc nhập các ký tự đặc biệt như dấu nháy đơn (`'`) hoặc dấu chấm phẩy (`;`). Điều này cho phép kẻ tấn công chèn thêm các câu lệnh SQL khác vào chuỗi, dẫn đến việc thực thi mã SQL không mong muốn.",
+      "evidence_lines": [
+        33,
+        40,
+        48,
+        53
+      ],
+      "source_control": "CONFIRMED",
+      "sql_effect": "CHANGEABLE",
+      "missing_context": []
+    },
+    "source_audit_facts": {
+      "source_kind": "PARAMETER_ONLY",
+      "source_evidence": [
+        {
+          "line": 33
+        },
+        {
+          "line": 43
+        }
+      ],
+      "flow_evidence": [
+        {
+          "line": 67
+        },
+        {
+          "line": 71
+        },
+        {
+          "line": 78
+        },
+        {
+          "line": 48
+        },
+        {
+          "line": 53
+        }
+      ],
+      "explanation": "Dữ liệu đầu vào được lấy từ tham số 'param' của hàm doGet và doPost. Giá trị này được truyền vào phương thức doSomething trong lớp Test, sau đó được sử dụng để tạo chuỗi SQL.",
+      "missing_context": [
+        "Nơi gọi hàm doSomething đang chứa truy vấn SQL."
+      ]
+    },
+    "source_audit_reference_check": null,
+    "analysis_limitations": [],
+    "artifact_dir": "issue-0235",
+    "processing_status": "ERROR",
+    "total_seconds": 600.648,
+    "analysis_route": "sql",
+    "router_version": "multi-sql89-path22-command78-v5-sql-source-size",
+    "combined_verdict": "UNKNOWN",
+    "decision_origin": "AI_PIPELINE",
+    "ai_explanation": "Kiểm tra nguồn chưa hợp lệ: Số dòng ngoài phạm vi",
+    "ai_evidence_lines": [],
+    "ai_missing_context": [
+      "Kiểm tra nguồn chưa hợp lệ: Số dòng ngoài phạm vi"
+    ],
+    "ai_decision_basis": "SOURCE_AUDIT_FAILED"
+  }
+}

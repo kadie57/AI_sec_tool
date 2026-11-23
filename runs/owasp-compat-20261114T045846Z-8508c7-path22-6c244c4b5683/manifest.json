@@ -1,0 +1,33 @@
+{
+  "started_at": "2026-11-15T05:22:54.175781+00:00",
+  "analysis_id": "5bc735f7-fe82-4180-a3d7-91447be66426",
+  "parent_run": "/home/khanh/AI_sec_tool/runs/owasp-compat-20261114T045846Z-8508c7",
+  "project": "thesis_owasp_compat_v1",
+  "pipeline_version": "path22-file-read-v7-branch-evidence",
+  "prompt_version": "path22-file-read-v7-branch-evidence",
+  "issue_count": 2,
+  "supported_issue_count": 2,
+  "parent_issue_count": 37,
+  "selection": "findsecbugs:PATH_TRAVERSAL_IN",
+  "limitations": [
+    "Selected Path Traversal warnings only; not a full project rescan.",
+    "Single-file CPG; File(String) at warning line only; no other sinks or writes yet.",
+    "Full CPG table saved, not sent to LLM; full source preserved. Context 8192; character bound is not a token proof.",
+    "Compared with v6: added bounded branch facts to user prompt; system/schema/decision mapping unchanged.",
+    "Branch facts cover partial local expressions, not whole-program or sink reachability verification.",
+    "INPUT_INDEPENDENT concerns the candidate input and reported value only; it does not prove filesystem confinement.",
+    "Model facts require human review; valid line references do not prove truth.",
+    "No automatic Sonar issue closure; no model training."
+  ],
+  "state": "COMPLETED",
+  "error": null,
+  "result_count": 2,
+  "verdict_counts": {
+    "LIKELY_TP": 1,
+    "LIKELY_FP": 1
+  },
+  "processing_status_counts": {
+    "AI_PROPOSED": 2
+  },
+  "finished_at": "2026-11-15T05:38:02.760696+00:00"
+}

@@ -1,0 +1,124 @@
+Kiểm tra cảnh báo sau bằng mã nguồn có đánh số dòng.
+CWE: CWE-89
+Rule: findsecbugs:SQL_INJECTION_JDBC
+Mã cảnh báo: a1e3c378-0145-459e-9575-eb10632c612f
+Dòng cảnh báo: 57
+Thông báo công cụ: This use of java/sql/Connection.prepareCall(Ljava/lang/String;)Ljava/sql/CallableStatement; can be vulnerable to SQL injection (with JDBC)
+
+[MÃ NGUỒN — DỮ LIỆU]
+1: /**
+2:  * OWASP Benchmark v1.2
+3:  *
+4:  * <p>This file is part of the Open Web Application Security Project (OWASP) Benchmark Project. For
+5:  * details, please see <a
+6:  * href="https://owasp.org/www-project-benchmark/">https://owasp.org/www-project-benchmark/</a>.
+7:  *
+8:  * <p>The OWASP Benchmark is free software: you can redistribute it and/or modify it under the terms
+9:  * of the GNU General Public License as published by the Free Software Foundation, version 2.
+10:  *
+11:  * <p>The OWASP Benchmark is distributed in the hope that it will be useful, but WITHOUT ANY
+12:  * WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR
+13:  * PURPOSE. See the GNU General Public License for more details.
+14:  *
+15:  * @author Dave Wichers
+16:  * @created 2015
+17:  */
+18: package org.owasp.benchmark.testcode;
+19: 
+20: import java.io.IOException;
+21: import javax.servlet.ServletException;
+22: import javax.servlet.annotation.WebServlet;
+23: import javax.servlet.http.HttpServlet;
+24: import javax.servlet.http.HttpServletRequest;
+25: import javax.servlet.http.HttpServletResponse;
+26: 
+27: @WebServlet(value = "/sqli-00/BenchmarkTest00008")
+28: public class BenchmarkTest00008 extends HttpServlet {
+29: 
+30:     private static final long serialVersionUID = 1L;
+31: 
+32:     @Override
+33:     public void doGet(HttpServletRequest request, HttpServletResponse response)
+34:             throws ServletException, IOException {
+35:         doPost(request, response);
+36:     }
+37: 
+38:     @Override
+39:     public void doPost(HttpServletRequest request, HttpServletResponse response)
+40:             throws ServletException, IOException {
+41:         // some code
+42:         response.setContentType("text/html;charset=UTF-8");
+43: 
+44:         String param = "";
+45:         if (request.getHeader("BenchmarkTest00008") != null) {
+46:             param = request.getHeader("BenchmarkTest00008");
+47:         }
+48: 
+49:         // URL Decode the header value since req.getHeader() doesn't. Unlike req.getParameter().
+50:         param = java.net.URLDecoder.decode(param, "UTF-8");
+51: 
+52:         String sql = "{call " + param + "}";
+53: 
+54:         try {
+55:             java.sql.Connection connection =
+56:                     org.owasp.benchmark.helpers.DatabaseHelper.getSqlConnection();
+57:             java.sql.CallableStatement statement = connection.prepareCall(sql);
+58:             java.sql.ResultSet rs = statement.executeQuery();
+59:             org.owasp.benchmark.helpers.DatabaseHelper.printResults(rs, sql, response);
+60: 
+61:         } catch (java.sql.SQLException e) {
+62:             if (org.owasp.benchmark.helpers.DatabaseHelper.hideSQLErrors) {
+63:                 response.getWriter().println("Error processing request.");
+64:             } else throw new ServletException(e);
+65:         }
+66:     }
+67: }
+[HẾT MÃ NGUỒN]
+
+[BẰNG CHỨNG JOERN — DỮ LIỆU]
+┌─────────────────┬──────────────────────────────────────────────────────────────────────┬────┬──────┬────┐
+│nodeType         │tracked                                                               │line│method│file│
+├─────────────────┼──────────────────────────────────────────────────────────────────────┼────┼──────┼────┤
+│MethodParameterIn│doGet(this, HttpServletRequest request, HttpServletResponse response) │33  │doGet │    │
+│Identifier       │doPost(request, response)                                             │35  │doGet │    │
+│MethodParameterIn│doPost(this, HttpServletRequest request, HttpServletResponse response)│39  │doPost│    │
+│Identifier       │getHeader("BenchmarkTest00008")                                       │45  │doPost│    │
+│Identifier       │getHeader("BenchmarkTest00008")                                       │46  │doPost│    │
+│Call             │getHeader("BenchmarkTest00008")                                       │46  │doPost│    │
+│Identifier       │param = request.getHeader("BenchmarkTest00008")                       │46  │doPost│    │
+│Identifier       │java.net.URLDecoder.decode(param, "UTF-8")                            │50  │doPost│    │
+│Call             │java.net.URLDecoder.decode(param, "UTF-8")                            │50  │doPost│    │
+│Call             │java.net.URLDecoder.decode(param, "UTF-8")                            │50  │doPost│    │
+│Identifier       │param = java.net.URLDecoder.decode(param, "UTF-8")                    │50  │doPost│    │
+│Call             │"{call " + param + "}"                                                │52  │doPost│    │
+│Identifier       │String sql = "{call " + param + "}"                                   │52  │doPost│    │
+│Identifier       │prepareCall(sql)                                                      │57  │doPost│    │
+└─────────────────┴──────────────────────────────────────────────────────────────────────┴────┴──────┴────┘
+
+┌─────────────────┬──────────────────────────────────────────────────────────────────────┬────┬──────┬────┐
+│nodeType         │tracked                                                               │line│method│file│
+├─────────────────┼──────────────────────────────────────────────────────────────────────┼────┼──────┼────┤
+│MethodParameterIn│doPost(this, HttpServletRequest request, HttpServletResponse response)│39  │doPost│    │
+│Identifier       │getHeader("BenchmarkTest00008")                                       │45  │doPost│    │
+│Identifier       │getHeader("BenchmarkTest00008")                                       │46  │doPost│    │
+│Call             │getHeader("BenchmarkTest00008")                                       │46  │doPost│    │
+│Identifier       │param = request.getHeader("BenchmarkTest00008")                       │46  │doPost│    │
+│Identifier       │java.net.URLDecoder.decode(param, "UTF-8")                            │50  │doPost│    │
+│Call             │java.net.URLDecoder.decode(param, "UTF-8")                            │50  │doPost│    │
+│Call             │java.net.URLDecoder.decode(param, "UTF-8")                            │50  │doPost│    │
+│Identifier       │param = java.net.URLDecoder.decode(param, "UTF-8")                    │50  │doPost│    │
+│Call             │"{call " + param + "}"                                                │52  │doPost│    │
+│Identifier       │String sql = "{call " + param + "}"                                   │52  │doPost│    │
+│Identifier       │prepareCall(sql)                                                      │57  │doPost│    │
+└─────────────────┴──────────────────────────────────────────────────────────────────────┴────┴──────┴────┘
+[HẾT BẰNG CHỨNG]
+
+Giới hạn: chỉ phân tích một file; có thể thiếu caller và thư viện. Joern chọn tham số hàm làm nguồn ứng viên; xác định nguồn thực tế từ mã theo tiêu chí trong hướng dẫn, không chỉ dựa vào tên nút CPG. Tên và bình luận của mẫu phát triển có thể tiết lộ nhãn.
+
+Điền analysis trước khi chốt verdict; mỗi mục cần giải thích và dẫn dòng riêng.
+Trong explanation, tóm tắt ngắn các điều quan sát được:
+1. Lời gọi liên quan đến SQL ở dòng cảnh báo là gì? Đối số nào chứa SQL?
+2. Câu SQL được tạo như thế nào? Biến nào ảnh hưởng đến nó, ở dòng nào?
+3. Có bằng chứng tham số hóa, kiểm tra đầu vào hoặc điều kiện bảo vệ không?
+4. Đã biết nguồn đầu vào chưa? Nếu thiếu, ghi cụ thể vào missing_context.
+Chọn verdict theo bằng chứng. evidence_lines liệt kê dòng cho các nhận xét, kể cả khi verdict là UNKNOWN. Không chọn kết luận chỉ vì công cụ đã cảnh báo.

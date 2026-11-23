@@ -1,0 +1,18 @@
+{
+  "status": "PARSED_PARTIAL",
+  "version": "java-local-branch-evidence-v1",
+  "unsupported_constructs": 5,
+  "scope": "straight-line local int/boolean expressions; no sink reachability proof",
+  "facts": [],
+  "source_sha256": "0ea350eb5319c0e6ae82a68f809d076cb294291aa037b505061d00fb7b65587a",
+  "tool_hashes": {
+    "path_branch_evidence_v1.py": "5102ea222bfc02f321ea5e83f37ecd900da539e81ff8454610b4696013b5776a",
+    "PathBranchEvidence.java": "c26b50f15df81c34b6123c69008df6620e8c0a56b8cd87c8f3438d409a03a474"
+  },
+  "limitations": [
+    "Parses Java; does not execute or type-check the input program.",
+    "Local int/boolean straight-line expressions only; unknown control-flow writes invalidate values.",
+    "Selected expression is a fact at that line only, not proof of value reaching a sink.",
+    "No vulnerability label or filesystem safety conclusion."
+  ]
+}

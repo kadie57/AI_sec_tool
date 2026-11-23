@@ -1,0 +1,387 @@
+[
+  {
+    "issue_id": "4c71cb36-a6d5-4f8c-b92a-d75d21e64d26",
+    "rule": "findsecbugs:COMMAND_INJECTION",
+    "component": "project_1:Clean_Code/pilot_command78/CommandCase02.java",
+    "line": 14,
+    "message": "This usage of java/lang/Runtime.exec(Ljava/lang/String;)Ljava/lang/Process; can be vulnerable to Command Injection",
+    "cwe_id": "CWE-78",
+    "source_sha256": "f9274f4f5af8ca57de21a5a1bffafdedd27fae70ee929d54f37954a5e9c213b3",
+    "artifact_dir": "issue-0050",
+    "verdict": "LIKELY_FP",
+    "ai_verdict": "UNKNOWN",
+    "requires_review": true,
+    "review_status": "PENDING",
+    "reviewed_verdict": null,
+    "evidence_lines": [
+      9,
+      10,
+      11,
+      12,
+      13,
+      14
+    ],
+    "missing_context": [],
+    "error_kind": null,
+    "prompt_version": "command78-direct-exec-pilot-v1",
+    "model": "qwen2.5-coder:14b-instruct-q4_K_M",
+    "execution_guard": {
+      "execution_kind": "DIRECT_EXEC",
+      "supported": true,
+      "executable": "ping",
+      "command_variable": "command",
+      "evidence_lines": [
+        13,
+        14
+      ],
+      "reason": "Runtime.exec(String), tiền tố chương trình cố định; không tự gọi shell.",
+      "limitation": "Không chứng minh binary thực tế, tác động đối số hay nguồn ngoài."
+    },
+    "flow_count": 1,
+    "decision_basis": "STATIC_FINITE_IPV4_ALLOWLIST",
+    "processing_status": "AI_PROPOSED",
+    "source_kind": "EXTERNAL_READ",
+    "command_effect": "DANGEROUS_ARGUMENTS",
+    "execution_kind": "DIRECT_EXEC",
+    "model_assessment": {
+      "source": {
+        "source_kind": "EXTERNAL_READ",
+        "explanation": "Đọc đầu vào từ args của main và sử dụng trong lệnh exec.",
+        "evidence_lines": [
+          4,
+          8,
+          13,
+          14
+        ],
+        "missing_context": []
+      },
+      "command": {
+        "command_effect": "DANGEROUS_ARGUMENTS",
+        "explanation": "Đầu vào targetIp có thể điều khiển đối số của lệnh ping. Mặc dù có kiểm tra ràng buộc địa chỉ IP, nhưng nếu người dùng nhập một giá trị không được kiểm soát đầy đủ (ví dụ: '127.0.0.1; rm -rf /'), nó vẫn có thể gây ra hành vi nguy hiểm.",
+        "evidence_lines": [
+          8,
+          9,
+          13,
+          14
+        ],
+        "missing_context": [
+          "Kiểm tra kỹ lưỡng hơn về định dạng địa chỉ IP",
+          "Sử dụng mảng đối số thay vì chuỗi để tránh việc chèn lệnh"
+        ],
+        "execution_kind": "DIRECT_EXEC"
+      }
+    },
+    "explanation": "Kiểm tra tĩnh: Giá trị ngoài danh sách bị throw trước exec, không có catch hoặc thay đổi giá trị sau guard. Các IPv4 được phép không chứa khoảng trắng, không bắt đầu bằng dấu trừ; chỉ thay đổi một đối số địa chỉ trong lệnh ping cố định. Phạm vi: Chỉ cơ chế chèn lệnh/đối số do đầu vào tại lời gọi này; không đánh giá toàn bộ chương trình hoặc môi trường.",
+    "elapsed_seconds": 249.363,
+    "total_seconds": 259.393,
+    "pipeline_version": "command78-direct-exec-plus-static-v2",
+    "ai_explanation": "Nguồn: Đọc đầu vào từ args của main và sử dụng trong lệnh exec.\nLệnh: Đầu vào targetIp có thể điều khiển đối số của lệnh ping. Mặc dù có kiểm tra ràng buộc địa chỉ IP, nhưng nếu người dùng nhập một giá trị không được kiểm soát đầy đủ (ví dụ: '127.0.0.1; rm -rf /'), nó vẫn có thể gây ra hành vi nguy hiểm.",
+    "ai_evidence_lines": [
+      4,
+      8,
+      9,
+      13,
+      14
+    ],
+    "ai_missing_context": [
+      "Kiểm tra kỹ lưỡng hơn về định dạng địa chỉ IP",
+      "Sử dụng mảng đối số thay vì chuỗi để tránh việc chèn lệnh"
+    ],
+    "ai_decision_basis": "COMMAND_EFFECT_UNRESOLVED",
+    "baseline_verdict": "UNKNOWN",
+    "baseline_error_kind": null,
+    "decision_origin": "STATIC_GUARD",
+    "review_notes": null,
+    "static_seconds": 0.000664,
+    "static_assessment": {
+      "status": "PROVEN_WITHIN_BOUNDED_GRAMMAR",
+      "proposed_verdict": "LIKELY_FP",
+      "decision_basis": "STATIC_FINITE_IPV4_ALLOWLIST",
+      "execution_kind": "DIRECT_EXEC",
+      "allowed_values": [
+        "127.0.0.1",
+        "192.0.2.1"
+      ],
+      "possible_commands": [
+        "ping -c 3 127.0.0.1",
+        "ping -c 3 192.0.2.1"
+      ],
+      "evidence_lines": [
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+      ],
+      "resolved_evidence": [
+        {
+          "line": 9,
+          "code": "        if (!targetIp.equals(\"127.0.0.1\")"
+        },
+        {
+          "line": 10,
+          "code": "                && !targetIp.equals(\"192.0.2.1\")) {"
+        },
+        {
+          "line": 11,
+          "code": "            throw new IllegalArgumentException(\"Unsupported address\");"
+        },
+        {
+          "line": 12,
+          "code": "        }"
+        },
+        {
+          "line": 13,
+          "code": "        String command = \"ping -c 3 \" + targetIp;"
+        },
+        {
+          "line": 14,
+          "code": "        Process process = Runtime.getRuntime().exec(command);"
+        }
+      ],
+      "reason": "Giá trị ngoài danh sách bị throw trước exec, không có catch hoặc thay đổi giá trị sau guard. Các IPv4 được phép không chứa khoảng trắng, không bắt đầu bằng dấu trừ; chỉ thay đổi một đối số địa chỉ trong lệnh ping cố định.",
+      "scope": "Chỉ cơ chế chèn lệnh/đối số do đầu vào tại lời gọi này; không đánh giá toàn bộ chương trình hoặc môi trường.",
+      "requires_review": true
+    },
+    "static_verdict": "LIKELY_FP",
+    "model_static_disagreement": true,
+    "combined_verdict": "LIKELY_FP",
+    "analysis_route": "command",
+    "router_version": "multi-sql89-path22-command78-v2-sql-fallback"
+  },
+  {
+    "issue_id": "02583911-76f1-452b-b6a2-5aa4737da277",
+    "rule": "findsecbugs:PATH_TRAVERSAL_IN",
+    "component": "project_1:Clean_Code/pilot_path22/PathCase01.java",
+    "line": 14,
+    "message": "This API (java/io/File.<init>(Ljava/lang/String;)V) reads a file whose location might be specified by user input",
+    "cwe_id": "CWE-22",
+    "source_sha256": "cd52945fba3047ebbffb2e963993d05f26acad1be5843c5c3b203034978550a2",
+    "artifact_dir": "issue-0052",
+    "verdict": "LIKELY_TP",
+    "ai_verdict": "LIKELY_TP",
+    "requires_review": true,
+    "review_status": "PENDING",
+    "reviewed_verdict": null,
+    "evidence_lines": [
+      11,
+      13,
+      14,
+      15
+    ],
+    "missing_context": [],
+    "error_kind": null,
+    "prompt_version": "path22-file-read-pilot-v4-evidence-scope",
+    "model": "qwen2.5-coder:14b-instruct-q4_K_M",
+    "flow_count": 1,
+    "decision_basis": "EXTERNAL_SOURCE_AND_ESCAPE_REPORTED",
+    "processing_status": "AI_PROPOSED",
+    "source_kind": "EXTERNAL_READ",
+    "path_effect": "ESCAPABLE",
+    "model_assessment": {
+      "source": {
+        "source_kind": "EXTERNAL_READ",
+        "explanation": "Giá trị đầu vào từ args[0] được sử dụng để tạo đường dẫn fullPath, sau đó fullPath được truyền vào new File(fullPath).",
+        "evidence_lines": [
+          11,
+          14
+        ],
+        "missing_context": []
+      },
+      "path": {
+        "path_effect": "ESCAPABLE",
+        "explanation": "Giá trị của biến 'fileName' được nối trực tiếp với chuỗi '/var/www/uploads/' để tạo đường dẫn đầy đủ. Không có kiểm tra nào ngăn chặn hoặc giới hạn giá trị này, cho phép nó vượt ra khỏi thư mục gốc '/var/www/uploads/'. Kết quả là, nếu người dùng cung cấp một giá trị chứa ký tự traversal như '../', có thể truy cập vào các file bên ngoài thư mục uploads.",
+        "evidence_lines": [
+          13,
+          14,
+          15
+        ],
+        "missing_context": []
+      }
+    },
+    "explanation": "Kết quả đề xuất: LIKELY_TP.\nNguồn: AI báo cáo có thao tác đọc đầu vào bên ngoài tới đường dẫn.\nTác động đường dẫn: AI báo cáo giá trị có thể làm đường dẫn vượt phạm vi cho phép (ESCAPABLE). Khả năng bên ngoài khai thác còn phụ thuộc quyền kiểm soát giá trị và môi trường thực thi.\nGiới hạn: Đây là bản tóm tắt facts do AI báo cáo, không phải bước kiểm chứng ngữ nghĩa độc lập. Nhãn LIKELY_FP không xác nhận an toàn toàn ứng dụng, quyền truy cập từng file hoặc trạng thái symlink/race của filesystem. Allowlist ký tự tên file tự nó không chứng minh quyền truy cập file; thông tin thiếu ảnh hưởng kết luận phải được thẩm định riêng.\n\nGiải thích gốc của AI — giữ nguyên, có thể chứa suy diễn chưa được chứng minh:\nNguồn: Giá trị đầu vào từ args[0] được sử dụng để tạo đường dẫn fullPath, sau đó fullPath được truyền vào new File(fullPath).\nĐường dẫn: Giá trị của biến 'fileName' được nối trực tiếp với chuỗi '/var/www/uploads/' để tạo đường dẫn đầy đủ. Không có kiểm tra nào ngăn chặn hoặc giới hạn giá trị này, cho phép nó vượt ra khỏi thư mục gốc '/var/www/uploads/'. Kết quả là, nếu người dùng cung cấp một giá trị chứa ký tự traversal như '../', có thể truy cập vào các file bên ngoài thư mục uploads.",
+    "elapsed_seconds": 322.522,
+    "total_seconds": 334.298,
+    "explanation_version": "path-scoped-summary-v1",
+    "explanation_origin": "DETERMINISTIC_COMPOSITION_OF_MODEL_FACTS",
+    "explanation_original": "Nguồn: Giá trị đầu vào từ args[0] được sử dụng để tạo đường dẫn fullPath, sau đó fullPath được truyền vào new File(fullPath).\nĐường dẫn: Giá trị của biến 'fileName' được nối trực tiếp với chuỗi '/var/www/uploads/' để tạo đường dẫn đầy đủ. Không có kiểm tra nào ngăn chặn hoặc giới hạn giá trị này, cho phép nó vượt ra khỏi thư mục gốc '/var/www/uploads/'. Kết quả là, nếu người dùng cung cấp một giá trị chứa ký tự traversal như '../', có thể truy cập vào các file bên ngoài thư mục uploads.",
+    "source_explanation_original": "Giá trị đầu vào từ args[0] được sử dụng để tạo đường dẫn fullPath, sau đó fullPath được truyền vào new File(fullPath).",
+    "path_explanation_original": "Giá trị của biến 'fileName' được nối trực tiếp với chuỗi '/var/www/uploads/' để tạo đường dẫn đầy đủ. Không có kiểm tra nào ngăn chặn hoặc giới hạn giá trị này, cho phép nó vượt ra khỏi thư mục gốc '/var/www/uploads/'. Kết quả là, nếu người dùng cung cấp một giá trị chứa ký tự traversal như '../', có thể truy cập vào các file bên ngoài thư mục uploads.",
+    "explanation_limitations": [
+      "Đây là bản tóm tắt facts do AI báo cáo, không phải bước kiểm chứng ngữ nghĩa độc lập.",
+      "Nhãn LIKELY_FP không xác nhận an toàn toàn ứng dụng, quyền truy cập từng file hoặc trạng thái symlink/race của filesystem.",
+      "Allowlist ký tự tên file tự nó không chứng minh quyền truy cập file; thông tin thiếu ảnh hưởng kết luận phải được thẩm định riêng."
+    ],
+    "guard_check": {
+      "version": "path-catch-guard-check-v1",
+      "source_sha256": "cd52945fba3047ebbffb2e963993d05f26acad1be5843c5c3b203034978550a2",
+      "scope": "single main, direct regex throw/catch, unchanged value, File(String) read",
+      "status": "NOT_CHECKED",
+      "evidence_lines": [],
+      "proves_vulnerability": false,
+      "reason": "Structure outside supported grammar."
+    },
+    "numeric_check": {
+      "version": "path-numeric-conflict-v1",
+      "status": "NOT_CHECKED",
+      "evidence_lines": [],
+      "source_sha256": "cd52945fba3047ebbffb2e963993d05f26acad1be5843c5c3b203034978550a2",
+      "scope": "single main; standard Java Long decimal conversion; direct File(String) read",
+      "assumptions": [
+        "Standard java.lang types; no package-level type shadowing."
+      ],
+      "proves_filesystem_confinement": false,
+      "reason": "Structure outside supported grammar."
+    },
+    "analysis_route": "path",
+    "router_version": "multi-sql89-path22-command78-v2-sql-fallback",
+    "combined_verdict": "LIKELY_TP",
+    "decision_origin": "AI_PIPELINE",
+    "ai_explanation": "Kết quả đề xuất: LIKELY_TP.\nNguồn: AI báo cáo có thao tác đọc đầu vào bên ngoài tới đường dẫn.\nTác động đường dẫn: AI báo cáo giá trị có thể làm đường dẫn vượt phạm vi cho phép (ESCAPABLE). Khả năng bên ngoài khai thác còn phụ thuộc quyền kiểm soát giá trị và môi trường thực thi.\nGiới hạn: Đây là bản tóm tắt facts do AI báo cáo, không phải bước kiểm chứng ngữ nghĩa độc lập. Nhãn LIKELY_FP không xác nhận an toàn toàn ứng dụng, quyền truy cập từng file hoặc trạng thái symlink/race của filesystem. Allowlist ký tự tên file tự nó không chứng minh quyền truy cập file; thông tin thiếu ảnh hưởng kết luận phải được thẩm định riêng.\n\nGiải thích gốc của AI — giữ nguyên, có thể chứa suy diễn chưa được chứng minh:\nNguồn: Giá trị đầu vào từ args[0] được sử dụng để tạo đường dẫn fullPath, sau đó fullPath được truyền vào new File(fullPath).\nĐường dẫn: Giá trị của biến 'fileName' được nối trực tiếp với chuỗi '/var/www/uploads/' để tạo đường dẫn đầy đủ. Không có kiểm tra nào ngăn chặn hoặc giới hạn giá trị này, cho phép nó vượt ra khỏi thư mục gốc '/var/www/uploads/'. Kết quả là, nếu người dùng cung cấp một giá trị chứa ký tự traversal như '../', có thể truy cập vào các file bên ngoài thư mục uploads.",
+    "ai_evidence_lines": [
+      11,
+      13,
+      14,
+      15
+    ],
+    "ai_missing_context": [],
+    "ai_decision_basis": "EXTERNAL_SOURCE_AND_ESCAPE_REPORTED"
+  },
+  {
+    "issue_id": "6bacd1d9-ff72-4788-958d-a2526bf8cfae",
+    "rule": "findsecbugs:SQL_INJECTION_JDBC",
+    "component": "project_1:Clean_Code/pilot_sql89/Trial03.java",
+    "line": 23,
+    "type": "VULNERABILITY",
+    "message": "This use of java/sql/Statement.executeQuery(Ljava/lang/String;)Ljava/sql/ResultSet; can be vulnerable to SQL injection (with JDBC)",
+    "cwe_id": "CWE-89",
+    "mapping": {
+      "cwe_id": "CWE-89",
+      "name": "SQL Injection in JDBC",
+      "supported": true,
+      "mapping_source": "https://find-sec-bugs.github.io/bugs.htm#SQL_INJECTION_JDBC",
+      "reason": ""
+    },
+    "source_sha256": "72d83433543c28d8c8290283f4b33233e18403d756d66e111aab25ee315ab9a7",
+    "flow_count": 1,
+    "sql_gate_version": "sql-no-flow-gate-v1",
+    "sink_call_count": 1,
+    "sink_argument_count": 1,
+    "analysis_mode": "FLOW_PRESENT",
+    "llm_invoked": true,
+    "verdict": "LIKELY_FP",
+    "explanation": "Kết luận: LIKELY_FP. Có cơ sở đề xuất cảnh báo giả tại truy vấn này: bước phân tích SQL báo cáo cơ chế ngăn đầu vào làm thay đổi cú pháp truy vấn.\n\nNguồn dữ liệu: Kiểm tra nguồn báo cáo có thao tác đọc đầu vào bên ngoài liên quan tới truy vấn.\n\nTác động SQL: Bước 2 báo cáo có bảo vệ tại truy vấn (PROTECTED).\n\nCác dòng mã được bước 2 dẫn (cần đối chiếu lập luận):\n14:         String value = args[0];\n15:         if (!value.matches(\"[A-Za-z0-9_]{1,32}\")) {\n18:         String sql = \"SELECT id FROM users WHERE username = '\" + value + \"'\";\n23:              ResultSet result = statement.executeQuery(sql)) {",
+    "evidence_lines": [
+      14,
+      15,
+      18,
+      23
+    ],
+    "missing_context": [],
+    "error_kind": null,
+    "decision_basis": "PROTECTION_REPORTED",
+    "model_assessment": {
+      "explanation": "Kết luận: LIKELY_FP. Có cơ sở đề xuất cảnh báo giả tại truy vấn này: bước phân tích SQL báo cáo cơ chế ngăn đầu vào làm thay đổi cú pháp truy vấn.\n\nNguồn dữ liệu: Kiểm tra nguồn báo cáo có thao tác đọc đầu vào bên ngoài liên quan tới truy vấn.\n\nTác động SQL: Bước 2 báo cáo có bảo vệ tại truy vấn (PROTECTED).\n\nCác dòng mã được bước 2 dẫn (cần đối chiếu lập luận):\n14:         String value = args[0];\n15:         if (!value.matches(\"[A-Za-z0-9_]{1,32}\")) {\n18:         String sql = \"SELECT id FROM users WHERE username = '\" + value + \"'\";\n23:              ResultSet result = statement.executeQuery(sql)) {",
+      "evidence_lines": [
+        14,
+        15,
+        18,
+        23
+      ],
+      "source_control": "CONFIRMED",
+      "sql_effect": "PROTECTED",
+      "missing_context": []
+    },
+    "requires_review": true,
+    "prompt_version": "sql89-v7-stage2-plus-source-v2-explanation-2",
+    "format_normalization": "NONE",
+    "elapsed_seconds": 488.937,
+    "decision_policy_version": "sql89-compact-facts-v5",
+    "model": "qwen2.5-coder:14b-instruct-q4_K_M",
+    "ai_verdict": "LIKELY_FP",
+    "review_status": "PENDING",
+    "reviewed_verdict": null,
+    "review_notes": null,
+    "cpg_usage": "eligibility_gate_only_not_sent_to_llm",
+    "baseline_ai_verdict": "LIKELY_FP",
+    "source_audit_status": "PROPOSED_REQUIRES_REVIEW",
+    "explanation_version": "sql-source-merge-explanation-v2",
+    "explanation_origin": "DETERMINISTIC_COMPOSITION_OF_MODEL_FACTS",
+    "stage2_explanation_original": "Dữ liệu `value` được lấy từ `args[0]`, đi qua biến `sql` và được thực thi ở dòng 23 khi gọi `statement.executeQuery(sql)`. Trước lời gọi SQL, có bước kiểm tra dữ liệu với điều kiện `if (!value.matches(\"[A-Za-z0-9_]{1,32}\"))`. Điều kiện này cho phép chương trình đi tới lời gọi SQL chỉ khi `value` là một chuỗi chứa từ 1 đến 32 ký tự chữ cái, số hoặc gạch dưới. Từ những điều trên, người cung cấp đầu vào không thể làm thay đổi cấu trúc truy vấn vì có bước kiểm tra dữ liệu nghiêm ngặt trước khi tạo câu SQL. Chỉ cho phép các ký tự hợp lệ, ngăn chặn việc chèn ký tự đặc biệt như dấu nháy đơn ('), dấu chấm phẩy (;) hoặc khoảng trắng, những ký tự thường được sử dụng trong các cuộc tấn công SQL injection.",
+    "source_explanation_original": "Dòng 14 đọc giá trị đầu vào từ tham số args của main(String[] args). Dòng 18 tạo chuỗi SQL bằng cách ghép trực tiếp giá trị này. Dòng 23 thực hiện truy vấn SQL sử dụng chuỗi đã được tạo.",
+    "stage2_assessment_original": {
+      "explanation": "Dữ liệu `value` được lấy từ `args[0]`, đi qua biến `sql` và được thực thi ở dòng 23 khi gọi `statement.executeQuery(sql)`. Trước lời gọi SQL, có bước kiểm tra dữ liệu với điều kiện `if (!value.matches(\"[A-Za-z0-9_]{1,32}\"))`. Điều kiện này cho phép chương trình đi tới lời gọi SQL chỉ khi `value` là một chuỗi chứa từ 1 đến 32 ký tự chữ cái, số hoặc gạch dưới. Từ những điều trên, người cung cấp đầu vào không thể làm thay đổi cấu trúc truy vấn vì có bước kiểm tra dữ liệu nghiêm ngặt trước khi tạo câu SQL. Chỉ cho phép các ký tự hợp lệ, ngăn chặn việc chèn ký tự đặc biệt như dấu nháy đơn ('), dấu chấm phẩy (;) hoặc khoảng trắng, những ký tự thường được sử dụng trong các cuộc tấn công SQL injection.",
+      "evidence_lines": [
+        14,
+        15,
+        18,
+        23
+      ],
+      "source_control": "CONFIRMED",
+      "sql_effect": "PROTECTED",
+      "missing_context": []
+    },
+    "stage2_evidence_resolved": [
+      {
+        "line": 14,
+        "code": "        String value = args[0];"
+      },
+      {
+        "line": 15,
+        "code": "        if (!value.matches(\"[A-Za-z0-9_]{1,32}\")) {"
+      },
+      {
+        "line": 18,
+        "code": "        String sql = \"SELECT id FROM users WHERE username = '\" + value + \"'\";"
+      },
+      {
+        "line": 23,
+        "code": "             ResultSet result = statement.executeQuery(sql)) {"
+      }
+    ],
+    "source_assessment_changed": false,
+    "explanation_limitations": [
+      "Việc ghép không thẩm định ngữ nghĩa của nhận định AI hoặc chọn lại dòng bằng chứng.",
+      "Giải thích gốc từng bước được lưu riêng; nhận định nguồn bước 2 có thể đã bị sửa."
+    ],
+    "source_kind": "EXTERNAL_READ",
+    "sql_effect_reused": "PROTECTED",
+    "source_audit_facts": {
+      "source_kind": "EXTERNAL_READ",
+      "source_evidence": [
+        {
+          "line": 14
+        }
+      ],
+      "flow_evidence": [
+        {
+          "line": 18
+        },
+        {
+          "line": 23
+        }
+      ],
+      "explanation": "Dòng 14 đọc giá trị đầu vào từ tham số args của main(String[] args). Dòng 18 tạo chuỗi SQL bằng cách ghép trực tiếp giá trị này. Dòng 23 thực hiện truy vấn SQL sử dụng chuỗi đã được tạo.",
+      "missing_context": []
+    },
+    "source_audit_reference_check": "LINES_RESOLVED_REVIEW_REQUIRED",
+    "analysis_limitations": [],
+    "artifact_dir": "issue-0065",
+    "processing_status": "AI_PROPOSED",
+    "total_seconds": 500.91,
+    "analysis_route": "sql",
+    "router_version": "multi-sql89-path22-command78-v2-sql-fallback",
+    "combined_verdict": "LIKELY_FP",
+    "decision_origin": "AI_PIPELINE",
+    "ai_explanation": "Kết luận: LIKELY_FP. Có cơ sở đề xuất cảnh báo giả tại truy vấn này: bước phân tích SQL báo cáo cơ chế ngăn đầu vào làm thay đổi cú pháp truy vấn.\n\nNguồn dữ liệu: Kiểm tra nguồn báo cáo có thao tác đọc đầu vào bên ngoài liên quan tới truy vấn.\n\nTác động SQL: Bước 2 báo cáo có bảo vệ tại truy vấn (PROTECTED).\n\nCác dòng mã được bước 2 dẫn (cần đối chiếu lập luận):\n14:         String value = args[0];\n15:         if (!value.matches(\"[A-Za-z0-9_]{1,32}\")) {\n18:         String sql = \"SELECT id FROM users WHERE username = '\" + value + \"'\";\n23:              ResultSet result = statement.executeQuery(sql)) {",
+    "ai_evidence_lines": [
+      14,
+      15,
+      18,
+      23
+    ],
+    "ai_missing_context": [],
+    "ai_decision_basis": "PROTECTION_REPORTED"
+  }
+]

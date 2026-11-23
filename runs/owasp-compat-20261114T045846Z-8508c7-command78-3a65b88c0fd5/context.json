@@ -1,0 +1,75 @@
+{
+  "version": "command78-direct-plus-processbuilder-v3",
+  "script_sha256": "a1920175f8a0108a0c6e76dbf562e4c019f864201ab77070a78598f25e5d2bb7",
+  "guard_sha256": "ce7a629476266291c3e0e8fa69a6b14d299eba016cf71ac733885c59ef7edc48",
+  "collection": "/home/khanh/AI_sec_tool/runs/owasp-compat-20261114T045846Z-8508c7",
+  "manifest_sha256": "2a945fe95b874913ce674eecc56aa739ed71f00ae41f0470295714f71f2afa66",
+  "issues_sha256": "94c0f9d274b16242c860c234f6f749c5b5c3ea06985e53bb2a4a949d15f1ecc0",
+  "model": "qwen2.5-coder:14b-instruct-q4_K_M",
+  "model_digest": "9ec8897f747e246e970bc5cfdda85d22f1123dc2e3d34978a010a75968716849",
+  "joern_image_id": "sha256:f47692f8334d2eeca9fc83395023773da566ce8397563ff7c66d34a23bfc75c4",
+  "processbuilder": {
+    "version": "command78-processbuilder-context-v1",
+    "options": {
+      "temperature": 0,
+      "seed": 42,
+      "num_ctx": 8192,
+      "num_predict": 1536
+    },
+    "sources": {
+      "28d734a1-3c8b-462f-ad3c-4ee01af023b5": {
+        "caller_sha256": "8671e8cd2686594b31abba5a17021472e25c5e3d074362a164dae2a5a4e8deda",
+        "context_sha256": "c52769e5d21e4f558d803dd9812f64cb45afe443705c705f21ae2bcaa8e86a72",
+        "helpers": {},
+        "missing_context": [],
+        "eligibility": {
+          "supported": true,
+          "api_form": "COMMAND_LIST",
+          "builder_variable": "pb",
+          "argument_variable": "argList",
+          "call_name": "command",
+          "warning_line": 66,
+          "start_line": 69,
+          "evidence_lines": [
+            64,
+            66,
+            69
+          ],
+          "reason": "Một biến ProcessBuilder được cấu hình rồi gọi start trên cùng biến; descriptor Sonar khớp.",
+          "limitation": "Chỉ nhận dạng cú pháp và API; chưa chứng minh thực thi shell, đường đi khả thi hay bảo vệ."
+        }
+      },
+      "4f7fddaa-d2cb-425a-bd71-41ecd3f28efe": {
+        "caller_sha256": "edc6c2af0c174db15d58c95113dddd0080c80ea00dde63efa4fa700da0915b52",
+        "context_sha256": "4f2d564c4049d94516e9d0c2f94b3b26534168a49480528c2ef54636ba306627",
+        "helpers": {
+          "helper:org.owasp.benchmark.helpers.SeparateClassRequest": "8ec6b1867d27ebe55c79180755447ece6f98746dcfbf0127b2e4ea5646399739"
+        },
+        "missing_context": [],
+        "eligibility": {
+          "supported": true,
+          "api_form": "CONSTRUCTOR_STRING_ARRAY",
+          "builder_variable": "pb",
+          "argument_variable": "args",
+          "call_name": "<init>",
+          "warning_line": 60,
+          "start_line": 63,
+          "evidence_lines": [
+            60,
+            63
+          ],
+          "reason": "Một biến ProcessBuilder được cấu hình rồi gọi start trên cùng biến; descriptor Sonar khớp.",
+          "limitation": "Chỉ nhận dạng cú pháp và API; chưa chứng minh thực thi shell, đường đi khả thi hay bảo vệ."
+        }
+      }
+    }
+  },
+  "processbuilder_module_sha256": "bef7f10f9bc2d70fba6ad4895db30abdad1b5c1e81312035e3a96a8a3783aa47",
+  "options": {
+    "temperature": 0,
+    "seed": 42,
+    "num_ctx": 4096,
+    "num_predict": 1024
+  },
+  "ollama_url": "http://127.0.0.1:11434"
+}

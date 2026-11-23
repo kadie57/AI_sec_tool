@@ -1,0 +1,282 @@
+=======================================================================================================
+Invoking CPG generator in a separate process. Note that the new process will consume additional memory.
+If you are importing a large codebase (and/or running into memory issues), please try the following:
+1) exit joern
+2) invoke the frontend: /opt/joern/joern-cli/javasrc2cpg -J-Xmx7956m /work/input --output /work/workspace/input/cpg.bin.zip
+3) start joern, import the cpg: `importCpg("path/to/cpg")`
+=======================================================================================================
+
+[INFO ] initialising from existing storage (/work/workspace/input/cpg.bin.tmp)
+[INFO ] Start of pass: io.joern.x2cpg.passes.base.FileCreationPass
+[INFO ] Pass io.joern.x2cpg.passes.base.FileCreationPass completed in 28 ms (73% on mutations). 10 + 0 changes committed from 1 parts.
+[INFO ] Start of pass: io.joern.x2cpg.passes.base.NamespaceCreator
+[INFO ] Pass io.joern.x2cpg.passes.base.NamespaceCreator completed in 6 ms (43% on mutations). 4 + 0 changes committed from 1 parts.
+[INFO ] Start of pass: io.joern.x2cpg.passes.base.TypeDeclStubCreator
+[INFO ] Pass io.joern.x2cpg.passes.base.TypeDeclStubCreator completed in 8 ms (36% on mutations). 17 + 0 changes committed from 1 parts.
+[INFO ] Start of pass: io.joern.x2cpg.passes.base.MethodStubCreator
+[INFO ] Inconsistent/erroneous callInfo on calls to method fullname <operator>.alloc (we have 2 many variants)
+[INFO ] Pass io.joern.x2cpg.passes.base.MethodStubCreator completed in 33 ms (20% on mutations). 250 + 0 changes committed from 1 parts.
+[INFO ] Start of pass: io.joern.x2cpg.passes.base.ParameterIndexCompatPass
+[INFO ] Pass io.joern.x2cpg.passes.base.ParameterIndexCompatPass completed in 5 ms (55% on mutations). 0 + 0 changes committed from 1 parts.
+[INFO ] Start of pass: io.joern.x2cpg.passes.base.MethodDecoratorPass
+[INFO ] Pass io.joern.x2cpg.passes.base.MethodDecoratorPass completed in 12 ms (36% on mutations). 201 + 0 changes committed from 1 parts.
+[INFO ] Start of pass: io.joern.x2cpg.passes.base.AstLinkerPass
+[INFO ] Pass io.joern.x2cpg.passes.base.AstLinkerPass completed in 10 ms (25% on mutations). 45 + 0 changes committed from 1 parts.
+[INFO ] Start of pass: io.joern.x2cpg.passes.base.ContainsEdgePass
+[INFO ] Pass io.joern.x2cpg.passes.base.ContainsEdgePass completed in 7 ms (28% on mutations). 289 + 0 changes committed from 55 parts.
+[INFO ] Start of pass: io.joern.x2cpg.passes.base.TypeRefPass
+[INFO ] Pass io.joern.x2cpg.passes.base.TypeRefPass completed in 4 ms (22% on mutations). 19 + 0 changes committed from 1 parts.
+[INFO ] Start of pass: io.joern.x2cpg.passes.base.TypeEvalPass
+[INFO ] Pass io.joern.x2cpg.passes.base.TypeEvalPass completed in 7 ms (31% on mutations). 426 + 0 changes committed from 5 parts.
+[INFO ] Start of pass: io.shiftleft.semanticcpg.Overlays$$anon$1
+[INFO ] Pass io.shiftleft.semanticcpg.Overlays$$anon$1 completed in 6 ms (36% on mutations). 1 + 0 changes committed from 1 parts.
+[INFO ] Start of pass: io.joern.x2cpg.passes.controlflow.CfgCreationPass
+[WARN ] Using order fallback for try statement finally body
+[INFO ] Pass io.joern.x2cpg.passes.controlflow.CfgCreationPass completed in 51 ms (5% on mutations). 270 + 0 changes committed from 34 parts.
+[INFO ] Start of pass: io.joern.x2cpg.passes.controlflow.cfgdominator.CfgDominatorPass
+[INFO ] Pass io.joern.x2cpg.passes.controlflow.cfgdominator.CfgDominatorPass completed in 23 ms (12% on mutations). 528 + 0 changes committed from 34 parts.
+[INFO ] Start of pass: io.joern.x2cpg.passes.controlflow.codepencegraph.CdgPass
+[INFO ] Pass io.joern.x2cpg.passes.controlflow.codepencegraph.CdgPass completed in 7 ms (17% on mutations). 178 + 0 changes committed from 34 parts.
+[INFO ] Start of pass: io.shiftleft.semanticcpg.Overlays$$anon$1
+[INFO ] Pass io.shiftleft.semanticcpg.Overlays$$anon$1 completed in 1 ms (76% on mutations). 1 + 0 changes committed from 1 parts.
+[INFO ] Start of pass: io.joern.x2cpg.passes.typerelations.TypeHierarchyPass
+[INFO ] Pass io.joern.x2cpg.passes.typerelations.TypeHierarchyPass completed in 3 ms (27% on mutations). 2 + 0 changes committed from 1 parts.
+[INFO ] Start of pass: io.joern.x2cpg.passes.typerelations.AliasLinkerPass
+[INFO ] Pass io.joern.x2cpg.passes.typerelations.AliasLinkerPass completed in 2 ms (34% on mutations). 0 + 0 changes committed from 1 parts.
+[INFO ] Start of pass: io.joern.x2cpg.passes.typerelations.FieldAccessLinkerPass
+[INFO ] Could not create edge. Destination lookup failed. edgeType=REF, srcNodeType=CALL, srcNodeId=30064771103, dstNodeType=MEMBER, dstFullName=ANY.URLDecoder
+[INFO ] Could not create edge. Destination lookup failed. edgeType=REF, srcNodeType=CALL, srcNodeId=30064771104, dstNodeType=MEMBER, dstFullName=ANY.net
+[INFO ] Could not create edge. Destination lookup failed. edgeType=REF, srcNodeType=CALL, srcNodeId=30064771114, dstNodeType=MEMBER, dstFullName=ANY.TESTFILES_DIR
+[INFO ] Could not create edge. Destination lookup failed. edgeType=REF, srcNodeType=CALL, srcNodeId=30064771115, dstNodeType=MEMBER, dstFullName=ANY.Utils
+[INFO ] Could not create edge. Destination lookup failed. edgeType=REF, srcNodeType=CALL, srcNodeId=30064771116, dstNodeType=MEMBER, dstFullName=ANY.helpers
+[INFO ] Could not create edge. Destination lookup failed. edgeType=REF, srcNodeType=CALL, srcNodeId=30064771117, dstNodeType=MEMBER, dstFullName=ANY.benchmark
+[INFO ] Could not create edge. Destination lookup failed. edgeType=REF, srcNodeType=CALL, srcNodeId=30064771118, dstNodeType=MEMBER, dstFullName=ANY.owasp
+[INFO ] Could not create edge. Destination lookup failed. edgeType=REF, srcNodeType=CALL, srcNodeId=30064771136, dstNodeType=MEMBER, dstFullName=ANY.ESAPI
+[INFO ] Could not create edge. Destination lookup failed. edgeType=REF, srcNodeType=CALL, srcNodeId=30064771137, dstNodeType=MEMBER, dstFullName=ANY.esapi
+[INFO ] Could not create edge. Destination lookup failed. edgeType=REF, srcNodeType=CALL, srcNodeId=30064771138, dstNodeType=MEMBER, dstFullName=ANY.owasp
+[INFO ] Could not create edge. Destination lookup failed. edgeType=REF, srcNodeType=CALL, srcNodeId=30064771141, dstNodeType=MEMBER, dstFullName=ANY.ESAPI
+[INFO ] Could not create edge. Destination lookup failed. edgeType=REF, srcNodeType=CALL, srcNodeId=30064771142, dstNodeType=MEMBER, dstFullName=ANY.esapi
+[INFO ] Could not create edge. Destination lookup failed. edgeType=REF, srcNodeType=CALL, srcNodeId=30064771143, dstNodeType=MEMBER, dstFullName=ANY.owasp
+[INFO ] Could not create edge. Destination lookup failed. edgeType=REF, srcNodeType=CALL, srcNodeId=30064771148, dstNodeType=MEMBER, dstFullName=ANY.out
+[INFO ] Could not create edge. Destination lookup failed. edgeType=REF, srcNodeType=CALL, srcNodeId=30064771156, dstNodeType=MEMBER, dstFullName=ANY.ESAPI
+[INFO ] Could not create edge. Destination lookup failed. edgeType=REF, srcNodeType=CALL, srcNodeId=30064771157, dstNodeType=MEMBER, dstFullName=ANY.esapi
+[INFO ] Could not create edge. Destination lookup failed. edgeType=REF, srcNodeType=CALL, srcNodeId=30064771158, dstNodeType=MEMBER, dstFullName=ANY.owasp
+[INFO ] Pass io.joern.x2cpg.passes.typerelations.FieldAccessLinkerPass completed in 15 ms (5% on mutations). 2 + 0 changes committed from 1 parts.
+[INFO ] Start of pass: io.shiftleft.semanticcpg.Overlays$$anon$1
+[INFO ] Pass io.shiftleft.semanticcpg.Overlays$$anon$1 completed in 1 ms (72% on mutations). 1 + 0 changes committed from 1 parts.
+[INFO ] Start of pass: io.joern.x2cpg.passes.callgraph.MethodRefLinker
+[INFO ] Pass io.joern.x2cpg.passes.callgraph.MethodRefLinker completed in 1 ms (45% on mutations). 0 + 0 changes committed from 1 parts.
+[INFO ] Start of pass: io.joern.x2cpg.passes.callgraph.StaticCallLinker
+[INFO ] Pass io.joern.x2cpg.passes.callgraph.StaticCallLinker completed in 2 ms (30% on mutations). 74 + 0 changes committed from 2 parts.
+[INFO ] Start of pass: io.joern.x2cpg.passes.callgraph.DynamicCallLinker
+[INFO ] Pass io.joern.x2cpg.passes.callgraph.DynamicCallLinker completed in 13 ms (4% on mutations). 27 + 0 changes committed from 1 parts.
+[INFO ] Start of pass: io.shiftleft.semanticcpg.Overlays$$anon$1
+[INFO ] Pass io.shiftleft.semanticcpg.Overlays$$anon$1 completed in 1 ms (70% on mutations). 1 + 0 changes committed from 1 parts.
+[INFO ] Start of pass: io.joern.dataflowengineoss.passes.reachingdef.ReachingDefPass
+[INFO ] Calculating reaching definitions for: org.owasp.benchmark.testcode.BenchmarkTest01644.<clinit>:void() in <empty>
+[INFO ] Calculating reaching definitions for: <operator>.minus in <empty>
+[INFO ] Calculating reaching definitions for: ANY.<init>:<unresolvedSignature>(3) in <empty>
+[INFO ] Calculating reaching definitions for: <unresolvedNamespace>.length:<unresolvedSignature>(0) in <empty>
+[INFO ] Calculating reaching definitions for: <unresolvedNamespace>.getMessage:<unresolvedSignature>(0) in <empty>
+[INFO ] Calculating reaching definitions for: javax.servlet.http.HttpServletRequest.getQueryString:<unresolvedSignature>(0) in <empty>
+[INFO ] Calculating reaching definitions for: <unresolvedNamespace>.println:<unresolvedSignature>(1) in <empty>
+[INFO ] Calculating reaching definitions for: <operator>.assignment in <empty>
+[INFO ] Number of definitions for <operator>.minus: 1
+[INFO ] Number of definitions for <operator>.assignment: 2
+[INFO ] Number of definitions for <unresolvedNamespace>.println:<unresolvedSignature>(1): 2
+[INFO ] Number of definitions for <unresolvedNamespace>.getMessage:<unresolvedSignature>(0): 1
+[INFO ] Number of definitions for ANY.<init>:<unresolvedSignature>(3): 4
+[INFO ] Number of definitions for javax.servlet.http.HttpServletRequest.getQueryString:<unresolvedSignature>(0): 1
+[INFO ] Number of definitions for <unresolvedNamespace>.length:<unresolvedSignature>(0): 1
+[INFO ] Number of definitions for org.owasp.benchmark.testcode.BenchmarkTest01644.<clinit>:void(): 2
+[INFO ] Calculating reaching definitions for: void.<init>:<unresolvedSignature>(1) in <empty>
+[INFO ] Calculating reaching definitions for: <unresolvedNamespace>.read:<unresolvedSignature>(1) in <empty>
+[INFO ] Calculating reaching definitions for: <operator>.conditional in <empty>
+[INFO ] Calculating reaching definitions for: <operator>.multiplication in <empty>
+[INFO ] Calculating reaching definitions for: javax.servlet.http.HttpServletResponse.getWriter:<unresolvedSignature>(0) in <empty>
+[INFO ] Number of definitions for void.<init>:<unresolvedSignature>(1): 2
+[INFO ] Number of definitions for <operator>.multiplication: 2
+[INFO ] Number of definitions for <operator>.conditional: 3
+[INFO ] Calculating reaching definitions for: <unresolvedNamespace>.substring:<unresolvedSignature>(2) in <empty>
+[INFO ] Number of definitions for <unresolvedNamespace>.read:<unresolvedSignature>(1): 2
+[INFO ] Calculating reaching definitions for: <operator>.greaterThan in <empty>
+[INFO ] Calculating reaching definitions for: ANY.<init>:<unresolvedSignature>(1) in <empty>
+[INFO ] Calculating reaching definitions for: <unresolvedNamespace>.substring:<unresolvedSignature>(1) in <empty>
+[INFO ] Number of definitions for javax.servlet.http.HttpServletResponse.getWriter:<unresolvedSignature>(0): 1
+[INFO ] Number of definitions for <unresolvedNamespace>.substring:<unresolvedSignature>(2): 3
+[INFO ] Number of definitions for ANY.<init>:<unresolvedSignature>(1): 2
+[INFO ] Calculating reaching definitions for: <unresolvedNamespace>.close:<unresolvedSignature>(0) in <empty>
+[INFO ] Calculating reaching definitions for: <unresolvedNamespace>.indexOf:<unresolvedSignature>(1) in <empty>
+[INFO ] Number of definitions for <unresolvedNamespace>.close:<unresolvedSignature>(0): 1
+[INFO ] Calculating reaching definitions for: <operator>.equals in <empty>
+[INFO ] Number of definitions for <unresolvedNamespace>.indexOf:<unresolvedSignature>(1): 2
+[INFO ] Calculating reaching definitions for: <unresolvedNamespace>.decode:<unresolvedSignature>(2) in <empty>
+[INFO ] Calculating reaching definitions for: <operator>.addition in <empty>
+[INFO ] Number of definitions for <operator>.equals: 2
+[INFO ] Number of definitions for <unresolvedNamespace>.decode:<unresolvedSignature>(2): 3
+[INFO ] Number of definitions for <operator>.addition: 2
+[INFO ] Calculating reaching definitions for: org.owasp.benchmark.testcode.BenchmarkTest01644$Test.doSomething:<unresolvedSignature>(2) in BenchmarkTest01644.java
+[INFO ] Number of definitions for <unresolvedNamespace>.substring:<unresolvedSignature>(1): 2
+[INFO ] Calculating reaching definitions for: <unresolvedNamespace>.indexOf:<unresolvedSignature>(2) in <empty>
+[INFO ] Number of definitions for <unresolvedNamespace>.indexOf:<unresolvedSignature>(2): 3
+[INFO ] Calculating reaching definitions for: <operator>.fieldAccess in <empty>
+[INFO ] Calculating reaching definitions for: <operator>.notEquals in <empty>
+[INFO ] Calculating reaching definitions for: org.owasp.benchmark.testcode.BenchmarkTest01644.doPost:void(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse) in BenchmarkTest01644.java
+[INFO ] Number of definitions for <operator>.fieldAccess: 2
+[INFO ] Number of definitions for org.owasp.benchmark.testcode.BenchmarkTest01644$Test.doSomething:<unresolvedSignature>(2): 17
+[INFO ] Number of definitions for <operator>.notEquals: 2
+[INFO ] Calculating reaching definitions for: org.owasp.benchmark.testcode.BenchmarkTest01644.doGet:void(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse) in BenchmarkTest01644.java
+[INFO ] Calculating reaching definitions for: org.owasp.benchmark.testcode.BenchmarkTest01644.<init>:void() in BenchmarkTest01644.java
+[INFO ] Number of definitions for <operator>.greaterThan: 2
+[INFO ] Calculating reaching definitions for: <operator>.alloc in <empty>
+[INFO ] Number of definitions for org.owasp.benchmark.testcode.BenchmarkTest01644.<init>:void(): 1
+[INFO ] Number of definitions for <operator>.alloc: 2
+[INFO ] Number of definitions for org.owasp.benchmark.testcode.BenchmarkTest01644.doGet:void(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse): 7
+[INFO ] Calculating reaching definitions for: <unresolvedNamespace>.encoder:<unresolvedSignature>(0) in <empty>
+[INFO ] Calculating reaching definitions for: <unresolvedNamespace>.encodeForHTML:<unresolvedSignature>(1) in <empty>
+[INFO ] Number of definitions for <unresolvedNamespace>.encoder:<unresolvedSignature>(0): 1
+[INFO ] Calculating reaching definitions for: javax.servlet.http.HttpServletResponse.setContentType:<unresolvedSignature>(1) in <empty>
+[INFO ] Number of definitions for <unresolvedNamespace>.encodeForHTML:<unresolvedSignature>(1): 2
+[INFO ] Number of definitions for javax.servlet.http.HttpServletResponse.setContentType:<unresolvedSignature>(1): 2
+[INFO ] Calculating reaching definitions for: org.owasp.benchmark.testcode.BenchmarkTest01644$Test.<init>:void() in BenchmarkTest01644.java
+[INFO ] Number of definitions for org.owasp.benchmark.testcode.BenchmarkTest01644$Test.<init>:void(): 5
+[INFO ] Number of definitions for org.owasp.benchmark.testcode.BenchmarkTest01644.doPost:void(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse): 177
+[INFO ] Pass io.joern.dataflowengineoss.passes.reachingdef.ReachingDefPass completed in 167 ms (2% on mutations). 624 + 0 changes committed from 34 parts.
+[INFO ] Start of pass: io.shiftleft.semanticcpg.Overlays$$anon$1
+[INFO ] Pass io.shiftleft.semanticcpg.Overlays$$anon$1 completed in 1 ms (68% on mutations). 1 + 0 changes committed from 1 parts.
+CPG_RESULT_BEGIN
+FLOW_COUNT=3
+
+┌─────────────────┬───────────────────────────────────────────────────────────┬────┬───────────┬───────────────────────┐
+│nodeType         │tracked                                                    │line│method     │file                   │
+├─────────────────┼───────────────────────────────────────────────────────────┼────┼───────────┼───────────────────────┤
+│MethodParameterIn│doSomething(this, HttpServletRequest request, String param)│114 │doSomething│BenchmarkTest01644.java│
+│Call             │(7 * 18) + num > 200 ? "This_should_always_happen" : param │122 │doSomething│BenchmarkTest01644.java│
+│Identifier       │bar = (7 * 18) + num > 200 ? "This_should_always_happen" : │122 │doSomething│BenchmarkTest01644.java│
+│                 │param                                                      │    │           │                       │
+│Identifier       │return bar;                                                │124 │doSomething│BenchmarkTest01644.java│
+│Return           │return bar;                                                │124 │doSomething│BenchmarkTest01644.java│
+│MethodReturn     │RET                                                        │114 │doSomething│BenchmarkTest01644.java│
+│Call             │doSomething(request, param)                                │70  │doPost     │BenchmarkTest01644.java│
+│Identifier       │String bar = new Test().doSomething(request, param)        │70  │doPost     │BenchmarkTest01644.java│
+│Call             │org.owasp.benchmark.helpers.Utils.TESTFILES_DIR + bar      │76  │doPost     │BenchmarkTest01644.java│
+│Identifier       │fileName = org.owasp.benchmark.helpers.Utils.TESTFILES_DIR │76  │doPost     │BenchmarkTest01644.java│
+│                 │+ bar                                                      │    │           │                       │
+│Identifier       │new java.io.File(fileName)                                 │77  │doPost     │BenchmarkTest01644.java│
+└─────────────────┴───────────────────────────────────────────────────────────┴────┴───────────┴───────────────────────┘
+
+┌─────────────────┬───────────────────────────────────────────────────────────┬────┬───────────┬───────────────────────┐
+│nodeType         │tracked                                                    │line│method     │file                   │
+├─────────────────┼───────────────────────────────────────────────────────────┼────┼───────────┼───────────────────────┤
+│MethodParameterIn│doGet(this, HttpServletRequest request, HttpServletResponse│33  │doGet      │BenchmarkTest01644.java│
+│                 │response)                                                  │    │           │                       │
+│Identifier       │doPost(request, response)                                  │35  │doGet      │BenchmarkTest01644.java│
+│MethodParameterIn│doPost(this, HttpServletRequest request,                   │39  │doPost     │BenchmarkTest01644.java│
+│                 │HttpServletResponse response)                              │    │           │                       │
+│Identifier       │getQueryString()                                           │43  │doPost     │BenchmarkTest01644.java│
+│Call             │getQueryString()                                           │43  │doPost     │BenchmarkTest01644.java│
+│Identifier       │String queryString = request.getQueryString()              │43  │doPost     │BenchmarkTest01644.java│
+│Identifier       │queryString != null                                        │46  │doPost     │BenchmarkTest01644.java│
+│Identifier       │indexOf(paramval)                                          │46  │doPost     │BenchmarkTest01644.java│
+│Call             │indexOf(paramval)                                          │46  │doPost     │BenchmarkTest01644.java│
+│Identifier       │paramLoc = queryString.indexOf(paramval)                   │46  │doPost     │BenchmarkTest01644.java│
+│Identifier       │paramLoc == -1                                             │47  │doPost     │BenchmarkTest01644.java│
+│Call             │paramLoc + paramval.length()                               │58  │doPost     │BenchmarkTest01644.java│
+│Identifier       │substring(paramLoc + paramval.length())                    │57  │doPost     │BenchmarkTest01644.java│
+│Identifier       │indexOf("&", paramLoc)                                     │64  │doPost     │BenchmarkTest01644.java│
+│Call             │indexOf("&", paramLoc)                                     │64  │doPost     │BenchmarkTest01644.java│
+│Identifier       │int ampersandLoc = queryString.indexOf("&", paramLoc)      │64  │doPost     │BenchmarkTest01644.java│
+│Identifier       │ampersandLoc != -1                                         │65  │doPost     │BenchmarkTest01644.java│
+│Identifier       │substring(paramLoc + paramval.length(), ampersandLoc)      │66  │doPost     │BenchmarkTest01644.java│
+│Call             │paramLoc + paramval.length()                               │66  │doPost     │BenchmarkTest01644.java│
+│Identifier       │substring(paramLoc + paramval.length(), ampersandLoc)      │66  │doPost     │BenchmarkTest01644.java│
+│Call             │substring(paramLoc + paramval.length(), ampersandLoc)      │66  │doPost     │BenchmarkTest01644.java│
+│Identifier       │param = queryString.substring(paramLoc + paramval.length(),│66  │doPost     │BenchmarkTest01644.java│
+│                 │ampersandLoc)                                              │    │           │                       │
+│Identifier       │java.net.URLDecoder.decode(param, "UTF-8")                 │68  │doPost     │BenchmarkTest01644.java│
+│Call             │java.net.URLDecoder.decode(param, "UTF-8")                 │68  │doPost     │BenchmarkTest01644.java│
+│Call             │java.net.URLDecoder.decode(param, "UTF-8")                 │68  │doPost     │BenchmarkTest01644.java│
+│Identifier       │param = java.net.URLDecoder.decode(param, "UTF-8")         │68  │doPost     │BenchmarkTest01644.java│
+│Identifier       │doSomething(request, param)                                │70  │doPost     │BenchmarkTest01644.java│
+│MethodParameterIn│doSomething(this, HttpServletRequest request, String param)│114 │doSomething│BenchmarkTest01644.java│
+│Call             │(7 * 18) + num > 200 ? "This_should_always_happen" : param │122 │doSomething│BenchmarkTest01644.java│
+│Identifier       │bar = (7 * 18) + num > 200 ? "This_should_always_happen" : │122 │doSomething│BenchmarkTest01644.java│
+│                 │param                                                      │    │           │                       │
+│Identifier       │return bar;                                                │124 │doSomething│BenchmarkTest01644.java│
+│Return           │return bar;                                                │124 │doSomething│BenchmarkTest01644.java│
+│MethodReturn     │RET                                                        │114 │doSomething│BenchmarkTest01644.java│
+│Call             │doSomething(request, param)                                │70  │doPost     │BenchmarkTest01644.java│
+│Identifier       │String bar = new Test().doSomething(request, param)        │70  │doPost     │BenchmarkTest01644.java│
+│Call             │org.owasp.benchmark.helpers.Utils.TESTFILES_DIR + bar      │76  │doPost     │BenchmarkTest01644.java│
+│Identifier       │fileName = org.owasp.benchmark.helpers.Utils.TESTFILES_DIR │76  │doPost     │BenchmarkTest01644.java│
+│                 │+ bar                                                      │    │           │                       │
+│Identifier       │new java.io.File(fileName)                                 │77  │doPost     │BenchmarkTest01644.java│
+└─────────────────┴───────────────────────────────────────────────────────────┴────┴───────────┴───────────────────────┘
+
+┌─────────────────┬───────────────────────────────────────────────────────────┬────┬───────────┬───────────────────────┐
+│nodeType         │tracked                                                    │line│method     │file                   │
+├─────────────────┼───────────────────────────────────────────────────────────┼────┼───────────┼───────────────────────┤
+│MethodParameterIn│doPost(this, HttpServletRequest request,                   │39  │doPost     │BenchmarkTest01644.java│
+│                 │HttpServletResponse response)                              │    │           │                       │
+│Identifier       │getQueryString()                                           │43  │doPost     │BenchmarkTest01644.java│
+│Call             │getQueryString()                                           │43  │doPost     │BenchmarkTest01644.java│
+│Identifier       │String queryString = request.getQueryString()              │43  │doPost     │BenchmarkTest01644.java│
+│Identifier       │queryString != null                                        │46  │doPost     │BenchmarkTest01644.java│
+│Identifier       │indexOf(paramval)                                          │46  │doPost     │BenchmarkTest01644.java│
+│Call             │indexOf(paramval)                                          │46  │doPost     │BenchmarkTest01644.java│
+│Identifier       │paramLoc = queryString.indexOf(paramval)                   │46  │doPost     │BenchmarkTest01644.java│
+│Identifier       │paramLoc == -1                                             │47  │doPost     │BenchmarkTest01644.java│
+│Call             │paramLoc + paramval.length()                               │58  │doPost     │BenchmarkTest01644.java│
+│Identifier       │substring(paramLoc + paramval.length())                    │57  │doPost     │BenchmarkTest01644.java│
+│Identifier       │indexOf("&", paramLoc)                                     │64  │doPost     │BenchmarkTest01644.java│
+│Call             │indexOf("&", paramLoc)                                     │64  │doPost     │BenchmarkTest01644.java│
+│Identifier       │int ampersandLoc = queryString.indexOf("&", paramLoc)      │64  │doPost     │BenchmarkTest01644.java│
+│Identifier       │ampersandLoc != -1                                         │65  │doPost     │BenchmarkTest01644.java│
+│Identifier       │substring(paramLoc + paramval.length(), ampersandLoc)      │66  │doPost     │BenchmarkTest01644.java│
+│Call             │paramLoc + paramval.length()                               │66  │doPost     │BenchmarkTest01644.java│
+│Identifier       │substring(paramLoc + paramval.length(), ampersandLoc)      │66  │doPost     │BenchmarkTest01644.java│
+│Call             │substring(paramLoc + paramval.length(), ampersandLoc)      │66  │doPost     │BenchmarkTest01644.java│
+│Identifier       │param = queryString.substring(paramLoc + paramval.length(),│66  │doPost     │BenchmarkTest01644.java│
+│                 │ampersandLoc)                                              │    │           │                       │
+│Identifier       │java.net.URLDecoder.decode(param, "UTF-8")                 │68  │doPost     │BenchmarkTest01644.java│
+│Call             │java.net.URLDecoder.decode(param, "UTF-8")                 │68  │doPost     │BenchmarkTest01644.java│
+│Call             │java.net.URLDecoder.decode(param, "UTF-8")                 │68  │doPost     │BenchmarkTest01644.java│
+│Identifier       │param = java.net.URLDecoder.decode(param, "UTF-8")         │68  │doPost     │BenchmarkTest01644.java│
+│Identifier       │doSomething(request, param)                                │70  │doPost     │BenchmarkTest01644.java│
+│MethodParameterIn│doSomething(this, HttpServletRequest request, String param)│114 │doSomething│BenchmarkTest01644.java│
+│Call             │(7 * 18) + num > 200 ? "This_should_always_happen" : param │122 │doSomething│BenchmarkTest01644.java│
+│Identifier       │bar = (7 * 18) + num > 200 ? "This_should_always_happen" : │122 │doSomething│BenchmarkTest01644.java│
+│                 │param                                                      │    │           │                       │
+│Identifier       │return bar;                                                │124 │doSomething│BenchmarkTest01644.java│
+│Return           │return bar;                                                │124 │doSomething│BenchmarkTest01644.java│
+│MethodReturn     │RET                                                        │114 │doSomething│BenchmarkTest01644.java│
+│Call             │doSomething(request, param)                                │70  │doPost     │BenchmarkTest01644.java│
+│Identifier       │String bar = new Test().doSomething(request, param)        │70  │doPost     │BenchmarkTest01644.java│
+│Call             │org.owasp.benchmark.helpers.Utils.TESTFILES_DIR + bar      │76  │doPost     │BenchmarkTest01644.java│
+│Identifier       │fileName = org.owasp.benchmark.helpers.Utils.TESTFILES_DIR │76  │doPost     │BenchmarkTest01644.java│
+│                 │+ bar                                                      │    │           │                       │
+│Identifier       │new java.io.File(fileName)                                 │77  │doPost     │BenchmarkTest01644.java│
+└─────────────────┴───────────────────────────────────────────────────────────┴────┴───────────┴───────────────────────┘
+CPG_RESULT_END
+[INFO ] writing to storage at `/work/workspace/input/cpg.bin.tmp`
+[INFO ] closed graph at /work/workspace/input/cpg.bin.tmp
+
+[STDERR]
+executing /work/slice.sc
+Using generator for language: JAVASRC: JavaSrcCpgGenerator
+Creating project `input` for code at `/work/input`
+moving cpg.bin.zip to cpg.bin because it is already a database file
+Creating working copy of CPG to be safe
+Loading base CPG from: /work/workspace/input/cpg.bin.tmp
+Code successfully imported. You can now query it using `cpg`.
+For an overview of all imported code, type `workspace`.
+Adding default overlays to base CPG
+The graph has been modified. You may want to use the `save` command to persist changes to disk.  All changes will also be saved collectively on exit
+The graph has been modified. You may want to use the `save` command to persist changes to disk.  All changes will also be saved collectively on exit
+Nov 23, 2026 2:22:52 AM org.jline.utils.Log logr
+WARNING: Unable to create a system terminal, creating a dumb terminal (enable debug logging for more information)
+Nov 23, 2026 2:22:52 AM org.jline.utils.Log logr
+WARNING: Unable to create a system terminal, creating a dumb terminal (enable debug logging for more information)
+Nov 23, 2026 2:22:52 AM org.jline.utils.Log logr
+WARNING: Unable to create a system terminal, creating a dumb terminal (enable debug logging for more information)
+closing/saving project `input`

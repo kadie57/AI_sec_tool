@@ -1,0 +1,149 @@
+{
+  "issue_id": "d2d8166a-90af-4679-8c1d-7b87d662292a",
+  "rule": "findsecbugs:SQL_INJECTION_JDBC",
+  "component": "thesis_owasp_holdout_v1:experiments/owasp_holdout_v1/inputs/a452b3aafd232245d0753e54eb243d6651f8ef96/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02186.java",
+  "line": 53,
+  "source_sha256": "18f6c9fdd5a391894ae09fdab9414cf3dfefbb029062625f8137ff2eb4bc7690",
+  "artifact_dir": "issue-0470",
+  "verdict": "UNKNOWN",
+  "explanation": "Kết luận: UNKNOWN. Chưa đủ cơ sở kết luận TP/FP: còn thiếu ngữ cảnh cần thiết.\n\nNguồn dữ liệu: Kiểm tra nguồn báo cáo có thao tác đọc đầu vào bên ngoài liên quan tới truy vấn.\n\nTác động SQL: Bước 2 báo cáo dữ liệu có thể thay đổi cú pháp SQL (CHANGEABLE). Điều này tự nó chưa chứng minh nguồn do người bên ngoài kiểm soát.\n\nThông tin còn thiếu: Chi tiết về cách thức xử lý của hàm `doSomething()` và các lớp hỗ trợ khác như `ThingInterface` và `ThingFactory`.\n\nChính sách ghép giữ lại mục thiếu chưa được xác định là câu hỏi riêng về nguồn; việc tìm thấy đầu vào HTTP không thay thế nội dung helper hoặc phân tích tác động SQL.\n\nCác dòng mã được bước 2 dẫn (cần đối chiếu lập luận):\n33:     public void doGet(HttpServletRequest request, HttpServletResponse response)\n40:             throws ServletException, IOException {\n48:         String sql = \"SELECT * from USERS where USERNAME='foo' and PASSWORD='\" + bar + \"'\";\n53:             statement.execute(sql);",
+  "evidence_lines": [
+    33,
+    40,
+    48,
+    53
+  ],
+  "missing_context": [
+    "Chi tiết về cách thức xử lý của hàm `doSomething()` và các lớp hỗ trợ khác như `ThingInterface` và `ThingFactory`."
+  ],
+  "error_kind": null,
+  "decision_basis": "MISSING_CONTEXT",
+  "model_assessment": {
+    "explanation": "Kết luận: UNKNOWN. Chưa đủ cơ sở kết luận TP/FP: còn thiếu ngữ cảnh cần thiết.\n\nNguồn dữ liệu: Kiểm tra nguồn báo cáo có thao tác đọc đầu vào bên ngoài liên quan tới truy vấn.\n\nTác động SQL: Bước 2 báo cáo dữ liệu có thể thay đổi cú pháp SQL (CHANGEABLE). Điều này tự nó chưa chứng minh nguồn do người bên ngoài kiểm soát.\n\nThông tin còn thiếu: Chi tiết về cách thức xử lý của hàm `doSomething()` và các lớp hỗ trợ khác như `ThingInterface` và `ThingFactory`.\n\nChính sách ghép giữ lại mục thiếu chưa được xác định là câu hỏi riêng về nguồn; việc tìm thấy đầu vào HTTP không thay thế nội dung helper hoặc phân tích tác động SQL.\n\nCác dòng mã được bước 2 dẫn (cần đối chiếu lập luận):\n33:     public void doGet(HttpServletRequest request, HttpServletResponse response)\n40:             throws ServletException, IOException {\n48:         String sql = \"SELECT * from USERS where USERNAME='foo' and PASSWORD='\" + bar + \"'\";\n53:             statement.execute(sql);",
+    "evidence_lines": [
+      33,
+      40,
+      48,
+      53
+    ],
+    "source_control": "CONFIRMED",
+    "sql_effect": "CHANGEABLE",
+    "missing_context": [
+      "Chi tiết về cách thức xử lý của hàm `doSomething()` và các lớp hỗ trợ khác như `ThingInterface` và `ThingFactory`."
+    ]
+  },
+  "requires_review": true,
+  "gap_resolution": [
+    {
+      "index": 0,
+      "scope": "SOURCE_ORIGIN",
+      "resolved": false,
+      "evidence_lines": [
+        33
+      ],
+      "reason": "Dữ liệu đầu vào từ HTTP request được lấy ở dòng 33 thông qua `request.getParameter(\"BenchmarkTest02186\")`.",
+      "original_gap": "Chi tiết về cách thức xử lý của hàm `doSomething()` và các lớp hỗ trợ khác như `ThingInterface` và `ThingFactory`.",
+      "model_reported_resolved": true,
+      "merge_policy_version": "legacy-source-only-gap-guard-v1",
+      "legacy_source_only_eligible": false,
+      "merge_disposition": "RETAINED",
+      "origin": "MODEL_REVIEW_WITH_CONSERVATIVE_TEXT_GUARD_NOT_SEMANTIC_PROOF"
+    }
+  ],
+  "source_gap_merge_policy_version": "legacy-source-only-gap-guard-v1",
+  "gap_resolution_origin": "MODEL_REVIEW_WITH_CONSERVATIVE_TEXT_GUARD_NOT_SEMANTIC_PROOF",
+  "explanation_version": "sql-source-merge-explanation-v2",
+  "explanation_origin": "DETERMINISTIC_COMPOSITION_OF_MODEL_FACTS",
+  "stage2_explanation_original": "Dữ liệu đầu vào là `param` được lấy từ request parameter \"BenchmarkTest02186\". Giá trị này đi qua hàm `doSomething()` và sau đó được gán cho biến `bar`. Câu SQL được tạo bằng cách ghép chuỗi với giá trị của `bar`, và cuối cùng câu SQL này được thực thi ở dòng 53 thông qua phương thức `execute()` của đối tượng `Statement`. Trước khi gọi SQL, có một bước biến đổi dữ liệu là hàm `doSomething()`. Tuy nhiên, không có bất kỳ kiểm tra hoặc biến đổi nào cụ thể được thực hiện trên giá trị của `param` trước khi nó được sử dụng trong câu SQL. Điều kiện cho phép chương trình đi tới lời gọi SQL là chỉ cần có request parameter \"BenchmarkTest02186\" tồn tại (có thể là rỗng). Từ những điều trên, người cung cấp đầu vào có thể làm thay đổi cấu trúc truy vấn thông qua việc nhập các ký tự đặc biệt như dấu nháy đơn ('), dấu chấm phẩy (;) hoặc ký tự escape khác. Điều này cho phép họ đóng chuỗi hiện tại và mở một chuỗi mới, có thể chứa các câu lệnh SQL bổ sung.",
+  "source_explanation_original": "Dữ liệu đầu vào từ HTTP request được lấy ở dòng 33 thông qua `request.getParameter(\"BenchmarkTest02186\")`. Dữ liệu này sau đó được xử lý bởi hàm `doSomething()` và sử dụng trong câu SQL tại dòng 48.",
+  "stage2_assessment_original": {
+    "explanation": "Dữ liệu đầu vào là `param` được lấy từ request parameter \"BenchmarkTest02186\". Giá trị này đi qua hàm `doSomething()` và sau đó được gán cho biến `bar`. Câu SQL được tạo bằng cách ghép chuỗi với giá trị của `bar`, và cuối cùng câu SQL này được thực thi ở dòng 53 thông qua phương thức `execute()` của đối tượng `Statement`. Trước khi gọi SQL, có một bước biến đổi dữ liệu là hàm `doSomething()`. Tuy nhiên, không có bất kỳ kiểm tra hoặc biến đổi nào cụ thể được thực hiện trên giá trị của `param` trước khi nó được sử dụng trong câu SQL. Điều kiện cho phép chương trình đi tới lời gọi SQL là chỉ cần có request parameter \"BenchmarkTest02186\" tồn tại (có thể là rỗng). Từ những điều trên, người cung cấp đầu vào có thể làm thay đổi cấu trúc truy vấn thông qua việc nhập các ký tự đặc biệt như dấu nháy đơn ('), dấu chấm phẩy (;) hoặc ký tự escape khác. Điều này cho phép họ đóng chuỗi hiện tại và mở một chuỗi mới, có thể chứa các câu lệnh SQL bổ sung.",
+    "evidence_lines": [
+      33,
+      40,
+      48,
+      53
+    ],
+    "source_control": "CONFIRMED",
+    "sql_effect": "CHANGEABLE",
+    "missing_context": [
+      "Chi tiết về cách thức xử lý của hàm `doSomething()` và các lớp hỗ trợ khác như `ThingInterface` và `ThingFactory`."
+    ]
+  },
+  "stage2_evidence_resolved": [
+    {
+      "line": 33,
+      "code": "    public void doGet(HttpServletRequest request, HttpServletResponse response)"
+    },
+    {
+      "line": 40,
+      "code": "            throws ServletException, IOException {"
+    },
+    {
+      "line": 48,
+      "code": "        String sql = \"SELECT * from USERS where USERNAME='foo' and PASSWORD='\" + bar + \"'\";"
+    },
+    {
+      "line": 53,
+      "code": "            statement.execute(sql);"
+    }
+  ],
+  "source_assessment_changed": false,
+  "explanation_limitations": [
+    "Việc ghép không thẩm định ngữ nghĩa của nhận định AI hoặc chọn lại dòng bằng chứng.",
+    "Giải thích gốc từng bước được lưu riêng; nhận định nguồn bước 2 có thể đã bị sửa."
+  ],
+  "prompt_version": "sql-source-http-gap-review-v4",
+  "decision_policy_version": "sql89-compact-facts-v5",
+  "review_status": "PENDING",
+  "reviewed_verdict": null,
+  "ai_verdict": "LIKELY_TP",
+  "baseline_ai_verdict": "UNKNOWN",
+  "source_kind": "EXTERNAL_READ",
+  "sql_effect_reused": "CHANGEABLE",
+  "model": "qwen2.5-coder:14b-instruct-q4_K_M",
+  "analysis_route": "sql",
+  "combined_verdict": "UNKNOWN",
+  "previous_final_verdict": "LIKELY_TP",
+  "previous_error_kind": null,
+  "stage2_verdict_reused": "UNKNOWN",
+  "stage2_sql_effect_reused": "CHANGEABLE",
+  "processing_status": "AI_PROPOSED",
+  "source_audit_facts": {
+    "source_kind": "EXTERNAL_READ",
+    "source_evidence": [
+      {
+        "line": 33
+      }
+    ],
+    "flow_evidence": [
+      {
+        "line": 48
+      },
+      {
+        "line": 53
+      }
+    ],
+    "explanation": "Dữ liệu đầu vào từ HTTP request được lấy ở dòng 33 thông qua `request.getParameter(\"BenchmarkTest02186\")`. Dữ liệu này sau đó được xử lý bởi hàm `doSomething()` và sử dụng trong câu SQL tại dòng 48.",
+    "missing_context": []
+  },
+  "source_audit_error_kind": null,
+  "source_audit_attempt_count": 1,
+  "gap_reviews": [
+    {
+      "index": 0,
+      "scope": "SOURCE_ORIGIN",
+      "resolved": true,
+      "evidence_lines": [
+        33
+      ],
+      "reason": "Dữ liệu đầu vào từ HTTP request được lấy ở dòng 33 thông qua `request.getParameter(\"BenchmarkTest02186\")`."
+    }
+  ],
+  "elapsed_seconds": 124.414,
+  "elapsed_scope": "saved_source_attempts_only",
+  "decision_origin": "SAVED_MODEL_OUTPUTS_WITH_SOURCE_GAP_GUARD",
+  "source_audit_version_reused": "sql-source-http-gap-review-v4",
+  "merge_policy_version": "legacy-source-only-gap-guard-v1",
+  "new_model_calls": 0
+}

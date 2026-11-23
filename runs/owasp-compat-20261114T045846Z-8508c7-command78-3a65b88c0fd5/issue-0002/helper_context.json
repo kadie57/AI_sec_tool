@@ -1,0 +1,14 @@
+{
+  "caller_sha256": "edc6c2af0c174db15d58c95113dddd0080c80ea00dde63efa4fa700da0915b52",
+  "benchmark_commit": "a452b3aafd232245d0753e54eb243d6651f8ef96",
+  "files": {
+    "helper:org.owasp.benchmark.helpers.SeparateClassRequest": {
+      "file_id": "helper:org.owasp.benchmark.helpers.SeparateClassRequest",
+      "path": "src/main/java/org/owasp/benchmark/helpers/SeparateClassRequest.java",
+      "sha256": "8ec6b1867d27ebe55c79180755447ece6f98746dcfbf0127b2e4ea5646399739",
+      "source": "/**\n * OWASP Benchmark Project\n *\n * <p>This file is part of the Open Web Application Security Project (OWASP) Benchmark Project For\n * details, please see <a\n * href=\"https://owasp.org/www-project-benchmark/\">https://owasp.org/www-project-benchmark/</a>.\n *\n * <p>The OWASP Benchmark is free software: you can redistribute it and/or modify it under the terms\n * of the GNU General Public License as published by the Free Software Foundation, version 2.\n *\n * <p>The OWASP Benchmark is distributed in the hope that it will be useful, but WITHOUT ANY\n * WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR\n * PURPOSE. See the GNU General Public License for more details\n *\n * @author Dave Wichers\n * @created 2015\n */\npackage org.owasp.benchmark.helpers;\n\nimport javax.servlet.http.Cookie;\nimport javax.servlet.http.HttpServletRequest;\n\npublic class SeparateClassRequest {\n    private HttpServletRequest request;\n\n    public SeparateClassRequest(HttpServletRequest request) {\n        this.request = request;\n    }\n\n    public String getTheParameter(String p) {\n        return request.getParameter(p);\n    }\n\n    public String getTheCookie(String c) {\n        Cookie[] cookies = request.getCookies();\n\n        String value = \"\";\n\n        if (cookies != null) {\n            for (Cookie cookie : cookies) {\n                if (cookie.getName().equals(c)) {\n                    value = cookie.getValue();\n                    break;\n                }\n            }\n        }\n\n        return value;\n    }\n\n    // This method is a 'safe' source.\n    public String getTheValue(String p) {\n        return \"bar\";\n    }\n}\n"
+    }
+  },
+  "missing_context": [],
+  "scope": "one-hop explicit local constructor types; full helper text, no interprocedural CPG"
+}

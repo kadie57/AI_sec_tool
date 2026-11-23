@@ -1,0 +1,6 @@
+{
+  "flow_count": 1,
+  "paths": "┌─────────────────┬────────────────────────────────────────────────────┬────┬──────┬────┐\n│nodeType         │tracked                                             │line│method│file│\n├─────────────────┼────────────────────────────────────────────────────┼────┼──────┼────┤\n│MethodParameterIn│main(String[] args)                                 │4   │main  │    │\n│Call             │parseLong(args[0])                                  │6   │main  │    │\n│Call             │parseLong(args[0])                                  │6   │main  │    │\n│Identifier       │long id = Long.parseLong(args[0])                   │6   │main  │    │\n│Call             │\"SELECT id FROM users WHERE id = \" + id             │7   │main  │    │\n│Identifier       │String sql = \"SELECT id FROM users WHERE id = \" + id│7   │main  │    │\n│Identifier       │executeQuery(sql)                                   │10  │main  │    │\n└─────────────────┴────────────────────────────────────────────────────┴────┴──────┴────┘",
+  "scope": "single_file",
+  "source_policy": "all_non_receiver_parameters_are_candidates"
+}

@@ -1,0 +1,66 @@
+--- before/master_pipeline.py
++++ after/master_pipeline.py
+@@ -20,9 +20,12 @@
+ from cwe_mapper import get_cwe_info, MAPPING_VERSION
+ from iris_prompter import build_advanced_iris_prompt, ask_ollama_local, unknown_result, PROMPT_VERSION
+ 
+-PIPELINE_VERSION = "baseline-repair-1+sql-no-flow-gate-v1"
++PIPELINE_VERSION = "baseline-repair-1+sql-no-flow-gate-v1+sql-source-size-v2"
+ # Enabled only by the updated multi adapter after its configuration checks.
+ SQL_NO_FLOW_FALLBACK = False
++# Enable only for adapters whose model requests omit the CPG text.
++# This is a source-character cap, NOT an estimate of model tokens.
++SQL_SIZE_GATE_SOURCE_ONLY = False
+ 
+ 
+ def save_json(path, value):
+@@ -230,11 +233,17 @@
+                     analysis_mode=("SOURCE_ONLY_NO_FLOW" if fallback else
+                                    "FLOW_PRESENT" if evidence["flow_count"] else "NOT_ANALYZED"),
+                     llm_invoked=False)
++        size_chars = len(raw) + (0 if SQL_SIZE_GATE_SOURCE_ONLY else len(evidence["paths"]))
++        base["context_size_gate"] = {
++            "version": "sql-source-size-v2" if SQL_SIZE_GATE_SOURCE_ONLY else "legacy-source-plus-cpg-v1",
++            "source_chars": len(raw), "cpg_chars": len(evidence["paths"]),
++            "counted_chars": size_chars, "limit_chars": 10000,
++            "is_token_count": False,
++        }
+         if not evidence["flow_count"] and not fallback:
+             result = unknown_result("Không có flow phù hợp vùng dòng cảnh báo; chưa đủ kết luận an toàn.", "NO_MATCHING_FLOW")
+-        elif len(raw) + len(evidence["paths"]) > 10000:
+-            # Early conservative size gate for tiny-model prototype, not a tokenizer.
+-            result = unknown_result("Ngữ cảnh vượt ngân sách mẫu nhỏ; cần trích lát cắt trước.", "CONTEXT_TOO_LARGE")
++        elif size_chars > 10000:
++            result = unknown_result("Đầu vào vượt giới hạn ký tự sơ bộ; cần kiểm tra ngữ cảnh trước khi phân tích.", "CONTEXT_TOO_LARGE")
+         else:
+             prompt_issue = {**issue, "line": issue_range(issue)[0]}
+             prompt = build_advanced_iris_prompt(issue["rule"], raw, evidence["paths"], prompt_issue)
+--- before/master_pipeline_multi_v1.py
++++ after/master_pipeline_multi_v1.py
+@@ -19,7 +19,7 @@
+ from collections import Counter
+ from datetime import datetime, timezone
+ 
+-VERSION = "multi-sql89-path22-command78-v4-command-repair"
++VERSION = "multi-sql89-path22-command78-v5-sql-source-size"
+ RULES = {
+     "findsecbugs:SQL_INJECTION_JDBC": ("sql", "CWE-89"),
+     "findbugs:SQL_INJECTION_JDBC": ("sql", "CWE-89"),
+@@ -138,10 +138,16 @@
+                 if kind == "sql" and not module.pipeline.get_cwe_info(rule)["supported"]:
+                     raise ValueError("SQL registry cũ không hỗ trợ " + rule)
+             module.pipeline.SQL_NO_FLOW_FALLBACK = True
++            # ask_integrated rebuilds requests from numbered Java only; CPG text
++            # remains an artifact/gate and is not part of any SQL model request.
++            module.pipeline.SQL_SIZE_GATE_SOURCE_ONLY = True
+             module.pipeline.ask_ollama_local = module.integrated.ask_integrated
+             module.pipeline.analyze_issue = module.base.analyze_issue
+             module.pipeline.PROMPT_VERSION = module.VERSION
+-            config[route] = {"sql_gate_version": "sql-no-flow-gate-v1", "no_flow_fallback": True, "version": module.VERSION, "model": module.core.MODEL,
++            config[route] = {"sql_gate_version": "sql-no-flow-gate-v1", "no_flow_fallback": True,
++                "size_gate": {"version": "sql-source-size-v2", "source_limit_chars": 10000,
++                              "cpg_counted": False, "token_checks": "unchanged_in_each_model_stage"},
++                "version": module.VERSION, "model": module.core.MODEL,
+                 "expected_digest": module.audit.DIGEST,
+                 "stage1_template": module.base.TEMPLATE, "questions": module.base.QUESTIONS,
+                 "stage2_request": module.base.v6.make_request(module.core.make_request("1: sample", 1), "draft"),

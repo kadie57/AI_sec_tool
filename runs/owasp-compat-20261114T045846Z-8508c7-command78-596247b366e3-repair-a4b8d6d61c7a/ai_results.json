@@ -1,0 +1,231 @@
+[
+  {
+    "issue_id": "28d734a1-3c8b-462f-ad3c-4ee01af023b5",
+    "rule": "findsecbugs:COMMAND_INJECTION",
+    "component": "thesis_owasp_compat_v1:experiments/owasp_compat_v1/inputs/a452b3aafd232245d0753e54eb243d6651f8ef96/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00006.java",
+    "line": 66,
+    "message": "This usage of java/lang/ProcessBuilder.command(Ljava/util/List;)Ljava/lang/ProcessBuilder; can be vulnerable to Command Injection",
+    "cwe_id": "CWE-78",
+    "source_sha256": "8671e8cd2686594b31abba5a17021472e25c5e3d074362a164dae2a5a4e8deda",
+    "artifact_dir": "issue-0001",
+    "verdict": "LIKELY_TP",
+    "ai_verdict": "LIKELY_TP",
+    "requires_review": true,
+    "review_status": "PENDING",
+    "reviewed_verdict": null,
+    "evidence_lines": [
+      45,
+      62,
+      64,
+      66,
+      69
+    ],
+    "helper_evidence": [],
+    "missing_context": [],
+    "error_kind": null,
+    "prompt_version": "command78-processbuilder-context-v2-source-contract",
+    "pipeline_version": "command78-direct-plus-processbuilder-v3",
+    "model": "qwen2.5-coder:14b-instruct-q4_K_M",
+    "decision_origin": "AI_PIPELINE",
+    "static_assessment": {
+      "status": "NOT_APPLICABLE",
+      "reason": "Runtime.exec allowlist guard không áp dụng cho ProcessBuilder."
+    },
+    "execution_guard": {
+      "supported": true,
+      "api_form": "COMMAND_LIST",
+      "builder_variable": "pb",
+      "argument_variable": "argList",
+      "call_name": "command",
+      "warning_line": 66,
+      "start_line": 69,
+      "evidence_lines": [
+        64,
+        66,
+        69
+      ],
+      "reason": "Một biến ProcessBuilder được cấu hình rồi gọi start trên cùng biến; descriptor Sonar khớp.",
+      "limitation": "Chỉ nhận dạng cú pháp và API; chưa chứng minh thực thi shell, đường đi khả thi hay bảo vệ."
+    },
+    "helper_context_sha256": "c52769e5d21e4f558d803dd9812f64cb45afe443705c705f21ae2bcaa8e86a72",
+    "helper_hashes": {},
+    "flow_count": 2,
+    "cpg_usage": "compact_api_and_flow_counts_sent; full_paths_saved; zero_flow_not_safety_proof",
+    "processing_status": "AI_PROPOSED",
+    "decision_basis": "EXTERNAL_SOURCE_AND_COMMAND_EFFECT_REPORTED",
+    "source_kind": "EXTERNAL_READ",
+    "execution_kind": "SHELL_EXEC",
+    "command_effect": "DANGEROUS_ARGUMENTS",
+    "model_assessment": {
+      "source": {
+        "source_kind": "EXTERNAL_READ",
+        "explanation": "Giá trị của biến 'param' được đọc từ request header 'BenchmarkTest00006'. Sau đó, giá trị này được thêm vào danh sách đối số của ProcessBuilder. Giá trị cuối cùng của đối số lệnh là 'echo ' + param', trong đó 'param' có nguồn gốc từ request.",
+        "evidence_lines": [
+          45,
+          62
+        ],
+        "helper_evidence": [],
+        "missing_context": []
+      },
+      "command": {
+        "explanation": "Trong đoạn mã nguồn, giá trị của biến 'param' được lấy từ header HTTP request và sau đó được thêm vào danh sách lệnh của ProcessBuilder mà không có bất kỳ biện pháp bảo vệ nào. Điều này cho phép người dùng truyền vào các tham số độc hại để thực hiện command injection.",
+        "evidence_lines": [
+          64,
+          66,
+          69
+        ],
+        "helper_evidence": [],
+        "missing_context": [],
+        "execution_kind": "SHELL_EXEC",
+        "command_effect": "DANGEROUS_ARGUMENTS"
+      }
+    },
+    "explanation": "Nguồn: Giá trị của biến 'param' được đọc từ request header 'BenchmarkTest00006'. Sau đó, giá trị này được thêm vào danh sách đối số của ProcessBuilder. Giá trị cuối cùng của đối số lệnh là 'echo ' + param', trong đó 'param' có nguồn gốc từ request.\nLệnh: Trong đoạn mã nguồn, giá trị của biến 'param' được lấy từ header HTTP request và sau đó được thêm vào danh sách lệnh của ProcessBuilder mà không có bất kỳ biện pháp bảo vệ nào. Điều này cho phép người dùng truyền vào các tham số độc hại để thực hiện command injection.",
+    "elapsed_seconds": 323.733,
+    "total_seconds": 331.68,
+    "combined_verdict": "LIKELY_TP",
+    "ai_explanation": "Nguồn: Giá trị của biến 'param' được đọc từ request header 'BenchmarkTest00006'. Sau đó, giá trị này được thêm vào danh sách đối số của ProcessBuilder. Giá trị cuối cùng của đối số lệnh là 'echo ' + param', trong đó 'param' có nguồn gốc từ request.\nLệnh: Trong đoạn mã nguồn, giá trị của biến 'param' được lấy từ header HTTP request và sau đó được thêm vào danh sách lệnh của ProcessBuilder mà không có bất kỳ biện pháp bảo vệ nào. Điều này cho phép người dùng truyền vào các tham số độc hại để thực hiện command injection.",
+    "ai_evidence_lines": [
+      45,
+      62,
+      64,
+      66,
+      69
+    ],
+    "ai_missing_context": [],
+    "ai_decision_basis": "EXTERNAL_SOURCE_AND_COMMAND_EFFECT_REPORTED",
+    "continuation": {
+      "parent_run": "/home/khanh/AI_sec_tool/runs/owasp-compat-20261114T045846Z-8508c7-command78-596247b366e3",
+      "mode": "REUSED_VALID_RESULT",
+      "parent_row_sha256": "27e1f75d731f9546f398f1aa27faf6ea976c793803b85714cbf9e63333dc2802",
+      "cpg_reused": true,
+      "helper_context_reused": true
+    }
+  },
+  {
+    "issue_id": "4f7fddaa-d2cb-425a-bd71-41ecd3f28efe",
+    "rule": "findsecbugs:COMMAND_INJECTION",
+    "component": "thesis_owasp_compat_v1:experiments/owasp_compat_v1/inputs/a452b3aafd232245d0753e54eb243d6651f8ef96/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00051.java",
+    "line": 60,
+    "message": "This usage of java/lang/ProcessBuilder.<init>([Ljava/lang/String;)V can be vulnerable to Command Injection",
+    "cwe_id": "CWE-78",
+    "source_sha256": "edc6c2af0c174db15d58c95113dddd0080c80ea00dde63efa4fa700da0915b52",
+    "artifact_dir": "issue-0002",
+    "verdict": "UNKNOWN",
+    "ai_verdict": "UNKNOWN",
+    "requires_review": true,
+    "review_status": "PENDING",
+    "reviewed_verdict": null,
+    "evidence_lines": [
+      60,
+      63
+    ],
+    "helper_evidence": [
+      {
+        "file_id": "helper:org.owasp.benchmark.helpers.SeparateClassRequest",
+        "line": 53
+      }
+    ],
+    "missing_context": [
+      "Thiếu thông tin về nơi gọi và nguồn của tham số 'param' từ phương thức getTheValue."
+    ],
+    "error_kind": null,
+    "prompt_version": "command78-processbuilder-context-v3-bounded-repair",
+    "pipeline_version": "command78-direct-plus-processbuilder-v4-bounded-repair",
+    "model": "qwen2.5-coder:14b-instruct-q4_K_M",
+    "decision_origin": "AI_PIPELINE",
+    "static_assessment": {
+      "status": "NOT_APPLICABLE",
+      "reason": "Runtime.exec allowlist guard không áp dụng cho ProcessBuilder."
+    },
+    "execution_guard": {
+      "supported": true,
+      "api_form": "CONSTRUCTOR_STRING_ARRAY",
+      "builder_variable": "pb",
+      "argument_variable": "args",
+      "call_name": "<init>",
+      "warning_line": 60,
+      "start_line": 63,
+      "evidence_lines": [
+        60,
+        63
+      ],
+      "reason": "Một biến ProcessBuilder được cấu hình rồi gọi start trên cùng biến; descriptor Sonar khớp.",
+      "limitation": "Chỉ nhận dạng cú pháp và API; chưa chứng minh thực thi shell, đường đi khả thi hay bảo vệ."
+    },
+    "helper_context_sha256": "4f2d564c4049d94516e9d0c2f94b3b26534168a49480528c2ef54636ba306627",
+    "helper_hashes": {
+      "helper:org.owasp.benchmark.helpers.SeparateClassRequest": "8ec6b1867d27ebe55c79180755447ece6f98746dcfbf0127b2e4ea5646399739"
+    },
+    "flow_count": 2,
+    "cpg_usage": "compact_api_and_flow_counts_sent; full_paths_saved; zero_flow_not_safety_proof",
+    "stage_attempts": {
+      "source": {
+        "attempt_count": 2,
+        "repair_used": true,
+        "initial_error": "Kết luận không phụ thuộc đầu vào phải dẫn helper đã cung cấp.",
+        "final_attempt": "llm_source_repair.json"
+      },
+      "command": {
+        "attempt_count": 1,
+        "repair_used": false,
+        "initial_error": null,
+        "final_attempt": "llm_command.json"
+      }
+    },
+    "processing_status": "AI_PROPOSED",
+    "decision_basis": "SOURCE_UNRESOLVED_OR_CONFLICT",
+    "source_kind": "PARAMETER_ONLY",
+    "execution_kind": "SHELL_EXEC",
+    "command_effect": "DANGEROUS_ARGUMENTS",
+    "model_assessment": {
+      "source": {
+        "source_kind": "PARAMETER_ONLY",
+        "explanation": "Giá trị cuối cùng của đối số lệnh phụ thuộc vào tham số 'param' từ phương thức getTheValue của lớp helper SeparateClassRequest, nhưng thiếu thông tin về nơi gọi và nguồn của tham số này.",
+        "evidence_lines": [
+          60
+        ],
+        "helper_evidence": [],
+        "missing_context": [
+          "Thiếu thông tin về nơi gọi và nguồn của tham số 'param' từ phương thức getTheValue."
+        ]
+      },
+      "command": {
+        "explanation": "Phân tích mã nguồn Java để xác định rủi ro Command Injection.",
+        "evidence_lines": [
+          60,
+          63
+        ],
+        "helper_evidence": [
+          {
+            "file_id": "helper:org.owasp.benchmark.helpers.SeparateClassRequest",
+            "line": 53
+          }
+        ],
+        "missing_context": [],
+        "execution_kind": "SHELL_EXEC",
+        "command_effect": "DANGEROUS_ARGUMENTS"
+      }
+    },
+    "explanation": "Nguồn: Giá trị cuối cùng của đối số lệnh phụ thuộc vào tham số 'param' từ phương thức getTheValue của lớp helper SeparateClassRequest, nhưng thiếu thông tin về nơi gọi và nguồn của tham số này.\nLệnh: Phân tích mã nguồn Java để xác định rủi ro Command Injection.",
+    "elapsed_seconds": 550.187,
+    "total_seconds": 407.93,
+    "combined_verdict": "UNKNOWN",
+    "ai_explanation": "Nguồn: Giá trị cuối cùng của đối số lệnh phụ thuộc vào tham số 'param' từ phương thức getTheValue của lớp helper SeparateClassRequest, nhưng thiếu thông tin về nơi gọi và nguồn của tham số này.\nLệnh: Phân tích mã nguồn Java để xác định rủi ro Command Injection.",
+    "ai_evidence_lines": [
+      60,
+      63
+    ],
+    "ai_missing_context": [
+      "Thiếu thông tin về nơi gọi và nguồn của tham số 'param' từ phương thức getTheValue."
+    ],
+    "ai_decision_basis": "SOURCE_UNRESOLVED_OR_CONFLICT",
+    "continuation": {
+      "parent_run": "/home/khanh/AI_sec_tool/runs/owasp-compat-20261114T045846Z-8508c7-command78-596247b366e3",
+      "mode": "VALIDATION_REPAIR",
+      "parent_row_sha256": "6b5a3f8965e415425c4e8280fe1b6ca3075a3dd49f9f976b12a7c15602fdb5d1",
+      "cpg_reused": true,
+      "helper_context_reused": true
+    }
+  }
+]

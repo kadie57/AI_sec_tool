@@ -1,0 +1,58 @@
+{
+  "context_sha256": "f56d1218dcb6b1382a0ddf3947ed56b57bc779f4411fd5395661d96ae3e34620",
+  "row_sha256": "1529e0d3a6954ed1e776ebf139c4cc9bb83a5beea2343f3b688a3b9ed82433c1",
+  "row": {
+    "issue_id": "19a19d05-2fc4-4a74-97eb-6173af049766",
+    "rule": "findsecbugs:COMMAND_INJECTION",
+    "component": "thesis_owasp_holdout_v1:experiments/owasp_holdout_v1/inputs/a452b3aafd232245d0753e54eb243d6651f8ef96/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00406.java",
+    "line": 74,
+    "message": "This usage of java/lang/Runtime.exec([Ljava/lang/String;)Ljava/lang/Process; can be vulnerable to Command Injection",
+    "cwe_id": "CWE-78",
+    "source_sha256": "40f53c46b5a118106ef0138902b4f266eade669f1beb9dfb461ebf172baf6371",
+    "artifact_dir": "issue-0028",
+    "verdict": "UNKNOWN",
+    "ai_verdict": null,
+    "requires_review": true,
+    "review_status": "PENDING",
+    "reviewed_verdict": null,
+    "evidence_lines": [],
+    "missing_context": [
+      "Cần Runtime.getRuntime().exec(biến_String) tại dòng cảnh báo."
+    ],
+    "error_kind": "UNSUPPORTED_EXECUTION_FORM",
+    "prompt_version": "command78-direct-exec-pilot-v1",
+    "model": "qwen2.5-coder:14b-instruct-q4_K_M",
+    "execution_guard": {
+      "execution_kind": "UNRESOLVED",
+      "supported": false,
+      "reason": "Cần Runtime.getRuntime().exec(biến_String) tại dòng cảnh báo.",
+      "evidence_lines": []
+    },
+    "processing_status": "ABSTAINED",
+    "explanation": "Cần Runtime.getRuntime().exec(biến_String) tại dòng cảnh báo.",
+    "total_seconds": 0.001,
+    "pipeline_version": "command78-direct-plus-processbuilder-v4-bounded-repair",
+    "ai_explanation": "Cần Runtime.getRuntime().exec(biến_String) tại dòng cảnh báo.",
+    "ai_evidence_lines": [],
+    "ai_missing_context": [
+      "Cần Runtime.getRuntime().exec(biến_String) tại dòng cảnh báo."
+    ],
+    "ai_decision_basis": null,
+    "baseline_verdict": "UNKNOWN",
+    "baseline_error_kind": "UNSUPPORTED_EXECUTION_FORM",
+    "decision_origin": "AI_PIPELINE",
+    "review_notes": null,
+    "static_seconds": 0.000139,
+    "static_assessment": {
+      "status": "NOT_PROVEN",
+      "reason": "Code không khớp toàn bộ cấu trúc Java đơn giản được hỗ trợ.",
+      "proposed_verdict": null,
+      "evidence_lines": []
+    },
+    "static_verdict": null,
+    "model_static_disagreement": false,
+    "combined_verdict": "UNKNOWN",
+    "analysis_route": "command",
+    "router_version": "multi-sql89-path22-command78-v4-command-repair"
+  }
+}

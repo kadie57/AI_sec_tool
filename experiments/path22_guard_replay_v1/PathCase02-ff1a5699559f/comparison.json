@@ -1,0 +1,73 @@
+{
+  "sample": "PathCase02",
+  "version": "path22-guard-reconciliation-v1",
+  "provenance": {
+    "version": "path22-guard-reconciliation-v1",
+    "run": "/home/khanh/AI_sec_tool/runs/20261008T111154Z-7381f6-path22-9d6bc58dab9d",
+    "sample": "PathCase02",
+    "source_sha256": "46432cdaabbead130d0b7d63f663400275aec5101ceb32c3bc6aa6130e2a599c",
+    "old_request_sha256": "b06a7a2ab81df77b3056ce8751d5f991acfe989a6e0a18bb8861177bb906db38",
+    "old_result_sha256": "6ca3e4f39cbcb63aaf153c348fd817456fdfb499b5215c70791e8179028d1671",
+    "model_digest": "9ec8897f747e246e970bc5cfdda85d22f1123dc2e3d34978a010a75968716849",
+    "core_sha256": "92e51ac15b543fc895e81f49195fee50118462cc3ac6aac51da875b697b15a2b",
+    "script_sha256": "414dfbcfc1395e47caa553389f19b1d83561a7426e85838a3acbe215536b31b1"
+  },
+  "changed": [
+    "Append generic guard-reconciliation guidance to system prompt"
+  ],
+  "unchanged": [
+    "Model/digest",
+    "Java source",
+    "Joern flow",
+    "User prompt",
+    "Schema",
+    "Options"
+  ],
+  "before": {
+    "path_effect": "ESCAPABLE",
+    "explanation": "The code constructs a file path by concatenating a user-controlled input (`fileName`) with a fixed directory (`/var/www/uploads/`). The `fileName` is validated to match the regex `[A-Za-z0-9_]{1,32}`, but this validation does not prevent path traversal. An attacker could provide a filename like `../../etc/passwd`, which would result in reading `/var/www/uploads/../../etc/passwd`, effectively traversing out of the intended directory.",
+    "evidence_lines": [
+      16
+    ],
+    "missing_context": []
+  },
+  "after": {
+    "path_effect": "CONFINED",
+    "explanation": "Giá trị đầu vào `fileName` được kiểm tra bằng regex `[A-Za-z0-9_]{1,32}` trước khi được sử dụng để tạo đường dẫn đầy đủ. Regex này chỉ cho phép các ký tự chữ cái, số và gạch dưới trong phạm vi từ 1 đến 32 ký tự. Nếu giá trị không thỏa mãn điều kiện này, một ngoại lệ `IllegalArgumentException` sẽ được ném ra. Do đó, mọi giá trị hợp lệ của `fileName` đều bị giới hạn trong thư mục `/var/www/uploads/`, đảm bảo rằng đường dẫn file không thể vượt ra khỏi phạm vi cho phép.",
+    "evidence_lines": [
+      12,
+      15,
+      16,
+      17
+    ],
+    "missing_context": []
+  },
+  "resolved_evidence": [
+    {
+      "line": 12,
+      "code": "        if (!fileName.matches(\"[A-Za-z0-9_]{1,32}\")) {"
+    },
+    {
+      "line": 15,
+      "code": "        String fullPath = \"/var/www/uploads/\" + fileName;"
+    },
+    {
+      "line": 16,
+      "code": "        File file = new File(fullPath);"
+    },
+    {
+      "line": 17,
+      "code": "        try (FileInputStream input = new FileInputStream(file)) {"
+    }
+  ],
+  "error_kind": null,
+  "error": null,
+  "elapsed_seconds": 183.888,
+  "requires_review": true,
+  "integrated": false,
+  "limitations": [
+    "One development sample; no accuracy claim.",
+    "No final verdict recomputed; source assessment remains unchanged.",
+    "Original run and expert reviews remain unchanged."
+  ]
+}

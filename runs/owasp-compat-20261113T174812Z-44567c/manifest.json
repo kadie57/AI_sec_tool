@@ -1,0 +1,31 @@
+{
+  "state": "FAILED",
+  "pipeline_version": "owasp-compat-six-v1",
+  "project": "thesis_owasp_compat_v1",
+  "started_at": "2026-11-13T17:48:12.767383+00:00",
+  "benchmark_commit": "a452b3aafd232245d0753e54eb243d6651f8ef96",
+  "purpose": "compatibility_development_only",
+  "excluded_from_final_evaluation": [
+    "BenchmarkTest00008",
+    "BenchmarkTest00052",
+    "BenchmarkTest00001",
+    "BenchmarkTest00063",
+    "BenchmarkTest00006",
+    "BenchmarkTest00051"
+  ],
+  "collector_sha256": "1b2e23ab94d01c12d354931b6b6ea4c93846282f245854b427b3da8d5e309f14",
+  "pipeline_hashes": {
+    "master_pipeline.py": "dd0165e2145edc00fa76506a6cb08380d58b2fcf7e97eb957cd5edcda156660c",
+    "master_pipeline_multi_v1.py": "a892b15c5e002259e2bc70b87cf5f73d8fec44c7f9426587c3b2df71d0c9b382",
+    "path_triage_v2.py": "d122b0cacb92beb006ff764498dec89b52c1295630b62c2a474449d0eced9004",
+    "command_triage_v2.py": "65e7808640c35c349c1cf338f254233808997465e0777d23841ff3daec82ade8"
+  },
+  "limitations": [
+    "Six compatibility samples, not a final accuracy dataset.",
+    "Only issues API; hotspots are not collected.",
+    "Original benchmark labels and identifiers retained in source; no LLM called.",
+    "Existing analyzers use single-file context and bounded sink support."
+  ],
+  "error": "SonarQube chưa UP; khởi động xong rồi chạy lại.",
+  "finished_at": "2026-11-13T17:48:12.999479+00:00"
+}

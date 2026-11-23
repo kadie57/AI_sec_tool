@@ -1,0 +1,41 @@
+{
+  "version": "path22-file-read-v6-value-flow",
+  "source_sha256": "a83e78f8e9dd7b941c19eb2709429a2b7bec32b8921c193f3d02c4a04097a4b7",
+  "source_scope": "full_original_file",
+  "source_lines": 106,
+  "source_chars": 4395,
+  "full_cpg_paths_chars": 5565,
+  "full_cpg_paths_sha256": "61c89409c35de3914643762a005ae85c3d8e2fcf33df9b544e5fdddb0df9dcb1",
+  "cpg_usage": "eligibility_gate_and_count_only_full_paths_saved_not_sent",
+  "requests": {
+    "source": {
+      "serialized_chars": 8588,
+      "serialized_utf8_bytes": 9368,
+      "max_serialized_chars": 20000,
+      "note": "Character preflight only; actual prompt_eval_count is checked after generation."
+    },
+    "path": {
+      "serialized_chars": 8907,
+      "serialized_utf8_bytes": 9786,
+      "max_serialized_chars": 20000,
+      "note": "Character preflight only; actual prompt_eval_count is checked after generation."
+    }
+  },
+  "options": {
+    "temperature": 0,
+    "seed": 42,
+    "num_ctx": 8192,
+    "num_predict": 1024
+  },
+  "changed_from_v5": [
+    "Rewrite source/path guidance around actual value and feasible branches",
+    "Add FIXED_VALUE and INPUT_INDEPENDENT with a separate scoped decision basis"
+  ],
+  "unchanged_from_v5": [
+    "Full source and line numbers",
+    "Model and generation options",
+    "Compact CPG metadata",
+    "Joern query",
+    "Static checks"
+  ]
+}

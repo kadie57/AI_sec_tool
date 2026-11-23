@@ -1,0 +1,13 @@
+.analysis-page .panel{padding:24px;margin:20px 0}
+.analysis-page form{display:block}
+.analysis-page select{max-width:100%;margin:12px 6px 12px 0}
+.analysis-page button{margin:8px 8px 8px 0}
+.analysis-page td:first-child{min-width:0}
+.analysis-page input[type=checkbox]{width:20px;height:20px;accent-color:#174e60}
+.analysis-page li{margin:8px 0}
+.analysis-page pre{font:13px/1.65 ui-monospace,monospace;background:#f5f8fb;border-radius:8px;padding:16px}
+.analysis-page .panel>h2{margin-bottom:12px}
+.analysis-page label[for=project],.analysis-page label[for=sonar_token]{display:block;font-weight:600;margin:18px 0 6px}
+.analysis-page #project,.analysis-page #sonar_token{display:block;width:min(100%,480px)}
+.analysis-page button:disabled{background:#84929f;cursor:not-allowed}
+@media(max-width:650px){.analysis-page .panel{padding:15px}.analysis-page select{width:100%}.analysis-page button{width:100%;margin-right:0}}

@@ -1,0 +1,940 @@
+[
+  {
+    "issue_id": "4d121161-a6b3-45b5-9181-7500a5b0a789",
+    "rule": "findsecbugs:SQL_INJECTION_JDBC",
+    "component": "project_1:Clean_Code/eval_followup21/Sample101.java",
+    "line": 12,
+    "type": "VULNERABILITY",
+    "message": "This use of java/sql/Statement.executeQuery(Ljava/lang/String;)Ljava/sql/ResultSet; can be vulnerable to SQL injection (with JDBC)",
+    "cwe_id": "CWE-89",
+    "mapping": {
+      "cwe_id": "CWE-89",
+      "name": "SQL Injection in JDBC",
+      "supported": true,
+      "mapping_source": "https://find-sec-bugs.github.io/bugs.htm#SQL_INJECTION_JDBC",
+      "reason": ""
+    },
+    "source_sha256": "3d7f577e3d0394911f5da817fe12a3cc6e54462180244b3a02c4e01cc73894b5",
+    "flow_count": 1,
+    "sql_gate_version": "sql-no-flow-gate-v1",
+    "sink_call_count": 1,
+    "sink_argument_count": 1,
+    "analysis_mode": "FLOW_PRESENT",
+    "llm_invoked": true,
+    "verdict": "LIKELY_TP",
+    "explanation": "Kết luận: LIKELY_TP. Có cơ sở đề xuất cảnh báo đúng: kiểm tra nguồn báo cáo đầu vào bên ngoài và phân tích SQL báo cáo khả năng thay đổi cú pháp truy vấn.\n\nNguồn dữ liệu: Kiểm tra nguồn báo cáo có thao tác đọc đầu vào bên ngoài liên quan tới truy vấn.\n\nTác động SQL: Bước 2 báo cáo dữ liệu có thể thay đổi cú pháp SQL (CHANGEABLE). Điều này tự nó chưa chứng minh nguồn do người bên ngoài kiểm soát.\n\nCác dòng mã được bước 2 dẫn (cần đối chiếu lập luận):\n6:         String value = args[0];\n7:         if (!value.matches(\"[A-Za-z0-9_]{1,32}\")) return;\n9:         String sql = \"SELECT id FROM users WHERE username = '\" + value + \"'\";\n12:              java.sql.ResultSet result = statement.executeQuery(sql)) {",
+    "evidence_lines": [
+      6,
+      7,
+      8,
+      9,
+      12
+    ],
+    "missing_context": [],
+    "error_kind": null,
+    "decision_basis": "EXTERNAL_CONTROL_AND_CHANGEABLE_SQL_REPORTED",
+    "model_assessment": {
+      "explanation": "Kết luận: LIKELY_TP. Có cơ sở đề xuất cảnh báo đúng: kiểm tra nguồn báo cáo đầu vào bên ngoài và phân tích SQL báo cáo khả năng thay đổi cú pháp truy vấn.\n\nNguồn dữ liệu: Kiểm tra nguồn báo cáo có thao tác đọc đầu vào bên ngoài liên quan tới truy vấn.\n\nTác động SQL: Bước 2 báo cáo dữ liệu có thể thay đổi cú pháp SQL (CHANGEABLE). Điều này tự nó chưa chứng minh nguồn do người bên ngoài kiểm soát.\n\nCác dòng mã được bước 2 dẫn (cần đối chiếu lập luận):\n6:         String value = args[0];\n7:         if (!value.matches(\"[A-Za-z0-9_]{1,32}\")) return;\n9:         String sql = \"SELECT id FROM users WHERE username = '\" + value + \"'\";\n12:              java.sql.ResultSet result = statement.executeQuery(sql)) {",
+      "evidence_lines": [
+        6,
+        7,
+        8,
+        9,
+        12
+      ],
+      "source_control": "CONFIRMED",
+      "sql_effect": "CHANGEABLE",
+      "missing_context": []
+    },
+    "requires_review": true,
+    "prompt_version": "sql89-v7-stage2-plus-source-v2-explanation-2",
+    "format_normalization": "NONE",
+    "elapsed_seconds": 390.206,
+    "decision_policy_version": "sql89-compact-facts-v5",
+    "model": "qwen2.5-coder:14b-instruct-q4_K_M",
+    "ai_verdict": "LIKELY_TP",
+    "review_status": "PENDING",
+    "reviewed_verdict": null,
+    "review_notes": null,
+    "cpg_usage": "eligibility_gate_only_not_sent_to_llm",
+    "baseline_ai_verdict": "LIKELY_TP",
+    "source_audit_status": "PROPOSED_REQUIRES_REVIEW",
+    "explanation_version": "sql-source-merge-explanation-v2",
+    "explanation_origin": "DETERMINISTIC_COMPOSITION_OF_MODEL_FACTS",
+    "stage2_explanation_original": "Dữ liệu `value` được lấy từ `args[1]`, đi qua biến `sql` và được thực thi ở dòng 12 thông qua đối tượng `statement.executeQuery(sql)`. Trước khi tạo câu SQL, có bước kiểm tra xem `value` có khớp với mẫu `[A-Za-z0-9_]{1,32}` không (dòng 7). Điều kiện cho phép chương trình đi tới lời gọi SQL là `value` phải thỏa mãn điều kiện này. Mặc dù có kiểm tra mẫu dữ liệu, nhưng nếu giá trị của `args[1]` chứa ký tự đặc biệt như `'`, người dùng có thể đóng chuỗi trong câu SQL và thêm các lệnh SQL khác.",
+    "source_explanation_original": "Dữ liệu đầu vào từ tham số args của main(String[] args) được sử dụng để tạo truy vấn SQL.",
+    "stage2_assessment_original": {
+      "explanation": "Dữ liệu `value` được lấy từ `args[1]`, đi qua biến `sql` và được thực thi ở dòng 12 thông qua đối tượng `statement.executeQuery(sql)`. Trước khi tạo câu SQL, có bước kiểm tra xem `value` có khớp với mẫu `[A-Za-z0-9_]{1,32}` không (dòng 7). Điều kiện cho phép chương trình đi tới lời gọi SQL là `value` phải thỏa mãn điều kiện này. Mặc dù có kiểm tra mẫu dữ liệu, nhưng nếu giá trị của `args[1]` chứa ký tự đặc biệt như `'`, người dùng có thể đóng chuỗi trong câu SQL và thêm các lệnh SQL khác.",
+      "evidence_lines": [
+        6,
+        7,
+        9,
+        12
+      ],
+      "source_control": "CONFIRMED",
+      "sql_effect": "CHANGEABLE",
+      "missing_context": []
+    },
+    "stage2_evidence_resolved": [
+      {
+        "line": 6,
+        "code": "        String value = args[0];"
+      },
+      {
+        "line": 7,
+        "code": "        if (!value.matches(\"[A-Za-z0-9_]{1,32}\")) return;"
+      },
+      {
+        "line": 9,
+        "code": "        String sql = \"SELECT id FROM users WHERE username = '\" + value + \"'\";"
+      },
+      {
+        "line": 12,
+        "code": "             java.sql.ResultSet result = statement.executeQuery(sql)) {"
+      }
+    ],
+    "source_assessment_changed": false,
+    "explanation_limitations": [
+      "Việc ghép không thẩm định ngữ nghĩa của nhận định AI hoặc chọn lại dòng bằng chứng.",
+      "Giải thích gốc từng bước được lưu riêng; nhận định nguồn bước 2 có thể đã bị sửa."
+    ],
+    "source_kind": "EXTERNAL_READ",
+    "sql_effect_reused": "CHANGEABLE",
+    "source_audit_facts": {
+      "source_kind": "EXTERNAL_READ",
+      "source_evidence": [
+        {
+          "line": 6
+        },
+        {
+          "line": 8
+        }
+      ],
+      "flow_evidence": [
+        {
+          "line": 9
+        },
+        {
+          "line": 12
+        }
+      ],
+      "explanation": "Dữ liệu đầu vào từ tham số args của main(String[] args) được sử dụng để tạo truy vấn SQL.",
+      "missing_context": []
+    },
+    "source_audit_reference_check": "LINES_RESOLVED_REVIEW_REQUIRED",
+    "analysis_limitations": [],
+    "artifact_dir": "issue-0003",
+    "processing_status": "AI_PROPOSED",
+    "total_seconds": 398.288,
+    "analysis_route": "sql",
+    "router_version": "multi-sql89-path22-command78-v2-sql-fallback",
+    "combined_verdict": "LIKELY_TP",
+    "decision_origin": "AI_PIPELINE",
+    "ai_explanation": "Kết luận: LIKELY_TP. Có cơ sở đề xuất cảnh báo đúng: kiểm tra nguồn báo cáo đầu vào bên ngoài và phân tích SQL báo cáo khả năng thay đổi cú pháp truy vấn.\n\nNguồn dữ liệu: Kiểm tra nguồn báo cáo có thao tác đọc đầu vào bên ngoài liên quan tới truy vấn.\n\nTác động SQL: Bước 2 báo cáo dữ liệu có thể thay đổi cú pháp SQL (CHANGEABLE). Điều này tự nó chưa chứng minh nguồn do người bên ngoài kiểm soát.\n\nCác dòng mã được bước 2 dẫn (cần đối chiếu lập luận):\n6:         String value = args[0];\n7:         if (!value.matches(\"[A-Za-z0-9_]{1,32}\")) return;\n9:         String sql = \"SELECT id FROM users WHERE username = '\" + value + \"'\";\n12:              java.sql.ResultSet result = statement.executeQuery(sql)) {",
+    "ai_evidence_lines": [
+      6,
+      7,
+      8,
+      9,
+      12
+    ],
+    "ai_missing_context": [],
+    "ai_decision_basis": "EXTERNAL_CONTROL_AND_CHANGEABLE_SQL_REPORTED"
+  },
+  {
+    "issue_id": "476791dc-0ed8-49e3-b18f-e7ec35c818db",
+    "rule": "findsecbugs:SQL_INJECTION_JDBC",
+    "component": "project_1:Clean_Code/eval_followup21/Sample102.java",
+    "line": 11,
+    "type": "VULNERABILITY",
+    "message": "This use of java/sql/Statement.executeQuery(Ljava/lang/String;)Ljava/sql/ResultSet; can be vulnerable to SQL injection (with JDBC)",
+    "cwe_id": "CWE-89",
+    "mapping": {
+      "cwe_id": "CWE-89",
+      "name": "SQL Injection in JDBC",
+      "supported": true,
+      "mapping_source": "https://find-sec-bugs.github.io/bugs.htm#SQL_INJECTION_JDBC",
+      "reason": ""
+    },
+    "source_sha256": "a3a47f9cc805187164c8c64bfc9dec23e8da7f1e098180bcca557a61e060a5a0",
+    "flow_count": 1,
+    "sql_gate_version": "sql-no-flow-gate-v1",
+    "sink_call_count": 1,
+    "sink_argument_count": 1,
+    "analysis_mode": "FLOW_PRESENT",
+    "llm_invoked": true,
+    "verdict": "LIKELY_FP",
+    "explanation": "Kết luận: LIKELY_FP. Có cơ sở đề xuất cảnh báo giả tại truy vấn này: bước phân tích SQL báo cáo cơ chế ngăn đầu vào làm thay đổi cú pháp truy vấn.\n\nNguồn dữ liệu: Kiểm tra nguồn báo cáo có thao tác đọc đầu vào bên ngoài liên quan tới truy vấn.\n\nTác động SQL: Bước 2 báo cáo có bảo vệ tại truy vấn (PROTECTED).\n\nCác dòng mã được bước 2 dẫn (cần đối chiếu lập luận):\n5:         if (args.length != 2) throw new IllegalArgumentException();\n6:         long value = Long.parseLong(args[0]);\n7:         if (value < 0 || value > 1000) return;\n8:         String sql = \"SELECT id FROM users WHERE id = \" + (value + 1);\n10:         try (java.sql.Statement statement = connection.createStatement();\n11:              java.sql.ResultSet result = statement.executeQuery(sql)) {",
+    "evidence_lines": [
+      5,
+      6,
+      7,
+      8,
+      10,
+      11
+    ],
+    "missing_context": [],
+    "error_kind": null,
+    "decision_basis": "PROTECTION_REPORTED",
+    "model_assessment": {
+      "explanation": "Kết luận: LIKELY_FP. Có cơ sở đề xuất cảnh báo giả tại truy vấn này: bước phân tích SQL báo cáo cơ chế ngăn đầu vào làm thay đổi cú pháp truy vấn.\n\nNguồn dữ liệu: Kiểm tra nguồn báo cáo có thao tác đọc đầu vào bên ngoài liên quan tới truy vấn.\n\nTác động SQL: Bước 2 báo cáo có bảo vệ tại truy vấn (PROTECTED).\n\nCác dòng mã được bước 2 dẫn (cần đối chiếu lập luận):\n5:         if (args.length != 2) throw new IllegalArgumentException();\n6:         long value = Long.parseLong(args[0]);\n7:         if (value < 0 || value > 1000) return;\n8:         String sql = \"SELECT id FROM users WHERE id = \" + (value + 1);\n10:         try (java.sql.Statement statement = connection.createStatement();\n11:              java.sql.ResultSet result = statement.executeQuery(sql)) {",
+      "evidence_lines": [
+        5,
+        6,
+        7,
+        8,
+        10,
+        11
+      ],
+      "source_control": "CONFIRMED",
+      "sql_effect": "PROTECTED",
+      "missing_context": []
+    },
+    "requires_review": true,
+    "prompt_version": "sql89-v7-stage2-plus-source-v2-explanation-2",
+    "format_normalization": "NONE",
+    "elapsed_seconds": 374.641,
+    "decision_policy_version": "sql89-compact-facts-v5",
+    "model": "qwen2.5-coder:14b-instruct-q4_K_M",
+    "ai_verdict": "LIKELY_FP",
+    "review_status": "PENDING",
+    "reviewed_verdict": null,
+    "review_notes": null,
+    "cpg_usage": "eligibility_gate_only_not_sent_to_llm",
+    "baseline_ai_verdict": "LIKELY_FP",
+    "source_audit_status": "PROPOSED_REQUIRES_REVIEW",
+    "explanation_version": "sql-source-merge-explanation-v2",
+    "explanation_origin": "DETERMINISTIC_COMPOSITION_OF_MODEL_FACTS",
+    "stage2_explanation_original": "Dữ liệu `value` được lấy từ `args[0]`, sau đó tăng lên 1 và được ghép vào chuỗi SQL tại dòng 8. Câu SQL này sau đó được thực thi ở dòng 11 thông qua đối tượng `Statement`. Trước khi tạo câu SQL, có một bước kiểm tra để đảm bảo `value` nằm trong khoảng từ 0 đến 1000 (dòng 6-7). Điều kiện cho phép chương trình đi tới lời gọi SQL là `args.length == 2` và `value` nằm trong phạm vi hợp lệ. Người cung cấp đầu vào không thể thay đổi cấu trúc truy vấn vì câu SQL được tạo bằng cách ghép chuỗi với một giá trị số đã được kiểm tra và tăng lên 1. Tuy nhiên, nếu người dùng có thể truyền vào `args[0]` là một chuỗi mà khi chuyển sang số sẽ nằm trong phạm vi [0, 1000], họ có thể ảnh hưởng đến giá trị của `value + 1`. Tuy nhiên, điều này không tạo ra khả năng SQL injection vì câu SQL không bao gồm bất kỳ phần nào được nhập trực tiếp từ người dùng mà không được xử lý.",
+    "source_explanation_original": "Dữ liệu đầu vào được đọc từ tham số args của hàm main, sau đó được sử dụng để tạo truy vấn SQL.",
+    "stage2_assessment_original": {
+      "explanation": "Dữ liệu `value` được lấy từ `args[0]`, sau đó tăng lên 1 và được ghép vào chuỗi SQL tại dòng 8. Câu SQL này sau đó được thực thi ở dòng 11 thông qua đối tượng `Statement`. Trước khi tạo câu SQL, có một bước kiểm tra để đảm bảo `value` nằm trong khoảng từ 0 đến 1000 (dòng 6-7). Điều kiện cho phép chương trình đi tới lời gọi SQL là `args.length == 2` và `value` nằm trong phạm vi hợp lệ. Người cung cấp đầu vào không thể thay đổi cấu trúc truy vấn vì câu SQL được tạo bằng cách ghép chuỗi với một giá trị số đã được kiểm tra và tăng lên 1. Tuy nhiên, nếu người dùng có thể truyền vào `args[0]` là một chuỗi mà khi chuyển sang số sẽ nằm trong phạm vi [0, 1000], họ có thể ảnh hưởng đến giá trị của `value + 1`. Tuy nhiên, điều này không tạo ra khả năng SQL injection vì câu SQL không bao gồm bất kỳ phần nào được nhập trực tiếp từ người dùng mà không được xử lý.",
+      "evidence_lines": [
+        5,
+        6,
+        7,
+        8,
+        10,
+        11
+      ],
+      "source_control": "CONFIRMED",
+      "sql_effect": "PROTECTED",
+      "missing_context": []
+    },
+    "stage2_evidence_resolved": [
+      {
+        "line": 5,
+        "code": "        if (args.length != 2) throw new IllegalArgumentException();"
+      },
+      {
+        "line": 6,
+        "code": "        long value = Long.parseLong(args[0]);"
+      },
+      {
+        "line": 7,
+        "code": "        if (value < 0 || value > 1000) return;"
+      },
+      {
+        "line": 8,
+        "code": "        String sql = \"SELECT id FROM users WHERE id = \" + (value + 1);"
+      },
+      {
+        "line": 10,
+        "code": "        try (java.sql.Statement statement = connection.createStatement();"
+      },
+      {
+        "line": 11,
+        "code": "             java.sql.ResultSet result = statement.executeQuery(sql)) {"
+      }
+    ],
+    "source_assessment_changed": false,
+    "explanation_limitations": [
+      "Việc ghép không thẩm định ngữ nghĩa của nhận định AI hoặc chọn lại dòng bằng chứng.",
+      "Giải thích gốc từng bước được lưu riêng; nhận định nguồn bước 2 có thể đã bị sửa."
+    ],
+    "source_kind": "EXTERNAL_READ",
+    "sql_effect_reused": "PROTECTED",
+    "source_audit_facts": {
+      "source_kind": "EXTERNAL_READ",
+      "source_evidence": [
+        {
+          "line": 6
+        }
+      ],
+      "flow_evidence": [
+        {
+          "line": 8
+        },
+        {
+          "line": 11
+        }
+      ],
+      "explanation": "Dữ liệu đầu vào được đọc từ tham số args của hàm main, sau đó được sử dụng để tạo truy vấn SQL.",
+      "missing_context": []
+    },
+    "source_audit_reference_check": "LINES_RESOLVED_REVIEW_REQUIRED",
+    "analysis_limitations": [],
+    "artifact_dir": "issue-0006",
+    "processing_status": "AI_PROPOSED",
+    "total_seconds": 383.399,
+    "analysis_route": "sql",
+    "router_version": "multi-sql89-path22-command78-v2-sql-fallback",
+    "combined_verdict": "LIKELY_FP",
+    "decision_origin": "AI_PIPELINE",
+    "ai_explanation": "Kết luận: LIKELY_FP. Có cơ sở đề xuất cảnh báo giả tại truy vấn này: bước phân tích SQL báo cáo cơ chế ngăn đầu vào làm thay đổi cú pháp truy vấn.\n\nNguồn dữ liệu: Kiểm tra nguồn báo cáo có thao tác đọc đầu vào bên ngoài liên quan tới truy vấn.\n\nTác động SQL: Bước 2 báo cáo có bảo vệ tại truy vấn (PROTECTED).\n\nCác dòng mã được bước 2 dẫn (cần đối chiếu lập luận):\n5:         if (args.length != 2) throw new IllegalArgumentException();\n6:         long value = Long.parseLong(args[0]);\n7:         if (value < 0 || value > 1000) return;\n8:         String sql = \"SELECT id FROM users WHERE id = \" + (value + 1);\n10:         try (java.sql.Statement statement = connection.createStatement();\n11:              java.sql.ResultSet result = statement.executeQuery(sql)) {",
+    "ai_evidence_lines": [
+      5,
+      6,
+      7,
+      8,
+      10,
+      11
+    ],
+    "ai_missing_context": [],
+    "ai_decision_basis": "PROTECTION_REPORTED"
+  },
+  {
+    "issue_id": "6b2f41b2-1c40-4d1f-a5f9-fd81632e3892",
+    "rule": "findsecbugs:SQL_INJECTION_JDBC",
+    "component": "project_1:Clean_Code/eval_followup21/Sample103.java",
+    "line": 9,
+    "type": "VULNERABILITY",
+    "message": "This use of java/sql/Statement.executeQuery(Ljava/lang/String;)Ljava/sql/ResultSet; can be vulnerable to SQL injection (with JDBC)",
+    "cwe_id": "CWE-89",
+    "mapping": {
+      "cwe_id": "CWE-89",
+      "name": "SQL Injection in JDBC",
+      "supported": true,
+      "mapping_source": "https://find-sec-bugs.github.io/bugs.htm#SQL_INJECTION_JDBC",
+      "reason": ""
+    },
+    "source_sha256": "d6f7fde116e1e8281a626e2f688b078270d9ca4b1e61a36cf5d30e613c8a2a18",
+    "flow_count": 2,
+    "sql_gate_version": "sql-no-flow-gate-v1",
+    "sink_call_count": 1,
+    "sink_argument_count": 1,
+    "analysis_mode": "FLOW_PRESENT",
+    "llm_invoked": true,
+    "verdict": "UNKNOWN",
+    "explanation": "Kết luận: UNKNOWN. Chưa đủ cơ sở kết luận TP/FP: chưa chứng minh người bên ngoài kiểm soát dữ liệu tới SQL.\n\nNguồn dữ liệu: Chỉ thấy tham số hàm; chưa có caller hoặc thao tác đọc đầu vào bên ngoài chứng minh nguồn của giá trị.\n\nTác động SQL: Bước 2 báo cáo dữ liệu có thể thay đổi cú pháp SQL (CHANGEABLE). Điều này tự nó chưa chứng minh nguồn do người bên ngoài kiểm soát.\n\nBước kiểm tra nguồn đã điều chỉnh nhận định trước đó: LIKELY_TP → UNKNOWN. Nhận định về nguồn trong lời giải thích bước 2 không phải kết luận nguồn cuối.\n\nThông tin còn thiếu: Nơi gọi hàm query và nguồn của tham số 'value'.\n\nCác dòng mã được bước 2 dẫn (cần đối chiếu lập luận):\n5:         value = value.trim();\n6:         String sql = \"SELECT id FROM users WHERE username = '\" + value + \"'\";\n9:              java.sql.ResultSet result = statement.executeQuery(sql)) {",
+    "evidence_lines": [
+      4,
+      5,
+      6,
+      9
+    ],
+    "missing_context": [
+      "Nơi gọi hàm query và nguồn của tham số 'value'."
+    ],
+    "error_kind": null,
+    "decision_basis": "SOURCE_UNRESOLVED",
+    "model_assessment": {
+      "explanation": "Kết luận: UNKNOWN. Chưa đủ cơ sở kết luận TP/FP: chưa chứng minh người bên ngoài kiểm soát dữ liệu tới SQL.\n\nNguồn dữ liệu: Chỉ thấy tham số hàm; chưa có caller hoặc thao tác đọc đầu vào bên ngoài chứng minh nguồn của giá trị.\n\nTác động SQL: Bước 2 báo cáo dữ liệu có thể thay đổi cú pháp SQL (CHANGEABLE). Điều này tự nó chưa chứng minh nguồn do người bên ngoài kiểm soát.\n\nBước kiểm tra nguồn đã điều chỉnh nhận định trước đó: LIKELY_TP → UNKNOWN. Nhận định về nguồn trong lời giải thích bước 2 không phải kết luận nguồn cuối.\n\nThông tin còn thiếu: Nơi gọi hàm query và nguồn của tham số 'value'.\n\nCác dòng mã được bước 2 dẫn (cần đối chiếu lập luận):\n5:         value = value.trim();\n6:         String sql = \"SELECT id FROM users WHERE username = '\" + value + \"'\";\n9:              java.sql.ResultSet result = statement.executeQuery(sql)) {",
+      "evidence_lines": [
+        4,
+        5,
+        6,
+        9
+      ],
+      "source_control": "UNRESOLVED",
+      "sql_effect": "CHANGEABLE",
+      "missing_context": [
+        "Nơi gọi hàm query và nguồn của tham số 'value'."
+      ]
+    },
+    "requires_review": true,
+    "prompt_version": "sql89-v7-stage2-plus-source-v2-explanation-2",
+    "format_normalization": "NONE",
+    "elapsed_seconds": 367.589,
+    "decision_policy_version": "sql89-compact-facts-v5",
+    "model": "qwen2.5-coder:14b-instruct-q4_K_M",
+    "ai_verdict": "UNKNOWN",
+    "review_status": "PENDING",
+    "reviewed_verdict": null,
+    "review_notes": null,
+    "cpg_usage": "eligibility_gate_only_not_sent_to_llm",
+    "baseline_ai_verdict": "LIKELY_TP",
+    "source_audit_status": "PROPOSED_REQUIRES_REVIEW",
+    "explanation_version": "sql-source-merge-explanation-v2",
+    "explanation_origin": "DETERMINISTIC_COMPOSITION_OF_MODEL_FACTS",
+    "stage2_explanation_original": "Dữ liệu `value` được truyền vào hàm `query`, sau đó được ghép trực tiếp vào chuỗi SQL tại dòng 6: `\"SELECT id FROM users WHERE username = '\" + value + \"'\"`. Câu SQL này sau đó được thực thi bằng đối tượng `Statement` tại dòng 9. Trước khi tạo câu SQL, giá trị của `value` được cắt bỏ khoảng trắng đầu và cuối bằng phương thức `trim()` ở dòng 5. Tuy nhiên, không có bước kiểm tra hoặc biến đổi dữ liệu nào khác để ngăn chặn các ký tự đặc biệt hay cấu trúc SQL độc hại. Điều kiện cho phép chương trình đi tới lời gọi SQL là việc truyền vào một đối tượng `Connection` hợp lệ và giá trị `value`. Từ những điều trên, người cung cấp đầu vào có thể làm thay đổi cấu trúc truy vấn. Vì `value` được ghép trực tiếp vào chuỗi SQL mà không có bất kỳ biện pháp bảo vệ nào như sử dụng PreparedStatement hoặc escape special characters, một kẻ tấn công có thể nhập giá trị đặc biệt để thực hiện SQL injection.",
+    "source_explanation_original": "Dữ liệu tới SQL bắt nguồn từ tham số 'value' của hàm query.",
+    "stage2_assessment_original": {
+      "explanation": "Dữ liệu `value` được truyền vào hàm `query`, sau đó được ghép trực tiếp vào chuỗi SQL tại dòng 6: `\"SELECT id FROM users WHERE username = '\" + value + \"'\"`. Câu SQL này sau đó được thực thi bằng đối tượng `Statement` tại dòng 9. Trước khi tạo câu SQL, giá trị của `value` được cắt bỏ khoảng trắng đầu và cuối bằng phương thức `trim()` ở dòng 5. Tuy nhiên, không có bước kiểm tra hoặc biến đổi dữ liệu nào khác để ngăn chặn các ký tự đặc biệt hay cấu trúc SQL độc hại. Điều kiện cho phép chương trình đi tới lời gọi SQL là việc truyền vào một đối tượng `Connection` hợp lệ và giá trị `value`. Từ những điều trên, người cung cấp đầu vào có thể làm thay đổi cấu trúc truy vấn. Vì `value` được ghép trực tiếp vào chuỗi SQL mà không có bất kỳ biện pháp bảo vệ nào như sử dụng PreparedStatement hoặc escape special characters, một kẻ tấn công có thể nhập giá trị đặc biệt để thực hiện SQL injection.",
+      "evidence_lines": [
+        5,
+        6,
+        9
+      ],
+      "source_control": "CONFIRMED",
+      "sql_effect": "CHANGEABLE",
+      "missing_context": []
+    },
+    "stage2_evidence_resolved": [
+      {
+        "line": 5,
+        "code": "        value = value.trim();"
+      },
+      {
+        "line": 6,
+        "code": "        String sql = \"SELECT id FROM users WHERE username = '\" + value + \"'\";"
+      },
+      {
+        "line": 9,
+        "code": "             java.sql.ResultSet result = statement.executeQuery(sql)) {"
+      }
+    ],
+    "source_assessment_changed": true,
+    "explanation_limitations": [
+      "Việc ghép không thẩm định ngữ nghĩa của nhận định AI hoặc chọn lại dòng bằng chứng.",
+      "Giải thích gốc từng bước được lưu riêng; nhận định nguồn bước 2 có thể đã bị sửa."
+    ],
+    "source_kind": "PARAMETER_ONLY",
+    "sql_effect_reused": "CHANGEABLE",
+    "source_audit_facts": {
+      "source_kind": "PARAMETER_ONLY",
+      "source_evidence": [
+        {
+          "line": 4
+        }
+      ],
+      "flow_evidence": [
+        {
+          "line": 6
+        },
+        {
+          "line": 9
+        }
+      ],
+      "explanation": "Dữ liệu tới SQL bắt nguồn từ tham số 'value' của hàm query.",
+      "missing_context": [
+        "Nơi gọi hàm query và nguồn của tham số 'value'."
+      ]
+    },
+    "source_audit_reference_check": "LINES_RESOLVED_REVIEW_REQUIRED",
+    "analysis_limitations": [],
+    "artifact_dir": "issue-0011",
+    "processing_status": "AI_PROPOSED",
+    "total_seconds": 376.182,
+    "analysis_route": "sql",
+    "router_version": "multi-sql89-path22-command78-v2-sql-fallback",
+    "combined_verdict": "UNKNOWN",
+    "decision_origin": "AI_PIPELINE",
+    "ai_explanation": "Kết luận: UNKNOWN. Chưa đủ cơ sở kết luận TP/FP: chưa chứng minh người bên ngoài kiểm soát dữ liệu tới SQL.\n\nNguồn dữ liệu: Chỉ thấy tham số hàm; chưa có caller hoặc thao tác đọc đầu vào bên ngoài chứng minh nguồn của giá trị.\n\nTác động SQL: Bước 2 báo cáo dữ liệu có thể thay đổi cú pháp SQL (CHANGEABLE). Điều này tự nó chưa chứng minh nguồn do người bên ngoài kiểm soát.\n\nBước kiểm tra nguồn đã điều chỉnh nhận định trước đó: LIKELY_TP → UNKNOWN. Nhận định về nguồn trong lời giải thích bước 2 không phải kết luận nguồn cuối.\n\nThông tin còn thiếu: Nơi gọi hàm query và nguồn của tham số 'value'.\n\nCác dòng mã được bước 2 dẫn (cần đối chiếu lập luận):\n5:         value = value.trim();\n6:         String sql = \"SELECT id FROM users WHERE username = '\" + value + \"'\";\n9:              java.sql.ResultSet result = statement.executeQuery(sql)) {",
+    "ai_evidence_lines": [
+      4,
+      5,
+      6,
+      9
+    ],
+    "ai_missing_context": [
+      "Nơi gọi hàm query và nguồn của tham số 'value'."
+    ],
+    "ai_decision_basis": "SOURCE_UNRESOLVED"
+  },
+  {
+    "issue_id": "285b42cb-27ba-4359-a6ac-3c3748b0bc72",
+    "rule": "findsecbugs:PATH_TRAVERSAL_IN",
+    "component": "project_1:Clean_Code/eval_followup21/Sample201.java",
+    "line": 13,
+    "message": "This API (java/io/File.<init>(Ljava/lang/String;)V) reads a file whose location might be specified by user input",
+    "cwe_id": "CWE-22",
+    "source_sha256": "9a8d407f1efa8de197c4bc5bb36d2bfc1a02e4f0c8c8516920f0d59bce22e7e3",
+    "artifact_dir": "issue-0018",
+    "verdict": "UNKNOWN",
+    "ai_verdict": null,
+    "requires_review": true,
+    "review_status": "PENDING",
+    "reviewed_verdict": null,
+    "evidence_lines": [],
+    "missing_context": [
+      "Không có luồng tới File(String) tại vùng cảnh báo; chưa kết luận an toàn."
+    ],
+    "error_kind": "NO_MATCHING_FLOW",
+    "prompt_version": "path22-file-read-pilot-v4-evidence-scope",
+    "model": "qwen2.5-coder:14b-instruct-q4_K_M",
+    "flow_count": 0,
+    "processing_status": "ABSTAINED",
+    "explanation": "Không có luồng tới File(String) tại vùng cảnh báo; chưa kết luận an toàn.",
+    "total_seconds": 8.429,
+    "analysis_route": "path",
+    "router_version": "multi-sql89-path22-command78-v2-sql-fallback",
+    "combined_verdict": "UNKNOWN",
+    "decision_origin": "AI_PIPELINE",
+    "ai_explanation": "Không có luồng tới File(String) tại vùng cảnh báo; chưa kết luận an toàn.",
+    "ai_evidence_lines": [],
+    "ai_missing_context": [
+      "Không có luồng tới File(String) tại vùng cảnh báo; chưa kết luận an toàn."
+    ],
+    "ai_decision_basis": null
+  },
+  {
+    "issue_id": "4be1e0d9-2bb6-475b-ae27-a51bbeedb72a",
+    "rule": "findsecbugs:PATH_TRAVERSAL_IN",
+    "component": "project_1:Clean_Code/eval_followup21/Sample202.java",
+    "line": 9,
+    "message": "This API (java/io/File.<init>(Ljava/lang/String;)V) reads a file whose location might be specified by user input",
+    "cwe_id": "CWE-22",
+    "source_sha256": "9cd463713fcfe94c44427acf85080818c8cfee454998ecf0086c48831416d1c7",
+    "artifact_dir": "issue-0021",
+    "verdict": "UNKNOWN",
+    "ai_verdict": null,
+    "requires_review": true,
+    "review_status": "PENDING",
+    "reviewed_verdict": null,
+    "evidence_lines": [],
+    "missing_context": [
+      "Không có luồng tới File(String) tại vùng cảnh báo; chưa kết luận an toàn."
+    ],
+    "error_kind": "NO_MATCHING_FLOW",
+    "prompt_version": "path22-file-read-pilot-v4-evidence-scope",
+    "model": "qwen2.5-coder:14b-instruct-q4_K_M",
+    "flow_count": 0,
+    "processing_status": "ABSTAINED",
+    "explanation": "Không có luồng tới File(String) tại vùng cảnh báo; chưa kết luận an toàn.",
+    "total_seconds": 8.607,
+    "analysis_route": "path",
+    "router_version": "multi-sql89-path22-command78-v2-sql-fallback",
+    "combined_verdict": "UNKNOWN",
+    "decision_origin": "AI_PIPELINE",
+    "ai_explanation": "Không có luồng tới File(String) tại vùng cảnh báo; chưa kết luận an toàn.",
+    "ai_evidence_lines": [],
+    "ai_missing_context": [
+      "Không có luồng tới File(String) tại vùng cảnh báo; chưa kết luận an toàn."
+    ],
+    "ai_decision_basis": null
+  },
+  {
+    "issue_id": "264c75be-cea3-4844-84c3-708b5944da7b",
+    "rule": "findsecbugs:PATH_TRAVERSAL_IN",
+    "component": "project_1:Clean_Code/eval_followup21/Sample203.java",
+    "line": 7,
+    "message": "This API (java/io/File.<init>(Ljava/lang/String;)V) reads a file whose location might be specified by user input",
+    "cwe_id": "CWE-22",
+    "source_sha256": "78463c1660320a6597e10344b5218a81dfe37e61ffcc24f7ead6d6a9928debcd",
+    "artifact_dir": "issue-0026",
+    "verdict": "UNKNOWN",
+    "ai_verdict": null,
+    "requires_review": true,
+    "review_status": "PENDING",
+    "reviewed_verdict": null,
+    "evidence_lines": [],
+    "missing_context": [
+      "Không có luồng tới File(String) tại vùng cảnh báo; chưa kết luận an toàn."
+    ],
+    "error_kind": "NO_MATCHING_FLOW",
+    "prompt_version": "path22-file-read-pilot-v4-evidence-scope",
+    "model": "qwen2.5-coder:14b-instruct-q4_K_M",
+    "flow_count": 0,
+    "processing_status": "ABSTAINED",
+    "explanation": "Không có luồng tới File(String) tại vùng cảnh báo; chưa kết luận an toàn.",
+    "total_seconds": 8.333,
+    "analysis_route": "path",
+    "router_version": "multi-sql89-path22-command78-v2-sql-fallback",
+    "combined_verdict": "UNKNOWN",
+    "decision_origin": "AI_PIPELINE",
+    "ai_explanation": "Không có luồng tới File(String) tại vùng cảnh báo; chưa kết luận an toàn.",
+    "ai_evidence_lines": [],
+    "ai_missing_context": [
+      "Không có luồng tới File(String) tại vùng cảnh báo; chưa kết luận an toàn."
+    ],
+    "ai_decision_basis": null
+  },
+  {
+    "issue_id": "43a21863-3e87-4959-b24e-d55475e92215",
+    "rule": "findsecbugs:PATH_TRAVERSAL_IN",
+    "component": "project_1:Clean_Code/eval_followup21/Sample204.java",
+    "line": 9,
+    "message": "This API (java/io/File.<init>(Ljava/lang/String;Ljava/lang/String;)V) reads a file whose location might be specified by user input",
+    "cwe_id": "CWE-22",
+    "source_sha256": "5307d255c9d8d5af14c41297fea5f3f89c887aa166290c4072c5603096f55533",
+    "artifact_dir": "issue-0031",
+    "verdict": "UNKNOWN",
+    "ai_verdict": null,
+    "requires_review": true,
+    "review_status": "PENDING",
+    "reviewed_verdict": null,
+    "evidence_lines": [],
+    "missing_context": [
+      "Không có luồng tới File(String) tại vùng cảnh báo; chưa kết luận an toàn."
+    ],
+    "error_kind": "NO_MATCHING_FLOW",
+    "prompt_version": "path22-file-read-pilot-v4-evidence-scope",
+    "model": "qwen2.5-coder:14b-instruct-q4_K_M",
+    "flow_count": 0,
+    "processing_status": "ABSTAINED",
+    "explanation": "Không có luồng tới File(String) tại vùng cảnh báo; chưa kết luận an toàn.",
+    "total_seconds": 8.04,
+    "analysis_route": "path",
+    "router_version": "multi-sql89-path22-command78-v2-sql-fallback",
+    "combined_verdict": "UNKNOWN",
+    "decision_origin": "AI_PIPELINE",
+    "ai_explanation": "Không có luồng tới File(String) tại vùng cảnh báo; chưa kết luận an toàn.",
+    "ai_evidence_lines": [],
+    "ai_missing_context": [
+      "Không có luồng tới File(String) tại vùng cảnh báo; chưa kết luận an toàn."
+    ],
+    "ai_decision_basis": null
+  },
+  {
+    "issue_id": "4e160750-8242-47c3-af54-6b9351ff593d",
+    "rule": "findsecbugs:COMMAND_INJECTION",
+    "component": "project_1:Clean_Code/eval_followup21/Sample301.java",
+    "line": 9,
+    "message": "This usage of java/lang/Runtime.exec(Ljava/lang/String;)Ljava/lang/Process; can be vulnerable to Command Injection",
+    "cwe_id": "CWE-78",
+    "source_sha256": "4bafab36d201acbf1b0275f3191a45deb85069209945116555f3626320f53fce",
+    "artifact_dir": "issue-0035",
+    "verdict": "UNKNOWN",
+    "ai_verdict": "UNKNOWN",
+    "requires_review": true,
+    "review_status": "PENDING",
+    "reviewed_verdict": null,
+    "evidence_lines": [
+      4,
+      6,
+      8,
+      9
+    ],
+    "missing_context": [
+      "Kiểm tra đầu vào để đảm bảo 'value' không chứa ký tự đặc biệt hoặc khoảng trắng"
+    ],
+    "error_kind": null,
+    "prompt_version": "command78-direct-exec-pilot-v1",
+    "model": "qwen2.5-coder:14b-instruct-q4_K_M",
+    "execution_guard": {
+      "execution_kind": "DIRECT_EXEC",
+      "supported": true,
+      "executable": "/usr/bin/find",
+      "command_variable": "command",
+      "evidence_lines": [
+        8,
+        9
+      ],
+      "reason": "Runtime.exec(String), tiền tố chương trình cố định; không tự gọi shell.",
+      "limitation": "Không chứng minh binary thực tế, tác động đối số hay nguồn ngoài."
+    },
+    "flow_count": 1,
+    "decision_basis": "COMMAND_EFFECT_UNRESOLVED",
+    "processing_status": "AI_PROPOSED",
+    "source_kind": "EXTERNAL_READ",
+    "command_effect": "DANGEROUS_ARGUMENTS",
+    "execution_kind": "DIRECT_EXEC",
+    "model_assessment": {
+      "source": {
+        "source_kind": "EXTERNAL_READ",
+        "explanation": "Đọc đầu vào từ args của main và sử dụng trong lệnh exec.",
+        "evidence_lines": [
+          4,
+          6,
+          8,
+          9
+        ],
+        "missing_context": []
+      },
+      "command": {
+        "command_effect": "DANGEROUS_ARGUMENTS",
+        "explanation": "Đầu vào 'value' từ tham số dòng lệnh được nối trực tiếp vào chuỗi lệnh 'find'. Mặc dù Runtime.exec không tự gọi shell, nhưng nếu 'value' chứa khoảng trắng hoặc ký tự đặc biệt như '*', nó có thể điều khiển đối số của lệnh 'find', dẫn đến hành vi nguy hiểm như tìm kiếm các tệp không mong muốn.",
+        "evidence_lines": [
+          8,
+          9
+        ],
+        "missing_context": [
+          "Kiểm tra đầu vào để đảm bảo 'value' không chứa ký tự đặc biệt hoặc khoảng trắng"
+        ],
+        "execution_kind": "DIRECT_EXEC"
+      }
+    },
+    "explanation": "Nguồn: Đọc đầu vào từ args của main và sử dụng trong lệnh exec.\nLệnh: Đầu vào 'value' từ tham số dòng lệnh được nối trực tiếp vào chuỗi lệnh 'find'. Mặc dù Runtime.exec không tự gọi shell, nhưng nếu 'value' chứa khoảng trắng hoặc ký tự đặc biệt như '*', nó có thể điều khiển đối số của lệnh 'find', dẫn đến hành vi nguy hiểm như tìm kiếm các tệp không mong muốn.",
+    "elapsed_seconds": 184.069,
+    "total_seconds": 192.669,
+    "pipeline_version": "command78-direct-exec-plus-static-v2",
+    "ai_explanation": "Nguồn: Đọc đầu vào từ args của main và sử dụng trong lệnh exec.\nLệnh: Đầu vào 'value' từ tham số dòng lệnh được nối trực tiếp vào chuỗi lệnh 'find'. Mặc dù Runtime.exec không tự gọi shell, nhưng nếu 'value' chứa khoảng trắng hoặc ký tự đặc biệt như '*', nó có thể điều khiển đối số của lệnh 'find', dẫn đến hành vi nguy hiểm như tìm kiếm các tệp không mong muốn.",
+    "ai_evidence_lines": [
+      4,
+      6,
+      8,
+      9
+    ],
+    "ai_missing_context": [
+      "Kiểm tra đầu vào để đảm bảo 'value' không chứa ký tự đặc biệt hoặc khoảng trắng"
+    ],
+    "ai_decision_basis": "COMMAND_EFFECT_UNRESOLVED",
+    "baseline_verdict": "UNKNOWN",
+    "baseline_error_kind": null,
+    "decision_origin": "AI_PIPELINE",
+    "review_notes": null,
+    "static_seconds": 2.8e-05,
+    "static_assessment": {
+      "status": "NOT_PROVEN",
+      "reason": "Code không khớp toàn bộ cấu trúc Java đơn giản được hỗ trợ.",
+      "proposed_verdict": null,
+      "evidence_lines": []
+    },
+    "static_verdict": null,
+    "model_static_disagreement": false,
+    "combined_verdict": "UNKNOWN",
+    "analysis_route": "command",
+    "router_version": "multi-sql89-path22-command78-v2-sql-fallback"
+  },
+  {
+    "issue_id": "0e02c3ff-fa97-448a-be59-41d40dec9f20",
+    "rule": "findsecbugs:COMMAND_INJECTION",
+    "component": "project_1:Clean_Code/eval_followup21/Sample302.java",
+    "line": 9,
+    "message": "This usage of java/lang/Runtime.exec(Ljava/lang/String;)Ljava/lang/Process; can be vulnerable to Command Injection",
+    "cwe_id": "CWE-78",
+    "source_sha256": "aa09aa02aebaaa7df50e79ffe8e86fbf130e714befbb062c6b85ca7771b21179",
+    "artifact_dir": "issue-0039",
+    "verdict": "UNKNOWN",
+    "ai_verdict": "UNKNOWN",
+    "requires_review": true,
+    "review_status": "PENDING",
+    "reviewed_verdict": null,
+    "evidence_lines": [
+      4,
+      6,
+      7,
+      8,
+      9
+    ],
+    "missing_context": [
+      "Kiểm tra thêm về các ký tự đặc biệt có thể được sử dụng trong tên tệp."
+    ],
+    "error_kind": null,
+    "prompt_version": "command78-direct-exec-pilot-v1",
+    "model": "qwen2.5-coder:14b-instruct-q4_K_M",
+    "execution_guard": {
+      "execution_kind": "DIRECT_EXEC",
+      "supported": true,
+      "executable": "/usr/bin/find",
+      "command_variable": "command",
+      "evidence_lines": [
+        8,
+        9
+      ],
+      "reason": "Runtime.exec(String), tiền tố chương trình cố định; không tự gọi shell.",
+      "limitation": "Không chứng minh binary thực tế, tác động đối số hay nguồn ngoài."
+    },
+    "flow_count": 1,
+    "decision_basis": "COMMAND_EFFECT_UNRESOLVED",
+    "processing_status": "AI_PROPOSED",
+    "source_kind": "EXTERNAL_READ",
+    "command_effect": "DANGEROUS_ARGUMENTS",
+    "execution_kind": "DIRECT_EXEC",
+    "model_assessment": {
+      "source": {
+        "source_kind": "EXTERNAL_READ",
+        "explanation": "Đầu vào từ args của main được sử dụng để tạo lệnh. Luồng dữ liệu bắt đầu từ tham số args và đi qua biến value trước khi được nối với chuỗi lệnh tại dòng 8.",
+        "evidence_lines": [
+          4,
+          6,
+          8,
+          9
+        ],
+        "missing_context": []
+      },
+      "command": {
+        "command_effect": "DANGEROUS_ARGUMENTS",
+        "explanation": "Đầu vào 'value' được kiểm tra bằng regex nhưng vẫn có thể chứa các ký tự đặc biệt như '*' hoặc '?' trong phạm vi cho phép của regex, dẫn đến việc chương trình thực thi lệnh find với các đối số không mong muốn.",
+        "evidence_lines": [
+          7,
+          8,
+          9
+        ],
+        "missing_context": [
+          "Kiểm tra thêm về các ký tự đặc biệt có thể được sử dụng trong tên tệp."
+        ],
+        "execution_kind": "DIRECT_EXEC"
+      }
+    },
+    "explanation": "Nguồn: Đầu vào từ args của main được sử dụng để tạo lệnh. Luồng dữ liệu bắt đầu từ tham số args và đi qua biến value trước khi được nối với chuỗi lệnh tại dòng 8.\nLệnh: Đầu vào 'value' được kiểm tra bằng regex nhưng vẫn có thể chứa các ký tự đặc biệt như '*' hoặc '?' trong phạm vi cho phép của regex, dẫn đến việc chương trình thực thi lệnh find với các đối số không mong muốn.",
+    "elapsed_seconds": 147.147,
+    "total_seconds": 155.669,
+    "pipeline_version": "command78-direct-exec-plus-static-v2",
+    "ai_explanation": "Nguồn: Đầu vào từ args của main được sử dụng để tạo lệnh. Luồng dữ liệu bắt đầu từ tham số args và đi qua biến value trước khi được nối với chuỗi lệnh tại dòng 8.\nLệnh: Đầu vào 'value' được kiểm tra bằng regex nhưng vẫn có thể chứa các ký tự đặc biệt như '*' hoặc '?' trong phạm vi cho phép của regex, dẫn đến việc chương trình thực thi lệnh find với các đối số không mong muốn.",
+    "ai_evidence_lines": [
+      4,
+      6,
+      7,
+      8,
+      9
+    ],
+    "ai_missing_context": [
+      "Kiểm tra thêm về các ký tự đặc biệt có thể được sử dụng trong tên tệp."
+    ],
+    "ai_decision_basis": "COMMAND_EFFECT_UNRESOLVED",
+    "baseline_verdict": "UNKNOWN",
+    "baseline_error_kind": null,
+    "decision_origin": "AI_PIPELINE",
+    "review_notes": null,
+    "static_seconds": 2.8e-05,
+    "static_assessment": {
+      "status": "NOT_PROVEN",
+      "reason": "Code không khớp toàn bộ cấu trúc Java đơn giản được hỗ trợ.",
+      "proposed_verdict": null,
+      "evidence_lines": []
+    },
+    "static_verdict": null,
+    "model_static_disagreement": false,
+    "combined_verdict": "UNKNOWN",
+    "analysis_route": "command",
+    "router_version": "multi-sql89-path22-command78-v2-sql-fallback"
+  },
+  {
+    "issue_id": "eba54cc6-7f68-4962-a56f-e9d50c468f0b",
+    "rule": "findsecbugs:COMMAND_INJECTION",
+    "component": "project_1:Clean_Code/eval_followup21/Sample303.java",
+    "line": 7,
+    "message": "This usage of java/lang/Runtime.exec(Ljava/lang/String;)Ljava/lang/Process; can be vulnerable to Command Injection",
+    "cwe_id": "CWE-78",
+    "source_sha256": "35ea83db5489dde5d456121d8ec4e3b1d584f72de0b78c565eeb3d571957b7be",
+    "artifact_dir": "issue-0043",
+    "verdict": "UNKNOWN",
+    "ai_verdict": "UNKNOWN",
+    "requires_review": true,
+    "review_status": "PENDING",
+    "reviewed_verdict": null,
+    "evidence_lines": [
+      4,
+      6,
+      7
+    ],
+    "missing_context": [
+      "Kiểm tra đầu vào để đảm bảo nó không chứa ký tự đặc biệt có thể gây ra hành vi nguy hiểm.",
+      "caller/nguồn"
+    ],
+    "error_kind": null,
+    "prompt_version": "command78-direct-exec-pilot-v1",
+    "model": "qwen2.5-coder:14b-instruct-q4_K_M",
+    "execution_guard": {
+      "execution_kind": "DIRECT_EXEC",
+      "supported": true,
+      "executable": "/usr/bin/find",
+      "command_variable": "command",
+      "evidence_lines": [
+        6,
+        7
+      ],
+      "reason": "Runtime.exec(String), tiền tố chương trình cố định; không tự gọi shell.",
+      "limitation": "Không chứng minh binary thực tế, tác động đối số hay nguồn ngoài."
+    },
+    "flow_count": 1,
+    "decision_basis": "COMMAND_EFFECT_UNRESOLVED",
+    "processing_status": "AI_PROPOSED",
+    "source_kind": "PARAMETER_ONLY",
+    "command_effect": "DANGEROUS_ARGUMENTS",
+    "execution_kind": "DIRECT_EXEC",
+    "model_assessment": {
+      "source": {
+        "source_kind": "PARAMETER_ONLY",
+        "explanation": "Chỉ thấy tham số hàm 'value' được sử dụng trong lệnh. Không có thông tin về caller hoặc nguồn đầu vào từ bên ngoài.",
+        "evidence_lines": [
+          4,
+          6,
+          7
+        ],
+        "missing_context": [
+          "caller/nguồn"
+        ]
+      },
+      "command": {
+        "command_effect": "DANGEROUS_ARGUMENTS",
+        "explanation": "Đầu vào 'value' được nối trực tiếp vào chuỗi lệnh '/usr/bin/find /tmp -name ', tạo điều kiện cho việc chèn lệnh thông qua tham số '-name'. Mặc dù có guard bằng cách sử dụng trim(), nhưng không ngăn chặn các ký tự đặc biệt như '*' hoặc '?' trong 'value', dẫn đến khả năng thực thi lệnh không mong muốn.",
+        "evidence_lines": [
+          6,
+          7
+        ],
+        "missing_context": [
+          "Kiểm tra đầu vào để đảm bảo nó không chứa ký tự đặc biệt có thể gây ra hành vi nguy hiểm."
+        ],
+        "execution_kind": "DIRECT_EXEC"
+      }
+    },
+    "explanation": "Nguồn: Chỉ thấy tham số hàm 'value' được sử dụng trong lệnh. Không có thông tin về caller hoặc nguồn đầu vào từ bên ngoài.\nLệnh: Đầu vào 'value' được nối trực tiếp vào chuỗi lệnh '/usr/bin/find /tmp -name ', tạo điều kiện cho việc chèn lệnh thông qua tham số '-name'. Mặc dù có guard bằng cách sử dụng trim(), nhưng không ngăn chặn các ký tự đặc biệt như '*' hoặc '?' trong 'value', dẫn đến khả năng thực thi lệnh không mong muốn.",
+    "elapsed_seconds": 153.349,
+    "total_seconds": 162.066,
+    "pipeline_version": "command78-direct-exec-plus-static-v2",
+    "ai_explanation": "Nguồn: Chỉ thấy tham số hàm 'value' được sử dụng trong lệnh. Không có thông tin về caller hoặc nguồn đầu vào từ bên ngoài.\nLệnh: Đầu vào 'value' được nối trực tiếp vào chuỗi lệnh '/usr/bin/find /tmp -name ', tạo điều kiện cho việc chèn lệnh thông qua tham số '-name'. Mặc dù có guard bằng cách sử dụng trim(), nhưng không ngăn chặn các ký tự đặc biệt như '*' hoặc '?' trong 'value', dẫn đến khả năng thực thi lệnh không mong muốn.",
+    "ai_evidence_lines": [
+      4,
+      6,
+      7
+    ],
+    "ai_missing_context": [
+      "Kiểm tra đầu vào để đảm bảo nó không chứa ký tự đặc biệt có thể gây ra hành vi nguy hiểm.",
+      "caller/nguồn"
+    ],
+    "ai_decision_basis": "COMMAND_EFFECT_UNRESOLVED",
+    "baseline_verdict": "UNKNOWN",
+    "baseline_error_kind": null,
+    "decision_origin": "AI_PIPELINE",
+    "review_notes": null,
+    "static_seconds": 2.3e-05,
+    "static_assessment": {
+      "status": "NOT_PROVEN",
+      "reason": "Code không khớp toàn bộ cấu trúc Java đơn giản được hỗ trợ.",
+      "proposed_verdict": null,
+      "evidence_lines": []
+    },
+    "static_verdict": null,
+    "model_static_disagreement": false,
+    "combined_verdict": "UNKNOWN",
+    "analysis_route": "command",
+    "router_version": "multi-sql89-path22-command78-v2-sql-fallback"
+  },
+  {
+    "issue_id": "439ae386-2176-45e2-a40d-7cbff21892ac",
+    "rule": "findsecbugs:COMMAND_INJECTION",
+    "component": "project_1:Clean_Code/eval_followup21/Sample304.java",
+    "line": 9,
+    "message": "This usage of java/lang/Runtime.exec(Ljava/lang/String;)Ljava/lang/Process; can be vulnerable to Command Injection",
+    "cwe_id": "CWE-78",
+    "source_sha256": "58cceaf77bc6c5888395daa7bf2a149a25bd41a2109eb5189d61a582d26bf6c7",
+    "artifact_dir": "issue-0046",
+    "verdict": "UNKNOWN",
+    "ai_verdict": null,
+    "requires_review": true,
+    "review_status": "PENDING",
+    "reviewed_verdict": null,
+    "evidence_lines": [],
+    "missing_context": [
+      "Shell hoặc wrapper chưa được pilot này hỗ trợ."
+    ],
+    "error_kind": "UNSUPPORTED_EXECUTION_FORM",
+    "prompt_version": "command78-direct-exec-pilot-v1",
+    "model": "qwen2.5-coder:14b-instruct-q4_K_M",
+    "execution_guard": {
+      "execution_kind": "UNRESOLVED",
+      "supported": false,
+      "reason": "Shell hoặc wrapper chưa được pilot này hỗ trợ.",
+      "evidence_lines": []
+    },
+    "processing_status": "ABSTAINED",
+    "explanation": "Shell hoặc wrapper chưa được pilot này hỗ trợ.",
+    "total_seconds": 0.0,
+    "pipeline_version": "command78-direct-exec-plus-static-v2",
+    "ai_explanation": "Shell hoặc wrapper chưa được pilot này hỗ trợ.",
+    "ai_evidence_lines": [],
+    "ai_missing_context": [
+      "Shell hoặc wrapper chưa được pilot này hỗ trợ."
+    ],
+    "ai_decision_basis": null,
+    "baseline_verdict": "UNKNOWN",
+    "baseline_error_kind": "UNSUPPORTED_EXECUTION_FORM",
+    "decision_origin": "AI_PIPELINE",
+    "review_notes": null,
+    "static_seconds": 2.1e-05,
+    "static_assessment": {
+      "status": "NOT_PROVEN",
+      "reason": "Code không khớp toàn bộ cấu trúc Java đơn giản được hỗ trợ.",
+      "proposed_verdict": null,
+      "evidence_lines": []
+    },
+    "static_verdict": null,
+    "model_static_disagreement": false,
+    "combined_verdict": "UNKNOWN",
+    "analysis_route": "command",
+    "router_version": "multi-sql89-path22-command78-v2-sql-fallback"
+  }
+]

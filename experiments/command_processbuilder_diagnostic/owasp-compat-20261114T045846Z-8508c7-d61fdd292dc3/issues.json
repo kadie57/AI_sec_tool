@@ -1,0 +1,92 @@
+{
+  "issues": [
+    {
+      "key": "28d734a1-3c8b-462f-ad3c-4ee01af023b5",
+      "rule": "findsecbugs:COMMAND_INJECTION",
+      "severity": "CRITICAL",
+      "component": "thesis_owasp_compat_v1:experiments/owasp_compat_v1/inputs/a452b3aafd232245d0753e54eb243d6651f8ef96/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00006.java",
+      "project": "thesis_owasp_compat_v1",
+      "line": 66,
+      "hash": "a3cc8b0c013e4ee2fa4557b4fd11523c",
+      "textRange": {
+        "startLine": 66,
+        "endLine": 66,
+        "startOffset": 0,
+        "endOffset": 28
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "This usage of java/lang/ProcessBuilder.command(Ljava/util/List;)Ljava/lang/ProcessBuilder; can be vulnerable to Command Injection",
+      "author": "",
+      "tags": [
+        "cwe",
+        "owasp-a1",
+        "injection"
+      ],
+      "creationDate": "2026-11-14T04:59:22+0000",
+      "updateDate": "2026-11-14T04:59:22+0000",
+      "type": "VULNERABILITY",
+      "scope": "MAIN",
+      "quickFixAvailable": false,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "CONVENTIONAL",
+      "cleanCodeAttributeCategory": "CONSISTENT",
+      "impacts": [
+        {
+          "softwareQuality": "SECURITY",
+          "severity": "HIGH"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "4f7fddaa-d2cb-425a-bd71-41ecd3f28efe",
+      "rule": "findsecbugs:COMMAND_INJECTION",
+      "severity": "CRITICAL",
+      "component": "thesis_owasp_compat_v1:experiments/owasp_compat_v1/inputs/a452b3aafd232245d0753e54eb243d6651f8ef96/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00051.java",
+      "project": "thesis_owasp_compat_v1",
+      "line": 60,
+      "hash": "5a49d0880aa7c61bb2cf9cf45e316e94",
+      "textRange": {
+        "startLine": 60,
+        "endLine": 60,
+        "startOffset": 0,
+        "endOffset": 53
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "This usage of java/lang/ProcessBuilder.<init>([Ljava/lang/String;)V can be vulnerable to Command Injection",
+      "author": "",
+      "tags": [
+        "cwe",
+        "owasp-a1",
+        "injection"
+      ],
+      "creationDate": "2026-11-14T04:59:22+0000",
+      "updateDate": "2026-11-14T04:59:22+0000",
+      "type": "VULNERABILITY",
+      "scope": "MAIN",
+      "quickFixAvailable": false,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "CONVENTIONAL",
+      "cleanCodeAttributeCategory": "CONSISTENT",
+      "impacts": [
+        {
+          "softwareQuality": "SECURITY",
+          "severity": "HIGH"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    }
+  ]
+}

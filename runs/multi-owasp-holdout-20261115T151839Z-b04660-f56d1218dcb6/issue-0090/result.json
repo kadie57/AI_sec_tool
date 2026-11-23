@@ -1,0 +1,112 @@
+{
+  "issue_id": "823079bc-568b-4dd4-95c4-3f9c8cbeed33",
+  "rule": "findsecbugs:SQL_INJECTION_JDBC",
+  "component": "thesis_owasp_holdout_v1:experiments/owasp_holdout_v1/inputs/a452b3aafd232245d0753e54eb243d6651f8ef96/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00592.java",
+  "line": 89,
+  "type": "VULNERABILITY",
+  "message": "This use of java/sql/Connection.prepareStatement(Ljava/lang/String;III)Ljava/sql/PreparedStatement; can be vulnerable to SQL injection (with JDBC)",
+  "cwe_id": "CWE-89",
+  "mapping": {
+    "cwe_id": "CWE-89",
+    "name": "SQL Injection in JDBC",
+    "supported": true,
+    "mapping_source": "https://find-sec-bugs.github.io/bugs.htm#SQL_INJECTION_JDBC",
+    "reason": ""
+  },
+  "source_sha256": "ae19fdfdfb37cf955d785a3685d57b1f02e7a82e3cf5491cbd84b35b0af60ab6",
+  "flow_count": 0,
+  "sql_gate_version": "sql-no-flow-gate-v1",
+  "sink_call_count": 1,
+  "sink_argument_count": 1,
+  "analysis_mode": "SOURCE_ONLY_NO_FLOW",
+  "llm_invoked": true,
+  "verdict": "UNKNOWN",
+  "explanation": "Kiểm tra nguồn chưa hợp lệ: Dòng bằng chứng trống",
+  "evidence_lines": [],
+  "missing_context": [
+    "Kiểm tra nguồn chưa hợp lệ: Dòng bằng chứng trống"
+  ],
+  "error_kind": "SOURCE_AUDIT_ERROR",
+  "decision_basis": "SOURCE_AUDIT_FAILED",
+  "requires_review": true,
+  "prompt_version": "sql89-v7-stage2-plus-source-v2-explanation-2",
+  "format_normalization": "NONE",
+  "elapsed_seconds": 729.396,
+  "decision_policy_version": "sql89-compact-facts-v5",
+  "model": "qwen2.5-coder:14b-instruct-q4_K_M",
+  "ai_verdict": "UNKNOWN",
+  "review_status": "CALL_ERROR",
+  "reviewed_verdict": null,
+  "review_notes": null,
+  "cpg_usage": "sink_location_gate_only_no_flow_not_sent_to_llm",
+  "baseline_ai_verdict": "UNKNOWN",
+  "source_audit_status": "ERROR",
+  "baseline_model_assessment": {
+    "explanation": "Dữ liệu đầu vào `param` được lấy từ các tham số HTTP request. Sau đó, `param` được xử lý thông qua nhiều bước biến đổi để tạo ra chuỗi `f36502`. Cuối cùng, `f36502` được sử dụng để gọi phương thức `doSomething`, kết quả của đó là biến `bar`. Biến `bar` sau đó được ghép trực tiếp vào câu SQL tại dòng 83. Mặc dù câu SQL sử dụng `PreparedStatement` cho phần `USERNAME=?`, nhưng phần `PASSWORD` được ghép chuỗi trực tiếp từ biến `bar`. Nếu phương thức `doSomething` không thực hiện bất kỳ kiểm tra hoặc xử lý nào để ngăn chặn các ký tự đặc biệt, người dùng có thể cung cấp đầu vào gây ra SQL injection.",
+    "evidence_lines": [
+      34,
+      52,
+      61,
+      78,
+      83,
+      95
+    ],
+    "source_control": "CONFIRMED",
+    "sql_effect": "CHANGEABLE",
+    "missing_context": [
+      "Cách thức hoạt động của phương thức `doSomething`, cụ thể nó có thực hiện việc escape hay sanitize dữ liệu không."
+    ]
+  },
+  "source_audit_facts": {
+    "source_kind": "EXTERNAL_READ",
+    "source_evidence": [
+      {
+        "line": 45
+      },
+      {
+        "line": 48
+      },
+      {
+        "line": 51
+      }
+    ],
+    "flow_evidence": [
+      {
+        "line": 36
+      },
+      {
+        "line": 59
+      },
+      {
+        "line": 72
+      },
+      {
+        "line": 83
+      },
+      {
+        "line": 89
+      }
+    ],
+    "explanation": "Dữ liệu được đọc từ request.getParameterNames() và request.getParameterValues(name) trong các dòng 45, 48, 51. Dữ liệu này sau đó được xử lý và truyền vào truy vấn SQL ở dòng 83.",
+    "missing_context": []
+  },
+  "source_audit_reference_check": null,
+  "analysis_limitations": [
+    "Joern found one call and its first argument at the issue range, but no parameter-to-sink flow.",
+    "AI assessed source code; absence of a flow is not evidence of safety.",
+    "Call-name matching is not full Java type resolution."
+  ],
+  "artifact_dir": "issue-0090",
+  "processing_status": "ERROR",
+  "total_seconds": 738.746,
+  "analysis_route": "sql",
+  "router_version": "multi-sql89-path22-command78-v4-command-repair",
+  "combined_verdict": "UNKNOWN",
+  "decision_origin": "AI_PIPELINE",
+  "ai_explanation": "Kiểm tra nguồn chưa hợp lệ: Dòng bằng chứng trống",
+  "ai_evidence_lines": [],
+  "ai_missing_context": [
+    "Kiểm tra nguồn chưa hợp lệ: Dòng bằng chứng trống"
+  ],
+  "ai_decision_basis": "SOURCE_AUDIT_FAILED"
+}

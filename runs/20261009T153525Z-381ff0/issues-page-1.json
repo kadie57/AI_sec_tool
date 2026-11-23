@@ -1,0 +1,2367 @@
+{
+  "total": 50,
+  "p": 1,
+  "ps": 100,
+  "paging": {
+    "pageIndex": 1,
+    "pageSize": 100,
+    "total": 50
+  },
+  "effortTotal": 385,
+  "issues": [
+    {
+      "key": "8c2686a3-462e-4c42-9cdf-30a63165c711",
+      "rule": "java:S120",
+      "severity": "MINOR",
+      "component": "project_1:Clean_Code/pilot_path22/PathCase01.java",
+      "project": "project_1",
+      "line": 1,
+      "hash": "44d1baea7cea14cfbcde111d60d61a1b",
+      "textRange": {
+        "startLine": 1,
+        "endLine": 1,
+        "startOffset": 8,
+        "endOffset": 20
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "Rename this package name to match the regular expression '^[a-z_]+(\\.[a-z_][a-z0-9_]*)*$'.",
+      "effort": "10min",
+      "debt": "10min",
+      "author": "",
+      "tags": [
+        "convention"
+      ],
+      "creationDate": "2026-10-08T11:12:05+0000",
+      "updateDate": "2026-10-08T11:12:05+0000",
+      "type": "CODE_SMELL",
+      "scope": "MAIN",
+      "quickFixAvailable": false,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "IDENTIFIABLE",
+      "cleanCodeAttributeCategory": "CONSISTENT",
+      "impacts": [
+        {
+          "softwareQuality": "MAINTAINABILITY",
+          "severity": "LOW"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "02583911-76f1-452b-b6a2-5aa4737da277",
+      "rule": "findsecbugs:PATH_TRAVERSAL_IN",
+      "severity": "MAJOR",
+      "component": "project_1:Clean_Code/pilot_path22/PathCase01.java",
+      "project": "project_1",
+      "line": 14,
+      "hash": "45b30b4bfa30fab9d17967e0b9298d4c",
+      "textRange": {
+        "startLine": 14,
+        "endLine": 14,
+        "startOffset": 0,
+        "endOffset": 39
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "This API (java/io/File.<init>(Ljava/lang/String;)V) reads a file whose location might be specified by user input",
+      "author": "",
+      "tags": [
+        "cwe",
+        "owasp-a4",
+        "wasc"
+      ],
+      "creationDate": "2026-10-08T11:12:05+0000",
+      "updateDate": "2026-10-08T11:12:05+0000",
+      "type": "VULNERABILITY",
+      "scope": "MAIN",
+      "quickFixAvailable": false,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "CONVENTIONAL",
+      "cleanCodeAttributeCategory": "CONSISTENT",
+      "impacts": [
+        {
+          "softwareQuality": "SECURITY",
+          "severity": "MEDIUM"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "69216ee7-4eca-4bda-a7ef-b97763051bee",
+      "rule": "java:S106",
+      "severity": "MAJOR",
+      "component": "project_1:Clean_Code/pilot_path22/PathCase01.java",
+      "project": "project_1",
+      "line": 16,
+      "hash": "11e244377f17e989fac0e79008ba1ed6",
+      "textRange": {
+        "startLine": 16,
+        "endLine": 16,
+        "startOffset": 12,
+        "endOffset": 22
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "Replace this use of System.out by a logger.",
+      "effort": "10min",
+      "debt": "10min",
+      "author": "",
+      "tags": [
+        "bad-practice",
+        "cert"
+      ],
+      "creationDate": "2026-10-08T11:12:05+0000",
+      "updateDate": "2026-10-08T11:12:05+0000",
+      "type": "CODE_SMELL",
+      "scope": "MAIN",
+      "quickFixAvailable": false,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "MODULAR",
+      "cleanCodeAttributeCategory": "ADAPTABLE",
+      "impacts": [
+        {
+          "softwareQuality": "MAINTAINABILITY",
+          "severity": "MEDIUM"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "4c549b62-4248-4fb0-a255-6b1f83937f6f",
+      "rule": "java:S120",
+      "severity": "MINOR",
+      "component": "project_1:Clean_Code/pilot_path22/PathCase02.java",
+      "project": "project_1",
+      "line": 1,
+      "hash": "44d1baea7cea14cfbcde111d60d61a1b",
+      "textRange": {
+        "startLine": 1,
+        "endLine": 1,
+        "startOffset": 8,
+        "endOffset": 20
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "Rename this package name to match the regular expression '^[a-z_]+(\\.[a-z_][a-z0-9_]*)*$'.",
+      "effort": "10min",
+      "debt": "10min",
+      "author": "",
+      "tags": [
+        "convention"
+      ],
+      "creationDate": "2026-10-08T11:12:05+0000",
+      "updateDate": "2026-10-08T11:12:05+0000",
+      "type": "CODE_SMELL",
+      "scope": "MAIN",
+      "quickFixAvailable": false,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "IDENTIFIABLE",
+      "cleanCodeAttributeCategory": "CONSISTENT",
+      "impacts": [
+        {
+          "softwareQuality": "MAINTAINABILITY",
+          "severity": "LOW"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "d9c8cb52-4b97-48f4-9991-005368a62115",
+      "rule": "java:S6353",
+      "severity": "MINOR",
+      "component": "project_1:Clean_Code/pilot_path22/PathCase02.java",
+      "project": "project_1",
+      "line": 12,
+      "hash": "163c9b6053c457e11fcecc73ad05f169",
+      "textRange": {
+        "startLine": 12,
+        "endLine": 12,
+        "startOffset": 31,
+        "endOffset": 43
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "Use concise character class syntax '\\\\w' instead of '[A-Za-z0-9_]'.",
+      "effort": "5min",
+      "debt": "5min",
+      "author": "",
+      "tags": [
+        "regex"
+      ],
+      "creationDate": "2026-10-08T11:12:05+0000",
+      "updateDate": "2026-10-08T11:12:05+0000",
+      "type": "CODE_SMELL",
+      "scope": "MAIN",
+      "quickFixAvailable": false,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "CLEAR",
+      "cleanCodeAttributeCategory": "INTENTIONAL",
+      "impacts": [
+        {
+          "softwareQuality": "MAINTAINABILITY",
+          "severity": "LOW"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "38f957d9-cc37-410b-9902-2ab3f6749e1d",
+      "rule": "findsecbugs:PATH_TRAVERSAL_IN",
+      "severity": "MAJOR",
+      "component": "project_1:Clean_Code/pilot_path22/PathCase02.java",
+      "project": "project_1",
+      "line": 16,
+      "hash": "45b30b4bfa30fab9d17967e0b9298d4c",
+      "textRange": {
+        "startLine": 16,
+        "endLine": 16,
+        "startOffset": 0,
+        "endOffset": 39
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "This API (java/io/File.<init>(Ljava/lang/String;)V) reads a file whose location might be specified by user input",
+      "author": "",
+      "tags": [
+        "cwe",
+        "owasp-a4",
+        "wasc"
+      ],
+      "creationDate": "2026-10-08T11:12:05+0000",
+      "updateDate": "2026-10-08T11:12:05+0000",
+      "type": "VULNERABILITY",
+      "scope": "MAIN",
+      "quickFixAvailable": false,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "CONVENTIONAL",
+      "cleanCodeAttributeCategory": "CONSISTENT",
+      "impacts": [
+        {
+          "softwareQuality": "SECURITY",
+          "severity": "MEDIUM"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "22cd0ec3-579d-48d7-99ce-686839dbc900",
+      "rule": "java:S106",
+      "severity": "MAJOR",
+      "component": "project_1:Clean_Code/pilot_path22/PathCase02.java",
+      "project": "project_1",
+      "line": 18,
+      "hash": "11e244377f17e989fac0e79008ba1ed6",
+      "textRange": {
+        "startLine": 18,
+        "endLine": 18,
+        "startOffset": 12,
+        "endOffset": 22
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "Replace this use of System.out by a logger.",
+      "effort": "10min",
+      "debt": "10min",
+      "author": "",
+      "tags": [
+        "bad-practice",
+        "cert"
+      ],
+      "creationDate": "2026-10-08T11:12:05+0000",
+      "updateDate": "2026-10-08T11:12:05+0000",
+      "type": "CODE_SMELL",
+      "scope": "MAIN",
+      "quickFixAvailable": false,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "MODULAR",
+      "cleanCodeAttributeCategory": "ADAPTABLE",
+      "impacts": [
+        {
+          "softwareQuality": "MAINTAINABILITY",
+          "severity": "MEDIUM"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "08d16105-a530-4f0a-aabd-59519d7f3d67",
+      "rule": "java:S120",
+      "severity": "MINOR",
+      "component": "project_1:Clean_Code/pilot_sql89/Trial01.java",
+      "project": "project_1",
+      "line": 1,
+      "hash": "e50497e2c7eac30836b32112eecc0328",
+      "textRange": {
+        "startLine": 1,
+        "endLine": 1,
+        "startOffset": 8,
+        "endOffset": 19
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "Rename this package name to match the regular expression '^[a-z_]+(\\.[a-z_][a-z0-9_]*)*$'.",
+      "effort": "10min",
+      "debt": "10min",
+      "author": "",
+      "tags": [
+        "convention"
+      ],
+      "creationDate": "2026-09-25T15:38:47+0000",
+      "updateDate": "2026-09-25T15:38:47+0000",
+      "type": "CODE_SMELL",
+      "scope": "MAIN",
+      "quickFixAvailable": false,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "IDENTIFIABLE",
+      "cleanCodeAttributeCategory": "CONSISTENT",
+      "impacts": [
+        {
+          "softwareQuality": "MAINTAINABILITY",
+          "severity": "LOW"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "73c62dfd-ece6-40bd-a9bf-417fd5bcfd61",
+      "rule": "findsecbugs:SQL_INJECTION_JDBC",
+      "severity": "CRITICAL",
+      "component": "project_1:Clean_Code/pilot_sql89/Trial01.java",
+      "project": "project_1",
+      "line": 20,
+      "hash": "e508bd6bd485fe4f415a81a3cc6c3399",
+      "textRange": {
+        "startLine": 20,
+        "endLine": 20,
+        "startOffset": 0,
+        "endOffset": 62
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "This use of java/sql/Statement.executeQuery(Ljava/lang/String;)Ljava/sql/ResultSet; can be vulnerable to SQL injection (with JDBC)",
+      "author": "",
+      "tags": [
+        "cwe",
+        "owasp-a1",
+        "injection",
+        "wasc"
+      ],
+      "creationDate": "2026-09-25T15:38:47+0000",
+      "updateDate": "2026-09-25T15:38:47+0000",
+      "type": "VULNERABILITY",
+      "scope": "MAIN",
+      "quickFixAvailable": false,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "CONVENTIONAL",
+      "cleanCodeAttributeCategory": "CONSISTENT",
+      "impacts": [
+        {
+          "softwareQuality": "SECURITY",
+          "severity": "HIGH"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "63ad9d2d-e4b8-44aa-af42-8e801edc6440",
+      "rule": "java:S106",
+      "severity": "MAJOR",
+      "component": "project_1:Clean_Code/pilot_sql89/Trial01.java",
+      "project": "project_1",
+      "line": 21,
+      "hash": "d8e7f9013b6aa72180ba83c474c22e9d",
+      "textRange": {
+        "startLine": 21,
+        "endLine": 21,
+        "startOffset": 12,
+        "endOffset": 22
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "Replace this use of System.out by a logger.",
+      "effort": "10min",
+      "debt": "10min",
+      "author": "",
+      "tags": [
+        "bad-practice",
+        "cert"
+      ],
+      "creationDate": "2026-09-25T15:38:47+0000",
+      "updateDate": "2026-09-25T15:38:47+0000",
+      "type": "CODE_SMELL",
+      "scope": "MAIN",
+      "quickFixAvailable": false,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "MODULAR",
+      "cleanCodeAttributeCategory": "ADAPTABLE",
+      "impacts": [
+        {
+          "softwareQuality": "MAINTAINABILITY",
+          "severity": "MEDIUM"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "55c7b16d-bc55-4ca4-b424-b85b164e7465",
+      "rule": "java:S120",
+      "severity": "MINOR",
+      "component": "project_1:Clean_Code/pilot_sql89/Trial02.java",
+      "project": "project_1",
+      "line": 1,
+      "hash": "e50497e2c7eac30836b32112eecc0328",
+      "textRange": {
+        "startLine": 1,
+        "endLine": 1,
+        "startOffset": 8,
+        "endOffset": 19
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "Rename this package name to match the regular expression '^[a-z_]+(\\.[a-z_][a-z0-9_]*)*$'.",
+      "effort": "10min",
+      "debt": "10min",
+      "author": "",
+      "tags": [
+        "convention"
+      ],
+      "creationDate": "2026-09-25T15:38:47+0000",
+      "updateDate": "2026-09-25T15:38:47+0000",
+      "type": "CODE_SMELL",
+      "scope": "MAIN",
+      "quickFixAvailable": false,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "IDENTIFIABLE",
+      "cleanCodeAttributeCategory": "CONSISTENT",
+      "impacts": [
+        {
+          "softwareQuality": "MAINTAINABILITY",
+          "severity": "LOW"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "a0472dbd-9466-457d-941d-837bd97ff994",
+      "rule": "java:S106",
+      "severity": "MAJOR",
+      "component": "project_1:Clean_Code/pilot_sql89/Trial02.java",
+      "project": "project_1",
+      "line": 22,
+      "hash": "d8e7f9013b6aa72180ba83c474c22e9d",
+      "textRange": {
+        "startLine": 22,
+        "endLine": 22,
+        "startOffset": 16,
+        "endOffset": 26
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "Replace this use of System.out by a logger.",
+      "effort": "10min",
+      "debt": "10min",
+      "author": "",
+      "tags": [
+        "bad-practice",
+        "cert"
+      ],
+      "creationDate": "2026-09-25T15:38:47+0000",
+      "updateDate": "2026-09-25T15:38:47+0000",
+      "type": "CODE_SMELL",
+      "scope": "MAIN",
+      "quickFixAvailable": false,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "MODULAR",
+      "cleanCodeAttributeCategory": "ADAPTABLE",
+      "impacts": [
+        {
+          "softwareQuality": "MAINTAINABILITY",
+          "severity": "MEDIUM"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "d8cf9665-ae20-476f-bfb9-b9dfc6a2476b",
+      "rule": "java:S120",
+      "severity": "MINOR",
+      "component": "project_1:Clean_Code/pilot_sql89/Trial03.java",
+      "project": "project_1",
+      "line": 1,
+      "hash": "e50497e2c7eac30836b32112eecc0328",
+      "textRange": {
+        "startLine": 1,
+        "endLine": 1,
+        "startOffset": 8,
+        "endOffset": 19
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "Rename this package name to match the regular expression '^[a-z_]+(\\.[a-z_][a-z0-9_]*)*$'.",
+      "effort": "10min",
+      "debt": "10min",
+      "author": "",
+      "tags": [
+        "convention"
+      ],
+      "creationDate": "2026-09-25T15:38:47+0000",
+      "updateDate": "2026-09-25T15:38:47+0000",
+      "type": "CODE_SMELL",
+      "scope": "MAIN",
+      "quickFixAvailable": false,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "IDENTIFIABLE",
+      "cleanCodeAttributeCategory": "CONSISTENT",
+      "impacts": [
+        {
+          "softwareQuality": "MAINTAINABILITY",
+          "severity": "LOW"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "76ae123f-503c-4cfb-b4c6-2e0084b7c032",
+      "rule": "java:S6353",
+      "severity": "MINOR",
+      "component": "project_1:Clean_Code/pilot_sql89/Trial03.java",
+      "project": "project_1",
+      "line": 15,
+      "hash": "b7af8e862917b8855b7a760ba75f7d0a",
+      "textRange": {
+        "startLine": 15,
+        "endLine": 15,
+        "startOffset": 28,
+        "endOffset": 40
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "Use concise character class syntax '\\\\w' instead of '[A-Za-z0-9_]'.",
+      "effort": "5min",
+      "debt": "5min",
+      "author": "",
+      "tags": [
+        "regex"
+      ],
+      "creationDate": "2026-09-25T15:38:47+0000",
+      "updateDate": "2026-09-25T15:38:47+0000",
+      "type": "CODE_SMELL",
+      "scope": "MAIN",
+      "quickFixAvailable": false,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "CLEAR",
+      "cleanCodeAttributeCategory": "INTENTIONAL",
+      "impacts": [
+        {
+          "softwareQuality": "MAINTAINABILITY",
+          "severity": "LOW"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "6bacd1d9-ff72-4788-958d-a2526bf8cfae",
+      "rule": "findsecbugs:SQL_INJECTION_JDBC",
+      "severity": "CRITICAL",
+      "component": "project_1:Clean_Code/pilot_sql89/Trial03.java",
+      "project": "project_1",
+      "line": 23,
+      "hash": "e508bd6bd485fe4f415a81a3cc6c3399",
+      "textRange": {
+        "startLine": 23,
+        "endLine": 23,
+        "startOffset": 0,
+        "endOffset": 62
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "This use of java/sql/Statement.executeQuery(Ljava/lang/String;)Ljava/sql/ResultSet; can be vulnerable to SQL injection (with JDBC)",
+      "author": "",
+      "tags": [
+        "cwe",
+        "owasp-a1",
+        "injection",
+        "wasc"
+      ],
+      "creationDate": "2026-09-25T15:38:47+0000",
+      "updateDate": "2026-09-25T15:38:47+0000",
+      "type": "VULNERABILITY",
+      "scope": "MAIN",
+      "quickFixAvailable": false,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "CONVENTIONAL",
+      "cleanCodeAttributeCategory": "CONSISTENT",
+      "impacts": [
+        {
+          "softwareQuality": "SECURITY",
+          "severity": "HIGH"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "28b4fe7a-ec68-4471-ac0b-4ff8a48770c9",
+      "rule": "java:S106",
+      "severity": "MAJOR",
+      "component": "project_1:Clean_Code/pilot_sql89/Trial03.java",
+      "project": "project_1",
+      "line": 24,
+      "hash": "d8e7f9013b6aa72180ba83c474c22e9d",
+      "textRange": {
+        "startLine": 24,
+        "endLine": 24,
+        "startOffset": 12,
+        "endOffset": 22
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "Replace this use of System.out by a logger.",
+      "effort": "10min",
+      "debt": "10min",
+      "author": "",
+      "tags": [
+        "bad-practice",
+        "cert"
+      ],
+      "creationDate": "2026-09-25T15:38:47+0000",
+      "updateDate": "2026-09-25T15:38:47+0000",
+      "type": "CODE_SMELL",
+      "scope": "MAIN",
+      "quickFixAvailable": false,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "MODULAR",
+      "cleanCodeAttributeCategory": "ADAPTABLE",
+      "impacts": [
+        {
+          "softwareQuality": "MAINTAINABILITY",
+          "severity": "MEDIUM"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "22cd226c-286c-4cd3-92f3-4aa31e18f1b5",
+      "rule": "java:S120",
+      "severity": "MINOR",
+      "component": "project_1:Clean_Code/pilot_sql89/Trial04.java",
+      "project": "project_1",
+      "line": 1,
+      "hash": "e50497e2c7eac30836b32112eecc0328",
+      "textRange": {
+        "startLine": 1,
+        "endLine": 1,
+        "startOffset": 8,
+        "endOffset": 19
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "Rename this package name to match the regular expression '^[a-z_]+(\\.[a-z_][a-z0-9_]*)*$'.",
+      "effort": "10min",
+      "debt": "10min",
+      "author": "",
+      "tags": [
+        "convention"
+      ],
+      "creationDate": "2026-09-25T15:38:47+0000",
+      "updateDate": "2026-09-25T15:38:47+0000",
+      "type": "CODE_SMELL",
+      "scope": "MAIN",
+      "quickFixAvailable": false,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "IDENTIFIABLE",
+      "cleanCodeAttributeCategory": "CONSISTENT",
+      "impacts": [
+        {
+          "softwareQuality": "MAINTAINABILITY",
+          "severity": "LOW"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "2c454a0e-fad8-45d9-b5ff-8074e53bc5a8",
+      "rule": "findsecbugs:SQL_INJECTION_JDBC",
+      "severity": "CRITICAL",
+      "component": "project_1:Clean_Code/pilot_sql89/Trial04.java",
+      "project": "project_1",
+      "line": 20,
+      "hash": "e508bd6bd485fe4f415a81a3cc6c3399",
+      "textRange": {
+        "startLine": 20,
+        "endLine": 20,
+        "startOffset": 0,
+        "endOffset": 62
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "This use of java/sql/Statement.executeQuery(Ljava/lang/String;)Ljava/sql/ResultSet; can be vulnerable to SQL injection (with JDBC)",
+      "author": "",
+      "tags": [
+        "cwe",
+        "owasp-a1",
+        "injection",
+        "wasc"
+      ],
+      "creationDate": "2026-09-25T15:38:47+0000",
+      "updateDate": "2026-09-25T15:38:47+0000",
+      "type": "VULNERABILITY",
+      "scope": "MAIN",
+      "quickFixAvailable": false,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "CONVENTIONAL",
+      "cleanCodeAttributeCategory": "CONSISTENT",
+      "impacts": [
+        {
+          "softwareQuality": "SECURITY",
+          "severity": "HIGH"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "b93dad21-0dac-41a8-9ec8-20c377daf983",
+      "rule": "java:S106",
+      "severity": "MAJOR",
+      "component": "project_1:Clean_Code/pilot_sql89/Trial04.java",
+      "project": "project_1",
+      "line": 21,
+      "hash": "d8e7f9013b6aa72180ba83c474c22e9d",
+      "textRange": {
+        "startLine": 21,
+        "endLine": 21,
+        "startOffset": 12,
+        "endOffset": 22
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "Replace this use of System.out by a logger.",
+      "effort": "10min",
+      "debt": "10min",
+      "author": "",
+      "tags": [
+        "bad-practice",
+        "cert"
+      ],
+      "creationDate": "2026-09-25T15:38:47+0000",
+      "updateDate": "2026-09-25T15:38:47+0000",
+      "type": "CODE_SMELL",
+      "scope": "MAIN",
+      "quickFixAvailable": false,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "MODULAR",
+      "cleanCodeAttributeCategory": "ADAPTABLE",
+      "impacts": [
+        {
+          "softwareQuality": "MAINTAINABILITY",
+          "severity": "MEDIUM"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "7e682cbb-9ad0-457a-a880-e6da0927c3fc",
+      "rule": "java:S120",
+      "severity": "MINOR",
+      "component": "project_1:Clean_Code/pilot_sql89/Trial05.java",
+      "project": "project_1",
+      "line": 1,
+      "hash": "e50497e2c7eac30836b32112eecc0328",
+      "textRange": {
+        "startLine": 1,
+        "endLine": 1,
+        "startOffset": 8,
+        "endOffset": 19
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "Rename this package name to match the regular expression '^[a-z_]+(\\.[a-z_][a-z0-9_]*)*$'.",
+      "effort": "10min",
+      "debt": "10min",
+      "author": "",
+      "tags": [
+        "convention"
+      ],
+      "creationDate": "2026-09-25T15:38:47+0000",
+      "updateDate": "2026-09-25T15:38:47+0000",
+      "type": "CODE_SMELL",
+      "scope": "MAIN",
+      "quickFixAvailable": false,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "IDENTIFIABLE",
+      "cleanCodeAttributeCategory": "CONSISTENT",
+      "impacts": [
+        {
+          "softwareQuality": "MAINTAINABILITY",
+          "severity": "LOW"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "9858e79c-b00d-4aef-8c1a-cb4cf96eed89",
+      "rule": "findsecbugs:SQL_INJECTION_JDBC",
+      "severity": "CRITICAL",
+      "component": "project_1:Clean_Code/pilot_sql89/Trial05.java",
+      "project": "project_1",
+      "line": 19,
+      "hash": "5b6f69ef843a54e66266b00f17278bfa",
+      "textRange": {
+        "startLine": 19,
+        "endLine": 19,
+        "startOffset": 0,
+        "endOffset": 78
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "This use of java/sql/Connection.prepareStatement(Ljava/lang/String;)Ljava/sql/PreparedStatement; can be vulnerable to SQL injection (with JDBC)",
+      "author": "",
+      "tags": [
+        "cwe",
+        "owasp-a1",
+        "injection",
+        "wasc"
+      ],
+      "creationDate": "2026-09-25T15:38:47+0000",
+      "updateDate": "2026-09-25T15:38:47+0000",
+      "type": "VULNERABILITY",
+      "scope": "MAIN",
+      "quickFixAvailable": false,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "CONVENTIONAL",
+      "cleanCodeAttributeCategory": "CONSISTENT",
+      "impacts": [
+        {
+          "softwareQuality": "SECURITY",
+          "severity": "HIGH"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "655bd2ab-8353-466c-a7dc-f33f6bc69793",
+      "rule": "java:S106",
+      "severity": "MAJOR",
+      "component": "project_1:Clean_Code/pilot_sql89/Trial05.java",
+      "project": "project_1",
+      "line": 21,
+      "hash": "d8e7f9013b6aa72180ba83c474c22e9d",
+      "textRange": {
+        "startLine": 21,
+        "endLine": 21,
+        "startOffset": 16,
+        "endOffset": 26
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "Replace this use of System.out by a logger.",
+      "effort": "10min",
+      "debt": "10min",
+      "author": "",
+      "tags": [
+        "bad-practice",
+        "cert"
+      ],
+      "creationDate": "2026-09-25T15:38:47+0000",
+      "updateDate": "2026-09-25T15:38:47+0000",
+      "type": "CODE_SMELL",
+      "scope": "MAIN",
+      "quickFixAvailable": false,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "MODULAR",
+      "cleanCodeAttributeCategory": "ADAPTABLE",
+      "impacts": [
+        {
+          "softwareQuality": "MAINTAINABILITY",
+          "severity": "MEDIUM"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "3b15419d-09cd-41e7-ad62-d7d153f9698e",
+      "rule": "java:S120",
+      "severity": "MINOR",
+      "component": "project_1:Clean_Code/pilot_sql89/Trial06.java",
+      "project": "project_1",
+      "line": 1,
+      "hash": "e50497e2c7eac30836b32112eecc0328",
+      "textRange": {
+        "startLine": 1,
+        "endLine": 1,
+        "startOffset": 8,
+        "endOffset": 19
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "Rename this package name to match the regular expression '^[a-z_]+(\\.[a-z_][a-z0-9_]*)*$'.",
+      "effort": "10min",
+      "debt": "10min",
+      "author": "",
+      "tags": [
+        "convention"
+      ],
+      "creationDate": "2026-09-25T15:38:47+0000",
+      "updateDate": "2026-09-25T15:38:47+0000",
+      "type": "CODE_SMELL",
+      "scope": "MAIN",
+      "quickFixAvailable": false,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "IDENTIFIABLE",
+      "cleanCodeAttributeCategory": "CONSISTENT",
+      "impacts": [
+        {
+          "softwareQuality": "MAINTAINABILITY",
+          "severity": "LOW"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "07a6b931-3130-414f-826c-f14849f593ac",
+      "rule": "findsecbugs:SQL_INJECTION_JDBC",
+      "severity": "CRITICAL",
+      "component": "project_1:Clean_Code/pilot_sql89/Trial06.java",
+      "project": "project_1",
+      "line": 12,
+      "hash": "e508bd6bd485fe4f415a81a3cc6c3399",
+      "textRange": {
+        "startLine": 12,
+        "endLine": 12,
+        "startOffset": 0,
+        "endOffset": 62
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "This use of java/sql/Statement.executeQuery(Ljava/lang/String;)Ljava/sql/ResultSet; can be vulnerable to SQL injection (with JDBC)",
+      "author": "",
+      "tags": [
+        "cwe",
+        "owasp-a1",
+        "injection",
+        "wasc"
+      ],
+      "creationDate": "2026-09-25T15:38:47+0000",
+      "updateDate": "2026-09-25T15:38:47+0000",
+      "type": "VULNERABILITY",
+      "scope": "MAIN",
+      "quickFixAvailable": false,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "CONVENTIONAL",
+      "cleanCodeAttributeCategory": "CONSISTENT",
+      "impacts": [
+        {
+          "softwareQuality": "SECURITY",
+          "severity": "HIGH"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "b93adae7-a812-45e4-9713-a37b32240ea7",
+      "rule": "java:S120",
+      "severity": "MINOR",
+      "component": "project_1:Clean_Code/pilot_sql89/Trial07.java",
+      "project": "project_1",
+      "line": 1,
+      "hash": "e50497e2c7eac30836b32112eecc0328",
+      "textRange": {
+        "startLine": 1,
+        "endLine": 1,
+        "startOffset": 8,
+        "endOffset": 19
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "Rename this package name to match the regular expression '^[a-z_]+(\\.[a-z_][a-z0-9_]*)*$'.",
+      "effort": "10min",
+      "debt": "10min",
+      "author": "",
+      "tags": [
+        "convention"
+      ],
+      "creationDate": "2026-09-25T15:38:47+0000",
+      "updateDate": "2026-09-25T15:38:47+0000",
+      "type": "CODE_SMELL",
+      "scope": "MAIN",
+      "quickFixAvailable": false,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "IDENTIFIABLE",
+      "cleanCodeAttributeCategory": "CONSISTENT",
+      "impacts": [
+        {
+          "softwareQuality": "MAINTAINABILITY",
+          "severity": "LOW"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "ea1e18cc-3de4-4da5-9c15-d63895ab559b",
+      "rule": "findsecbugs:SQL_INJECTION_JDBC",
+      "severity": "CRITICAL",
+      "component": "project_1:Clean_Code/pilot_sql89/Trial07.java",
+      "project": "project_1",
+      "line": 25,
+      "hash": "e508bd6bd485fe4f415a81a3cc6c3399",
+      "textRange": {
+        "startLine": 25,
+        "endLine": 25,
+        "startOffset": 0,
+        "endOffset": 62
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "This use of java/sql/Statement.executeQuery(Ljava/lang/String;)Ljava/sql/ResultSet; can be vulnerable to SQL injection (with JDBC)",
+      "author": "",
+      "tags": [
+        "cwe",
+        "owasp-a1",
+        "injection",
+        "wasc"
+      ],
+      "creationDate": "2026-09-25T15:38:47+0000",
+      "updateDate": "2026-09-25T15:38:47+0000",
+      "type": "VULNERABILITY",
+      "scope": "MAIN",
+      "quickFixAvailable": false,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "CONVENTIONAL",
+      "cleanCodeAttributeCategory": "CONSISTENT",
+      "impacts": [
+        {
+          "softwareQuality": "SECURITY",
+          "severity": "HIGH"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "de6b102d-2072-4e1c-bc77-ce5868afc163",
+      "rule": "java:S106",
+      "severity": "MAJOR",
+      "component": "project_1:Clean_Code/pilot_sql89/Trial07.java",
+      "project": "project_1",
+      "line": 26,
+      "hash": "d8e7f9013b6aa72180ba83c474c22e9d",
+      "textRange": {
+        "startLine": 26,
+        "endLine": 26,
+        "startOffset": 12,
+        "endOffset": 22
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "Replace this use of System.out by a logger.",
+      "effort": "10min",
+      "debt": "10min",
+      "author": "",
+      "tags": [
+        "bad-practice",
+        "cert"
+      ],
+      "creationDate": "2026-09-25T15:38:47+0000",
+      "updateDate": "2026-09-25T15:38:47+0000",
+      "type": "CODE_SMELL",
+      "scope": "MAIN",
+      "quickFixAvailable": false,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "MODULAR",
+      "cleanCodeAttributeCategory": "ADAPTABLE",
+      "impacts": [
+        {
+          "softwareQuality": "MAINTAINABILITY",
+          "severity": "MEDIUM"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "2251bea0-222b-4286-a8eb-c7a12a538cdb",
+      "rule": "java:S120",
+      "severity": "MINOR",
+      "component": "project_1:Clean_Code/pilot_sql89/Trial08.java",
+      "project": "project_1",
+      "line": 1,
+      "hash": "e50497e2c7eac30836b32112eecc0328",
+      "textRange": {
+        "startLine": 1,
+        "endLine": 1,
+        "startOffset": 8,
+        "endOffset": 19
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "Rename this package name to match the regular expression '^[a-z_]+(\\.[a-z_][a-z0-9_]*)*$'.",
+      "effort": "10min",
+      "debt": "10min",
+      "author": "",
+      "tags": [
+        "convention"
+      ],
+      "creationDate": "2026-09-25T15:38:47+0000",
+      "updateDate": "2026-09-25T15:38:47+0000",
+      "type": "CODE_SMELL",
+      "scope": "MAIN",
+      "quickFixAvailable": false,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "IDENTIFIABLE",
+      "cleanCodeAttributeCategory": "CONSISTENT",
+      "impacts": [
+        {
+          "softwareQuality": "MAINTAINABILITY",
+          "severity": "LOW"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "55482113-220c-46eb-afa9-1d09a18a51ed",
+      "rule": "findsecbugs:SQL_INJECTION_JDBC",
+      "severity": "CRITICAL",
+      "component": "project_1:Clean_Code/pilot_sql89/Trial08.java",
+      "project": "project_1",
+      "line": 21,
+      "hash": "e508bd6bd485fe4f415a81a3cc6c3399",
+      "textRange": {
+        "startLine": 21,
+        "endLine": 21,
+        "startOffset": 0,
+        "endOffset": 62
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "This use of java/sql/Statement.executeQuery(Ljava/lang/String;)Ljava/sql/ResultSet; can be vulnerable to SQL injection (with JDBC)",
+      "author": "",
+      "tags": [
+        "cwe",
+        "owasp-a1",
+        "injection",
+        "wasc"
+      ],
+      "creationDate": "2026-09-25T15:38:47+0000",
+      "updateDate": "2026-09-25T15:38:47+0000",
+      "type": "VULNERABILITY",
+      "scope": "MAIN",
+      "quickFixAvailable": false,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "CONVENTIONAL",
+      "cleanCodeAttributeCategory": "CONSISTENT",
+      "impacts": [
+        {
+          "softwareQuality": "SECURITY",
+          "severity": "HIGH"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "f98b1632-8cf9-4d83-a5e7-061429e03b8c",
+      "rule": "java:S106",
+      "severity": "MAJOR",
+      "component": "project_1:Clean_Code/pilot_sql89/Trial08.java",
+      "project": "project_1",
+      "line": 22,
+      "hash": "d8e7f9013b6aa72180ba83c474c22e9d",
+      "textRange": {
+        "startLine": 22,
+        "endLine": 22,
+        "startOffset": 12,
+        "endOffset": 22
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "Replace this use of System.out by a logger.",
+      "effort": "10min",
+      "debt": "10min",
+      "author": "",
+      "tags": [
+        "bad-practice",
+        "cert"
+      ],
+      "creationDate": "2026-09-25T15:38:47+0000",
+      "updateDate": "2026-09-25T15:38:47+0000",
+      "type": "CODE_SMELL",
+      "scope": "MAIN",
+      "quickFixAvailable": false,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "MODULAR",
+      "cleanCodeAttributeCategory": "ADAPTABLE",
+      "impacts": [
+        {
+          "softwareQuality": "MAINTAINABILITY",
+          "severity": "MEDIUM"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "efe13686-770e-437d-b1f1-309876966a45",
+      "rule": "java:S6905",
+      "severity": "MAJOR",
+      "component": "project_1:Clean_Code/lab/Case02.java",
+      "project": "project_1",
+      "line": 17,
+      "hash": "5ca2528bb4604d938568a02534a70482",
+      "textRange": {
+        "startLine": 17,
+        "endLine": 17,
+        "startOffset": 23,
+        "endOffset": 80
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "Don't use the query \"SELECT *\".",
+      "effort": "5min",
+      "debt": "5min",
+      "author": "",
+      "tags": [
+        "sustainability",
+        "sql"
+      ],
+      "creationDate": "2026-09-25T14:40:02+0000",
+      "updateDate": "2026-09-25T14:40:02+0000",
+      "type": "CODE_SMELL",
+      "scope": "MAIN",
+      "quickFixAvailable": false,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "EFFICIENT",
+      "cleanCodeAttributeCategory": "INTENTIONAL",
+      "impacts": [
+        {
+          "softwareQuality": "MAINTAINABILITY",
+          "severity": "MEDIUM"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "cd2f9586-216f-499c-8323-88347b5567a8",
+      "rule": "java:S106",
+      "severity": "MAJOR",
+      "component": "project_1:Clean_Code/lab/Case02.java",
+      "project": "project_1",
+      "line": 26,
+      "hash": "321867ec84c30a0a2ebf82bfbf30a431",
+      "textRange": {
+        "startLine": 26,
+        "endLine": 26,
+        "startOffset": 16,
+        "endOffset": 26
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "Replace this use of System.out by a logger.",
+      "effort": "10min",
+      "debt": "10min",
+      "author": "",
+      "tags": [
+        "bad-practice",
+        "cert"
+      ],
+      "creationDate": "2026-09-25T14:40:02+0000",
+      "updateDate": "2026-09-25T14:40:02+0000",
+      "type": "CODE_SMELL",
+      "scope": "MAIN",
+      "quickFixAvailable": false,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "MODULAR",
+      "cleanCodeAttributeCategory": "ADAPTABLE",
+      "impacts": [
+        {
+          "softwareQuality": "MAINTAINABILITY",
+          "severity": "MEDIUM"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "dfb4c71b-0062-4df5-aa5c-39c5799a10c3",
+      "rule": "findsecbugs:SQL_INJECTION_JDBC",
+      "severity": "CRITICAL",
+      "component": "project_1:Clean_Code/lab/Case03.java",
+      "project": "project_1",
+      "line": 14,
+      "hash": "4d418b8e30ef2a1000087966da88eca7",
+      "textRange": {
+        "startLine": 14,
+        "endLine": 14,
+        "startOffset": 0,
+        "endOffset": 55
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "This use of java/sql/Statement.executeQuery(Ljava/lang/String;)Ljava/sql/ResultSet; can be vulnerable to SQL injection (with JDBC)",
+      "author": "",
+      "tags": [
+        "cwe",
+        "owasp-a1",
+        "injection",
+        "wasc"
+      ],
+      "creationDate": "2026-09-25T14:40:02+0000",
+      "updateDate": "2026-09-25T14:40:02+0000",
+      "type": "VULNERABILITY",
+      "scope": "MAIN",
+      "quickFixAvailable": false,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "CONVENTIONAL",
+      "cleanCodeAttributeCategory": "CONSISTENT",
+      "impacts": [
+        {
+          "softwareQuality": "SECURITY",
+          "severity": "HIGH"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "b519e4bd-5144-4003-9532-a4df1ddcd09a",
+      "rule": "findsecbugs:SQL_INJECTION_JDBC",
+      "severity": "CRITICAL",
+      "component": "project_1:Clean_Code/lab/Case01.java",
+      "project": "project_1",
+      "line": 24,
+      "hash": "4d418b8e30ef2a1000087966da88eca7",
+      "textRange": {
+        "startLine": 24,
+        "endLine": 24,
+        "startOffset": 0,
+        "endOffset": 55
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "This use of java/sql/Statement.executeQuery(Ljava/lang/String;)Ljava/sql/ResultSet; can be vulnerable to SQL injection (with JDBC)",
+      "author": "",
+      "tags": [
+        "cwe",
+        "owasp-a1",
+        "injection",
+        "wasc"
+      ],
+      "creationDate": "2026-09-25T11:38:03+0000",
+      "updateDate": "2026-09-25T11:38:03+0000",
+      "type": "VULNERABILITY",
+      "scope": "MAIN",
+      "quickFixAvailable": false,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "CONVENTIONAL",
+      "cleanCodeAttributeCategory": "CONSISTENT",
+      "impacts": [
+        {
+          "softwareQuality": "SECURITY",
+          "severity": "HIGH"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "aab315ad-0dfb-4f9c-8425-45660a13c829",
+      "rule": "java:S106",
+      "severity": "MAJOR",
+      "component": "project_1:Clean_Code/lab/Case01.java",
+      "project": "project_1",
+      "line": 25,
+      "hash": "321867ec84c30a0a2ebf82bfbf30a431",
+      "textRange": {
+        "startLine": 25,
+        "endLine": 25,
+        "startOffset": 12,
+        "endOffset": 22
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "Replace this use of System.out by a logger.",
+      "effort": "10min",
+      "debt": "10min",
+      "author": "",
+      "tags": [
+        "bad-practice",
+        "cert"
+      ],
+      "creationDate": "2026-09-25T11:13:34+0000",
+      "updateDate": "2026-09-25T11:38:03+0000",
+      "type": "CODE_SMELL",
+      "scope": "MAIN",
+      "quickFixAvailable": false,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "MODULAR",
+      "cleanCodeAttributeCategory": "ADAPTABLE",
+      "impacts": [
+        {
+          "softwareQuality": "MAINTAINABILITY",
+          "severity": "MEDIUM"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "bc705119-f186-44ed-bae5-d63086eee782",
+      "rule": "java:S1220",
+      "severity": "MINOR",
+      "component": "project_1:Clean_Code/VulnerableCommand.java",
+      "project": "project_1",
+      "flows": [],
+      "status": "OPEN",
+      "message": "Move this file to a named package.",
+      "effort": "10min",
+      "debt": "10min",
+      "author": "",
+      "tags": [
+        "convention"
+      ],
+      "creationDate": "2026-07-22T03:37:23+0000",
+      "updateDate": "2026-07-22T03:37:23+0000",
+      "type": "CODE_SMELL",
+      "scope": "MAIN",
+      "quickFixAvailable": false,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "MODULAR",
+      "cleanCodeAttributeCategory": "ADAPTABLE",
+      "impacts": [
+        {
+          "softwareQuality": "MAINTAINABILITY",
+          "severity": "LOW"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "9d34ecb5-5a96-4249-adab-68f82721087e",
+      "rule": "java:S1874",
+      "severity": "MINOR",
+      "component": "project_1:Clean_Code/VulnerableCommand.java",
+      "project": "project_1",
+      "line": 12,
+      "hash": "13760a4d48fe4d21e4c0b8269a137dd2",
+      "textRange": {
+        "startLine": 12,
+        "endLine": 12,
+        "startOffset": 51,
+        "endOffset": 55
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "Remove this use of \"exec\"; it is deprecated.",
+      "effort": "15min",
+      "debt": "15min",
+      "author": "",
+      "tags": [
+        "cwe",
+        "obsolete",
+        "cert"
+      ],
+      "creationDate": "2026-07-22T03:37:23+0000",
+      "updateDate": "2026-07-22T03:37:23+0000",
+      "type": "CODE_SMELL",
+      "scope": "MAIN",
+      "quickFixAvailable": false,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "CONVENTIONAL",
+      "cleanCodeAttributeCategory": "CONSISTENT",
+      "impacts": [
+        {
+          "softwareQuality": "MAINTAINABILITY",
+          "severity": "LOW"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "bf76ca8c-e1b9-4031-8cac-62a1b3ea4ef6",
+      "rule": "findsecbugs:COMMAND_INJECTION",
+      "severity": "CRITICAL",
+      "component": "project_1:Clean_Code/VulnerableCommand.java",
+      "project": "project_1",
+      "line": 12,
+      "hash": "13760a4d48fe4d21e4c0b8269a137dd2",
+      "textRange": {
+        "startLine": 12,
+        "endLine": 12,
+        "startOffset": 0,
+        "endOffset": 65
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "This usage of java/lang/Runtime.exec(Ljava/lang/String;)Ljava/lang/Process; can be vulnerable to Command Injection",
+      "author": "",
+      "tags": [
+        "cwe",
+        "owasp-a1",
+        "injection"
+      ],
+      "creationDate": "2026-07-22T03:37:23+0000",
+      "updateDate": "2026-10-09T15:35:34+0000",
+      "type": "VULNERABILITY",
+      "scope": "MAIN",
+      "quickFixAvailable": false,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "CONVENTIONAL",
+      "cleanCodeAttributeCategory": "CONSISTENT",
+      "impacts": [
+        {
+          "softwareQuality": "SECURITY",
+          "severity": "HIGH"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "d25d4e32-dcff-4c69-b5c2-6a7cb2307f56",
+      "rule": "java:S106",
+      "severity": "MAJOR",
+      "component": "project_1:Clean_Code/VulnerableCommand.java",
+      "project": "project_1",
+      "line": 17,
+      "hash": "55d57adc55d4ff4c57a99320539786e1",
+      "textRange": {
+        "startLine": 17,
+        "endLine": 17,
+        "startOffset": 16,
+        "endOffset": 26
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "Replace this use of System.out by a logger.",
+      "effort": "10min",
+      "debt": "10min",
+      "author": "",
+      "tags": [
+        "bad-practice",
+        "cert"
+      ],
+      "creationDate": "2026-07-22T03:37:23+0000",
+      "updateDate": "2026-07-22T03:37:23+0000",
+      "type": "CODE_SMELL",
+      "scope": "MAIN",
+      "quickFixAvailable": false,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "MODULAR",
+      "cleanCodeAttributeCategory": "ADAPTABLE",
+      "impacts": [
+        {
+          "softwareQuality": "MAINTAINABILITY",
+          "severity": "MEDIUM"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "1f5c52af-196f-4070-bdea-b93b004cfed1",
+      "rule": "java:S1220",
+      "severity": "MINOR",
+      "component": "project_1:Clean_Code/VulnerableLogin.java",
+      "project": "project_1",
+      "flows": [],
+      "status": "OPEN",
+      "message": "Move this file to a named package.",
+      "effort": "10min",
+      "debt": "10min",
+      "author": "",
+      "tags": [
+        "convention"
+      ],
+      "creationDate": "2026-07-22T03:37:23+0000",
+      "updateDate": "2026-07-22T03:37:23+0000",
+      "type": "CODE_SMELL",
+      "scope": "MAIN",
+      "quickFixAvailable": false,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "MODULAR",
+      "cleanCodeAttributeCategory": "ADAPTABLE",
+      "impacts": [
+        {
+          "softwareQuality": "MAINTAINABILITY",
+          "severity": "LOW"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "33128585-63a5-4dbf-98a9-d3e15a9af30b",
+      "rule": "java:S6437",
+      "severity": "BLOCKER",
+      "component": "project_1:Clean_Code/VulnerableLogin.java",
+      "project": "project_1",
+      "line": 6,
+      "hash": "d27a32a37164ed2d0ab7044bd5b33c52",
+      "textRange": {
+        "startLine": 6,
+        "endLine": 6,
+        "startOffset": 98,
+        "endOffset": 104
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "Revoke and change this password, as it is compromised.",
+      "effort": "1h",
+      "debt": "1h",
+      "author": "",
+      "tags": [
+        "cwe"
+      ],
+      "creationDate": "2026-07-22T03:37:23+0000",
+      "updateDate": "2026-07-22T03:37:23+0000",
+      "type": "VULNERABILITY",
+      "scope": "MAIN",
+      "quickFixAvailable": false,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "TRUSTWORTHY",
+      "cleanCodeAttributeCategory": "RESPONSIBLE",
+      "impacts": [
+        {
+          "softwareQuality": "SECURITY",
+          "severity": "BLOCKER"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "c5b41f7c-08df-4ec5-bf41-dbe23500384f",
+      "rule": "java:S2095",
+      "severity": "BLOCKER",
+      "component": "project_1:Clean_Code/VulnerableLogin.java",
+      "project": "project_1",
+      "line": 6,
+      "hash": "d27a32a37164ed2d0ab7044bd5b33c52",
+      "textRange": {
+        "startLine": 6,
+        "endLine": 6,
+        "startOffset": 26,
+        "endOffset": 105
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "Use try-with-resources or close this \"Connection\" in a \"finally\" clause.",
+      "effort": "5min",
+      "debt": "5min",
+      "author": "",
+      "tags": [
+        "cwe",
+        "symbolic-execution",
+        "leak",
+        "denial-of-service",
+        "cert"
+      ],
+      "creationDate": "2026-07-22T03:37:23+0000",
+      "updateDate": "2026-07-22T03:37:23+0000",
+      "type": "BUG",
+      "scope": "MAIN",
+      "quickFixAvailable": false,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "COMPLETE",
+      "cleanCodeAttributeCategory": "INTENTIONAL",
+      "impacts": [
+        {
+          "softwareQuality": "RELIABILITY",
+          "severity": "HIGH"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "fa3f1d80-4a64-4d25-ac16-04c0329476ee",
+      "rule": "java:S2095",
+      "severity": "BLOCKER",
+      "component": "project_1:Clean_Code/VulnerableLogin.java",
+      "project": "project_1",
+      "line": 7,
+      "hash": "3ddc3ac1a4ff37c5d8477572088807a9",
+      "textRange": {
+        "startLine": 7,
+        "endLine": 7,
+        "startOffset": 25,
+        "endOffset": 47
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "Use try-with-resources or close this \"Statement\" in a \"finally\" clause.",
+      "effort": "5min",
+      "debt": "5min",
+      "author": "",
+      "tags": [
+        "cwe",
+        "symbolic-execution",
+        "leak",
+        "denial-of-service",
+        "cert"
+      ],
+      "creationDate": "2026-07-22T03:37:23+0000",
+      "updateDate": "2026-07-22T03:37:23+0000",
+      "type": "BUG",
+      "scope": "MAIN",
+      "quickFixAvailable": false,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "COMPLETE",
+      "cleanCodeAttributeCategory": "INTENTIONAL",
+      "impacts": [
+        {
+          "softwareQuality": "RELIABILITY",
+          "severity": "HIGH"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "786c0591-b2c6-4002-9bb5-d72c12e2779e",
+      "rule": "findsecbugs:SQL_INJECTION_JDBC",
+      "severity": "CRITICAL",
+      "component": "project_1:Clean_Code/VulnerableLogin.java",
+      "project": "project_1",
+      "line": 15,
+      "hash": "47c5a9601b57c3fc86887a67349a4a89",
+      "textRange": {
+        "startLine": 15,
+        "endLine": 15,
+        "startOffset": 0,
+        "endOffset": 48
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "This use of java/sql/Statement.executeQuery(Ljava/lang/String;)Ljava/sql/ResultSet; can be vulnerable to SQL injection (with JDBC)",
+      "author": "",
+      "tags": [
+        "cwe",
+        "owasp-a1",
+        "injection",
+        "wasc"
+      ],
+      "creationDate": "2026-07-22T03:37:23+0000",
+      "updateDate": "2026-09-24T11:16:13+0000",
+      "type": "VULNERABILITY",
+      "scope": "MAIN",
+      "quickFixAvailable": false,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "CONVENTIONAL",
+      "cleanCodeAttributeCategory": "CONSISTENT",
+      "impacts": [
+        {
+          "softwareQuality": "SECURITY",
+          "severity": "HIGH"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "e0637d55-92e9-45a0-a717-c7ad95afdb05",
+      "rule": "java:S106",
+      "severity": "MAJOR",
+      "component": "project_1:Clean_Code/VulnerableLogin.java",
+      "project": "project_1",
+      "line": 18,
+      "hash": "313ed0c2f7fb9f1ea40deb1ead410ada",
+      "textRange": {
+        "startLine": 18,
+        "endLine": 18,
+        "startOffset": 12,
+        "endOffset": 22
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "Replace this use of System.out by a logger.",
+      "effort": "10min",
+      "debt": "10min",
+      "author": "",
+      "tags": [
+        "bad-practice",
+        "cert"
+      ],
+      "creationDate": "2026-07-22T03:37:23+0000",
+      "updateDate": "2026-07-22T03:37:23+0000",
+      "type": "CODE_SMELL",
+      "scope": "MAIN",
+      "quickFixAvailable": false,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "MODULAR",
+      "cleanCodeAttributeCategory": "ADAPTABLE",
+      "impacts": [
+        {
+          "softwareQuality": "MAINTAINABILITY",
+          "severity": "MEDIUM"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "50b6b027-d84c-42b5-9254-d3db144451e9",
+      "rule": "java:S106",
+      "severity": "MAJOR",
+      "component": "project_1:Clean_Code/VulnerableLogin.java",
+      "project": "project_1",
+      "line": 20,
+      "hash": "5a451f1e7a9e9f23cb65ba8b67337b5d",
+      "textRange": {
+        "startLine": 20,
+        "endLine": 20,
+        "startOffset": 12,
+        "endOffset": 22
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "Replace this use of System.out by a logger.",
+      "effort": "10min",
+      "debt": "10min",
+      "author": "",
+      "tags": [
+        "bad-practice",
+        "cert"
+      ],
+      "creationDate": "2026-07-22T03:37:23+0000",
+      "updateDate": "2026-07-22T03:37:23+0000",
+      "type": "CODE_SMELL",
+      "scope": "MAIN",
+      "quickFixAvailable": false,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "MODULAR",
+      "cleanCodeAttributeCategory": "ADAPTABLE",
+      "impacts": [
+        {
+          "softwareQuality": "MAINTAINABILITY",
+          "severity": "MEDIUM"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "cf38ee7e-cf40-4d66-bdb5-8f1f2157cd62",
+      "rule": "java:S1220",
+      "severity": "MINOR",
+      "component": "project_1:Clean_Code/VulnerablePath.java",
+      "project": "project_1",
+      "flows": [],
+      "status": "OPEN",
+      "message": "Move this file to a named package.",
+      "effort": "10min",
+      "debt": "10min",
+      "author": "",
+      "tags": [
+        "convention"
+      ],
+      "creationDate": "2026-07-22T03:37:23+0000",
+      "updateDate": "2026-07-22T03:37:23+0000",
+      "type": "CODE_SMELL",
+      "scope": "MAIN",
+      "quickFixAvailable": false,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "MODULAR",
+      "cleanCodeAttributeCategory": "ADAPTABLE",
+      "impacts": [
+        {
+          "softwareQuality": "MAINTAINABILITY",
+          "severity": "LOW"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "4dceec73-e771-49da-87f9-a09db0d313ff",
+      "rule": "findsecbugs:PATH_TRAVERSAL_IN",
+      "severity": "MAJOR",
+      "component": "project_1:Clean_Code/VulnerablePath.java",
+      "project": "project_1",
+      "line": 16,
+      "hash": "45b30b4bfa30fab9d17967e0b9298d4c",
+      "textRange": {
+        "startLine": 16,
+        "endLine": 16,
+        "startOffset": 0,
+        "endOffset": 43
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "This API (java/io/File.<init>(Ljava/lang/String;)V) reads a file whose location might be specified by user input",
+      "author": "",
+      "tags": [
+        "cwe",
+        "owasp-a4",
+        "wasc"
+      ],
+      "creationDate": "2026-07-22T03:37:23+0000",
+      "updateDate": "2026-10-08T08:24:50+0000",
+      "type": "VULNERABILITY",
+      "scope": "MAIN",
+      "quickFixAvailable": false,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "CONVENTIONAL",
+      "cleanCodeAttributeCategory": "CONSISTENT",
+      "impacts": [
+        {
+          "softwareQuality": "SECURITY",
+          "severity": "MEDIUM"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "72964105-f1d2-403e-b1ed-05a5de584f64",
+      "rule": "java:S2095",
+      "severity": "BLOCKER",
+      "component": "project_1:Clean_Code/VulnerablePath.java",
+      "project": "project_1",
+      "line": 18,
+      "hash": "3995f7c25f8fbbf46396c3f76d6545f4",
+      "textRange": {
+        "startLine": 18,
+        "endLine": 18,
+        "startOffset": 36,
+        "endOffset": 104
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "Use try-with-resources or close this \"BufferedReader\" in a \"finally\" clause.",
+      "effort": "5min",
+      "debt": "5min",
+      "author": "",
+      "tags": [
+        "cwe",
+        "symbolic-execution",
+        "leak",
+        "denial-of-service",
+        "cert"
+      ],
+      "creationDate": "2026-07-22T03:37:23+0000",
+      "updateDate": "2026-07-22T03:37:23+0000",
+      "type": "BUG",
+      "scope": "MAIN",
+      "quickFixAvailable": false,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "COMPLETE",
+      "cleanCodeAttributeCategory": "INTENTIONAL",
+      "impacts": [
+        {
+          "softwareQuality": "RELIABILITY",
+          "severity": "HIGH"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "10e3990c-0bc5-4306-a793-13500e7d6649",
+      "rule": "java:S106",
+      "severity": "MAJOR",
+      "component": "project_1:Clean_Code/VulnerablePath.java",
+      "project": "project_1",
+      "line": 21,
+      "hash": "55d57adc55d4ff4c57a99320539786e1",
+      "textRange": {
+        "startLine": 21,
+        "endLine": 21,
+        "startOffset": 16,
+        "endOffset": 26
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "Replace this use of System.out by a logger.",
+      "effort": "10min",
+      "debt": "10min",
+      "author": "",
+      "tags": [
+        "bad-practice",
+        "cert"
+      ],
+      "creationDate": "2026-07-22T03:37:23+0000",
+      "updateDate": "2026-07-22T03:37:23+0000",
+      "type": "CODE_SMELL",
+      "scope": "MAIN",
+      "quickFixAvailable": false,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "MODULAR",
+      "cleanCodeAttributeCategory": "ADAPTABLE",
+      "impacts": [
+        {
+          "softwareQuality": "MAINTAINABILITY",
+          "severity": "MEDIUM"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    }
+  ],
+  "components": [
+    {
+      "key": "project_1:Clean_Code/pilot_sql89/Trial06.java",
+      "enabled": true,
+      "qualifier": "FIL",
+      "name": "Trial06.java",
+      "longName": "Clean_Code/pilot_sql89/Trial06.java",
+      "path": "Clean_Code/pilot_sql89/Trial06.java"
+    },
+    {
+      "key": "project_1:Clean_Code/pilot_sql89/Trial07.java",
+      "enabled": true,
+      "qualifier": "FIL",
+      "name": "Trial07.java",
+      "longName": "Clean_Code/pilot_sql89/Trial07.java",
+      "path": "Clean_Code/pilot_sql89/Trial07.java"
+    },
+    {
+      "key": "project_1:Clean_Code/lab/Case02.java",
+      "enabled": true,
+      "qualifier": "FIL",
+      "name": "Case02.java",
+      "longName": "Clean_Code/lab/Case02.java",
+      "path": "Clean_Code/lab/Case02.java"
+    },
+    {
+      "key": "project_1:Clean_Code/pilot_sql89/Trial05.java",
+      "enabled": true,
+      "qualifier": "FIL",
+      "name": "Trial05.java",
+      "longName": "Clean_Code/pilot_sql89/Trial05.java",
+      "path": "Clean_Code/pilot_sql89/Trial05.java"
+    },
+    {
+      "key": "project_1:Clean_Code/lab/Case01.java",
+      "enabled": true,
+      "qualifier": "FIL",
+      "name": "Case01.java",
+      "longName": "Clean_Code/lab/Case01.java",
+      "path": "Clean_Code/lab/Case01.java"
+    },
+    {
+      "key": "project_1:Clean_Code/pilot_path22/PathCase02.java",
+      "enabled": true,
+      "qualifier": "FIL",
+      "name": "PathCase02.java",
+      "longName": "Clean_Code/pilot_path22/PathCase02.java",
+      "path": "Clean_Code/pilot_path22/PathCase02.java"
+    },
+    {
+      "key": "project_1:Clean_Code/VulnerableLogin.java",
+      "enabled": true,
+      "qualifier": "FIL",
+      "name": "VulnerableLogin.java",
+      "longName": "Clean_Code/VulnerableLogin.java",
+      "path": "Clean_Code/VulnerableLogin.java"
+    },
+    {
+      "key": "project_1:Clean_Code/pilot_sql89/Trial01.java",
+      "enabled": true,
+      "qualifier": "FIL",
+      "name": "Trial01.java",
+      "longName": "Clean_Code/pilot_sql89/Trial01.java",
+      "path": "Clean_Code/pilot_sql89/Trial01.java"
+    },
+    {
+      "key": "project_1:Clean_Code/pilot_sql89/Trial03.java",
+      "enabled": true,
+      "qualifier": "FIL",
+      "name": "Trial03.java",
+      "longName": "Clean_Code/pilot_sql89/Trial03.java",
+      "path": "Clean_Code/pilot_sql89/Trial03.java"
+    },
+    {
+      "key": "project_1:Clean_Code/pilot_path22/PathCase01.java",
+      "enabled": true,
+      "qualifier": "FIL",
+      "name": "PathCase01.java",
+      "longName": "Clean_Code/pilot_path22/PathCase01.java",
+      "path": "Clean_Code/pilot_path22/PathCase01.java"
+    },
+    {
+      "key": "project_1:Clean_Code/pilot_sql89/Trial02.java",
+      "enabled": true,
+      "qualifier": "FIL",
+      "name": "Trial02.java",
+      "longName": "Clean_Code/pilot_sql89/Trial02.java",
+      "path": "Clean_Code/pilot_sql89/Trial02.java"
+    },
+    {
+      "key": "project_1:Clean_Code/pilot_sql89/Trial08.java",
+      "enabled": true,
+      "qualifier": "FIL",
+      "name": "Trial08.java",
+      "longName": "Clean_Code/pilot_sql89/Trial08.java",
+      "path": "Clean_Code/pilot_sql89/Trial08.java"
+    },
+    {
+      "key": "project_1:Clean_Code/lab/Case03.java",
+      "enabled": true,
+      "qualifier": "FIL",
+      "name": "Case03.java",
+      "longName": "Clean_Code/lab/Case03.java",
+      "path": "Clean_Code/lab/Case03.java"
+    },
+    {
+      "key": "project_1:Clean_Code/VulnerableCommand.java",
+      "enabled": true,
+      "qualifier": "FIL",
+      "name": "VulnerableCommand.java",
+      "longName": "Clean_Code/VulnerableCommand.java",
+      "path": "Clean_Code/VulnerableCommand.java"
+    },
+    {
+      "key": "project_1:Clean_Code/VulnerablePath.java",
+      "enabled": true,
+      "qualifier": "FIL",
+      "name": "VulnerablePath.java",
+      "longName": "Clean_Code/VulnerablePath.java",
+      "path": "Clean_Code/VulnerablePath.java"
+    },
+    {
+      "key": "project_1",
+      "enabled": true,
+      "qualifier": "TRK",
+      "name": "project_1",
+      "longName": "project_1"
+    },
+    {
+      "key": "project_1:Clean_Code/pilot_sql89/Trial04.java",
+      "enabled": true,
+      "qualifier": "FIL",
+      "name": "Trial04.java",
+      "longName": "Clean_Code/pilot_sql89/Trial04.java",
+      "path": "Clean_Code/pilot_sql89/Trial04.java"
+    }
+  ],
+  "facets": []
+}

@@ -1,0 +1,219 @@
+{
+  "experiment": "sql89-output-format-ablation-1",
+  "state": "COMPLETED",
+  "baseline_analysis_id": "047ae62b-e8e5-4c9b-b660-55301b6d21cd",
+  "baseline_directory": "/home/khanh/AI_sec_tool/experiments/code_only_v1/047ae62b-e8e5-4c9b-b660-55301b6d21cd",
+  "model_digest": "dae161e27b0e90dd1856c8bb3209201fd6736d8eb66298e75ed87571486f4364",
+  "iris_prompter_sha256": "2ab8daf9250b3716f1fc47599c83a6996db7df4da908a687b7a3050d4c8de5cb",
+  "changed": "Only the generation request's format field is omitted.",
+  "unchanged": [
+    "source",
+    "issue",
+    "system",
+    "prompt including JSON instructions",
+    "model and digest",
+    "temperature",
+    "seed",
+    "context and output limits",
+    "validator"
+  ],
+  "counts": {
+    "paired_samples": 2,
+    "saved_calls": 2,
+    "transport_errors": 0
+  },
+  "interpretation": [
+    "Read raw_output before deciding whether reasoning improved.",
+    "INVALID_JSON measures formatting, not semantic correctness.",
+    "Validator acceptance or a changed verdict does not prove correct code analysis."
+  ],
+  "limitations": [
+    "Two development cases; no general accuracy estimate.",
+    "Historical constrained responses are reused, not rerun concurrently.",
+    "The prompt still asks for JSON; only the generation constraint changes."
+  ],
+  "comparisons": [
+    {
+      "sample": "Trial01",
+      "issue_id": "73c62dfd-ece6-40bd-a9bf-417fd5bcfd61",
+      "source_sha256": "dd8786ea91517d9836ded4f67a3441704575297eff02336001c1a534fc77b268",
+      "baseline_file_sha256": "e998258ea13a3fa1a4e7b989525f98924e7667fcc4276c69ffc617fb209f8e23",
+      "baseline_request_sha256": "9d141c3ee421f32ee01a3859bcbef54605c58233c7d2cc636f2ffdf2ca1d7594",
+      "variant_request_sha256": "e84f2c8428468fff682e5d15b1d3e010889fbeb2d5576a7a892b246dd9ed739a",
+      "schema_constrained": {
+        "raw_output": "{\n  \"verdict\": \"UNKNOWN\",\n  \"explanation\": \"Cảnh báo SQL Injection được phát hiện tại dòng 20. Dữ liệu đầu vào từ người dùng (args[0]) được ghép trực tiếp vào câu SQL, tạo ra nguy cơ tấn công SQL Injection.\",\n  \"evidence_lines\": [\n    14,\n    15,\n    20\n  ],\n  \"missing_context\": [\n    \"Không có bằng chứng tham số hóa hoặc kiểm tra đầu vào để ngăn chặn SQL Injection.\"\n  ],\n  \"analysis\": {\n    \"source\": {\n      \"status\": \"UNTRUSTED\",\n      \"explanation\": \"Dữ liệu đầu vào từ người dùng (args[0]) được sử dụng trực tiếp trong câu SQL.\",\n      \"evidence_lines\": [\n        14,\n        15\n      ]\n    },\n    \"sql_construction\": {\n      \"status\": \"DYNAMIC\",\n      \"explanation\": \"Câu SQL được tạo động từ dữ liệu đầu vào, gây ra nguy cơ SQL Injection.\",\n      \"evidence_lines\": [\n        20\n      ]\n    },\n    \"sink\": {\n      \"status\": \"FOUND\",\n      \"explanation\": \"Lời gọi statement.executeQuery(sql) ở dòng 20 thực hiện câu SQL được tạo động từ dữ liệu đầu vào.\",\n      \"evidence_lines\": [\n        20\n      ]\n    },\n    \"data_flow\": {\n      \"status\": \"CONNECTED\",\n      \"explanation\": \"Dữ liệu đầu vào (args[0]) đi qua biến sql và đến lời gọi statement.executeQuery(sql).\",\n      \"evidence_lines\": [\n        15,\n        20\n      ]\n    },\n    \"protection\": {\n      \"status\": \"ABSENT\",\n      \"explanation\": \"Không thấy bất kỳ biện pháp bảo vệ nào để ngăn chặn SQL Injection.\",\n      \"evidence_lines\": []\n    }\n  }\n}",
+        "model_assessment": {
+          "verdict": "UNKNOWN",
+          "explanation": "Cảnh báo SQL Injection được phát hiện tại dòng 20. Dữ liệu đầu vào từ người dùng (args[0]) được ghép trực tiếp vào câu SQL, tạo ra nguy cơ tấn công SQL Injection.",
+          "evidence_lines": [
+            14,
+            15,
+            20
+          ],
+          "missing_context": [
+            "Không có bằng chứng tham số hóa hoặc kiểm tra đầu vào để ngăn chặn SQL Injection."
+          ],
+          "analysis": {
+            "source": {
+              "status": "UNTRUSTED",
+              "explanation": "Dữ liệu đầu vào từ người dùng (args[0]) được sử dụng trực tiếp trong câu SQL.",
+              "evidence_lines": [
+                14,
+                15
+              ]
+            },
+            "sql_construction": {
+              "status": "DYNAMIC",
+              "explanation": "Câu SQL được tạo động từ dữ liệu đầu vào, gây ra nguy cơ SQL Injection.",
+              "evidence_lines": [
+                20
+              ]
+            },
+            "sink": {
+              "status": "FOUND",
+              "explanation": "Lời gọi statement.executeQuery(sql) ở dòng 20 thực hiện câu SQL được tạo động từ dữ liệu đầu vào.",
+              "evidence_lines": [
+                20
+              ]
+            },
+            "data_flow": {
+              "status": "CONNECTED",
+              "explanation": "Dữ liệu đầu vào (args[0]) đi qua biến sql và đến lời gọi statement.executeQuery(sql).",
+              "evidence_lines": [
+                15,
+                20
+              ]
+            },
+            "protection": {
+              "status": "ABSENT",
+              "explanation": "Không thấy bất kỳ biện pháp bảo vệ nào để ngăn chặn SQL Injection.",
+              "evidence_lines": []
+            }
+          }
+        },
+        "model_verdict": "UNKNOWN",
+        "validator_verdict": "UNKNOWN",
+        "error_kind": "INCONSISTENT_ASSESSMENT",
+        "validator_explanation": "Câu trả lời chưa nhất quán: protection: khẳng định nhưng không có dòng bằng chứng.",
+        "elapsed_seconds": 126.825,
+        "request_sha256": "9d141c3ee421f32ee01a3859bcbef54605c58233c7d2cc636f2ffdf2ca1d7594",
+        "generation": {
+          "done": true,
+          "done_reason": "stop",
+          "prompt_eval_count": 1467,
+          "eval_count": 411
+        }
+      },
+      "schema_unconstrained": {
+        "raw_output": "```json\n{\n  \"verdict\": \"UNKNOWN\",\n  \"explanation\": \"Có bằng chứng đầu vào không tin cậy làm thay đổi cấu trúc SQL.\",\n  \"evidence_lines\": [\n    {\n      \"source\": \"UNTRUSTED\",\n      \"explanation\": \"Dữ liệu từ args[0] có thể được người dùng điều khiển.\",\n      \"evidence_lines\": [14, 15]\n    },\n    {\n      \"sql_construction\": \"DYNAMIC\",\n      \"explanation\": \"Câu SQL được tạo bằng cách ghép chuỗi với biến value.\",\n      \"evidence_lines\": [15]\n    },\n    {\n      \"sink\": \"UNKNOWN\",\n      \"explanation\": \"Không xác định chính xác lời gọi SQL tại cảnh báo.\",\n      \"evidence_lines\": [20]\n    },\n    {\n      \"data_flow\": \"CONNECTED\",\n      \"explanation\": \"Biến value đi tới câu SQL.\",\n      \"evidence_lines\": [15, 20]\n    },\n    {\n      \"protection\": \"ABSENT\",\n      \"explanation\": \"Không thấy biện pháp đủ bảo vệ đúng dữ liệu ở đúng truy vấn.\",\n      \"evidence_lines\": [20]\n    }\n  ],\n  \"missing_context\": \"Cần biết chính xác lời gọi SQL tại cảnh báo.\"\n}\n```",
+        "model_assessment": null,
+        "model_verdict": null,
+        "validator_verdict": "UNKNOWN",
+        "error_kind": "INVALID_JSON",
+        "validator_explanation": "Ollama trả JSON không hợp lệ.",
+        "elapsed_seconds": 107.68,
+        "request_sha256": "e84f2c8428468fff682e5d15b1d3e010889fbeb2d5576a7a892b246dd9ed739a",
+        "generation": {
+          "done": true,
+          "done_reason": "stop",
+          "prompt_eval_count": 1467,
+          "eval_count": 286
+        }
+      }
+    },
+    {
+      "sample": "Trial03",
+      "issue_id": "6bacd1d9-ff72-4788-958d-a2526bf8cfae",
+      "source_sha256": "72d83433543c28d8c8290283f4b33233e18403d756d66e111aab25ee315ab9a7",
+      "baseline_file_sha256": "6a6153dca79be6b01facaba587fd9d67dc66f8644ed09c5e9ac03109f5e8a7ff",
+      "baseline_request_sha256": "326cb910d678a37b72f923696cd00376d0bec67a0e687a28fb8fdd6b5f584682",
+      "variant_request_sha256": "884c28a092d06a00d2cda09ea5d0b9a6f2a4af17765c3203a04fa9793c57814f",
+      "schema_constrained": {
+        "raw_output": "{\n  \"verdict\": \"UNKNOWN\",\n  \"explanation\": \"Cảnh báo SQL Injection được phát hiện tại dòng 23. Dữ liệu đầu vào từ người dùng (args[0]) được sử dụng trực tiếp trong câu SQL, không có biện pháp bảo vệ.\",\n  \"evidence_lines\": [\n    14,\n    15,\n    16,\n    18\n  ],\n  \"missing_context\": [],\n  \"analysis\": {\n    \"source\": {\n      \"status\": \"UNTRUSTED\",\n      \"explanation\": \"Dữ liệu đầu vào từ người dùng (args[0]) được sử dụng trực tiếp trong câu SQL.\",\n      \"evidence_lines\": [\n        14,\n        15\n      ]\n    },\n    \"sql_construction\": {\n      \"status\": \"DYNAMIC\",\n      \"explanation\": \"Câu SQL được tạo bằng cách ghép dữ liệu đầu vào vào cú pháp SQL cố định.\",\n      \"evidence_lines\": [\n        18\n      ]\n    },\n    \"sink\": {\n      \"status\": \"FOUND\",\n      \"explanation\": \"Lời gọi liên quan đến SQL ở dòng 23 là statement.executeQuery(sql).\",\n      \"evidence_lines\": [\n        23\n      ]\n    },\n    \"data_flow\": {\n      \"status\": \"CONNECTED\",\n      \"explanation\": \"Biến value ảnh hưởng đến câu SQL và đi tới lời gọi SQL.\",\n      \"evidence_lines\": [\n        14,\n        15,\n        16,\n        18\n      ]\n    },\n    \"protection\": {\n      \"status\": \"ABSENT\",\n      \"explanation\": \"Không thấy biện pháp bảo vệ giá trị đầu vào trước khi ghép vào câu SQL.\",\n      \"evidence_lines\": [\n        14,\n        15,\n        16,\n        18\n      ]\n    }\n  }\n}",
+        "model_assessment": {
+          "verdict": "UNKNOWN",
+          "explanation": "Cảnh báo SQL Injection được phát hiện tại dòng 23. Dữ liệu đầu vào từ người dùng (args[0]) được sử dụng trực tiếp trong câu SQL, không có biện pháp bảo vệ.",
+          "evidence_lines": [
+            14,
+            15,
+            16,
+            18
+          ],
+          "missing_context": [],
+          "analysis": {
+            "source": {
+              "status": "UNTRUSTED",
+              "explanation": "Dữ liệu đầu vào từ người dùng (args[0]) được sử dụng trực tiếp trong câu SQL.",
+              "evidence_lines": [
+                14,
+                15
+              ]
+            },
+            "sql_construction": {
+              "status": "DYNAMIC",
+              "explanation": "Câu SQL được tạo bằng cách ghép dữ liệu đầu vào vào cú pháp SQL cố định.",
+              "evidence_lines": [
+                18
+              ]
+            },
+            "sink": {
+              "status": "FOUND",
+              "explanation": "Lời gọi liên quan đến SQL ở dòng 23 là statement.executeQuery(sql).",
+              "evidence_lines": [
+                23
+              ]
+            },
+            "data_flow": {
+              "status": "CONNECTED",
+              "explanation": "Biến value ảnh hưởng đến câu SQL và đi tới lời gọi SQL.",
+              "evidence_lines": [
+                14,
+                15,
+                16,
+                18
+              ]
+            },
+            "protection": {
+              "status": "ABSENT",
+              "explanation": "Không thấy biện pháp bảo vệ giá trị đầu vào trước khi ghép vào câu SQL.",
+              "evidence_lines": [
+                14,
+                15,
+                16,
+                18
+              ]
+            }
+          }
+        },
+        "model_verdict": "UNKNOWN",
+        "validator_verdict": "UNKNOWN",
+        "error_kind": "INCONSISTENT_ASSESSMENT",
+        "validator_explanation": "Câu trả lời chưa nhất quán: UNKNOWN nhưng chưa nêu điều còn thiếu hoặc mâu thuẫn.",
+        "elapsed_seconds": 99.788,
+        "request_sha256": "326cb910d678a37b72f923696cd00376d0bec67a0e687a28fb8fdd6b5f584682",
+        "generation": {
+          "done": true,
+          "done_reason": "stop",
+          "prompt_eval_count": 1506,
+          "eval_count": 411
+        }
+      },
+      "schema_unconstrained": {
+        "raw_output": "```json\n{\n  \"verdict\": \"UNKNOWN\",\n  \"explanation\": \"Có bằng chứng đầu vào không tin cậy làm thay đổi cấu trúc SQL nhưng thiếu bằng chứng bảo vệ.\",\n  \"evidence_lines\": [\n    {\n      \"status\": \"UNTRUSTED\",\n      \"explanation\": \"Dữ liệu từ args[0] có thể được người dùng điều khiển và không được kiểm tra đầy đủ.\",\n      \"evidence_lines\": [14, 15]\n    },\n    {\n      \"status\": \"UNKNOWN\",\n      \"explanation\": \"Không thấy bằng chứng tham số hóa hoặc kiểm tra đầu vào để ngăn chặn SQL Injection.\",\n      \"evidence_lines\": [18]\n    }\n  ],\n  \"missing_context\": \"Cần biết liệu biến value có được xử lý đầy đủ trước khi tạo câu SQL hay không.\"\n}\n```",
+        "model_assessment": null,
+        "model_verdict": null,
+        "validator_verdict": "UNKNOWN",
+        "error_kind": "INVALID_JSON",
+        "validator_explanation": "Ollama trả JSON không hợp lệ.",
+        "elapsed_seconds": 55.259,
+        "request_sha256": "884c28a092d06a00d2cda09ea5d0b9a6f2a4af17765c3203a04fa9793c57814f",
+        "generation": {
+          "done": true,
+          "done_reason": "stop",
+          "prompt_eval_count": 1506,
+          "eval_count": 183
+        }
+      }
+    }
+  ]
+}

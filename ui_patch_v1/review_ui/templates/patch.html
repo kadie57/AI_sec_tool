@@ -1,0 +1,41 @@
+<!doctype html><html lang="vi"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+{% if running %}<meta http-equiv="refresh" content="5">{% endif %}
+<title>Security Review · Đề xuất sửa lỗi</title>
+<link rel="stylesheet" href="{{ url_for('static',filename='style.css') }}"><link rel="stylesheet" href="{{ url_for('static',filename='patch.css') }}"></head>
+<body><header><a class="brand" href="{{ url_for('index') }}"><span class="logo">SR</span><strong>Security Review</strong></a><span class="mode">Bản sửa đề xuất · Chờ kiểm tra</span></header><main class="patch-main">
+<a href="{{ url_for('run_detail',group_id=group_id,name=name,status='',issue=idx) }}">← Quay lại bằng chứng và thẩm định</a>
+<h1>Đề xuất sửa lỗi</h1><p><strong>{{ filename }}</strong> · Dòng {{ context.row.get('line','—') }} · {{ context.row.get('rule','') }}</p><p class="sub">{{ name }}</p>
+{% for message in get_flashed_messages() %}<p class="warning">{{ message }}</p>{% endfor %}
+{% if context.block %}<p class="warning">{{ context.block }}</p>{% endif %}
+{% if config_error %}<p class="warning">{{ config_error }}</p>{% endif %}
+<section class="patch-panel"><h2>Tạo bản sửa từ mã nguồn đã thẩm định</h2>
+<p>AI đề xuất thay đổi cho một file, giải thích lý do và gợi ý kiểm thử. Mã nguồn đang dùng trong dự án được giữ nguyên.</p>
+<p class="hint-text">Mô hình: {{ config.model }} · Tối đa 1 lượt sinh AI mới · Thời gian chờ tối đa {{ config.timeout }} giây, chưa gồm tối đa 20 giây kiểm tra. Chỉ cần Ollama đang hoạt động; không quét lại SonarQube.</p>
+{% if context.eligible and not config_error and not running %}<form method="post" action="{{ url_for('patch_start',group_id=group_id,name=name,idx=idx) }}"><input type="hidden" name="csrf" value="{{ session.csrf }}"><input type="hidden" name="binding" value="{{ context.binding }}"><button type="submit">{{ 'Mở bản đã lưu / thử lại nếu lỗi' if job else 'Yêu cầu AI đề xuất bản sửa' }}</button></form>
+<p class="hint-text">Nếu yêu cầu này đã có kết quả hợp lệ, hệ thống dùng lại bản đã lưu. Không tự gọi lại AI khi tải trang.</p>{% endif %}
+{% if running %}<p class="warning">{{ job.label }}. Trang cập nhật mỗi 5 giây; có thể đóng tab rồi mở lại. Giữ máy hoạt động trong lúc AI chạy.</p>{% endif %}
+</section>
+{% if job %}<section class="patch-panel"><div class="patch-heading"><h2>{{ job.label }}</h2><a href="{{ url_for('analysis_job',job_id=job.id) }}">Xem nhật ký →</a></div>
+<p class="hint-text">Tạo lúc {{ job.created_at }} (UTC){% if job.elapsed_seconds is defined %} · {{ job.elapsed_seconds }} giây{% endif %}</p>
+{% if job.error %}<p class="warning">{{ job.error }}</p>{% endif %}
+{% if job.state == 'INTERRUPTED' %}<p class="warning">Tác vụ đã dừng ngoài dự kiến. Nhấn yêu cầu phía trên nếu bạn muốn chạy lại; hệ thống không tự thử lại.</p>{% endif %}
+{% if error %}<p class="warning">{{ error }}</p>{% endif %}
+{% if result %}{% set p=result.proposal %}
+{% if not current %}<p class="warning">Bản này không còn khớp mã nguồn hoặc thẩm định hiện tại. Chỉ xem lại lịch sử; tải bản sửa đã bị khóa.</p>{% endif %}
+<p class="patch-summary">{{ p.summary }}</p>
+{% if p.status == 'NEEDS_CONTEXT' %}<h3>Thông tin cần bổ sung</h3><ul>{% for gap in p.missing_context %}<li>{{ gap }}</li>{% endfor %}</ul>
+{% else %}
+<p class="warning"><strong>Bản nháp của AI — chưa biên dịch hoặc kiểm thử.</strong> Bạn cần kiểm tra thay đổi và hành vi trước khi áp dụng.</p>
+<h3>Thay đổi được đề xuất</h3><ul>{% for change in p.changes %}<li>{{ change }}</li>{% endfor %}</ul>
+<h3>So sánh trước – sau</h3><p class="hint-text">Dòng đỏ: bỏ khỏi bản gốc · Dòng xanh: thêm vào bản sửa.</p>
+<div class="patch-diff" tabindex="0" aria-label="So sánh mã nguồn">{% for line in result.diff.splitlines() %}<div class="{{ 'diff-meta' if line.startswith(('+++','---','@@')) else 'diff-add' if line.startswith('+') else 'diff-remove' if line.startswith('-') else '' }}">{{ line }}</div>{% endfor %}</div>
+<h3>Giả định và giới hạn cần kiểm tra</h3><ul>{% for assumption in p.assumptions %}<li>{{ assumption }}</li>{% else %}<li>AI chưa liệt kê giả định riêng; vẫn cần đối chiếu với yêu cầu thực tế.</li>{% endfor %}</ul>
+<h3>Kế hoạch kiểm thử được đề xuất</h3><p class="hint-text">Các kiểm thử dưới đây chưa được hệ thống chạy.</p><ol>{% for test in p.test_plan %}<li>{{ test }}</li>{% endfor %}</ol>
+{% if current %}<div class="patch-downloads"><a class="export-link" href="{{ url_for('patch_download',group_id=group_id,name=name,idx=idx,job_id=job.id,kind='patch') }}">Tải bản thay đổi .patch</a><a class="export-link" href="{{ url_for('patch_download',group_id=group_id,name=name,idx=idx,job_id=job.id,kind='source') }}">Tải mã Java đề xuất</a><a href="{{ url_for('patch_download',group_id=group_id,name=name,idx=idx,job_id=job.id,kind='json') }}">Tải toàn bộ đề xuất JSON</a></div>{% endif %}
+<details class="stage"><summary>Xem toàn bộ mã đề xuất</summary><pre class="patch-code">{{ p.updated_source }}</pre></details>
+{% endif %}
+<details class="stage"><summary>Thông tin truy vết</summary><dl><dt>Mô hình</dt><dd>{{ result.model }}</dd><dt>Digest mô hình</dt><dd>{{ result.model_digest }}</dd><dt>Hash mã nguồn gốc</dt><dd>{{ result.source_sha256 }}</dd><dt>Phiên bản hướng dẫn</dt><dd>{{ result.prompt_version }}</dd></dl></details>
+{% endif %}</section>{% endif %}
+{% if history %}<section class="patch-panel"><h2>Lịch sử đề xuất</h2><ul class="patch-history">{% for item in history %}<li><a href="{{ url_for('patch_home',group_id=group_id,name=name,idx=idx,job=item.id) }}">{{ item.created_at }} (UTC) · {{ item.label }}</a></li>{% endfor %}</ul></section>{% endif %}
+<footer>Chưa áp dụng vào dự án · Chưa đánh dấu “đã sửa” trên SonarQube.</footer>
+</main></body></html>

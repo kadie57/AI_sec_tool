@@ -1,0 +1,110 @@
+{
+  "dataset_version": "sql89-pilot-1",
+  "purpose": "Pilot / development set, not a held-out benchmark",
+  "threat_model": "Người chạy chọn args[0]. Xét khả năng thay đổi cấu trúc SQL; không suy ra tấn công từ xa. JDBC/DB hoạt động theo ngữ nghĩa thông thường.",
+  "scope": "SQL Injection tại truy vấn JDBC chỉ định; không đánh giá mật khẩu, log, quyền truy cập hay lỗi nghiệp vụ.",
+  "labels_source": "Đáp án dự kiến do người tạo bộ mẫu phân tích code, chưa được phản biện độc lập; không lấy từ LLM đang được đánh giá.",
+  "rules_to_inspect": [
+    "findsecbugs:SQL_INJECTION_JDBC",
+    "findbugs:SQL_INJECTION_JDBC"
+  ],
+  "important": "SAFE chỉ trở thành cảnh báo giả quan sát được nếu scanner thực sự phát cảnh báo SQL tại truy vấn đó. Không có cảnh báo không phải AI lọc thành công.",
+  "samples": [
+    {
+      "sample": "Trial01",
+      "source_path": "Clean_Code/pilot_sql89/Trial01.java",
+      "source_sha256": "dd8786ea91517d9836ded4f67a3441704575297eff02336001c1a534fc77b268",
+      "code_assessment": "UNSAFE",
+      "expected_triage_if_sql_warning": "LIKELY_TP",
+      "reason": "args[0] được ghép trực tiếp vào literal chuỗi SQL rồi executeQuery; người chạy có thể chọn ký tự SQL.",
+      "jdbc_target_line": 20,
+      "scanner_warning_observed": null,
+      "observed_issue_ids": [],
+      "review_status": "AUTHOR_REASONED_REQUIRES_INDEPENDENT_REVIEW"
+    },
+    {
+      "sample": "Trial02",
+      "source_path": "Clean_Code/pilot_sql89/Trial02.java",
+      "source_sha256": "4a6379ed198071964c0acf358e9e833607466c2ed2d240fad419d505ae68d5d8",
+      "code_assessment": "SAFE",
+      "expected_triage_if_sql_warning": "LIKELY_FP",
+      "reason": "Mẫu SQL cố định có một dấu ?; args[0] chỉ được bind bằng setString. Không ghép dữ liệu vào cấu trúc SQL.",
+      "jdbc_target_line": 19,
+      "scanner_warning_observed": null,
+      "observed_issue_ids": [],
+      "review_status": "AUTHOR_REASONED_REQUIRES_INDEPENDENT_REVIEW"
+    },
+    {
+      "sample": "Trial03",
+      "source_path": "Clean_Code/pilot_sql89/Trial03.java",
+      "source_sha256": "72d83433543c28d8c8290283f4b33233e18403d756d66e111aab25ee315ab9a7",
+      "code_assessment": "SAFE",
+      "expected_triage_if_sql_warning": "LIKELY_FP",
+      "reason": "Chỉ chấp nhận toàn bộ chuỗi gồm 1–32 ký tự ASCII chữ, số hoặc _. Nhánh không hợp lệ trả về trước truy vấn; không có ký tự đóng literal SQL.",
+      "jdbc_target_line": 23,
+      "scanner_warning_observed": null,
+      "observed_issue_ids": [],
+      "review_status": "AUTHOR_REASONED_REQUIRES_INDEPENDENT_REVIEW"
+    },
+    {
+      "sample": "Trial04",
+      "source_path": "Clean_Code/pilot_sql89/Trial04.java",
+      "source_sha256": "72c8351f1feee4c7b38202d9cd3b3c50664d2b0a6738288bc4ae17c1ede3977c",
+      "code_assessment": "SAFE",
+      "expected_triage_if_sql_warning": "LIKELY_FP",
+      "reason": "Integer.parseInt chuyển chuỗi thành int; chỉ biểu diễn thập phân của int được ghép ở vị trí số. Parse lỗi ném ngoại lệ trước JDBC, không có đường dự phòng dùng chuỗi gốc.",
+      "jdbc_target_line": 20,
+      "scanner_warning_observed": null,
+      "observed_issue_ids": [],
+      "review_status": "AUTHOR_REASONED_REQUIRES_INDEPENDENT_REVIEW"
+    },
+    {
+      "sample": "Trial05",
+      "source_path": "Clean_Code/pilot_sql89/Trial05.java",
+      "source_sha256": "d55dbf4c0fd2ce6df6a7f2e016c42ab45ed4d1bb8ba8f2a2be45fa19ff654d19",
+      "code_assessment": "UNSAFE",
+      "expected_triage_if_sql_warning": "LIKELY_TP",
+      "reason": "args[0] đã được ghép vào SQL trước prepareStatement. Không dùng dấu ? hoặc bind để bảo vệ giá trị này.",
+      "jdbc_target_line": 19,
+      "scanner_warning_observed": null,
+      "observed_issue_ids": [],
+      "review_status": "AUTHOR_REASONED_REQUIRES_INDEPENDENT_REVIEW"
+    },
+    {
+      "sample": "Trial06",
+      "source_path": "Clean_Code/pilot_sql89/Trial06.java",
+      "source_sha256": "99d24095a714523c935748469d01abe833031729c914810df754e11abe90b060",
+      "code_assessment": "INSUFFICIENT_CONTEXT",
+      "expected_triage_if_sql_warning": "UNKNOWN",
+      "reason": "Tham số value được ghép vào SQL, nhưng chỉ có phương thức lookup và không có caller. Thiếu nguồn và việc xử lý dữ liệu trước khi gọi; không gán nhãn an toàn.",
+      "jdbc_target_line": 12,
+      "scanner_warning_observed": null,
+      "observed_issue_ids": [],
+      "review_status": "AUTHOR_REASONED_REQUIRES_INDEPENDENT_REVIEW"
+    },
+    {
+      "sample": "Trial07",
+      "source_path": "Clean_Code/pilot_sql89/Trial07.java",
+      "source_sha256": "15284d9a507d2649cca7f8928318cda06316b03ee0956414e87a27e586940ade",
+      "code_assessment": "SAFE",
+      "expected_triage_if_sql_warning": "LIKELY_FP",
+      "reason": "Tên bảng chỉ có thể là hai hằng users hoặc accounts do switch gán; mọi giá trị khác trả về. SQL chỉ biến thiên giữa hai cấu trúc cố định, không đưa chuỗi args gốc vào truy vấn.",
+      "jdbc_target_line": 25,
+      "scanner_warning_observed": null,
+      "observed_issue_ids": [],
+      "review_status": "AUTHOR_REASONED_REQUIRES_INDEPENDENT_REVIEW"
+    },
+    {
+      "sample": "Trial08",
+      "source_path": "Clean_Code/pilot_sql89/Trial08.java",
+      "source_sha256": "5e940a09ef1e0bd674bc8e9adfbf427a3f675f25e46831b8201f52f54549c05e",
+      "code_assessment": "UNSAFE",
+      "expected_triage_if_sql_warning": "LIKELY_TP",
+      "reason": "StringBuilder nối trực tiếp args[0] vào literal SQL; đổi cách nối chuỗi không tạo bảo vệ.",
+      "jdbc_target_line": 21,
+      "scanner_warning_observed": null,
+      "observed_issue_ids": [],
+      "review_status": "AUTHOR_REASONED_REQUIRES_INDEPENDENT_REVIEW"
+    }
+  ]
+}

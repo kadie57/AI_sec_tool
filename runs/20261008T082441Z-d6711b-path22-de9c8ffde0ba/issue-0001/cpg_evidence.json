@@ -1,0 +1,6 @@
+{
+  "flow_count": 1,
+  "paths": "┌─────────────────┬─────────────────────────────────────┬────┬──────────────┬───────────────────┐\n│nodeType         │tracked                              │line│method        │file               │\n├─────────────────┼─────────────────────────────────────┼────┼──────────────┼───────────────────┤\n│MethodParameterIn│getFileContent(this, String fileName)│8   │getFileContent│VulnerablePath.java│\n│Call             │baseDir + fileName                   │13  │getFileContent│VulnerablePath.java│\n│Identifier       │String fullPath = baseDir + fileName │13  │getFileContent│VulnerablePath.java│\n│Identifier       │new File(fullPath)                   │16  │getFileContent│VulnerablePath.java│\n└─────────────────┴─────────────────────────────────────┴────┴──────────────┴───────────────────┘",
+  "scope": "single_file",
+  "source_policy": "parameters_are_candidates_not_proven_external"
+}

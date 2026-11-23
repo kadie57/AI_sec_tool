@@ -1,0 +1,46 @@
+{
+  "issue_id": "fcdad54b-6f61-466b-9881-ef332352e03e",
+  "rule": "findsecbugs:COMMAND_INJECTION",
+  "component": "thesis_owasp_holdout_v1:experiments/owasp_holdout_v1/inputs/a452b3aafd232245d0753e54eb243d6651f8ef96/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00816.java",
+  "line": 91,
+  "message": "This usage of java/lang/ProcessBuilder.command([Ljava/lang/String;)Ljava/lang/ProcessBuilder; can be vulnerable to Command Injection",
+  "cwe_id": "CWE-78",
+  "source_sha256": "d11d46d32123630f99ab02efac4494dd3eba8f09eec2b147ded7f2a1fad582ff",
+  "artifact_dir": "issue-0128",
+  "verdict": "UNKNOWN",
+  "ai_verdict": null,
+  "requires_review": true,
+  "review_status": "PENDING",
+  "reviewed_verdict": null,
+  "evidence_lines": [],
+  "helper_evidence": [],
+  "missing_context": [
+    "Cần builder local không alias, một cấu hình và một start; hỗ trợ command(List) hoặc constructor(String[])."
+  ],
+  "error_kind": "UNSUPPORTED_EXECUTION_FORM",
+  "prompt_version": "command78-processbuilder-context-v3-bounded-repair",
+  "pipeline_version": "command78-direct-plus-processbuilder-v4-bounded-repair",
+  "model": "qwen2.5-coder:14b-instruct-q4_K_M",
+  "decision_origin": "AI_PIPELINE",
+  "static_assessment": {
+    "status": "NOT_APPLICABLE",
+    "reason": "Runtime.exec allowlist guard không áp dụng cho ProcessBuilder."
+  },
+  "execution_guard": {
+    "supported": false,
+    "reason": "Cần builder local không alias, một cấu hình và một start; hỗ trợ command(List) hoặc constructor(String[]).",
+    "evidence_lines": []
+  },
+  "helper_context_sha256": "989f397dd4d277d1ee1daf5c953b246579d168b738b16a666926b6bd82ee29c8",
+  "helper_hashes": {},
+  "processing_status": "ABSTAINED",
+  "explanation": "Cần builder local không alias, một cấu hình và một start; hỗ trợ command(List) hoặc constructor(String[]).",
+  "total_seconds": 0.001,
+  "combined_verdict": "UNKNOWN",
+  "ai_explanation": "Cần builder local không alias, một cấu hình và một start; hỗ trợ command(List) hoặc constructor(String[]).",
+  "ai_evidence_lines": [],
+  "ai_missing_context": [
+    "Cần builder local không alias, một cấu hình và một start; hỗ trợ command(List) hoặc constructor(String[])."
+  ],
+  "ai_decision_basis": null
+}

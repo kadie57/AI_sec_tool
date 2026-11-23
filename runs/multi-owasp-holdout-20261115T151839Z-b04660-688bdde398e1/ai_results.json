@@ -1,0 +1,1049 @@
+[
+  {
+    "issue_id": "cdeb1d77-373a-4bf5-9b38-7117ab0d4d7d",
+    "rule": "findsecbugs:SQL_INJECTION_JDBC",
+    "component": "thesis_owasp_holdout_v1:experiments/owasp_holdout_v1/inputs/a452b3aafd232245d0753e54eb243d6651f8ef96/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00999.java",
+    "line": 75,
+    "type": "VULNERABILITY",
+    "message": "This use of java/sql/Connection.prepareCall(Ljava/lang/String;II)Ljava/sql/CallableStatement; can be vulnerable to SQL injection (with JDBC)",
+    "cwe_id": "CWE-89",
+    "mapping": {
+      "cwe_id": "CWE-89",
+      "name": "SQL Injection in JDBC",
+      "supported": true,
+      "mapping_source": "https://find-sec-bugs.github.io/bugs.htm#SQL_INJECTION_JDBC",
+      "reason": ""
+    },
+    "source_sha256": "0949425071b41e3e5c7aef480da8ddf838c235738b2f65da3bd0b11083e93a01",
+    "flow_count": 2,
+    "sql_gate_version": "sql-no-flow-gate-v1",
+    "sink_call_count": 1,
+    "sink_argument_count": 1,
+    "analysis_mode": "FLOW_PRESENT",
+    "llm_invoked": true,
+    "context_size_gate": {
+      "version": "sql-source-size-v2",
+      "source_chars": 4186,
+      "cpg_chars": 7986,
+      "counted_chars": 4186,
+      "limit_chars": 10000,
+      "is_token_count": false
+    },
+    "verdict": "UNKNOWN",
+    "explanation": "Kết luận: UNKNOWN. Chưa đủ cơ sở kết luận TP/FP: còn thiếu ngữ cảnh cần thiết.\n\nNguồn dữ liệu: Kiểm tra nguồn báo cáo có thao tác đọc đầu vào bên ngoài liên quan tới truy vấn.\n\nTác động SQL: Bước 2 báo cáo có bảo vệ tại truy vấn (PROTECTED).\n\nBước kiểm tra nguồn đã điều chỉnh nhận định trước đó: UNKNOWN → UNKNOWN. Nhận định về nguồn trong lời giải thích bước 2 không phải kết luận nguồn cuối.\n\nThông tin còn thiếu: nguồn của tham số `param`\n\nCác dòng mã được bước 2 dẫn (cần đối chiếu lập luận):\n61:                     param = java.net.URLDecoder.decode(theCookie.getValue(), \"UTF-8\");\n97:             if ((7 * 42) - num > 200) bar = \"This_should_always_happen\";\n98:             else bar = param;",
+    "evidence_lines": [
+      61,
+      79,
+      80,
+      97,
+      98
+    ],
+    "missing_context": [
+      "nguồn của tham số `param`"
+    ],
+    "error_kind": null,
+    "decision_basis": "MISSING_CONTEXT",
+    "model_assessment": {
+      "explanation": "Kết luận: UNKNOWN. Chưa đủ cơ sở kết luận TP/FP: còn thiếu ngữ cảnh cần thiết.\n\nNguồn dữ liệu: Kiểm tra nguồn báo cáo có thao tác đọc đầu vào bên ngoài liên quan tới truy vấn.\n\nTác động SQL: Bước 2 báo cáo có bảo vệ tại truy vấn (PROTECTED).\n\nBước kiểm tra nguồn đã điều chỉnh nhận định trước đó: UNKNOWN → UNKNOWN. Nhận định về nguồn trong lời giải thích bước 2 không phải kết luận nguồn cuối.\n\nThông tin còn thiếu: nguồn của tham số `param`\n\nCác dòng mã được bước 2 dẫn (cần đối chiếu lập luận):\n61:                     param = java.net.URLDecoder.decode(theCookie.getValue(), \"UTF-8\");\n97:             if ((7 * 42) - num > 200) bar = \"This_should_always_happen\";\n98:             else bar = param;",
+      "evidence_lines": [
+        61,
+        79,
+        80,
+        97,
+        98
+      ],
+      "source_control": "CONFIRMED",
+      "sql_effect": "PROTECTED",
+      "missing_context": [
+        "nguồn của tham số `param`"
+      ]
+    },
+    "requires_review": true,
+    "prompt_version": "sql89-v7-stage2-plus-source-v2-explanation-2",
+    "format_normalization": "NONE",
+    "elapsed_seconds": 709.746,
+    "decision_policy_version": "sql89-compact-facts-v5",
+    "model": "qwen2.5-coder:14b-instruct-q4_K_M",
+    "ai_verdict": "UNKNOWN",
+    "review_status": "PENDING",
+    "reviewed_verdict": null,
+    "review_notes": null,
+    "cpg_usage": "eligibility_gate_only_not_sent_to_llm",
+    "baseline_ai_verdict": "UNKNOWN",
+    "source_audit_status": "PROPOSED_REQUIRES_REVIEW",
+    "explanation_version": "sql-source-merge-explanation-v2",
+    "explanation_origin": "DETERMINISTIC_COMPOSITION_OF_MODEL_FACTS",
+    "stage2_explanation_original": "Dữ liệu đi vào câu SQL là biến `bar`, được lấy từ phương thức `doSomething` của lớp `Test`. Biến này chứa giá trị của tham số `param` sau khi đã được xử lý trong phương thức `doSomething`. Câu SQL được thực thi ở dòng 75 thông qua đối tượng `CallableStatement`. Trước lời gọi SQL, có một bước kiểm tra điều kiện `(7 * 42) - num > 200` để xác định giá trị của biến `bar`. Nếu điều kiện đúng, `bar` sẽ nhận giá trị `\"This_should_always_happen\"`, ngược lại thì `bar` sẽ nhận giá trị của `param`. Điều kiện này luôn đúng vì `(7 * 42) - num` luôn lớn hơn 200. Do đó, chương trình luôn đi tới lời gọi SQL với giá trị của `bar` là `\"This_should_always_happen\"`. Từ những điều trên, người cung cấp đầu vào không thể làm thay đổi cấu trúc truy vấn vì biến `bar` luôn nhận một giá trị cố định (`\"This_should_always_happen\"`) và không phụ thuộc vào giá trị của `param`. Điều này ngăn chặn khả năng SQL injection thông qua việc thực thi các câu lệnh SQL tùy ý.",
+    "source_explanation_original": "Dữ liệu được đọc từ cookie 'BenchmarkTest00999' và truyền vào truy vấn SQL.",
+    "stage2_assessment_original": {
+      "explanation": "Dữ liệu đi vào câu SQL là biến `bar`, được lấy từ phương thức `doSomething` của lớp `Test`. Biến này chứa giá trị của tham số `param` sau khi đã được xử lý trong phương thức `doSomething`. Câu SQL được thực thi ở dòng 75 thông qua đối tượng `CallableStatement`. Trước lời gọi SQL, có một bước kiểm tra điều kiện `(7 * 42) - num > 200` để xác định giá trị của biến `bar`. Nếu điều kiện đúng, `bar` sẽ nhận giá trị `\"This_should_always_happen\"`, ngược lại thì `bar` sẽ nhận giá trị của `param`. Điều kiện này luôn đúng vì `(7 * 42) - num` luôn lớn hơn 200. Do đó, chương trình luôn đi tới lời gọi SQL với giá trị của `bar` là `\"This_should_always_happen\"`. Từ những điều trên, người cung cấp đầu vào không thể làm thay đổi cấu trúc truy vấn vì biến `bar` luôn nhận một giá trị cố định (`\"This_should_always_happen\"`) và không phụ thuộc vào giá trị của `param`. Điều này ngăn chặn khả năng SQL injection thông qua việc thực thi các câu lệnh SQL tùy ý.",
+      "evidence_lines": [
+        61,
+        97,
+        98
+      ],
+      "source_control": "UNRESOLVED",
+      "sql_effect": "PROTECTED",
+      "missing_context": [
+        "nguồn của tham số `param`"
+      ]
+    },
+    "stage2_evidence_resolved": [
+      {
+        "line": 61,
+        "code": "                    param = java.net.URLDecoder.decode(theCookie.getValue(), \"UTF-8\");"
+      },
+      {
+        "line": 97,
+        "code": "            if ((7 * 42) - num > 200) bar = \"This_should_always_happen\";"
+      },
+      {
+        "line": 98,
+        "code": "            else bar = param;"
+      }
+    ],
+    "source_assessment_changed": true,
+    "explanation_limitations": [
+      "Việc ghép không thẩm định ngữ nghĩa của nhận định AI hoặc chọn lại dòng bằng chứng.",
+      "Giải thích gốc từng bước được lưu riêng; nhận định nguồn bước 2 có thể đã bị sửa."
+    ],
+    "source_kind": "EXTERNAL_READ",
+    "sql_effect_reused": "PROTECTED",
+    "source_audit_facts": {
+      "source_kind": "EXTERNAL_READ",
+      "source_evidence": [
+        {
+          "line": 61
+        }
+      ],
+      "flow_evidence": [
+        {
+          "line": 79
+        },
+        {
+          "line": 80
+        }
+      ],
+      "explanation": "Dữ liệu được đọc từ cookie 'BenchmarkTest00999' và truyền vào truy vấn SQL.",
+      "missing_context": []
+    },
+    "source_audit_reference_check": "LINES_RESOLVED_REVIEW_REQUIRED",
+    "analysis_limitations": [],
+    "artifact_dir": "issue-0164",
+    "processing_status": "AI_PROPOSED",
+    "total_seconds": 717.696,
+    "analysis_route": "sql",
+    "router_version": "multi-sql89-path22-command78-v5-sql-source-size",
+    "combined_verdict": "UNKNOWN",
+    "decision_origin": "AI_PIPELINE",
+    "ai_explanation": "Kết luận: UNKNOWN. Chưa đủ cơ sở kết luận TP/FP: còn thiếu ngữ cảnh cần thiết.\n\nNguồn dữ liệu: Kiểm tra nguồn báo cáo có thao tác đọc đầu vào bên ngoài liên quan tới truy vấn.\n\nTác động SQL: Bước 2 báo cáo có bảo vệ tại truy vấn (PROTECTED).\n\nBước kiểm tra nguồn đã điều chỉnh nhận định trước đó: UNKNOWN → UNKNOWN. Nhận định về nguồn trong lời giải thích bước 2 không phải kết luận nguồn cuối.\n\nThông tin còn thiếu: nguồn của tham số `param`\n\nCác dòng mã được bước 2 dẫn (cần đối chiếu lập luận):\n61:                     param = java.net.URLDecoder.decode(theCookie.getValue(), \"UTF-8\");\n97:             if ((7 * 42) - num > 200) bar = \"This_should_always_happen\";\n98:             else bar = param;",
+    "ai_evidence_lines": [
+      61,
+      79,
+      80,
+      97,
+      98
+    ],
+    "ai_missing_context": [
+      "nguồn của tham số `param`"
+    ],
+    "ai_decision_basis": "MISSING_CONTEXT"
+  },
+  {
+    "issue_id": "42fe8b5f-5d89-4d3b-815b-12adc58a2461",
+    "rule": "findsecbugs:SQL_INJECTION_JDBC",
+    "component": "thesis_owasp_holdout_v1:experiments/owasp_holdout_v1/inputs/a452b3aafd232245d0753e54eb243d6651f8ef96/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01093.java",
+    "line": 58,
+    "type": "VULNERABILITY",
+    "message": "This use of java/sql/Statement.execute(Ljava/lang/String;[I)Z can be vulnerable to SQL injection (with JDBC)",
+    "cwe_id": "CWE-89",
+    "mapping": {
+      "cwe_id": "CWE-89",
+      "name": "SQL Injection in JDBC",
+      "supported": true,
+      "mapping_source": "https://find-sec-bugs.github.io/bugs.htm#SQL_INJECTION_JDBC",
+      "reason": ""
+    },
+    "source_sha256": "647e261e7ea672836bcd1375476637827e2dc537e3582a2e0f968c06cfd505d0",
+    "flow_count": 3,
+    "sql_gate_version": "sql-no-flow-gate-v1",
+    "sink_call_count": 1,
+    "sink_argument_count": 1,
+    "analysis_mode": "FLOW_PRESENT",
+    "llm_invoked": true,
+    "context_size_gate": {
+      "version": "sql-source-size-v2",
+      "source_chars": 3346,
+      "cpg_chars": 9923,
+      "counted_chars": 3346,
+      "limit_chars": 10000,
+      "is_token_count": false
+    },
+    "verdict": "LIKELY_TP",
+    "explanation": "Kết luận: LIKELY_TP. Có cơ sở đề xuất cảnh báo đúng: kiểm tra nguồn báo cáo đầu vào bên ngoài và phân tích SQL báo cáo khả năng thay đổi cú pháp truy vấn.\n\nNguồn dữ liệu: Kiểm tra nguồn báo cáo có thao tác đọc đầu vào bên ngoài liên quan tới truy vấn.\n\nTác động SQL: Bước 2 báo cáo dữ liệu có thể thay đổi cú pháp SQL (CHANGEABLE). Điều này tự nó chưa chứng minh nguồn do người bên ngoài kiểm soát.\n\nCác dòng mã được bước 2 dẫn (cần đối chiếu lập luận):\n45:             param = request.getHeader(\"BenchmarkTest01093\");\n53:         String sql = \"SELECT * from USERS where USERNAME='foo' and PASSWORD='\" + bar + \"'\";\n58:             statement.execute(sql, new int[] {1, 2});",
+    "evidence_lines": [
+      45,
+      51,
+      53,
+      58
+    ],
+    "missing_context": [],
+    "error_kind": null,
+    "decision_basis": "EXTERNAL_CONTROL_AND_CHANGEABLE_SQL_REPORTED",
+    "model_assessment": {
+      "explanation": "Kết luận: LIKELY_TP. Có cơ sở đề xuất cảnh báo đúng: kiểm tra nguồn báo cáo đầu vào bên ngoài và phân tích SQL báo cáo khả năng thay đổi cú pháp truy vấn.\n\nNguồn dữ liệu: Kiểm tra nguồn báo cáo có thao tác đọc đầu vào bên ngoài liên quan tới truy vấn.\n\nTác động SQL: Bước 2 báo cáo dữ liệu có thể thay đổi cú pháp SQL (CHANGEABLE). Điều này tự nó chưa chứng minh nguồn do người bên ngoài kiểm soát.\n\nCác dòng mã được bước 2 dẫn (cần đối chiếu lập luận):\n45:             param = request.getHeader(\"BenchmarkTest01093\");\n53:         String sql = \"SELECT * from USERS where USERNAME='foo' and PASSWORD='\" + bar + \"'\";\n58:             statement.execute(sql, new int[] {1, 2});",
+      "evidence_lines": [
+        45,
+        51,
+        53,
+        58
+      ],
+      "source_control": "CONFIRMED",
+      "sql_effect": "CHANGEABLE",
+      "missing_context": []
+    },
+    "requires_review": true,
+    "prompt_version": "sql89-v7-stage2-plus-source-v2-explanation-2",
+    "format_normalization": "NONE",
+    "elapsed_seconds": 584.454,
+    "decision_policy_version": "sql89-compact-facts-v5",
+    "model": "qwen2.5-coder:14b-instruct-q4_K_M",
+    "ai_verdict": "LIKELY_TP",
+    "review_status": "PENDING",
+    "reviewed_verdict": null,
+    "review_notes": null,
+    "cpg_usage": "eligibility_gate_only_not_sent_to_llm",
+    "baseline_ai_verdict": "LIKELY_TP",
+    "source_audit_status": "PROPOSED_REQUIRES_REVIEW",
+    "explanation_version": "sql-source-merge-explanation-v2",
+    "explanation_origin": "DETERMINISTIC_COMPOSITION_OF_MODEL_FACTS",
+    "stage2_explanation_original": "Dữ liệu đầu vào là `param`, được lấy từ header HTTP với tên \"BenchmarkTest01093\". Giá trị này sau đó được giải mã URL và gán cho biến `bar` thông qua phương thức `doSomething`. Biến `bar` được sử dụng để tạo câu SQL tại dòng 53: `\"SELECT * from USERS where USERNAME='foo' and PASSWORD='\" + bar + \"'\"`. Câu SQL này được thực thi ở dòng 58. Trước khi câu SQL được thực thi, có một bước giải mã URL cho `param` tại dòng 49. Tuy nhiên, không có bất kỳ kiểm tra hoặc biến đổi dữ liệu nào khác đối với `bar` trước khi nó được chèn vào câu SQL. Điều kiện cho phép chương trình đi tới lời gọi SQL là chỉ cần có header \"BenchmarkTest01093\" trong request HTTP. Từ những điều trên, người cung cấp đầu vào có thể làm thay đổi cấu trúc truy vấn thông qua việc chèn các ký tự đặc biệt như dấu nháy đơn (') hoặc dấu gạch chéo ngược (\\) vào `param`. Điều này cho phép họ đóng chuỗi hiện tại và mở một chuỗi mới, từ đó có thể thực thi các câu lệnh SQL bổ sung.",
+    "source_explanation_original": "Dữ liệu được đọc từ header HTTP 'BenchmarkTest01093' và truyền tới truy vấn SQL.",
+    "stage2_assessment_original": {
+      "explanation": "Dữ liệu đầu vào là `param`, được lấy từ header HTTP với tên \"BenchmarkTest01093\". Giá trị này sau đó được giải mã URL và gán cho biến `bar` thông qua phương thức `doSomething`. Biến `bar` được sử dụng để tạo câu SQL tại dòng 53: `\"SELECT * from USERS where USERNAME='foo' and PASSWORD='\" + bar + \"'\"`. Câu SQL này được thực thi ở dòng 58. Trước khi câu SQL được thực thi, có một bước giải mã URL cho `param` tại dòng 49. Tuy nhiên, không có bất kỳ kiểm tra hoặc biến đổi dữ liệu nào khác đối với `bar` trước khi nó được chèn vào câu SQL. Điều kiện cho phép chương trình đi tới lời gọi SQL là chỉ cần có header \"BenchmarkTest01093\" trong request HTTP. Từ những điều trên, người cung cấp đầu vào có thể làm thay đổi cấu trúc truy vấn thông qua việc chèn các ký tự đặc biệt như dấu nháy đơn (') hoặc dấu gạch chéo ngược (\\) vào `param`. Điều này cho phép họ đóng chuỗi hiện tại và mở một chuỗi mới, từ đó có thể thực thi các câu lệnh SQL bổ sung.",
+      "evidence_lines": [
+        45,
+        53,
+        58
+      ],
+      "source_control": "CONFIRMED",
+      "sql_effect": "CHANGEABLE",
+      "missing_context": []
+    },
+    "stage2_evidence_resolved": [
+      {
+        "line": 45,
+        "code": "            param = request.getHeader(\"BenchmarkTest01093\");"
+      },
+      {
+        "line": 53,
+        "code": "        String sql = \"SELECT * from USERS where USERNAME='foo' and PASSWORD='\" + bar + \"'\";"
+      },
+      {
+        "line": 58,
+        "code": "            statement.execute(sql, new int[] {1, 2});"
+      }
+    ],
+    "source_assessment_changed": false,
+    "explanation_limitations": [
+      "Việc ghép không thẩm định ngữ nghĩa của nhận định AI hoặc chọn lại dòng bằng chứng.",
+      "Giải thích gốc từng bước được lưu riêng; nhận định nguồn bước 2 có thể đã bị sửa."
+    ],
+    "source_kind": "EXTERNAL_READ",
+    "sql_effect_reused": "CHANGEABLE",
+    "source_audit_facts": {
+      "source_kind": "EXTERNAL_READ",
+      "source_evidence": [
+        {
+          "line": 45
+        }
+      ],
+      "flow_evidence": [
+        {
+          "line": 51
+        },
+        {
+          "line": 53
+        },
+        {
+          "line": 58
+        }
+      ],
+      "explanation": "Dữ liệu được đọc từ header HTTP 'BenchmarkTest01093' và truyền tới truy vấn SQL.",
+      "missing_context": []
+    },
+    "source_audit_reference_check": "LINES_RESOLVED_REVIEW_REQUIRED",
+    "analysis_limitations": [],
+    "artifact_dir": "issue-0174",
+    "processing_status": "AI_PROPOSED",
+    "total_seconds": 593.56,
+    "analysis_route": "sql",
+    "router_version": "multi-sql89-path22-command78-v5-sql-source-size",
+    "combined_verdict": "LIKELY_TP",
+    "decision_origin": "AI_PIPELINE",
+    "ai_explanation": "Kết luận: LIKELY_TP. Có cơ sở đề xuất cảnh báo đúng: kiểm tra nguồn báo cáo đầu vào bên ngoài và phân tích SQL báo cáo khả năng thay đổi cú pháp truy vấn.\n\nNguồn dữ liệu: Kiểm tra nguồn báo cáo có thao tác đọc đầu vào bên ngoài liên quan tới truy vấn.\n\nTác động SQL: Bước 2 báo cáo dữ liệu có thể thay đổi cú pháp SQL (CHANGEABLE). Điều này tự nó chưa chứng minh nguồn do người bên ngoài kiểm soát.\n\nCác dòng mã được bước 2 dẫn (cần đối chiếu lập luận):\n45:             param = request.getHeader(\"BenchmarkTest01093\");\n53:         String sql = \"SELECT * from USERS where USERNAME='foo' and PASSWORD='\" + bar + \"'\";\n58:             statement.execute(sql, new int[] {1, 2});",
+    "ai_evidence_lines": [
+      45,
+      51,
+      53,
+      58
+    ],
+    "ai_missing_context": [],
+    "ai_decision_basis": "EXTERNAL_CONTROL_AND_CHANGEABLE_SQL_REPORTED"
+  },
+  {
+    "issue_id": "07951150-c656-48e8-a94d-c3d8bcd0a08a",
+    "rule": "findsecbugs:SQL_INJECTION_JDBC",
+    "component": "thesis_owasp_holdout_v1:experiments/owasp_holdout_v1/inputs/a452b3aafd232245d0753e54eb243d6651f8ef96/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01311.java",
+    "line": 53,
+    "type": "VULNERABILITY",
+    "message": "This use of java/sql/Statement.execute(Ljava/lang/String;)Z can be vulnerable to SQL injection (with JDBC)",
+    "cwe_id": "CWE-89",
+    "mapping": {
+      "cwe_id": "CWE-89",
+      "name": "SQL Injection in JDBC",
+      "supported": true,
+      "mapping_source": "https://find-sec-bugs.github.io/bugs.htm#SQL_INJECTION_JDBC",
+      "reason": ""
+    },
+    "source_sha256": "a994ead8fea2618bc3916f9ab3b0fa6c57d8ee53bb27b8946babe8adf044c870",
+    "flow_count": 3,
+    "sql_gate_version": "sql-no-flow-gate-v1",
+    "sink_call_count": 1,
+    "sink_argument_count": 1,
+    "analysis_mode": "FLOW_PRESENT",
+    "llm_invoked": true,
+    "context_size_gate": {
+      "version": "sql-source-size-v2",
+      "source_chars": 2897,
+      "cpg_chars": 7503,
+      "counted_chars": 2897,
+      "limit_chars": 10000,
+      "is_token_count": false
+    },
+    "verdict": "UNKNOWN",
+    "explanation": "Kiểm tra nguồn chưa hợp lệ: Số dòng ngoài phạm vi",
+    "evidence_lines": [],
+    "missing_context": [
+      "Kiểm tra nguồn chưa hợp lệ: Số dòng ngoài phạm vi"
+    ],
+    "error_kind": "SOURCE_AUDIT_ERROR",
+    "decision_basis": "SOURCE_AUDIT_FAILED",
+    "requires_review": true,
+    "prompt_version": "sql89-v7-stage2-plus-source-v2-explanation-2",
+    "format_normalization": "NONE",
+    "elapsed_seconds": 591.83,
+    "decision_policy_version": "sql89-compact-facts-v5",
+    "model": "qwen2.5-coder:14b-instruct-q4_K_M",
+    "ai_verdict": "UNKNOWN",
+    "review_status": "CALL_ERROR",
+    "reviewed_verdict": null,
+    "review_notes": null,
+    "cpg_usage": "eligibility_gate_only_not_sent_to_llm",
+    "baseline_ai_verdict": "LIKELY_TP",
+    "source_audit_status": "ERROR",
+    "baseline_model_assessment": {
+      "explanation": "Dữ liệu đầu vào là `param` được lấy từ request HTTP (`request.getParameter(\"BenchmarkTest01311\")`). Giá trị này sau đó được chuyển qua hàm `doSomething()` trong lớp `Test`, và kết quả được gán cho biến `bar`. Câu SQL được tạo bằng cách ghép chuỗi với giá trị của `bar` và thực thi thông qua đối tượng `Statement`. Trước khi gọi SQL, có một điều kiện kiểm tra: nếu `(500 / 42) + num > 200`, thì `bar` sẽ nhận giá trị của `param`; ngược lại, `bar` sẽ là chuỗi \"This should never happen\". Điều kiện này luôn đúng vì `(500 / 42)` kết quả là một số nhỏ hơn 12, cộng với `num = 196` sẽ luôn lớn hơn 200. Do đó, chương trình luôn đi tới lời gọi SQL. Từ những điều trên, người cung cấp đầu vào có thể làm thay đổi cấu trúc truy vấn thông qua việc nhập các ký tự đặc biệt như dấu nháy đơn (`'`) hoặc dấu chấm phẩy (`;`). Điều này cho phép kẻ tấn công chèn thêm các câu lệnh SQL khác vào chuỗi, dẫn đến việc thực thi mã SQL không mong muốn.",
+      "evidence_lines": [
+        33,
+        40,
+        48,
+        53
+      ],
+      "source_control": "CONFIRMED",
+      "sql_effect": "CHANGEABLE",
+      "missing_context": []
+    },
+    "source_audit_facts": {
+      "source_kind": "PARAMETER_ONLY",
+      "source_evidence": [
+        {
+          "line": 33
+        },
+        {
+          "line": 43
+        }
+      ],
+      "flow_evidence": [
+        {
+          "line": 67
+        },
+        {
+          "line": 71
+        },
+        {
+          "line": 78
+        },
+        {
+          "line": 48
+        },
+        {
+          "line": 53
+        }
+      ],
+      "explanation": "Dữ liệu đầu vào được lấy từ tham số 'param' của hàm doGet và doPost. Giá trị này được truyền vào phương thức doSomething trong lớp Test, sau đó được sử dụng để tạo chuỗi SQL.",
+      "missing_context": [
+        "Nơi gọi hàm doSomething đang chứa truy vấn SQL."
+      ]
+    },
+    "source_audit_reference_check": null,
+    "analysis_limitations": [],
+    "artifact_dir": "issue-0235",
+    "processing_status": "ERROR",
+    "total_seconds": 600.648,
+    "analysis_route": "sql",
+    "router_version": "multi-sql89-path22-command78-v5-sql-source-size",
+    "combined_verdict": "UNKNOWN",
+    "decision_origin": "AI_PIPELINE",
+    "ai_explanation": "Kiểm tra nguồn chưa hợp lệ: Số dòng ngoài phạm vi",
+    "ai_evidence_lines": [],
+    "ai_missing_context": [
+      "Kiểm tra nguồn chưa hợp lệ: Số dòng ngoài phạm vi"
+    ],
+    "ai_decision_basis": "SOURCE_AUDIT_FAILED"
+  },
+  {
+    "issue_id": "a0b83a09-38be-4ab0-9be5-56c43a811134",
+    "rule": "findsecbugs:SQL_INJECTION_JDBC",
+    "component": "thesis_owasp_holdout_v1:experiments/owasp_holdout_v1/inputs/a452b3aafd232245d0753e54eb243d6651f8ef96/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01558.java",
+    "line": 55,
+    "type": "VULNERABILITY",
+    "message": "This use of java/sql/Statement.execute(Ljava/lang/String;I)Z can be vulnerable to SQL injection (with JDBC)",
+    "cwe_id": "CWE-89",
+    "mapping": {
+      "cwe_id": "CWE-89",
+      "name": "SQL Injection in JDBC",
+      "supported": true,
+      "mapping_source": "https://find-sec-bugs.github.io/bugs.htm#SQL_INJECTION_JDBC",
+      "reason": ""
+    },
+    "source_sha256": "1d363629c834eb8e1a05824364ec2af04e92bbbf3cb7e71982c79935764e2dca",
+    "flow_count": 3,
+    "sql_gate_version": "sql-no-flow-gate-v1",
+    "sink_call_count": 1,
+    "sink_argument_count": 1,
+    "analysis_mode": "FLOW_PRESENT",
+    "llm_invoked": true,
+    "context_size_gate": {
+      "version": "sql-source-size-v2",
+      "source_chars": 3490,
+      "cpg_chars": 7987,
+      "counted_chars": 3490,
+      "limit_chars": 10000,
+      "is_token_count": false
+    },
+    "verdict": "UNKNOWN",
+    "explanation": "Kiểm tra nguồn chưa hợp lệ: Dòng bằng chứng trống",
+    "evidence_lines": [],
+    "missing_context": [
+      "Kiểm tra nguồn chưa hợp lệ: Dòng bằng chứng trống"
+    ],
+    "error_kind": "SOURCE_AUDIT_ERROR",
+    "decision_basis": "SOURCE_AUDIT_FAILED",
+    "requires_review": true,
+    "prompt_version": "sql89-v7-stage2-plus-source-v2-explanation-2",
+    "format_normalization": "NONE",
+    "elapsed_seconds": 539.812,
+    "decision_policy_version": "sql89-compact-facts-v5",
+    "model": "qwen2.5-coder:14b-instruct-q4_K_M",
+    "ai_verdict": "UNKNOWN",
+    "review_status": "CALL_ERROR",
+    "reviewed_verdict": null,
+    "review_notes": null,
+    "cpg_usage": "eligibility_gate_only_not_sent_to_llm",
+    "baseline_ai_verdict": "LIKELY_TP",
+    "source_audit_status": "ERROR",
+    "baseline_model_assessment": {
+      "explanation": "Dữ liệu đầu vào là `param` được lấy từ request HTTP và đi qua biến `bar`. Câu SQL được tạo bằng cách ghép chuỗi với giá trị của `bar`, sau đó được thực thi ở dòng 55. Trước khi gọi SQL, có một bước kiểm tra trong hàm `doSomething` để xác định giá trị của `switchTarget`. Tuy nhiên, không có bất kỳ biến đổi dữ liệu nào đối với `param` trước khi nó được sử dụng trong câu SQL. Điều kiện cho phép chương trình đi tới lời gọi SQL là khi `param` không phải là null. Từ những điều trên, người cung cấp đầu vào có thể làm thay đổi cấu trúc truy vấn thông qua việc nhập các ký tự đặc biệt như dấu nháy đơn (') hoặc dấu chấm phẩy (;) vào `param`. Điều này cho phép họ đóng chuỗi hiện tại và mở một chuỗi mới, có thể chứa các câu lệnh SQL khác.",
+      "evidence_lines": [
+        50,
+        55
+      ],
+      "source_control": "CONFIRMED",
+      "sql_effect": "CHANGEABLE",
+      "missing_context": []
+    },
+    "source_audit_facts": {
+      "source_kind": "PARAMETER_ONLY",
+      "source_evidence": [
+        {
+          "line": 50
+        },
+        {
+          "line": 48
+        }
+      ],
+      "flow_evidence": [
+        {
+          "line": 51
+        },
+        {
+          "line": 55
+        }
+      ],
+      "explanation": "Dữ liệu từ tham số 'param' được truyền vào hàm doSomething và sau đó được sử dụng trong truy vấn SQL.",
+      "missing_context": [
+        "Nơi gọi hàm doSomething đang chứa truy vấn SQL."
+      ]
+    },
+    "source_audit_reference_check": null,
+    "analysis_limitations": [],
+    "artifact_dir": "issue-0264",
+    "processing_status": "ERROR",
+    "total_seconds": 548.743,
+    "analysis_route": "sql",
+    "router_version": "multi-sql89-path22-command78-v5-sql-source-size",
+    "combined_verdict": "UNKNOWN",
+    "decision_origin": "AI_PIPELINE",
+    "ai_explanation": "Kiểm tra nguồn chưa hợp lệ: Dòng bằng chứng trống",
+    "ai_evidence_lines": [],
+    "ai_missing_context": [
+      "Kiểm tra nguồn chưa hợp lệ: Dòng bằng chứng trống"
+    ],
+    "ai_decision_basis": "SOURCE_AUDIT_FAILED"
+  },
+  {
+    "issue_id": "8040d43a-6c70-4928-b324-f6c4abda92d2",
+    "rule": "findsecbugs:SQL_INJECTION_JDBC",
+    "component": "thesis_owasp_holdout_v1:experiments/owasp_holdout_v1/inputs/a452b3aafd232245d0753e54eb243d6651f8ef96/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02088.java",
+    "line": 61,
+    "type": "VULNERABILITY",
+    "message": "This use of java/sql/Connection.prepareStatement(Ljava/lang/String;II)Ljava/sql/PreparedStatement; can be vulnerable to SQL injection (with JDBC)",
+    "cwe_id": "CWE-89",
+    "mapping": {
+      "cwe_id": "CWE-89",
+      "name": "SQL Injection in JDBC",
+      "supported": true,
+      "mapping_source": "https://find-sec-bugs.github.io/bugs.htm#SQL_INJECTION_JDBC",
+      "reason": ""
+    },
+    "source_sha256": "e3525d174198bbd0c6ca2600ddb57b5042674c4b4e7ba254129eb121828fa203",
+    "flow_count": 3,
+    "sql_gate_version": "sql-no-flow-gate-v1",
+    "sink_call_count": 1,
+    "sink_argument_count": 1,
+    "analysis_mode": "FLOW_PRESENT",
+    "llm_invoked": true,
+    "context_size_gate": {
+      "version": "sql-source-size-v2",
+      "source_chars": 3352,
+      "cpg_chars": 10165,
+      "counted_chars": 3352,
+      "limit_chars": 10000,
+      "is_token_count": false
+    },
+    "verdict": "UNKNOWN",
+    "explanation": "Kiểm tra nguồn chưa hợp lệ: Dòng bằng chứng trống",
+    "evidence_lines": [],
+    "missing_context": [
+      "Kiểm tra nguồn chưa hợp lệ: Dòng bằng chứng trống"
+    ],
+    "error_kind": "SOURCE_AUDIT_ERROR",
+    "decision_basis": "SOURCE_AUDIT_FAILED",
+    "requires_review": true,
+    "prompt_version": "sql89-v7-stage2-plus-source-v2-explanation-2",
+    "format_normalization": "NONE",
+    "elapsed_seconds": 537.394,
+    "decision_policy_version": "sql89-compact-facts-v5",
+    "model": "qwen2.5-coder:14b-instruct-q4_K_M",
+    "ai_verdict": "UNKNOWN",
+    "review_status": "CALL_ERROR",
+    "reviewed_verdict": null,
+    "review_notes": null,
+    "cpg_usage": "eligibility_gate_only_not_sent_to_llm",
+    "baseline_ai_verdict": "UNKNOWN",
+    "source_audit_status": "ERROR",
+    "baseline_model_assessment": {
+      "explanation": "Dữ liệu đầu vào là `param`, được lấy từ header HTTP có tên \"BenchmarkTest02088\". Sau đó, nó được giải mã URL và truyền qua hàm `doSomething` để tạo ra biến `bar`. Biến `bar` sau đó được sử dụng trong câu SQL tại dòng 55. Câu SQL này được chuẩn bị và thực thi ở dòng 61. Tuy nhiên, nội dung của hàm `doSomething` không được cung cấp trong đoạn mã, nên chúng ta không biết nó thực hiện những thao tác nào trên dữ liệu đầu vào.",
+      "evidence_lines": [
+        34,
+        45,
+        51,
+        55,
+        61
+      ],
+      "source_control": "CONFIRMED",
+      "sql_effect": "UNRESOLVED",
+      "missing_context": [
+        "Nội dung của hàm `doSomething`"
+      ]
+    },
+    "source_audit_facts": {
+      "source_kind": "EXTERNAL_READ",
+      "source_evidence": [
+        {
+          "line": 45
+        },
+        {
+          "line": 47
+        }
+      ],
+      "flow_evidence": [
+        {
+          "line": 53
+        },
+        {
+          "line": 55
+        },
+        {
+          "line": 61
+        }
+      ],
+      "explanation": "Dữ liệu được đọc từ header HTTP 'BenchmarkTest02088' và truyền vào truy vấn SQL.",
+      "missing_context": []
+    },
+    "source_audit_reference_check": null,
+    "analysis_limitations": [],
+    "artifact_dir": "issue-0383",
+    "processing_status": "ERROR",
+    "total_seconds": 546.414,
+    "analysis_route": "sql",
+    "router_version": "multi-sql89-path22-command78-v5-sql-source-size",
+    "combined_verdict": "UNKNOWN",
+    "decision_origin": "AI_PIPELINE",
+    "ai_explanation": "Kiểm tra nguồn chưa hợp lệ: Dòng bằng chứng trống",
+    "ai_evidence_lines": [],
+    "ai_missing_context": [
+      "Kiểm tra nguồn chưa hợp lệ: Dòng bằng chứng trống"
+    ],
+    "ai_decision_basis": "SOURCE_AUDIT_FAILED"
+  },
+  {
+    "issue_id": "a59329b9-c85d-488c-9cb3-cef8e94aad66",
+    "rule": "findsecbugs:SQL_INJECTION_JDBC",
+    "component": "thesis_owasp_holdout_v1:experiments/owasp_holdout_v1/inputs/a452b3aafd232245d0753e54eb243d6651f8ef96/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02093.java",
+    "line": 60,
+    "type": "VULNERABILITY",
+    "message": "This use of java/sql/Statement.execute(Ljava/lang/String;)Z can be vulnerable to SQL injection (with JDBC)",
+    "cwe_id": "CWE-89",
+    "mapping": {
+      "cwe_id": "CWE-89",
+      "name": "SQL Injection in JDBC",
+      "supported": true,
+      "mapping_source": "https://find-sec-bugs.github.io/bugs.htm#SQL_INJECTION_JDBC",
+      "reason": ""
+    },
+    "source_sha256": "b89538163bb013758c3dff3fc4d89935379f5f85ff876b6fd3d50dbb309ccb2f",
+    "flow_count": 3,
+    "sql_gate_version": "sql-no-flow-gate-v1",
+    "sink_call_count": 1,
+    "sink_argument_count": 1,
+    "analysis_mode": "FLOW_PRESENT",
+    "llm_invoked": true,
+    "context_size_gate": {
+      "version": "sql-source-size-v2",
+      "source_chars": 3460,
+      "cpg_chars": 9439,
+      "counted_chars": 3460,
+      "limit_chars": 10000,
+      "is_token_count": false
+    },
+    "verdict": "LIKELY_TP",
+    "explanation": "Kết luận: LIKELY_TP. Có cơ sở đề xuất cảnh báo đúng: kiểm tra nguồn báo cáo đầu vào bên ngoài và phân tích SQL báo cáo khả năng thay đổi cú pháp truy vấn.\n\nNguồn dữ liệu: Kiểm tra nguồn báo cáo có thao tác đọc đầu vào bên ngoài liên quan tới truy vấn.\n\nTác động SQL: Bước 2 báo cáo dữ liệu có thể thay đổi cú pháp SQL (CHANGEABLE). Điều này tự nó chưa chứng minh nguồn do người bên ngoài kiểm soát.\n\nCác dòng mã được bước 2 dẫn (cần đối chiếu lập luận):\n47:             param = headers.nextElement(); // just grab first element\n51:         param = java.net.URLDecoder.decode(param, \"UTF-8\");\n53:         String bar = doSomething(request, param);\n55:         String sql = \"SELECT * from USERS where USERNAME='foo' and PASSWORD='\" + bar + \"'\";\n60:             statement.execute(sql);",
+    "evidence_lines": [
+      34,
+      47,
+      51,
+      53,
+      55,
+      60
+    ],
+    "missing_context": [],
+    "error_kind": null,
+    "decision_basis": "EXTERNAL_CONTROL_AND_CHANGEABLE_SQL_REPORTED",
+    "model_assessment": {
+      "explanation": "Kết luận: LIKELY_TP. Có cơ sở đề xuất cảnh báo đúng: kiểm tra nguồn báo cáo đầu vào bên ngoài và phân tích SQL báo cáo khả năng thay đổi cú pháp truy vấn.\n\nNguồn dữ liệu: Kiểm tra nguồn báo cáo có thao tác đọc đầu vào bên ngoài liên quan tới truy vấn.\n\nTác động SQL: Bước 2 báo cáo dữ liệu có thể thay đổi cú pháp SQL (CHANGEABLE). Điều này tự nó chưa chứng minh nguồn do người bên ngoài kiểm soát.\n\nCác dòng mã được bước 2 dẫn (cần đối chiếu lập luận):\n47:             param = headers.nextElement(); // just grab first element\n51:         param = java.net.URLDecoder.decode(param, \"UTF-8\");\n53:         String bar = doSomething(request, param);\n55:         String sql = \"SELECT * from USERS where USERNAME='foo' and PASSWORD='\" + bar + \"'\";\n60:             statement.execute(sql);",
+      "evidence_lines": [
+        34,
+        47,
+        51,
+        53,
+        55,
+        60
+      ],
+      "source_control": "CONFIRMED",
+      "sql_effect": "CHANGEABLE",
+      "missing_context": []
+    },
+    "requires_review": true,
+    "prompt_version": "sql89-v7-stage2-plus-source-v2-explanation-2",
+    "format_normalization": "NONE",
+    "elapsed_seconds": 656.571,
+    "decision_policy_version": "sql89-compact-facts-v5",
+    "model": "qwen2.5-coder:14b-instruct-q4_K_M",
+    "ai_verdict": "LIKELY_TP",
+    "review_status": "PENDING",
+    "reviewed_verdict": null,
+    "review_notes": null,
+    "cpg_usage": "eligibility_gate_only_not_sent_to_llm",
+    "baseline_ai_verdict": "LIKELY_TP",
+    "source_audit_status": "PROPOSED_REQUIRES_REVIEW",
+    "explanation_version": "sql-source-merge-explanation-v2",
+    "explanation_origin": "DETERMINISTIC_COMPOSITION_OF_MODEL_FACTS",
+    "stage2_explanation_original": "Dữ liệu đầu vào là giá trị của header 'BenchmarkTest02093' được lấy từ yêu cầu HTTP (dòng 47). Giá trị này sau đó được giải mã URL (dòng 51) và gán cho biến `param`. Biến `param` được truyền vào phương thức `doSomething`, kết quả trả về là chuỗi `bar` (dòng 34, 53). Câu SQL được xây dựng bằng cách ghép chuỗi với giá trị của `bar` (dòng 55) và sau đó thực thi thông qua đối tượng Statement (dòng 60). Trước khi câu SQL được thực thi, có một bước giải mã URL cho dữ liệu đầu vào (dòng 51). Tuy nhiên, không có bất kỳ kiểm tra hoặc biến đổi nào khác trên `param` trước khi nó được sử dụng trong câu SQL. Điều kiện cho phép chương trình đi tới lời gọi SQL là chỉ cần có header 'BenchmarkTest02093' trong yêu cầu HTTP. Từ những điều trên, người cung cấp đầu vào có thể làm thay đổi cấu trúc truy vấn thông qua việc chèn các ký tự đặc biệt như dấu nháy đơn (') hoặc dấu gạch chéo ngược (\\) vào giá trị của header 'BenchmarkTest02093'. Điều này cho phép họ đóng chuỗi trong câu SQL và thêm các phần khác để thay đổi cấu trúc truy vấn.",
+    "source_explanation_original": "Dữ liệu được đọc từ header HTTP 'BenchmarkTest02093' và truyền vào truy vấn SQL.",
+    "stage2_assessment_original": {
+      "explanation": "Dữ liệu đầu vào là giá trị của header 'BenchmarkTest02093' được lấy từ yêu cầu HTTP (dòng 47). Giá trị này sau đó được giải mã URL (dòng 51) và gán cho biến `param`. Biến `param` được truyền vào phương thức `doSomething`, kết quả trả về là chuỗi `bar` (dòng 34, 53). Câu SQL được xây dựng bằng cách ghép chuỗi với giá trị của `bar` (dòng 55) và sau đó thực thi thông qua đối tượng Statement (dòng 60). Trước khi câu SQL được thực thi, có một bước giải mã URL cho dữ liệu đầu vào (dòng 51). Tuy nhiên, không có bất kỳ kiểm tra hoặc biến đổi nào khác trên `param` trước khi nó được sử dụng trong câu SQL. Điều kiện cho phép chương trình đi tới lời gọi SQL là chỉ cần có header 'BenchmarkTest02093' trong yêu cầu HTTP. Từ những điều trên, người cung cấp đầu vào có thể làm thay đổi cấu trúc truy vấn thông qua việc chèn các ký tự đặc biệt như dấu nháy đơn (') hoặc dấu gạch chéo ngược (\\) vào giá trị của header 'BenchmarkTest02093'. Điều này cho phép họ đóng chuỗi trong câu SQL và thêm các phần khác để thay đổi cấu trúc truy vấn.",
+      "evidence_lines": [
+        47,
+        51,
+        53,
+        55,
+        60
+      ],
+      "source_control": "CONFIRMED",
+      "sql_effect": "CHANGEABLE",
+      "missing_context": []
+    },
+    "stage2_evidence_resolved": [
+      {
+        "line": 47,
+        "code": "            param = headers.nextElement(); // just grab first element"
+      },
+      {
+        "line": 51,
+        "code": "        param = java.net.URLDecoder.decode(param, \"UTF-8\");"
+      },
+      {
+        "line": 53,
+        "code": "        String bar = doSomething(request, param);"
+      },
+      {
+        "line": 55,
+        "code": "        String sql = \"SELECT * from USERS where USERNAME='foo' and PASSWORD='\" + bar + \"'\";"
+      },
+      {
+        "line": 60,
+        "code": "            statement.execute(sql);"
+      }
+    ],
+    "source_assessment_changed": false,
+    "explanation_limitations": [
+      "Việc ghép không thẩm định ngữ nghĩa của nhận định AI hoặc chọn lại dòng bằng chứng.",
+      "Giải thích gốc từng bước được lưu riêng; nhận định nguồn bước 2 có thể đã bị sửa."
+    ],
+    "source_kind": "EXTERNAL_READ",
+    "sql_effect_reused": "CHANGEABLE",
+    "source_audit_facts": {
+      "source_kind": "EXTERNAL_READ",
+      "source_evidence": [
+        {
+          "line": 47
+        }
+      ],
+      "flow_evidence": [
+        {
+          "line": 34
+        },
+        {
+          "line": 53
+        },
+        {
+          "line": 55
+        },
+        {
+          "line": 60
+        }
+      ],
+      "explanation": "Dữ liệu được đọc từ header HTTP 'BenchmarkTest02093' và truyền vào truy vấn SQL.",
+      "missing_context": []
+    },
+    "source_audit_reference_check": "LINES_RESOLVED_REVIEW_REQUIRED",
+    "analysis_limitations": [],
+    "artifact_dir": "issue-0394",
+    "processing_status": "AI_PROPOSED",
+    "total_seconds": 665.359,
+    "analysis_route": "sql",
+    "router_version": "multi-sql89-path22-command78-v5-sql-source-size",
+    "combined_verdict": "LIKELY_TP",
+    "decision_origin": "AI_PIPELINE",
+    "ai_explanation": "Kết luận: LIKELY_TP. Có cơ sở đề xuất cảnh báo đúng: kiểm tra nguồn báo cáo đầu vào bên ngoài và phân tích SQL báo cáo khả năng thay đổi cú pháp truy vấn.\n\nNguồn dữ liệu: Kiểm tra nguồn báo cáo có thao tác đọc đầu vào bên ngoài liên quan tới truy vấn.\n\nTác động SQL: Bước 2 báo cáo dữ liệu có thể thay đổi cú pháp SQL (CHANGEABLE). Điều này tự nó chưa chứng minh nguồn do người bên ngoài kiểm soát.\n\nCác dòng mã được bước 2 dẫn (cần đối chiếu lập luận):\n47:             param = headers.nextElement(); // just grab first element\n51:         param = java.net.URLDecoder.decode(param, \"UTF-8\");\n53:         String bar = doSomething(request, param);\n55:         String sql = \"SELECT * from USERS where USERNAME='foo' and PASSWORD='\" + bar + \"'\";\n60:             statement.execute(sql);",
+    "ai_evidence_lines": [
+      34,
+      47,
+      51,
+      53,
+      55,
+      60
+    ],
+    "ai_missing_context": [],
+    "ai_decision_basis": "EXTERNAL_CONTROL_AND_CHANGEABLE_SQL_REPORTED"
+  },
+  {
+    "issue_id": "eb1d6188-8f9d-406f-b766-9abc0851368f",
+    "rule": "findsecbugs:SQL_INJECTION_JDBC",
+    "component": "thesis_owasp_holdout_v1:experiments/owasp_holdout_v1/inputs/a452b3aafd232245d0753e54eb243d6651f8ef96/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02171.java",
+    "line": 54,
+    "type": "VULNERABILITY",
+    "message": "This use of java/sql/Connection.prepareStatement(Ljava/lang/String;II)Ljava/sql/PreparedStatement; can be vulnerable to SQL injection (with JDBC)",
+    "cwe_id": "CWE-89",
+    "mapping": {
+      "cwe_id": "CWE-89",
+      "name": "SQL Injection in JDBC",
+      "supported": true,
+      "mapping_source": "https://find-sec-bugs.github.io/bugs.htm#SQL_INJECTION_JDBC",
+      "reason": ""
+    },
+    "source_sha256": "53aeb1daa5eccc7668c855f9b888311d9d5ae6520eb3f0b2f851466dee146fac",
+    "flow_count": 3,
+    "sql_gate_version": "sql-no-flow-gate-v1",
+    "sink_call_count": 1,
+    "sink_argument_count": 1,
+    "analysis_mode": "FLOW_PRESENT",
+    "llm_invoked": true,
+    "context_size_gate": {
+      "version": "sql-source-size-v2",
+      "source_chars": 3211,
+      "cpg_chars": 10464,
+      "counted_chars": 3211,
+      "limit_chars": 10000,
+      "is_token_count": false
+    },
+    "verdict": "UNKNOWN",
+    "explanation": "Kiểm tra nguồn chưa hợp lệ: Dòng bằng chứng trống",
+    "evidence_lines": [],
+    "missing_context": [
+      "Kiểm tra nguồn chưa hợp lệ: Dòng bằng chứng trống"
+    ],
+    "error_kind": "SOURCE_AUDIT_ERROR",
+    "decision_basis": "SOURCE_AUDIT_FAILED",
+    "requires_review": true,
+    "prompt_version": "sql89-v7-stage2-plus-source-v2-explanation-2",
+    "format_normalization": "NONE",
+    "elapsed_seconds": 569.081,
+    "decision_policy_version": "sql89-compact-facts-v5",
+    "model": "qwen2.5-coder:14b-instruct-q4_K_M",
+    "ai_verdict": "UNKNOWN",
+    "review_status": "CALL_ERROR",
+    "reviewed_verdict": null,
+    "review_notes": null,
+    "cpg_usage": "eligibility_gate_only_not_sent_to_llm",
+    "baseline_ai_verdict": "LIKELY_TP",
+    "source_audit_status": "ERROR",
+    "baseline_model_assessment": {
+      "explanation": "Dữ liệu đầu vào là `param` được lấy từ request parameter \"BenchmarkTest02171\". Dữ liệu này đi qua hàm `doSomething()` và sau đó được gán cho biến `bar`. Câu SQL được xây dựng với `bar` được ghép vào chuỗi, và câu lệnh này được thực thi ở dòng 54 khi gọi `connection.prepareStatement(sql)`. Trước lời gọi SQL, có bước biến đổi dữ liệu trong hàm `doSomething()`, nơi `param` được mã hóa Base64 sau đó giải mã lại. Điều kiện cho phép chương trình đi tới lời gọi SQL là `param` không phải null (được kiểm tra ở dòng 34). Từ những điều trên, người cung cấp đầu vào có thể làm thay đổi cấu trúc truy vấn. Mặc dù `bar` được biến đổi thông qua mã hóa Base64, nhưng do nó được ghép trực tiếp vào chuỗi SQL, điều này tạo ra một điểm yếu tiềm ẩn cho việc SQL injection.",
+      "evidence_lines": [
+        34,
+        58
+      ],
+      "source_control": "CONFIRMED",
+      "sql_effect": "CHANGEABLE",
+      "missing_context": []
+    },
+    "source_audit_facts": {
+      "source_kind": "PARAMETER_ONLY",
+      "source_evidence": [
+        {
+          "line": 33
+        },
+        {
+          "line": 43
+        }
+      ],
+      "flow_evidence": [
+        {
+          "line": 67
+        },
+        {
+          "line": 48
+        },
+        {
+          "line": 54
+        }
+      ],
+      "explanation": "Dữ liệu đến SQL bắt nguồn từ tham số 'param' của hàm doPost. Tham số này được lấy từ request.getParameter('BenchmarkTest02171').",
+      "missing_context": [
+        "Nơi gọi hàm doPost đang chứa truy vấn SQL.",
+        "Nguồn của tham số 'param' trong request.getParameter('BenchmarkTest02171')."
+      ]
+    },
+    "source_audit_reference_check": null,
+    "analysis_limitations": [],
+    "artifact_dir": "issue-0423",
+    "processing_status": "ERROR",
+    "total_seconds": 577.707,
+    "analysis_route": "sql",
+    "router_version": "multi-sql89-path22-command78-v5-sql-source-size",
+    "combined_verdict": "UNKNOWN",
+    "decision_origin": "AI_PIPELINE",
+    "ai_explanation": "Kiểm tra nguồn chưa hợp lệ: Dòng bằng chứng trống",
+    "ai_evidence_lines": [],
+    "ai_missing_context": [
+      "Kiểm tra nguồn chưa hợp lệ: Dòng bằng chứng trống"
+    ],
+    "ai_decision_basis": "SOURCE_AUDIT_FAILED"
+  },
+  {
+    "issue_id": "d2d8166a-90af-4679-8c1d-7b87d662292a",
+    "rule": "findsecbugs:SQL_INJECTION_JDBC",
+    "component": "thesis_owasp_holdout_v1:experiments/owasp_holdout_v1/inputs/a452b3aafd232245d0753e54eb243d6651f8ef96/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02186.java",
+    "line": 53,
+    "type": "VULNERABILITY",
+    "message": "This use of java/sql/Statement.execute(Ljava/lang/String;)Z can be vulnerable to SQL injection (with JDBC)",
+    "cwe_id": "CWE-89",
+    "mapping": {
+      "cwe_id": "CWE-89",
+      "name": "SQL Injection in JDBC",
+      "supported": true,
+      "mapping_source": "https://find-sec-bugs.github.io/bugs.htm#SQL_INJECTION_JDBC",
+      "reason": ""
+    },
+    "source_sha256": "18f6c9fdd5a391894ae09fdab9414cf3dfefbb029062625f8137ff2eb4bc7690",
+    "flow_count": 3,
+    "sql_gate_version": "sql-no-flow-gate-v1",
+    "sink_call_count": 1,
+    "sink_argument_count": 1,
+    "analysis_mode": "FLOW_PRESENT",
+    "llm_invoked": true,
+    "context_size_gate": {
+      "version": "sql-source-size-v2",
+      "source_chars": 2736,
+      "cpg_chars": 8229,
+      "counted_chars": 2736,
+      "limit_chars": 10000,
+      "is_token_count": false
+    },
+    "verdict": "UNKNOWN",
+    "explanation": "Kết luận: UNKNOWN. Chưa đủ cơ sở kết luận TP/FP: chưa chứng minh người bên ngoài kiểm soát dữ liệu tới SQL.\n\nNguồn dữ liệu: Chỉ thấy tham số hàm; chưa có caller hoặc thao tác đọc đầu vào bên ngoài chứng minh nguồn của giá trị.\n\nTác động SQL: Bước 2 báo cáo dữ liệu có thể thay đổi cú pháp SQL (CHANGEABLE). Điều này tự nó chưa chứng minh nguồn do người bên ngoài kiểm soát.\n\nBước kiểm tra nguồn đã điều chỉnh nhận định trước đó: UNKNOWN → UNKNOWN. Nhận định về nguồn trong lời giải thích bước 2 không phải kết luận nguồn cuối.\n\nThông tin còn thiếu: Chi tiết về cách thức xử lý của hàm `doSomething()` và các lớp hỗ trợ khác như `ThingInterface` và `ThingFactory`.; Nơi gọi hàm doSomething đang chứa truy vấn SQL; Nguồn của tham số 'param' trong hàm doPost\n\nCác dòng mã được bước 2 dẫn (cần đối chiếu lập luận):\n33:     public void doGet(HttpServletRequest request, HttpServletResponse response)\n40:             throws ServletException, IOException {\n48:         String sql = \"SELECT * from USERS where USERNAME='foo' and PASSWORD='\" + bar + \"'\";\n53:             statement.execute(sql);",
+    "evidence_lines": [
+      33,
+      40,
+      43,
+      48,
+      53,
+      67
+    ],
+    "missing_context": [
+      "Chi tiết về cách thức xử lý của hàm `doSomething()` và các lớp hỗ trợ khác như `ThingInterface` và `ThingFactory`.",
+      "Nơi gọi hàm doSomething đang chứa truy vấn SQL",
+      "Nguồn của tham số 'param' trong hàm doPost"
+    ],
+    "error_kind": null,
+    "decision_basis": "SOURCE_UNRESOLVED",
+    "model_assessment": {
+      "explanation": "Kết luận: UNKNOWN. Chưa đủ cơ sở kết luận TP/FP: chưa chứng minh người bên ngoài kiểm soát dữ liệu tới SQL.\n\nNguồn dữ liệu: Chỉ thấy tham số hàm; chưa có caller hoặc thao tác đọc đầu vào bên ngoài chứng minh nguồn của giá trị.\n\nTác động SQL: Bước 2 báo cáo dữ liệu có thể thay đổi cú pháp SQL (CHANGEABLE). Điều này tự nó chưa chứng minh nguồn do người bên ngoài kiểm soát.\n\nBước kiểm tra nguồn đã điều chỉnh nhận định trước đó: UNKNOWN → UNKNOWN. Nhận định về nguồn trong lời giải thích bước 2 không phải kết luận nguồn cuối.\n\nThông tin còn thiếu: Chi tiết về cách thức xử lý của hàm `doSomething()` và các lớp hỗ trợ khác như `ThingInterface` và `ThingFactory`.; Nơi gọi hàm doSomething đang chứa truy vấn SQL; Nguồn của tham số 'param' trong hàm doPost\n\nCác dòng mã được bước 2 dẫn (cần đối chiếu lập luận):\n33:     public void doGet(HttpServletRequest request, HttpServletResponse response)\n40:             throws ServletException, IOException {\n48:         String sql = \"SELECT * from USERS where USERNAME='foo' and PASSWORD='\" + bar + \"'\";\n53:             statement.execute(sql);",
+      "evidence_lines": [
+        33,
+        40,
+        43,
+        48,
+        53,
+        67
+      ],
+      "source_control": "UNRESOLVED",
+      "sql_effect": "CHANGEABLE",
+      "missing_context": [
+        "Chi tiết về cách thức xử lý của hàm `doSomething()` và các lớp hỗ trợ khác như `ThingInterface` và `ThingFactory`.",
+        "Nơi gọi hàm doSomething đang chứa truy vấn SQL",
+        "Nguồn của tham số 'param' trong hàm doPost"
+      ]
+    },
+    "requires_review": true,
+    "prompt_version": "sql89-v7-stage2-plus-source-v2-explanation-2",
+    "format_normalization": "NONE",
+    "elapsed_seconds": 599.28,
+    "decision_policy_version": "sql89-compact-facts-v5",
+    "model": "qwen2.5-coder:14b-instruct-q4_K_M",
+    "ai_verdict": "UNKNOWN",
+    "review_status": "PENDING",
+    "reviewed_verdict": null,
+    "review_notes": null,
+    "cpg_usage": "eligibility_gate_only_not_sent_to_llm",
+    "baseline_ai_verdict": "UNKNOWN",
+    "source_audit_status": "PROPOSED_REQUIRES_REVIEW",
+    "explanation_version": "sql-source-merge-explanation-v2",
+    "explanation_origin": "DETERMINISTIC_COMPOSITION_OF_MODEL_FACTS",
+    "stage2_explanation_original": "Dữ liệu đầu vào là `param` được lấy từ request parameter \"BenchmarkTest02186\". Giá trị này đi qua hàm `doSomething()` và sau đó được gán cho biến `bar`. Câu SQL được tạo bằng cách ghép chuỗi với giá trị của `bar`, và cuối cùng câu SQL này được thực thi ở dòng 53 thông qua phương thức `execute()` của đối tượng `Statement`. Trước khi gọi SQL, có một bước biến đổi dữ liệu là hàm `doSomething()`. Tuy nhiên, không có bất kỳ kiểm tra hoặc biến đổi nào cụ thể được thực hiện trên giá trị của `param` trước khi nó được sử dụng trong câu SQL. Điều kiện cho phép chương trình đi tới lời gọi SQL là chỉ cần có request parameter \"BenchmarkTest02186\" tồn tại (có thể là rỗng). Từ những điều trên, người cung cấp đầu vào có thể làm thay đổi cấu trúc truy vấn thông qua việc nhập các ký tự đặc biệt như dấu nháy đơn ('), dấu chấm phẩy (;) hoặc ký tự escape khác. Điều này cho phép họ đóng chuỗi hiện tại và mở một chuỗi mới, có thể chứa các câu lệnh SQL bổ sung.",
+    "source_explanation_original": "Dữ liệu đầu vào được nhận từ tham số 'param' của hàm doPost. Dữ liệu này được xử lý thông qua hàm doSomething và sau đó được sử dụng trong truy vấn SQL.",
+    "stage2_assessment_original": {
+      "explanation": "Dữ liệu đầu vào là `param` được lấy từ request parameter \"BenchmarkTest02186\". Giá trị này đi qua hàm `doSomething()` và sau đó được gán cho biến `bar`. Câu SQL được tạo bằng cách ghép chuỗi với giá trị của `bar`, và cuối cùng câu SQL này được thực thi ở dòng 53 thông qua phương thức `execute()` của đối tượng `Statement`. Trước khi gọi SQL, có một bước biến đổi dữ liệu là hàm `doSomething()`. Tuy nhiên, không có bất kỳ kiểm tra hoặc biến đổi nào cụ thể được thực hiện trên giá trị của `param` trước khi nó được sử dụng trong câu SQL. Điều kiện cho phép chương trình đi tới lời gọi SQL là chỉ cần có request parameter \"BenchmarkTest02186\" tồn tại (có thể là rỗng). Từ những điều trên, người cung cấp đầu vào có thể làm thay đổi cấu trúc truy vấn thông qua việc nhập các ký tự đặc biệt như dấu nháy đơn ('), dấu chấm phẩy (;) hoặc ký tự escape khác. Điều này cho phép họ đóng chuỗi hiện tại và mở một chuỗi mới, có thể chứa các câu lệnh SQL bổ sung.",
+      "evidence_lines": [
+        33,
+        40,
+        48,
+        53
+      ],
+      "source_control": "CONFIRMED",
+      "sql_effect": "CHANGEABLE",
+      "missing_context": [
+        "Chi tiết về cách thức xử lý của hàm `doSomething()` và các lớp hỗ trợ khác như `ThingInterface` và `ThingFactory`."
+      ]
+    },
+    "stage2_evidence_resolved": [
+      {
+        "line": 33,
+        "code": "    public void doGet(HttpServletRequest request, HttpServletResponse response)"
+      },
+      {
+        "line": 40,
+        "code": "            throws ServletException, IOException {"
+      },
+      {
+        "line": 48,
+        "code": "        String sql = \"SELECT * from USERS where USERNAME='foo' and PASSWORD='\" + bar + \"'\";"
+      },
+      {
+        "line": 53,
+        "code": "            statement.execute(sql);"
+      }
+    ],
+    "source_assessment_changed": true,
+    "explanation_limitations": [
+      "Việc ghép không thẩm định ngữ nghĩa của nhận định AI hoặc chọn lại dòng bằng chứng.",
+      "Giải thích gốc từng bước được lưu riêng; nhận định nguồn bước 2 có thể đã bị sửa."
+    ],
+    "source_kind": "PARAMETER_ONLY",
+    "sql_effect_reused": "CHANGEABLE",
+    "source_audit_facts": {
+      "source_kind": "PARAMETER_ONLY",
+      "source_evidence": [
+        {
+          "line": 33
+        },
+        {
+          "line": 43
+        }
+      ],
+      "flow_evidence": [
+        {
+          "line": 67
+        },
+        {
+          "line": 48
+        },
+        {
+          "line": 53
+        }
+      ],
+      "explanation": "Dữ liệu đầu vào được nhận từ tham số 'param' của hàm doPost. Dữ liệu này được xử lý thông qua hàm doSomething và sau đó được sử dụng trong truy vấn SQL.",
+      "missing_context": [
+        "Nơi gọi hàm doSomething đang chứa truy vấn SQL",
+        "Nguồn của tham số 'param' trong hàm doPost"
+      ]
+    },
+    "source_audit_reference_check": "LINES_RESOLVED_REVIEW_REQUIRED",
+    "analysis_limitations": [],
+    "artifact_dir": "issue-0470",
+    "processing_status": "AI_PROPOSED",
+    "total_seconds": 608.655,
+    "analysis_route": "sql",
+    "router_version": "multi-sql89-path22-command78-v5-sql-source-size",
+    "combined_verdict": "UNKNOWN",
+    "decision_origin": "AI_PIPELINE",
+    "ai_explanation": "Kết luận: UNKNOWN. Chưa đủ cơ sở kết luận TP/FP: chưa chứng minh người bên ngoài kiểm soát dữ liệu tới SQL.\n\nNguồn dữ liệu: Chỉ thấy tham số hàm; chưa có caller hoặc thao tác đọc đầu vào bên ngoài chứng minh nguồn của giá trị.\n\nTác động SQL: Bước 2 báo cáo dữ liệu có thể thay đổi cú pháp SQL (CHANGEABLE). Điều này tự nó chưa chứng minh nguồn do người bên ngoài kiểm soát.\n\nBước kiểm tra nguồn đã điều chỉnh nhận định trước đó: UNKNOWN → UNKNOWN. Nhận định về nguồn trong lời giải thích bước 2 không phải kết luận nguồn cuối.\n\nThông tin còn thiếu: Chi tiết về cách thức xử lý của hàm `doSomething()` và các lớp hỗ trợ khác như `ThingInterface` và `ThingFactory`.; Nơi gọi hàm doSomething đang chứa truy vấn SQL; Nguồn của tham số 'param' trong hàm doPost\n\nCác dòng mã được bước 2 dẫn (cần đối chiếu lập luận):\n33:     public void doGet(HttpServletRequest request, HttpServletResponse response)\n40:             throws ServletException, IOException {\n48:         String sql = \"SELECT * from USERS where USERNAME='foo' and PASSWORD='\" + bar + \"'\";\n53:             statement.execute(sql);",
+    "ai_evidence_lines": [
+      33,
+      40,
+      43,
+      48,
+      53,
+      67
+    ],
+    "ai_missing_context": [
+      "Chi tiết về cách thức xử lý của hàm `doSomething()` và các lớp hỗ trợ khác như `ThingInterface` và `ThingFactory`.",
+      "Nơi gọi hàm doSomething đang chứa truy vấn SQL",
+      "Nguồn của tham số 'param' trong hàm doPost"
+    ],
+    "ai_decision_basis": "SOURCE_UNRESOLVED"
+  }
+]

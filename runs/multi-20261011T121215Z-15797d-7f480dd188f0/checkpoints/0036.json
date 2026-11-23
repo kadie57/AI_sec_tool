@@ -1,0 +1,100 @@
+{
+  "context_sha256": "7f480dd188f04b208bbd1ed20e9e3afb14d9420d843efcd5629bd25050772387",
+  "row_sha256": "628f0636fdc8ab453477fa147e19dae35180edccbf7074c2735dfa32b8f48340",
+  "row": {
+    "issue_id": "dfb4c71b-0062-4df5-aa5c-39c5799a10c3",
+    "rule": "findsecbugs:SQL_INJECTION_JDBC",
+    "component": "project_1:Clean_Code/lab/Case03.java",
+    "line": 14,
+    "type": "VULNERABILITY",
+    "message": "This use of java/sql/Statement.executeQuery(Ljava/lang/String;)Ljava/sql/ResultSet; can be vulnerable to SQL injection (with JDBC)",
+    "cwe_id": "CWE-89",
+    "mapping": {
+      "cwe_id": "CWE-89",
+      "name": "SQL Injection in JDBC",
+      "supported": true,
+      "mapping_source": "https://find-sec-bugs.github.io/bugs.htm#SQL_INJECTION_JDBC",
+      "reason": ""
+    },
+    "source_sha256": "aa76a238ddc264d720eb4ab607a057956241348353f7232b892ef91029354c01",
+    "flow_count": 3,
+    "verdict": "UNKNOWN",
+    "explanation": "Nguồn (source audit): Nguồn dữ liệu tới SQL là từ tham số hàm username và password. Tác động SQL kế thừa từ bước 2 v6: CHANGEABLE. Phép ghép này không thẩm định lại tác động SQL.",
+    "evidence_lines": [
+      9,
+      11,
+      14
+    ],
+    "missing_context": [
+      "caller hoặc nguồn của tham số trong main(String[] args) chưa được cung cấp."
+    ],
+    "error_kind": null,
+    "decision_basis": "SOURCE_UNRESOLVED",
+    "model_assessment": {
+      "explanation": "Nguồn (source audit): Nguồn dữ liệu tới SQL là từ tham số hàm username và password. Tác động SQL kế thừa từ bước 2 v6: CHANGEABLE. Phép ghép này không thẩm định lại tác động SQL.",
+      "evidence_lines": [
+        9,
+        11,
+        14
+      ],
+      "source_control": "UNRESOLVED",
+      "sql_effect": "CHANGEABLE",
+      "missing_context": [
+        "caller hoặc nguồn của tham số trong main(String[] args) chưa được cung cấp."
+      ]
+    },
+    "requires_review": true,
+    "prompt_version": "sql89-v7-stage2-plus-source-v2-candidate-1",
+    "format_normalization": "NONE",
+    "elapsed_seconds": 406.358,
+    "decision_policy_version": "sql89-compact-facts-v5",
+    "model": "qwen2.5-coder:14b-instruct-q4_K_M",
+    "ai_verdict": "UNKNOWN",
+    "review_status": "PENDING",
+    "reviewed_verdict": null,
+    "review_notes": null,
+    "cpg_usage": "eligibility_gate_only_not_sent_to_llm",
+    "baseline_ai_verdict": "LIKELY_TP",
+    "source_audit_status": "PROPOSED_REQUIRES_REVIEW",
+    "source_kind": "PARAMETER_ONLY",
+    "sql_effect_reused": "CHANGEABLE",
+    "source_audit_facts": {
+      "source_kind": "PARAMETER_ONLY",
+      "source_evidence": [
+        {
+          "line": 9
+        }
+      ],
+      "flow_evidence": [
+        {
+          "line": 11
+        },
+        {
+          "line": 14
+        }
+      ],
+      "explanation": "Nguồn dữ liệu tới SQL là từ tham số hàm username và password.",
+      "missing_context": [
+        "caller hoặc nguồn của tham số trong main(String[] args) chưa được cung cấp."
+      ]
+    },
+    "source_audit_reference_check": "LINES_RESOLVED_REVIEW_REQUIRED",
+    "artifact_dir": "issue-0036",
+    "processing_status": "AI_PROPOSED",
+    "total_seconds": 416.473,
+    "analysis_route": "sql",
+    "router_version": "multi-sql89-path22-command78-v1",
+    "combined_verdict": "UNKNOWN",
+    "decision_origin": "AI_PIPELINE",
+    "ai_explanation": "Nguồn (source audit): Nguồn dữ liệu tới SQL là từ tham số hàm username và password. Tác động SQL kế thừa từ bước 2 v6: CHANGEABLE. Phép ghép này không thẩm định lại tác động SQL.",
+    "ai_evidence_lines": [
+      9,
+      11,
+      14
+    ],
+    "ai_missing_context": [
+      "caller hoặc nguồn của tham số trong main(String[] args) chưa được cung cấp."
+    ],
+    "ai_decision_basis": "SOURCE_UNRESOLVED"
+  }
+}

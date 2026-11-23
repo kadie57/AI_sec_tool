@@ -1,0 +1,86 @@
+{
+  "version": "sql-source-recheck-v1",
+  "source_audit_version": "sql-source-http-gap-review-v4",
+  "previous_run": "/home/khanh/AI_sec_tool/runs/multi-owasp-holdout-20261115T151839Z-b04660-688bdde398e1",
+  "previous_context_sha256": "0645916a17b94db7f7aad250620ab73c224dee0364907e5d805cf7f90b439b2d",
+  "previous_results_sha256": "0d06e0555b44eaa0a016cd76c1ca6cc22e0062634fcd088d2835f935580cbdc9",
+  "previous_manifest_sha256": "ca53cca50418483bad9027328c01b734012582aeb59f84bbaca196009f20dec5",
+  "script_sha256": "e9c2b08929b00e6b7da6b35330a178f8d51c7f325e8f2d0c3832475b4f6e6369",
+  "dependency_sha256": {
+    "sql_source_audit_v4.py": "2f8926f8cc545be46ba4946e35bca958685116acd0e986fd28f1b18731341458",
+    "master_pipeline_source_v1.py": "efe2078caa8ca90ab912e97362cf8b046ff12b12aa117a564f555ca6f7563246",
+    "master_pipeline_combined_v1.py": "08c2f2a78bb9a9fd38361a764b852f641c8748e0ec2668fd13398217fb5ceab8",
+    "replay_source_merge.py": "9cdc928eb0c9759e834639383e8960c0dde3761e226249806539293adf4a3ad2",
+    "master_pipeline_multi_v1.py": "69c753d064f4921afda2465e69f5d6ba2032d5e81ecb35f55d2c0be0f69d8398"
+  },
+  "model": "qwen2.5-coder:14b-instruct-q4_K_M",
+  "model_digest": "9ec8897f747e246e970bc5cfdda85d22f1123dc2e3d34978a010a75968716849",
+  "comment_policy": {
+    "version": "holdout-system-comment-mask-v1",
+    "script_sha256": "05920f81bc3f2ce0fb685a13b73dbe23190b08acc071820ef2cc72c66fc3bbef",
+    "plan_sha256": "2e6bc2bd5ccd03c13463be32e87a4a00e60ffc944e414e273cfdb99732575436",
+    "source_policy": "mask_all_java_comments_keep_lines",
+    "original_sources_unchanged": true,
+    "limitations": [
+      "Public benchmark identifiers remain; no claim of training-data independence.",
+      "Comments are removed from model source blocks, not from archived sources.",
+      "ProcessBuilder uses its existing code_only preprocessing.",
+      "The direct-LLM baseline must use the same source comment policy."
+    ]
+  },
+  "independent_holdout": false,
+  "reference_labels_loaded": false,
+  "selection": "All SQL issues in the supplied saved run",
+  "sql_effect_recomputed": false,
+  "maximum_source_calls_per_issue": 2,
+  "items": [
+    {
+      "issue_id": "cdeb1d77-373a-4bf5-9b38-7117ab0d4d7d",
+      "source_sha256": "0949425071b41e3e5c7aef480da8ddf838c235738b2f65da3bd0b11083e93a01",
+      "stage2_sha256": "3345f4b6942d170aba4033d51b0f9de7e44408184317d192684da752ad4ca84e",
+      "request_sha256": "fb770e0fe95230e779cd8aedc13a979f6e3162983a2ec1ea8d60c3965cf48c95"
+    },
+    {
+      "issue_id": "42fe8b5f-5d89-4d3b-815b-12adc58a2461",
+      "source_sha256": "647e261e7ea672836bcd1375476637827e2dc537e3582a2e0f968c06cfd505d0",
+      "stage2_sha256": "38739e1a1dfb274bda5549cf4331c114ea436c31d40834a3c214622309720e7b",
+      "request_sha256": "e06d3f2a5d6a841092a6dd427095f21f90c7093a214c5f13172b6a3c0d016d95"
+    },
+    {
+      "issue_id": "07951150-c656-48e8-a94d-c3d8bcd0a08a",
+      "source_sha256": "a994ead8fea2618bc3916f9ab3b0fa6c57d8ee53bb27b8946babe8adf044c870",
+      "stage2_sha256": "2d46119e0a35df3834f3bd4a2d9fb020f2e3521a94c68ae07c177f11c75093b2",
+      "request_sha256": "873b27cdde33c2049a2f1ba29685a0e2a073cd0e85c91c07ef1cc0983ef0824b"
+    },
+    {
+      "issue_id": "a0b83a09-38be-4ab0-9be5-56c43a811134",
+      "source_sha256": "1d363629c834eb8e1a05824364ec2af04e92bbbf3cb7e71982c79935764e2dca",
+      "stage2_sha256": "5e1a2a54877b612ff04e6151e243ced93b6f3161e7d0d3bf8dd7aa785ab55596",
+      "request_sha256": "6a1aa60cd08d61d0c94245d00790d4a4ebaedf151aa29100fdb3cb2a35ff6b8c"
+    },
+    {
+      "issue_id": "8040d43a-6c70-4928-b324-f6c4abda92d2",
+      "source_sha256": "e3525d174198bbd0c6ca2600ddb57b5042674c4b4e7ba254129eb121828fa203",
+      "stage2_sha256": "560685f34bf684f6f048de0808636a4849815ba4ce4a5d5698794fea2e11f0f7",
+      "request_sha256": "5aa7b6e3544d28d8f80016cd8ff3f81a9d691e03b6e09b8f18c735eb0164e649"
+    },
+    {
+      "issue_id": "a59329b9-c85d-488c-9cb3-cef8e94aad66",
+      "source_sha256": "b89538163bb013758c3dff3fc4d89935379f5f85ff876b6fd3d50dbb309ccb2f",
+      "stage2_sha256": "83f7cc95a4d22ad088306e878593fd82b5513e6397e1cf62064246285a6842c8",
+      "request_sha256": "e6f679eb4c540de468a2574b87969fbee22be9da025d5b614a439397fe8513bc"
+    },
+    {
+      "issue_id": "eb1d6188-8f9d-406f-b766-9abc0851368f",
+      "source_sha256": "53aeb1daa5eccc7668c855f9b888311d9d5ae6520eb3f0b2f851466dee146fac",
+      "stage2_sha256": "3ab10908e9e5fb680ec2431303c2d5634ac0dccb1805fb6e061544c7dfaee0a5",
+      "request_sha256": "fd6233d325914448f838a73a8193a883f152e4b787e2e4fd0153cd0dab203d6a"
+    },
+    {
+      "issue_id": "d2d8166a-90af-4679-8c1d-7b87d662292a",
+      "source_sha256": "18f6c9fdd5a391894ae09fdab9414cf3dfefbb029062625f8137ff2eb4bc7690",
+      "stage2_sha256": "b13dbcd0ba84a8473061010eca74c5d64c51792bff3d28585658dcc52f4289ce",
+      "request_sha256": "237a6773c4652de4558544169a73b80e2cc4e71d179edf23b7b08b45ef10e5e7"
+    }
+  ]
+}

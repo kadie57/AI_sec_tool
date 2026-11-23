@@ -1,0 +1,227 @@
+{
+  "issues": [
+    {
+      "key": "02583911-76f1-452b-b6a2-5aa4737da277",
+      "rule": "findsecbugs:PATH_TRAVERSAL_IN",
+      "severity": "MAJOR",
+      "component": "project_1:Clean_Code/pilot_path22/PathCase01.java",
+      "project": "project_1",
+      "line": 14,
+      "hash": "45b30b4bfa30fab9d17967e0b9298d4c",
+      "textRange": {
+        "startLine": 14,
+        "endLine": 14,
+        "startOffset": 0,
+        "endOffset": 39
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "This API (java/io/File.<init>(Ljava/lang/String;)V) reads a file whose location might be specified by user input",
+      "author": "",
+      "tags": [
+        "cwe",
+        "owasp-a4",
+        "wasc"
+      ],
+      "creationDate": "2026-10-08T11:12:05+0000",
+      "updateDate": "2026-10-08T11:12:05+0000",
+      "type": "VULNERABILITY",
+      "scope": "MAIN",
+      "quickFixAvailable": false,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "CONVENTIONAL",
+      "cleanCodeAttributeCategory": "CONSISTENT",
+      "impacts": [
+        {
+          "softwareQuality": "SECURITY",
+          "severity": "MEDIUM"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "38f957d9-cc37-410b-9902-2ab3f6749e1d",
+      "rule": "findsecbugs:PATH_TRAVERSAL_IN",
+      "severity": "MAJOR",
+      "component": "project_1:Clean_Code/pilot_path22/PathCase02.java",
+      "project": "project_1",
+      "line": 16,
+      "hash": "45b30b4bfa30fab9d17967e0b9298d4c",
+      "textRange": {
+        "startLine": 16,
+        "endLine": 16,
+        "startOffset": 0,
+        "endOffset": 39
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "This API (java/io/File.<init>(Ljava/lang/String;)V) reads a file whose location might be specified by user input",
+      "author": "",
+      "tags": [
+        "cwe",
+        "owasp-a4",
+        "wasc"
+      ],
+      "creationDate": "2026-10-08T11:12:05+0000",
+      "updateDate": "2026-10-08T11:12:05+0000",
+      "type": "VULNERABILITY",
+      "scope": "MAIN",
+      "quickFixAvailable": false,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "CONVENTIONAL",
+      "cleanCodeAttributeCategory": "CONSISTENT",
+      "impacts": [
+        {
+          "softwareQuality": "SECURITY",
+          "severity": "MEDIUM"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "dfb4c71b-0062-4df5-aa5c-39c5799a10c3",
+      "rule": "findsecbugs:SQL_INJECTION_JDBC",
+      "severity": "CRITICAL",
+      "component": "project_1:Clean_Code/lab/Case03.java",
+      "project": "project_1",
+      "line": 14,
+      "hash": "4d418b8e30ef2a1000087966da88eca7",
+      "textRange": {
+        "startLine": 14,
+        "endLine": 14,
+        "startOffset": 0,
+        "endOffset": 55
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "This use of java/sql/Statement.executeQuery(Ljava/lang/String;)Ljava/sql/ResultSet; can be vulnerable to SQL injection (with JDBC)",
+      "author": "",
+      "tags": [
+        "cwe",
+        "owasp-a1",
+        "injection",
+        "wasc"
+      ],
+      "creationDate": "2026-09-25T14:40:02+0000",
+      "updateDate": "2026-09-25T14:40:02+0000",
+      "type": "VULNERABILITY",
+      "scope": "MAIN",
+      "quickFixAvailable": false,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "CONVENTIONAL",
+      "cleanCodeAttributeCategory": "CONSISTENT",
+      "impacts": [
+        {
+          "softwareQuality": "SECURITY",
+          "severity": "HIGH"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "b519e4bd-5144-4003-9532-a4df1ddcd09a",
+      "rule": "findsecbugs:SQL_INJECTION_JDBC",
+      "severity": "CRITICAL",
+      "component": "project_1:Clean_Code/lab/Case01.java",
+      "project": "project_1",
+      "line": 24,
+      "hash": "4d418b8e30ef2a1000087966da88eca7",
+      "textRange": {
+        "startLine": 24,
+        "endLine": 24,
+        "startOffset": 0,
+        "endOffset": 55
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "This use of java/sql/Statement.executeQuery(Ljava/lang/String;)Ljava/sql/ResultSet; can be vulnerable to SQL injection (with JDBC)",
+      "author": "",
+      "tags": [
+        "cwe",
+        "owasp-a1",
+        "injection",
+        "wasc"
+      ],
+      "creationDate": "2026-09-25T11:38:03+0000",
+      "updateDate": "2026-09-25T11:38:03+0000",
+      "type": "VULNERABILITY",
+      "scope": "MAIN",
+      "quickFixAvailable": false,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "CONVENTIONAL",
+      "cleanCodeAttributeCategory": "CONSISTENT",
+      "impacts": [
+        {
+          "softwareQuality": "SECURITY",
+          "severity": "HIGH"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "4dceec73-e771-49da-87f9-a09db0d313ff",
+      "rule": "findsecbugs:PATH_TRAVERSAL_IN",
+      "severity": "MAJOR",
+      "component": "project_1:Clean_Code/VulnerablePath.java",
+      "project": "project_1",
+      "line": 16,
+      "hash": "45b30b4bfa30fab9d17967e0b9298d4c",
+      "textRange": {
+        "startLine": 16,
+        "endLine": 16,
+        "startOffset": 0,
+        "endOffset": 43
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "This API (java/io/File.<init>(Ljava/lang/String;)V) reads a file whose location might be specified by user input",
+      "author": "",
+      "tags": [
+        "cwe",
+        "owasp-a4",
+        "wasc"
+      ],
+      "creationDate": "2026-07-22T03:37:23+0000",
+      "updateDate": "2026-10-08T08:24:50+0000",
+      "type": "VULNERABILITY",
+      "scope": "MAIN",
+      "quickFixAvailable": false,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "CONVENTIONAL",
+      "cleanCodeAttributeCategory": "CONSISTENT",
+      "impacts": [
+        {
+          "softwareQuality": "SECURITY",
+          "severity": "MEDIUM"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    }
+  ],
+  "total": 5
+}

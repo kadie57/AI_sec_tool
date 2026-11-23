@@ -1,0 +1,167 @@
+[
+  {
+    "issue_id": "285b42cb-27ba-4359-a6ac-3c3748b0bc72",
+    "rule": "findsecbugs:PATH_TRAVERSAL_IN",
+    "component": "project_1:Clean_Code/eval_followup21/Sample201.java",
+    "line": 13,
+    "message": "This API (java/io/File.<init>(Ljava/lang/String;)V) reads a file whose location might be specified by user input",
+    "cwe_id": "CWE-22",
+    "source_sha256": "9a8d407f1efa8de197c4bc5bb36d2bfc1a02e4f0c8c8516920f0d59bce22e7e3",
+    "artifact_dir": "issue-0018",
+    "verdict": "UNKNOWN",
+    "ai_verdict": "LIKELY_FP",
+    "requires_review": true,
+    "review_status": "PENDING",
+    "reviewed_verdict": null,
+    "evidence_lines": [
+      6,
+      8,
+      9,
+      12,
+      13,
+      14
+    ],
+    "missing_context": [
+      "Mâu thuẫn: AI báo CONFINED nhưng kiểm tra cấu trúc xác nhận nhánh từ chối vẫn tới thao tác file với giá trị không đổi."
+    ],
+    "error_kind": null,
+    "prompt_version": "path22-file-read-pilot-v4-evidence-scope",
+    "model": "qwen2.5-coder:14b-instruct-q4_K_M",
+    "flow_count": 1,
+    "decision_basis": "GUARD_CONTRADICTION",
+    "processing_status": "AI_PROPOSED",
+    "source_kind": "EXTERNAL_READ",
+    "path_effect": "CONFINED",
+    "model_assessment": {
+      "source": {
+        "source_kind": "EXTERNAL_READ",
+        "explanation": "Giá trị bắt đầu từ tham số args trong hàm main, được gán cho biến value. Biến value sau đó được sử dụng để tạo đường dẫn fullPath.",
+        "evidence_lines": [
+          6,
+          12
+        ],
+        "missing_context": []
+      },
+      "path": {
+        "path_effect": "CONFINED",
+        "explanation": "Giá trị đầu vào được kiểm tra bằng regex để đảm bảo chỉ chứa ký tự chữ cái, số và dấu gạch dưới trong phạm vi từ 1 đến 32 ký tự. Nếu giá trị không thỏa mãn điều kiện này, một ngoại lệ IllegalArgumentException sẽ được ném ra và chương trình sẽ tiếp tục với thông báo 'Continuing'. Tuy nhiên, sau khi kiểm tra, giá trị được nối với đường dẫn cố định '/var/www/uploads/' để tạo thành đường dẫn đầy đủ. Việc này đảm bảo rằng bất kỳ giá trị đầu vào nào cũng sẽ nằm trong thư mục '/var/www/uploads/', ngăn chặn việc vượt ra khỏi phạm vi cho phép.",
+        "evidence_lines": [
+          6,
+          8,
+          12,
+          13,
+          14
+        ],
+        "missing_context": []
+      }
+    },
+    "explanation": "Mâu thuẫn: AI báo CONFINED nhưng kiểm tra cấu trúc xác nhận nhánh từ chối vẫn tới thao tác file với giá trị không đổi.\nNhánh từ chối ném ngoại lệ, catch cho chạy tiếp; giá trị không đổi tới File(String).",
+    "elapsed_seconds": 332.228,
+    "total_seconds": 340.887,
+    "explanation_version": "path-scoped-summary-v1",
+    "explanation_origin": "DETERMINISTIC_COMPOSITION_OF_MODEL_FACTS",
+    "explanation_original": "Nguồn: Giá trị bắt đầu từ tham số args trong hàm main, được gán cho biến value. Biến value sau đó được sử dụng để tạo đường dẫn fullPath.\nĐường dẫn: Giá trị đầu vào được kiểm tra bằng regex để đảm bảo chỉ chứa ký tự chữ cái, số và dấu gạch dưới trong phạm vi từ 1 đến 32 ký tự. Nếu giá trị không thỏa mãn điều kiện này, một ngoại lệ IllegalArgumentException sẽ được ném ra và chương trình sẽ tiếp tục với thông báo 'Continuing'. Tuy nhiên, sau khi kiểm tra, giá trị được nối với đường dẫn cố định '/var/www/uploads/' để tạo thành đường dẫn đầy đủ. Việc này đảm bảo rằng bất kỳ giá trị đầu vào nào cũng sẽ nằm trong thư mục '/var/www/uploads/', ngăn chặn việc vượt ra khỏi phạm vi cho phép.",
+    "source_explanation_original": "Giá trị bắt đầu từ tham số args trong hàm main, được gán cho biến value. Biến value sau đó được sử dụng để tạo đường dẫn fullPath.",
+    "path_explanation_original": "Giá trị đầu vào được kiểm tra bằng regex để đảm bảo chỉ chứa ký tự chữ cái, số và dấu gạch dưới trong phạm vi từ 1 đến 32 ký tự. Nếu giá trị không thỏa mãn điều kiện này, một ngoại lệ IllegalArgumentException sẽ được ném ra và chương trình sẽ tiếp tục với thông báo 'Continuing'. Tuy nhiên, sau khi kiểm tra, giá trị được nối với đường dẫn cố định '/var/www/uploads/' để tạo thành đường dẫn đầy đủ. Việc này đảm bảo rằng bất kỳ giá trị đầu vào nào cũng sẽ nằm trong thư mục '/var/www/uploads/', ngăn chặn việc vượt ra khỏi phạm vi cho phép.",
+    "explanation_limitations": [
+      "Đây là bản tóm tắt facts do AI báo cáo, không phải bước kiểm chứng ngữ nghĩa độc lập.",
+      "Nhãn LIKELY_FP không xác nhận an toàn toàn ứng dụng, quyền truy cập từng file hoặc trạng thái symlink/race của filesystem.",
+      "Allowlist ký tự tên file tự nó không chứng minh quyền truy cập file; thông tin thiếu ảnh hưởng kết luận phải được thẩm định riêng."
+    ],
+    "guard_check": {
+      "version": "path-catch-guard-check-v1",
+      "source_sha256": "9a8d407f1efa8de197c4bc5bb36d2bfc1a02e4f0c8c8516920f0d59bce22e7e3",
+      "scope": "single main, direct regex throw/catch, unchanged value, File(String) read",
+      "status": "CHECKED",
+      "evidence_lines": [
+        8,
+        9,
+        13
+      ],
+      "proves_vulnerability": false,
+      "guard_behavior": "CATCH_CONTINUES",
+      "reason": "Nhánh từ chối ném ngoại lệ, catch cho chạy tiếp; giá trị không đổi tới File(String)."
+    },
+    "ai_explanation": "Kết quả đề xuất: LIKELY_FP.\nNguồn: AI báo cáo có thao tác đọc đầu vào bên ngoài tới đường dẫn.\nTác động đường dẫn: AI báo cáo có cơ chế giới hạn đường dẫn tại thao tác đọc (CONFINED). Cần đối chiếu cơ chế và các nhánh thực thi trong lời giải thích gốc với mã nguồn.\nGiới hạn: Đây là bản tóm tắt facts do AI báo cáo, không phải bước kiểm chứng ngữ nghĩa độc lập. Nhãn LIKELY_FP không xác nhận an toàn toàn ứng dụng, quyền truy cập từng file hoặc trạng thái symlink/race của filesystem. Allowlist ký tự tên file tự nó không chứng minh quyền truy cập file; thông tin thiếu ảnh hưởng kết luận phải được thẩm định riêng.\n\nGiải thích gốc của AI — giữ nguyên, có thể chứa suy diễn chưa được chứng minh:\nNguồn: Giá trị bắt đầu từ tham số args trong hàm main, được gán cho biến value. Biến value sau đó được sử dụng để tạo đường dẫn fullPath.\nĐường dẫn: Giá trị đầu vào được kiểm tra bằng regex để đảm bảo chỉ chứa ký tự chữ cái, số và dấu gạch dưới trong phạm vi từ 1 đến 32 ký tự. Nếu giá trị không thỏa mãn điều kiện này, một ngoại lệ IllegalArgumentException sẽ được ném ra và chương trình sẽ tiếp tục với thông báo 'Continuing'. Tuy nhiên, sau khi kiểm tra, giá trị được nối với đường dẫn cố định '/var/www/uploads/' để tạo thành đường dẫn đầy đủ. Việc này đảm bảo rằng bất kỳ giá trị đầu vào nào cũng sẽ nằm trong thư mục '/var/www/uploads/', ngăn chặn việc vượt ra khỏi phạm vi cho phép.",
+    "ai_evidence_lines": [
+      6,
+      8,
+      12,
+      13,
+      14
+    ],
+    "ai_missing_context": [],
+    "ai_decision_basis": "CONFINEMENT_REPORTED",
+    "pre_guard_result": {
+      "issue_id": "285b42cb-27ba-4359-a6ac-3c3748b0bc72",
+      "rule": "findsecbugs:PATH_TRAVERSAL_IN",
+      "component": "project_1:Clean_Code/eval_followup21/Sample201.java",
+      "line": 13,
+      "message": "This API (java/io/File.<init>(Ljava/lang/String;)V) reads a file whose location might be specified by user input",
+      "cwe_id": "CWE-22",
+      "source_sha256": "9a8d407f1efa8de197c4bc5bb36d2bfc1a02e4f0c8c8516920f0d59bce22e7e3",
+      "artifact_dir": "issue-0018",
+      "verdict": "LIKELY_FP",
+      "ai_verdict": "LIKELY_FP",
+      "requires_review": true,
+      "review_status": "PENDING",
+      "reviewed_verdict": null,
+      "evidence_lines": [
+        6,
+        8,
+        12,
+        13,
+        14
+      ],
+      "missing_context": [],
+      "error_kind": null,
+      "prompt_version": "path22-file-read-pilot-v4-evidence-scope",
+      "model": "qwen2.5-coder:14b-instruct-q4_K_M",
+      "flow_count": 1,
+      "decision_basis": "CONFINEMENT_REPORTED",
+      "processing_status": "AI_PROPOSED",
+      "source_kind": "EXTERNAL_READ",
+      "path_effect": "CONFINED",
+      "model_assessment": {
+        "source": {
+          "source_kind": "EXTERNAL_READ",
+          "explanation": "Giá trị bắt đầu từ tham số args trong hàm main, được gán cho biến value. Biến value sau đó được sử dụng để tạo đường dẫn fullPath.",
+          "evidence_lines": [
+            6,
+            12
+          ],
+          "missing_context": []
+        },
+        "path": {
+          "path_effect": "CONFINED",
+          "explanation": "Giá trị đầu vào được kiểm tra bằng regex để đảm bảo chỉ chứa ký tự chữ cái, số và dấu gạch dưới trong phạm vi từ 1 đến 32 ký tự. Nếu giá trị không thỏa mãn điều kiện này, một ngoại lệ IllegalArgumentException sẽ được ném ra và chương trình sẽ tiếp tục với thông báo 'Continuing'. Tuy nhiên, sau khi kiểm tra, giá trị được nối với đường dẫn cố định '/var/www/uploads/' để tạo thành đường dẫn đầy đủ. Việc này đảm bảo rằng bất kỳ giá trị đầu vào nào cũng sẽ nằm trong thư mục '/var/www/uploads/', ngăn chặn việc vượt ra khỏi phạm vi cho phép.",
+          "evidence_lines": [
+            6,
+            8,
+            12,
+            13,
+            14
+          ],
+          "missing_context": []
+        }
+      },
+      "explanation": "Kết quả đề xuất: LIKELY_FP.\nNguồn: AI báo cáo có thao tác đọc đầu vào bên ngoài tới đường dẫn.\nTác động đường dẫn: AI báo cáo có cơ chế giới hạn đường dẫn tại thao tác đọc (CONFINED). Cần đối chiếu cơ chế và các nhánh thực thi trong lời giải thích gốc với mã nguồn.\nGiới hạn: Đây là bản tóm tắt facts do AI báo cáo, không phải bước kiểm chứng ngữ nghĩa độc lập. Nhãn LIKELY_FP không xác nhận an toàn toàn ứng dụng, quyền truy cập từng file hoặc trạng thái symlink/race của filesystem. Allowlist ký tự tên file tự nó không chứng minh quyền truy cập file; thông tin thiếu ảnh hưởng kết luận phải được thẩm định riêng.\n\nGiải thích gốc của AI — giữ nguyên, có thể chứa suy diễn chưa được chứng minh:\nNguồn: Giá trị bắt đầu từ tham số args trong hàm main, được gán cho biến value. Biến value sau đó được sử dụng để tạo đường dẫn fullPath.\nĐường dẫn: Giá trị đầu vào được kiểm tra bằng regex để đảm bảo chỉ chứa ký tự chữ cái, số và dấu gạch dưới trong phạm vi từ 1 đến 32 ký tự. Nếu giá trị không thỏa mãn điều kiện này, một ngoại lệ IllegalArgumentException sẽ được ném ra và chương trình sẽ tiếp tục với thông báo 'Continuing'. Tuy nhiên, sau khi kiểm tra, giá trị được nối với đường dẫn cố định '/var/www/uploads/' để tạo thành đường dẫn đầy đủ. Việc này đảm bảo rằng bất kỳ giá trị đầu vào nào cũng sẽ nằm trong thư mục '/var/www/uploads/', ngăn chặn việc vượt ra khỏi phạm vi cho phép.",
+      "elapsed_seconds": 332.228,
+      "total_seconds": 340.887,
+      "explanation_version": "path-scoped-summary-v1",
+      "explanation_origin": "DETERMINISTIC_COMPOSITION_OF_MODEL_FACTS",
+      "explanation_original": "Nguồn: Giá trị bắt đầu từ tham số args trong hàm main, được gán cho biến value. Biến value sau đó được sử dụng để tạo đường dẫn fullPath.\nĐường dẫn: Giá trị đầu vào được kiểm tra bằng regex để đảm bảo chỉ chứa ký tự chữ cái, số và dấu gạch dưới trong phạm vi từ 1 đến 32 ký tự. Nếu giá trị không thỏa mãn điều kiện này, một ngoại lệ IllegalArgumentException sẽ được ném ra và chương trình sẽ tiếp tục với thông báo 'Continuing'. Tuy nhiên, sau khi kiểm tra, giá trị được nối với đường dẫn cố định '/var/www/uploads/' để tạo thành đường dẫn đầy đủ. Việc này đảm bảo rằng bất kỳ giá trị đầu vào nào cũng sẽ nằm trong thư mục '/var/www/uploads/', ngăn chặn việc vượt ra khỏi phạm vi cho phép.",
+      "source_explanation_original": "Giá trị bắt đầu từ tham số args trong hàm main, được gán cho biến value. Biến value sau đó được sử dụng để tạo đường dẫn fullPath.",
+      "path_explanation_original": "Giá trị đầu vào được kiểm tra bằng regex để đảm bảo chỉ chứa ký tự chữ cái, số và dấu gạch dưới trong phạm vi từ 1 đến 32 ký tự. Nếu giá trị không thỏa mãn điều kiện này, một ngoại lệ IllegalArgumentException sẽ được ném ra và chương trình sẽ tiếp tục với thông báo 'Continuing'. Tuy nhiên, sau khi kiểm tra, giá trị được nối với đường dẫn cố định '/var/www/uploads/' để tạo thành đường dẫn đầy đủ. Việc này đảm bảo rằng bất kỳ giá trị đầu vào nào cũng sẽ nằm trong thư mục '/var/www/uploads/', ngăn chặn việc vượt ra khỏi phạm vi cho phép.",
+      "explanation_limitations": [
+        "Đây là bản tóm tắt facts do AI báo cáo, không phải bước kiểm chứng ngữ nghĩa độc lập.",
+        "Nhãn LIKELY_FP không xác nhận an toàn toàn ứng dụng, quyền truy cập từng file hoặc trạng thái symlink/race của filesystem.",
+        "Allowlist ký tự tên file tự nó không chứng minh quyền truy cập file; thông tin thiếu ảnh hưởng kết luận phải được thẩm định riêng."
+      ]
+    },
+    "combined_verdict": "UNKNOWN",
+    "decision_origin": "STATIC_GUARD_CONFLICT",
+    "analysis_route": "path",
+    "router_version": "multi-sql89-path22-command78-v2-sql-fallback"
+  }
+]

@@ -1,0 +1,146 @@
+{
+  "context_sha256": "688bdde398e102ccc7840a5476732b399e76139447eade1d112299661f317f28",
+  "row_sha256": "3517d733933786151735d39879dd7284283d12e33b6c9120f191476fbfa09f47",
+  "row": {
+    "issue_id": "42fe8b5f-5d89-4d3b-815b-12adc58a2461",
+    "rule": "findsecbugs:SQL_INJECTION_JDBC",
+    "component": "thesis_owasp_holdout_v1:experiments/owasp_holdout_v1/inputs/a452b3aafd232245d0753e54eb243d6651f8ef96/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01093.java",
+    "line": 58,
+    "type": "VULNERABILITY",
+    "message": "This use of java/sql/Statement.execute(Ljava/lang/String;[I)Z can be vulnerable to SQL injection (with JDBC)",
+    "cwe_id": "CWE-89",
+    "mapping": {
+      "cwe_id": "CWE-89",
+      "name": "SQL Injection in JDBC",
+      "supported": true,
+      "mapping_source": "https://find-sec-bugs.github.io/bugs.htm#SQL_INJECTION_JDBC",
+      "reason": ""
+    },
+    "source_sha256": "647e261e7ea672836bcd1375476637827e2dc537e3582a2e0f968c06cfd505d0",
+    "flow_count": 3,
+    "sql_gate_version": "sql-no-flow-gate-v1",
+    "sink_call_count": 1,
+    "sink_argument_count": 1,
+    "analysis_mode": "FLOW_PRESENT",
+    "llm_invoked": true,
+    "context_size_gate": {
+      "version": "sql-source-size-v2",
+      "source_chars": 3346,
+      "cpg_chars": 9923,
+      "counted_chars": 3346,
+      "limit_chars": 10000,
+      "is_token_count": false
+    },
+    "verdict": "LIKELY_TP",
+    "explanation": "Kết luận: LIKELY_TP. Có cơ sở đề xuất cảnh báo đúng: kiểm tra nguồn báo cáo đầu vào bên ngoài và phân tích SQL báo cáo khả năng thay đổi cú pháp truy vấn.\n\nNguồn dữ liệu: Kiểm tra nguồn báo cáo có thao tác đọc đầu vào bên ngoài liên quan tới truy vấn.\n\nTác động SQL: Bước 2 báo cáo dữ liệu có thể thay đổi cú pháp SQL (CHANGEABLE). Điều này tự nó chưa chứng minh nguồn do người bên ngoài kiểm soát.\n\nCác dòng mã được bước 2 dẫn (cần đối chiếu lập luận):\n45:             param = request.getHeader(\"BenchmarkTest01093\");\n53:         String sql = \"SELECT * from USERS where USERNAME='foo' and PASSWORD='\" + bar + \"'\";\n58:             statement.execute(sql, new int[] {1, 2});",
+    "evidence_lines": [
+      45,
+      51,
+      53,
+      58
+    ],
+    "missing_context": [],
+    "error_kind": null,
+    "decision_basis": "EXTERNAL_CONTROL_AND_CHANGEABLE_SQL_REPORTED",
+    "model_assessment": {
+      "explanation": "Kết luận: LIKELY_TP. Có cơ sở đề xuất cảnh báo đúng: kiểm tra nguồn báo cáo đầu vào bên ngoài và phân tích SQL báo cáo khả năng thay đổi cú pháp truy vấn.\n\nNguồn dữ liệu: Kiểm tra nguồn báo cáo có thao tác đọc đầu vào bên ngoài liên quan tới truy vấn.\n\nTác động SQL: Bước 2 báo cáo dữ liệu có thể thay đổi cú pháp SQL (CHANGEABLE). Điều này tự nó chưa chứng minh nguồn do người bên ngoài kiểm soát.\n\nCác dòng mã được bước 2 dẫn (cần đối chiếu lập luận):\n45:             param = request.getHeader(\"BenchmarkTest01093\");\n53:         String sql = \"SELECT * from USERS where USERNAME='foo' and PASSWORD='\" + bar + \"'\";\n58:             statement.execute(sql, new int[] {1, 2});",
+      "evidence_lines": [
+        45,
+        51,
+        53,
+        58
+      ],
+      "source_control": "CONFIRMED",
+      "sql_effect": "CHANGEABLE",
+      "missing_context": []
+    },
+    "requires_review": true,
+    "prompt_version": "sql89-v7-stage2-plus-source-v2-explanation-2",
+    "format_normalization": "NONE",
+    "elapsed_seconds": 584.454,
+    "decision_policy_version": "sql89-compact-facts-v5",
+    "model": "qwen2.5-coder:14b-instruct-q4_K_M",
+    "ai_verdict": "LIKELY_TP",
+    "review_status": "PENDING",
+    "reviewed_verdict": null,
+    "review_notes": null,
+    "cpg_usage": "eligibility_gate_only_not_sent_to_llm",
+    "baseline_ai_verdict": "LIKELY_TP",
+    "source_audit_status": "PROPOSED_REQUIRES_REVIEW",
+    "explanation_version": "sql-source-merge-explanation-v2",
+    "explanation_origin": "DETERMINISTIC_COMPOSITION_OF_MODEL_FACTS",
+    "stage2_explanation_original": "Dữ liệu đầu vào là `param`, được lấy từ header HTTP với tên \"BenchmarkTest01093\". Giá trị này sau đó được giải mã URL và gán cho biến `bar` thông qua phương thức `doSomething`. Biến `bar` được sử dụng để tạo câu SQL tại dòng 53: `\"SELECT * from USERS where USERNAME='foo' and PASSWORD='\" + bar + \"'\"`. Câu SQL này được thực thi ở dòng 58. Trước khi câu SQL được thực thi, có một bước giải mã URL cho `param` tại dòng 49. Tuy nhiên, không có bất kỳ kiểm tra hoặc biến đổi dữ liệu nào khác đối với `bar` trước khi nó được chèn vào câu SQL. Điều kiện cho phép chương trình đi tới lời gọi SQL là chỉ cần có header \"BenchmarkTest01093\" trong request HTTP. Từ những điều trên, người cung cấp đầu vào có thể làm thay đổi cấu trúc truy vấn thông qua việc chèn các ký tự đặc biệt như dấu nháy đơn (') hoặc dấu gạch chéo ngược (\\) vào `param`. Điều này cho phép họ đóng chuỗi hiện tại và mở một chuỗi mới, từ đó có thể thực thi các câu lệnh SQL bổ sung.",
+    "source_explanation_original": "Dữ liệu được đọc từ header HTTP 'BenchmarkTest01093' và truyền tới truy vấn SQL.",
+    "stage2_assessment_original": {
+      "explanation": "Dữ liệu đầu vào là `param`, được lấy từ header HTTP với tên \"BenchmarkTest01093\". Giá trị này sau đó được giải mã URL và gán cho biến `bar` thông qua phương thức `doSomething`. Biến `bar` được sử dụng để tạo câu SQL tại dòng 53: `\"SELECT * from USERS where USERNAME='foo' and PASSWORD='\" + bar + \"'\"`. Câu SQL này được thực thi ở dòng 58. Trước khi câu SQL được thực thi, có một bước giải mã URL cho `param` tại dòng 49. Tuy nhiên, không có bất kỳ kiểm tra hoặc biến đổi dữ liệu nào khác đối với `bar` trước khi nó được chèn vào câu SQL. Điều kiện cho phép chương trình đi tới lời gọi SQL là chỉ cần có header \"BenchmarkTest01093\" trong request HTTP. Từ những điều trên, người cung cấp đầu vào có thể làm thay đổi cấu trúc truy vấn thông qua việc chèn các ký tự đặc biệt như dấu nháy đơn (') hoặc dấu gạch chéo ngược (\\) vào `param`. Điều này cho phép họ đóng chuỗi hiện tại và mở một chuỗi mới, từ đó có thể thực thi các câu lệnh SQL bổ sung.",
+      "evidence_lines": [
+        45,
+        53,
+        58
+      ],
+      "source_control": "CONFIRMED",
+      "sql_effect": "CHANGEABLE",
+      "missing_context": []
+    },
+    "stage2_evidence_resolved": [
+      {
+        "line": 45,
+        "code": "            param = request.getHeader(\"BenchmarkTest01093\");"
+      },
+      {
+        "line": 53,
+        "code": "        String sql = \"SELECT * from USERS where USERNAME='foo' and PASSWORD='\" + bar + \"'\";"
+      },
+      {
+        "line": 58,
+        "code": "            statement.execute(sql, new int[] {1, 2});"
+      }
+    ],
+    "source_assessment_changed": false,
+    "explanation_limitations": [
+      "Việc ghép không thẩm định ngữ nghĩa của nhận định AI hoặc chọn lại dòng bằng chứng.",
+      "Giải thích gốc từng bước được lưu riêng; nhận định nguồn bước 2 có thể đã bị sửa."
+    ],
+    "source_kind": "EXTERNAL_READ",
+    "sql_effect_reused": "CHANGEABLE",
+    "source_audit_facts": {
+      "source_kind": "EXTERNAL_READ",
+      "source_evidence": [
+        {
+          "line": 45
+        }
+      ],
+      "flow_evidence": [
+        {
+          "line": 51
+        },
+        {
+          "line": 53
+        },
+        {
+          "line": 58
+        }
+      ],
+      "explanation": "Dữ liệu được đọc từ header HTTP 'BenchmarkTest01093' và truyền tới truy vấn SQL.",
+      "missing_context": []
+    },
+    "source_audit_reference_check": "LINES_RESOLVED_REVIEW_REQUIRED",
+    "analysis_limitations": [],
+    "artifact_dir": "issue-0174",
+    "processing_status": "AI_PROPOSED",
+    "total_seconds": 593.56,
+    "analysis_route": "sql",
+    "router_version": "multi-sql89-path22-command78-v5-sql-source-size",
+    "combined_verdict": "LIKELY_TP",
+    "decision_origin": "AI_PIPELINE",
+    "ai_explanation": "Kết luận: LIKELY_TP. Có cơ sở đề xuất cảnh báo đúng: kiểm tra nguồn báo cáo đầu vào bên ngoài và phân tích SQL báo cáo khả năng thay đổi cú pháp truy vấn.\n\nNguồn dữ liệu: Kiểm tra nguồn báo cáo có thao tác đọc đầu vào bên ngoài liên quan tới truy vấn.\n\nTác động SQL: Bước 2 báo cáo dữ liệu có thể thay đổi cú pháp SQL (CHANGEABLE). Điều này tự nó chưa chứng minh nguồn do người bên ngoài kiểm soát.\n\nCác dòng mã được bước 2 dẫn (cần đối chiếu lập luận):\n45:             param = request.getHeader(\"BenchmarkTest01093\");\n53:         String sql = \"SELECT * from USERS where USERNAME='foo' and PASSWORD='\" + bar + \"'\";\n58:             statement.execute(sql, new int[] {1, 2});",
+    "ai_evidence_lines": [
+      45,
+      51,
+      53,
+      58
+    ],
+    "ai_missing_context": [],
+    "ai_decision_basis": "EXTERNAL_CONTROL_AND_CHANGEABLE_SQL_REPORTED"
+  }
+}

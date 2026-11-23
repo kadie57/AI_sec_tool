@@ -1,0 +1,67 @@
+{
+  "started_at": "2026-10-21T16:20:55.679551+00:00",
+  "analysis_id": "f8ec196b-af1c-4dc8-b100-f1b938393c70",
+  "project": "project_1",
+  "pipeline_version": "multi-sql89-path22-command78-v2-sql-fallback",
+  "parent_run": "/home/khanh/AI_sec_tool/runs/20261021T160018Z-9bb79a",
+  "source_hashes": {
+    "Clean_Code/eval_followup21/Sample101.java": "3d7f577e3d0394911f5da817fe12a3cc6e54462180244b3a02c4e01cc73894b5",
+    "Clean_Code/eval_followup21/Sample102.java": "a3a47f9cc805187164c8c64bfc9dec23e8da7f1e098180bcca557a61e060a5a0",
+    "Clean_Code/eval_followup21/Sample103.java": "d6f7fde116e1e8281a626e2f688b078270d9ca4b1e61a36cf5d30e613c8a2a18",
+    "Clean_Code/eval_followup21/Sample201.java": "9a8d407f1efa8de197c4bc5bb36d2bfc1a02e4f0c8c8516920f0d59bce22e7e3",
+    "Clean_Code/eval_followup21/Sample202.java": "9cd463713fcfe94c44427acf85080818c8cfee454998ecf0086c48831416d1c7",
+    "Clean_Code/eval_followup21/Sample203.java": "78463c1660320a6597e10344b5218a81dfe37e61ffcc24f7ead6d6a9928debcd",
+    "Clean_Code/eval_followup21/Sample204.java": "5307d255c9d8d5af14c41297fea5f3f89c887aa166290c4072c5603096f55533",
+    "Clean_Code/eval_followup21/Sample301.java": "4bafab36d201acbf1b0275f3191a45deb85069209945116555f3626320f53fce",
+    "Clean_Code/eval_followup21/Sample302.java": "aa09aa02aebaaa7df50e79ffe8e86fbf130e714befbb062c6b85ca7771b21179",
+    "Clean_Code/eval_followup21/Sample303.java": "35ea83db5489dde5d456121d8ec4e3b1d584f72de0b78c565eeb3d571957b7be",
+    "Clean_Code/eval_followup21/Sample304.java": "58cceaf77bc6c5888395daa7bf2a149a25bd41a2109eb5189d61a582d26bf6c7"
+  },
+  "evaluation_scope": "selected_supported_components",
+  "selected_components": [
+    "project_1:Clean_Code/eval_followup21/Sample101.java",
+    "project_1:Clean_Code/eval_followup21/Sample102.java",
+    "project_1:Clean_Code/eval_followup21/Sample103.java",
+    "project_1:Clean_Code/eval_followup21/Sample201.java",
+    "project_1:Clean_Code/eval_followup21/Sample202.java",
+    "project_1:Clean_Code/eval_followup21/Sample203.java",
+    "project_1:Clean_Code/eval_followup21/Sample204.java",
+    "project_1:Clean_Code/eval_followup21/Sample301.java",
+    "project_1:Clean_Code/eval_followup21/Sample302.java",
+    "project_1:Clean_Code/eval_followup21/Sample303.java",
+    "project_1:Clean_Code/eval_followup21/Sample304.java"
+  ],
+  "issue_count": 11,
+  "supported_issue_count": 11,
+  "prompt_versions": {
+    "command": "command78-direct-exec-plus-static-v2",
+    "path": "path22-file-read-pilot-v4-evidence-scope",
+    "sql": "sql89-v7-stage2-plus-source-v2-explanation-2"
+  },
+  "limitations": [
+    "Uses saved Sonar issues; does not rescan. Only explicitly routed rules.",
+    "Single-file context; SQL JDBC, Path File(String) read, and bounded direct exec only.",
+    "AI and static rules are proposals; human review is separate. No automatic issue closure.",
+    "Resume is per completed issue, not per AI stage. Partial retry can repeat calls.",
+    "Prior standalone runs and their human reviews are not imported."
+  ],
+  "state": "COMPLETED",
+  "error": null,
+  "runtime": {
+    "model": "qwen2.5-coder:14b-instruct-q4_K_M",
+    "model_digest": "9ec8897f747e246e970bc5cfdda85d22f1123dc2e3d34978a010a75968716849",
+    "joern_image_id": "sha256:f47692f8334d2eeca9fc83395023773da566ce8397563ff7c66d34a23bfc75c4",
+    "ollama_url": "http://127.0.0.1:11434"
+  },
+  "result_count": 11,
+  "verdict_counts": {
+    "LIKELY_TP": 1,
+    "LIKELY_FP": 1,
+    "UNKNOWN": 9
+  },
+  "processing_status_counts": {
+    "AI_PROPOSED": 6,
+    "ABSTAINED": 5
+  },
+  "finished_at": "2026-10-21T16:49:17.453384+00:00"
+}

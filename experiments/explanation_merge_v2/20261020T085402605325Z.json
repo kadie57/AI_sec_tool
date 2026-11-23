@@ -1,0 +1,274 @@
+{
+  "version": "v6-sql-plus-source-audit-v2-explanation-2",
+  "new_ai_calls": 0,
+  "original_runs_modified": false,
+  "semantic_verification": "REVIEW_REQUIRED",
+  "results": [
+    {
+      "file": "Trial07.java",
+      "run": "/home/khanh/AI_sec_tool/runs/multi-20261011T121215Z-15797d-f490e1c9b594",
+      "issue_id": "ea1e18cc-3de4-4da5-9c15-d63895ab559b",
+      "source_sha256": "15284d9a507d2649cca7f8928318cda06316b03ee0956414e87a27e586940ade",
+      "before": "Nguồn (source audit): Dòng 25 thực hiện truy vấn SQL sử dụng biến 'table' được xác định từ tham số đầu vào của hàm main. Tham số đầu vào này là một phần của args, do người chạy chương trình cung cấp. Tác động SQL kế thừa từ bước 2 v6: PROTECTED. Phép ghép này không thẩm định lại tác động SQL.",
+      "after": "Kết luận: LIKELY_FP. Có cơ sở đề xuất cảnh báo giả tại truy vấn này: bước phân tích SQL báo cáo cơ chế ngăn đầu vào làm thay đổi cú pháp truy vấn.\n\nNguồn dữ liệu: Kiểm tra nguồn báo cáo có thao tác đọc đầu vào bên ngoài liên quan tới truy vấn.\n\nTác động SQL: Bước 2 báo cáo có bảo vệ tại truy vấn (PROTECTED).\n\nCác dòng mã được bước 2 dẫn (cần đối chiếu lập luận):\n14:         String table;\n15:         switch (args[0]) {\n16:             case \"primary\": table = \"users\"; break;\n17:             case \"archive\": table = \"accounts\"; break;\n18:             default: return;\n20:         String sql = \"SELECT id FROM \" + table + \" WHERE id = 1\";\n25:              ResultSet result = statement.executeQuery(sql)) {",
+      "verdict_before": "LIKELY_FP",
+      "result": {
+        "verdict": "LIKELY_FP",
+        "explanation": "Kết luận: LIKELY_FP. Có cơ sở đề xuất cảnh báo giả tại truy vấn này: bước phân tích SQL báo cáo cơ chế ngăn đầu vào làm thay đổi cú pháp truy vấn.\n\nNguồn dữ liệu: Kiểm tra nguồn báo cáo có thao tác đọc đầu vào bên ngoài liên quan tới truy vấn.\n\nTác động SQL: Bước 2 báo cáo có bảo vệ tại truy vấn (PROTECTED).\n\nCác dòng mã được bước 2 dẫn (cần đối chiếu lập luận):\n14:         String table;\n15:         switch (args[0]) {\n16:             case \"primary\": table = \"users\"; break;\n17:             case \"archive\": table = \"accounts\"; break;\n18:             default: return;\n20:         String sql = \"SELECT id FROM \" + table + \" WHERE id = 1\";\n25:              ResultSet result = statement.executeQuery(sql)) {",
+        "evidence_lines": [
+          13,
+          14,
+          15,
+          16,
+          17,
+          18,
+          20,
+          25
+        ],
+        "missing_context": [],
+        "error_kind": null,
+        "decision_basis": "PROTECTION_REPORTED",
+        "model_assessment": {
+          "explanation": "Kết luận: LIKELY_FP. Có cơ sở đề xuất cảnh báo giả tại truy vấn này: bước phân tích SQL báo cáo cơ chế ngăn đầu vào làm thay đổi cú pháp truy vấn.\n\nNguồn dữ liệu: Kiểm tra nguồn báo cáo có thao tác đọc đầu vào bên ngoài liên quan tới truy vấn.\n\nTác động SQL: Bước 2 báo cáo có bảo vệ tại truy vấn (PROTECTED).\n\nCác dòng mã được bước 2 dẫn (cần đối chiếu lập luận):\n14:         String table;\n15:         switch (args[0]) {\n16:             case \"primary\": table = \"users\"; break;\n17:             case \"archive\": table = \"accounts\"; break;\n18:             default: return;\n20:         String sql = \"SELECT id FROM \" + table + \" WHERE id = 1\";\n25:              ResultSet result = statement.executeQuery(sql)) {",
+          "evidence_lines": [
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            20,
+            25
+          ],
+          "source_control": "CONFIRMED",
+          "sql_effect": "PROTECTED",
+          "missing_context": []
+        },
+        "requires_review": true,
+        "explanation_version": "sql-source-merge-explanation-v2",
+        "explanation_origin": "DETERMINISTIC_COMPOSITION_OF_MODEL_FACTS",
+        "stage2_explanation_original": "Dữ liệu `args[0]` đi vào câu SQL qua biến `table`, được thực thi ở dòng 25 khi gọi phương thức `executeQuery(sql)`. Trước lời gọi SQL, có bước kiểm tra giá trị của `args[0]` trong câu lệnh switch để xác định giá trị của biến `table`. Chỉ khi `args[0]` là \"primary\" hoặc \"archive\", chương trình mới đi tới lời gọi SQL. Từ những điều trên, người cung cấp đầu vào không thể làm thay đổi cấu trúc truy vấn vì giá trị của `table` được giới hạn chỉ trong hai trường hợp: \"users\" và \"accounts\". Không có cách nào để người dùng nhập một giá trị khác để thay đổi cấu trúc SQL.",
+        "source_explanation_original": "Dòng 25 thực hiện truy vấn SQL sử dụng biến 'table' được xác định từ tham số đầu vào của hàm main. Tham số đầu vào này là một phần của args, do người chạy chương trình cung cấp.",
+        "stage2_assessment_original": {
+          "explanation": "Dữ liệu `args[0]` đi vào câu SQL qua biến `table`, được thực thi ở dòng 25 khi gọi phương thức `executeQuery(sql)`. Trước lời gọi SQL, có bước kiểm tra giá trị của `args[0]` trong câu lệnh switch để xác định giá trị của biến `table`. Chỉ khi `args[0]` là \"primary\" hoặc \"archive\", chương trình mới đi tới lời gọi SQL. Từ những điều trên, người cung cấp đầu vào không thể làm thay đổi cấu trúc truy vấn vì giá trị của `table` được giới hạn chỉ trong hai trường hợp: \"users\" và \"accounts\". Không có cách nào để người dùng nhập một giá trị khác để thay đổi cấu trúc SQL.",
+          "evidence_lines": [
+            14,
+            15,
+            16,
+            17,
+            18,
+            20,
+            25
+          ],
+          "source_control": "CONFIRMED",
+          "sql_effect": "PROTECTED",
+          "missing_context": []
+        },
+        "stage2_evidence_resolved": [
+          {
+            "line": 14,
+            "code": "        String table;"
+          },
+          {
+            "line": 15,
+            "code": "        switch (args[0]) {"
+          },
+          {
+            "line": 16,
+            "code": "            case \"primary\": table = \"users\"; break;"
+          },
+          {
+            "line": 17,
+            "code": "            case \"archive\": table = \"accounts\"; break;"
+          },
+          {
+            "line": 18,
+            "code": "            default: return;"
+          },
+          {
+            "line": 20,
+            "code": "        String sql = \"SELECT id FROM \" + table + \" WHERE id = 1\";"
+          },
+          {
+            "line": 25,
+            "code": "             ResultSet result = statement.executeQuery(sql)) {"
+          }
+        ],
+        "source_assessment_changed": false,
+        "explanation_limitations": [
+          "Việc ghép không thẩm định ngữ nghĩa của nhận định AI hoặc chọn lại dòng bằng chứng.",
+          "Giải thích gốc từng bước được lưu riêng; nhận định nguồn bước 2 có thể đã bị sửa."
+        ],
+        "prompt_version": "v6-sql-plus-source-audit-v2-explanation-2",
+        "decision_policy_version": "sql89-compact-facts-v5",
+        "review_status": "PENDING",
+        "reviewed_verdict": null,
+        "ai_verdict": "LIKELY_FP",
+        "baseline_ai_verdict": "LIKELY_FP",
+        "source_kind": "EXTERNAL_READ",
+        "sql_effect_reused": "PROTECTED"
+      },
+      "artifact_hashes": {
+        "llm_stage2.json": "0817fb954258523a7bb3d3c225750176e093f7d794b60faa965ddc783f3e7a72",
+        "llm_source_audit.json": "59f050be3fec87e366175e858f5e2a3105f9f4c7fce71fea373ca774e039906e"
+      }
+    },
+    {
+      "file": "Trial04.java",
+      "run": "/home/khanh/AI_sec_tool/runs/multi-20261011T121215Z-15797d-88c2d967d28c",
+      "issue_id": "2c454a0e-fad8-45d9-b5ff-8074e53bc5a8",
+      "source_sha256": "72c8351f1feee4c7b38202d9cd3b3c50664d2b0a6738288bc4ae17c1ede3977c",
+      "before": "Nguồn (source audit): Dòng 14 đọc giá trị từ args[0], và dòng 15 sử dụng giá trị này để tạo chuỗi SQL. Dòng 20 thực hiện truy vấn SQL với chuỗi đã được xây dựng. Tác động SQL kế thừa từ bước 2 v6: PROTECTED. Phép ghép này không thẩm định lại tác động SQL.",
+      "after": "Kết luận: LIKELY_FP. Có cơ sở đề xuất cảnh báo giả tại truy vấn này: bước phân tích SQL báo cáo cơ chế ngăn đầu vào làm thay đổi cú pháp truy vấn.\n\nNguồn dữ liệu: Kiểm tra nguồn báo cáo có thao tác đọc đầu vào bên ngoài liên quan tới truy vấn.\n\nTác động SQL: Bước 2 báo cáo có bảo vệ tại truy vấn (PROTECTED).\n\nCác dòng mã được bước 2 dẫn (cần đối chiếu lập luận):\n14:         int value = Integer.parseInt(args[0]);\n15:         String sql = \"SELECT id FROM users WHERE id = \" + value;\n20:              ResultSet result = statement.executeQuery(sql)) {",
+      "verdict_before": "LIKELY_FP",
+      "result": {
+        "verdict": "LIKELY_FP",
+        "explanation": "Kết luận: LIKELY_FP. Có cơ sở đề xuất cảnh báo giả tại truy vấn này: bước phân tích SQL báo cáo cơ chế ngăn đầu vào làm thay đổi cú pháp truy vấn.\n\nNguồn dữ liệu: Kiểm tra nguồn báo cáo có thao tác đọc đầu vào bên ngoài liên quan tới truy vấn.\n\nTác động SQL: Bước 2 báo cáo có bảo vệ tại truy vấn (PROTECTED).\n\nCác dòng mã được bước 2 dẫn (cần đối chiếu lập luận):\n14:         int value = Integer.parseInt(args[0]);\n15:         String sql = \"SELECT id FROM users WHERE id = \" + value;\n20:              ResultSet result = statement.executeQuery(sql)) {",
+        "evidence_lines": [
+          14,
+          15,
+          20
+        ],
+        "missing_context": [],
+        "error_kind": null,
+        "decision_basis": "PROTECTION_REPORTED",
+        "model_assessment": {
+          "explanation": "Kết luận: LIKELY_FP. Có cơ sở đề xuất cảnh báo giả tại truy vấn này: bước phân tích SQL báo cáo cơ chế ngăn đầu vào làm thay đổi cú pháp truy vấn.\n\nNguồn dữ liệu: Kiểm tra nguồn báo cáo có thao tác đọc đầu vào bên ngoài liên quan tới truy vấn.\n\nTác động SQL: Bước 2 báo cáo có bảo vệ tại truy vấn (PROTECTED).\n\nCác dòng mã được bước 2 dẫn (cần đối chiếu lập luận):\n14:         int value = Integer.parseInt(args[0]);\n15:         String sql = \"SELECT id FROM users WHERE id = \" + value;\n20:              ResultSet result = statement.executeQuery(sql)) {",
+          "evidence_lines": [
+            14,
+            15,
+            20
+          ],
+          "source_control": "CONFIRMED",
+          "sql_effect": "PROTECTED",
+          "missing_context": []
+        },
+        "requires_review": true,
+        "explanation_version": "sql-source-merge-explanation-v2",
+        "explanation_origin": "DETERMINISTIC_COMPOSITION_OF_MODEL_FACTS",
+        "stage2_explanation_original": "Dữ liệu `value` được lấy từ đối số đầu vào của hàm main (`args[0]`) và sau đó được chuyển đổi thành kiểu int bằng phương thức `Integer.parseInt()`. Giá trị này được ghép trực tiếp vào chuỗi SQL tại dòng 15, tạo thành câu truy vấn hoàn chỉnh. Câu SQL này sau đó được thực thi thông qua đối tượng Statement ở dòng 20. Trước khi dữ liệu được sử dụng trong câu SQL, nó đã trải qua một bước chuyển đổi từ chuỗi sang số nguyên bằng `Integer.parseInt()`. Điều kiện cho phép chương trình đi tới lời gọi SQL là đối số đầu vào phải có thể được chuyển đổi thành số nguyên hợp lệ (không gây ra NumberFormatException). Nếu điều kiện này không thỏa mãn, chương trình sẽ ném ra một IllegalArgumentException. Từ những thông tin trên, người cung cấp đầu vào không thể thay đổi cấu trúc truy vấn SQL vì giá trị `value` chỉ được sử dụng để so sánh với trường `id` trong bảng `users`. Mặc dù có thể nhập các giá trị số nguyên khác nhau, nhưng không có cách nào để người dùng nhập dữ liệu gây ra sự thay đổi về cấu trúc của câu SQL.",
+        "source_explanation_original": "Dòng 14 đọc giá trị từ args[0], và dòng 15 sử dụng giá trị này để tạo chuỗi SQL. Dòng 20 thực hiện truy vấn SQL với chuỗi đã được xây dựng.",
+        "stage2_assessment_original": {
+          "explanation": "Dữ liệu `value` được lấy từ đối số đầu vào của hàm main (`args[0]`) và sau đó được chuyển đổi thành kiểu int bằng phương thức `Integer.parseInt()`. Giá trị này được ghép trực tiếp vào chuỗi SQL tại dòng 15, tạo thành câu truy vấn hoàn chỉnh. Câu SQL này sau đó được thực thi thông qua đối tượng Statement ở dòng 20. Trước khi dữ liệu được sử dụng trong câu SQL, nó đã trải qua một bước chuyển đổi từ chuỗi sang số nguyên bằng `Integer.parseInt()`. Điều kiện cho phép chương trình đi tới lời gọi SQL là đối số đầu vào phải có thể được chuyển đổi thành số nguyên hợp lệ (không gây ra NumberFormatException). Nếu điều kiện này không thỏa mãn, chương trình sẽ ném ra một IllegalArgumentException. Từ những thông tin trên, người cung cấp đầu vào không thể thay đổi cấu trúc truy vấn SQL vì giá trị `value` chỉ được sử dụng để so sánh với trường `id` trong bảng `users`. Mặc dù có thể nhập các giá trị số nguyên khác nhau, nhưng không có cách nào để người dùng nhập dữ liệu gây ra sự thay đổi về cấu trúc của câu SQL.",
+          "evidence_lines": [
+            14,
+            15,
+            20
+          ],
+          "source_control": "CONFIRMED",
+          "sql_effect": "PROTECTED",
+          "missing_context": []
+        },
+        "stage2_evidence_resolved": [
+          {
+            "line": 14,
+            "code": "        int value = Integer.parseInt(args[0]);"
+          },
+          {
+            "line": 15,
+            "code": "        String sql = \"SELECT id FROM users WHERE id = \" + value;"
+          },
+          {
+            "line": 20,
+            "code": "             ResultSet result = statement.executeQuery(sql)) {"
+          }
+        ],
+        "source_assessment_changed": false,
+        "explanation_limitations": [
+          "Việc ghép không thẩm định ngữ nghĩa của nhận định AI hoặc chọn lại dòng bằng chứng.",
+          "Giải thích gốc từng bước được lưu riêng; nhận định nguồn bước 2 có thể đã bị sửa."
+        ],
+        "prompt_version": "v6-sql-plus-source-audit-v2-explanation-2",
+        "decision_policy_version": "sql89-compact-facts-v5",
+        "review_status": "PENDING",
+        "reviewed_verdict": null,
+        "ai_verdict": "LIKELY_FP",
+        "baseline_ai_verdict": "LIKELY_FP",
+        "source_kind": "EXTERNAL_READ",
+        "sql_effect_reused": "PROTECTED"
+      },
+      "artifact_hashes": {
+        "llm_stage2.json": "eeb17066d230dc0d12878845d71b66e02d4c58b5ff7cd91de1714bb1064456bd",
+        "llm_source_audit.json": "0fe752dce8c53da27903c213563f103e046d96826b37c8617468606bd43d08aa"
+      }
+    },
+    {
+      "file": "Trial06.java",
+      "run": "/home/khanh/AI_sec_tool/runs/multi-20261011T121215Z-15797d-88c2d967d28c",
+      "issue_id": "07a6b931-3130-414f-826c-f14849f593ac",
+      "source_sha256": "99d24095a714523c935748469d01abe833031729c914810df754e11abe90b060",
+      "before": "Nguồn (source audit): Nguồn dữ liệu tới SQL là tham số 'value' của hàm lookup. Không có caller hoặc thao tác đọc đầu vào bên ngoài chứng minh nguồn đó. Tác động SQL kế thừa từ bước 2 v6: CHANGEABLE. Phép ghép này không thẩm định lại tác động SQL.",
+      "after": "Kết luận: UNKNOWN. Chưa đủ cơ sở kết luận TP/FP: chưa chứng minh người bên ngoài kiểm soát dữ liệu tới SQL.\n\nNguồn dữ liệu: Chỉ thấy tham số hàm; chưa có caller hoặc thao tác đọc đầu vào bên ngoài chứng minh nguồn của giá trị.\n\nTác động SQL: Bước 2 báo cáo dữ liệu có thể thay đổi cú pháp SQL (CHANGEABLE). Điều này tự nó chưa chứng minh nguồn do người bên ngoài kiểm soát.\n\nBước kiểm tra nguồn đã điều chỉnh nhận định trước đó: LIKELY_TP → UNKNOWN. Nhận định về nguồn trong lời giải thích bước 2 không phải kết luận nguồn cuối.\n\nThông tin còn thiếu: Caller hoặc nguồn của tham số 'value'\n\nCác dòng mã được bước 2 dẫn (cần đối chiếu lập luận):\n10:         String sql = \"SELECT id FROM users WHERE username = '\" + value + \"'\";\n12:              ResultSet result = statement.executeQuery(sql)) {",
+      "verdict_before": "UNKNOWN",
+      "result": {
+        "verdict": "UNKNOWN",
+        "explanation": "Kết luận: UNKNOWN. Chưa đủ cơ sở kết luận TP/FP: chưa chứng minh người bên ngoài kiểm soát dữ liệu tới SQL.\n\nNguồn dữ liệu: Chỉ thấy tham số hàm; chưa có caller hoặc thao tác đọc đầu vào bên ngoài chứng minh nguồn của giá trị.\n\nTác động SQL: Bước 2 báo cáo dữ liệu có thể thay đổi cú pháp SQL (CHANGEABLE). Điều này tự nó chưa chứng minh nguồn do người bên ngoài kiểm soát.\n\nBước kiểm tra nguồn đã điều chỉnh nhận định trước đó: LIKELY_TP → UNKNOWN. Nhận định về nguồn trong lời giải thích bước 2 không phải kết luận nguồn cuối.\n\nThông tin còn thiếu: Caller hoặc nguồn của tham số 'value'\n\nCác dòng mã được bước 2 dẫn (cần đối chiếu lập luận):\n10:         String sql = \"SELECT id FROM users WHERE username = '\" + value + \"'\";\n12:              ResultSet result = statement.executeQuery(sql)) {",
+        "evidence_lines": [
+          9,
+          10,
+          12
+        ],
+        "missing_context": [
+          "Caller hoặc nguồn của tham số 'value'"
+        ],
+        "error_kind": null,
+        "decision_basis": "SOURCE_UNRESOLVED",
+        "model_assessment": {
+          "explanation": "Kết luận: UNKNOWN. Chưa đủ cơ sở kết luận TP/FP: chưa chứng minh người bên ngoài kiểm soát dữ liệu tới SQL.\n\nNguồn dữ liệu: Chỉ thấy tham số hàm; chưa có caller hoặc thao tác đọc đầu vào bên ngoài chứng minh nguồn của giá trị.\n\nTác động SQL: Bước 2 báo cáo dữ liệu có thể thay đổi cú pháp SQL (CHANGEABLE). Điều này tự nó chưa chứng minh nguồn do người bên ngoài kiểm soát.\n\nBước kiểm tra nguồn đã điều chỉnh nhận định trước đó: LIKELY_TP → UNKNOWN. Nhận định về nguồn trong lời giải thích bước 2 không phải kết luận nguồn cuối.\n\nThông tin còn thiếu: Caller hoặc nguồn của tham số 'value'\n\nCác dòng mã được bước 2 dẫn (cần đối chiếu lập luận):\n10:         String sql = \"SELECT id FROM users WHERE username = '\" + value + \"'\";\n12:              ResultSet result = statement.executeQuery(sql)) {",
+          "evidence_lines": [
+            9,
+            10,
+            12
+          ],
+          "source_control": "UNRESOLVED",
+          "sql_effect": "CHANGEABLE",
+          "missing_context": [
+            "Caller hoặc nguồn của tham số 'value'"
+          ]
+        },
+        "requires_review": true,
+        "explanation_version": "sql-source-merge-explanation-v2",
+        "explanation_origin": "DETERMINISTIC_COMPOSITION_OF_MODEL_FACTS",
+        "stage2_explanation_original": "Dữ liệu `value` được truyền vào phương thức `lookup`, sau đó được ghép trực tiếp vào chuỗi SQL tại dòng 10: `\"SELECT id FROM users WHERE username = '\" + value + \"'\"`. Câu lệnh này sau đó được thực thi thông qua đối tượng `Statement` ở dòng 12. Trước khi gọi SQL, không có bước kiểm tra hoặc biến đổi dữ liệu nào đối với tham số `value`. Điều kiện cho phép chương trình đi tới lời gọi SQL là việc truyền vào một giá trị chuỗi hợp lệ cho tham số `value`. Từ những điều trên, người cung cấp đầu vào có thể làm thay đổi cấu trúc truy vấn thông qua kỹ thuật SQL injection.",
+        "source_explanation_original": "Nguồn dữ liệu tới SQL là tham số 'value' của hàm lookup. Không có caller hoặc thao tác đọc đầu vào bên ngoài chứng minh nguồn đó.",
+        "stage2_assessment_original": {
+          "explanation": "Dữ liệu `value` được truyền vào phương thức `lookup`, sau đó được ghép trực tiếp vào chuỗi SQL tại dòng 10: `\"SELECT id FROM users WHERE username = '\" + value + \"'\"`. Câu lệnh này sau đó được thực thi thông qua đối tượng `Statement` ở dòng 12. Trước khi gọi SQL, không có bước kiểm tra hoặc biến đổi dữ liệu nào đối với tham số `value`. Điều kiện cho phép chương trình đi tới lời gọi SQL là việc truyền vào một giá trị chuỗi hợp lệ cho tham số `value`. Từ những điều trên, người cung cấp đầu vào có thể làm thay đổi cấu trúc truy vấn thông qua kỹ thuật SQL injection.",
+          "evidence_lines": [
+            10,
+            12
+          ],
+          "source_control": "CONFIRMED",
+          "sql_effect": "CHANGEABLE",
+          "missing_context": []
+        },
+        "stage2_evidence_resolved": [
+          {
+            "line": 10,
+            "code": "        String sql = \"SELECT id FROM users WHERE username = '\" + value + \"'\";"
+          },
+          {
+            "line": 12,
+            "code": "             ResultSet result = statement.executeQuery(sql)) {"
+          }
+        ],
+        "source_assessment_changed": true,
+        "explanation_limitations": [
+          "Việc ghép không thẩm định ngữ nghĩa của nhận định AI hoặc chọn lại dòng bằng chứng.",
+          "Giải thích gốc từng bước được lưu riêng; nhận định nguồn bước 2 có thể đã bị sửa."
+        ],
+        "prompt_version": "v6-sql-plus-source-audit-v2-explanation-2",
+        "decision_policy_version": "sql89-compact-facts-v5",
+        "review_status": "PENDING",
+        "reviewed_verdict": null,
+        "ai_verdict": "UNKNOWN",
+        "baseline_ai_verdict": "LIKELY_TP",
+        "source_kind": "PARAMETER_ONLY",
+        "sql_effect_reused": "CHANGEABLE"
+      },
+      "artifact_hashes": {
+        "llm_stage2.json": "1cfc1a7f8a363b42633187ceddb81838a81b8c3cee6942e0b6d88646c98c6997",
+        "llm_source_audit.json": "b2c197d5d4f326c93067fcfec4b2fd01abde5f66132e185e19edaf147dad6241"
+      }
+    }
+  ]
+}

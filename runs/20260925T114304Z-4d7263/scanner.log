@@ -1,0 +1,122 @@
+18:43:05.928 INFO  Scanner configuration file: /home/khanh/Downloads/sonar-scanner-8.0.1.6346-linux-x64/conf/sonar-scanner.properties
+18:43:05.931 INFO  Project root configuration file: NONE
+18:43:05.943 INFO  SonarScanner CLI 8.0.1.6346
+18:43:05.948 INFO  Linux 7.0.0-28-generic amd64
+18:43:09.303 INFO  Communicating with SonarQube Community Build 26.4.0.121862
+18:43:09.305 INFO  JRE provisioning: os[linux], arch[x86_64]
+18:43:09.776 INFO  Starting SonarScanner Engine...
+18:43:09.776 INFO  Java 21.0.9 Eclipse Adoptium (64-bit)
+18:43:13.582 INFO  Load global settings
+18:43:13.676 INFO  Load global settings (done) | time=93ms
+18:43:13.679 INFO  Server id: 4F833BF3-AZ3FLkwzsNhSbbNHKBtO
+18:43:13.691 INFO  Loading required plugins
+18:43:13.691 INFO  Load plugins index
+18:43:13.705 INFO  Load plugins index (done) | time=15ms
+18:43:13.706 INFO  Load/download plugins
+18:43:13.738 INFO  Load/download plugins (done) | time=33ms
+18:43:14.029 INFO  Process project properties
+18:43:14.045 INFO  Process project properties (done) | time=16ms
+18:43:14.061 INFO  Project key: project_1
+18:43:14.061 INFO  Base dir: /home/khanh/AI_sec_tool
+18:43:14.061 INFO  Working dir: /home/khanh/AI_sec_tool/.scannerwork
+18:43:14.073 INFO  Load project settings for component key: 'project_1'
+18:43:14.091 INFO  Load project settings for component key: 'project_1' (done) | time=17ms
+18:43:14.118 INFO  Load quality profiles
+18:43:14.165 INFO  Load quality profiles (done) | time=47ms
+18:43:14.209 WARN  SCM provider autodetection failed. Please use "sonar.scm.provider" to define SCM of your project, or disable the SCM Sensor in the project settings.
+18:43:14.223 INFO  Load active rules
+18:43:14.522 INFO  Load active rules (done) | time=299ms
+18:43:14.531 INFO  Load analysis cache
+18:43:14.559 INFO  Load analysis cache (293 bytes) | time=28ms
+18:43:14.652 INFO  Preprocessing files...
+18:43:14.671 INFO  1 language detected in 4 preprocessed files (done) | time=18ms
+18:43:14.672 INFO  6 files ignored because of inclusion/exclusion patterns
+18:43:14.674 INFO  Loading plugins for detected languages
+18:43:14.674 INFO  Load/download plugins
+18:43:14.689 INFO  Load/download plugins (done) | time=14ms
+18:43:14.721 INFO  SonarQube plugin API version is 13.5.0.4319, disabling the deprecated SpotBugs profile exporter
+18:43:14.813 INFO  Load project repositories
+18:43:14.905 INFO  Load project repositories (done) | time=92ms
+18:43:14.930 INFO  Indexing files...
+18:43:14.931 INFO  Project configuration:
+18:43:14.931 INFO    Included sources: **/*.java
+18:43:14.942 INFO  4 files indexed (done) | time=12ms
+18:43:14.943 INFO  Quality profile for java: KhoaLuan-Java-SQLi
+18:43:14.943 INFO  ------------- Run sensors on module project_1
+18:43:14.949 INFO  SonarQube plugin API version is 13.5.0.4319, disabling the deprecated SpotBugs profile exporter
+18:43:15.057 INFO  Load metrics repository
+18:43:15.083 INFO  Load metrics repository (done) | time=27ms
+18:43:15.806 INFO  Sensor JavaSensor [java]
+18:43:15.824 INFO  Server-side caching is enabled. The Java analyzer will not try to leverage data from a previous analysis.
+18:43:15.826 INFO  Using ECJ batch to parse 4 Main java source files with batch size 417 KB.
+18:43:16.092 INFO  Starting batch processing.
+18:43:16.518 INFO  The Java analyzer cannot skip unchanged files in this context. A full analysis is performed for all files.
+18:43:17.132 INFO  100% analyzed
+18:43:17.132 INFO  Batch processing: Done.
+18:43:17.133 INFO  Did not optimize analysis for any files, performed a full analysis for all 4 files.
+18:43:17.134 INFO  No "Test" source files to scan.
+18:43:17.135 INFO  No "Generated" source files to scan.
+18:43:17.135 INFO  Sensor JavaSensor [java] (done) | time=1330ms
+18:43:17.135 INFO  Sensor FindBugs Sensor [findbugs]
+18:43:17.136 INFO  Findbugs plugin version: 4.6.0
+18:43:17.978 INFO  Loading findbugs plugin: /home/khanh/AI_sec_tool/.scannerwork/findbugs/findsecbugs-plugin.jar
+18:43:17.998 INFO  Findbugs output report: /home/khanh/AI_sec_tool/.scannerwork/findbugs-result.xml
+18:43:20.006 INFO  Sensor FindBugs Sensor [findbugs] (done) | time=2870ms
+18:43:20.006 INFO  Sensor SurefireSensor [java]
+18:43:20.007 INFO  parsing [/home/khanh/AI_sec_tool/target/surefire-reports]
+18:43:20.008 INFO  Sensor SurefireSensor [java] (done) | time=2ms
+18:43:20.008 INFO  Sensor JaCoCo XML Report Importer [jacoco]
+18:43:20.011 INFO  'sonar.coverage.jacoco.xmlReportPaths' is not defined. Using default locations: target/site/jacoco/jacoco.xml,target/site/jacoco-it/jacoco.xml,build/reports/jacoco/test/jacocoTestReport.xml
+18:43:20.011 INFO  No report imported, no coverage information will be imported by JaCoCo XML Report Importer
+18:43:20.011 INFO  Sensor JaCoCo XML Report Importer [jacoco] (done) | time=4ms
+18:43:20.012 INFO  Sensor IaC hadolint report Sensor [iac]
+18:43:20.012 INFO  Sensor IaC hadolint report Sensor [iac] (done) | time=1ms
+18:43:20.013 INFO  Sensor Java Config Sensor [iac]
+18:43:20.028 INFO  There are no files to be analyzed for the Java language
+18:43:20.029 INFO  Sensor Java Config Sensor [iac] (done) | time=16ms
+18:43:20.029 INFO  Sensor IaC Docker Sensor [iac]
+18:43:20.031 INFO  There are no files to be analyzed for the Docker language
+18:43:20.033 INFO  Sensor IaC Docker Sensor [iac] (done) | time=1ms
+18:43:20.034 INFO  Sensor TextAndSecretsSensor [text]
+18:43:20.035 INFO  Available processors: 8
+18:43:20.035 INFO  Using 8 threads for analysis.
+18:43:20.360 INFO  The property "sonar.tests" is not set. To improve the analysis accuracy, we categorize a file as a test file if any of the following is true:
+  * The filename starts with "test"
+  * The filename contains "test." or "tests."
+  * Any directory in the file path is named: "doc", "docs", "test", "tests", "mock" or "mocks"
+  * Any directory in the file path has a name ending in "test" or "tests"
+
+18:43:20.385 INFO  Start fetching files for the text and secrets analysis
+18:43:20.401 INFO  Using Git CLI to retrieve dirty files
+18:43:20.403 WARN  Retrieving only language associated files, make sure to run the analysis inside a git repository to make use of inclusions specified via "sonar.text.inclusions"
+18:43:20.404 INFO  Starting the text and secrets analysis
+18:43:20.406 INFO  4 source files to be analyzed for the text and secrets analysis
+18:43:20.435 INFO  4/4 source files have been analyzed for the text and secrets analysis
+18:43:20.436 INFO  Sensor TextAndSecretsSensor [text] (done) | time=407ms
+18:43:20.442 INFO  ------------- Run sensors on project
+18:43:20.568 INFO  Sensor JaCoCo Aggregate XML Report Importer [jacoco]
+18:43:20.569 INFO  Sensor JaCoCo Aggregate XML Report Importer [jacoco] (done) | time=0ms
+18:43:20.569 INFO  Sensor JavaProjectSensor [java]
+18:43:20.570 INFO  Sensor JavaProjectSensor [java] (done) | time=2ms
+18:43:20.571 INFO  Sensor Zero Coverage Sensor
+18:43:20.575 INFO  Sensor Zero Coverage Sensor (done) | time=4ms
+18:43:20.575 INFO  Sensor Java CPD Block Indexer
+18:43:20.588 INFO  Sensor Java CPD Block Indexer (done) | time=13ms
+18:43:20.588 INFO  ------------- Gather SCA dependencies on project
+18:43:20.592 INFO  Dependency analysis skipped
+18:43:20.594 INFO  SCM Publisher No SCM system was detected. You can use the 'sonar.scm.provider' property to explicitly specify it.
+18:43:20.597 INFO  CPD Executor 1 file had no CPD blocks
+18:43:20.597 INFO  CPD Executor Calculating CPD for 3 files
+18:43:20.604 INFO  CPD Executor CPD calculation finished (done) | time=7ms
+18:43:20.692 INFO  Analysis report generated in 79ms, dir size=276.1 kB
+18:43:20.721 INFO  Analysis report compressed in 29ms, zip size=37.8 kB
+18:43:20.753 INFO  Analysis report uploaded in 31ms
+18:43:20.755 INFO  ANALYSIS SUCCESSFUL, you can find the results at: http://127.0.0.1:9000/dashboard?id=project_1
+18:43:20.756 INFO  Note that you will be able to access the updated dashboard once the server has processed the submitted analysis report
+18:43:20.761 INFO  More about the report processing at http://127.0.0.1:9000/api/ce/task?id=30bcaedc-cb05-4e3b-9ba2-9de456deec02
+18:43:20.767 INFO  Analysis total time: 6.992 s
+18:43:20.768 INFO  SonarScanner Engine completed successfully
+18:43:20.851 INFO  EXECUTION SUCCESS
+18:43:20.851 INFO  Total time: 14.926s
+
+[STDERR]

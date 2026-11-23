@@ -1,0 +1,74 @@
+{
+  "issue_id": "bf76ca8c-e1b9-4031-8cac-62a1b3ea4ef6",
+  "rule": "findsecbugs:COMMAND_INJECTION",
+  "component": "project_1:Clean_Code/VulnerableCommand.java",
+  "line": 12,
+  "message": "This usage of java/lang/Runtime.exec(Ljava/lang/String;)Ljava/lang/Process; can be vulnerable to Command Injection",
+  "cwe_id": "CWE-78",
+  "source_sha256": "60bf07b3429060f34328c66e8260e6b9b986104a05c3453a1cae82a3b2e0e9d2",
+  "artifact_dir": "issue-0041",
+  "verdict": "UNKNOWN",
+  "ai_verdict": "UNKNOWN",
+  "requires_review": true,
+  "review_status": "PENDING",
+  "reviewed_verdict": null,
+  "evidence_lines": [
+    6,
+    9,
+    12
+  ],
+  "missing_context": [
+    "Kiểm tra đầu vào của 'targetIp' để đảm bảo nó chỉ chứa địa chỉ IP hợp lệ.",
+    "caller/nguồn còn thiếu"
+  ],
+  "error_kind": null,
+  "prompt_version": "command78-direct-exec-pilot-v1",
+  "model": "qwen2.5-coder:14b-instruct-q4_K_M",
+  "execution_guard": {
+    "execution_kind": "DIRECT_EXEC",
+    "supported": true,
+    "executable": "ping",
+    "command_variable": "command",
+    "evidence_lines": [
+      9,
+      12
+    ],
+    "reason": "Runtime.exec(String), tiền tố chương trình cố định; không tự gọi shell.",
+    "limitation": "Không chứng minh binary thực tế, tác động đối số hay nguồn ngoài."
+  },
+  "flow_count": 1,
+  "decision_basis": "COMMAND_EFFECT_UNRESOLVED",
+  "processing_status": "AI_PROPOSED",
+  "source_kind": "PARAMETER_ONLY",
+  "command_effect": "DANGEROUS_ARGUMENTS",
+  "execution_kind": "DIRECT_EXEC",
+  "model_assessment": {
+    "source": {
+      "source_kind": "PARAMETER_ONLY",
+      "explanation": "Chỉ thấy tham số hàm targetIp; chưa thấy caller chứng minh nguồn đầu vào từ bên ngoài.",
+      "evidence_lines": [
+        6,
+        9,
+        12
+      ],
+      "missing_context": [
+        "caller/nguồn còn thiếu"
+      ]
+    },
+    "command": {
+      "command_effect": "DANGEROUS_ARGUMENTS",
+      "explanation": "Đầu vào được cộng chuỗi trực tiếp vào lệnh hệ thống. Điều này cho phép người dùng truyền tham số độc hại vào 'targetIp', dẫn đến việc thực thi lệnh ping với các đối số không mong muốn.",
+      "evidence_lines": [
+        9,
+        12
+      ],
+      "missing_context": [
+        "Kiểm tra đầu vào của 'targetIp' để đảm bảo nó chỉ chứa địa chỉ IP hợp lệ."
+      ],
+      "execution_kind": "DIRECT_EXEC"
+    }
+  },
+  "explanation": "Nguồn: Chỉ thấy tham số hàm targetIp; chưa thấy caller chứng minh nguồn đầu vào từ bên ngoài.\nLệnh: Đầu vào được cộng chuỗi trực tiếp vào lệnh hệ thống. Điều này cho phép người dùng truyền tham số độc hại vào 'targetIp', dẫn đến việc thực thi lệnh ping với các đối số không mong muốn.",
+  "elapsed_seconds": 165.504,
+  "total_seconds": 174.053
+}

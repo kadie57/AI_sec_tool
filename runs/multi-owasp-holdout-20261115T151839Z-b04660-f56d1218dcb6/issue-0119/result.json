@@ -1,0 +1,119 @@
+{
+  "issue_id": "65d34896-56a2-43da-a7cb-ce3c05c56fe1",
+  "rule": "findsecbugs:PATH_TRAVERSAL_IN",
+  "component": "thesis_owasp_holdout_v1:experiments/owasp_holdout_v1/inputs/a452b3aafd232245d0753e54eb243d6651f8ef96/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00629.java",
+  "line": 59,
+  "message": "This API (java/nio/file/Paths.get(Ljava/lang/String;[Ljava/lang/String;)Ljava/nio/file/Path;) reads a file whose location might be specified by user input",
+  "cwe_id": "CWE-22",
+  "source_sha256": "95961d2d6f508799b3dc0a5abedb3d0b3fbbf877399bb6de5fc5fad4bc83dbbe",
+  "artifact_dir": "issue-0119",
+  "verdict": "UNKNOWN",
+  "ai_verdict": null,
+  "requires_review": true,
+  "review_status": "PENDING",
+  "reviewed_verdict": null,
+  "evidence_lines": [],
+  "missing_context": [
+    "Không có luồng tới File(String) tại vùng cảnh báo; chưa kết luận an toàn."
+  ],
+  "error_kind": "NO_MATCHING_FLOW",
+  "prompt_version": "path22-file-read-v7-branch-evidence",
+  "model": "qwen2.5-coder:14b-instruct-q4_K_M",
+  "cpg_usage": "eligibility_gate_and_count_only_full_paths_saved_not_sent",
+  "branch_evidence": {
+    "version": "java-local-branch-evidence-v1",
+    "unsupported_constructs": 3,
+    "scope": "straight-line local int/boolean expressions; no sink reachability proof",
+    "facts": [],
+    "status": "PARSED_PARTIAL",
+    "source_sha256": "95961d2d6f508799b3dc0a5abedb3d0b3fbbf877399bb6de5fc5fad4bc83dbbe",
+    "tool_hashes": {
+      "path_branch_evidence_v1.py": "5102ea222bfc02f321ea5e83f37ecd900da539e81ff8454610b4696013b5776a",
+      "PathBranchEvidence.java": "c26b50f15df81c34b6123c69008df6620e8c0a56b8cd87c8f3438d409a03a474"
+    },
+    "limitations": [
+      "Parses Java; does not execute or type-check the input program.",
+      "Local int/boolean straight-line expressions only; unknown control-flow writes invalidate values.",
+      "Selected expression is a fact at that line only, not proof of value reaching a sink.",
+      "No vulnerability label or filesystem safety conclusion."
+    ]
+  },
+  "flow_count": 0,
+  "context_budget": {
+    "version": "path22-file-read-v7-branch-evidence",
+    "source_sha256": "95961d2d6f508799b3dc0a5abedb3d0b3fbbf877399bb6de5fc5fad4bc83dbbe",
+    "source_scope": "full_original_file",
+    "source_lines": 92,
+    "source_chars": 3658,
+    "full_cpg_paths_chars": 0,
+    "full_cpg_paths_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "cpg_usage": "eligibility_gate_and_count_only_full_paths_saved_not_sent",
+    "requests": {
+      "source": {
+        "serialized_chars": 7766,
+        "serialized_utf8_bytes": 8546,
+        "max_serialized_chars": 20000,
+        "note": "Character preflight only; actual prompt_eval_count is checked after generation."
+      },
+      "path": {
+        "serialized_chars": 8085,
+        "serialized_utf8_bytes": 8964,
+        "max_serialized_chars": 20000,
+        "note": "Character preflight only; actual prompt_eval_count is checked after generation."
+      }
+    },
+    "options": {
+      "temperature": 0,
+      "seed": 42,
+      "num_ctx": 8192,
+      "num_predict": 1024
+    },
+    "changed_from_v6": [
+      "Append bounded Java AST branch evidence to user prompt when available"
+    ],
+    "branch_evidence_sha256": "68cc3f90796215297e6de692217cfc5bfba61df2e2dc03585bc9d6fa67a090ea",
+    "unchanged_from_v6": [
+      "Full source and line numbers",
+      "Model and generation options",
+      "System prompts",
+      "Fact schema and decision policy",
+      "Compact CPG metadata",
+      "Joern query",
+      "Existing static checks"
+    ]
+  },
+  "processing_status": "ABSTAINED",
+  "explanation": "Không có luồng tới File(String) tại vùng cảnh báo; chưa kết luận an toàn.",
+  "total_seconds": 9.864,
+  "guard_check": {
+    "version": "path-catch-guard-check-v1",
+    "source_sha256": "95961d2d6f508799b3dc0a5abedb3d0b3fbbf877399bb6de5fc5fad4bc83dbbe",
+    "scope": "single main, direct regex throw/catch, unchanged value, File(String) read",
+    "status": "NOT_CHECKED",
+    "evidence_lines": [],
+    "proves_vulnerability": false,
+    "reason": "Escapes/unicode escapes are outside scope."
+  },
+  "numeric_check": {
+    "version": "path-numeric-conflict-v1",
+    "status": "NOT_CHECKED",
+    "evidence_lines": [],
+    "source_sha256": "95961d2d6f508799b3dc0a5abedb3d0b3fbbf877399bb6de5fc5fad4bc83dbbe",
+    "scope": "single main; standard Java Long decimal conversion; direct File(String) read",
+    "assumptions": [
+      "Standard java.lang types; no package-level type shadowing."
+    ],
+    "proves_filesystem_confinement": false,
+    "reason": "Escapes/unicode escapes are outside scope."
+  },
+  "analysis_route": "path",
+  "router_version": "multi-sql89-path22-command78-v4-command-repair",
+  "combined_verdict": "UNKNOWN",
+  "decision_origin": "AI_PIPELINE",
+  "ai_explanation": "Không có luồng tới File(String) tại vùng cảnh báo; chưa kết luận an toàn.",
+  "ai_evidence_lines": [],
+  "ai_missing_context": [
+    "Không có luồng tới File(String) tại vùng cảnh báo; chưa kết luận an toàn."
+  ],
+  "ai_decision_basis": null
+}

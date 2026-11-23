@@ -1,0 +1,93 @@
+import java.io.IOException;
+import java.lang.reflect.*;
+import java.nio.ByteBuffer;
+import java.nio.channels.SeekableByteChannel;
+import java.nio.file.*;
+import java.util.*;
+
+// Test doubles exercise error paths; this file is never scanned as product code.
+public class ResourceProbe {
+    static final Map<String, Integer> closes = new HashMap<>();
+    static final Set<String> opened = new HashSet<>();
+    static String scenario;
+
+    static Object proxy(Class<?> type, InvocationHandler handler) {
+        return Proxy.newProxyInstance(type.getClassLoader(), new Class<?>[] {type}, handler);
+    }
+
+    @SuppressWarnings("unchecked")
+    static SecureDirectoryStream<Path> directory(String name) {
+        opened.add(name);
+        return (SecureDirectoryStream<Path>) proxy(SecureDirectoryStream.class, (p, m, a) -> {
+            switch (m.getName()) {
+                case "newDirectoryStream":
+                    if (scenario.equals("open_child_failure") && name.equals("a")) {
+                        throw new IOException("open_child");
+                    }
+                    if (!Arrays.asList((LinkOption[]) a[1]).contains(LinkOption.NOFOLLOW_LINKS)) {
+                        throw new AssertionError("Child must use NOFOLLOW_LINKS");
+                    }
+                    return directory(a[0].toString());
+                case "newByteChannel":
+                    if (scenario.equals("open_file_failure")) throw new IOException("open_file");
+                    if (!((Set<?>) a[1]).contains(LinkOption.NOFOLLOW_LINKS)) {
+                        throw new AssertionError("File must use NOFOLLOW_LINKS");
+                    }
+                    opened.add("channel");
+                    return proxy(SeekableByteChannel.class, (c, method, args) -> {
+                        if (method.getName().equals("read")) {
+                            if (scenario.startsWith("read_failure")) throw new IOException("read");
+                            ((ByteBuffer) args[0]).put((byte) 65);
+                            return 1;
+                        }
+                        if (method.getName().equals("close")) {
+                            closes.merge("channel", 1, Integer::sum);
+                            return null;
+                        }
+                        if (method.getName().equals("isOpen")) return !closes.containsKey("channel");
+                        throw new AssertionError(method.getName());
+                    });
+                case "close":
+                    closes.merge(name, 1, Integer::sum);
+                    if (scenario.equals("read_failure_close_failure") && name.equals("b")) {
+                        throw new IOException("close_child");
+                    }
+                    return null;
+                default: throw new AssertionError(m.getName());
+            }
+        });
+    }
+
+    public static void main(String[] args) throws Exception {
+        Method read = Class.forName("pilot_path22.PathCase01").getDeclaredMethod(
+                "readRelative", SecureDirectoryStream.class, Path.class);
+        read.setAccessible(true);
+        for (String test : new String[] {"success", "open_child_failure", "open_file_failure",
+                                         "read_failure", "read_failure_close_failure"}) {
+            scenario = test;
+            closes.clear();
+            opened.clear();
+            Throwable failure = null;
+            try {
+                Object result = read.invoke(null, directory("root"), Paths.get("a/b/file"));
+                if (!Integer.valueOf(65).equals(result)) throw new AssertionError("Wrong byte");
+            } catch (InvocationTargetException ex) {
+                failure = ex.getCause();
+            }
+            if (test.equals("success") ? failure != null : !(failure instanceof IOException)) {
+                throw new AssertionError("Unexpected outcome: " + test, failure);
+            }
+            if (closes.containsKey("root")) throw new AssertionError("Borrowed root was closed");
+            for (String name : opened) {
+                if (!name.equals("root") && !closes.containsKey(name)) {
+                    throw new AssertionError("No close attempt for " + name + " in " + test);
+                }
+            }
+            if (test.equals("read_failure_close_failure") &&
+                    (!failure.getMessage().equals("read") || failure.getSuppressed().length != 1)) {
+                throw new AssertionError("Primary/suppressed exceptions not preserved");
+            }
+            System.out.println("PASS " + test);
+        }
+    }
+}

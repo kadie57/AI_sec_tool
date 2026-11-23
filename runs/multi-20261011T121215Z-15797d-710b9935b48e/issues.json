@@ -1,0 +1,137 @@
+{
+  "issues": [
+    {
+      "key": "02583911-76f1-452b-b6a2-5aa4737da277",
+      "rule": "findsecbugs:PATH_TRAVERSAL_IN",
+      "severity": "MAJOR",
+      "component": "project_1:Clean_Code/pilot_path22/PathCase01.java",
+      "project": "project_1",
+      "line": 14,
+      "hash": "45b30b4bfa30fab9d17967e0b9298d4c",
+      "textRange": {
+        "startLine": 14,
+        "endLine": 14,
+        "startOffset": 0,
+        "endOffset": 39
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "This API (java/io/File.<init>(Ljava/lang/String;)V) reads a file whose location might be specified by user input",
+      "author": "",
+      "tags": [
+        "cwe",
+        "owasp-a4",
+        "wasc"
+      ],
+      "creationDate": "2026-10-08T11:12:05+0000",
+      "updateDate": "2026-10-08T11:12:05+0000",
+      "type": "VULNERABILITY",
+      "scope": "MAIN",
+      "quickFixAvailable": false,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "CONVENTIONAL",
+      "cleanCodeAttributeCategory": "CONSISTENT",
+      "impacts": [
+        {
+          "softwareQuality": "SECURITY",
+          "severity": "MEDIUM"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "38f957d9-cc37-410b-9902-2ab3f6749e1d",
+      "rule": "findsecbugs:PATH_TRAVERSAL_IN",
+      "severity": "MAJOR",
+      "component": "project_1:Clean_Code/pilot_path22/PathCase02.java",
+      "project": "project_1",
+      "line": 16,
+      "hash": "45b30b4bfa30fab9d17967e0b9298d4c",
+      "textRange": {
+        "startLine": 16,
+        "endLine": 16,
+        "startOffset": 0,
+        "endOffset": 39
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "This API (java/io/File.<init>(Ljava/lang/String;)V) reads a file whose location might be specified by user input",
+      "author": "",
+      "tags": [
+        "cwe",
+        "owasp-a4",
+        "wasc"
+      ],
+      "creationDate": "2026-10-08T11:12:05+0000",
+      "updateDate": "2026-10-08T11:12:05+0000",
+      "type": "VULNERABILITY",
+      "scope": "MAIN",
+      "quickFixAvailable": false,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "CONVENTIONAL",
+      "cleanCodeAttributeCategory": "CONSISTENT",
+      "impacts": [
+        {
+          "softwareQuality": "SECURITY",
+          "severity": "MEDIUM"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "4dceec73-e771-49da-87f9-a09db0d313ff",
+      "rule": "findsecbugs:PATH_TRAVERSAL_IN",
+      "severity": "MAJOR",
+      "component": "project_1:Clean_Code/VulnerablePath.java",
+      "project": "project_1",
+      "line": 16,
+      "hash": "45b30b4bfa30fab9d17967e0b9298d4c",
+      "textRange": {
+        "startLine": 16,
+        "endLine": 16,
+        "startOffset": 0,
+        "endOffset": 43
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "This API (java/io/File.<init>(Ljava/lang/String;)V) reads a file whose location might be specified by user input",
+      "author": "",
+      "tags": [
+        "cwe",
+        "owasp-a4",
+        "wasc"
+      ],
+      "creationDate": "2026-07-22T03:37:23+0000",
+      "updateDate": "2026-10-08T08:24:50+0000",
+      "type": "VULNERABILITY",
+      "scope": "MAIN",
+      "quickFixAvailable": false,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "CONVENTIONAL",
+      "cleanCodeAttributeCategory": "CONSISTENT",
+      "impacts": [
+        {
+          "softwareQuality": "SECURITY",
+          "severity": "MEDIUM"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    }
+  ],
+  "total": 3
+}

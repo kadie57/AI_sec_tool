@@ -1,0 +1,421 @@
+{
+  "total": 6,
+  "p": 1,
+  "ps": 100,
+  "paging": {
+    "pageIndex": 1,
+    "pageSize": 100,
+    "total": 6
+  },
+  "effortTotal": 33,
+  "issues": [
+    {
+      "key": "f85cc2b0-7fbd-407a-8a50-c07407b9cc9c",
+      "rule": "java:S120",
+      "severity": "MINOR",
+      "component": "pathpatch_20261105T064544Z_2034bf07f113_reviewed:Clean_Code/pilot_path22/PathCase01.java",
+      "project": "pathpatch_20261105T064544Z_2034bf07f113_reviewed",
+      "line": 1,
+      "hash": "44d1baea7cea14cfbcde111d60d61a1b",
+      "textRange": {
+        "startLine": 1,
+        "endLine": 1,
+        "startOffset": 8,
+        "endOffset": 20
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "Rename this package name to match the regular expression '^[a-z_]+(\\.[a-z_][a-z0-9_]*)*$'.",
+      "effort": "10min",
+      "debt": "10min",
+      "author": "",
+      "tags": [
+        "convention"
+      ],
+      "creationDate": "2026-11-05T06:46:26+0000",
+      "updateDate": "2026-11-05T06:46:26+0000",
+      "type": "CODE_SMELL",
+      "scope": "MAIN",
+      "quickFixAvailable": false,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "IDENTIFIABLE",
+      "cleanCodeAttributeCategory": "CONSISTENT",
+      "impacts": [
+        {
+          "softwareQuality": "MAINTAINABILITY",
+          "severity": "LOW"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "d30c5ccf-e216-491f-a64c-c3798b7b3ee6",
+      "rule": "findsecbugs:PATH_TRAVERSAL_IN",
+      "severity": "MAJOR",
+      "component": "pathpatch_20261105T064544Z_2034bf07f113_reviewed:Clean_Code/pilot_path22/PathCase01.java",
+      "project": "pathpatch_20261105T064544Z_2034bf07f113_reviewed",
+      "line": 34,
+      "hash": "67708bb7f35a6a8fe610d6961916f926",
+      "textRange": {
+        "startLine": 34,
+        "endLine": 34,
+        "startOffset": 0,
+        "endOffset": 73
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "This API (java/nio/file/Paths.get(Ljava/lang/String;[Ljava/lang/String;)Ljava/nio/file/Path;) reads a file whose location might be specified by user input",
+      "author": "",
+      "tags": [
+        "cwe",
+        "owasp-a4",
+        "wasc"
+      ],
+      "creationDate": "2026-11-05T06:46:26+0000",
+      "updateDate": "2026-11-05T06:46:26+0000",
+      "type": "VULNERABILITY",
+      "scope": "MAIN",
+      "quickFixAvailable": false,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "CONVENTIONAL",
+      "cleanCodeAttributeCategory": "CONSISTENT",
+      "impacts": [
+        {
+          "softwareQuality": "SECURITY",
+          "severity": "MEDIUM"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "50271029-293a-4f6c-880e-59a92c0ff2ca",
+      "rule": "java:S106",
+      "severity": "MAJOR",
+      "component": "pathpatch_20261105T064544Z_2034bf07f113_reviewed:Clean_Code/pilot_path22/PathCase01.java",
+      "project": "pathpatch_20261105T064544Z_2034bf07f113_reviewed",
+      "line": 46,
+      "hash": "11e244377f17e989fac0e79008ba1ed6",
+      "textRange": {
+        "startLine": 46,
+        "endLine": 46,
+        "startOffset": 16,
+        "endOffset": 26
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "Replace this use of System.out by a logger.",
+      "effort": "10min",
+      "debt": "10min",
+      "author": "",
+      "tags": [
+        "bad-practice",
+        "cert"
+      ],
+      "creationDate": "2026-11-05T06:46:26+0000",
+      "updateDate": "2026-11-05T06:46:26+0000",
+      "type": "CODE_SMELL",
+      "scope": "MAIN",
+      "quickFixAvailable": false,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "MODULAR",
+      "cleanCodeAttributeCategory": "ADAPTABLE",
+      "impacts": [
+        {
+          "softwareQuality": "MAINTAINABILITY",
+          "severity": "MEDIUM"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "8c8a1d7b-5fc2-4520-a7ca-fb7e998d30d0",
+      "rule": "java:S3776",
+      "severity": "CRITICAL",
+      "component": "pathpatch_20261105T064544Z_2034bf07f113_reviewed:Clean_Code/pilot_path22/PathCase01.java",
+      "project": "pathpatch_20261105T064544Z_2034bf07f113_reviewed",
+      "line": 51,
+      "hash": "52ae652c0be560f026c8e87741c783e0",
+      "textRange": {
+        "startLine": 51,
+        "endLine": 51,
+        "startOffset": 39,
+        "endOffset": 51
+      },
+      "flows": [
+        {
+          "locations": [
+            {
+              "component": "pathpatch_20261105T064544Z_2034bf07f113_reviewed:Clean_Code/pilot_path22/PathCase01.java",
+              "textRange": {
+                "startLine": 57,
+                "endLine": 57,
+                "startOffset": 12,
+                "endOffset": 15
+              },
+              "msg": "+1",
+              "msgFormattings": []
+            }
+          ]
+        },
+        {
+          "locations": [
+            {
+              "component": "pathpatch_20261105T064544Z_2034bf07f113_reviewed:Clean_Code/pilot_path22/PathCase01.java",
+              "textRange": {
+                "startLine": 60,
+                "endLine": 60,
+                "startOffset": 16,
+                "endOffset": 18
+              },
+              "msg": "+2 (incl 1 for nesting)",
+              "msgFormattings": []
+            }
+          ]
+        },
+        {
+          "locations": [
+            {
+              "component": "pathpatch_20261105T064544Z_2034bf07f113_reviewed:Clean_Code/pilot_path22/PathCase01.java",
+              "textRange": {
+                "startLine": 63,
+                "endLine": 63,
+                "startOffset": 22,
+                "endOffset": 27
+              },
+              "msg": "+3 (incl 2 for nesting)",
+              "msgFormattings": []
+            }
+          ]
+        },
+        {
+          "locations": [
+            {
+              "component": "pathpatch_20261105T064544Z_2034bf07f113_reviewed:Clean_Code/pilot_path22/PathCase01.java",
+              "textRange": {
+                "startLine": 66,
+                "endLine": 66,
+                "startOffset": 26,
+                "endOffset": 31
+              },
+              "msg": "+4 (incl 3 for nesting)",
+              "msgFormattings": []
+            }
+          ]
+        },
+        {
+          "locations": [
+            {
+              "component": "pathpatch_20261105T064544Z_2034bf07f113_reviewed:Clean_Code/pilot_path22/PathCase01.java",
+              "textRange": {
+                "startLine": 80,
+                "endLine": 80,
+                "startOffset": 12,
+                "endOffset": 14
+              },
+              "msg": "+1",
+              "msgFormattings": []
+            }
+          ]
+        },
+        {
+          "locations": [
+            {
+              "component": "pathpatch_20261105T064544Z_2034bf07f113_reviewed:Clean_Code/pilot_path22/PathCase01.java",
+              "textRange": {
+                "startLine": 84,
+                "endLine": 84,
+                "startOffset": 18,
+                "endOffset": 23
+              },
+              "msg": "+2 (incl 1 for nesting)",
+              "msgFormattings": []
+            }
+          ]
+        },
+        {
+          "locations": [
+            {
+              "component": "pathpatch_20261105T064544Z_2034bf07f113_reviewed:Clean_Code/pilot_path22/PathCase01.java",
+              "textRange": {
+                "startLine": 87,
+                "endLine": 87,
+                "startOffset": 22,
+                "endOffset": 27
+              },
+              "msg": "+3 (incl 2 for nesting)",
+              "msgFormattings": []
+            }
+          ]
+        },
+        {
+          "locations": [
+            {
+              "component": "pathpatch_20261105T064544Z_2034bf07f113_reviewed:Clean_Code/pilot_path22/PathCase01.java",
+              "textRange": {
+                "startLine": 95,
+                "endLine": 95,
+                "startOffset": 12,
+                "endOffset": 14
+              },
+              "msg": "+1",
+              "msgFormattings": []
+            }
+          ]
+        }
+      ],
+      "status": "OPEN",
+      "message": "Refactor this method to reduce its Cognitive Complexity from 17 to the 15 allowed.",
+      "effort": "7min",
+      "debt": "7min",
+      "author": "",
+      "tags": [
+        "brain-overload"
+      ],
+      "creationDate": "2026-11-05T06:46:26+0000",
+      "updateDate": "2026-11-05T06:46:26+0000",
+      "type": "CODE_SMELL",
+      "scope": "MAIN",
+      "quickFixAvailable": false,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "FOCUSED",
+      "cleanCodeAttributeCategory": "ADAPTABLE",
+      "impacts": [
+        {
+          "softwareQuality": "MAINTAINABILITY",
+          "severity": "HIGH"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "1266b080-b5a9-43dd-a3f4-9681182df4fd",
+      "rule": "java:S2095",
+      "severity": "BLOCKER",
+      "component": "pathpatch_20261105T064544Z_2034bf07f113_reviewed:Clean_Code/pilot_path22/PathCase01.java",
+      "project": "pathpatch_20261105T064544Z_2034bf07f113_reviewed",
+      "line": 58,
+      "hash": "d009c9b368f8aadff92c8a1134f77dce",
+      "textRange": {
+        "startLine": 58,
+        "endLine": 59,
+        "startOffset": 51,
+        "endOffset": 71
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "Use try-with-resources or close this \"SecureDirectoryStream\" in a \"finally\" clause.",
+      "effort": "5min",
+      "debt": "5min",
+      "author": "",
+      "tags": [
+        "cwe",
+        "symbolic-execution",
+        "leak",
+        "denial-of-service",
+        "cert"
+      ],
+      "creationDate": "2026-11-05T06:46:26+0000",
+      "updateDate": "2026-11-05T06:46:26+0000",
+      "type": "BUG",
+      "scope": "MAIN",
+      "quickFixAvailable": false,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "COMPLETE",
+      "cleanCodeAttributeCategory": "INTENTIONAL",
+      "impacts": [
+        {
+          "softwareQuality": "RELIABILITY",
+          "severity": "HIGH"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "8a8dc59b-9062-453a-ad62-73ed5d5dd563",
+      "rule": "java:S2293",
+      "severity": "MINOR",
+      "component": "pathpatch_20261105T064544Z_2034bf07f113_reviewed:Clean_Code/pilot_path22/PathCase01.java",
+      "project": "pathpatch_20261105T064544Z_2034bf07f113_reviewed",
+      "line": 75,
+      "hash": "5ad8581b02fd83d39d63bf139aa8bfef",
+      "textRange": {
+        "startLine": 75,
+        "endLine": 75,
+        "startOffset": 49,
+        "endOffset": 61
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "Replace the type specification in this constructor call with the diamond operator (\"<>\"). (sonar.java.source not set. Assuming 7 or greater.)",
+      "effort": "1min",
+      "debt": "1min",
+      "author": "",
+      "tags": [
+        "clumsy"
+      ],
+      "creationDate": "2026-11-05T06:46:26+0000",
+      "updateDate": "2026-11-05T06:46:26+0000",
+      "type": "CODE_SMELL",
+      "scope": "MAIN",
+      "quickFixAvailable": true,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "CLEAR",
+      "cleanCodeAttributeCategory": "INTENTIONAL",
+      "impacts": [
+        {
+          "softwareQuality": "MAINTAINABILITY",
+          "severity": "LOW"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    }
+  ],
+  "components": [
+    {
+      "key": "pathpatch_20261105T064544Z_2034bf07f113_reviewed:Clean_Code/pilot_path22/PathCase01.java",
+      "enabled": true,
+      "qualifier": "FIL",
+      "name": "PathCase01.java",
+      "longName": "Clean_Code/pilot_path22/PathCase01.java",
+      "path": "Clean_Code/pilot_path22/PathCase01.java"
+    },
+    {
+      "key": "pathpatch_20261105T064544Z_2034bf07f113_reviewed",
+      "enabled": true,
+      "qualifier": "TRK",
+      "name": "Path patch reviewed 20261105T064544Z_2034bf07f113",
+      "longName": "Path patch reviewed 20261105T064544Z_2034bf07f113"
+    }
+  ],
+  "facets": []
+}

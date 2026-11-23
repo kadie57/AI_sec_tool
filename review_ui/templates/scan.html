@@ -1,0 +1,26 @@
+<!doctype html><html lang="vi"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Security Review · Quét SonarQube</title><link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}"><link rel="stylesheet" href="{{ url_for('static', filename='jobs.css') }}"></head>
+<body class="analysis-page"><header><a class="brand" href="{{ url_for('index') }}"><span class="logo">SR</span><strong>Security Review</strong></a><span class="mode">Quét mã nguồn</span></header><main>
+<a href="{{ url_for('index') }}">← Danh sách kết quả</a><h1>Quét SonarQube</h1>
+<p>Quét mã Java, lấy danh sách cảnh báo mới, sau đó chọn file để AI kiểm chứng.</p>
+{% for message in get_flashed_messages() %}<p class="warning">{{ message }}</p>{% endfor %}
+{% if error %}<p class="warning">{{ error }}</p>{% endif %}
+{% if active %}<p class="warning">Đang có tác vụ chạy. <a href="{{ url_for('analysis_job', job_id=active) }}">Mở nhật ký tác vụ →</a></p>{% endif %}
+{% if config %}<section class="panel"><h2>Nguồn quét</h2>
+<p><strong>Thư mục:</strong> Clean_Code · {{ config.file_count }} file Java</p>
+<p><strong>Máy chủ SonarQube:</strong> {{ config.url }}</p>
+<p>Lưu các file đang sửa trước khi quét. SonarQube phải đang chạy.</p>
+<form method="post" action="{{ url_for('scan_start') }}" autocomplete="off">
+<input type="hidden" name="csrf" value="{{ session.csrf }}">
+<label for="project">Project key</label>
+<input id="project" name="project" value="{{ config.project }}" required maxlength="200" pattern="[A-Za-z0-9_.:\-]+" spellcheck="false">
+<p class="hint-text">Dùng project_1 để cập nhật dự án hiện tại trên SonarQube. Dự án khác có thể dùng bộ quy tắc quét khác.</p>
+<label for="sonar_token">SonarQube token</label>
+<input id="sonar_token" name="sonar_token" type="password" maxlength="4096" autocomplete="new-password" {% if not config.has_token %}required{% endif %}>
+<p class="hint-text">{% if config.has_token %}Đã có token trong môi trường của ứng dụng. Có thể để trống ô này.{% else %}Nhập token tại đây. Chỉ dùng cho lần quét này; không lưu vào kết quả hoặc nhật ký.{% endif %}</p>
+<p>Thao tác này biên dịch toàn bộ mã Java trong Clean_Code và gửi lượt phân tích mới lên project đã chọn.</p>
+<button type="submit" {% if active or not config.file_count %}disabled{% endif %}>Bắt đầu quét SonarQube</button>
+</form></section>
+<section class="panel"><h2>Sau khi quét</h2><p>Giao diện hiển thị số cảnh báo SQL Injection, Path Traversal và Command Injection thuộc phạm vi hỗ trợ. Chọn file ở bước tiếp theo để gọi AI.</p>
+<p>Không thấy cảnh báo không đồng nghĩa mã nguồn đã được chứng minh an toàn. Kết quả phụ thuộc các quy tắc đang bật trên SonarQube.</p></section>{% endif %}
+<p>Đã có lượt quét? <a href="{{ url_for('analysis_home') }}">Chọn cảnh báo đã lưu để phân tích →</a></p>
+</main></body></html>

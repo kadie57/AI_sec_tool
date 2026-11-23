@@ -1,0 +1,36 @@
+{
+  "issue_id": "43a21863-3e87-4959-b24e-d55475e92215",
+  "rule": "findsecbugs:PATH_TRAVERSAL_IN",
+  "component": "project_1:Clean_Code/eval_followup21/Sample204.java",
+  "line": 9,
+  "message": "This API (java/io/File.<init>(Ljava/lang/String;Ljava/lang/String;)V) reads a file whose location might be specified by user input",
+  "cwe_id": "CWE-22",
+  "source_sha256": "5307d255c9d8d5af14c41297fea5f3f89c887aa166290c4072c5603096f55533",
+  "artifact_dir": "issue-0031",
+  "verdict": "UNKNOWN",
+  "ai_verdict": null,
+  "requires_review": true,
+  "review_status": "PENDING",
+  "reviewed_verdict": null,
+  "evidence_lines": [],
+  "missing_context": [
+    "Không có luồng tới File(String) tại vùng cảnh báo; chưa kết luận an toàn."
+  ],
+  "error_kind": "NO_MATCHING_FLOW",
+  "prompt_version": "path22-file-read-pilot-v4-evidence-scope",
+  "model": "qwen2.5-coder:14b-instruct-q4_K_M",
+  "flow_count": 0,
+  "processing_status": "ABSTAINED",
+  "explanation": "Không có luồng tới File(String) tại vùng cảnh báo; chưa kết luận an toàn.",
+  "total_seconds": 8.04,
+  "analysis_route": "path",
+  "router_version": "multi-sql89-path22-command78-v2-sql-fallback",
+  "combined_verdict": "UNKNOWN",
+  "decision_origin": "AI_PIPELINE",
+  "ai_explanation": "Không có luồng tới File(String) tại vùng cảnh báo; chưa kết luận an toàn.",
+  "ai_evidence_lines": [],
+  "ai_missing_context": [
+    "Không có luồng tới File(String) tại vùng cảnh báo; chưa kết luận an toàn."
+  ],
+  "ai_decision_basis": null
+}

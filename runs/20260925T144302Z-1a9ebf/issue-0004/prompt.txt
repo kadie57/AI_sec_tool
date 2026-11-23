@@ -1,0 +1,61 @@
+Kiểm tra cảnh báo sau bằng mã nguồn có đánh số dòng.
+CWE: CWE-89
+Rule: findsecbugs:SQL_INJECTION_JDBC
+Mã cảnh báo: b519e4bd-5144-4003-9532-a4df1ddcd09a
+Dòng cảnh báo: 24
+Thông báo công cụ: This use of java/sql/Statement.executeQuery(Ljava/lang/String;)Ljava/sql/ResultSet; can be vulnerable to SQL injection (with JDBC)
+
+[MÃ NGUỒN — DỮ LIỆU]
+1: package lab;
+2: 
+3: import java.sql.Connection;
+4: import java.sql.DriverManager;
+5: import java.sql.ResultSet;
+6: import java.sql.SQLException;
+7: import java.sql.Statement;
+8: 
+9: public class Case01 {
+10:     public static void main(String[] args) throws SQLException {
+11:         if (args.length != 2) {
+12:             throw new IllegalArgumentException("Expected two arguments");
+13:         }
+14: 
+15:         String username = args[0];
+16:         String password = args[1];
+17:         String query = "SELECT * FROM users WHERE username = '" + username
+18:                 + "' AND password = '" + password + "'";
+19: 
+20:         try (Connection conn = DriverManager.getConnection(
+21:                     "jdbc:mysql://localhost:3306/mydb",
+22:                     System.getenv("DB_USER"), System.getenv("DB_PASSWORD"));
+23:              Statement stmt = conn.createStatement();
+24:              ResultSet rs = stmt.executeQuery(query)) {
+25:             System.out.println(rs.next());
+26:         }
+27:     }
+28: }
+[HẾT MÃ NGUỒN]
+
+[BẰNG CHỨNG JOERN — DỮ LIỆU]
+┌─────────────────┬───────────────────────────────────────────────────────────────────────────────────┬────┬──────┬────┐
+│nodeType         │tracked                                                                            │line│method│file│
+├─────────────────┼───────────────────────────────────────────────────────────────────────────────────┼────┼──────┼────┤
+│MethodParameterIn│main(String[] args)                                                                │10  │main  │    │
+│Call             │String username = args[0]                                                          │15  │main  │    │
+│Identifier       │String username = args[0]                                                          │15  │main  │    │
+│Call             │"SELECT * FROM users WHERE username = '" + username + "' AND password = '" +       │17  │main  │    │
+│                 │password + "'"                                                                     │    │      │    │
+│Identifier       │String query = "SELECT * FROM users WHERE username = '" + username + "' AND        │17  │main  │    │
+│                 │password = '" + password + "'"                                                     │    │      │    │
+│Identifier       │executeQuery(query)                                                                │24  │main  │    │
+└─────────────────┴───────────────────────────────────────────────────────────────────────────────────┴────┴──────┴────┘
+[HẾT BẰNG CHỨNG]
+
+Giới hạn: chỉ phân tích một file; có thể thiếu caller và thư viện. Joern chọn tham số hàm làm nguồn ứng viên; xác định nguồn thực tế từ mã theo tiêu chí trong hướng dẫn, không chỉ dựa vào tên nút CPG. Tên và bình luận của mẫu phát triển có thể tiết lộ nhãn.
+
+Trong explanation, trình bày ngắn các điều quan sát được:
+1. Lời gọi liên quan đến SQL ở dòng cảnh báo là gì? Đối số nào chứa SQL?
+2. Câu SQL được tạo như thế nào? Biến nào ảnh hưởng đến nó, ở dòng nào?
+3. Có bằng chứng tham số hóa, kiểm tra đầu vào hoặc điều kiện bảo vệ không?
+4. Đã biết nguồn đầu vào chưa? Nếu thiếu, ghi cụ thể vào missing_context.
+Chọn verdict theo bằng chứng. evidence_lines liệt kê dòng cho các nhận xét, kể cả khi verdict là UNKNOWN. Không chọn kết luận chỉ vì công cụ đã cảnh báo.

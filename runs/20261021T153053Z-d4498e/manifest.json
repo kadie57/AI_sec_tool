@@ -1,0 +1,16 @@
+{
+  "pipeline_version": "baseline-repair-1+sql-no-flow-gate-v1",
+  "prompt_version": "sql89-evidence-v4",
+  "mapping_version": "sql89-v2",
+  "collect_only": true,
+  "state": "FAILED",
+  "started_at": "2026-10-21T15:30:53.388253+00:00",
+  "limitations": [
+    "Single-file CPG; JDBC sinks at issue line only.",
+    "No Security Hotspots API in this version.",
+    "No concurrent scans of the same SonarQube project.",
+    "Line-reference validation does not prove semantic correctness."
+  ],
+  "error": "Thiếu SONAR_TOKEN. Đặt biến môi trường trước khi chạy.",
+  "finished_at": "2026-10-21T15:30:53.388474+00:00"
+}

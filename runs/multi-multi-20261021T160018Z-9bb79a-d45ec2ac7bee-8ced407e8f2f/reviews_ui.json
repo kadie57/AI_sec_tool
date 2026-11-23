@@ -1,0 +1,22 @@
+{
+  "version": 1,
+  "history": [
+    {
+      "record_key": "606d9049811ad07f28d74a9d0ddee4ff06623f86b6916c51fda256d56dfe6e17",
+      "revision": 1,
+      "analysis_id": "f8ec196b-af1c-4dc8-b100-f1b938393c70",
+      "issue_id": "4d121161-a6b3-45b5-9181-7500a5b0a789",
+      "component": "project_1:Clean_Code/eval_followup21/Sample101.java",
+      "line": 12,
+      "source_sha256": "3d7f577e3d0394911f5da817fe12a3cc6e54462180244b3a02c4e01cc73894b5",
+      "ai_verdict": "LIKELY_TP",
+      "combined_verdict": "LIKELY_TP",
+      "decision_origin": "AI_PIPELINE",
+      "reviewed_verdict": "LIKELY_TP",
+      "review_status": "REVIEWED",
+      "notes": "Dòng 7 chỉ kiểm tra giá trị từ args[0]. Dòng 8 ghi đè value bằng args[1] chưa được kiểm tra. Giá trị mới được ghép trực tiếp vào SQL ở dòng 9 và thực thi bằng Statement tại dòng 12. Đồng ý nhãn LIKELY_TP; lời giải thích AI chưa phân biệt rõ giá trị trước và sau khi ghi đè.",
+      "reviewer": "Khanh",
+      "saved_at": "2026-10-28T03:08:05.982046+00:00"
+    }
+  ]
+}

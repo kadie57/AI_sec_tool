@@ -1,0 +1,61 @@
+{
+  "context_sha256": "ea78bffc0e8050fdd06a37c285c9b02264d704aa71002c424d059a624526d725",
+  "row_sha256": "d47041c398d1624477f50088b0f5e5fd9c293fdd5857f465ba66adfdd3bcba22",
+  "row": {
+    "issue_id": "ca35365e-2bd9-4ce6-bab2-a86c4e685711",
+    "rule": "findsecbugs:PATH_TRAVERSAL_IN",
+    "component": "thesis_owasp_compat_v1:experiments/owasp_compat_v1/inputs/a452b3aafd232245d0753e54eb243d6651f8ef96/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00001.java",
+    "line": 72,
+    "message": "This API (java/io/File.<init>(Ljava/lang/String;)V) reads a file whose location might be specified by user input",
+    "cwe_id": "CWE-22",
+    "source_sha256": "a83e78f8e9dd7b941c19eb2709429a2b7bec32b8921c193f3d02c4a04097a4b7",
+    "artifact_dir": "issue-0005",
+    "verdict": "UNKNOWN",
+    "ai_verdict": null,
+    "requires_review": true,
+    "review_status": "CALL_ERROR",
+    "reviewed_verdict": null,
+    "evidence_lines": [],
+    "missing_context": [
+      "Ngữ cảnh gần đầy; chưa chấp nhận kết quả."
+    ],
+    "error_kind": "PROCESSING_ERROR",
+    "prompt_version": "path22-file-read-pilot-v4-evidence-scope",
+    "model": "qwen2.5-coder:14b-instruct-q4_K_M",
+    "flow_count": 1,
+    "processing_status": "ERROR",
+    "explanation": "Ngữ cảnh gần đầy; chưa chấp nhận kết quả.",
+    "total_seconds": 744.406,
+    "guard_check": {
+      "version": "path-catch-guard-check-v1",
+      "source_sha256": "a83e78f8e9dd7b941c19eb2709429a2b7bec32b8921c193f3d02c4a04097a4b7",
+      "scope": "single main, direct regex throw/catch, unchanged value, File(String) read",
+      "status": "NOT_CHECKED",
+      "evidence_lines": [],
+      "proves_vulnerability": false,
+      "reason": "Escapes/unicode escapes are outside scope."
+    },
+    "numeric_check": {
+      "version": "path-numeric-conflict-v1",
+      "status": "NOT_CHECKED",
+      "evidence_lines": [],
+      "source_sha256": "a83e78f8e9dd7b941c19eb2709429a2b7bec32b8921c193f3d02c4a04097a4b7",
+      "scope": "single main; standard Java Long decimal conversion; direct File(String) read",
+      "assumptions": [
+        "Standard java.lang types; no package-level type shadowing."
+      ],
+      "proves_filesystem_confinement": false,
+      "reason": "Escapes/unicode escapes are outside scope."
+    },
+    "analysis_route": "path",
+    "router_version": "multi-sql89-path22-command78-v2-sql-fallback",
+    "combined_verdict": "UNKNOWN",
+    "decision_origin": "AI_PIPELINE",
+    "ai_explanation": "Ngữ cảnh gần đầy; chưa chấp nhận kết quả.",
+    "ai_evidence_lines": [],
+    "ai_missing_context": [
+      "Ngữ cảnh gần đầy; chưa chấp nhận kết quả."
+    ],
+    "ai_decision_basis": null
+  }
+}

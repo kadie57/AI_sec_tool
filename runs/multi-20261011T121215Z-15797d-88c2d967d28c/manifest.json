@@ -1,0 +1,48 @@
+{
+  "started_at": "2026-10-20T06:38:16.805691+00:00",
+  "analysis_id": "0fb435b3-c98f-4b09-9ad6-47085ee96925",
+  "project": "project_1",
+  "pipeline_version": "multi-sql89-path22-command78-v2-sql-fallback",
+  "parent_run": "/home/khanh/AI_sec_tool/runs/20261011T121215Z-15797d",
+  "source_hashes": {
+    "Clean_Code/pilot_sql89/Trial01.java": "dd8786ea91517d9836ded4f67a3441704575297eff02336001c1a534fc77b268",
+    "Clean_Code/pilot_sql89/Trial04.java": "72c8351f1feee4c7b38202d9cd3b3c50664d2b0a6738288bc4ae17c1ede3977c",
+    "Clean_Code/pilot_sql89/Trial06.java": "99d24095a714523c935748469d01abe833031729c914810df754e11abe90b060"
+  },
+  "evaluation_scope": "selected_supported_components",
+  "selected_components": [
+    "project_1:Clean_Code/pilot_sql89/Trial01.java",
+    "project_1:Clean_Code/pilot_sql89/Trial04.java",
+    "project_1:Clean_Code/pilot_sql89/Trial06.java"
+  ],
+  "issue_count": 3,
+  "supported_issue_count": 3,
+  "prompt_versions": {
+    "sql": "sql89-v7-stage2-plus-source-v2-candidate-1"
+  },
+  "limitations": [
+    "Uses saved Sonar issues; does not rescan. Only explicitly routed rules.",
+    "Single-file context; SQL JDBC, Path File(String) read, and bounded direct exec only.",
+    "AI and static rules are proposals; human review is separate. No automatic issue closure.",
+    "Resume is per completed issue, not per AI stage. Partial retry can repeat calls.",
+    "Prior standalone runs and their human reviews are not imported."
+  ],
+  "state": "COMPLETED",
+  "error": null,
+  "runtime": {
+    "model": "qwen2.5-coder:14b-instruct-q4_K_M",
+    "model_digest": "9ec8897f747e246e970bc5cfdda85d22f1123dc2e3d34978a010a75968716849",
+    "joern_image_id": "sha256:f47692f8334d2eeca9fc83395023773da566ce8397563ff7c66d34a23bfc75c4",
+    "ollama_url": "http://127.0.0.1:11434"
+  },
+  "result_count": 3,
+  "verdict_counts": {
+    "LIKELY_TP": 1,
+    "LIKELY_FP": 1,
+    "UNKNOWN": 1
+  },
+  "processing_status_counts": {
+    "AI_PROPOSED": 3
+  },
+  "finished_at": "2026-10-20T06:58:10.233909+00:00"
+}

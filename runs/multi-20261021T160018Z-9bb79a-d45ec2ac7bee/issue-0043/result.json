@@ -1,0 +1,102 @@
+{
+  "issue_id": "eba54cc6-7f68-4962-a56f-e9d50c468f0b",
+  "rule": "findsecbugs:COMMAND_INJECTION",
+  "component": "project_1:Clean_Code/eval_followup21/Sample303.java",
+  "line": 7,
+  "message": "This usage of java/lang/Runtime.exec(Ljava/lang/String;)Ljava/lang/Process; can be vulnerable to Command Injection",
+  "cwe_id": "CWE-78",
+  "source_sha256": "35ea83db5489dde5d456121d8ec4e3b1d584f72de0b78c565eeb3d571957b7be",
+  "artifact_dir": "issue-0043",
+  "verdict": "UNKNOWN",
+  "ai_verdict": "UNKNOWN",
+  "requires_review": true,
+  "review_status": "PENDING",
+  "reviewed_verdict": null,
+  "evidence_lines": [
+    4,
+    6,
+    7
+  ],
+  "missing_context": [
+    "Kiểm tra đầu vào để đảm bảo nó không chứa ký tự đặc biệt có thể gây ra hành vi nguy hiểm.",
+    "caller/nguồn"
+  ],
+  "error_kind": null,
+  "prompt_version": "command78-direct-exec-pilot-v1",
+  "model": "qwen2.5-coder:14b-instruct-q4_K_M",
+  "execution_guard": {
+    "execution_kind": "DIRECT_EXEC",
+    "supported": true,
+    "executable": "/usr/bin/find",
+    "command_variable": "command",
+    "evidence_lines": [
+      6,
+      7
+    ],
+    "reason": "Runtime.exec(String), tiền tố chương trình cố định; không tự gọi shell.",
+    "limitation": "Không chứng minh binary thực tế, tác động đối số hay nguồn ngoài."
+  },
+  "flow_count": 1,
+  "decision_basis": "COMMAND_EFFECT_UNRESOLVED",
+  "processing_status": "AI_PROPOSED",
+  "source_kind": "PARAMETER_ONLY",
+  "command_effect": "DANGEROUS_ARGUMENTS",
+  "execution_kind": "DIRECT_EXEC",
+  "model_assessment": {
+    "source": {
+      "source_kind": "PARAMETER_ONLY",
+      "explanation": "Chỉ thấy tham số hàm 'value' được sử dụng trong lệnh. Không có thông tin về caller hoặc nguồn đầu vào từ bên ngoài.",
+      "evidence_lines": [
+        4,
+        6,
+        7
+      ],
+      "missing_context": [
+        "caller/nguồn"
+      ]
+    },
+    "command": {
+      "command_effect": "DANGEROUS_ARGUMENTS",
+      "explanation": "Đầu vào 'value' được nối trực tiếp vào chuỗi lệnh '/usr/bin/find /tmp -name ', tạo điều kiện cho việc chèn lệnh thông qua tham số '-name'. Mặc dù có guard bằng cách sử dụng trim(), nhưng không ngăn chặn các ký tự đặc biệt như '*' hoặc '?' trong 'value', dẫn đến khả năng thực thi lệnh không mong muốn.",
+      "evidence_lines": [
+        6,
+        7
+      ],
+      "missing_context": [
+        "Kiểm tra đầu vào để đảm bảo nó không chứa ký tự đặc biệt có thể gây ra hành vi nguy hiểm."
+      ],
+      "execution_kind": "DIRECT_EXEC"
+    }
+  },
+  "explanation": "Nguồn: Chỉ thấy tham số hàm 'value' được sử dụng trong lệnh. Không có thông tin về caller hoặc nguồn đầu vào từ bên ngoài.\nLệnh: Đầu vào 'value' được nối trực tiếp vào chuỗi lệnh '/usr/bin/find /tmp -name ', tạo điều kiện cho việc chèn lệnh thông qua tham số '-name'. Mặc dù có guard bằng cách sử dụng trim(), nhưng không ngăn chặn các ký tự đặc biệt như '*' hoặc '?' trong 'value', dẫn đến khả năng thực thi lệnh không mong muốn.",
+  "elapsed_seconds": 153.349,
+  "total_seconds": 162.066,
+  "pipeline_version": "command78-direct-exec-plus-static-v2",
+  "ai_explanation": "Nguồn: Chỉ thấy tham số hàm 'value' được sử dụng trong lệnh. Không có thông tin về caller hoặc nguồn đầu vào từ bên ngoài.\nLệnh: Đầu vào 'value' được nối trực tiếp vào chuỗi lệnh '/usr/bin/find /tmp -name ', tạo điều kiện cho việc chèn lệnh thông qua tham số '-name'. Mặc dù có guard bằng cách sử dụng trim(), nhưng không ngăn chặn các ký tự đặc biệt như '*' hoặc '?' trong 'value', dẫn đến khả năng thực thi lệnh không mong muốn.",
+  "ai_evidence_lines": [
+    4,
+    6,
+    7
+  ],
+  "ai_missing_context": [
+    "Kiểm tra đầu vào để đảm bảo nó không chứa ký tự đặc biệt có thể gây ra hành vi nguy hiểm.",
+    "caller/nguồn"
+  ],
+  "ai_decision_basis": "COMMAND_EFFECT_UNRESOLVED",
+  "baseline_verdict": "UNKNOWN",
+  "baseline_error_kind": null,
+  "decision_origin": "AI_PIPELINE",
+  "review_notes": null,
+  "static_seconds": 2.3e-05,
+  "static_assessment": {
+    "status": "NOT_PROVEN",
+    "reason": "Code không khớp toàn bộ cấu trúc Java đơn giản được hỗ trợ.",
+    "proposed_verdict": null,
+    "evidence_lines": []
+  },
+  "static_verdict": null,
+  "model_static_disagreement": false,
+  "combined_verdict": "UNKNOWN",
+  "analysis_route": "command",
+  "router_version": "multi-sql89-path22-command78-v2-sql-fallback"
+}

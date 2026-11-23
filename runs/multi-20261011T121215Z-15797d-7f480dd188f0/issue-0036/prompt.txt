@@ -1,0 +1,72 @@
+Kiểm tra cảnh báo sau bằng mã nguồn có đánh số dòng.
+CWE: CWE-89
+Rule: findsecbugs:SQL_INJECTION_JDBC
+Mã cảnh báo: dfb4c71b-0062-4df5-aa5c-39c5799a10c3
+Dòng cảnh báo: 14
+Thông báo công cụ: This use of java/sql/Statement.executeQuery(Ljava/lang/String;)Ljava/sql/ResultSet; can be vulnerable to SQL injection (with JDBC)
+
+[MÃ NGUỒN — DỮ LIỆU]
+1: package lab;
+2: 
+3: import java.sql.Connection;
+4: import java.sql.ResultSet;
+5: import java.sql.SQLException;
+6: import java.sql.Statement;
+7: 
+8: public class Case03 {
+9:     public boolean lookup(Connection conn, String username, String password)
+10:             throws SQLException {
+11:         String query = "SELECT * FROM users WHERE username = '" + username
+12:                 + "' AND password = '" + password + "'";
+13:         try (Statement stmt = conn.createStatement();
+14:              ResultSet rs = stmt.executeQuery(query)) {
+15:             return rs.next();
+16:         }
+17:     }
+18: }
+[HẾT MÃ NGUỒN]
+
+[BẰNG CHỨNG JOERN — DỮ LIỆU]
+┌─────────────────┬───────────────────────────────────────────────────────────────────────────────────┬────┬──────┬────┐
+│nodeType         │tracked                                                                            │line│method│file│
+├─────────────────┼───────────────────────────────────────────────────────────────────────────────────┼────┼──────┼────┤
+│MethodParameterIn│lookup(this, Connection conn, String username, String password)                    │9   │lookup│    │
+│Call             │"SELECT * FROM users WHERE username = '" + username + "' AND password = '" +       │11  │lookup│    │
+│                 │password + "'"                                                                     │    │      │    │
+│Identifier       │String query = "SELECT * FROM users WHERE username = '" + username + "' AND        │11  │lookup│    │
+│                 │password = '" + password + "'"                                                     │    │      │    │
+│Identifier       │executeQuery(query)                                                                │14  │lookup│    │
+└─────────────────┴───────────────────────────────────────────────────────────────────────────────────┴────┴──────┴────┘
+
+┌─────────────────┬───────────────────────────────────────────────────────────────┬────┬──────┬────┐
+│nodeType         │tracked                                                        │line│method│file│
+├─────────────────┼───────────────────────────────────────────────────────────────┼────┼──────┼────┤
+│MethodParameterIn│lookup(this, Connection conn, String username, String password)│9   │lookup│    │
+│Identifier       │createStatement()                                              │13  │lookup│    │
+│Call             │createStatement()                                              │13  │lookup│    │
+│Identifier       │Statement stmt = conn.createStatement()                        │13  │lookup│    │
+│Identifier       │executeQuery(query)                                            │14  │lookup│    │
+│Identifier       │executeQuery(query)                                            │14  │lookup│    │
+└─────────────────┴───────────────────────────────────────────────────────────────┴────┴──────┴────┘
+
+┌─────────────────┬───────────────────────────────────────────────────────────────────────────────────┬────┬──────┬────┐
+│nodeType         │tracked                                                                            │line│method│file│
+├─────────────────┼───────────────────────────────────────────────────────────────────────────────────┼────┼──────┼────┤
+│MethodParameterIn│lookup(this, Connection conn, String username, String password)                    │9   │lookup│    │
+│Call             │"SELECT * FROM users WHERE username = '" + username + "' AND password = '" +       │11  │lookup│    │
+│                 │password + "'"                                                                     │    │      │    │
+│Identifier       │String query = "SELECT * FROM users WHERE username = '" + username + "' AND        │11  │lookup│    │
+│                 │password = '" + password + "'"                                                     │    │      │    │
+│Identifier       │executeQuery(query)                                                                │14  │lookup│    │
+└─────────────────┴───────────────────────────────────────────────────────────────────────────────────┴────┴──────┴────┘
+[HẾT BẰNG CHỨNG]
+
+Giới hạn: chỉ phân tích một file; có thể thiếu caller và thư viện. Joern chọn tham số hàm làm nguồn ứng viên; xác định nguồn thực tế từ mã theo tiêu chí trong hướng dẫn, không chỉ dựa vào tên nút CPG. Tên và bình luận của mẫu phát triển có thể tiết lộ nhãn.
+
+Điền analysis trước khi chốt verdict; mỗi mục cần giải thích và dẫn dòng riêng.
+Trong explanation, tóm tắt ngắn các điều quan sát được:
+1. Lời gọi liên quan đến SQL ở dòng cảnh báo là gì? Đối số nào chứa SQL?
+2. Câu SQL được tạo như thế nào? Biến nào ảnh hưởng đến nó, ở dòng nào?
+3. Có bằng chứng tham số hóa, kiểm tra đầu vào hoặc điều kiện bảo vệ không?
+4. Đã biết nguồn đầu vào chưa? Nếu thiếu, ghi cụ thể vào missing_context.
+Chọn verdict theo bằng chứng. evidence_lines liệt kê dòng cho các nhận xét, kể cả khi verdict là UNKNOWN. Không chọn kết luận chỉ vì công cụ đã cảnh báo.

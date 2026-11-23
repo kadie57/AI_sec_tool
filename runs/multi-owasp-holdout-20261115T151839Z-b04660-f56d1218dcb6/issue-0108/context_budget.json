@@ -1,0 +1,43 @@
+{
+  "version": "path22-file-read-v7-branch-evidence",
+  "source_sha256": "7d9ee295d0007e3fecee15de44902c467677f9a122ea91f895510fbf6dedbc9e",
+  "source_scope": "full_original_file",
+  "source_lines": 89,
+  "source_chars": 4061,
+  "full_cpg_paths_chars": 0,
+  "full_cpg_paths_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "cpg_usage": "eligibility_gate_and_count_only_full_paths_saved_not_sent",
+  "requests": {
+    "source": {
+      "serialized_chars": 8162,
+      "serialized_utf8_bytes": 8942,
+      "max_serialized_chars": 20000,
+      "note": "Character preflight only; actual prompt_eval_count is checked after generation."
+    },
+    "path": {
+      "serialized_chars": 8481,
+      "serialized_utf8_bytes": 9360,
+      "max_serialized_chars": 20000,
+      "note": "Character preflight only; actual prompt_eval_count is checked after generation."
+    }
+  },
+  "options": {
+    "temperature": 0,
+    "seed": 42,
+    "num_ctx": 8192,
+    "num_predict": 1024
+  },
+  "changed_from_v6": [
+    "Append bounded Java AST branch evidence to user prompt when available"
+  ],
+  "branch_evidence_sha256": "47a30241e0f7c274a13a5e7eaef0a3c1ac1db09757f95174edab1d63f68b08f5",
+  "unchanged_from_v6": [
+    "Full source and line numbers",
+    "Model and generation options",
+    "System prompts",
+    "Fact schema and decision policy",
+    "Compact CPG metadata",
+    "Joern query",
+    "Existing static checks"
+  ]
+}

@@ -1,0 +1,23 @@
+<section class="patch-panel" id="verification">
+<h2>Kết quả kiểm chứng đã lưu</h2>
+{% if evidence.error %}<p class="warning">{{ evidence.error }}</p>{% else %}
+<p><strong>Bản hiệu chỉnh v2 · {{ 'Đạt các kiểm thử đã thực hiện' if evidence.passed else 'Có kiểm thử chưa đạt' }}</strong></p>
+<p class="hint-text">Quét hoàn tất: {{ evidence.report.finished_at }} (UTC). Đây là kết quả đã lưu; mở trang không gọi AI hoặc chạy lại kiểm thử.</p>
+{% if not current %}<p class="warning">Chỉ xem lịch sử: nguồn hoặc thẩm định hiện tại không còn khớp bản đề xuất.</p>{% endif %}
+<div class="decision-grid">
+<article><span>Kiểm thử chức năng</span><strong>{{ evidence.check_count }}/{{ evidence.checks|length }}</strong></article>
+<article><span>Thay tệp / thư mục có kiểm soát</span><strong>Chặn {{ evidence.blocked_count }}/{{ evidence.changes|length }}</strong></article>
+<article><span>Đóng tài nguyên / ngoại lệ</span><strong>{{ evidence.resource_count }}/{{ evidence.resources|length }}</strong></article>
+<article><span>Cảnh báo Path Traversal còn lại</span><strong>{{ evidence.path_count }}</strong></article>
+</div>
+<h3>Đối chiếu cảnh báo SonarQube</h3>
+<div class="table-wrap"><table><thead><tr><th>Rule</th><th>Mã gốc</th><th>Qwen đề xuất</th><th>Hiệu chỉnh v1</th><th>Hiệu chỉnh v2</th></tr></thead><tbody>
+{% for row in evidence.report.tracked_rule_counts %}<tr><td>{{ row.rule }}</td><td>{{ row.original }}</td><td>{{ row.proposed }}</td><td>{{ row.reviewed }}</td><td>{{ row.reviewed_v2 }}</td></tr>{% endfor %}
+</tbody></table></div>
+<p class="hint-text">Ba bản trước dùng kết quả quét đã lưu. Bản v2 được quét riêng; cùng server, Quality Profile và dấu vân tay bộ rule đang bật.</p>
+<p class="warning">Bản v2 là bản hiệu chỉnh sau đề xuất AI, không phải đầu ra nguyên văn của Qwen. Kiểm thử đạt không tự xác nhận cảnh báo còn lại là FP hoặc chứng minh an toàn trong mọi trường hợp.</p>
+<h3>Điều kiện áp dụng</h3><ul><li>Thư mục gốc và các thư mục cha phải đáng tin cậy; hệ thống tệp hỗ trợ SecureDirectoryStream.</li><li>Bản v2 giới hạn tối đa 64 thư mục con trên đường dẫn chuẩn hóa.</li><li>Hai tình huống thay thế là mô phỏng có kiểm soát. Bộ thử đóng tài nguyên dùng đối tượng giả; không đo rò rỉ tài nguyên của hệ điều hành.</li></ul>
+<details class="stage"><summary>Xem từng kiểm thử của bản v2</summary><ul>{% for item in evidence.checks %}<li>{{ item.name }}: {{ 'Đạt' if item.passed else 'Chưa đạt' }}</li>{% endfor %}{% for item in evidence.resources %}<li>Tài nguyên · {{ item.name }}: {{ 'Đạt' if item.passed else 'Chưa đạt' }}</li>{% endfor %}</ul></details>
+<details class="stage"><summary>Xem mã bản hiệu chỉnh v2</summary><pre class="patch-code">{{ evidence.source }}</pre></details>
+<p class="hint-text">Ứng viên được lưu riêng. Chưa thay mã trong Clean_Code, chưa đổi nhãn thẩm định hoặc đóng cảnh báo SonarQube.</p>
+{% endif %}</section>

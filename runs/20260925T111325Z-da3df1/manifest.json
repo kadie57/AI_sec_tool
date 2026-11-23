@@ -1,0 +1,29 @@
+{
+  "pipeline_version": "baseline-repair-1",
+  "prompt_version": "sql89-evidence-v2",
+  "mapping_version": "sql89-v2",
+  "collect_only": true,
+  "state": "COLLECTED",
+  "started_at": "2026-09-25T11:13:25.747716+00:00",
+  "limitations": [
+    "Single-file CPG; JDBC sinks at issue line only.",
+    "No Security Hotspots API in this version.",
+    "No concurrent scans of the same SonarQube project.",
+    "Line-reference validation does not prove semantic correctness."
+  ],
+  "project": "project_1",
+  "sonar_url": "http://127.0.0.1:9000",
+  "source_hashes": {
+    "Clean_Code/Case01.java": "9efdfff1edc26ca7c4336c043130b0ca423daba7a920fbb491f5138a17b84c17",
+    "Clean_Code/VulnerableCommand.java": "60bf07b3429060f34328c66e8260e6b9b986104a05c3453a1cae82a3b2e0e9d2",
+    "Clean_Code/VulnerableLogin.java": "1021a3db829f5fff7338fcec356b69d6529ec73f7134dbd10bca91edfec8647d",
+    "Clean_Code/VulnerablePath.java": "69cae2e81c358bc448b57790b16aeeda691c5ff1fd2ed89b6c7704439cee9347"
+  },
+  "analysis_id": "19ef18f9-a281-427d-80a7-36609faf470e",
+  "issue_count": 15,
+  "supported_issue_count": 1,
+  "result_count": 0,
+  "verdict_counts": {},
+  "processing_status_counts": {},
+  "finished_at": "2026-09-25T11:13:46.294186+00:00"
+}

@@ -1,0 +1,58 @@
+{
+  "started_at": "2026-11-23T03:01:53.518276+00:00",
+  "analysis_id": "bbf5687b-6222-46b7-8063-621f82bd4de0",
+  "project": "thesis_owasp_holdout_v1",
+  "pipeline_version": "multi-sql89-path22-command78-v5-sql-source-size",
+  "parent_run": "/home/khanh/AI_sec_tool/runs/owasp-holdout-20261115T151839Z-b04660",
+  "source_hashes": {
+    "experiments/owasp_holdout_v1/inputs/a452b3aafd232245d0753e54eb243d6651f8ef96/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00999.java": "0949425071b41e3e5c7aef480da8ddf838c235738b2f65da3bd0b11083e93a01",
+    "experiments/owasp_holdout_v1/inputs/a452b3aafd232245d0753e54eb243d6651f8ef96/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01093.java": "647e261e7ea672836bcd1375476637827e2dc537e3582a2e0f968c06cfd505d0",
+    "experiments/owasp_holdout_v1/inputs/a452b3aafd232245d0753e54eb243d6651f8ef96/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01311.java": "a994ead8fea2618bc3916f9ab3b0fa6c57d8ee53bb27b8946babe8adf044c870",
+    "experiments/owasp_holdout_v1/inputs/a452b3aafd232245d0753e54eb243d6651f8ef96/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01558.java": "1d363629c834eb8e1a05824364ec2af04e92bbbf3cb7e71982c79935764e2dca",
+    "experiments/owasp_holdout_v1/inputs/a452b3aafd232245d0753e54eb243d6651f8ef96/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02088.java": "e3525d174198bbd0c6ca2600ddb57b5042674c4b4e7ba254129eb121828fa203",
+    "experiments/owasp_holdout_v1/inputs/a452b3aafd232245d0753e54eb243d6651f8ef96/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02093.java": "b89538163bb013758c3dff3fc4d89935379f5f85ff876b6fd3d50dbb309ccb2f",
+    "experiments/owasp_holdout_v1/inputs/a452b3aafd232245d0753e54eb243d6651f8ef96/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02171.java": "53aeb1daa5eccc7668c855f9b888311d9d5ae6520eb3f0b2f851466dee146fac",
+    "experiments/owasp_holdout_v1/inputs/a452b3aafd232245d0753e54eb243d6651f8ef96/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02186.java": "18f6c9fdd5a391894ae09fdab9414cf3dfefbb029062625f8137ff2eb4bc7690"
+  },
+  "evaluation_scope": "selected_supported_components",
+  "selected_components": [
+    "thesis_owasp_holdout_v1:experiments/owasp_holdout_v1/inputs/a452b3aafd232245d0753e54eb243d6651f8ef96/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00999.java",
+    "thesis_owasp_holdout_v1:experiments/owasp_holdout_v1/inputs/a452b3aafd232245d0753e54eb243d6651f8ef96/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01093.java",
+    "thesis_owasp_holdout_v1:experiments/owasp_holdout_v1/inputs/a452b3aafd232245d0753e54eb243d6651f8ef96/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01311.java",
+    "thesis_owasp_holdout_v1:experiments/owasp_holdout_v1/inputs/a452b3aafd232245d0753e54eb243d6651f8ef96/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01558.java",
+    "thesis_owasp_holdout_v1:experiments/owasp_holdout_v1/inputs/a452b3aafd232245d0753e54eb243d6651f8ef96/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02088.java",
+    "thesis_owasp_holdout_v1:experiments/owasp_holdout_v1/inputs/a452b3aafd232245d0753e54eb243d6651f8ef96/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02093.java",
+    "thesis_owasp_holdout_v1:experiments/owasp_holdout_v1/inputs/a452b3aafd232245d0753e54eb243d6651f8ef96/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02171.java",
+    "thesis_owasp_holdout_v1:experiments/owasp_holdout_v1/inputs/a452b3aafd232245d0753e54eb243d6651f8ef96/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02186.java"
+  ],
+  "issue_count": 8,
+  "supported_issue_count": 8,
+  "prompt_versions": {
+    "sql": "sql89-v7-stage2-plus-source-v2-explanation-2"
+  },
+  "limitations": [
+    "Uses saved Sonar issues; does not rescan. Only explicitly routed rules.",
+    "Single-file context; SQL JDBC, Path File(String) read, and bounded direct exec only.",
+    "AI and static rules are proposals; human review is separate. No automatic issue closure.",
+    "Resume is per completed issue, not per AI stage. Partial retry can repeat calls.",
+    "Prior standalone runs and their human reviews are not imported."
+  ],
+  "state": "FAILED",
+  "error": "Có lỗi xử lý; xem artifact. Chạy lại giữ nguyên lỗi đã lưu.",
+  "runtime": {
+    "model": "qwen2.5-coder:14b-instruct-q4_K_M",
+    "model_digest": "9ec8897f747e246e970bc5cfdda85d22f1123dc2e3d34978a010a75968716849",
+    "joern_image_id": "sha256:f47692f8334d2eeca9fc83395023773da566ce8397563ff7c66d34a23bfc75c4",
+    "ollama_url": "http://127.0.0.1:11434"
+  },
+  "result_count": 8,
+  "verdict_counts": {
+    "UNKNOWN": 6,
+    "LIKELY_TP": 2
+  },
+  "processing_status_counts": {
+    "AI_PROPOSED": 4,
+    "ERROR": 4
+  },
+  "finished_at": "2026-11-23T04:22:52.376519+00:00"
+}

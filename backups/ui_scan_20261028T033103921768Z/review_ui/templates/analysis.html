@@ -1,0 +1,21 @@
+<!doctype html><html lang="vi"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Security Review · Phân tích</title><link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}"><link rel="stylesheet" href="{{ url_for('static', filename='jobs.css') }}"></head>
+<body class="analysis-page"><header><a class="brand" href="{{ url_for('index') }}"><span class="logo">SR</span><strong>Security Review</strong></a><span class="mode">Phân tích từ lượt quét đã lưu</span></header><main>
+<h1>Bắt đầu phân tích</h1><p>Chọn một lượt quét SonarQube và các file cần kiểm chứng. Hệ thống kiểm tra cấu hình trước khi gọi AI.</p>
+{% for message in get_flashed_messages() %}<p class="warning">{{ message }}</p>{% endfor %}
+<section class="panel"><h2>1. Chọn lượt quét</h2>
+{% if collections %}<form method="get"><label>Lượt quét <select name="collection">{% for c in collections %}<option value="{{ c.key }}" {% if selected and c.key == selected.key %}selected{% endif %}>{{ c.project }} · {{ c.name }}</option>{% endfor %}</select></label> <button type="submit">Chọn lượt này</button></form>
+{% else %}<p>Chưa có lượt quét hợp lệ có cảnh báo được hỗ trợ. Hãy thu thập cảnh báo từ terminal trước.</p>{% endif %}
+<p class="hint-text">Chỉ hiển thị lượt có manifest và issues đã lưu, ở trạng thái COLLECTED hoặc COMPLETED. Bước này không quét SonarQube mới.</p></section>
+{% if selected %}<section class="panel"><h2>2. Chọn file và thao tác</h2>
+<form method="post" action="{{ url_for('analysis_start') }}">
+<input type="hidden" name="csrf" value="{{ session.csrf }}"><input type="hidden" name="collection" value="{{ selected.key }}">
+<p>{{ selected.project }} · {{ selected.name }}</p><div class="table-wrap"><table><thead><tr><th>Chọn</th><th>File</th><th>Cảnh báo hỗ trợ</th><th>Tối đa lượt AI</th></tr></thead><tbody>
+{% for c in selected.components %}<tr><td><input type="checkbox" name="components" value="{{ c.name }}" aria-label="Chọn {{ c.name }}"></td><td style="overflow-wrap:anywhere">{{ c.name }}</td><td>{{ c.count }}</td><td>{{ c.calls }}</td></tr>{% endfor %}
+</tbody></table></div><p class="hint-text">Chọn ít nhất một file. Mã nguồn phải khớp lần quét. Các cảnh báo đã có checkpoint hợp lệ có thể được dùng lại; thời gian chạy tùy số mẫu và máy.</p>
+<button name="mode" value="check" type="submit">Kiểm tra cấu hình — không gọi AI</button>
+<button name="mode" value="analyze" type="submit">Bắt đầu phân tích bằng AI</button>
+</form><p>Mỗi lần chỉ chạy một tác vụ từ giao diện. Có thể đóng tab và mở lại để xem tiến độ. Máy phải tiếp tục hoạt động.</p>
+<p class="hint-text">Phân tích cần Docker/Joern và Ollama. Nếu báo thiếu baseline SQL, giữ nguyên runs/experiments và kiểm tra cấu hình; không xóa dữ liệu cũ. Không có chế độ tự chạy lại cảnh báo dở dang.</p></section>{% endif %}
+<section class="panel"><h2>Tác vụ gần đây</h2><div class="table-wrap"><table><thead><tr><th>Thời gian UTC</th><th>Dự án</th><th>Trạng thái</th><th></th></tr></thead><tbody>
+{% for j in jobs %}<tr><td>{{ j.created_at }}</td><td>{{ j.project }}</td><td>{{ j.label }}</td><td><a href="{{ url_for('analysis_job', job_id=j.id) }}">Xem nhật ký →</a></td></tr>{% else %}<tr><td colspan="4">Chưa chạy tác vụ từ giao diện.</td></tr>{% endfor %}
+</tbody></table></div></section><a href="{{ url_for('index') }}">← Danh sách kết quả</a></main></body></html>

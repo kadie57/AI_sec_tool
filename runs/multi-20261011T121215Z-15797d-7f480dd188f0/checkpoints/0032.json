@@ -1,0 +1,95 @@
+{
+  "context_sha256": "7f480dd188f04b208bbd1ed20e9e3afb14d9420d843efcd5629bd25050772387",
+  "row_sha256": "c14a5ea07abcd48176ee906e7d3f449252df2ec12a953ef9fc9da694e572a8ec",
+  "row": {
+    "issue_id": "55482113-220c-46eb-afa9-1d09a18a51ed",
+    "rule": "findsecbugs:SQL_INJECTION_JDBC",
+    "component": "project_1:Clean_Code/pilot_sql89/Trial08.java",
+    "line": 21,
+    "type": "VULNERABILITY",
+    "message": "This use of java/sql/Statement.executeQuery(Ljava/lang/String;)Ljava/sql/ResultSet; can be vulnerable to SQL injection (with JDBC)",
+    "cwe_id": "CWE-89",
+    "mapping": {
+      "cwe_id": "CWE-89",
+      "name": "SQL Injection in JDBC",
+      "supported": true,
+      "mapping_source": "https://find-sec-bugs.github.io/bugs.htm#SQL_INJECTION_JDBC",
+      "reason": ""
+    },
+    "source_sha256": "5e940a09ef1e0bd674bc8e9adfbf427a3f675f25e46831b8201f52f54549c05e",
+    "flow_count": 1,
+    "verdict": "LIKELY_TP",
+    "explanation": "Nguồn (source audit): Dòng 14 đọc giá trị đầu vào từ args[0], và dòng 16 sử dụng giá trị này để tạo chuỗi SQL. Dòng 21 thực hiện truy vấn SQL với chuỗi đã được xây dựng. Tác động SQL kế thừa từ bước 2 v6: CHANGEABLE. Phép ghép này không thẩm định lại tác động SQL.",
+    "evidence_lines": [
+      14,
+      15,
+      16,
+      21
+    ],
+    "missing_context": [],
+    "error_kind": null,
+    "decision_basis": "EXTERNAL_CONTROL_AND_CHANGEABLE_SQL_REPORTED",
+    "model_assessment": {
+      "explanation": "Nguồn (source audit): Dòng 14 đọc giá trị đầu vào từ args[0], và dòng 16 sử dụng giá trị này để tạo chuỗi SQL. Dòng 21 thực hiện truy vấn SQL với chuỗi đã được xây dựng. Tác động SQL kế thừa từ bước 2 v6: CHANGEABLE. Phép ghép này không thẩm định lại tác động SQL.",
+      "evidence_lines": [
+        14,
+        15,
+        16,
+        21
+      ],
+      "source_control": "CONFIRMED",
+      "sql_effect": "CHANGEABLE",
+      "missing_context": []
+    },
+    "requires_review": true,
+    "prompt_version": "sql89-v7-stage2-plus-source-v2-candidate-1",
+    "format_normalization": "NONE",
+    "elapsed_seconds": 421.066,
+    "decision_policy_version": "sql89-compact-facts-v5",
+    "model": "qwen2.5-coder:14b-instruct-q4_K_M",
+    "ai_verdict": "LIKELY_TP",
+    "review_status": "PENDING",
+    "reviewed_verdict": null,
+    "review_notes": null,
+    "cpg_usage": "eligibility_gate_only_not_sent_to_llm",
+    "baseline_ai_verdict": "LIKELY_TP",
+    "source_audit_status": "PROPOSED_REQUIRES_REVIEW",
+    "source_kind": "EXTERNAL_READ",
+    "sql_effect_reused": "CHANGEABLE",
+    "source_audit_facts": {
+      "source_kind": "EXTERNAL_READ",
+      "source_evidence": [
+        {
+          "line": 14
+        }
+      ],
+      "flow_evidence": [
+        {
+          "line": 16
+        },
+        {
+          "line": 21
+        }
+      ],
+      "explanation": "Dòng 14 đọc giá trị đầu vào từ args[0], và dòng 16 sử dụng giá trị này để tạo chuỗi SQL. Dòng 21 thực hiện truy vấn SQL với chuỗi đã được xây dựng.",
+      "missing_context": []
+    },
+    "source_audit_reference_check": "LINES_RESOLVED_REVIEW_REQUIRED",
+    "artifact_dir": "issue-0032",
+    "processing_status": "AI_PROPOSED",
+    "total_seconds": 429.686,
+    "analysis_route": "sql",
+    "router_version": "multi-sql89-path22-command78-v1",
+    "combined_verdict": "LIKELY_TP",
+    "decision_origin": "AI_PIPELINE",
+    "ai_explanation": "Nguồn (source audit): Dòng 14 đọc giá trị đầu vào từ args[0], và dòng 16 sử dụng giá trị này để tạo chuỗi SQL. Dòng 21 thực hiện truy vấn SQL với chuỗi đã được xây dựng. Tác động SQL kế thừa từ bước 2 v6: CHANGEABLE. Phép ghép này không thẩm định lại tác động SQL.",
+    "ai_evidence_lines": [
+      14,
+      15,
+      16,
+      21
+    ],
+    "ai_missing_context": [],
+    "ai_decision_basis": "EXTERNAL_CONTROL_AND_CHANGEABLE_SQL_REPORTED"
+  }
+}

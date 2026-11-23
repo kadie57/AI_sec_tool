@@ -1,0 +1,51 @@
+{
+  "status": "PROVEN_WITHIN_BOUNDED_GRAMMAR",
+  "proposed_verdict": "LIKELY_FP",
+  "decision_basis": "STATIC_FINITE_IPV4_ALLOWLIST",
+  "execution_kind": "DIRECT_EXEC",
+  "allowed_values": [
+    "127.0.0.1",
+    "192.0.2.1"
+  ],
+  "possible_commands": [
+    "ping -c 3 127.0.0.1",
+    "ping -c 3 192.0.2.1"
+  ],
+  "evidence_lines": [
+    9,
+    10,
+    11,
+    12,
+    13,
+    14
+  ],
+  "resolved_evidence": [
+    {
+      "line": 9,
+      "code": "        if (!targetIp.equals(\"127.0.0.1\")"
+    },
+    {
+      "line": 10,
+      "code": "                && !targetIp.equals(\"192.0.2.1\")) {"
+    },
+    {
+      "line": 11,
+      "code": "            throw new IllegalArgumentException(\"Unsupported address\");"
+    },
+    {
+      "line": 12,
+      "code": "        }"
+    },
+    {
+      "line": 13,
+      "code": "        String command = \"ping -c 3 \" + targetIp;"
+    },
+    {
+      "line": 14,
+      "code": "        Process process = Runtime.getRuntime().exec(command);"
+    }
+  ],
+  "reason": "Giá trị ngoài danh sách bị throw trước exec, không có catch hoặc thay đổi giá trị sau guard. Các IPv4 được phép không chứa khoảng trắng, không bắt đầu bằng dấu trừ; chỉ thay đổi một đối số địa chỉ trong lệnh ping cố định.",
+  "scope": "Chỉ cơ chế chèn lệnh/đối số do đầu vào tại lời gọi này; không đánh giá toàn bộ chương trình hoặc môi trường.",
+  "requires_review": true
+}

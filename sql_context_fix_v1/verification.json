@@ -1,0 +1,40 @@
+{
+  "scope": "Offline engineering verification, not model accuracy evaluation",
+  "regression_tests": {
+    "passed": 7,
+    "failed": 0,
+    "live_model_calls": 0,
+    "live_joern_calls": 0
+  },
+  "saved_issue_gate_replay": {
+    "cases": 8,
+    "old_gate_blocked": 8,
+    "new_gate_reached_mock_model": 8,
+    "model_verdict": "UNKNOWN returned unchanged by the mock"
+  },
+  "real_collection_selection": {
+    "selected_sql_issues": 8,
+    "source_hashes_checked": true,
+    "issue_ranges_checked": true
+  },
+  "installer": {
+    "known_old_hashes_checked": true,
+    "backup_created": true,
+    "repeat_install_idempotent": true,
+    "modified_backend_rejected_before_write": true
+  },
+  "check_control_flow": {
+    "no_execute_call": true,
+    "no_new_run": true,
+    "historical_sql_configuration_loader": "mocked only in this control-flow test"
+  },
+  "limitations": [
+    "Historical SQL baseline/control artifacts are not all included in this upload; full frozen configuration check must run on the user machine.",
+    "No new AI verdicts have been generated here. Admission past the source-character gate is not evidence of model correctness or token-budget sufficiency."
+  ],
+  "changed_files": {
+    "master_pipeline.py": "4e07778cafa6214049f93ad06638d8bb2d23a06f48a3f8bc3e4b68d110b45215",
+    "master_pipeline_multi_v1.py": "50d051f77bd2bba15937460ac7642707a64d7cc32d768646ee1f85d8c8b1a90a",
+    "recheck_sql_context.py": "79df539ec1192966c98364ff1c19d241bae960f277df666374f653d0178986f0"
+  }
+}

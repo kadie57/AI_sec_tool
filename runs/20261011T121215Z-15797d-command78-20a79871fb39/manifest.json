@@ -1,0 +1,28 @@
+{
+  "started_at": "2026-10-11T12:13:55.023131+00:00",
+  "analysis_id": "0fb435b3-c98f-4b09-9ad6-47085ee96925",
+  "parent_run": "/home/khanh/AI_sec_tool/runs/20261011T121215Z-15797d",
+  "project": "project_1",
+  "pipeline_version": "command78-direct-exec-pilot-v1",
+  "prompt_version": "command78-direct-exec-pilot-v1",
+  "issue_count": 2,
+  "supported_issue_count": 2,
+  "parent_issue_count": 53,
+  "selection": "findsecbugs:COMMAND_INJECTION",
+  "limitations": [
+    "Selected Command Injection warnings only; not a full project rescan.",
+    "Single-file CPG; bounded direct Runtime.exec(String) recognizer only; shell/arrays/ProcessBuilder unsupported.",
+    "Model facts require human review; valid line references do not prove truth.",
+    "No automatic Sonar issue closure; no model training."
+  ],
+  "state": "COMPLETED",
+  "error": null,
+  "result_count": 2,
+  "verdict_counts": {
+    "UNKNOWN": 2
+  },
+  "processing_status_counts": {
+    "AI_PROPOSED": 2
+  },
+  "finished_at": "2026-10-11T12:21:44.701087+00:00"
+}

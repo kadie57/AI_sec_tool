@@ -1,0 +1,136 @@
+{
+  "issue_id": "6bacd1d9-ff72-4788-958d-a2526bf8cfae",
+  "rule": "findsecbugs:SQL_INJECTION_JDBC",
+  "component": "project_1:Clean_Code/pilot_sql89/Trial03.java",
+  "line": 23,
+  "type": "VULNERABILITY",
+  "message": "This use of java/sql/Statement.executeQuery(Ljava/lang/String;)Ljava/sql/ResultSet; can be vulnerable to SQL injection (with JDBC)",
+  "cwe_id": "CWE-89",
+  "mapping": {
+    "cwe_id": "CWE-89",
+    "name": "SQL Injection in JDBC",
+    "supported": true,
+    "mapping_source": "https://find-sec-bugs.github.io/bugs.htm#SQL_INJECTION_JDBC",
+    "reason": ""
+  },
+  "source_sha256": "72d83433543c28d8c8290283f4b33233e18403d756d66e111aab25ee315ab9a7",
+  "flow_count": 1,
+  "sql_gate_version": "sql-no-flow-gate-v1",
+  "sink_call_count": 1,
+  "sink_argument_count": 1,
+  "analysis_mode": "FLOW_PRESENT",
+  "llm_invoked": true,
+  "verdict": "LIKELY_FP",
+  "explanation": "Kết luận: LIKELY_FP. Có cơ sở đề xuất cảnh báo giả tại truy vấn này: bước phân tích SQL báo cáo cơ chế ngăn đầu vào làm thay đổi cú pháp truy vấn.\n\nNguồn dữ liệu: Kiểm tra nguồn báo cáo có thao tác đọc đầu vào bên ngoài liên quan tới truy vấn.\n\nTác động SQL: Bước 2 báo cáo có bảo vệ tại truy vấn (PROTECTED).\n\nCác dòng mã được bước 2 dẫn (cần đối chiếu lập luận):\n14:         String value = args[0];\n15:         if (!value.matches(\"[A-Za-z0-9_]{1,32}\")) {\n18:         String sql = \"SELECT id FROM users WHERE username = '\" + value + \"'\";\n23:              ResultSet result = statement.executeQuery(sql)) {",
+  "evidence_lines": [
+    14,
+    15,
+    18,
+    23
+  ],
+  "missing_context": [],
+  "error_kind": null,
+  "decision_basis": "PROTECTION_REPORTED",
+  "model_assessment": {
+    "explanation": "Kết luận: LIKELY_FP. Có cơ sở đề xuất cảnh báo giả tại truy vấn này: bước phân tích SQL báo cáo cơ chế ngăn đầu vào làm thay đổi cú pháp truy vấn.\n\nNguồn dữ liệu: Kiểm tra nguồn báo cáo có thao tác đọc đầu vào bên ngoài liên quan tới truy vấn.\n\nTác động SQL: Bước 2 báo cáo có bảo vệ tại truy vấn (PROTECTED).\n\nCác dòng mã được bước 2 dẫn (cần đối chiếu lập luận):\n14:         String value = args[0];\n15:         if (!value.matches(\"[A-Za-z0-9_]{1,32}\")) {\n18:         String sql = \"SELECT id FROM users WHERE username = '\" + value + \"'\";\n23:              ResultSet result = statement.executeQuery(sql)) {",
+    "evidence_lines": [
+      14,
+      15,
+      18,
+      23
+    ],
+    "source_control": "CONFIRMED",
+    "sql_effect": "PROTECTED",
+    "missing_context": []
+  },
+  "requires_review": true,
+  "prompt_version": "sql89-v7-stage2-plus-source-v2-explanation-2",
+  "format_normalization": "NONE",
+  "elapsed_seconds": 488.937,
+  "decision_policy_version": "sql89-compact-facts-v5",
+  "model": "qwen2.5-coder:14b-instruct-q4_K_M",
+  "ai_verdict": "LIKELY_FP",
+  "review_status": "PENDING",
+  "reviewed_verdict": null,
+  "review_notes": null,
+  "cpg_usage": "eligibility_gate_only_not_sent_to_llm",
+  "baseline_ai_verdict": "LIKELY_FP",
+  "source_audit_status": "PROPOSED_REQUIRES_REVIEW",
+  "explanation_version": "sql-source-merge-explanation-v2",
+  "explanation_origin": "DETERMINISTIC_COMPOSITION_OF_MODEL_FACTS",
+  "stage2_explanation_original": "Dữ liệu `value` được lấy từ `args[0]`, đi qua biến `sql` và được thực thi ở dòng 23 khi gọi `statement.executeQuery(sql)`. Trước lời gọi SQL, có bước kiểm tra dữ liệu với điều kiện `if (!value.matches(\"[A-Za-z0-9_]{1,32}\"))`. Điều kiện này cho phép chương trình đi tới lời gọi SQL chỉ khi `value` là một chuỗi chứa từ 1 đến 32 ký tự chữ cái, số hoặc gạch dưới. Từ những điều trên, người cung cấp đầu vào không thể làm thay đổi cấu trúc truy vấn vì có bước kiểm tra dữ liệu nghiêm ngặt trước khi tạo câu SQL. Chỉ cho phép các ký tự hợp lệ, ngăn chặn việc chèn ký tự đặc biệt như dấu nháy đơn ('), dấu chấm phẩy (;) hoặc khoảng trắng, những ký tự thường được sử dụng trong các cuộc tấn công SQL injection.",
+  "source_explanation_original": "Dòng 14 đọc giá trị đầu vào từ tham số args của main(String[] args). Dòng 18 tạo chuỗi SQL bằng cách ghép trực tiếp giá trị này. Dòng 23 thực hiện truy vấn SQL sử dụng chuỗi đã được tạo.",
+  "stage2_assessment_original": {
+    "explanation": "Dữ liệu `value` được lấy từ `args[0]`, đi qua biến `sql` và được thực thi ở dòng 23 khi gọi `statement.executeQuery(sql)`. Trước lời gọi SQL, có bước kiểm tra dữ liệu với điều kiện `if (!value.matches(\"[A-Za-z0-9_]{1,32}\"))`. Điều kiện này cho phép chương trình đi tới lời gọi SQL chỉ khi `value` là một chuỗi chứa từ 1 đến 32 ký tự chữ cái, số hoặc gạch dưới. Từ những điều trên, người cung cấp đầu vào không thể làm thay đổi cấu trúc truy vấn vì có bước kiểm tra dữ liệu nghiêm ngặt trước khi tạo câu SQL. Chỉ cho phép các ký tự hợp lệ, ngăn chặn việc chèn ký tự đặc biệt như dấu nháy đơn ('), dấu chấm phẩy (;) hoặc khoảng trắng, những ký tự thường được sử dụng trong các cuộc tấn công SQL injection.",
+    "evidence_lines": [
+      14,
+      15,
+      18,
+      23
+    ],
+    "source_control": "CONFIRMED",
+    "sql_effect": "PROTECTED",
+    "missing_context": []
+  },
+  "stage2_evidence_resolved": [
+    {
+      "line": 14,
+      "code": "        String value = args[0];"
+    },
+    {
+      "line": 15,
+      "code": "        if (!value.matches(\"[A-Za-z0-9_]{1,32}\")) {"
+    },
+    {
+      "line": 18,
+      "code": "        String sql = \"SELECT id FROM users WHERE username = '\" + value + \"'\";"
+    },
+    {
+      "line": 23,
+      "code": "             ResultSet result = statement.executeQuery(sql)) {"
+    }
+  ],
+  "source_assessment_changed": false,
+  "explanation_limitations": [
+    "Việc ghép không thẩm định ngữ nghĩa của nhận định AI hoặc chọn lại dòng bằng chứng.",
+    "Giải thích gốc từng bước được lưu riêng; nhận định nguồn bước 2 có thể đã bị sửa."
+  ],
+  "source_kind": "EXTERNAL_READ",
+  "sql_effect_reused": "PROTECTED",
+  "source_audit_facts": {
+    "source_kind": "EXTERNAL_READ",
+    "source_evidence": [
+      {
+        "line": 14
+      }
+    ],
+    "flow_evidence": [
+      {
+        "line": 18
+      },
+      {
+        "line": 23
+      }
+    ],
+    "explanation": "Dòng 14 đọc giá trị đầu vào từ tham số args của main(String[] args). Dòng 18 tạo chuỗi SQL bằng cách ghép trực tiếp giá trị này. Dòng 23 thực hiện truy vấn SQL sử dụng chuỗi đã được tạo.",
+    "missing_context": []
+  },
+  "source_audit_reference_check": "LINES_RESOLVED_REVIEW_REQUIRED",
+  "analysis_limitations": [],
+  "artifact_dir": "issue-0065",
+  "processing_status": "AI_PROPOSED",
+  "total_seconds": 500.91,
+  "analysis_route": "sql",
+  "router_version": "multi-sql89-path22-command78-v2-sql-fallback",
+  "combined_verdict": "LIKELY_FP",
+  "decision_origin": "AI_PIPELINE",
+  "ai_explanation": "Kết luận: LIKELY_FP. Có cơ sở đề xuất cảnh báo giả tại truy vấn này: bước phân tích SQL báo cáo cơ chế ngăn đầu vào làm thay đổi cú pháp truy vấn.\n\nNguồn dữ liệu: Kiểm tra nguồn báo cáo có thao tác đọc đầu vào bên ngoài liên quan tới truy vấn.\n\nTác động SQL: Bước 2 báo cáo có bảo vệ tại truy vấn (PROTECTED).\n\nCác dòng mã được bước 2 dẫn (cần đối chiếu lập luận):\n14:         String value = args[0];\n15:         if (!value.matches(\"[A-Za-z0-9_]{1,32}\")) {\n18:         String sql = \"SELECT id FROM users WHERE username = '\" + value + \"'\";\n23:              ResultSet result = statement.executeQuery(sql)) {",
+  "ai_evidence_lines": [
+    14,
+    15,
+    18,
+    23
+  ],
+  "ai_missing_context": [],
+  "ai_decision_basis": "PROTECTION_REPORTED"
+}

@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="vi"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Security Review · Ưu tiên xử lý</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='priority.css') }}"></head>
+<body><header><a class="brand" href="{{ url_for('index') }}"><span class="logo">SR</span><strong>Security Review</strong></a><span class="mode">Ưu tiên xử lý · Kết quả đã lưu</span></header>
+<main class="priority-main">
+<a href="{{ url_for('run_detail', group_id=group_id, name=name) }}">← Quay lại thẩm định</a>
+<h1>Cần xử lý cảnh báo nào trước?</h1>
+<p class="sub">{{ manifest.get('project', '') }} · {{ name }} · {{ manifest.get('state', '') }}</p>
+<p>Xếp công việc từ kết quả hệ thống và thẩm định hợp lệ. Mỗi cảnh báo có lý do và bước tiếp theo.</p>
+{% for warning in warnings %}<p class="warning">{{ warning }}</p>{% endfor %}
+<nav class="priority-counts" aria-label="Các nhóm công việc">
+{% for group in groups %}<a class="priority-count {{ group.key }} {{ 'chosen' if selected == group.key else '' }}" href="{{ url_for('run_priority', group_id=group_id, name=name, group=group.key) }}"><span>{{ group.title }}</span><strong>{{ group['items']|length }}</strong></a>{% endfor %}
+</nav>
+<form class="filters" method="get"><label>Nhóm công việc<select name="group"><option value="">Tất cả nhóm</option>{% for group in groups %}<option value="{{ group.key }}" {% if selected == group.key %}selected{% endif %}>{{ group.title }}</option>{% endfor %}</select></label><button type="submit">Xem</button><a class="export-link" href="{{ url_for('run_priority_csv', group_id=group_id, name=name, group=selected) }}">Xuất danh sách CSV</a></form>
+<p class="hint-text">Tổng {{ total }} bản ghi trong lượt này. Đây là thứ tự công việc theo quy tắc, không phải điểm CVSS hoặc đánh giá mới về khả năng khai thác. UNKNOWN không có nghĩa an toàn.</p>
+{% for group in visible %}
+<section class="priority-group {{ group.key }}" aria-labelledby="title-{{ group.key }}">
+<div class="priority-heading"><h2 id="title-{{ group.key }}">{{ group.title }}</h2><span class="badge neutral">{{ group['items']|length }} cảnh báo</span></div>
+<p class="group-description">{{ group.description }}</p>
+{% for item in group['items'] %}{% set e = item.entry %}{% set r = e.row %}
+<article class="priority-item">
+<div class="priority-title"><div><h3>{{ e.filename }} <span class="sub">Dòng {{ r.get('line', '—') }} · {{ r.get('rule', 'Chưa ghi rule') }}</span></h3><p class="priority-path">{{ r.get('component', '') }}</p></div><a class="export-link" href="{{ url_for('run_detail', group_id=group_id, name=name, status='', issue=e.idx) }}">Mở bằng chứng →</a></div>
+<div class="priority-labels"><span>AI: <strong>{{ e.decision.ai_verdict or 'Chưa có nhãn' }}</strong></span><span>Hệ thống: <strong>{{ e.label }}</strong></span><span>Thẩm định: <strong>{{ item.human_label or 'Chưa có xác nhận hợp lệ' }}</strong></span></div>
+<p><strong>Lý do:</strong> {{ item.reason }}</p><p><strong>Tiếp theo:</strong> {{ item.action }}</p>
+<p class="hint-text">Căn cứ xếp nhóm: {{ item.basis }}{% if item.reviewer %} · Người thẩm định: {{ item.reviewer }}{% endif %} · Trạng thái: {{ r.get('processing_status', 'Chưa ghi') }}{% if r.get('error_kind') %} · Lỗi: {{ r.error_kind }}{% endif %}</p>
+{% if e.review_state == 'UNAVAILABLE' and e.latest %}<p class="warning">Có thẩm định cũ nhưng không còn đủ điều kiện áp dụng cho dữ liệu hiện tại.</p>{% endif %}
+</article>{% else %}<p class="priority-empty">Không có cảnh báo trong nhóm này.</p>{% endfor %}
+</section>{% endfor %}
+<details class="stage priority-policy"><summary>Cách xếp thứ tự</summary><p>Ưu tiên thẩm định mới nhất khớp bản ghi và hash mã nguồn. Nếu chưa có xác nhận, dùng đề xuất hệ thống và trạng thái xử lý. Đề xuất cảnh báo giả còn có mâu thuẫn được chuyển sang “Cần làm rõ”.</p><p>Trong nhóm “Xử lý trước”, cảnh báo đã thẩm định LIKELY_TP đứng trước đề xuất chưa thẩm định. Những mục còn ngang nhau được sắp theo đường dẫn và dòng mã. Không gộp các lượt chạy thành một lỗi.</p><p>Danh sách không ghi đè nhãn AI, không tự sửa mã hoặc đóng cảnh báo. Tải lại trang sau khi lưu thẩm định để cập nhật thứ tự.</p><p class="hint-text">Phiên bản quy tắc: {{ policy_version }}</p></details>
+<footer>Đọc kết quả đã lưu · Không gọi AI khi mở trang này.</footer>
+</main></body></html>

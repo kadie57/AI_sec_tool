@@ -1,0 +1,42 @@
+{
+  "started_at": "2026-10-28T02:39:03.363257+00:00",
+  "analysis_id": "f8ec196b-af1c-4dc8-b100-f1b938393c70",
+  "project": "project_1",
+  "pipeline_version": "multi-sql89-path22-command78-v2-sql-fallback",
+  "parent_run": "/home/khanh/AI_sec_tool/runs/multi-20261021T160018Z-9bb79a-d45ec2ac7bee",
+  "source_hashes": {
+    "Clean_Code/eval_followup21/Sample101.java": "3d7f577e3d0394911f5da817fe12a3cc6e54462180244b3a02c4e01cc73894b5"
+  },
+  "evaluation_scope": "selected_supported_components",
+  "selected_components": [
+    "project_1:Clean_Code/eval_followup21/Sample101.java"
+  ],
+  "issue_count": 1,
+  "supported_issue_count": 1,
+  "prompt_versions": {
+    "sql": "sql89-v7-stage2-plus-source-v2-explanation-2"
+  },
+  "limitations": [
+    "Uses saved Sonar issues; does not rescan. Only explicitly routed rules.",
+    "Single-file context; SQL JDBC, Path File(String) read, and bounded direct exec only.",
+    "AI and static rules are proposals; human review is separate. No automatic issue closure.",
+    "Resume is per completed issue, not per AI stage. Partial retry can repeat calls.",
+    "Prior standalone runs and their human reviews are not imported."
+  ],
+  "state": "COMPLETED",
+  "error": null,
+  "runtime": {
+    "model": "qwen2.5-coder:14b-instruct-q4_K_M",
+    "model_digest": "9ec8897f747e246e970bc5cfdda85d22f1123dc2e3d34978a010a75968716849",
+    "joern_image_id": "sha256:f47692f8334d2eeca9fc83395023773da566ce8397563ff7c66d34a23bfc75c4",
+    "ollama_url": "http://127.0.0.1:11434"
+  },
+  "result_count": 1,
+  "verdict_counts": {
+    "LIKELY_TP": 1
+  },
+  "processing_status_counts": {
+    "AI_PROPOSED": 1
+  },
+  "finished_at": "2026-10-28T02:46:24.167113+00:00"
+}

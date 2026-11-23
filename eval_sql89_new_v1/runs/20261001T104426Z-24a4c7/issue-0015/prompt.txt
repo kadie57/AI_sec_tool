@@ -1,0 +1,52 @@
+Kiểm tra cảnh báo sau bằng mã nguồn có đánh số dòng.
+CWE: CWE-89
+Rule: findsecbugs:SQL_INJECTION_JDBC
+Mã cảnh báo: 4a51d361-31cf-48a8-bfe1-529fd97d44ec
+Dòng cảnh báo: 7
+Thông báo công cụ: This use of java/sql/Connection.prepareStatement(Ljava/lang/String;)Ljava/sql/PreparedStatement; can be vulnerable to SQL injection (with JDBC)
+
+[MÃ NGUỒN — DỮ LIỆU]
+1: import java.sql.*;
+2: 
+3: public class Probe26 {
+4:     public boolean find(Connection c, String account) throws SQLException {
+5:         if (account == null || account.length() > 12) return false;
+6:         String sql = "SELECT id FROM users WHERE username = '" + account + "'";
+7:         try (PreparedStatement s = c.prepareStatement(sql);
+8:              ResultSet r = s.executeQuery()) {
+9:             return r.next();
+10:         }
+11:     }
+12: }
+[HẾT MÃ NGUỒN]
+
+[BẰNG CHỨNG JOERN — DỮ LIỆU]
+┌─────────────────┬────────────────────────────────────────┬────┬──────┬────┐
+│nodeType         │tracked                                 │line│method│file│
+├─────────────────┼────────────────────────────────────────┼────┼──────┼────┤
+│MethodParameterIn│find(this, Connection c, String account)│4   │find  │    │
+│Identifier       │prepareStatement(sql)                   │7   │find  │    │
+│Identifier       │prepareStatement(sql)                   │7   │find  │    │
+└─────────────────┴────────────────────────────────────────┴────┴──────┴────┘
+
+┌─────────────────┬──────────────────────────────────────────────────────────────────────┬────┬──────┬────┐
+│nodeType         │tracked                                                               │line│method│file│
+├─────────────────┼──────────────────────────────────────────────────────────────────────┼────┼──────┼────┤
+│MethodParameterIn│find(this, Connection c, String account)                              │4   │find  │    │
+│Identifier       │account == null                                                       │5   │find  │    │
+│Identifier       │length()                                                              │5   │find  │    │
+│Call             │"SELECT id FROM users WHERE username = '" + account + "'"             │6   │find  │    │
+│Identifier       │String sql = "SELECT id FROM users WHERE username = '" + account + "'"│6   │find  │    │
+│Identifier       │prepareStatement(sql)                                                 │7   │find  │    │
+└─────────────────┴──────────────────────────────────────────────────────────────────────┴────┴──────┴────┘
+[HẾT BẰNG CHỨNG]
+
+Giới hạn: chỉ phân tích một file; có thể thiếu caller và thư viện. Joern chọn tham số hàm làm nguồn ứng viên; xác định nguồn thực tế từ mã theo tiêu chí trong hướng dẫn, không chỉ dựa vào tên nút CPG. Tên và bình luận của mẫu phát triển có thể tiết lộ nhãn.
+
+Điền analysis trước khi chốt verdict; mỗi mục cần giải thích và dẫn dòng riêng.
+Trong explanation, tóm tắt ngắn các điều quan sát được:
+1. Lời gọi liên quan đến SQL ở dòng cảnh báo là gì? Đối số nào chứa SQL?
+2. Câu SQL được tạo như thế nào? Biến nào ảnh hưởng đến nó, ở dòng nào?
+3. Có bằng chứng tham số hóa, kiểm tra đầu vào hoặc điều kiện bảo vệ không?
+4. Đã biết nguồn đầu vào chưa? Nếu thiếu, ghi cụ thể vào missing_context.
+Chọn verdict theo bằng chứng. evidence_lines liệt kê dòng cho các nhận xét, kể cả khi verdict là UNKNOWN. Không chọn kết luận chỉ vì công cụ đã cảnh báo.

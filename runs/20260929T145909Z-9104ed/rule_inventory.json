@@ -1,0 +1,83 @@
+[
+  {
+    "rule": "java:S120",
+    "count": 8,
+    "cwe_id": null,
+    "name": "Unmapped rule",
+    "supported": false,
+    "mapping_source": null,
+    "reason": "Chưa xác minh ánh xạ rule; không suy ra đây là Code Smell."
+  },
+  {
+    "rule": "findsecbugs:SQL_INJECTION_JDBC",
+    "count": 10,
+    "cwe_id": "CWE-89",
+    "name": "SQL Injection in JDBC",
+    "supported": true,
+    "mapping_source": "https://find-sec-bugs.github.io/bugs.htm#SQL_INJECTION_JDBC",
+    "reason": ""
+  },
+  {
+    "rule": "java:S106",
+    "count": 13,
+    "cwe_id": null,
+    "name": "Unmapped rule",
+    "supported": false,
+    "mapping_source": null,
+    "reason": "Chưa xác minh ánh xạ rule; không suy ra đây là Code Smell."
+  },
+  {
+    "rule": "java:S6353",
+    "count": 1,
+    "cwe_id": null,
+    "name": "Unmapped rule",
+    "supported": false,
+    "mapping_source": null,
+    "reason": "Chưa xác minh ánh xạ rule; không suy ra đây là Code Smell."
+  },
+  {
+    "rule": "java:S6905",
+    "count": 1,
+    "cwe_id": null,
+    "name": "Unmapped rule",
+    "supported": false,
+    "mapping_source": null,
+    "reason": "Chưa xác minh ánh xạ rule; không suy ra đây là Code Smell."
+  },
+  {
+    "rule": "java:S1220",
+    "count": 3,
+    "cwe_id": null,
+    "name": "Unmapped rule",
+    "supported": false,
+    "mapping_source": null,
+    "reason": "Chưa xác minh ánh xạ rule; không suy ra đây là Code Smell."
+  },
+  {
+    "rule": "java:S1874",
+    "count": 1,
+    "cwe_id": null,
+    "name": "Deprecated API usage",
+    "supported": false,
+    "mapping_source": "SonarSource java:S1874",
+    "reason": "Quy tắc API lỗi thời, không phải Command Injection."
+  },
+  {
+    "rule": "java:S6437",
+    "count": 1,
+    "cwe_id": "CWE-798",
+    "name": "Hard-coded credentials",
+    "supported": false,
+    "mapping_source": "SonarSource java:S6437",
+    "reason": "Ngoài phạm vi hiện tại."
+  },
+  {
+    "rule": "java:S2095",
+    "count": 3,
+    "cwe_id": null,
+    "name": "Resources should be closed",
+    "supported": false,
+    "mapping_source": "SonarSource java:S2095",
+    "reason": "Đóng tài nguyên nằm ngoài phạm vi SQL Injection."
+  }
+]

@@ -1,0 +1,173 @@
+{
+  "issue_id": "ea1e18cc-3de4-4da5-9c15-d63895ab559b",
+  "rule": "findsecbugs:SQL_INJECTION_JDBC",
+  "component": "project_1:Clean_Code/pilot_sql89/Trial07.java",
+  "line": 25,
+  "type": "VULNERABILITY",
+  "message": "This use of java/sql/Statement.executeQuery(Ljava/lang/String;)Ljava/sql/ResultSet; can be vulnerable to SQL injection (with JDBC)",
+  "cwe_id": "CWE-89",
+  "mapping": {
+    "cwe_id": "CWE-89",
+    "name": "SQL Injection in JDBC",
+    "supported": true,
+    "mapping_source": "https://find-sec-bugs.github.io/bugs.htm#SQL_INJECTION_JDBC",
+    "reason": ""
+  },
+  "source_sha256": "15284d9a507d2649cca7f8928318cda06316b03ee0956414e87a27e586940ade",
+  "flow_count": 0,
+  "sql_gate_version": "sql-no-flow-gate-v1",
+  "sink_call_count": 1,
+  "sink_argument_count": 1,
+  "analysis_mode": "SOURCE_ONLY_NO_FLOW",
+  "llm_invoked": true,
+  "verdict": "LIKELY_FP",
+  "explanation": "Kết luận: LIKELY_FP. Có cơ sở đề xuất cảnh báo giả tại truy vấn này: bước phân tích SQL báo cáo cơ chế ngăn đầu vào làm thay đổi cú pháp truy vấn.\n\nNguồn dữ liệu: Kiểm tra nguồn báo cáo có thao tác đọc đầu vào bên ngoài liên quan tới truy vấn.\n\nTác động SQL: Bước 2 báo cáo có bảo vệ tại truy vấn (PROTECTED).\n\nCác dòng mã được bước 2 dẫn (cần đối chiếu lập luận):\n14:         String table;\n15:         switch (args[0]) {\n16:             case \"primary\": table = \"users\"; break;\n17:             case \"archive\": table = \"accounts\"; break;\n18:             default: return;\n20:         String sql = \"SELECT id FROM \" + table + \" WHERE id = 1\";\n25:              ResultSet result = statement.executeQuery(sql)) {",
+  "evidence_lines": [
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    20,
+    25
+  ],
+  "missing_context": [],
+  "error_kind": null,
+  "decision_basis": "PROTECTION_REPORTED",
+  "model_assessment": {
+    "explanation": "Kết luận: LIKELY_FP. Có cơ sở đề xuất cảnh báo giả tại truy vấn này: bước phân tích SQL báo cáo cơ chế ngăn đầu vào làm thay đổi cú pháp truy vấn.\n\nNguồn dữ liệu: Kiểm tra nguồn báo cáo có thao tác đọc đầu vào bên ngoài liên quan tới truy vấn.\n\nTác động SQL: Bước 2 báo cáo có bảo vệ tại truy vấn (PROTECTED).\n\nCác dòng mã được bước 2 dẫn (cần đối chiếu lập luận):\n14:         String table;\n15:         switch (args[0]) {\n16:             case \"primary\": table = \"users\"; break;\n17:             case \"archive\": table = \"accounts\"; break;\n18:             default: return;\n20:         String sql = \"SELECT id FROM \" + table + \" WHERE id = 1\";\n25:              ResultSet result = statement.executeQuery(sql)) {",
+    "evidence_lines": [
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      20,
+      25
+    ],
+    "source_control": "CONFIRMED",
+    "sql_effect": "PROTECTED",
+    "missing_context": []
+  },
+  "requires_review": true,
+  "prompt_version": "sql89-v7-stage2-plus-source-v2-explanation-2",
+  "format_normalization": "NONE",
+  "elapsed_seconds": 386.923,
+  "decision_policy_version": "sql89-compact-facts-v5",
+  "model": "qwen2.5-coder:14b-instruct-q4_K_M",
+  "ai_verdict": "LIKELY_FP",
+  "review_status": "PENDING",
+  "reviewed_verdict": null,
+  "review_notes": null,
+  "cpg_usage": "sink_location_gate_only_no_flow_not_sent_to_llm",
+  "baseline_ai_verdict": "LIKELY_FP",
+  "source_audit_status": "PROPOSED_REQUIRES_REVIEW",
+  "explanation_version": "sql-source-merge-explanation-v2",
+  "explanation_origin": "DETERMINISTIC_COMPOSITION_OF_MODEL_FACTS",
+  "stage2_explanation_original": "Dữ liệu `args[0]` đi vào câu SQL qua biến `table`, được thực thi ở dòng 25 khi gọi phương thức `executeQuery(sql)`. Trước lời gọi SQL, có bước kiểm tra giá trị của `args[0]` để xác định giá trị của biến `table`. Chỉ khi `args[0]` là \"primary\" hoặc \"archive\", chương trình mới đi tới lời gọi SQL. Điều kiện này ngăn chặn việc truyền vào các giá trị khác không được liệt kê trong switch-case. Từ những điều trên, người cung cấp đầu vào không thể làm thay đổi cấu trúc truy vấn vì biến `table` chỉ nhận hai giá trị cố định (\"users\" hoặc \"accounts\") dựa trên giá trị của `args[0]`. Không có cách nào để người dùng truyền vào một chuỗi SQL độc hại và thực thi nó thông qua biến `table`.",
+  "source_explanation_original": "Dòng 25 thực hiện truy vấn SQL sử dụng biến 'table' được xác định từ tham số đầu vào của hàm main. Tham số đầu vào này là một phần của args, do người chạy chương trình cung cấp.",
+  "stage2_assessment_original": {
+    "explanation": "Dữ liệu `args[0]` đi vào câu SQL qua biến `table`, được thực thi ở dòng 25 khi gọi phương thức `executeQuery(sql)`. Trước lời gọi SQL, có bước kiểm tra giá trị của `args[0]` để xác định giá trị của biến `table`. Chỉ khi `args[0]` là \"primary\" hoặc \"archive\", chương trình mới đi tới lời gọi SQL. Điều kiện này ngăn chặn việc truyền vào các giá trị khác không được liệt kê trong switch-case. Từ những điều trên, người cung cấp đầu vào không thể làm thay đổi cấu trúc truy vấn vì biến `table` chỉ nhận hai giá trị cố định (\"users\" hoặc \"accounts\") dựa trên giá trị của `args[0]`. Không có cách nào để người dùng truyền vào một chuỗi SQL độc hại và thực thi nó thông qua biến `table`.",
+    "evidence_lines": [
+      14,
+      15,
+      16,
+      17,
+      18,
+      20,
+      25
+    ],
+    "source_control": "CONFIRMED",
+    "sql_effect": "PROTECTED",
+    "missing_context": []
+  },
+  "stage2_evidence_resolved": [
+    {
+      "line": 14,
+      "code": "        String table;"
+    },
+    {
+      "line": 15,
+      "code": "        switch (args[0]) {"
+    },
+    {
+      "line": 16,
+      "code": "            case \"primary\": table = \"users\"; break;"
+    },
+    {
+      "line": 17,
+      "code": "            case \"archive\": table = \"accounts\"; break;"
+    },
+    {
+      "line": 18,
+      "code": "            default: return;"
+    },
+    {
+      "line": 20,
+      "code": "        String sql = \"SELECT id FROM \" + table + \" WHERE id = 1\";"
+    },
+    {
+      "line": 25,
+      "code": "             ResultSet result = statement.executeQuery(sql)) {"
+    }
+  ],
+  "source_assessment_changed": false,
+  "explanation_limitations": [
+    "Việc ghép không thẩm định ngữ nghĩa của nhận định AI hoặc chọn lại dòng bằng chứng.",
+    "Giải thích gốc từng bước được lưu riêng; nhận định nguồn bước 2 có thể đã bị sửa."
+  ],
+  "source_kind": "EXTERNAL_READ",
+  "sql_effect_reused": "PROTECTED",
+  "source_audit_facts": {
+    "source_kind": "EXTERNAL_READ",
+    "source_evidence": [
+      {
+        "line": 13
+      },
+      {
+        "line": 14
+      },
+      {
+        "line": 15
+      }
+    ],
+    "flow_evidence": [
+      {
+        "line": 20
+      },
+      {
+        "line": 25
+      }
+    ],
+    "explanation": "Dòng 25 thực hiện truy vấn SQL sử dụng biến 'table' được xác định từ tham số đầu vào của hàm main. Tham số đầu vào này là một phần của args, do người chạy chương trình cung cấp.",
+    "missing_context": []
+  },
+  "source_audit_reference_check": "LINES_RESOLVED_REVIEW_REQUIRED",
+  "analysis_limitations": [
+    "Joern found one call and its first argument at the issue range, but no parameter-to-sink flow.",
+    "AI assessed source code; absence of a flow is not evidence of safety.",
+    "Call-name matching is not full Java type resolution."
+  ],
+  "artifact_dir": "issue-0029",
+  "processing_status": "AI_PROPOSED",
+  "total_seconds": 395.633,
+  "analysis_route": "sql",
+  "router_version": "multi-sql89-path22-command78-v2-sql-fallback",
+  "combined_verdict": "LIKELY_FP",
+  "decision_origin": "AI_PIPELINE",
+  "ai_explanation": "Kết luận: LIKELY_FP. Có cơ sở đề xuất cảnh báo giả tại truy vấn này: bước phân tích SQL báo cáo cơ chế ngăn đầu vào làm thay đổi cú pháp truy vấn.\n\nNguồn dữ liệu: Kiểm tra nguồn báo cáo có thao tác đọc đầu vào bên ngoài liên quan tới truy vấn.\n\nTác động SQL: Bước 2 báo cáo có bảo vệ tại truy vấn (PROTECTED).\n\nCác dòng mã được bước 2 dẫn (cần đối chiếu lập luận):\n14:         String table;\n15:         switch (args[0]) {\n16:             case \"primary\": table = \"users\"; break;\n17:             case \"archive\": table = \"accounts\"; break;\n18:             default: return;\n20:         String sql = \"SELECT id FROM \" + table + \" WHERE id = 1\";\n25:              ResultSet result = statement.executeQuery(sql)) {",
+  "ai_evidence_lines": [
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    20,
+    25
+  ],
+  "ai_missing_context": [],
+  "ai_decision_basis": "PROTECTION_REPORTED"
+}

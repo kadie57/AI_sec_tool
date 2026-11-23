@@ -1,0 +1,140 @@
+{
+  "issues": [
+    {
+      "key": "73c62dfd-ece6-40bd-a9bf-417fd5bcfd61",
+      "rule": "findsecbugs:SQL_INJECTION_JDBC",
+      "severity": "CRITICAL",
+      "component": "project_1:Clean_Code/pilot_sql89/Trial01.java",
+      "project": "project_1",
+      "line": 20,
+      "hash": "e508bd6bd485fe4f415a81a3cc6c3399",
+      "textRange": {
+        "startLine": 20,
+        "endLine": 20,
+        "startOffset": 0,
+        "endOffset": 62
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "This use of java/sql/Statement.executeQuery(Ljava/lang/String;)Ljava/sql/ResultSet; can be vulnerable to SQL injection (with JDBC)",
+      "author": "",
+      "tags": [
+        "cwe",
+        "owasp-a1",
+        "injection",
+        "wasc"
+      ],
+      "creationDate": "2026-09-25T15:38:47+0000",
+      "updateDate": "2026-09-25T15:38:47+0000",
+      "type": "VULNERABILITY",
+      "scope": "MAIN",
+      "quickFixAvailable": false,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "CONVENTIONAL",
+      "cleanCodeAttributeCategory": "CONSISTENT",
+      "impacts": [
+        {
+          "softwareQuality": "SECURITY",
+          "severity": "HIGH"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "2c454a0e-fad8-45d9-b5ff-8074e53bc5a8",
+      "rule": "findsecbugs:SQL_INJECTION_JDBC",
+      "severity": "CRITICAL",
+      "component": "project_1:Clean_Code/pilot_sql89/Trial04.java",
+      "project": "project_1",
+      "line": 20,
+      "hash": "e508bd6bd485fe4f415a81a3cc6c3399",
+      "textRange": {
+        "startLine": 20,
+        "endLine": 20,
+        "startOffset": 0,
+        "endOffset": 62
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "This use of java/sql/Statement.executeQuery(Ljava/lang/String;)Ljava/sql/ResultSet; can be vulnerable to SQL injection (with JDBC)",
+      "author": "",
+      "tags": [
+        "cwe",
+        "owasp-a1",
+        "injection",
+        "wasc"
+      ],
+      "creationDate": "2026-09-25T15:38:47+0000",
+      "updateDate": "2026-09-25T15:38:47+0000",
+      "type": "VULNERABILITY",
+      "scope": "MAIN",
+      "quickFixAvailable": false,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "CONVENTIONAL",
+      "cleanCodeAttributeCategory": "CONSISTENT",
+      "impacts": [
+        {
+          "softwareQuality": "SECURITY",
+          "severity": "HIGH"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "07a6b931-3130-414f-826c-f14849f593ac",
+      "rule": "findsecbugs:SQL_INJECTION_JDBC",
+      "severity": "CRITICAL",
+      "component": "project_1:Clean_Code/pilot_sql89/Trial06.java",
+      "project": "project_1",
+      "line": 12,
+      "hash": "e508bd6bd485fe4f415a81a3cc6c3399",
+      "textRange": {
+        "startLine": 12,
+        "endLine": 12,
+        "startOffset": 0,
+        "endOffset": 62
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "This use of java/sql/Statement.executeQuery(Ljava/lang/String;)Ljava/sql/ResultSet; can be vulnerable to SQL injection (with JDBC)",
+      "author": "",
+      "tags": [
+        "cwe",
+        "owasp-a1",
+        "injection",
+        "wasc"
+      ],
+      "creationDate": "2026-09-25T15:38:47+0000",
+      "updateDate": "2026-09-25T15:38:47+0000",
+      "type": "VULNERABILITY",
+      "scope": "MAIN",
+      "quickFixAvailable": false,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "CONVENTIONAL",
+      "cleanCodeAttributeCategory": "CONSISTENT",
+      "impacts": [
+        {
+          "softwareQuality": "SECURITY",
+          "severity": "HIGH"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    }
+  ],
+  "total": 3
+}

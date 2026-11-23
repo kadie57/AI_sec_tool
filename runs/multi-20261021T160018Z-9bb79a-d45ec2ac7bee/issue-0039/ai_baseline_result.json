@@ -1,0 +1,75 @@
+{
+  "issue_id": "0e02c3ff-fa97-448a-be59-41d40dec9f20",
+  "rule": "findsecbugs:COMMAND_INJECTION",
+  "component": "project_1:Clean_Code/eval_followup21/Sample302.java",
+  "line": 9,
+  "message": "This usage of java/lang/Runtime.exec(Ljava/lang/String;)Ljava/lang/Process; can be vulnerable to Command Injection",
+  "cwe_id": "CWE-78",
+  "source_sha256": "aa09aa02aebaaa7df50e79ffe8e86fbf130e714befbb062c6b85ca7771b21179",
+  "artifact_dir": "issue-0039",
+  "verdict": "UNKNOWN",
+  "ai_verdict": "UNKNOWN",
+  "requires_review": true,
+  "review_status": "PENDING",
+  "reviewed_verdict": null,
+  "evidence_lines": [
+    4,
+    6,
+    7,
+    8,
+    9
+  ],
+  "missing_context": [
+    "Kiểm tra thêm về các ký tự đặc biệt có thể được sử dụng trong tên tệp."
+  ],
+  "error_kind": null,
+  "prompt_version": "command78-direct-exec-pilot-v1",
+  "model": "qwen2.5-coder:14b-instruct-q4_K_M",
+  "execution_guard": {
+    "execution_kind": "DIRECT_EXEC",
+    "supported": true,
+    "executable": "/usr/bin/find",
+    "command_variable": "command",
+    "evidence_lines": [
+      8,
+      9
+    ],
+    "reason": "Runtime.exec(String), tiền tố chương trình cố định; không tự gọi shell.",
+    "limitation": "Không chứng minh binary thực tế, tác động đối số hay nguồn ngoài."
+  },
+  "flow_count": 1,
+  "decision_basis": "COMMAND_EFFECT_UNRESOLVED",
+  "processing_status": "AI_PROPOSED",
+  "source_kind": "EXTERNAL_READ",
+  "command_effect": "DANGEROUS_ARGUMENTS",
+  "execution_kind": "DIRECT_EXEC",
+  "model_assessment": {
+    "source": {
+      "source_kind": "EXTERNAL_READ",
+      "explanation": "Đầu vào từ args của main được sử dụng để tạo lệnh. Luồng dữ liệu bắt đầu từ tham số args và đi qua biến value trước khi được nối với chuỗi lệnh tại dòng 8.",
+      "evidence_lines": [
+        4,
+        6,
+        8,
+        9
+      ],
+      "missing_context": []
+    },
+    "command": {
+      "command_effect": "DANGEROUS_ARGUMENTS",
+      "explanation": "Đầu vào 'value' được kiểm tra bằng regex nhưng vẫn có thể chứa các ký tự đặc biệt như '*' hoặc '?' trong phạm vi cho phép của regex, dẫn đến việc chương trình thực thi lệnh find với các đối số không mong muốn.",
+      "evidence_lines": [
+        7,
+        8,
+        9
+      ],
+      "missing_context": [
+        "Kiểm tra thêm về các ký tự đặc biệt có thể được sử dụng trong tên tệp."
+      ],
+      "execution_kind": "DIRECT_EXEC"
+    }
+  },
+  "explanation": "Nguồn: Đầu vào từ args của main được sử dụng để tạo lệnh. Luồng dữ liệu bắt đầu từ tham số args và đi qua biến value trước khi được nối với chuỗi lệnh tại dòng 8.\nLệnh: Đầu vào 'value' được kiểm tra bằng regex nhưng vẫn có thể chứa các ký tự đặc biệt như '*' hoặc '?' trong phạm vi cho phép của regex, dẫn đến việc chương trình thực thi lệnh find với các đối số không mong muốn.",
+  "elapsed_seconds": 147.147,
+  "total_seconds": 155.669
+}

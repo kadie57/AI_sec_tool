@@ -1,0 +1,42 @@
+{
+  "issue_id": "ea1e18cc-3de4-4da5-9c15-d63895ab559b",
+  "rule": "findsecbugs:SQL_INJECTION_JDBC",
+  "component": "project_1:Clean_Code/pilot_sql89/Trial07.java",
+  "line": 25,
+  "type": "VULNERABILITY",
+  "message": "This use of java/sql/Statement.executeQuery(Ljava/lang/String;)Ljava/sql/ResultSet; can be vulnerable to SQL injection (with JDBC)",
+  "cwe_id": "CWE-89",
+  "mapping": {
+    "cwe_id": "CWE-89",
+    "name": "SQL Injection in JDBC",
+    "supported": true,
+    "mapping_source": "https://find-sec-bugs.github.io/bugs.htm#SQL_INJECTION_JDBC",
+    "reason": ""
+  },
+  "source_sha256": "15284d9a507d2649cca7f8928318cda06316b03ee0956414e87a27e586940ade",
+  "flow_count": 0,
+  "verdict": "UNKNOWN",
+  "explanation": "Không có flow phù hợp vùng dòng cảnh báo; chưa đủ kết luận an toàn.",
+  "evidence_lines": [],
+  "missing_context": [
+    "Không có flow phù hợp vùng dòng cảnh báo; chưa đủ kết luận an toàn."
+  ],
+  "error_kind": "NO_MATCHING_FLOW",
+  "artifact_dir": "issue-0029",
+  "processing_status": "ABSTAINED",
+  "total_seconds": 8.561,
+  "analysis_route": "sql",
+  "router_version": "multi-sql89-path22-command78-v1",
+  "ai_verdict": null,
+  "combined_verdict": "UNKNOWN",
+  "decision_origin": "AI_PIPELINE",
+  "ai_explanation": "Không có flow phù hợp vùng dòng cảnh báo; chưa đủ kết luận an toàn.",
+  "ai_evidence_lines": [],
+  "ai_missing_context": [
+    "Không có flow phù hợp vùng dòng cảnh báo; chưa đủ kết luận an toàn."
+  ],
+  "ai_decision_basis": null,
+  "requires_review": true,
+  "reviewed_verdict": null,
+  "review_status": "PENDING"
+}

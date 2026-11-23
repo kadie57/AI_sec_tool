@@ -1,0 +1,78 @@
+<!doctype html><html lang="vi"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Security Review · Chi tiết lượt chạy</title><link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}"></head><body>
+<header><a class="brand" href="{{ url_for('index') }}"><span class="logo">SR</span><strong>Security Review</strong></a><span class="mode">Xem bằng chứng · Lưu thẩm định</span></header><main class="detail-main">
+<a href="{{ url_for('index') }}">← Danh sách lượt chạy</a><h1>{{ manifest.get('project', 'Chi tiết lượt chạy') }}</h1><p class="sub">{{ name }} · {{ manifest.get('state', '') }}</p>
+<p><a class="export-link" href="{{ url_for('run_priority', group_id=group_id, name=name) }}">Ưu tiên xử lý →</a> <a class="export-link" href="{{ url_for('run_statistics', group_id=group_id, name=name) }}">Thống kê toàn lượt chạy →</a> <a class="export-link" href="{{ url_for('run_report', group_id=group_id, name=name) }}">Báo cáo toàn lượt · HTML / PDF →</a></p>
+{% for message in get_flashed_messages() %}<p class="success">{{ message }}</p>{% endfor %}
+{% for w in warnings %}<p class="warning">{{ w }}</p>{% endfor %}
+<section class="stats" aria-label="Thống kê thẩm định toàn lượt chạy">
+<article><span>Tổng bản ghi</span><b>{{ total }}</b></article>
+<article><span>Đã thẩm định</span><b>{{ review_stats.get('REVIEWED', 0) }}</b></article>
+<article><span>Chưa thẩm định</span><b>{{ review_stats.get('PENDING', 0) }}</b></article>
+<article><span>Không đủ điều kiện</span><b>{{ review_stats.get('UNAVAILABLE', 0) }}</b></article>
+</section>
+<p class="hint-text">Thống kê toàn lượt chạy, không đổi theo bộ lọc. “Chưa thẩm định” chỉ tính bản ghi đủ điều kiện lưu. “Không đủ điều kiện” gồm cảnh báo bị bỏ qua, lượt chưa hoàn tất hoặc mã nguồn không kiểm tra được. Thẩm định trên UI được tính riêng với trạng thái trong kết quả AI gốc.</p>
+<form class="filters" method="get"><label>Trạng thái <select name="status">{% for value, label in [('AI','AI đã phân tích'),('','Tất cả'),('ABSTAINED','Chưa đủ điều kiện phân tích'),('ERROR','Lỗi xử lý'),('SKIPPED','Bị bỏ qua')] %}<option value="{{ value }}" {% if status == value %}selected{% endif %}>{{ label }}</option>{% endfor %}</select></label><label>Kết quả hệ thống <select name="verdict">{% for value, label in [('','Tất cả nhãn'),('LIKELY_TP','LIKELY_TP'),('LIKELY_FP','LIKELY_FP'),('UNKNOWN','UNKNOWN')] %}<option value="{{ value }}" {% if verdict == value %}selected{% endif %}>{{ label }}</option>{% endfor %}</select></label><label>Thẩm định <select name="review">{% for value, label in [('','Tất cả'),('REVIEWED','Đã thẩm định'),('PENDING','Chưa thẩm định'),('UNAVAILABLE','Không đủ điều kiện')] %}<option value="{{ value }}" {% if review == value %}selected{% endif %}>{{ label }}</option>{% endfor %}</select></label><button type="submit">Lọc</button><span class="sub">{{ entries|length }} / {{ total }} bản ghi</span></form>
+{% if not review_error %}<p><a class="export-link" href="{{ url_for('export_csv', group_id=group_id, name=name, status=status, verdict=verdict, review=review) }}">Xuất CSV theo bộ lọc ({{ entries|length }} bản ghi)</a></p>{% endif %}
+<div class="workspace"><aside class="issue-list">{% for e in entries %}<a class="issue-item {{ 'active' if selected and selected.idx == e.idx else '' }}" href="{{ url_for('run_detail', group_id=group_id, name=name, status=status, verdict=verdict, review=review, issue=e.idx) }}"><strong>{{ e.filename }}</strong><span>Dòng {{ e.row.get('line', '—') }} · Hệ thống: {{ e.label }}</span><span>AI: {{ e.decision.ai_verdict or 'Chưa có nhãn' }}</span><small>{{ e.row.get('processing_status', 'Chưa rõ') }}</small><span class="review-tag">{{ {'REVIEWED':'Đã thẩm định','PENDING':'Chưa thẩm định','UNAVAILABLE':'Không đủ điều kiện'}[e.review_state] }}{% if e.latest %} · {{ e.latest.reviewed_verdict }}{% endif %}</span></a>{% else %}<p class="empty">Không có bản ghi phù hợp bộ lọc.</p>{% endfor %}</aside>
+<section class="issue-detail">{% if selected %}{% set r = selected.row %}
+<div class="detail-title"><h2>{{ selected.filename }} · dòng {{ r.get('line', '—') }}</h2><span class="badge neutral">Hệ thống: {{ selected.label }}</span></div>
+{% set d = selected.decision %}
+<p class="hint-text">{{ r.get('rule', '') }} · {{ r.get('processing_status', '') }}<br>Kết quả hệ thống là đề xuất, chưa phải kết luận của người thẩm định. UNKNOWN không có nghĩa mã an toàn.</p>
+<div class="decision-grid">
+<article><span>Kết quả nhánh AI</span><strong>{{ d.ai_verdict or 'Chưa có nhãn AI' }}</strong></article>
+<article><span>Kết quả hệ thống</span><strong>{{ d.combined_verdict }}</strong><small>{{ d.origin_label }}</small></article>
+<article><span>Người thẩm định trên UI</span><strong>{{ selected.latest.reviewed_verdict if selected.latest and selected.review_state == 'REVIEWED' else 'Chưa xác nhận' }}</strong></article>
+</div>
+{% if r.get('model_static_disagreement') %}<p class="warning">Nhận định AI và kiểm tra bằng luật khác nhau. Kết quả hệ thống không phải là nhãn do AI tự đưa ra.</p>{% endif %}
+<h3>Cơ sở của kết luận</h3>
+<p class="hint-text">Nguồn quyết định: {{ d.origin_label }} · Nhãn hệ thống: {{ d.combined_verdict }}</p>
+{% if explanation.stage_text and not explanation.stage_error %}
+<section class="explanation-card">
+<h4>Phân tích SQL và cơ chế bảo vệ</h4>
+<p class="hint-text">Giải thích đã lưu ở bước 2{% if explanation.sql_effect %} · Tác động SQL: {{ explanation.sql_effect }}{% endif %}</p>
+{% if explanation.verdict_changed or explanation.source_changed %}<p class="warning">Nhận định bước 2 đã được bước sau điều chỉnh. Nhãn bước 2: {{ explanation.stage_verdict or 'Chưa ghi nhận' }}; nhãn hệ thống: {{ d.combined_verdict }}. Phần nguồn đầu vào trong lời giải thích dưới đây cần đối chiếu với kiểm tra nguồn bên dưới.</p>{% endif %}
+<p class="prose">{{ explanation.stage_text }}</p>
+<p class="hint-text">Dòng dẫn ở bước 2: {{ explanation.stage_lines|join(', ') if explanation.stage_lines else 'Chưa ghi nhận' }}</p>
+</section>
+{% endif %}
+{% if explanation.source_text %}
+<section class="explanation-card">
+<h4>Kiểm tra riêng nguồn đầu vào</h4>
+<p class="hint-text">{{ {'EXTERNAL_READ':'Có thao tác đọc đầu vào bên ngoài', 'PARAMETER_ONLY':'Chỉ thấy tham số hàm; chưa thấy nguồn bên ngoài'}.get(explanation.source_kind, explanation.source_kind or 'Chưa xác định') }}</p>
+<p class="prose">{{ explanation.source_text }}</p>
+<p class="hint-text">Dòng dẫn về nguồn: {{ explanation.source_lines|join(', ') if explanation.source_lines else 'Chưa ghi nhận' }}. Kiểm tra nguồn không thay thế phân tích cơ chế bảo vệ.</p>
+</section>
+{% endif %}
+{% if explanation.stage_text and not explanation.stage_error and explanation.source_text %}
+<details class="stage"><summary>Kết quả tổng hợp đã lưu</summary><p class="prose">{{ r.get('explanation') or 'Chưa có giải thích' }}</p></details>
+{% else %}
+<p class="prose">{{ r.get('explanation') or 'Chưa có giải thích' }}</p>
+{% endif %}
+{% if r.get('analysis_mode') == 'SOURCE_ONLY_NO_FLOW' %}<p class="hint-text">Phân tích từ mã nguồn: Joern tìm thấy vị trí gọi SQL nhưng chưa tìm thấy luồng dữ liệu phù hợp. Kết luận trên dựa vào phân tích mã của AI; không phải bằng chứng luồng dữ liệu do Joern xác nhận.</p>{% endif %}
+<details class="stage"><summary>Đọc nhận định Kết quả nhánh AI</summary>
+<p class="prose">{{ d.ai_explanation if d.ai_explanation is not none else 'Bản ghi chưa lưu riêng giải thích Kết quả nhánh AI.' }}</p>
+<p>Dòng AI dẫn: {{ d.ai_evidence_lines|join(', ') if d.ai_evidence_lines else 'Chưa ghi nhận' }}</p>
+<p>Thông tin AI ghi là còn thiếu:</p><ul>{% if d.ai_missing_context is none %}<li>Chưa lưu riêng.</li>{% else %}{% for gap in d.ai_missing_context %}<li>{{ gap }}</li>{% else %}<li>Không có mục thiếu được ghi nhận.</li>{% endfor %}{% endif %}</ul>
+</details>
+
+<h3>Thông tin còn thiếu theo kết quả hệ thống</h3><ul>{% for gap in r.get('missing_context') or [] %}<li>{{ gap }}</li>{% else %}<li>Không có mục thiếu được ghi nhận.</li>{% endfor %}</ul>
+{% if r.get('error_kind') %}<p class="warning">Mã lỗi: {{ r.error_kind }}</p>{% endif %}
+<h3>Mã nguồn và bằng chứng</h3><p class="hint-text">{{ source_note }}<br><span class="legend-evidence">Nền vàng: bằng chứng của kết quả hệ thống ({{ d.origin_label }})</span> · <span class="legend-sink">Viền xanh: dòng cảnh báo SonarQube</span>. Dẫn đúng dòng chưa chứng minh lập luận đúng.</p>
+{% if source_lines %}<div class="code-view" tabindex="0" aria-label="Mã nguồn đã đánh số dòng">{% for line in source_lines %}<div class="code-line {{ 'evidence' if line.evidence else '' }} {{ 'sink' if line.sink else '' }}"><span class="line-number">{{ line.n }}</span><code>{{ line.text }}</code></div>{% endfor %}</div>{% else %}<p class="empty">Chưa có mã nguồn khả dụng.</p>{% endif %}
+<section class="review-box" id="review">
+<h3>Thẩm định: {{ selected.filename }} · dòng {{ r.get('line', '—') }}</h3><p class="hint-text">{{ r.get('component', '') }}</p>
+<p class="hint-text">Đối chiếu mã nguồn rồi chọn kết luận và ghi lý do. Kết quả lưu riêng trong reviews_ui.json của lượt chạy; mỗi lần sửa giữ lại lịch sử.</p>
+{% set latest = history[-1] if history else none %}
+{% if latest %}<p class="success">Đã thẩm định: <strong>{{ latest.reviewed_verdict }}</strong> · {{ latest.reviewer }}<br>{{ latest.notes }}</p>{% else %}<p>Chưa có thẩm định trên giao diện cho bản ghi này.</p>{% endif %}
+{% if review_block %}<p class="warning">{{ review_block }}</p>{% else %}
+<form method="post" action="{{ url_for('save_review', group_id=group_id, name=name, idx=selected.idx) }}" class="review-form">
+<input type="hidden" name="status" value="{{ status }}"><input type="hidden" name="verdict" value="{{ verdict }}"><input type="hidden" name="review" value="{{ review }}">
+<input type="hidden" name="csrf" value="{{ session.csrf }}"><input type="hidden" name="record_key" value="{{ record_key }}"><input type="hidden" name="revision" value="{{ history|length }}">
+<label>Người thẩm định<input name="reviewer" required maxlength="100" value="{{ latest.reviewer if latest else '' }}" placeholder="Nhập tên của bạn"></label>
+<label>Kết luận<select name="reviewed_verdict" required><option value="">— Chọn sau khi đọc mã nguồn —</option>{% for value, label in [('LIKELY_TP','LIKELY_TP — Có cơ sở là cảnh báo đúng'),('LIKELY_FP','LIKELY_FP — Có cơ sở là cảnh báo giả'),('UNKNOWN','UNKNOWN — Chưa đủ cơ sở kết luận')] %}<option value="{{ value }}" {% if latest and latest.reviewed_verdict == value %}selected{% endif %}>{{ label }}</option>{% endfor %}</select></label>
+<label>Lý do và dòng mã làm căn cứ<textarea name="notes" rows="4" required maxlength="5000" placeholder="Nêu nguồn dữ liệu, bước bảo vệ và dòng thực hiện thao tác có nguy cơ...">{{ latest.notes if latest else '' }}</textarea></label>
+<button type="submit">{{ 'Lưu phiên bản thẩm định mới' if latest else 'Lưu thẩm định' }}</button></form>{% endif %}
+{% if history %}<details class="stage"><summary>Lịch sử thẩm định ({{ history|length }} lần lưu)</summary>{% for item in history|reverse %}<p><strong>Lần {{ item.revision }} · {{ item.reviewed_verdict }}</strong><br>{{ item.reviewer }} · {{ item.saved_at }}<br>{{ item.notes }}</p>{% endfor %}</details>{% endif %}
+</section>
+<details class="stage"><summary>Thông tin truy vết</summary><dl><dt>Issue ID</dt><dd>{{ r.get('issue_id', '') }}</dd><dt>Analysis ID</dt><dd>{{ manifest.get('analysis_id', '') }}</dd><dt>Source SHA256</dt><dd>{{ r.get('source_sha256', 'Chưa có') }}</dd><dt>Trạng thái thẩm định trong bản gốc</dt><dd>{{ r.get('review_status') or 'Chưa ghi nhận' }}</dd></dl></details>
+{% else %}<p class="empty">Chọn bộ lọc khác hoặc quay về danh sách lượt chạy.</p>{% endif %}</section></div><footer>Thẩm định được lưu riêng · Không gọi AI · Giữ nguyên kết quả phân tích gốc.</footer></main></body></html>

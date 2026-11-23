@@ -1,0 +1,569 @@
+{
+  "total": 12,
+  "p": 1,
+  "ps": 100,
+  "paging": {
+    "pageIndex": 1,
+    "pageSize": 100,
+    "total": 12
+  },
+  "effortTotal": 160,
+  "issues": [
+    {
+      "key": "bc705119-f186-44ed-bae5-d63086eee782",
+      "rule": "java:S1220",
+      "severity": "MINOR",
+      "component": "project_1:Clean_Code/VulnerableCommand.java",
+      "project": "project_1",
+      "flows": [],
+      "status": "OPEN",
+      "message": "Move this file to a named package.",
+      "effort": "10min",
+      "debt": "10min",
+      "author": "",
+      "tags": [
+        "convention"
+      ],
+      "creationDate": "2026-07-22T03:37:23+0000",
+      "updateDate": "2026-07-22T03:37:23+0000",
+      "type": "CODE_SMELL",
+      "scope": "MAIN",
+      "quickFixAvailable": false,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "MODULAR",
+      "cleanCodeAttributeCategory": "ADAPTABLE",
+      "impacts": [
+        {
+          "softwareQuality": "MAINTAINABILITY",
+          "severity": "LOW"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "9d34ecb5-5a96-4249-adab-68f82721087e",
+      "rule": "java:S1874",
+      "severity": "MINOR",
+      "component": "project_1:Clean_Code/VulnerableCommand.java",
+      "project": "project_1",
+      "line": 12,
+      "hash": "13760a4d48fe4d21e4c0b8269a137dd2",
+      "textRange": {
+        "startLine": 12,
+        "endLine": 12,
+        "startOffset": 51,
+        "endOffset": 55
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "Remove this use of \"exec\"; it is deprecated.",
+      "effort": "15min",
+      "debt": "15min",
+      "author": "",
+      "tags": [
+        "cwe",
+        "obsolete",
+        "cert"
+      ],
+      "creationDate": "2026-07-22T03:37:23+0000",
+      "updateDate": "2026-07-22T03:37:23+0000",
+      "type": "CODE_SMELL",
+      "scope": "MAIN",
+      "quickFixAvailable": false,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "CONVENTIONAL",
+      "cleanCodeAttributeCategory": "CONSISTENT",
+      "impacts": [
+        {
+          "softwareQuality": "MAINTAINABILITY",
+          "severity": "LOW"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "d25d4e32-dcff-4c69-b5c2-6a7cb2307f56",
+      "rule": "java:S106",
+      "severity": "MAJOR",
+      "component": "project_1:Clean_Code/VulnerableCommand.java",
+      "project": "project_1",
+      "line": 17,
+      "hash": "55d57adc55d4ff4c57a99320539786e1",
+      "textRange": {
+        "startLine": 17,
+        "endLine": 17,
+        "startOffset": 16,
+        "endOffset": 26
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "Replace this use of System.out by a logger.",
+      "effort": "10min",
+      "debt": "10min",
+      "author": "",
+      "tags": [
+        "bad-practice",
+        "cert"
+      ],
+      "creationDate": "2026-07-22T03:37:23+0000",
+      "updateDate": "2026-07-22T03:37:23+0000",
+      "type": "CODE_SMELL",
+      "scope": "MAIN",
+      "quickFixAvailable": false,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "MODULAR",
+      "cleanCodeAttributeCategory": "ADAPTABLE",
+      "impacts": [
+        {
+          "softwareQuality": "MAINTAINABILITY",
+          "severity": "MEDIUM"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "1f5c52af-196f-4070-bdea-b93b004cfed1",
+      "rule": "java:S1220",
+      "severity": "MINOR",
+      "component": "project_1:Clean_Code/VulnerableLogin.java",
+      "project": "project_1",
+      "flows": [],
+      "status": "OPEN",
+      "message": "Move this file to a named package.",
+      "effort": "10min",
+      "debt": "10min",
+      "author": "",
+      "tags": [
+        "convention"
+      ],
+      "creationDate": "2026-07-22T03:37:23+0000",
+      "updateDate": "2026-07-22T03:37:23+0000",
+      "type": "CODE_SMELL",
+      "scope": "MAIN",
+      "quickFixAvailable": false,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "MODULAR",
+      "cleanCodeAttributeCategory": "ADAPTABLE",
+      "impacts": [
+        {
+          "softwareQuality": "MAINTAINABILITY",
+          "severity": "LOW"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "33128585-63a5-4dbf-98a9-d3e15a9af30b",
+      "rule": "java:S6437",
+      "severity": "BLOCKER",
+      "component": "project_1:Clean_Code/VulnerableLogin.java",
+      "project": "project_1",
+      "line": 6,
+      "hash": "d27a32a37164ed2d0ab7044bd5b33c52",
+      "textRange": {
+        "startLine": 6,
+        "endLine": 6,
+        "startOffset": 98,
+        "endOffset": 104
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "Revoke and change this password, as it is compromised.",
+      "effort": "1h",
+      "debt": "1h",
+      "author": "",
+      "tags": [
+        "cwe"
+      ],
+      "creationDate": "2026-07-22T03:37:23+0000",
+      "updateDate": "2026-07-22T03:37:23+0000",
+      "type": "VULNERABILITY",
+      "scope": "MAIN",
+      "quickFixAvailable": false,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "TRUSTWORTHY",
+      "cleanCodeAttributeCategory": "RESPONSIBLE",
+      "impacts": [
+        {
+          "softwareQuality": "SECURITY",
+          "severity": "BLOCKER"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "c5b41f7c-08df-4ec5-bf41-dbe23500384f",
+      "rule": "java:S2095",
+      "severity": "BLOCKER",
+      "component": "project_1:Clean_Code/VulnerableLogin.java",
+      "project": "project_1",
+      "line": 6,
+      "hash": "d27a32a37164ed2d0ab7044bd5b33c52",
+      "textRange": {
+        "startLine": 6,
+        "endLine": 6,
+        "startOffset": 26,
+        "endOffset": 105
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "Use try-with-resources or close this \"Connection\" in a \"finally\" clause.",
+      "effort": "5min",
+      "debt": "5min",
+      "author": "",
+      "tags": [
+        "cwe",
+        "symbolic-execution",
+        "leak",
+        "denial-of-service",
+        "cert"
+      ],
+      "creationDate": "2026-07-22T03:37:23+0000",
+      "updateDate": "2026-07-22T03:37:23+0000",
+      "type": "BUG",
+      "scope": "MAIN",
+      "quickFixAvailable": false,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "COMPLETE",
+      "cleanCodeAttributeCategory": "INTENTIONAL",
+      "impacts": [
+        {
+          "softwareQuality": "RELIABILITY",
+          "severity": "HIGH"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "fa3f1d80-4a64-4d25-ac16-04c0329476ee",
+      "rule": "java:S2095",
+      "severity": "BLOCKER",
+      "component": "project_1:Clean_Code/VulnerableLogin.java",
+      "project": "project_1",
+      "line": 7,
+      "hash": "3ddc3ac1a4ff37c5d8477572088807a9",
+      "textRange": {
+        "startLine": 7,
+        "endLine": 7,
+        "startOffset": 25,
+        "endOffset": 47
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "Use try-with-resources or close this \"Statement\" in a \"finally\" clause.",
+      "effort": "5min",
+      "debt": "5min",
+      "author": "",
+      "tags": [
+        "cwe",
+        "symbolic-execution",
+        "leak",
+        "denial-of-service",
+        "cert"
+      ],
+      "creationDate": "2026-07-22T03:37:23+0000",
+      "updateDate": "2026-07-22T03:37:23+0000",
+      "type": "BUG",
+      "scope": "MAIN",
+      "quickFixAvailable": false,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "COMPLETE",
+      "cleanCodeAttributeCategory": "INTENTIONAL",
+      "impacts": [
+        {
+          "softwareQuality": "RELIABILITY",
+          "severity": "HIGH"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "e0637d55-92e9-45a0-a717-c7ad95afdb05",
+      "rule": "java:S106",
+      "severity": "MAJOR",
+      "component": "project_1:Clean_Code/VulnerableLogin.java",
+      "project": "project_1",
+      "line": 18,
+      "hash": "313ed0c2f7fb9f1ea40deb1ead410ada",
+      "textRange": {
+        "startLine": 18,
+        "endLine": 18,
+        "startOffset": 12,
+        "endOffset": 22
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "Replace this use of System.out by a logger.",
+      "effort": "10min",
+      "debt": "10min",
+      "author": "",
+      "tags": [
+        "bad-practice",
+        "cert"
+      ],
+      "creationDate": "2026-07-22T03:37:23+0000",
+      "updateDate": "2026-07-22T03:37:23+0000",
+      "type": "CODE_SMELL",
+      "scope": "MAIN",
+      "quickFixAvailable": false,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "MODULAR",
+      "cleanCodeAttributeCategory": "ADAPTABLE",
+      "impacts": [
+        {
+          "softwareQuality": "MAINTAINABILITY",
+          "severity": "MEDIUM"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "50b6b027-d84c-42b5-9254-d3db144451e9",
+      "rule": "java:S106",
+      "severity": "MAJOR",
+      "component": "project_1:Clean_Code/VulnerableLogin.java",
+      "project": "project_1",
+      "line": 20,
+      "hash": "5a451f1e7a9e9f23cb65ba8b67337b5d",
+      "textRange": {
+        "startLine": 20,
+        "endLine": 20,
+        "startOffset": 12,
+        "endOffset": 22
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "Replace this use of System.out by a logger.",
+      "effort": "10min",
+      "debt": "10min",
+      "author": "",
+      "tags": [
+        "bad-practice",
+        "cert"
+      ],
+      "creationDate": "2026-07-22T03:37:23+0000",
+      "updateDate": "2026-07-22T03:37:23+0000",
+      "type": "CODE_SMELL",
+      "scope": "MAIN",
+      "quickFixAvailable": false,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "MODULAR",
+      "cleanCodeAttributeCategory": "ADAPTABLE",
+      "impacts": [
+        {
+          "softwareQuality": "MAINTAINABILITY",
+          "severity": "MEDIUM"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "cf38ee7e-cf40-4d66-bdb5-8f1f2157cd62",
+      "rule": "java:S1220",
+      "severity": "MINOR",
+      "component": "project_1:Clean_Code/VulnerablePath.java",
+      "project": "project_1",
+      "flows": [],
+      "status": "OPEN",
+      "message": "Move this file to a named package.",
+      "effort": "10min",
+      "debt": "10min",
+      "author": "",
+      "tags": [
+        "convention"
+      ],
+      "creationDate": "2026-07-22T03:37:23+0000",
+      "updateDate": "2026-07-22T03:37:23+0000",
+      "type": "CODE_SMELL",
+      "scope": "MAIN",
+      "quickFixAvailable": false,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "MODULAR",
+      "cleanCodeAttributeCategory": "ADAPTABLE",
+      "impacts": [
+        {
+          "softwareQuality": "MAINTAINABILITY",
+          "severity": "LOW"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "72964105-f1d2-403e-b1ed-05a5de584f64",
+      "rule": "java:S2095",
+      "severity": "BLOCKER",
+      "component": "project_1:Clean_Code/VulnerablePath.java",
+      "project": "project_1",
+      "line": 18,
+      "hash": "3995f7c25f8fbbf46396c3f76d6545f4",
+      "textRange": {
+        "startLine": 18,
+        "endLine": 18,
+        "startOffset": 36,
+        "endOffset": 104
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "Use try-with-resources or close this \"BufferedReader\" in a \"finally\" clause.",
+      "effort": "5min",
+      "debt": "5min",
+      "author": "",
+      "tags": [
+        "cwe",
+        "symbolic-execution",
+        "leak",
+        "denial-of-service",
+        "cert"
+      ],
+      "creationDate": "2026-07-22T03:37:23+0000",
+      "updateDate": "2026-07-22T03:37:23+0000",
+      "type": "BUG",
+      "scope": "MAIN",
+      "quickFixAvailable": false,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "COMPLETE",
+      "cleanCodeAttributeCategory": "INTENTIONAL",
+      "impacts": [
+        {
+          "softwareQuality": "RELIABILITY",
+          "severity": "HIGH"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "10e3990c-0bc5-4306-a793-13500e7d6649",
+      "rule": "java:S106",
+      "severity": "MAJOR",
+      "component": "project_1:Clean_Code/VulnerablePath.java",
+      "project": "project_1",
+      "line": 21,
+      "hash": "55d57adc55d4ff4c57a99320539786e1",
+      "textRange": {
+        "startLine": 21,
+        "endLine": 21,
+        "startOffset": 16,
+        "endOffset": 26
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "Replace this use of System.out by a logger.",
+      "effort": "10min",
+      "debt": "10min",
+      "author": "",
+      "tags": [
+        "bad-practice",
+        "cert"
+      ],
+      "creationDate": "2026-07-22T03:37:23+0000",
+      "updateDate": "2026-07-22T03:37:23+0000",
+      "type": "CODE_SMELL",
+      "scope": "MAIN",
+      "quickFixAvailable": false,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "MODULAR",
+      "cleanCodeAttributeCategory": "ADAPTABLE",
+      "impacts": [
+        {
+          "softwareQuality": "MAINTAINABILITY",
+          "severity": "MEDIUM"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    }
+  ],
+  "components": [
+    {
+      "key": "project_1:Clean_Code/VulnerableCommand.java",
+      "enabled": true,
+      "qualifier": "FIL",
+      "name": "VulnerableCommand.java",
+      "longName": "Clean_Code/VulnerableCommand.java",
+      "path": "Clean_Code/VulnerableCommand.java"
+    },
+    {
+      "key": "project_1:Clean_Code/VulnerablePath.java",
+      "enabled": true,
+      "qualifier": "FIL",
+      "name": "VulnerablePath.java",
+      "longName": "Clean_Code/VulnerablePath.java",
+      "path": "Clean_Code/VulnerablePath.java"
+    },
+    {
+      "key": "project_1",
+      "enabled": true,
+      "qualifier": "TRK",
+      "name": "project_1",
+      "longName": "project_1"
+    },
+    {
+      "key": "project_1:Clean_Code/VulnerableLogin.java",
+      "enabled": true,
+      "qualifier": "FIL",
+      "name": "VulnerableLogin.java",
+      "longName": "Clean_Code/VulnerableLogin.java",
+      "path": "Clean_Code/VulnerableLogin.java"
+    }
+  ],
+  "facets": []
+}

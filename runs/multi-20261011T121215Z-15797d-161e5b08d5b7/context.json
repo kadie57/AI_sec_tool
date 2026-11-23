@@ -1,0 +1,280 @@
+{
+  "version": "multi-sql89-path22-command78-v2-sql-fallback",
+  "script_sha256": "a892b15c5e002259e2bc70b87cf5f73d8fec44c7f9426587c3b2df71d0c9b382",
+  "collection": "/home/khanh/AI_sec_tool/runs/20261011T121215Z-15797d",
+  "collection_manifest_sha256": "be551ace6e9efcd572d09f860c5a3f076058142de1db8dd0e93af0bb455a4199",
+  "collection_issues_sha256": "6ee7b88c703ca63bd8b36eb11a08ff7f3ae2193ad50135dae2fc8662ccf3aef9",
+  "config_sha256": "5ccd3af7e74064b93cedca49c603531e1b6a2087f095dff3fa4f3d27006d7e03",
+  "dependency_sha256": {
+    "check_sql_prompt_controls.py": "f24df75851b0707b626a94b4f90ec6b5eacd5c1d5d20cd8d46a16b848163feb8",
+    "cwe_mapper.py": "a7a15bbc4a2d1eb84f4ea23a341ce85d8d1b23bece18d975d1da09c1d163f28c",
+    "iris_prompter.py": "2ab8daf9250b3716f1fc47599c83a6996db7df4da908a687b7a3050d4c8de5cb",
+    "master_pipeline.py": "dd0165e2145edc00fa76506a6cb08380d58b2fcf7e97eb957cd5edcda156660c",
+    "master_pipeline_combined_v1.py": "6839ca9b284fc725c59c2311b0304a279278bbf71bcc89482392c59db084cbac",
+    "master_pipeline_multi_v1.py": "a892b15c5e002259e2bc70b87cf5f73d8fec44c7f9426587c3b2df71d0c9b382",
+    "master_pipeline_source_v1.py": "e71ef6ee92bc5778dc31edb53d97dc55668a0d767181971aed0a6cb6bdc6d820",
+    "master_pipeline_v6.py": "57dadd796396bb53d9246385607a64da891033223da83d91606db2317a1ccfcf",
+    "path_triage_v2.py": "cbc7c751381d7c8b16a6cef0d31d240c08a571ed77b8833c655fe07c8abdd9e1",
+    "replay_source_merge.py": "f08b8d1eaa68bfdabf1973a3af9fd49e1e26cdf8f79813401ae76b7a9cf6a066",
+    "source_audit_v2.py": "d352094d47d0b8d5523d573f7996c4616dce45d2db32816f3fd72038a3bf0cf4",
+    "triage_v5.py": "a52fa7d8ea4909644e90036f89150c605469e7a9804f4aeee732db2ef03cab22",
+    "triage_v6.py": "f88ff5921dbabbb259577888dea1f414190cb6e44a69efabe3dcb790a469a90d",
+    "validate_v6.py": "57a67d2d69730d6f6a10a4b9926747ba5b84c75615952851c5f4652091127ad4"
+  },
+  "items": [
+    {
+      "index": 5,
+      "issue": {
+        "key": "02583911-76f1-452b-b6a2-5aa4737da277",
+        "rule": "findsecbugs:PATH_TRAVERSAL_IN",
+        "severity": "MAJOR",
+        "component": "project_1:Clean_Code/pilot_path22/PathCase01.java",
+        "project": "project_1",
+        "line": 14,
+        "hash": "45b30b4bfa30fab9d17967e0b9298d4c",
+        "textRange": {
+          "startLine": 14,
+          "endLine": 14,
+          "startOffset": 0,
+          "endOffset": 39
+        },
+        "flows": [],
+        "status": "OPEN",
+        "message": "This API (java/io/File.<init>(Ljava/lang/String;)V) reads a file whose location might be specified by user input",
+        "author": "",
+        "tags": [
+          "cwe",
+          "owasp-a4",
+          "wasc"
+        ],
+        "creationDate": "2026-10-08T11:12:05+0000",
+        "updateDate": "2026-10-08T11:12:05+0000",
+        "type": "VULNERABILITY",
+        "scope": "MAIN",
+        "quickFixAvailable": false,
+        "messageFormattings": [],
+        "codeVariants": [],
+        "cleanCodeAttribute": "CONVENTIONAL",
+        "cleanCodeAttributeCategory": "CONSISTENT",
+        "impacts": [
+          {
+            "softwareQuality": "SECURITY",
+            "severity": "MEDIUM"
+          }
+        ],
+        "issueStatus": "OPEN",
+        "prioritizedRule": false,
+        "fromSonarQubeUpdate": false,
+        "internalTags": [],
+        "linkedTicketStatus": "NOT_LINKED"
+      },
+      "route": "path",
+      "source_sha256": "cd52945fba3047ebbffb2e963993d05f26acad1be5843c5c3b203034978550a2"
+    },
+    {
+      "index": 9,
+      "issue": {
+        "key": "38f957d9-cc37-410b-9902-2ab3f6749e1d",
+        "rule": "findsecbugs:PATH_TRAVERSAL_IN",
+        "severity": "MAJOR",
+        "component": "project_1:Clean_Code/pilot_path22/PathCase02.java",
+        "project": "project_1",
+        "line": 16,
+        "hash": "45b30b4bfa30fab9d17967e0b9298d4c",
+        "textRange": {
+          "startLine": 16,
+          "endLine": 16,
+          "startOffset": 0,
+          "endOffset": 39
+        },
+        "flows": [],
+        "status": "OPEN",
+        "message": "This API (java/io/File.<init>(Ljava/lang/String;)V) reads a file whose location might be specified by user input",
+        "author": "",
+        "tags": [
+          "cwe",
+          "owasp-a4",
+          "wasc"
+        ],
+        "creationDate": "2026-10-08T11:12:05+0000",
+        "updateDate": "2026-10-08T11:12:05+0000",
+        "type": "VULNERABILITY",
+        "scope": "MAIN",
+        "quickFixAvailable": false,
+        "messageFormattings": [],
+        "codeVariants": [],
+        "cleanCodeAttribute": "CONVENTIONAL",
+        "cleanCodeAttributeCategory": "CONSISTENT",
+        "impacts": [
+          {
+            "softwareQuality": "SECURITY",
+            "severity": "MEDIUM"
+          }
+        ],
+        "issueStatus": "OPEN",
+        "prioritizedRule": false,
+        "fromSonarQubeUpdate": false,
+        "internalTags": [],
+        "linkedTicketStatus": "NOT_LINKED"
+      },
+      "route": "path",
+      "source_sha256": "46432cdaabbead130d0b7d63f663400275aec5101ceb32c3bc6aa6130e2a599c"
+    },
+    {
+      "index": 36,
+      "issue": {
+        "key": "dfb4c71b-0062-4df5-aa5c-39c5799a10c3",
+        "rule": "findsecbugs:SQL_INJECTION_JDBC",
+        "severity": "CRITICAL",
+        "component": "project_1:Clean_Code/lab/Case03.java",
+        "project": "project_1",
+        "line": 14,
+        "hash": "4d418b8e30ef2a1000087966da88eca7",
+        "textRange": {
+          "startLine": 14,
+          "endLine": 14,
+          "startOffset": 0,
+          "endOffset": 55
+        },
+        "flows": [],
+        "status": "OPEN",
+        "message": "This use of java/sql/Statement.executeQuery(Ljava/lang/String;)Ljava/sql/ResultSet; can be vulnerable to SQL injection (with JDBC)",
+        "author": "",
+        "tags": [
+          "cwe",
+          "owasp-a1",
+          "injection",
+          "wasc"
+        ],
+        "creationDate": "2026-09-25T14:40:02+0000",
+        "updateDate": "2026-09-25T14:40:02+0000",
+        "type": "VULNERABILITY",
+        "scope": "MAIN",
+        "quickFixAvailable": false,
+        "messageFormattings": [],
+        "codeVariants": [],
+        "cleanCodeAttribute": "CONVENTIONAL",
+        "cleanCodeAttributeCategory": "CONSISTENT",
+        "impacts": [
+          {
+            "softwareQuality": "SECURITY",
+            "severity": "HIGH"
+          }
+        ],
+        "issueStatus": "OPEN",
+        "prioritizedRule": false,
+        "fromSonarQubeUpdate": false,
+        "internalTags": [],
+        "linkedTicketStatus": "NOT_LINKED"
+      },
+      "route": "sql",
+      "source_sha256": "aa76a238ddc264d720eb4ab607a057956241348353f7232b892ef91029354c01"
+    },
+    {
+      "index": 37,
+      "issue": {
+        "key": "b519e4bd-5144-4003-9532-a4df1ddcd09a",
+        "rule": "findsecbugs:SQL_INJECTION_JDBC",
+        "severity": "CRITICAL",
+        "component": "project_1:Clean_Code/lab/Case01.java",
+        "project": "project_1",
+        "line": 24,
+        "hash": "4d418b8e30ef2a1000087966da88eca7",
+        "textRange": {
+          "startLine": 24,
+          "endLine": 24,
+          "startOffset": 0,
+          "endOffset": 55
+        },
+        "flows": [],
+        "status": "OPEN",
+        "message": "This use of java/sql/Statement.executeQuery(Ljava/lang/String;)Ljava/sql/ResultSet; can be vulnerable to SQL injection (with JDBC)",
+        "author": "",
+        "tags": [
+          "cwe",
+          "owasp-a1",
+          "injection",
+          "wasc"
+        ],
+        "creationDate": "2026-09-25T11:38:03+0000",
+        "updateDate": "2026-09-25T11:38:03+0000",
+        "type": "VULNERABILITY",
+        "scope": "MAIN",
+        "quickFixAvailable": false,
+        "messageFormattings": [],
+        "codeVariants": [],
+        "cleanCodeAttribute": "CONVENTIONAL",
+        "cleanCodeAttributeCategory": "CONSISTENT",
+        "impacts": [
+          {
+            "softwareQuality": "SECURITY",
+            "severity": "HIGH"
+          }
+        ],
+        "issueStatus": "OPEN",
+        "prioritizedRule": false,
+        "fromSonarQubeUpdate": false,
+        "internalTags": [],
+        "linkedTicketStatus": "NOT_LINKED"
+      },
+      "route": "sql",
+      "source_sha256": "9efdfff1edc26ca7c4336c043130b0ca423daba7a920fbb491f5138a17b84c17"
+    },
+    {
+      "index": 51,
+      "issue": {
+        "key": "4dceec73-e771-49da-87f9-a09db0d313ff",
+        "rule": "findsecbugs:PATH_TRAVERSAL_IN",
+        "severity": "MAJOR",
+        "component": "project_1:Clean_Code/VulnerablePath.java",
+        "project": "project_1",
+        "line": 16,
+        "hash": "45b30b4bfa30fab9d17967e0b9298d4c",
+        "textRange": {
+          "startLine": 16,
+          "endLine": 16,
+          "startOffset": 0,
+          "endOffset": 43
+        },
+        "flows": [],
+        "status": "OPEN",
+        "message": "This API (java/io/File.<init>(Ljava/lang/String;)V) reads a file whose location might be specified by user input",
+        "author": "",
+        "tags": [
+          "cwe",
+          "owasp-a4",
+          "wasc"
+        ],
+        "creationDate": "2026-07-22T03:37:23+0000",
+        "updateDate": "2026-10-08T08:24:50+0000",
+        "type": "VULNERABILITY",
+        "scope": "MAIN",
+        "quickFixAvailable": false,
+        "messageFormattings": [],
+        "codeVariants": [],
+        "cleanCodeAttribute": "CONVENTIONAL",
+        "cleanCodeAttributeCategory": "CONSISTENT",
+        "impacts": [
+          {
+            "softwareQuality": "SECURITY",
+            "severity": "MEDIUM"
+          }
+        ],
+        "issueStatus": "OPEN",
+        "prioritizedRule": false,
+        "fromSonarQubeUpdate": false,
+        "internalTags": [],
+        "linkedTicketStatus": "NOT_LINKED"
+      },
+      "route": "path",
+      "source_sha256": "69cae2e81c358bc448b57790b16aeeda691c5ff1fd2ed89b6c7704439cee9347"
+    }
+  ],
+  "selection": [
+    "project_1:Clean_Code/VulnerablePath.java",
+    "project_1:Clean_Code/lab/Case01.java",
+    "project_1:Clean_Code/lab/Case03.java",
+    "project_1:Clean_Code/pilot_path22/PathCase01.java",
+    "project_1:Clean_Code/pilot_path22/PathCase02.java"
+  ]
+}

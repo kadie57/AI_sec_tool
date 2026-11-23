@@ -1,0 +1,73 @@
+{
+  "issue_id": "4e160750-8242-47c3-af54-6b9351ff593d",
+  "rule": "findsecbugs:COMMAND_INJECTION",
+  "component": "project_1:Clean_Code/eval_followup21/Sample301.java",
+  "line": 9,
+  "message": "This usage of java/lang/Runtime.exec(Ljava/lang/String;)Ljava/lang/Process; can be vulnerable to Command Injection",
+  "cwe_id": "CWE-78",
+  "source_sha256": "4bafab36d201acbf1b0275f3191a45deb85069209945116555f3626320f53fce",
+  "artifact_dir": "issue-0035",
+  "verdict": "UNKNOWN",
+  "ai_verdict": "UNKNOWN",
+  "requires_review": true,
+  "review_status": "PENDING",
+  "reviewed_verdict": null,
+  "evidence_lines": [
+    4,
+    6,
+    8,
+    9
+  ],
+  "missing_context": [
+    "Kiểm tra đầu vào để đảm bảo 'value' không chứa ký tự đặc biệt hoặc khoảng trắng"
+  ],
+  "error_kind": null,
+  "prompt_version": "command78-direct-exec-pilot-v1",
+  "model": "qwen2.5-coder:14b-instruct-q4_K_M",
+  "execution_guard": {
+    "execution_kind": "DIRECT_EXEC",
+    "supported": true,
+    "executable": "/usr/bin/find",
+    "command_variable": "command",
+    "evidence_lines": [
+      8,
+      9
+    ],
+    "reason": "Runtime.exec(String), tiền tố chương trình cố định; không tự gọi shell.",
+    "limitation": "Không chứng minh binary thực tế, tác động đối số hay nguồn ngoài."
+  },
+  "flow_count": 1,
+  "decision_basis": "COMMAND_EFFECT_UNRESOLVED",
+  "processing_status": "AI_PROPOSED",
+  "source_kind": "EXTERNAL_READ",
+  "command_effect": "DANGEROUS_ARGUMENTS",
+  "execution_kind": "DIRECT_EXEC",
+  "model_assessment": {
+    "source": {
+      "source_kind": "EXTERNAL_READ",
+      "explanation": "Đọc đầu vào từ args của main và sử dụng trong lệnh exec.",
+      "evidence_lines": [
+        4,
+        6,
+        8,
+        9
+      ],
+      "missing_context": []
+    },
+    "command": {
+      "command_effect": "DANGEROUS_ARGUMENTS",
+      "explanation": "Đầu vào 'value' từ tham số dòng lệnh được nối trực tiếp vào chuỗi lệnh 'find'. Mặc dù Runtime.exec không tự gọi shell, nhưng nếu 'value' chứa khoảng trắng hoặc ký tự đặc biệt như '*', nó có thể điều khiển đối số của lệnh 'find', dẫn đến hành vi nguy hiểm như tìm kiếm các tệp không mong muốn.",
+      "evidence_lines": [
+        8,
+        9
+      ],
+      "missing_context": [
+        "Kiểm tra đầu vào để đảm bảo 'value' không chứa ký tự đặc biệt hoặc khoảng trắng"
+      ],
+      "execution_kind": "DIRECT_EXEC"
+    }
+  },
+  "explanation": "Nguồn: Đọc đầu vào từ args của main và sử dụng trong lệnh exec.\nLệnh: Đầu vào 'value' từ tham số dòng lệnh được nối trực tiếp vào chuỗi lệnh 'find'. Mặc dù Runtime.exec không tự gọi shell, nhưng nếu 'value' chứa khoảng trắng hoặc ký tự đặc biệt như '*', nó có thể điều khiển đối số của lệnh 'find', dẫn đến hành vi nguy hiểm như tìm kiếm các tệp không mong muốn.",
+  "elapsed_seconds": 184.069,
+  "total_seconds": 192.669
+}

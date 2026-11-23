@@ -1,0 +1,118 @@
+{
+  "issue_id": "07951150-c656-48e8-a94d-c3d8bcd0a08a",
+  "rule": "findsecbugs:SQL_INJECTION_JDBC",
+  "component": "thesis_owasp_holdout_v1:experiments/owasp_holdout_v1/inputs/a452b3aafd232245d0753e54eb243d6651f8ef96/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01311.java",
+  "line": 53,
+  "source_sha256": "a994ead8fea2618bc3916f9ab3b0fa6c57d8ee53bb27b8946babe8adf044c870",
+  "artifact_dir": "issue-0235",
+  "verdict": "LIKELY_TP",
+  "explanation": "Kết luận: LIKELY_TP. Có cơ sở đề xuất cảnh báo đúng: kiểm tra nguồn báo cáo đầu vào bên ngoài và phân tích SQL báo cáo khả năng thay đổi cú pháp truy vấn.\n\nNguồn dữ liệu: Kiểm tra nguồn báo cáo có thao tác đọc đầu vào bên ngoài liên quan tới truy vấn.\n\nTác động SQL: Bước 2 báo cáo dữ liệu có thể thay đổi cú pháp SQL (CHANGEABLE). Điều này tự nó chưa chứng minh nguồn do người bên ngoài kiểm soát.\n\nCác dòng mã được bước 2 dẫn (cần đối chiếu lập luận):\n33:     public void doGet(HttpServletRequest request, HttpServletResponse response)\n40:             throws ServletException, IOException {\n48:         String sql = \"SELECT * from USERS where USERNAME='foo' and PASSWORD='\" + bar + \"'\";\n53:             statement.execute(sql);",
+  "evidence_lines": [
+    33,
+    40,
+    43,
+    48,
+    53
+  ],
+  "missing_context": [],
+  "error_kind": null,
+  "decision_basis": "EXTERNAL_CONTROL_AND_CHANGEABLE_SQL_REPORTED",
+  "model_assessment": {
+    "explanation": "Kết luận: LIKELY_TP. Có cơ sở đề xuất cảnh báo đúng: kiểm tra nguồn báo cáo đầu vào bên ngoài và phân tích SQL báo cáo khả năng thay đổi cú pháp truy vấn.\n\nNguồn dữ liệu: Kiểm tra nguồn báo cáo có thao tác đọc đầu vào bên ngoài liên quan tới truy vấn.\n\nTác động SQL: Bước 2 báo cáo dữ liệu có thể thay đổi cú pháp SQL (CHANGEABLE). Điều này tự nó chưa chứng minh nguồn do người bên ngoài kiểm soát.\n\nCác dòng mã được bước 2 dẫn (cần đối chiếu lập luận):\n33:     public void doGet(HttpServletRequest request, HttpServletResponse response)\n40:             throws ServletException, IOException {\n48:         String sql = \"SELECT * from USERS where USERNAME='foo' and PASSWORD='\" + bar + \"'\";\n53:             statement.execute(sql);",
+    "evidence_lines": [
+      33,
+      40,
+      43,
+      48,
+      53
+    ],
+    "source_control": "CONFIRMED",
+    "sql_effect": "CHANGEABLE",
+    "missing_context": []
+  },
+  "requires_review": true,
+  "gap_resolution": [],
+  "gap_resolution_origin": null,
+  "explanation_version": "sql-source-merge-explanation-v2",
+  "explanation_origin": "DETERMINISTIC_COMPOSITION_OF_MODEL_FACTS",
+  "stage2_explanation_original": "Dữ liệu đầu vào là `param` được lấy từ request HTTP (`request.getParameter(\"BenchmarkTest01311\")`). Giá trị này sau đó được chuyển qua hàm `doSomething()` trong lớp `Test`, và kết quả được gán cho biến `bar`. Câu SQL được tạo bằng cách ghép chuỗi với giá trị của `bar` và thực thi thông qua đối tượng `Statement`. Trước khi gọi SQL, có một điều kiện kiểm tra: nếu `(500 / 42) + num > 200`, thì `bar` sẽ nhận giá trị của `param`; ngược lại, `bar` sẽ là chuỗi \"This should never happen\". Điều kiện này luôn đúng vì `(500 / 42)` kết quả là một số nhỏ hơn 12, cộng với `num = 196` sẽ luôn lớn hơn 200. Do đó, chương trình luôn đi tới lời gọi SQL. Từ những điều trên, người cung cấp đầu vào có thể làm thay đổi cấu trúc truy vấn thông qua việc nhập các ký tự đặc biệt như dấu nháy đơn (`'`) hoặc dấu chấm phẩy (`;`). Điều này cho phép kẻ tấn công chèn thêm các câu lệnh SQL khác vào chuỗi, dẫn đến việc thực thi mã SQL không mong muốn.",
+  "source_explanation_original": "Dữ liệu đầu vào từ request.getParameter('BenchmarkTest01311') được sử dụng để xây dựng câu SQL.",
+  "stage2_assessment_original": {
+    "explanation": "Dữ liệu đầu vào là `param` được lấy từ request HTTP (`request.getParameter(\"BenchmarkTest01311\")`). Giá trị này sau đó được chuyển qua hàm `doSomething()` trong lớp `Test`, và kết quả được gán cho biến `bar`. Câu SQL được tạo bằng cách ghép chuỗi với giá trị của `bar` và thực thi thông qua đối tượng `Statement`. Trước khi gọi SQL, có một điều kiện kiểm tra: nếu `(500 / 42) + num > 200`, thì `bar` sẽ nhận giá trị của `param`; ngược lại, `bar` sẽ là chuỗi \"This should never happen\". Điều kiện này luôn đúng vì `(500 / 42)` kết quả là một số nhỏ hơn 12, cộng với `num = 196` sẽ luôn lớn hơn 200. Do đó, chương trình luôn đi tới lời gọi SQL. Từ những điều trên, người cung cấp đầu vào có thể làm thay đổi cấu trúc truy vấn thông qua việc nhập các ký tự đặc biệt như dấu nháy đơn (`'`) hoặc dấu chấm phẩy (`;`). Điều này cho phép kẻ tấn công chèn thêm các câu lệnh SQL khác vào chuỗi, dẫn đến việc thực thi mã SQL không mong muốn.",
+    "evidence_lines": [
+      33,
+      40,
+      48,
+      53
+    ],
+    "source_control": "CONFIRMED",
+    "sql_effect": "CHANGEABLE",
+    "missing_context": []
+  },
+  "stage2_evidence_resolved": [
+    {
+      "line": 33,
+      "code": "    public void doGet(HttpServletRequest request, HttpServletResponse response)"
+    },
+    {
+      "line": 40,
+      "code": "            throws ServletException, IOException {"
+    },
+    {
+      "line": 48,
+      "code": "        String sql = \"SELECT * from USERS where USERNAME='foo' and PASSWORD='\" + bar + \"'\";"
+    },
+    {
+      "line": 53,
+      "code": "            statement.execute(sql);"
+    }
+  ],
+  "source_assessment_changed": false,
+  "explanation_limitations": [
+    "Việc ghép không thẩm định ngữ nghĩa của nhận định AI hoặc chọn lại dòng bằng chứng.",
+    "Giải thích gốc từng bước được lưu riêng; nhận định nguồn bước 2 có thể đã bị sửa."
+  ],
+  "prompt_version": "sql-source-http-gap-review-v4",
+  "decision_policy_version": "sql89-compact-facts-v5",
+  "review_status": "PENDING",
+  "reviewed_verdict": null,
+  "ai_verdict": "LIKELY_TP",
+  "baseline_ai_verdict": "LIKELY_TP",
+  "source_kind": "EXTERNAL_READ",
+  "sql_effect_reused": "CHANGEABLE",
+  "model": "qwen2.5-coder:14b-instruct-q4_K_M",
+  "analysis_route": "sql",
+  "combined_verdict": "LIKELY_TP",
+  "previous_final_verdict": "UNKNOWN",
+  "previous_error_kind": "SOURCE_AUDIT_ERROR",
+  "stage2_verdict_reused": "LIKELY_TP",
+  "stage2_sql_effect_reused": "CHANGEABLE",
+  "processing_status": "AI_PROPOSED",
+  "source_audit_facts": {
+    "source_kind": "EXTERNAL_READ",
+    "source_evidence": [
+      {
+        "line": 33
+      }
+    ],
+    "flow_evidence": [
+      {
+        "line": 43
+      },
+      {
+        "line": 48
+      },
+      {
+        "line": 53
+      }
+    ],
+    "explanation": "Dữ liệu đầu vào từ request.getParameter('BenchmarkTest01311') được sử dụng để xây dựng câu SQL.",
+    "missing_context": []
+  },
+  "source_audit_error_kind": null,
+  "source_audit_attempt_count": 1,
+  "gap_reviews": [],
+  "elapsed_seconds": 97.046,
+  "elapsed_scope": "saved_source_attempts_only",
+  "decision_origin": "REUSED_SQL_AND_NEW_SOURCE_MODEL_REVIEW"
+}
