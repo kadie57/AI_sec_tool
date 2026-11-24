@@ -1,0 +1,253 @@
+{
+  "fixture": "sql8",
+  "evaluation_scope": "Previously inspected development cases. Reference labels matched after inference.",
+  "changed_request_field": "selected_evidence",
+  "model": "qwen2.5-coder:14b-instruct-q4_K_M",
+  "model_digest": "9ec8897f747e246e970bc5cfdda85d22f1123dc2e3d34978a010a75968716849",
+  "cases_count": 8,
+  "baseline": {
+    "verdict_counts": {
+      "UNKNOWN": 3,
+      "ERROR": 5
+    },
+    "correct_decided": 0,
+    "incorrect_decided": 0,
+    "raw_warning_line_citations": 7,
+    "errors_by_message": {
+      "Decisive verdict needs warning line and supporting evidence": 4,
+      "Citation outside provided code or blank": 1
+    },
+    "mean_prompt_tokens": 1314.12,
+    "total_elapsed_seconds": 1025.02
+  },
+  "selected_evidence": {
+    "verdict_counts": {
+      "UNKNOWN": 4,
+      "LIKELY_TP": 4
+    },
+    "correct_decided": 3,
+    "incorrect_decided": 1,
+    "raw_warning_line_citations": 7,
+    "errors_by_message": {},
+    "mean_prompt_tokens": 2044,
+    "total_elapsed_seconds": 1660.92
+  },
+  "cases": [
+    {
+      "sample": "BenchmarkTest00999",
+      "issue_id": "cdeb1d77-373a-4bf5-9b38-7117ab0d4d7d",
+      "reference_vulnerability": false,
+      "baseline": {
+        "verdict": "UNKNOWN",
+        "raw_verdict": "UNKNOWN",
+        "error": null,
+        "reference_match": null,
+        "distinct_citations": 1,
+        "warning_line_cited": true,
+        "prompt_tokens": 1272,
+        "generated_tokens": 127,
+        "elapsed_seconds": 158.006
+      },
+      "selected_evidence": {
+        "verdict": "UNKNOWN",
+        "raw_verdict": "UNKNOWN",
+        "error": null,
+        "reference_match": null,
+        "distinct_citations": 2,
+        "warning_line_cited": false,
+        "prompt_tokens": 1941,
+        "generated_tokens": 115,
+        "elapsed_seconds": 238.96
+      }
+    },
+    {
+      "sample": "BenchmarkTest01093",
+      "issue_id": "42fe8b5f-5d89-4d3b-815b-12adc58a2461",
+      "reference_vulnerability": true,
+      "baseline": {
+        "verdict": "ERROR",
+        "raw_verdict": "LIKELY_TP",
+        "error": "Decisive verdict needs warning line and supporting evidence",
+        "reference_match": null,
+        "distinct_citations": 1,
+        "warning_line_cited": true,
+        "prompt_tokens": 1111,
+        "generated_tokens": 76,
+        "elapsed_seconds": 95.411
+      },
+      "selected_evidence": {
+        "verdict": "LIKELY_TP",
+        "raw_verdict": "LIKELY_TP",
+        "error": null,
+        "reference_match": true,
+        "distinct_citations": 2,
+        "warning_line_cited": true,
+        "prompt_tokens": 1849,
+        "generated_tokens": 120,
+        "elapsed_seconds": 182.776
+      }
+    },
+    {
+      "sample": "BenchmarkTest01311",
+      "issue_id": "07951150-c656-48e8-a94d-c3d8bcd0a08a",
+      "reference_vulnerability": true,
+      "baseline": {
+        "verdict": "ERROR",
+        "raw_verdict": "LIKELY_TP",
+        "error": "Decisive verdict needs warning line and supporting evidence",
+        "reference_match": null,
+        "distinct_citations": 1,
+        "warning_line_cited": true,
+        "prompt_tokens": 982,
+        "generated_tokens": 76,
+        "elapsed_seconds": 88.36
+      },
+      "selected_evidence": {
+        "verdict": "LIKELY_TP",
+        "raw_verdict": "LIKELY_TP",
+        "error": null,
+        "reference_match": true,
+        "distinct_citations": 2,
+        "warning_line_cited": true,
+        "prompt_tokens": 1690,
+        "generated_tokens": 121,
+        "elapsed_seconds": 166.619
+      }
+    },
+    {
+      "sample": "BenchmarkTest01558",
+      "issue_id": "a0b83a09-38be-4ab0-9be5-56c43a811134",
+      "reference_vulnerability": true,
+      "baseline": {
+        "verdict": "ERROR",
+        "raw_verdict": "LIKELY_TP",
+        "error": "Decisive verdict needs warning line and supporting evidence",
+        "reference_match": null,
+        "distinct_citations": 2,
+        "warning_line_cited": false,
+        "prompt_tokens": 1415,
+        "generated_tokens": 97,
+        "elapsed_seconds": 130.071
+      },
+      "selected_evidence": {
+        "verdict": "LIKELY_TP",
+        "raw_verdict": "LIKELY_TP",
+        "error": null,
+        "reference_match": true,
+        "distinct_citations": 2,
+        "warning_line_cited": true,
+        "prompt_tokens": 2195,
+        "generated_tokens": 115,
+        "elapsed_seconds": 213.646
+      }
+    },
+    {
+      "sample": "BenchmarkTest02088",
+      "issue_id": "8040d43a-6c70-4928-b324-f6c4abda92d2",
+      "reference_vulnerability": true,
+      "baseline": {
+        "verdict": "UNKNOWN",
+        "raw_verdict": "UNKNOWN",
+        "error": null,
+        "reference_match": null,
+        "distinct_citations": 1,
+        "warning_line_cited": true,
+        "prompt_tokens": 1859,
+        "generated_tokens": 103,
+        "elapsed_seconds": 176.615
+      },
+      "selected_evidence": {
+        "verdict": "UNKNOWN",
+        "raw_verdict": "UNKNOWN",
+        "error": null,
+        "reference_match": null,
+        "distinct_citations": 2,
+        "warning_line_cited": true,
+        "prompt_tokens": 2569,
+        "generated_tokens": 124,
+        "elapsed_seconds": 256.752
+      }
+    },
+    {
+      "sample": "BenchmarkTest02093",
+      "issue_id": "a59329b9-c85d-488c-9cb3-cef8e94aad66",
+      "reference_vulnerability": false,
+      "baseline": {
+        "verdict": "ERROR",
+        "raw_verdict": "LIKELY_TP",
+        "error": "Decisive verdict needs warning line and supporting evidence",
+        "reference_match": null,
+        "distinct_citations": 1,
+        "warning_line_cited": true,
+        "prompt_tokens": 1085,
+        "generated_tokens": 76,
+        "elapsed_seconds": 93.766
+      },
+      "selected_evidence": {
+        "verdict": "LIKELY_TP",
+        "raw_verdict": "LIKELY_TP",
+        "error": null,
+        "reference_match": false,
+        "distinct_citations": 2,
+        "warning_line_cited": true,
+        "prompt_tokens": 1865,
+        "generated_tokens": 113,
+        "elapsed_seconds": 179.398
+      }
+    },
+    {
+      "sample": "BenchmarkTest02171",
+      "issue_id": "eb1d6188-8f9d-406f-b766-9abc0851368f",
+      "reference_vulnerability": true,
+      "baseline": {
+        "verdict": "UNKNOWN",
+        "raw_verdict": "UNKNOWN",
+        "error": null,
+        "reference_match": null,
+        "distinct_citations": 1,
+        "warning_line_cited": true,
+        "prompt_tokens": 1023,
+        "generated_tokens": 120,
+        "elapsed_seconds": 102.105
+      },
+      "selected_evidence": {
+        "verdict": "UNKNOWN",
+        "raw_verdict": "UNKNOWN",
+        "error": null,
+        "reference_match": null,
+        "distinct_citations": 1,
+        "warning_line_cited": true,
+        "prompt_tokens": 1817,
+        "generated_tokens": 117,
+        "elapsed_seconds": 176.006
+      }
+    },
+    {
+      "sample": "BenchmarkTest02186",
+      "issue_id": "d2d8166a-90af-4679-8c1d-7b87d662292a",
+      "reference_vulnerability": true,
+      "baseline": {
+        "verdict": "ERROR",
+        "raw_verdict": "UNKNOWN",
+        "error": "Citation outside provided code or blank",
+        "reference_match": null,
+        "distinct_citations": 2,
+        "warning_line_cited": true,
+        "prompt_tokens": 1766,
+        "generated_tokens": 143,
+        "elapsed_seconds": 180.687
+      },
+      "selected_evidence": {
+        "verdict": "UNKNOWN",
+        "raw_verdict": "UNKNOWN",
+        "error": null,
+        "reference_match": null,
+        "distinct_citations": 2,
+        "warning_line_cited": true,
+        "prompt_tokens": 2426,
+        "generated_tokens": 139,
+        "elapsed_seconds": 246.765
+      }
+    }
+  ]
+}

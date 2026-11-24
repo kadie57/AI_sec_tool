@@ -1,0 +1,381 @@
+{
+  "scope": "Eight previously studied development alerts; no independent verdict estimate.",
+  "treatment": "Render selected paths and crop main source to citable excerpts; preserve complete prepared helpers and endpoint specifications. No new JDBC value facts.",
+  "model": "qwen2.5-coder:14b-instruct-q4_K_M",
+  "model_digest": "9ec8897f747e246e970bc5cfdda85d22f1123dc2e3d34978a010a75968716849",
+  "control_sources": [
+    "runs/sql8-endpoint-specifications/llm-focused",
+    "runs/sql8-jdbc-value-evidence/llm-control-six"
+  ],
+  "control": {
+    "verdict_counts": {
+      "UNKNOWN": 4,
+      "LIKELY_TP": 4
+    },
+    "correct_decided": 3,
+    "incorrect_decided": 1,
+    "warning_line_cited_in_raw": 8,
+    "mean_prompt_tokens": 2280.5
+  },
+  "path_snippets": {
+    "verdict_counts": {
+      "UNKNOWN": 3,
+      "LIKELY_TP": 5
+    },
+    "correct_decided": 4,
+    "incorrect_decided": 1,
+    "warning_line_cited_in_raw": 8,
+    "mean_prompt_tokens": 1925.12
+  },
+  "raw_verdict_changes": 1,
+  "cases": [
+    {
+      "sample": "BenchmarkTest00999",
+      "reference_vulnerability": false,
+      "issue_id": "cdeb1d77-373a-4bf5-9b38-7117ab0d4d7d",
+      "control": {
+        "verdict": "UNKNOWN",
+        "raw_verdict": "UNKNOWN",
+        "matches_reference": null,
+        "warning_line_cited_in_raw": true,
+        "citations": [
+          {
+            "file_id": "F0",
+            "line": 75
+          },
+          {
+            "file_id": "F0",
+            "line": 98
+          }
+        ],
+        "prompt_tokens": 2142,
+        "error": null,
+        "elapsed_seconds": 281.913
+      },
+      "path_snippets": {
+        "verdict": "UNKNOWN",
+        "raw_verdict": "UNKNOWN",
+        "matches_reference": null,
+        "warning_line_cited_in_raw": true,
+        "citations": [
+          {
+            "file_id": "F0",
+            "line": 75
+          },
+          {
+            "file_id": "F0",
+            "line": 98
+          }
+        ],
+        "prompt_tokens": 1484,
+        "error": null,
+        "elapsed_seconds": 181.032
+      }
+    },
+    {
+      "sample": "BenchmarkTest01093",
+      "reference_vulnerability": true,
+      "issue_id": "42fe8b5f-5d89-4d3b-815b-12adc58a2461",
+      "control": {
+        "verdict": "LIKELY_TP",
+        "raw_verdict": "LIKELY_TP",
+        "matches_reference": true,
+        "warning_line_cited_in_raw": true,
+        "citations": [
+          {
+            "file_id": "F0",
+            "line": 44
+          },
+          {
+            "file_id": "F0",
+            "line": 58
+          }
+        ],
+        "prompt_tokens": 2113,
+        "error": null,
+        "elapsed_seconds": 318.772
+      },
+      "path_snippets": {
+        "verdict": "LIKELY_TP",
+        "raw_verdict": "LIKELY_TP",
+        "matches_reference": true,
+        "warning_line_cited_in_raw": true,
+        "citations": [
+          {
+            "file_id": "F0",
+            "line": 58
+          },
+          {
+            "file_id": "F0",
+            "line": 44
+          }
+        ],
+        "prompt_tokens": 1915,
+        "error": null,
+        "elapsed_seconds": 194.254
+      }
+    },
+    {
+      "sample": "BenchmarkTest01311",
+      "reference_vulnerability": true,
+      "issue_id": "07951150-c656-48e8-a94d-c3d8bcd0a08a",
+      "control": {
+        "verdict": "LIKELY_TP",
+        "raw_verdict": "LIKELY_TP",
+        "matches_reference": true,
+        "warning_line_cited_in_raw": true,
+        "citations": [
+          {
+            "file_id": "F0",
+            "line": 43
+          },
+          {
+            "file_id": "F0",
+            "line": 53
+          }
+        ],
+        "prompt_tokens": 1890,
+        "error": null,
+        "elapsed_seconds": 319.048
+      },
+      "path_snippets": {
+        "verdict": "LIKELY_TP",
+        "raw_verdict": "LIKELY_TP",
+        "matches_reference": true,
+        "warning_line_cited_in_raw": true,
+        "citations": [
+          {
+            "file_id": "F0",
+            "line": 53
+          },
+          {
+            "file_id": "F0",
+            "line": 48
+          }
+        ],
+        "prompt_tokens": 1720,
+        "error": null,
+        "elapsed_seconds": 172.099
+      }
+    },
+    {
+      "sample": "BenchmarkTest01558",
+      "reference_vulnerability": true,
+      "issue_id": "a0b83a09-38be-4ab0-9be5-56c43a811134",
+      "control": {
+        "verdict": "LIKELY_TP",
+        "raw_verdict": "LIKELY_TP",
+        "matches_reference": true,
+        "warning_line_cited_in_raw": true,
+        "citations": [
+          {
+            "file_id": "F0",
+            "line": 55
+          },
+          {
+            "file_id": "F0",
+            "line": 45
+          }
+        ],
+        "prompt_tokens": 2454,
+        "error": null,
+        "elapsed_seconds": 295.731
+      },
+      "path_snippets": {
+        "verdict": "LIKELY_TP",
+        "raw_verdict": "LIKELY_TP",
+        "matches_reference": true,
+        "warning_line_cited_in_raw": true,
+        "citations": [
+          {
+            "file_id": "F0",
+            "line": 55
+          },
+          {
+            "file_id": "F0",
+            "line": 76
+          }
+        ],
+        "prompt_tokens": 2107,
+        "error": null,
+        "elapsed_seconds": 215.149
+      }
+    },
+    {
+      "sample": "BenchmarkTest02088",
+      "reference_vulnerability": true,
+      "issue_id": "8040d43a-6c70-4928-b324-f6c4abda92d2",
+      "control": {
+        "verdict": "UNKNOWN",
+        "raw_verdict": "UNKNOWN",
+        "matches_reference": null,
+        "warning_line_cited_in_raw": true,
+        "citations": [
+          {
+            "file_id": "F0",
+            "line": 61
+          },
+          {
+            "file_id": "F0",
+            "line": 44
+          }
+        ],
+        "prompt_tokens": 2853,
+        "error": null,
+        "elapsed_seconds": 455.877
+      },
+      "path_snippets": {
+        "verdict": "UNKNOWN",
+        "raw_verdict": "UNKNOWN",
+        "matches_reference": null,
+        "warning_line_cited_in_raw": true,
+        "citations": [
+          {
+            "file_id": "F0",
+            "line": 61
+          },
+          {
+            "file_id": "F0",
+            "line": 53
+          }
+        ],
+        "prompt_tokens": 2404,
+        "error": null,
+        "elapsed_seconds": 264.604
+      }
+    },
+    {
+      "sample": "BenchmarkTest02093",
+      "reference_vulnerability": false,
+      "issue_id": "a59329b9-c85d-488c-9cb3-cef8e94aad66",
+      "control": {
+        "verdict": "LIKELY_TP",
+        "raw_verdict": "LIKELY_TP",
+        "matches_reference": false,
+        "warning_line_cited_in_raw": true,
+        "citations": [
+          {
+            "file_id": "F0",
+            "line": 60
+          },
+          {
+            "file_id": "F0",
+            "line": 44
+          }
+        ],
+        "prompt_tokens": 2066,
+        "error": null,
+        "elapsed_seconds": 207.859
+      },
+      "path_snippets": {
+        "verdict": "LIKELY_TP",
+        "raw_verdict": "LIKELY_TP",
+        "matches_reference": false,
+        "warning_line_cited_in_raw": true,
+        "citations": [
+          {
+            "file_id": "F0",
+            "line": 60
+          },
+          {
+            "file_id": "F0",
+            "line": 53
+          },
+          {
+            "file_id": "F0",
+            "line": 79
+          }
+        ],
+        "prompt_tokens": 1730,
+        "error": null,
+        "elapsed_seconds": 189.465
+      }
+    },
+    {
+      "sample": "BenchmarkTest02171",
+      "reference_vulnerability": true,
+      "issue_id": "eb1d6188-8f9d-406f-b766-9abc0851368f",
+      "control": {
+        "verdict": "UNKNOWN",
+        "raw_verdict": "UNKNOWN",
+        "matches_reference": null,
+        "warning_line_cited_in_raw": true,
+        "citations": [
+          {
+            "file_id": "F0",
+            "line": 43
+          },
+          {
+            "file_id": "F0",
+            "line": 54
+          }
+        ],
+        "prompt_tokens": 2100,
+        "error": null,
+        "elapsed_seconds": 363.125
+      },
+      "path_snippets": {
+        "verdict": "LIKELY_TP",
+        "raw_verdict": "LIKELY_TP",
+        "matches_reference": true,
+        "warning_line_cited_in_raw": true,
+        "citations": [
+          {
+            "file_id": "F0",
+            "line": 73
+          },
+          {
+            "file_id": "F0",
+            "line": 54
+          }
+        ],
+        "prompt_tokens": 1742,
+        "error": null,
+        "elapsed_seconds": 177.027
+      }
+    },
+    {
+      "sample": "BenchmarkTest02186",
+      "reference_vulnerability": true,
+      "issue_id": "d2d8166a-90af-4679-8c1d-7b87d662292a",
+      "control": {
+        "verdict": "UNKNOWN",
+        "raw_verdict": "UNKNOWN",
+        "matches_reference": null,
+        "warning_line_cited_in_raw": true,
+        "citations": [
+          {
+            "file_id": "F0",
+            "line": 53
+          },
+          {
+            "file_id": "F0",
+            "line": 48
+          }
+        ],
+        "prompt_tokens": 2626,
+        "error": null,
+        "elapsed_seconds": 589.547
+      },
+      "path_snippets": {
+        "verdict": "UNKNOWN",
+        "raw_verdict": "UNKNOWN",
+        "matches_reference": null,
+        "warning_line_cited_in_raw": true,
+        "citations": [
+          {
+            "file_id": "F0",
+            "line": 43
+          },
+          {
+            "file_id": "F0",
+            "line": 53
+          }
+        ],
+        "prompt_tokens": 2299,
+        "error": null,
+        "elapsed_seconds": 254.778
+      }
+    }
+  ]
+}

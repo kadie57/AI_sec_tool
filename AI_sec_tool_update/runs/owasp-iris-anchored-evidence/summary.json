@@ -1,0 +1,462 @@
+{
+  "evaluation_scope": "Existing OWASP SQL warnings. All twelve used for evidence coverage; live Ollama pilot for the two factory cases.",
+  "iris_reference": "https://github.com/iris-sast/iris/blob/main/src/modules/contextual_analysis_pipeline.py",
+  "model_digest": "9ec8897f747e246e970bc5cfdda85d22f1123dc2e3d34978a010a75968716849",
+  "static_coverage": {
+    "alerts": 12,
+    "with_anchored_candidate_path": 11,
+    "with_cross_file_candidate_path": 3,
+    "with_verified_sql_value": 2
+  },
+  "llm_status_counts": {
+    "not_replayed": 9,
+    "identical_to_baseline": 1,
+    "completed": 2
+  },
+  "cases": [
+    {
+      "sample": "BenchmarkTest00438",
+      "issue_id": "47a9f2cb-a6ca-442d-9e56-79839ba05ff2",
+      "static": {
+        "status": "candidate_paths",
+        "contains_cross_file_path": false,
+        "value_analysis": [
+          "unknown"
+        ],
+        "paths": [
+          {
+            "source": {
+              "file_id": "F0",
+              "line": 43,
+              "api_signature": "getParameter(java.lang.String)"
+            },
+            "sink": {
+              "file_id": "F0",
+              "line": 58,
+              "name": "execute"
+            },
+            "dispatch_edges": []
+          }
+        ]
+      },
+      "llm": {
+        "baseline_verdict": "LIKELY_TP",
+        "reference_vulnerability": true,
+        "request_matches_baseline": false,
+        "status": "not_replayed"
+      }
+    },
+    {
+      "sample": "BenchmarkTest00439",
+      "issue_id": "b540bb38-9153-4ccf-abe4-cdc606763d95",
+      "static": {
+        "status": "candidate_paths",
+        "contains_cross_file_path": false,
+        "value_analysis": [
+          "unknown"
+        ],
+        "paths": [
+          {
+            "source": {
+              "file_id": "F0",
+              "line": 43,
+              "api_signature": "getParameter(java.lang.String)"
+            },
+            "sink": {
+              "file_id": "F0",
+              "line": 53,
+              "name": "executeQuery"
+            },
+            "dispatch_edges": []
+          }
+        ]
+      },
+      "llm": {
+        "baseline_verdict": "LIKELY_TP",
+        "reference_vulnerability": true,
+        "request_matches_baseline": false,
+        "status": "not_replayed"
+      }
+    },
+    {
+      "sample": "BenchmarkTest00517",
+      "issue_id": "75bd39b8-848e-4ac4-ae84-35e78cbd540e",
+      "static": {
+        "status": "candidate_paths",
+        "contains_cross_file_path": false,
+        "value_analysis": [
+          "constant_sql_text"
+        ],
+        "paths": [
+          {
+            "source": {
+              "file_id": "F0",
+              "line": 43,
+              "api_signature": "getParameterMap()"
+            },
+            "sink": {
+              "file_id": "F0",
+              "line": 62,
+              "name": "execute"
+            },
+            "dispatch_edges": []
+          }
+        ]
+      },
+      "llm": {
+        "baseline_verdict": "LIKELY_FP",
+        "reference_vulnerability": false,
+        "request_matches_baseline": false,
+        "status": "not_replayed"
+      }
+    },
+    {
+      "sample": "BenchmarkTest00592",
+      "issue_id": "823079bc-568b-4dd4-95c4-3f9c8cbeed33",
+      "static": {
+        "status": "no_candidate_path",
+        "contains_cross_file_path": false,
+        "value_analysis": [
+          "unknown"
+        ],
+        "paths": []
+      },
+      "llm": {
+        "baseline_verdict": "UNKNOWN",
+        "reference_vulnerability": false,
+        "request_matches_baseline": true,
+        "status": "identical_to_baseline"
+      }
+    },
+    {
+      "sample": "BenchmarkTest00999",
+      "issue_id": "cdeb1d77-373a-4bf5-9b38-7117ab0d4d7d",
+      "static": {
+        "status": "candidate_paths",
+        "contains_cross_file_path": false,
+        "value_analysis": [
+          "unknown"
+        ],
+        "paths": [
+          {
+            "source": {
+              "file_id": "F0",
+              "line": 55,
+              "api_signature": "getCookies()"
+            },
+            "sink": {
+              "file_id": "F0",
+              "line": 76,
+              "name": "prepareCall"
+            },
+            "dispatch_edges": []
+          }
+        ]
+      },
+      "llm": {
+        "baseline_verdict": "UNKNOWN",
+        "reference_vulnerability": false,
+        "request_matches_baseline": false,
+        "status": "not_replayed"
+      }
+    },
+    {
+      "sample": "BenchmarkTest01093",
+      "issue_id": "42fe8b5f-5d89-4d3b-815b-12adc58a2461",
+      "static": {
+        "status": "candidate_paths",
+        "contains_cross_file_path": false,
+        "value_analysis": [
+          "unknown"
+        ],
+        "paths": [
+          {
+            "source": {
+              "file_id": "F0",
+              "line": 45,
+              "api_signature": "getHeader(java.lang.String)"
+            },
+            "sink": {
+              "file_id": "F0",
+              "line": 58,
+              "name": "execute"
+            },
+            "dispatch_edges": []
+          }
+        ]
+      },
+      "llm": {
+        "baseline_verdict": "LIKELY_TP",
+        "reference_vulnerability": true,
+        "request_matches_baseline": false,
+        "status": "not_replayed"
+      }
+    },
+    {
+      "sample": "BenchmarkTest01311",
+      "issue_id": "07951150-c656-48e8-a94d-c3d8bcd0a08a",
+      "static": {
+        "status": "candidate_paths",
+        "contains_cross_file_path": false,
+        "value_analysis": [
+          "unknown"
+        ],
+        "paths": [
+          {
+            "source": {
+              "file_id": "F0",
+              "line": 43,
+              "api_signature": "getParameter(java.lang.String)"
+            },
+            "sink": {
+              "file_id": "F0",
+              "line": 53,
+              "name": "execute"
+            },
+            "dispatch_edges": []
+          }
+        ]
+      },
+      "llm": {
+        "baseline_verdict": "LIKELY_TP",
+        "reference_vulnerability": true,
+        "request_matches_baseline": false,
+        "status": "not_replayed"
+      }
+    },
+    {
+      "sample": "BenchmarkTest01558",
+      "issue_id": "a0b83a09-38be-4ab0-9be5-56c43a811134",
+      "static": {
+        "status": "candidate_paths",
+        "contains_cross_file_path": true,
+        "value_analysis": [
+          "unknown"
+        ],
+        "paths": [
+          {
+            "source": {
+              "file_id": "F1",
+              "line": 31,
+              "api_signature": "getParameter(java.lang.String)"
+            },
+            "sink": {
+              "file_id": "F0",
+              "line": 55,
+              "name": "execute"
+            },
+            "dispatch_edges": []
+          }
+        ]
+      },
+      "llm": {
+        "baseline_verdict": "LIKELY_TP",
+        "reference_vulnerability": true,
+        "request_matches_baseline": false,
+        "status": "not_replayed"
+      }
+    },
+    {
+      "sample": "BenchmarkTest02088",
+      "issue_id": "8040d43a-6c70-4928-b324-f6c4abda92d2",
+      "static": {
+        "status": "candidate_paths",
+        "contains_cross_file_path": true,
+        "value_analysis": [
+          "unknown"
+        ],
+        "paths": [
+          {
+            "source": {
+              "file_id": "F0",
+              "line": 44,
+              "api_signature": "getHeaders(java.lang.String)"
+            },
+            "sink": {
+              "file_id": "F0",
+              "line": 62,
+              "name": "prepareStatement"
+            },
+            "dispatch_edges": [
+              {
+                "file_id": "F0",
+                "line": 80,
+                "name": "doSomething",
+                "possible_targets": [
+                  {
+                    "file_id": "F1",
+                    "line": 22,
+                    "method": "org.owasp.benchmark.helpers.Thing1.doSomething:<unresolvedSignature>(1)"
+                  },
+                  {
+                    "file_id": "F2",
+                    "line": 22,
+                    "method": "org.owasp.benchmark.helpers.Thing2.doSomething:<unresolvedSignature>(1)"
+                  },
+                  {
+                    "file_id": "F4",
+                    "line": 21,
+                    "method": "org.owasp.benchmark.helpers.ThingInterface.doSomething:<unresolvedSignature>(1)"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "llm": {
+        "baseline_verdict": "UNKNOWN",
+        "reference_vulnerability": true,
+        "request_matches_baseline": false,
+        "status": "completed",
+        "verdict": "UNKNOWN",
+        "correct": null,
+        "citations": [
+          {
+            "file_id": "F0",
+            "line": 61
+          },
+          {
+            "file_id": "F0",
+            "line": 44
+          }
+        ],
+        "prompt_eval_count": 2196,
+        "elapsed_seconds": 293.997
+      }
+    },
+    {
+      "sample": "BenchmarkTest02093",
+      "issue_id": "a59329b9-c85d-488c-9cb3-cef8e94aad66",
+      "static": {
+        "status": "candidate_paths",
+        "contains_cross_file_path": false,
+        "value_analysis": [
+          "constant_sql_text"
+        ],
+        "paths": [
+          {
+            "source": {
+              "file_id": "F0",
+              "line": 44,
+              "api_signature": "getHeaders(java.lang.String)"
+            },
+            "sink": {
+              "file_id": "F0",
+              "line": 60,
+              "name": "execute"
+            },
+            "dispatch_edges": []
+          }
+        ]
+      },
+      "llm": {
+        "baseline_verdict": "LIKELY_FP",
+        "reference_vulnerability": false,
+        "request_matches_baseline": false,
+        "status": "not_replayed"
+      }
+    },
+    {
+      "sample": "BenchmarkTest02171",
+      "issue_id": "eb1d6188-8f9d-406f-b766-9abc0851368f",
+      "static": {
+        "status": "candidate_paths",
+        "contains_cross_file_path": false,
+        "value_analysis": [
+          "unknown"
+        ],
+        "paths": [
+          {
+            "source": {
+              "file_id": "F0",
+              "line": 43,
+              "api_signature": "getParameter(java.lang.String)"
+            },
+            "sink": {
+              "file_id": "F0",
+              "line": 55,
+              "name": "prepareStatement"
+            },
+            "dispatch_edges": []
+          }
+        ]
+      },
+      "llm": {
+        "baseline_verdict": "LIKELY_TP",
+        "reference_vulnerability": true,
+        "request_matches_baseline": false,
+        "status": "not_replayed"
+      }
+    },
+    {
+      "sample": "BenchmarkTest02186",
+      "issue_id": "d2d8166a-90af-4679-8c1d-7b87d662292a",
+      "static": {
+        "status": "candidate_paths",
+        "contains_cross_file_path": true,
+        "value_analysis": [
+          "unknown"
+        ],
+        "paths": [
+          {
+            "source": {
+              "file_id": "F0",
+              "line": 43,
+              "api_signature": "getParameter(java.lang.String)"
+            },
+            "sink": {
+              "file_id": "F0",
+              "line": 53,
+              "name": "execute"
+            },
+            "dispatch_edges": [
+              {
+                "file_id": "F0",
+                "line": 67,
+                "name": "doSomething",
+                "possible_targets": [
+                  {
+                    "file_id": "F1",
+                    "line": 22,
+                    "method": "org.owasp.benchmark.helpers.Thing1.doSomething:<unresolvedSignature>(1)"
+                  },
+                  {
+                    "file_id": "F2",
+                    "line": 22,
+                    "method": "org.owasp.benchmark.helpers.Thing2.doSomething:<unresolvedSignature>(1)"
+                  },
+                  {
+                    "file_id": "F4",
+                    "line": 21,
+                    "method": "org.owasp.benchmark.helpers.ThingInterface.doSomething:<unresolvedSignature>(1)"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "llm": {
+        "baseline_verdict": "UNKNOWN",
+        "reference_vulnerability": true,
+        "request_matches_baseline": false,
+        "status": "completed",
+        "verdict": "UNKNOWN",
+        "correct": null,
+        "citations": [
+          {
+            "file_id": "F0",
+            "line": 53
+          },
+          {
+            "file_id": "F0",
+            "line": 46
+          }
+        ],
+        "prompt_eval_count": 2185,
+        "elapsed_seconds": 251.044
+      }
+    }
+  ]
+}

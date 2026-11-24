@@ -1,0 +1,85 @@
+{
+  "status": "candidate_paths",
+  "matched_sources": 1,
+  "source_count": 1,
+  "candidate_paths_found": 1,
+  "search_limit_hit": false,
+  "paths": [
+    {
+      "source": {
+        "file_id": "F0",
+        "line": 43,
+        "method": "doPost",
+        "method_start": 38,
+        "method_end": 69,
+        "node_type": "Call",
+        "api_owner": "javax.servlet.ServletRequest",
+        "api_signature": "getParameterMap()"
+      },
+      "steps": [
+        {
+          "file_id": "F0",
+          "line": 45,
+          "method": "doPost",
+          "method_start": 38,
+          "method_end": 69,
+          "node_type": "Identifier"
+        },
+        {
+          "file_id": "F0",
+          "line": 46,
+          "method": "doPost",
+          "method_start": 38,
+          "method_end": 69,
+          "node_type": "Identifier"
+        },
+        {
+          "file_id": "F0",
+          "line": 47,
+          "method": "doPost",
+          "method_start": 38,
+          "method_end": 69,
+          "node_type": "Identifier"
+        },
+        {
+          "file_id": "F0",
+          "line": 55,
+          "method": "doPost",
+          "method_start": 38,
+          "method_end": 69,
+          "node_type": "Call"
+        },
+        {
+          "file_id": "F0",
+          "line": 57,
+          "method": "doPost",
+          "method_start": 38,
+          "method_end": 69,
+          "node_type": "Call"
+        }
+      ],
+      "sink": {
+        "file_id": "F0",
+        "line": 62,
+        "name": "execute",
+        "method": "doPost",
+        "method_start": 38,
+        "method_end": 69
+      },
+      "omitted_steps": 0,
+      "unlocated_nodes": 0,
+      "dispatch": []
+    }
+  ],
+  "paths_not_shown": 0,
+  "version": "sql-anchored-paths-v1",
+  "scope": "verified_java_bundle",
+  "inputs": {
+    "F0": {
+      "path": "src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00517.java",
+      "source_sha256": "3b9a5c479b25c60cc66f01cb7633cf513033f630ece04237cb5c9535cd4350d2",
+      "staged_sha256": "a271818c0c56dcf2e1b9de1cb4a4885bedd4cfef983667afa8ff30c0e53ff4d3"
+    }
+  },
+  "interpretation": "Candidate dataflow. Runtime branch and dispatch feasibility require separate evidence."
+}

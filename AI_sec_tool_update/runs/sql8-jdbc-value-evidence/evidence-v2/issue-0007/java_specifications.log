@@ -1,0 +1,17 @@
+STATUS	5
+Q	F0	54	32	java.sql.Connection	prepareStatement(java.lang.String,int,int)	55
+V	54	32	unknown	unsupported_or_runtime_value
+E	54	32	F0	72	runtime_if_merges_assignments
+E	54	32	F0	80	value_at_reference_unresolved
+E	54	32	F0	80	helper_return
+E	54	32	F0	46	helper_call
+E	54	32	F0	46	local_definition
+E	54	32	F0	48	value_at_reference_unresolved
+E	54	32	F0	48	string_concatenation_with_unresolved_operand
+E	54	32	F0	48	local_definition
+E	54	32	F0	55	value_at_reference_unresolved
+E	54	32	F0	48	sql_argument_variable_declaration
+B	54	32	58	java.sql.PreparedStatement	setString(int,java.lang.String)	58
+S	43	32	javax.servlet.ServletRequest	getParameter(java.lang.String)	true
+
+[STDERR]

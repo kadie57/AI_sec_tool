@@ -1,0 +1,976 @@
+{
+  "scope": "Eight selected development alerts, not an independent test of verdict generalization.",
+  "change": "selected_evidence.jdbc_value_evidence only",
+  "model": "qwen2.5-coder:14b-instruct-q4_K_M",
+  "model_digest": "9ec8897f747e246e970bc5cfdda85d22f1123dc2e3d34978a010a75968716849",
+  "control_artifacts": [
+    "../sql8-endpoint-specifications/llm-focused",
+    "llm-control-six"
+  ],
+  "treatment_artifact": "llm-value-v2",
+  "control": {
+    "verdicts": {
+      "UNKNOWN": 4,
+      "LIKELY_TP": 4
+    },
+    "correct_decided": 3,
+    "incorrect_decided": 1,
+    "mean_prompt_tokens": 2280.5
+  },
+  "with_values": {
+    "verdicts": {
+      "UNKNOWN": 7,
+      "LIKELY_TP": 1
+    },
+    "correct_decided": 0,
+    "incorrect_decided": 1,
+    "mean_prompt_tokens": 2617.62
+  },
+  "raw_verdict_changes": 3,
+  "cases": [
+    {
+      "sample": "BenchmarkTest00999",
+      "issue_id": "cdeb1d77-373a-4bf5-9b38-7117ab0d4d7d",
+      "reference_vulnerability": false,
+      "jdbc_value_evidence": {
+        "arguments": [
+          {
+            "call": {
+              "column": 32,
+              "file_id": "F0",
+              "line": 75
+            },
+            "evidence": [
+              {
+                "file_id": "F0",
+                "line": 58,
+                "role": "runtime_if_changes_control_flow"
+              },
+              {
+                "file_id": "F0",
+                "line": 58,
+                "role": "analysis_stopped_before_call"
+              },
+              {
+                "file_id": "F0",
+                "line": 69,
+                "role": "sql_argument_variable_declaration"
+              }
+            ],
+            "reason": "unsupported_or_runtime_value",
+            "sql_argument": {
+              "file_id": "F0",
+              "line": 76
+            },
+            "status": "unknown"
+          }
+        ],
+        "scope": "modeled_java_execution_up_to_the_reported_call",
+        "status": "evaluated",
+        "version": "jdbc-value-evidence-v2"
+      },
+      "control": {
+        "verdict": "UNKNOWN",
+        "raw_verdict": "UNKNOWN",
+        "matches_reference": null,
+        "prompt_tokens": 2142,
+        "citations": [
+          {
+            "file_id": "F0",
+            "line": 75
+          },
+          {
+            "file_id": "F0",
+            "line": 98
+          }
+        ],
+        "error": null
+      },
+      "with_values": {
+        "verdict": "UNKNOWN",
+        "raw_verdict": "UNKNOWN",
+        "matches_reference": null,
+        "prompt_tokens": 2323,
+        "citations": [
+          {
+            "file_id": "F0",
+            "line": 75
+          },
+          {
+            "file_id": "F0",
+            "line": 76
+          }
+        ],
+        "error": null
+      }
+    },
+    {
+      "sample": "BenchmarkTest01093",
+      "issue_id": "42fe8b5f-5d89-4d3b-815b-12adc58a2461",
+      "reference_vulnerability": true,
+      "jdbc_value_evidence": {
+        "arguments": [
+          {
+            "call": {
+              "column": 23,
+              "file_id": "F0",
+              "line": 58
+            },
+            "evidence": [
+              {
+                "file_id": "F0",
+                "line": 77,
+                "role": "local_assignment"
+              },
+              {
+                "file_id": "F0",
+                "line": 79,
+                "role": "value_at_reference_unresolved"
+              },
+              {
+                "file_id": "F0",
+                "line": 79,
+                "role": "helper_return"
+              },
+              {
+                "file_id": "F0",
+                "line": 51,
+                "role": "helper_call"
+              },
+              {
+                "file_id": "F0",
+                "line": 51,
+                "role": "local_definition"
+              },
+              {
+                "file_id": "F0",
+                "line": 53,
+                "role": "value_at_reference_unresolved"
+              },
+              {
+                "file_id": "F0",
+                "line": 53,
+                "role": "string_concatenation_with_unresolved_operand"
+              },
+              {
+                "file_id": "F0",
+                "line": 53,
+                "role": "local_definition"
+              },
+              {
+                "file_id": "F0",
+                "line": 58,
+                "role": "value_at_reference_unresolved"
+              },
+              {
+                "file_id": "F0",
+                "line": 53,
+                "role": "sql_argument_variable_declaration"
+              }
+            ],
+            "reason": "unsupported_or_runtime_value",
+            "sql_argument": {
+              "file_id": "F0",
+              "line": 58
+            },
+            "status": "unknown"
+          }
+        ],
+        "scope": "modeled_java_execution_up_to_the_reported_call",
+        "status": "evaluated",
+        "version": "jdbc-value-evidence-v2"
+      },
+      "control": {
+        "verdict": "LIKELY_TP",
+        "raw_verdict": "LIKELY_TP",
+        "matches_reference": true,
+        "prompt_tokens": 2113,
+        "citations": [
+          {
+            "file_id": "F0",
+            "line": 44
+          },
+          {
+            "file_id": "F0",
+            "line": 58
+          }
+        ],
+        "error": null
+      },
+      "with_values": {
+        "verdict": "UNKNOWN",
+        "raw_verdict": "UNKNOWN",
+        "matches_reference": null,
+        "prompt_tokens": 2457,
+        "citations": [
+          {
+            "file_id": "F0",
+            "line": 58
+          },
+          {
+            "file_id": "F0",
+            "line": 44
+          }
+        ],
+        "error": null
+      }
+    },
+    {
+      "sample": "BenchmarkTest01311",
+      "issue_id": "07951150-c656-48e8-a94d-c3d8bcd0a08a",
+      "reference_vulnerability": true,
+      "jdbc_value_evidence": {
+        "arguments": [
+          {
+            "call": {
+              "column": 23,
+              "file_id": "F0",
+              "line": 53
+            },
+            "evidence": [
+              {
+                "file_id": "F0",
+                "line": 71,
+                "role": "runtime_if_merges_assignments"
+              },
+              {
+                "file_id": "F0",
+                "line": 74,
+                "role": "value_at_reference_unresolved"
+              },
+              {
+                "file_id": "F0",
+                "line": 74,
+                "role": "helper_return"
+              },
+              {
+                "file_id": "F0",
+                "line": 46,
+                "role": "helper_call"
+              },
+              {
+                "file_id": "F0",
+                "line": 46,
+                "role": "local_definition"
+              },
+              {
+                "file_id": "F0",
+                "line": 48,
+                "role": "value_at_reference_unresolved"
+              },
+              {
+                "file_id": "F0",
+                "line": 48,
+                "role": "string_concatenation_with_unresolved_operand"
+              },
+              {
+                "file_id": "F0",
+                "line": 48,
+                "role": "local_definition"
+              },
+              {
+                "file_id": "F0",
+                "line": 53,
+                "role": "value_at_reference_unresolved"
+              },
+              {
+                "file_id": "F0",
+                "line": 48,
+                "role": "sql_argument_variable_declaration"
+              }
+            ],
+            "reason": "unsupported_or_runtime_value",
+            "sql_argument": {
+              "file_id": "F0",
+              "line": 53
+            },
+            "status": "unknown"
+          }
+        ],
+        "scope": "modeled_java_execution_up_to_the_reported_call",
+        "status": "evaluated",
+        "version": "jdbc-value-evidence-v2"
+      },
+      "control": {
+        "verdict": "LIKELY_TP",
+        "raw_verdict": "LIKELY_TP",
+        "matches_reference": true,
+        "prompt_tokens": 1890,
+        "citations": [
+          {
+            "file_id": "F0",
+            "line": 43
+          },
+          {
+            "file_id": "F0",
+            "line": 53
+          }
+        ],
+        "error": null
+      },
+      "with_values": {
+        "verdict": "UNKNOWN",
+        "raw_verdict": "UNKNOWN",
+        "matches_reference": null,
+        "prompt_tokens": 2239,
+        "citations": [
+          {
+            "file_id": "F0",
+            "line": 53
+          },
+          {
+            "file_id": "F0",
+            "line": 48
+          }
+        ],
+        "error": null
+      }
+    },
+    {
+      "sample": "BenchmarkTest01558",
+      "issue_id": "a0b83a09-38be-4ab0-9be5-56c43a811134",
+      "reference_vulnerability": true,
+      "jdbc_value_evidence": {
+        "arguments": [
+          {
+            "call": {
+              "column": 23,
+              "file_id": "F0",
+              "line": 55
+            },
+            "evidence": [
+              {
+                "file_id": "F0",
+                "line": 83,
+                "role": "local_assignment"
+              },
+              {
+                "file_id": "F0",
+                "line": 90,
+                "role": "value_at_reference_unresolved"
+              },
+              {
+                "file_id": "F0",
+                "line": 90,
+                "role": "helper_return"
+              },
+              {
+                "file_id": "F0",
+                "line": 48,
+                "role": "helper_call"
+              },
+              {
+                "file_id": "F0",
+                "line": 48,
+                "role": "local_definition"
+              },
+              {
+                "file_id": "F0",
+                "line": 50,
+                "role": "value_at_reference_unresolved"
+              },
+              {
+                "file_id": "F0",
+                "line": 50,
+                "role": "string_concatenation_with_unresolved_operand"
+              },
+              {
+                "file_id": "F0",
+                "line": 50,
+                "role": "local_definition"
+              },
+              {
+                "file_id": "F0",
+                "line": 55,
+                "role": "value_at_reference_unresolved"
+              },
+              {
+                "file_id": "F0",
+                "line": 50,
+                "role": "sql_argument_variable_declaration"
+              }
+            ],
+            "reason": "unsupported_or_runtime_value",
+            "sql_argument": {
+              "file_id": "F0",
+              "line": 55
+            },
+            "status": "unknown"
+          }
+        ],
+        "scope": "modeled_java_execution_up_to_the_reported_call",
+        "status": "evaluated",
+        "version": "jdbc-value-evidence-v2"
+      },
+      "control": {
+        "verdict": "LIKELY_TP",
+        "raw_verdict": "LIKELY_TP",
+        "matches_reference": true,
+        "prompt_tokens": 2454,
+        "citations": [
+          {
+            "file_id": "F0",
+            "line": 55
+          },
+          {
+            "file_id": "F0",
+            "line": 45
+          }
+        ],
+        "error": null
+      },
+      "with_values": {
+        "verdict": "UNKNOWN",
+        "raw_verdict": "UNKNOWN",
+        "matches_reference": null,
+        "prompt_tokens": 2798,
+        "citations": [
+          {
+            "file_id": "F0",
+            "line": 55
+          },
+          {
+            "file_id": "F0",
+            "line": 48
+          },
+          {
+            "file_id": "F1",
+            "line": 31
+          }
+        ],
+        "error": null
+      }
+    },
+    {
+      "sample": "BenchmarkTest02088",
+      "issue_id": "8040d43a-6c70-4928-b324-f6c4abda92d2",
+      "reference_vulnerability": true,
+      "jdbc_value_evidence": {
+        "arguments": [
+          {
+            "call": {
+              "column": 32,
+              "file_id": "F0",
+              "line": 61
+            },
+            "evidence": [
+              {
+                "file_id": "F0",
+                "line": 80,
+                "role": "local_definition"
+              },
+              {
+                "file_id": "F0",
+                "line": 82,
+                "role": "value_at_reference_unresolved"
+              },
+              {
+                "file_id": "F0",
+                "line": 82,
+                "role": "helper_return"
+              },
+              {
+                "file_id": "F0",
+                "line": 53,
+                "role": "helper_call"
+              },
+              {
+                "file_id": "F0",
+                "line": 53,
+                "role": "local_definition"
+              },
+              {
+                "file_id": "F0",
+                "line": 55,
+                "role": "value_at_reference_unresolved"
+              },
+              {
+                "file_id": "F0",
+                "line": 55,
+                "role": "string_concatenation_with_unresolved_operand"
+              },
+              {
+                "file_id": "F0",
+                "line": 55,
+                "role": "local_definition"
+              },
+              {
+                "file_id": "F0",
+                "line": 62,
+                "role": "value_at_reference_unresolved"
+              },
+              {
+                "file_id": "F0",
+                "line": 55,
+                "role": "sql_argument_variable_declaration"
+              }
+            ],
+            "reason": "unsupported_or_runtime_value",
+            "sql_argument": {
+              "file_id": "F0",
+              "line": 62
+            },
+            "status": "unknown"
+          }
+        ],
+        "scope": "modeled_java_execution_up_to_the_reported_call",
+        "status": "evaluated",
+        "version": "jdbc-value-evidence-v2"
+      },
+      "control": {
+        "verdict": "UNKNOWN",
+        "raw_verdict": "UNKNOWN",
+        "matches_reference": null,
+        "prompt_tokens": 2853,
+        "citations": [
+          {
+            "file_id": "F0",
+            "line": 61
+          },
+          {
+            "file_id": "F0",
+            "line": 44
+          }
+        ],
+        "error": null
+      },
+      "with_values": {
+        "verdict": "UNKNOWN",
+        "raw_verdict": "UNKNOWN",
+        "matches_reference": null,
+        "prompt_tokens": 3197,
+        "citations": [
+          {
+            "file_id": "F0",
+            "line": 61
+          },
+          {
+            "file_id": "F0",
+            "line": 55
+          }
+        ],
+        "error": null
+      }
+    },
+    {
+      "sample": "BenchmarkTest02093",
+      "issue_id": "a59329b9-c85d-488c-9cb3-cef8e94aad66",
+      "reference_vulnerability": false,
+      "jdbc_value_evidence": {
+        "arguments": [
+          {
+            "call": {
+              "column": 23,
+              "file_id": "F0",
+              "line": 60
+            },
+            "evidence": [
+              {
+                "file_id": "F0",
+                "line": 55,
+                "role": "constant_expression"
+              },
+              {
+                "file_id": "F0",
+                "line": 82,
+                "role": "constant_expression"
+              },
+              {
+                "file_id": "F0",
+                "line": 73,
+                "role": "constant_expression"
+              },
+              {
+                "file_id": "F0",
+                "line": 73,
+                "role": "local_definition"
+              },
+              {
+                "file_id": "F0",
+                "line": 74,
+                "role": "constant_expression"
+              },
+              {
+                "file_id": "F0",
+                "line": 74,
+                "role": "constant_string_index"
+              },
+              {
+                "file_id": "F0",
+                "line": 74,
+                "role": "local_definition"
+              },
+              {
+                "file_id": "F0",
+                "line": 77,
+                "role": "switch_selector"
+              },
+              {
+                "file_id": "F0",
+                "line": 81,
+                "role": "switch_case_selected"
+              },
+              {
+                "file_id": "F0",
+                "line": 82,
+                "role": "local_assignment"
+              },
+              {
+                "file_id": "F0",
+                "line": 93,
+                "role": "helper_return"
+              },
+              {
+                "file_id": "F0",
+                "line": 53,
+                "role": "helper_call"
+              },
+              {
+                "file_id": "F0",
+                "line": 53,
+                "role": "local_definition"
+              },
+              {
+                "file_id": "F0",
+                "line": 55,
+                "role": "string_concatenation"
+              },
+              {
+                "file_id": "F0",
+                "line": 55,
+                "role": "local_definition"
+              }
+            ],
+            "reason": "bounded_java_evaluation",
+            "sql_argument": {
+              "file_id": "F0",
+              "line": 60
+            },
+            "status": "constant_sql_text"
+          }
+        ],
+        "scope": "modeled_java_execution_up_to_the_reported_call",
+        "status": "evaluated",
+        "version": "jdbc-value-evidence-v2"
+      },
+      "control": {
+        "verdict": "LIKELY_TP",
+        "raw_verdict": "LIKELY_TP",
+        "matches_reference": false,
+        "prompt_tokens": 2066,
+        "citations": [
+          {
+            "file_id": "F0",
+            "line": 60
+          },
+          {
+            "file_id": "F0",
+            "line": 44
+          }
+        ],
+        "error": null
+      },
+      "with_values": {
+        "verdict": "LIKELY_TP",
+        "raw_verdict": "LIKELY_TP",
+        "matches_reference": false,
+        "prompt_tokens": 2508,
+        "citations": [
+          {
+            "file_id": "F0",
+            "line": 60
+          },
+          {
+            "file_id": "F0",
+            "line": 55
+          }
+        ],
+        "error": null
+      }
+    },
+    {
+      "sample": "BenchmarkTest02171",
+      "issue_id": "eb1d6188-8f9d-406f-b766-9abc0851368f",
+      "reference_vulnerability": true,
+      "jdbc_value_evidence": {
+        "arguments": [
+          {
+            "call": {
+              "column": 32,
+              "file_id": "F0",
+              "line": 54
+            },
+            "evidence": [
+              {
+                "file_id": "F0",
+                "line": 72,
+                "role": "runtime_if_merges_assignments"
+              },
+              {
+                "file_id": "F0",
+                "line": 80,
+                "role": "value_at_reference_unresolved"
+              },
+              {
+                "file_id": "F0",
+                "line": 80,
+                "role": "helper_return"
+              },
+              {
+                "file_id": "F0",
+                "line": 46,
+                "role": "helper_call"
+              },
+              {
+                "file_id": "F0",
+                "line": 46,
+                "role": "local_definition"
+              },
+              {
+                "file_id": "F0",
+                "line": 48,
+                "role": "value_at_reference_unresolved"
+              },
+              {
+                "file_id": "F0",
+                "line": 48,
+                "role": "string_concatenation_with_unresolved_operand"
+              },
+              {
+                "file_id": "F0",
+                "line": 48,
+                "role": "local_definition"
+              },
+              {
+                "file_id": "F0",
+                "line": 55,
+                "role": "value_at_reference_unresolved"
+              },
+              {
+                "file_id": "F0",
+                "line": 48,
+                "role": "sql_argument_variable_declaration"
+              }
+            ],
+            "reason": "unsupported_or_runtime_value",
+            "sql_argument": {
+              "file_id": "F0",
+              "line": 55
+            },
+            "status": "unknown"
+          }
+        ],
+        "scope": "modeled_java_execution_up_to_the_reported_call",
+        "status": "evaluated",
+        "version": "jdbc-value-evidence-v2"
+      },
+      "control": {
+        "verdict": "UNKNOWN",
+        "raw_verdict": "UNKNOWN",
+        "matches_reference": null,
+        "prompt_tokens": 2100,
+        "citations": [
+          {
+            "file_id": "F0",
+            "line": 43
+          },
+          {
+            "file_id": "F0",
+            "line": 54
+          }
+        ],
+        "error": null
+      },
+      "with_values": {
+        "verdict": "UNKNOWN",
+        "raw_verdict": "UNKNOWN",
+        "matches_reference": null,
+        "prompt_tokens": 2449,
+        "citations": [
+          {
+            "file_id": "F0",
+            "line": 43
+          },
+          {
+            "file_id": "F0",
+            "line": 54
+          }
+        ],
+        "error": null
+      }
+    },
+    {
+      "sample": "BenchmarkTest02186",
+      "issue_id": "d2d8166a-90af-4679-8c1d-7b87d662292a",
+      "reference_vulnerability": true,
+      "jdbc_value_evidence": {
+        "arguments": [
+          {
+            "call": {
+              "column": 23,
+              "file_id": "F0",
+              "line": 53
+            },
+            "evidence": [
+              {
+                "file_id": "F0",
+                "line": 67,
+                "role": "local_definition"
+              },
+              {
+                "file_id": "F0",
+                "line": 69,
+                "role": "value_at_reference_unresolved"
+              },
+              {
+                "file_id": "F0",
+                "line": 69,
+                "role": "helper_return"
+              },
+              {
+                "file_id": "F0",
+                "line": 46,
+                "role": "helper_call"
+              },
+              {
+                "file_id": "F0",
+                "line": 46,
+                "role": "local_definition"
+              },
+              {
+                "file_id": "F0",
+                "line": 48,
+                "role": "value_at_reference_unresolved"
+              },
+              {
+                "file_id": "F0",
+                "line": 48,
+                "role": "string_concatenation_with_unresolved_operand"
+              },
+              {
+                "file_id": "F0",
+                "line": 48,
+                "role": "local_definition"
+              },
+              {
+                "file_id": "F0",
+                "line": 53,
+                "role": "value_at_reference_unresolved"
+              },
+              {
+                "file_id": "F0",
+                "line": 48,
+                "role": "sql_argument_variable_declaration"
+              }
+            ],
+            "reason": "unsupported_or_runtime_value",
+            "sql_argument": {
+              "file_id": "F0",
+              "line": 53
+            },
+            "status": "unknown"
+          }
+        ],
+        "scope": "modeled_java_execution_up_to_the_reported_call",
+        "status": "evaluated",
+        "version": "jdbc-value-evidence-v2"
+      },
+      "control": {
+        "verdict": "UNKNOWN",
+        "raw_verdict": "UNKNOWN",
+        "matches_reference": null,
+        "prompt_tokens": 2626,
+        "citations": [
+          {
+            "file_id": "F0",
+            "line": 53
+          },
+          {
+            "file_id": "F0",
+            "line": 48
+          }
+        ],
+        "error": null
+      },
+      "with_values": {
+        "verdict": "UNKNOWN",
+        "raw_verdict": "UNKNOWN",
+        "matches_reference": null,
+        "prompt_tokens": 2970,
+        "citations": [
+          {
+            "file_id": "F0",
+            "line": 53
+          },
+          {
+            "file_id": "F0",
+            "line": 48
+          }
+        ],
+        "error": null
+      }
+    }
+  ],
+  "confirmed_only_projection": {
+    "scope": "Exact request matching against earlier Ollama responses. No new inference run.",
+    "request_counts": {
+      "control": 7,
+      "with_values": 1
+    },
+    "projected_status": {
+      "verdicts": {
+        "UNKNOWN": 4,
+        "LIKELY_TP": 4
+      },
+      "correct_decided": 3,
+      "incorrect_decided": 1,
+      "mean_prompt_tokens": 2335.75
+    }
+  },
+  "outside_sql8": {
+    "scope": "Four saved SonarQube alerts frozen before evaluating new Java evidence. Coverage only; no Ollama verdicts.",
+    "selection": "holdout-plan.json",
+    "cases": [
+      {
+        "sample": "BenchmarkTest00438",
+        "reference_vulnerability": true,
+        "arguments": [
+          {
+            "status": "unknown",
+            "reference_count": 6
+          }
+        ]
+      },
+      {
+        "sample": "BenchmarkTest00439",
+        "reference_vulnerability": true,
+        "arguments": [
+          {
+            "status": "unknown",
+            "reference_count": 8
+          }
+        ]
+      },
+      {
+        "sample": "BenchmarkTest00517",
+        "reference_vulnerability": false,
+        "arguments": [
+          {
+            "status": "unknown",
+            "reference_count": 6
+          }
+        ]
+      },
+      {
+        "sample": "BenchmarkTest00592",
+        "reference_vulnerability": false,
+        "arguments": [
+          {
+            "status": "unknown",
+            "reference_count": 3
+          }
+        ]
+      }
+    ]
+  }
+}

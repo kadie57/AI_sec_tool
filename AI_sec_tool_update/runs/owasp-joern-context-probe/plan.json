@@ -1,0 +1,76 @@
+{
+  "scope": "Existing SonarQube JDBC warnings only. Same image, query and alert range. Compare one Java file with verified helper Java files.",
+  "joern_image_id": "sha256:f47692f8334d2eeca9fc83395023773da566ce8397563ff7c66d34a23bfc75c4",
+  "benchmark_commit": "a452b3aafd232245d0753e54eb243d6651f8ef96",
+  "cases": [
+    {
+      "sample": "BenchmarkTest01558",
+      "variant": "single",
+      "input_java_files": [
+        "src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01558.java"
+      ],
+      "warning_line": 55,
+      "relative_source": "src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01558.java",
+      "original_flow_count": 3
+    },
+    {
+      "sample": "BenchmarkTest01558",
+      "variant": "bundle",
+      "input_java_files": [
+        "src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01558.java",
+        "src/main/java/org/owasp/benchmark/helpers/SeparateClassRequest.java"
+      ],
+      "warning_line": 55,
+      "relative_source": "src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01558.java",
+      "original_flow_count": 3
+    },
+    {
+      "sample": "BenchmarkTest02088",
+      "variant": "single",
+      "input_java_files": [
+        "src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02088.java"
+      ],
+      "warning_line": 61,
+      "relative_source": "src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02088.java",
+      "original_flow_count": 3
+    },
+    {
+      "sample": "BenchmarkTest02088",
+      "variant": "bundle",
+      "input_java_files": [
+        "src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02088.java",
+        "src/main/java/org/owasp/benchmark/helpers/Thing1.java",
+        "src/main/java/org/owasp/benchmark/helpers/Thing2.java",
+        "src/main/java/org/owasp/benchmark/helpers/ThingFactory.java",
+        "src/main/java/org/owasp/benchmark/helpers/ThingInterface.java"
+      ],
+      "warning_line": 61,
+      "relative_source": "src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02088.java",
+      "original_flow_count": 3
+    },
+    {
+      "sample": "BenchmarkTest02186",
+      "variant": "single",
+      "input_java_files": [
+        "src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02186.java"
+      ],
+      "warning_line": 53,
+      "relative_source": "src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02186.java",
+      "original_flow_count": 3
+    },
+    {
+      "sample": "BenchmarkTest02186",
+      "variant": "bundle",
+      "input_java_files": [
+        "src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02186.java",
+        "src/main/java/org/owasp/benchmark/helpers/Thing1.java",
+        "src/main/java/org/owasp/benchmark/helpers/Thing2.java",
+        "src/main/java/org/owasp/benchmark/helpers/ThingFactory.java",
+        "src/main/java/org/owasp/benchmark/helpers/ThingInterface.java"
+      ],
+      "warning_line": 53,
+      "relative_source": "src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02186.java",
+      "original_flow_count": 3
+    }
+  ]
+}

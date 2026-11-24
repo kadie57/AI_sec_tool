@@ -1,0 +1,12 @@
+executing /work/probe.sc
+[31m[31m-- [E008] Not Found Error: /tmp/wrapped-script2396966191552416205.sc:18:57 -----[0m[0m
+[31m 18 |[0m    [33mval[0m [36mfiles[0m = path.elements.flatMap([36mnode[0m => node.start.method.filename.l).distinct
+[31m[31m    |[0m                                              ^^^^^^^^^^^^^^^^^[0m
+[31m    |[0mvalue method is not a member of Iterator[io.shiftleft.codepropertygraph.generated.nodes.AstNode]
+1 error found
+Exception in thread "main" replpp.scripting.NonForkingScriptRunner$$anon$1: error during script execution: Error during compilation: Errors encountered during compilation - try `--verbose` for more output
+Please check error output above!
+For given input files: /tmp/wrapped-script2396966191552416205.sc
+Re-run with `--verbose` for more details
+
+replpp.scripting.ScriptRunner$: error while invoking replpp.scripting.NonForkingScriptRunner: exit code was 1

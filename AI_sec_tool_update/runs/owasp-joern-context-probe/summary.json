@@ -1,0 +1,405 @@
+{
+  "scope": "Existing SonarQube JDBC warnings only. Same image, query and alert range. Compare one Java file with verified helper Java files.",
+  "source_policy": "All non-receiver method parameters. Roots are candidate endpoints; a helper parameter need not be an external source.",
+  "limitations": [
+    "This diagnostic imports Java sources only. Factory properties and runtime configuration are not modeled.",
+    "Call edges are possible targets in the graph. Neither call edges nor candidate flow paths certify which branch or implementation runs.",
+    "No LLM requests or verdict updates were made for this diagnostic.",
+    "The probe used explicit anchor coordinates. Each matches an existing Java endpoint specification from the previous run. End-to-end wiring was not exercised."
+  ],
+  "joern_image_id": "sha256:f47692f8334d2eeca9fc83395023773da566ce8397563ff7c66d34a23bfc75c4",
+  "benchmark_commit": "a452b3aafd232245d0753e54eb243d6651f8ef96",
+  "prior_system_evaluation": {
+    "source": "../owasp-java-integer-evidence/summary.json",
+    "alerts": 12,
+    "verified_values_before": 1,
+    "verified_values_after": 2,
+    "correct_decided": 8,
+    "incorrect_decided": 0,
+    "unknown": 4
+  },
+  "cases": {
+    "BenchmarkTest01558": {
+      "warning_file": "src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01558.java",
+      "warning_line": 55,
+      "single": {
+        "input_java_sha256": {
+          "src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01558.java": "1d363629c834eb8e1a05824364ec2af04e92bbbf3cb7e71982c79935764e2dca"
+        },
+        "sink_call_count": 1,
+        "candidate_path_count": 3,
+        "candidate_paths_with_helper_steps": 0,
+        "candidate_paths_starting_at_a_helper_parameter": 0,
+        "candidate_paths_by_helper_file": {},
+        "selected_call_edges": [
+          {
+            "line": 45,
+            "method": "<unresolvedNamespace>.getTheParameter:<unresolvedSignature>(1)",
+            "targets": [
+              {
+                "method": "<unresolvedNamespace>.getTheParameter:<unresolvedSignature>(1)",
+                "file": "<empty>",
+                "external": true
+              }
+            ]
+          },
+          {
+            "line": 48,
+            "method": "org.owasp.benchmark.testcode.BenchmarkTest01558$Test.doSomething:<unresolvedSignature>(2)",
+            "targets": [
+              {
+                "method": "org.owasp.benchmark.testcode.BenchmarkTest01558$Test.doSomething:<unresolvedSignature>(2)",
+                "file": "src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01558.java",
+                "external": false
+              }
+            ]
+          }
+        ],
+        "joern_log": "BenchmarkTest01558/single/logs/joern.log",
+        "joern_script": "BenchmarkTest01558/single/logs/probe.sc"
+      },
+      "bundle": {
+        "input_java_sha256": {
+          "src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01558.java": "1d363629c834eb8e1a05824364ec2af04e92bbbf3cb7e71982c79935764e2dca",
+          "src/main/java/org/owasp/benchmark/helpers/SeparateClassRequest.java": "8ec6b1867d27ebe55c79180755447ece6f98746dcfbf0127b2e4ea5646399739"
+        },
+        "sink_call_count": 1,
+        "candidate_path_count": 5,
+        "candidate_paths_with_helper_steps": 4,
+        "candidate_paths_starting_at_a_helper_parameter": 2,
+        "candidate_paths_by_helper_file": {
+          "src/main/java/org/owasp/benchmark/helpers/SeparateClassRequest.java": 4
+        },
+        "selected_call_edges": [
+          {
+            "line": 45,
+            "method": "org.owasp.benchmark.helpers.SeparateClassRequest.getTheParameter:<unresolvedSignature>(1)",
+            "targets": [
+              {
+                "method": "org.owasp.benchmark.helpers.SeparateClassRequest.getTheParameter:<unresolvedSignature>(1)",
+                "file": "src/main/java/org/owasp/benchmark/helpers/SeparateClassRequest.java",
+                "external": false
+              }
+            ]
+          },
+          {
+            "line": 48,
+            "method": "org.owasp.benchmark.testcode.BenchmarkTest01558$Test.doSomething:<unresolvedSignature>(2)",
+            "targets": [
+              {
+                "method": "org.owasp.benchmark.testcode.BenchmarkTest01558$Test.doSomething:<unresolvedSignature>(2)",
+                "file": "src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01558.java",
+                "external": false
+              }
+            ]
+          }
+        ],
+        "joern_log": "BenchmarkTest01558/bundle/logs/joern.log",
+        "joern_script": "BenchmarkTest01558/bundle/logs/probe.sc"
+      },
+      "bundle_servlet_anchor": {
+        "manually_confirmed_source": {
+          "file": "src/main/java/org/owasp/benchmark/helpers/SeparateClassRequest.java",
+          "line": 31,
+          "call": "getParameter"
+        },
+        "source_count": 1,
+        "sink_count": 1,
+        "flow_count": 1,
+        "candidate_path_files": [
+          [
+            "src/main/java/org/owasp/benchmark/helpers/SeparateClassRequest.java",
+            "src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01558.java"
+          ]
+        ],
+        "joern_log": "BenchmarkTest01558/bundle/logs/anchored/joern.log",
+        "joern_script": "BenchmarkTest01558/bundle/logs/anchored/probe.sc",
+        "matching_recorded_java_specification": {
+          "file_id": "F1",
+          "api_owner": "javax.servlet.ServletRequest",
+          "signature": "getParameter(java.lang.String)",
+          "recorded_source_role": "helper_returns_servlet_read"
+        }
+      }
+    },
+    "BenchmarkTest02088": {
+      "warning_file": "src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02088.java",
+      "warning_line": 61,
+      "single": {
+        "input_java_sha256": {
+          "src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02088.java": "e3525d174198bbd0c6ca2600ddb57b5042674c4b4e7ba254129eb121828fa203"
+        },
+        "sink_call_count": 1,
+        "candidate_path_count": 3,
+        "candidate_paths_with_helper_steps": 0,
+        "candidate_paths_starting_at_a_helper_parameter": 0,
+        "candidate_paths_by_helper_file": {},
+        "selected_call_edges": [
+          {
+            "line": 53,
+            "method": "org.owasp.benchmark.testcode.BenchmarkTest02088.doSomething:<unresolvedSignature>(2)",
+            "targets": [
+              {
+                "method": "org.owasp.benchmark.testcode.BenchmarkTest02088.doSomething:<unresolvedSignature>(2)",
+                "file": "src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02088.java",
+                "external": false
+              }
+            ]
+          },
+          {
+            "line": 79,
+            "method": "<unresolvedNamespace>.createThing:<unresolvedSignature>(0)",
+            "targets": [
+              {
+                "method": "<unresolvedNamespace>.createThing:<unresolvedSignature>(0)",
+                "file": "<empty>",
+                "external": true
+              }
+            ]
+          },
+          {
+            "line": 80,
+            "method": "<unresolvedNamespace>.doSomething:<unresolvedSignature>(1)",
+            "targets": [
+              {
+                "method": "<unresolvedNamespace>.doSomething:<unresolvedSignature>(1)",
+                "file": "<empty>",
+                "external": true
+              }
+            ]
+          }
+        ],
+        "joern_log": "BenchmarkTest02088/single/logs/joern.log",
+        "joern_script": "BenchmarkTest02088/single/logs/probe.sc"
+      },
+      "bundle": {
+        "input_java_sha256": {
+          "src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02088.java": "e3525d174198bbd0c6ca2600ddb57b5042674c4b4e7ba254129eb121828fa203",
+          "src/main/java/org/owasp/benchmark/helpers/Thing1.java": "eaedefdac70f0edcdea3e4852271e1300b88cff6831c64ef6cbbffbbf177ad1d",
+          "src/main/java/org/owasp/benchmark/helpers/Thing2.java": "843485443164526e04e2d45c60721a44971e00f334408ce00b4e2bf8cd63bc7b",
+          "src/main/java/org/owasp/benchmark/helpers/ThingFactory.java": "7aee4ac57445114eeab59bff764d2ec3798f92da89ddc6e206130f52cf472f49",
+          "src/main/java/org/owasp/benchmark/helpers/ThingInterface.java": "7964f2910f892d646c855e1030de91b9a36dcfa4b14dee25a082fa8680d93ff8"
+        },
+        "sink_call_count": 1,
+        "candidate_path_count": 5,
+        "candidate_paths_with_helper_steps": 5,
+        "candidate_paths_starting_at_a_helper_parameter": 2,
+        "candidate_paths_by_helper_file": {
+          "src/main/java/org/owasp/benchmark/helpers/Thing1.java": 1,
+          "src/main/java/org/owasp/benchmark/helpers/Thing2.java": 4
+        },
+        "selected_call_edges": [
+          {
+            "line": 53,
+            "method": "org.owasp.benchmark.testcode.BenchmarkTest02088.doSomething:<unresolvedSignature>(2)",
+            "targets": [
+              {
+                "method": "org.owasp.benchmark.testcode.BenchmarkTest02088.doSomething:<unresolvedSignature>(2)",
+                "file": "src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02088.java",
+                "external": false
+              }
+            ]
+          },
+          {
+            "line": 79,
+            "method": "org.owasp.benchmark.helpers.ThingFactory.createThing:org.owasp.benchmark.helpers.ThingInterface()",
+            "targets": [
+              {
+                "method": "org.owasp.benchmark.helpers.ThingFactory.createThing:org.owasp.benchmark.helpers.ThingInterface()",
+                "file": "src/main/java/org/owasp/benchmark/helpers/ThingFactory.java",
+                "external": false
+              }
+            ]
+          },
+          {
+            "line": 80,
+            "method": "org.owasp.benchmark.helpers.ThingInterface.doSomething:<unresolvedSignature>(1)",
+            "targets": [
+              {
+                "method": "org.owasp.benchmark.helpers.ThingInterface.doSomething:<unresolvedSignature>(1)",
+                "file": "src/main/java/org/owasp/benchmark/helpers/ThingInterface.java",
+                "external": false
+              },
+              {
+                "method": "org.owasp.benchmark.helpers.Thing1.doSomething:<unresolvedSignature>(1)",
+                "file": "src/main/java/org/owasp/benchmark/helpers/Thing1.java",
+                "external": false
+              },
+              {
+                "method": "org.owasp.benchmark.helpers.Thing2.doSomething:<unresolvedSignature>(1)",
+                "file": "src/main/java/org/owasp/benchmark/helpers/Thing2.java",
+                "external": false
+              }
+            ]
+          }
+        ],
+        "joern_log": "BenchmarkTest02088/bundle/logs/joern.log",
+        "joern_script": "BenchmarkTest02088/bundle/logs/probe.sc"
+      },
+      "bundle_servlet_anchor": {
+        "manually_confirmed_source": {
+          "file": "src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02088.java",
+          "line": 44,
+          "call": "getHeaders"
+        },
+        "source_count": 1,
+        "sink_count": 1,
+        "flow_count": 1,
+        "candidate_path_files": [
+          [
+            "src/main/java/org/owasp/benchmark/helpers/Thing2.java",
+            "src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02088.java"
+          ]
+        ],
+        "joern_log": "BenchmarkTest02088/bundle/logs/anchored/joern.log",
+        "joern_script": "BenchmarkTest02088/bundle/logs/anchored/probe.sc",
+        "matching_recorded_java_specification": {
+          "file_id": "F0",
+          "api_owner": "javax.servlet.http.HttpServletRequest",
+          "signature": "getHeaders(java.lang.String)",
+          "recorded_source_role": "servlet_request_read"
+        }
+      }
+    },
+    "BenchmarkTest02186": {
+      "warning_file": "src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02186.java",
+      "warning_line": 53,
+      "single": {
+        "input_java_sha256": {
+          "src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02186.java": "18f6c9fdd5a391894ae09fdab9414cf3dfefbb029062625f8137ff2eb4bc7690"
+        },
+        "sink_call_count": 1,
+        "candidate_path_count": 3,
+        "candidate_paths_with_helper_steps": 0,
+        "candidate_paths_starting_at_a_helper_parameter": 0,
+        "candidate_paths_by_helper_file": {},
+        "selected_call_edges": [
+          {
+            "line": 46,
+            "method": "org.owasp.benchmark.testcode.BenchmarkTest02186.doSomething:<unresolvedSignature>(2)",
+            "targets": [
+              {
+                "method": "org.owasp.benchmark.testcode.BenchmarkTest02186.doSomething:<unresolvedSignature>(2)",
+                "file": "src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02186.java",
+                "external": false
+              }
+            ]
+          },
+          {
+            "line": 66,
+            "method": "<unresolvedNamespace>.createThing:<unresolvedSignature>(0)",
+            "targets": [
+              {
+                "method": "<unresolvedNamespace>.createThing:<unresolvedSignature>(0)",
+                "file": "<empty>",
+                "external": true
+              }
+            ]
+          },
+          {
+            "line": 67,
+            "method": "<unresolvedNamespace>.doSomething:<unresolvedSignature>(1)",
+            "targets": [
+              {
+                "method": "<unresolvedNamespace>.doSomething:<unresolvedSignature>(1)",
+                "file": "<empty>",
+                "external": true
+              }
+            ]
+          }
+        ],
+        "joern_log": "BenchmarkTest02186/single/logs/joern.log",
+        "joern_script": "BenchmarkTest02186/single/logs/probe.sc"
+      },
+      "bundle": {
+        "input_java_sha256": {
+          "src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02186.java": "18f6c9fdd5a391894ae09fdab9414cf3dfefbb029062625f8137ff2eb4bc7690",
+          "src/main/java/org/owasp/benchmark/helpers/Thing1.java": "eaedefdac70f0edcdea3e4852271e1300b88cff6831c64ef6cbbffbbf177ad1d",
+          "src/main/java/org/owasp/benchmark/helpers/Thing2.java": "843485443164526e04e2d45c60721a44971e00f334408ce00b4e2bf8cd63bc7b",
+          "src/main/java/org/owasp/benchmark/helpers/ThingFactory.java": "7aee4ac57445114eeab59bff764d2ec3798f92da89ddc6e206130f52cf472f49",
+          "src/main/java/org/owasp/benchmark/helpers/ThingInterface.java": "7964f2910f892d646c855e1030de91b9a36dcfa4b14dee25a082fa8680d93ff8"
+        },
+        "sink_call_count": 1,
+        "candidate_path_count": 5,
+        "candidate_paths_with_helper_steps": 5,
+        "candidate_paths_starting_at_a_helper_parameter": 2,
+        "candidate_paths_by_helper_file": {
+          "src/main/java/org/owasp/benchmark/helpers/Thing1.java": 1,
+          "src/main/java/org/owasp/benchmark/helpers/Thing2.java": 4
+        },
+        "selected_call_edges": [
+          {
+            "line": 46,
+            "method": "org.owasp.benchmark.testcode.BenchmarkTest02186.doSomething:<unresolvedSignature>(2)",
+            "targets": [
+              {
+                "method": "org.owasp.benchmark.testcode.BenchmarkTest02186.doSomething:<unresolvedSignature>(2)",
+                "file": "src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02186.java",
+                "external": false
+              }
+            ]
+          },
+          {
+            "line": 66,
+            "method": "org.owasp.benchmark.helpers.ThingFactory.createThing:org.owasp.benchmark.helpers.ThingInterface()",
+            "targets": [
+              {
+                "method": "org.owasp.benchmark.helpers.ThingFactory.createThing:org.owasp.benchmark.helpers.ThingInterface()",
+                "file": "src/main/java/org/owasp/benchmark/helpers/ThingFactory.java",
+                "external": false
+              }
+            ]
+          },
+          {
+            "line": 67,
+            "method": "org.owasp.benchmark.helpers.ThingInterface.doSomething:<unresolvedSignature>(1)",
+            "targets": [
+              {
+                "method": "org.owasp.benchmark.helpers.ThingInterface.doSomething:<unresolvedSignature>(1)",
+                "file": "src/main/java/org/owasp/benchmark/helpers/ThingInterface.java",
+                "external": false
+              },
+              {
+                "method": "org.owasp.benchmark.helpers.Thing1.doSomething:<unresolvedSignature>(1)",
+                "file": "src/main/java/org/owasp/benchmark/helpers/Thing1.java",
+                "external": false
+              },
+              {
+                "method": "org.owasp.benchmark.helpers.Thing2.doSomething:<unresolvedSignature>(1)",
+                "file": "src/main/java/org/owasp/benchmark/helpers/Thing2.java",
+                "external": false
+              }
+            ]
+          }
+        ],
+        "joern_log": "BenchmarkTest02186/bundle/logs/joern.log",
+        "joern_script": "BenchmarkTest02186/bundle/logs/probe.sc"
+      },
+      "bundle_servlet_anchor": {
+        "manually_confirmed_source": {
+          "file": "src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02186.java",
+          "line": 43,
+          "call": "getParameter"
+        },
+        "source_count": 1,
+        "sink_count": 1,
+        "flow_count": 1,
+        "candidate_path_files": [
+          [
+            "src/main/java/org/owasp/benchmark/helpers/Thing2.java",
+            "src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02186.java"
+          ]
+        ],
+        "joern_log": "BenchmarkTest02186/bundle/logs/anchored/joern.log",
+        "joern_script": "BenchmarkTest02186/bundle/logs/anchored/probe.sc",
+        "matching_recorded_java_specification": {
+          "file_id": "F0",
+          "api_owner": "javax.servlet.ServletRequest",
+          "signature": "getParameter(java.lang.String)",
+          "recorded_source_role": "servlet_request_read"
+        }
+      }
+    }
+  },
+  "recorded_endpoint_specifications": "../owasp-java-integer-evidence/evidence/sql_evidence.jsonl"
+}

@@ -1,0 +1,729 @@
+{
+  "scope": "The twelve original SonarQube warnings. Changes in bounded integer value evidence with the same Qwen and structured Sink presentation.",
+  "model_digest": "9ec8897f747e246e970bc5cfdda85d22f1123dc2e3d34978a010a75968716849",
+  "actual_ollama_calls": 1,
+  "reused_identical_requests": 11,
+  "baseline": {
+    "verdicts": {
+      "LIKELY_TP": 7,
+      "UNKNOWN": 4,
+      "LIKELY_FP": 1
+    },
+    "correct_decided": 7,
+    "incorrect_decided": 1
+  },
+  "integer_evidence": {
+    "verdicts": {
+      "LIKELY_TP": 6,
+      "LIKELY_FP": 2,
+      "UNKNOWN": 4
+    },
+    "correct_decided": 8,
+    "incorrect_decided": 0
+  },
+  "verified_values_before": 1,
+  "verified_values_after": 2,
+  "cases": [
+    {
+      "sample": "BenchmarkTest00438",
+      "issue_id": "47a9f2cb-a6ca-442d-9e56-79839ba05ff2",
+      "reference_vulnerability": true,
+      "response_origin": "reused_identical_request",
+      "before": {
+        "verdict": "LIKELY_TP",
+        "raw_verdict": "LIKELY_TP",
+        "matches_reference": true,
+        "citations": [
+          {
+            "file_id": "F0",
+            "line": 43
+          },
+          {
+            "file_id": "F0",
+            "line": 58
+          }
+        ],
+        "error": null
+      },
+      "after": {
+        "verdict": "LIKELY_TP",
+        "raw_verdict": "LIKELY_TP",
+        "matches_reference": true,
+        "citations": [
+          {
+            "file_id": "F0",
+            "line": 43
+          },
+          {
+            "file_id": "F0",
+            "line": 58
+          }
+        ],
+        "error": null
+      },
+      "static_argument_status_before": [
+        "unknown"
+      ],
+      "static_argument_after": {
+        "status": [
+          "unknown"
+        ]
+      }
+    },
+    {
+      "sample": "BenchmarkTest00439",
+      "issue_id": "b540bb38-9153-4ccf-abe4-cdc606763d95",
+      "reference_vulnerability": true,
+      "response_origin": "reused_identical_request",
+      "before": {
+        "verdict": "LIKELY_TP",
+        "raw_verdict": "LIKELY_TP",
+        "matches_reference": true,
+        "citations": [
+          {
+            "file_id": "F0",
+            "line": 43
+          },
+          {
+            "file_id": "F0",
+            "line": 53
+          }
+        ],
+        "error": null
+      },
+      "after": {
+        "verdict": "LIKELY_TP",
+        "raw_verdict": "LIKELY_TP",
+        "matches_reference": true,
+        "citations": [
+          {
+            "file_id": "F0",
+            "line": 43
+          },
+          {
+            "file_id": "F0",
+            "line": 53
+          }
+        ],
+        "error": null
+      },
+      "static_argument_status_before": [
+        "unknown"
+      ],
+      "static_argument_after": {
+        "status": [
+          "unknown"
+        ]
+      }
+    },
+    {
+      "sample": "BenchmarkTest00517",
+      "issue_id": "75bd39b8-848e-4ac4-ae84-35e78cbd540e",
+      "reference_vulnerability": false,
+      "response_origin": "new_ollama_call",
+      "before": {
+        "verdict": "LIKELY_TP",
+        "raw_verdict": "LIKELY_TP",
+        "matches_reference": false,
+        "citations": [
+          {
+            "file_id": "F0",
+            "line": 57
+          },
+          {
+            "file_id": "F0",
+            "line": 62
+          }
+        ],
+        "error": null
+      },
+      "after": {
+        "verdict": "LIKELY_FP",
+        "raw_verdict": "LIKELY_FP",
+        "matches_reference": true,
+        "citations": [
+          {
+            "file_id": "F0",
+            "line": 55
+          },
+          {
+            "file_id": "F0",
+            "line": 62
+          }
+        ],
+        "error": null
+      },
+      "static_argument_status_before": [
+        "unknown"
+      ],
+      "static_argument_after": {
+        "status": [
+          "constant_sql_text"
+        ],
+        "verified_value": {
+          "warning_anchor": {
+            "file_id": "F0",
+            "line": 62,
+            "code": "statement.execute(sql, new String[] {\"username\", \"password\"});"
+          },
+          "verified_finding": "Static Java evaluation verified that the SQL text argument at F0:62 is constant. Request data does not contribute to that argument on the evaluated execution.",
+          "selected_branch": [
+            {
+              "file_id": "F0",
+              "line": 55,
+              "code": "bar = (7 * 18) + num > 200 ? \"This_should_always_happen\" : param;",
+              "role": "conditional_value_selected"
+            }
+          ],
+          "value_to_jdbc": [
+            {
+              "file_id": "F0",
+              "line": 55,
+              "code": "bar = (7 * 18) + num > 200 ? \"This_should_always_happen\" : param;",
+              "role": "local_assignment"
+            },
+            {
+              "file_id": "F0",
+              "line": 57,
+              "code": "String sql = \"SELECT * from USERS where USERNAME='foo' and PASSWORD='\" + bar + \"'\";",
+              "role": "string_concatenation"
+            },
+            {
+              "file_id": "F0",
+              "line": 62,
+              "code": "statement.execute(sql, new String[] {\"username\", \"password\"});",
+              "role": "sql_text_argument"
+            }
+          ],
+          "constant_context": [
+            {
+              "file_id": "F0",
+              "line": 53,
+              "code": "int num = 106;",
+              "role": "constant_expression"
+            }
+          ],
+          "decisive_citation_roles": {
+            "warning_line": {
+              "file_id": "F0",
+              "line": 62
+            },
+            "verified_support_lines": [
+              {
+                "file_id": "F0",
+                "line": 55
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "sample": "BenchmarkTest00592",
+      "issue_id": "823079bc-568b-4dd4-95c4-3f9c8cbeed33",
+      "reference_vulnerability": false,
+      "response_origin": "reused_identical_request",
+      "before": {
+        "verdict": "UNKNOWN",
+        "raw_verdict": "UNKNOWN",
+        "matches_reference": null,
+        "citations": [
+          {
+            "file_id": "F0",
+            "line": 89
+          },
+          {
+            "file_id": "F0",
+            "line": 90
+          }
+        ],
+        "error": null
+      },
+      "after": {
+        "verdict": "UNKNOWN",
+        "raw_verdict": "UNKNOWN",
+        "matches_reference": null,
+        "citations": [
+          {
+            "file_id": "F0",
+            "line": 89
+          },
+          {
+            "file_id": "F0",
+            "line": 90
+          }
+        ],
+        "error": null
+      },
+      "static_argument_status_before": [
+        "unknown"
+      ],
+      "static_argument_after": {
+        "status": [
+          "unknown"
+        ]
+      }
+    },
+    {
+      "sample": "BenchmarkTest00999",
+      "issue_id": "cdeb1d77-373a-4bf5-9b38-7117ab0d4d7d",
+      "reference_vulnerability": false,
+      "response_origin": "reused_identical_request",
+      "before": {
+        "verdict": "UNKNOWN",
+        "raw_verdict": "UNKNOWN",
+        "matches_reference": null,
+        "citations": [
+          {
+            "file_id": "F0",
+            "line": 75
+          },
+          {
+            "file_id": "F0",
+            "line": 98
+          }
+        ],
+        "error": null
+      },
+      "after": {
+        "verdict": "UNKNOWN",
+        "raw_verdict": "UNKNOWN",
+        "matches_reference": null,
+        "citations": [
+          {
+            "file_id": "F0",
+            "line": 75
+          },
+          {
+            "file_id": "F0",
+            "line": 98
+          }
+        ],
+        "error": null
+      },
+      "static_argument_status_before": [
+        "unknown"
+      ],
+      "static_argument_after": {
+        "status": [
+          "unknown"
+        ]
+      }
+    },
+    {
+      "sample": "BenchmarkTest01093",
+      "issue_id": "42fe8b5f-5d89-4d3b-815b-12adc58a2461",
+      "reference_vulnerability": true,
+      "response_origin": "reused_identical_request",
+      "before": {
+        "verdict": "LIKELY_TP",
+        "raw_verdict": "LIKELY_TP",
+        "matches_reference": true,
+        "citations": [
+          {
+            "file_id": "F0",
+            "line": 58
+          },
+          {
+            "file_id": "F0",
+            "line": 44
+          }
+        ],
+        "error": null
+      },
+      "after": {
+        "verdict": "LIKELY_TP",
+        "raw_verdict": "LIKELY_TP",
+        "matches_reference": true,
+        "citations": [
+          {
+            "file_id": "F0",
+            "line": 58
+          },
+          {
+            "file_id": "F0",
+            "line": 44
+          }
+        ],
+        "error": null
+      },
+      "static_argument_status_before": [
+        "unknown"
+      ],
+      "static_argument_after": {
+        "status": [
+          "unknown"
+        ]
+      }
+    },
+    {
+      "sample": "BenchmarkTest01311",
+      "issue_id": "07951150-c656-48e8-a94d-c3d8bcd0a08a",
+      "reference_vulnerability": true,
+      "response_origin": "reused_identical_request",
+      "before": {
+        "verdict": "LIKELY_TP",
+        "raw_verdict": "LIKELY_TP",
+        "matches_reference": true,
+        "citations": [
+          {
+            "file_id": "F0",
+            "line": 53
+          },
+          {
+            "file_id": "F0",
+            "line": 48
+          }
+        ],
+        "error": null
+      },
+      "after": {
+        "verdict": "LIKELY_TP",
+        "raw_verdict": "LIKELY_TP",
+        "matches_reference": true,
+        "citations": [
+          {
+            "file_id": "F0",
+            "line": 53
+          },
+          {
+            "file_id": "F0",
+            "line": 48
+          }
+        ],
+        "error": null
+      },
+      "static_argument_status_before": [
+        "unknown"
+      ],
+      "static_argument_after": {
+        "status": [
+          "unknown"
+        ]
+      }
+    },
+    {
+      "sample": "BenchmarkTest01558",
+      "issue_id": "a0b83a09-38be-4ab0-9be5-56c43a811134",
+      "reference_vulnerability": true,
+      "response_origin": "reused_identical_request",
+      "before": {
+        "verdict": "LIKELY_TP",
+        "raw_verdict": "LIKELY_TP",
+        "matches_reference": true,
+        "citations": [
+          {
+            "file_id": "F0",
+            "line": 55
+          },
+          {
+            "file_id": "F0",
+            "line": 76
+          }
+        ],
+        "error": null
+      },
+      "after": {
+        "verdict": "LIKELY_TP",
+        "raw_verdict": "LIKELY_TP",
+        "matches_reference": true,
+        "citations": [
+          {
+            "file_id": "F0",
+            "line": 55
+          },
+          {
+            "file_id": "F0",
+            "line": 76
+          }
+        ],
+        "error": null
+      },
+      "static_argument_status_before": [
+        "unknown"
+      ],
+      "static_argument_after": {
+        "status": [
+          "unknown"
+        ]
+      }
+    },
+    {
+      "sample": "BenchmarkTest02088",
+      "issue_id": "8040d43a-6c70-4928-b324-f6c4abda92d2",
+      "reference_vulnerability": true,
+      "response_origin": "reused_identical_request",
+      "before": {
+        "verdict": "UNKNOWN",
+        "raw_verdict": "UNKNOWN",
+        "matches_reference": null,
+        "citations": [
+          {
+            "file_id": "F0",
+            "line": 61
+          },
+          {
+            "file_id": "F0",
+            "line": 53
+          }
+        ],
+        "error": null
+      },
+      "after": {
+        "verdict": "UNKNOWN",
+        "raw_verdict": "UNKNOWN",
+        "matches_reference": null,
+        "citations": [
+          {
+            "file_id": "F0",
+            "line": 61
+          },
+          {
+            "file_id": "F0",
+            "line": 53
+          }
+        ],
+        "error": null
+      },
+      "static_argument_status_before": [
+        "unknown"
+      ],
+      "static_argument_after": {
+        "status": [
+          "unknown"
+        ]
+      }
+    },
+    {
+      "sample": "BenchmarkTest02093",
+      "issue_id": "a59329b9-c85d-488c-9cb3-cef8e94aad66",
+      "reference_vulnerability": false,
+      "response_origin": "reused_identical_request",
+      "before": {
+        "verdict": "LIKELY_FP",
+        "raw_verdict": "LIKELY_FP",
+        "matches_reference": true,
+        "citations": [
+          {
+            "file_id": "F0",
+            "line": 60
+          },
+          {
+            "file_id": "F0",
+            "line": 81
+          },
+          {
+            "file_id": "F0",
+            "line": 82
+          },
+          {
+            "file_id": "F0",
+            "line": 93
+          }
+        ],
+        "error": null
+      },
+      "after": {
+        "verdict": "LIKELY_FP",
+        "raw_verdict": "LIKELY_FP",
+        "matches_reference": true,
+        "citations": [
+          {
+            "file_id": "F0",
+            "line": 60
+          },
+          {
+            "file_id": "F0",
+            "line": 81
+          },
+          {
+            "file_id": "F0",
+            "line": 82
+          },
+          {
+            "file_id": "F0",
+            "line": 93
+          }
+        ],
+        "error": null
+      },
+      "static_argument_status_before": [
+        "constant_sql_text"
+      ],
+      "static_argument_after": {
+        "status": [
+          "constant_sql_text"
+        ]
+      }
+    },
+    {
+      "sample": "BenchmarkTest02171",
+      "issue_id": "eb1d6188-8f9d-406f-b766-9abc0851368f",
+      "reference_vulnerability": true,
+      "response_origin": "reused_identical_request",
+      "before": {
+        "verdict": "LIKELY_TP",
+        "raw_verdict": "LIKELY_TP",
+        "matches_reference": true,
+        "citations": [
+          {
+            "file_id": "F0",
+            "line": 73
+          },
+          {
+            "file_id": "F0",
+            "line": 54
+          }
+        ],
+        "error": null
+      },
+      "after": {
+        "verdict": "LIKELY_TP",
+        "raw_verdict": "LIKELY_TP",
+        "matches_reference": true,
+        "citations": [
+          {
+            "file_id": "F0",
+            "line": 73
+          },
+          {
+            "file_id": "F0",
+            "line": 54
+          }
+        ],
+        "error": null
+      },
+      "static_argument_status_before": [
+        "unknown"
+      ],
+      "static_argument_after": {
+        "status": [
+          "unknown"
+        ]
+      }
+    },
+    {
+      "sample": "BenchmarkTest02186",
+      "issue_id": "d2d8166a-90af-4679-8c1d-7b87d662292a",
+      "reference_vulnerability": true,
+      "response_origin": "reused_identical_request",
+      "before": {
+        "verdict": "UNKNOWN",
+        "raw_verdict": "UNKNOWN",
+        "matches_reference": null,
+        "citations": [
+          {
+            "file_id": "F0",
+            "line": 43
+          },
+          {
+            "file_id": "F0",
+            "line": 53
+          }
+        ],
+        "error": null
+      },
+      "after": {
+        "verdict": "UNKNOWN",
+        "raw_verdict": "UNKNOWN",
+        "matches_reference": null,
+        "citations": [
+          {
+            "file_id": "F0",
+            "line": 43
+          },
+          {
+            "file_id": "F0",
+            "line": 53
+          }
+        ],
+        "error": null
+      },
+      "static_argument_status_before": [
+        "unknown"
+      ],
+      "static_argument_after": {
+        "status": [
+          "unknown"
+        ]
+      }
+    }
+  ],
+  "new_owasp_source_check": {
+    "scope": "Source-level evaluation on the frozen eight OWASP cases. Local SonarQube did not respond, so no Qwen classification of freshly collected alerts.",
+    "cases": [
+      {
+        "sample": "BenchmarkTest01732",
+        "reference_vulnerability": false,
+        "verified_jdbc_call_count": 1,
+        "before": [
+          "unknown"
+        ],
+        "after": [
+          "unknown"
+        ]
+      },
+      {
+        "sample": "BenchmarkTest00436",
+        "reference_vulnerability": false,
+        "verified_jdbc_call_count": 1,
+        "before": [
+          "unknown"
+        ],
+        "after": [
+          "constant_sql_text"
+        ]
+      },
+      {
+        "sample": "BenchmarkTest00928",
+        "reference_vulnerability": false,
+        "verified_jdbc_call_count": 1,
+        "before": [
+          "unknown"
+        ],
+        "after": [
+          "constant_sql_text"
+        ]
+      },
+      {
+        "sample": "BenchmarkTest01813",
+        "reference_vulnerability": false,
+        "verified_jdbc_call_count": 0,
+        "before": [],
+        "after": []
+      },
+      {
+        "sample": "BenchmarkTest01384",
+        "reference_vulnerability": true,
+        "verified_jdbc_call_count": 1,
+        "before": [
+          "unknown"
+        ],
+        "after": [
+          "unknown"
+        ]
+      },
+      {
+        "sample": "BenchmarkTest00433",
+        "reference_vulnerability": true,
+        "verified_jdbc_call_count": 0,
+        "before": [],
+        "after": []
+      },
+      {
+        "sample": "BenchmarkTest01088",
+        "reference_vulnerability": true,
+        "verified_jdbc_call_count": 0,
+        "before": [],
+        "after": []
+      },
+      {
+        "sample": "BenchmarkTest00341",
+        "reference_vulnerability": true,
+        "verified_jdbc_call_count": 0,
+        "before": [],
+        "after": []
+      }
+    ]
+  }
+}

@@ -1,0 +1,490 @@
+{
+  "scope": "Twelve cached SonarQube SQL warnings from the twenty CWE-89 OWASP holdout samples. Every alert was submitted to the local model in a fresh run.",
+  "evidence": "runs/owasp-iris-anchored-evidence/evidence/sql_evidence.jsonl",
+  "baseline": "runs/owasp-java-integer-evidence/llm",
+  "raw_results": "runs/owasp-iris-anchored-full-20261124/llm",
+  "reference_labels": "../experiments/owasp_holdout_v1/reference_labels.json",
+  "source_sample_count": 20,
+  "samples_without_sql_warning": [
+    "BenchmarkTest00201",
+    "BenchmarkTest00599",
+    "BenchmarkTest01967",
+    "BenchmarkTest02179",
+    "BenchmarkTest02182",
+    "BenchmarkTest02183",
+    "BenchmarkTest02274",
+    "BenchmarkTest02361"
+  ],
+  "status": "completed",
+  "model": "qwen2.5-coder:14b-instruct-q4_K_M",
+  "model_digest": "9ec8897f747e246e970bc5cfdda85d22f1123dc2e3d34978a010a75968716849",
+  "experiment_configuration": {
+    "prompt_sha256": "7fa152e90693c92ca2e93e765ac93bbf1327e138bb003cb852e3364597de3554",
+    "schema_sha256": "cbe382e684295a20cc2bcdb5d33b41612bd2c6e8adada0d2bb99b30b9c1c85c8",
+    "options": {
+      "temperature": 0,
+      "seed": 42,
+      "num_ctx": 8192,
+      "num_predict": 1024
+    },
+    "validation_version": 1
+  },
+  "alerts": 12,
+  "reference_vulnerable_alerts": 8,
+  "reference_nonvulnerable_alerts": 4,
+  "changed_requests": 11,
+  "raw_verdict_outcomes_for_errors": {
+    "true_negative": 1,
+    "true_positive": 2
+  },
+  "fresh_responses": 12,
+  "inference_total_seconds": 2098.886,
+  "static_coverage": {
+    "alerts": 12,
+    "with_anchored_candidate_path": 11,
+    "with_cross_file_candidate_path": 3,
+    "with_verified_sql_value": 2
+  },
+  "baseline_metrics": {
+    "correct_decisions": 8,
+    "incorrect_decisions": 0,
+    "unknown": 4,
+    "errors": 0,
+    "pending": 0,
+    "decided": 8,
+    "coverage": 0.6666666666666666,
+    "accuracy_of_decisions": 1.0,
+    "correct_fraction_of_all_alerts": 0.6666666666666666,
+    "true_positive": 6,
+    "true_negative": 2,
+    "false_positive": 0,
+    "false_negative": 0
+  },
+  "new_metrics": {
+    "correct_decisions": 4,
+    "incorrect_decisions": 0,
+    "unknown": 5,
+    "errors": 3,
+    "pending": 0,
+    "decided": 4,
+    "coverage": 0.3333333333333333,
+    "accuracy_of_decisions": 1.0,
+    "correct_fraction_of_all_alerts": 0.3333333333333333,
+    "true_positive": 3,
+    "true_negative": 1,
+    "false_positive": 0,
+    "false_negative": 0
+  },
+  "baseline_verdicts": {
+    "LIKELY_TP": 6,
+    "LIKELY_FP": 2,
+    "UNKNOWN": 4
+  },
+  "new_verdicts": {
+    "LIKELY_TP": 3,
+    "ERROR": 3,
+    "UNKNOWN": 5,
+    "LIKELY_FP": 1
+  },
+  "average_baseline_prompt_tokens": 1830.5,
+  "median_elapsed_seconds": 172.9,
+  "cases": [
+    {
+      "issue_id": "47a9f2cb-a6ca-442d-9e56-79839ba05ff2",
+      "component": "thesis_owasp_holdout_v1:experiments/owasp_holdout_v1/inputs/a452b3aafd232245d0753e54eb243d6651f8ef96/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00438.java",
+      "evidence_changed": true,
+      "before": "LIKELY_TP",
+      "after": "LIKELY_TP",
+      "sample": "BenchmarkTest00438",
+      "reference_vulnerability": true,
+      "before_outcome": "true_positive",
+      "after_outcome": "true_positive",
+      "anchored_path": "candidate_paths",
+      "cross_file": false,
+      "before_prompt_tokens": 1388,
+      "after_prompt_tokens": 1233,
+      "elapsed_seconds": 167.517,
+      "after_citations": [
+        {
+          "file_id": "F0",
+          "line": 53
+        },
+        {
+          "file_id": "F0",
+          "line": 58
+        }
+      ]
+    },
+    {
+      "issue_id": "b540bb38-9153-4ccf-abe4-cdc606763d95",
+      "component": "thesis_owasp_holdout_v1:experiments/owasp_holdout_v1/inputs/a452b3aafd232245d0753e54eb243d6651f8ef96/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00439.java",
+      "evidence_changed": true,
+      "before": "LIKELY_TP",
+      "after": "LIKELY_TP",
+      "sample": "BenchmarkTest00439",
+      "reference_vulnerability": true,
+      "before_outcome": "true_positive",
+      "after_outcome": "true_positive",
+      "anchored_path": "candidate_paths",
+      "cross_file": false,
+      "before_prompt_tokens": 1316,
+      "after_prompt_tokens": 1228,
+      "elapsed_seconds": 121.042,
+      "after_citations": [
+        {
+          "file_id": "F0",
+          "line": 53
+        },
+        {
+          "file_id": "F0",
+          "line": 48
+        }
+      ]
+    },
+    {
+      "issue_id": "75bd39b8-848e-4ac4-ae84-35e78cbd540e",
+      "component": "thesis_owasp_holdout_v1:experiments/owasp_holdout_v1/inputs/a452b3aafd232245d0753e54eb243d6651f8ef96/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00517.java",
+      "evidence_changed": true,
+      "before": "LIKELY_FP",
+      "after": "ERROR",
+      "sample": "BenchmarkTest00517",
+      "reference_vulnerability": false,
+      "before_outcome": "true_negative",
+      "after_outcome": "error",
+      "anchored_path": "candidate_paths",
+      "cross_file": false,
+      "before_prompt_tokens": 1781,
+      "after_prompt_tokens": 1694,
+      "elapsed_seconds": 178.67,
+      "main_code_lines_removed_from_prompt": [
+        28,
+        30,
+        32,
+        33,
+        34,
+        35,
+        36
+      ],
+      "main_code_lines_added_to_prompt": [],
+      "error": "Decisive verdict needs warning line and supporting evidence",
+      "raw_verdict": "LIKELY_FP",
+      "raw_outcome": "true_negative",
+      "raw_citations": [
+        {
+          "file_id": "F0",
+          "line": 53
+        },
+        {
+          "file_id": "F0",
+          "line": 55
+        }
+      ],
+      "warning_present_in_prompt": true
+    },
+    {
+      "issue_id": "823079bc-568b-4dd4-95c4-3f9c8cbeed33",
+      "component": "thesis_owasp_holdout_v1:experiments/owasp_holdout_v1/inputs/a452b3aafd232245d0753e54eb243d6651f8ef96/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00592.java",
+      "evidence_changed": false,
+      "before": "UNKNOWN",
+      "after": "UNKNOWN",
+      "sample": "BenchmarkTest00592",
+      "reference_vulnerability": false,
+      "before_outcome": "unknown",
+      "after_outcome": "unknown",
+      "anchored_path": "no_candidate_path",
+      "cross_file": false,
+      "before_prompt_tokens": 1700,
+      "after_prompt_tokens": 1700,
+      "elapsed_seconds": 178.256,
+      "after_citations": [
+        {
+          "file_id": "F0",
+          "line": 89
+        },
+        {
+          "file_id": "F0",
+          "line": 90
+        }
+      ]
+    },
+    {
+      "issue_id": "cdeb1d77-373a-4bf5-9b38-7117ab0d4d7d",
+      "component": "thesis_owasp_holdout_v1:experiments/owasp_holdout_v1/inputs/a452b3aafd232245d0753e54eb243d6651f8ef96/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00999.java",
+      "evidence_changed": true,
+      "before": "UNKNOWN",
+      "after": "UNKNOWN",
+      "sample": "BenchmarkTest00999",
+      "reference_vulnerability": false,
+      "before_outcome": "unknown",
+      "after_outcome": "unknown",
+      "anchored_path": "candidate_paths",
+      "cross_file": false,
+      "before_prompt_tokens": 1484,
+      "after_prompt_tokens": 1509,
+      "elapsed_seconds": 152.384,
+      "after_citations": [
+        {
+          "file_id": "F0",
+          "line": 75
+        },
+        {
+          "file_id": "F0",
+          "line": 67
+        }
+      ]
+    },
+    {
+      "issue_id": "42fe8b5f-5d89-4d3b-815b-12adc58a2461",
+      "component": "thesis_owasp_holdout_v1:experiments/owasp_holdout_v1/inputs/a452b3aafd232245d0753e54eb243d6651f8ef96/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01093.java",
+      "evidence_changed": true,
+      "before": "LIKELY_TP",
+      "after": "ERROR",
+      "sample": "BenchmarkTest01093",
+      "reference_vulnerability": true,
+      "before_outcome": "true_positive",
+      "after_outcome": "error",
+      "anchored_path": "candidate_paths",
+      "cross_file": false,
+      "before_prompt_tokens": 1915,
+      "after_prompt_tokens": 1510,
+      "elapsed_seconds": 147.338,
+      "main_code_lines_removed_from_prompt": [
+        28,
+        30,
+        32,
+        33,
+        34,
+        35,
+        36,
+        39,
+        64,
+        65,
+        67,
+        70,
+        72,
+        73,
+        74
+      ],
+      "main_code_lines_added_to_prompt": [],
+      "error": "Decisive verdict needs warning line and supporting evidence",
+      "raw_verdict": "LIKELY_TP",
+      "raw_outcome": "true_positive",
+      "raw_citations": [
+        {
+          "file_id": "F0",
+          "line": 45
+        },
+        {
+          "file_id": "F0",
+          "line": 53
+        }
+      ],
+      "warning_present_in_prompt": true
+    },
+    {
+      "issue_id": "07951150-c656-48e8-a94d-c3d8bcd0a08a",
+      "component": "thesis_owasp_holdout_v1:experiments/owasp_holdout_v1/inputs/a452b3aafd232245d0753e54eb243d6651f8ef96/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01311.java",
+      "evidence_changed": true,
+      "before": "LIKELY_TP",
+      "after": "LIKELY_TP",
+      "sample": "BenchmarkTest01311",
+      "reference_vulnerability": true,
+      "before_outcome": "true_positive",
+      "after_outcome": "true_positive",
+      "anchored_path": "candidate_paths",
+      "cross_file": false,
+      "before_prompt_tokens": 1720,
+      "after_prompt_tokens": 1443,
+      "elapsed_seconds": 141.593,
+      "after_citations": [
+        {
+          "file_id": "F0",
+          "line": 43
+        },
+        {
+          "file_id": "F0",
+          "line": 53
+        }
+      ]
+    },
+    {
+      "issue_id": "a0b83a09-38be-4ab0-9be5-56c43a811134",
+      "component": "thesis_owasp_holdout_v1:experiments/owasp_holdout_v1/inputs/a452b3aafd232245d0753e54eb243d6651f8ef96/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01558.java",
+      "evidence_changed": true,
+      "before": "LIKELY_TP",
+      "after": "ERROR",
+      "sample": "BenchmarkTest01558",
+      "reference_vulnerability": true,
+      "before_outcome": "true_positive",
+      "after_outcome": "error",
+      "anchored_path": "candidate_paths",
+      "cross_file": true,
+      "before_prompt_tokens": 2107,
+      "after_prompt_tokens": 1807,
+      "elapsed_seconds": 179.964,
+      "main_code_lines_removed_from_prompt": [
+        28,
+        30,
+        32,
+        33,
+        34,
+        35,
+        36,
+        39,
+        40,
+        41,
+        61,
+        62,
+        64,
+        67,
+        69,
+        70,
+        71
+      ],
+      "main_code_lines_added_to_prompt": [],
+      "error": "Decisive verdict needs warning line and supporting evidence",
+      "raw_verdict": "LIKELY_TP",
+      "raw_outcome": "true_positive",
+      "raw_citations": [
+        {
+          "file_id": "F0",
+          "line": 50
+        },
+        {
+          "file_id": "F1",
+          "line": 31
+        }
+      ],
+      "warning_present_in_prompt": true
+    },
+    {
+      "issue_id": "8040d43a-6c70-4928-b324-f6c4abda92d2",
+      "component": "thesis_owasp_holdout_v1:experiments/owasp_holdout_v1/inputs/a452b3aafd232245d0753e54eb243d6651f8ef96/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02088.java",
+      "evidence_changed": true,
+      "before": "UNKNOWN",
+      "after": "UNKNOWN",
+      "sample": "BenchmarkTest02088",
+      "reference_vulnerability": true,
+      "before_outcome": "unknown",
+      "after_outcome": "unknown",
+      "anchored_path": "candidate_paths",
+      "cross_file": true,
+      "before_prompt_tokens": 2404,
+      "after_prompt_tokens": 2196,
+      "elapsed_seconds": 230.654,
+      "after_citations": [
+        {
+          "file_id": "F0",
+          "line": 44
+        },
+        {
+          "file_id": "F0",
+          "line": 61
+        }
+      ]
+    },
+    {
+      "issue_id": "a59329b9-c85d-488c-9cb3-cef8e94aad66",
+      "component": "thesis_owasp_holdout_v1:experiments/owasp_holdout_v1/inputs/a452b3aafd232245d0753e54eb243d6651f8ef96/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02093.java",
+      "evidence_changed": true,
+      "before": "LIKELY_FP",
+      "after": "LIKELY_FP",
+      "sample": "BenchmarkTest02093",
+      "reference_vulnerability": false,
+      "before_outcome": "true_negative",
+      "after_outcome": "true_negative",
+      "anchored_path": "candidate_paths",
+      "cross_file": false,
+      "before_prompt_tokens": 2110,
+      "after_prompt_tokens": 1969,
+      "elapsed_seconds": 215.574,
+      "after_citations": [
+        {
+          "file_id": "F0",
+          "line": 60
+        },
+        {
+          "file_id": "F0",
+          "line": 81
+        },
+        {
+          "file_id": "F0",
+          "line": 82
+        },
+        {
+          "file_id": "F0",
+          "line": 93
+        }
+      ]
+    },
+    {
+      "issue_id": "eb1d6188-8f9d-406f-b766-9abc0851368f",
+      "component": "thesis_owasp_holdout_v1:experiments/owasp_holdout_v1/inputs/a452b3aafd232245d0753e54eb243d6651f8ef96/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02171.java",
+      "evidence_changed": true,
+      "before": "LIKELY_TP",
+      "after": "UNKNOWN",
+      "sample": "BenchmarkTest02171",
+      "reference_vulnerability": true,
+      "before_outcome": "true_positive",
+      "after_outcome": "unknown",
+      "anchored_path": "candidate_paths",
+      "cross_file": false,
+      "before_prompt_tokens": 1742,
+      "after_prompt_tokens": 1466,
+      "elapsed_seconds": 150.22,
+      "after_citations": [
+        {
+          "file_id": "F0",
+          "line": 43
+        },
+        {
+          "file_id": "F0",
+          "line": 54
+        }
+      ],
+      "main_code_lines_removed_from_prompt": [
+        28,
+        30,
+        32,
+        33,
+        34,
+        35,
+        36,
+        63,
+        64,
+        65,
+        66,
+        69,
+        77
+      ],
+      "main_code_lines_added_to_prompt": []
+    },
+    {
+      "issue_id": "d2d8166a-90af-4679-8c1d-7b87d662292a",
+      "component": "thesis_owasp_holdout_v1:experiments/owasp_holdout_v1/inputs/a452b3aafd232245d0753e54eb243d6651f8ef96/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02186.java",
+      "evidence_changed": true,
+      "before": "UNKNOWN",
+      "after": "UNKNOWN",
+      "sample": "BenchmarkTest02186",
+      "reference_vulnerability": true,
+      "before_outcome": "unknown",
+      "after_outcome": "unknown",
+      "anchored_path": "candidate_paths",
+      "cross_file": true,
+      "before_prompt_tokens": 2299,
+      "after_prompt_tokens": 2185,
+      "elapsed_seconds": 235.674,
+      "after_citations": [
+        {
+          "file_id": "F0",
+          "line": 53
+        },
+        {
+          "file_id": "F0",
+          "line": 46
+        }
+      ]
+    }
+  ],
+  "average_new_prompt_tokens": 1661.7
+}

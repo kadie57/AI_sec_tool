@@ -1,0 +1,31 @@
+{
+  "collection": "/home/khanh/AI_sec_tool/runs/owasp-holdout-20261115T151839Z-b04660",
+  "collection_manifest_sha256": "9745334f511fa1828b568f313bfe189d15eb775e2895c6557c09b770aaaa594b",
+  "collection_issues_sha256": "cf5f4f39deb78d9f2da4fd2f15eca7b5c1ff97da9c3fb5e90d5d01c6e24f4ea3",
+  "analysis_id": "bbf5687b-6222-46b7-8063-621f82bd4de0",
+  "project": "thesis_owasp_holdout_v1",
+  "mapping_version": "sql89-v2",
+  "benchmark_commit": "a452b3aafd232245d0753e54eb243d6651f8ef96",
+  "state": "COMPLETED",
+  "issue_count": 4,
+  "joern_mode": "live",
+  "limitations": [
+    "Joern phân tích phạm vi một tệp Java.",
+    "Luồng từ tham số là một ứng viên, chưa xác nhận nguồn bên ngoài.",
+    "Không tìm thấy luồng trong truy vấn hiện tại chưa xác nhận mã an toàn."
+  ],
+  "endpoint_specifications": {
+    "version": "sql-endpoint-specifications-v1",
+    "java_classpath": [
+      {
+        "path": "/home/khanh/.m2/repository/javax/javaee-api/8.0.1/javaee-api-8.0.1.jar",
+        "sha256": "8c81515555e9be70f3760af53075dcc4fbbf4ca5f882fb1cb28fa113437d977d"
+      }
+    ]
+  },
+  "jdbc_value_evidence": {
+    "version": "jdbc-value-evidence-v1"
+  },
+  "joern_image_id": "sha256:f47692f8334d2eeca9fc83395023773da566ce8397563ff7c66d34a23bfc75c4",
+  "result_count": 4
+}

@@ -1,0 +1,97 @@
+{
+  "full_sql8": {
+    "cases": 8,
+    "sink_resolution": {
+      "one_verified_signature": 8
+    },
+    "with_verified_source_api": 8,
+    "with_linked_binding": 2,
+    "analysis_status": {
+      "partial_symbols": 8
+    }
+  },
+  "focused_ollama": {
+    "scope": "Two selected development cases, results not generalizable to all SQL8.",
+    "changed_field": "selected_evidence.endpoint_specifications",
+    "model": "qwen2.5-coder:14b-instruct-q4_K_M",
+    "model_digest": "9ec8897f747e246e970bc5cfdda85d22f1123dc2e3d34978a010a75968716849",
+    "cases": [
+      {
+        "sample": "BenchmarkTest01558",
+        "reference_vulnerability": true,
+        "path_context": {
+          "verdict": "LIKELY_TP",
+          "citations": [
+            {
+              "file_id": "F0",
+              "line": 55
+            },
+            {
+              "file_id": "F0",
+              "line": 43
+            }
+          ],
+          "matches_reference": true,
+          "error": null,
+          "prompt_tokens": 2195,
+          "elapsed_seconds": 213.646
+        },
+        "endpoint_specifications": {
+          "verdict": "LIKELY_TP",
+          "citations": [
+            {
+              "file_id": "F0",
+              "line": 55
+            },
+            {
+              "file_id": "F0",
+              "line": 45
+            }
+          ],
+          "matches_reference": true,
+          "error": null,
+          "prompt_tokens": 2454,
+          "elapsed_seconds": 295.731
+        }
+      },
+      {
+        "sample": "BenchmarkTest02093",
+        "reference_vulnerability": false,
+        "path_context": {
+          "verdict": "LIKELY_TP",
+          "citations": [
+            {
+              "file_id": "F0",
+              "line": 60
+            },
+            {
+              "file_id": "F0",
+              "line": 51
+            }
+          ],
+          "matches_reference": false,
+          "error": null,
+          "prompt_tokens": 1865,
+          "elapsed_seconds": 179.398
+        },
+        "endpoint_specifications": {
+          "verdict": "LIKELY_TP",
+          "citations": [
+            {
+              "file_id": "F0",
+              "line": 60
+            },
+            {
+              "file_id": "F0",
+              "line": 44
+            }
+          ],
+          "matches_reference": false,
+          "error": null,
+          "prompt_tokens": 2066,
+          "elapsed_seconds": 207.859
+        }
+      }
+    ]
+  }
+}

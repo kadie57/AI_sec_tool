@@ -1,0 +1,89 @@
+{
+  "scope": "Source-level verification on frozen OWASP cases without archived SonarQube alerts. These are not a Qwen warning-classification fold.",
+  "selection": "CWE-89 cases containing an ordered comparison with arithmetic. Exclude the previously scanned holdout/compatibility cases and normalized whole-source fingerprints. Choose deterministically with label and operator-shape diversity.",
+  "seed": "owasp-java-int-evidence-20261124-v1",
+  "benchmark_commit": "a452b3aafd232245d0753e54eb243d6651f8ef96",
+  "labels_sha256": "1809f6a690c6cf7dd6685df6ebe2eef8fe3ca93d19a7ca0ce45987ca4f5d78e1",
+  "cases": [
+    {
+      "sample": "BenchmarkTest01732",
+      "source": "src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01732.java",
+      "sha256": "cd61b83bcd62a549c11667bf07bb1262138f96b3cb684632e08226207eac1458",
+      "template_fingerprint": "57b22f3c931c451c51562064c9e673a57ceeb5dad7e824e0ab3dc828071efd05",
+      "condition_shapes": [
+        "conditional: * + >"
+      ],
+      "reference_vulnerability": false
+    },
+    {
+      "sample": "BenchmarkTest00436",
+      "source": "src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00436.java",
+      "sha256": "3a5d9a5788170ddb13da4bfa05ced11422f97fac6cbfc2c6bdd3a08c60fc98eb",
+      "template_fingerprint": "53b52a8709506944f625821ffbf167429adf8d2d607f2587379549f72e5713c7",
+      "condition_shapes": [
+        "if: * - >"
+      ],
+      "reference_vulnerability": false
+    },
+    {
+      "sample": "BenchmarkTest00928",
+      "source": "src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00928.java",
+      "sha256": "1bcc5fc238eadcb3f8926b5e18acb4de0b4b70547429de13fa59649bc4fb4da7",
+      "template_fingerprint": "8744877fed893a92448e9166743e0c88afe9c264f035e408caa5a383acb5e4d5",
+      "condition_shapes": [
+        "conditional: * - >"
+      ],
+      "reference_vulnerability": false
+    },
+    {
+      "sample": "BenchmarkTest01813",
+      "source": "src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01813.java",
+      "sha256": "698c2d5c424c82f61a3063cee29f3ea08154a93121e1681ba5478e7107d7a881",
+      "template_fingerprint": "7751b82822c8877e9db43112bb0ac2a52e74353924552d7c10cdc13c55e8c77d",
+      "condition_shapes": [
+        "if: / + >"
+      ],
+      "reference_vulnerability": false
+    },
+    {
+      "sample": "BenchmarkTest01384",
+      "source": "src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01384.java",
+      "sha256": "083ce9e2ace68ed35352ec3a91be44c7d3db251629d2795671185958389946ad",
+      "template_fingerprint": "e0ca19215580c87d7c885053eac5ae0a8216af27d9af2bc0da4d18c11a2e4cd1",
+      "condition_shapes": [
+        "conditional: * - >"
+      ],
+      "reference_vulnerability": true
+    },
+    {
+      "sample": "BenchmarkTest00433",
+      "source": "src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00433.java",
+      "sha256": "da1b80c272f121d63770ae39f4977f4e9711773a8af8958c33a9ad677db3bd1a",
+      "template_fingerprint": "acad891e99c97c4b80858be08eee5beae6b001fb59876d4c9b808ea851e617fa",
+      "condition_shapes": [
+        "if: / + >"
+      ],
+      "reference_vulnerability": true
+    },
+    {
+      "sample": "BenchmarkTest01088",
+      "source": "src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01088.java",
+      "sha256": "f52d037edcc50fda36a3871ea9463acdf8cdb858dc50d326c3bb3c353da0706e",
+      "template_fingerprint": "4d759255d3a5be438cb3bf9037eac39e49ec1396f806b7994764a66c32a11ec2",
+      "condition_shapes": [
+        "if: / + >"
+      ],
+      "reference_vulnerability": true
+    },
+    {
+      "sample": "BenchmarkTest00341",
+      "source": "src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00341.java",
+      "sha256": "e8271e4e52b68ce963b12db75b8e54b6d5d3c8b6693bb1720414f044ff1ab176",
+      "template_fingerprint": "62198420367eb12bcf5da949ada36f56eee68e6146adc33d32030041de274962",
+      "condition_shapes": [
+        "if: / + >"
+      ],
+      "reference_vulnerability": true
+    }
+  ]
+}

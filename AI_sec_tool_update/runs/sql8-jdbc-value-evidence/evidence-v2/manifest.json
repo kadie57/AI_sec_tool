@@ -1,0 +1,31 @@
+{
+  "collection": "/home/khanh/AI_sec_tool/AI_sec_tool_update/fixtures/sql8",
+  "collection_manifest_sha256": "b26bb04d4e92d2ac908b08351d36c86660a57187fb453cd19c503cf07b10fc2e",
+  "collection_issues_sha256": "975a6420a7756a18a00b927846652165b90f015d0da30c0dfc24c787c67cfd78",
+  "analysis_id": "bbf5687b-6222-46b7-8063-621f82bd4de0",
+  "project": "thesis_owasp_holdout_v1",
+  "mapping_version": "sql89-v2",
+  "benchmark_commit": "a452b3aafd232245d0753e54eb243d6651f8ef96",
+  "state": "COMPLETED",
+  "issue_count": 8,
+  "joern_mode": "recorded",
+  "limitations": [
+    "Joern phân tích phạm vi một tệp Java.",
+    "Luồng từ tham số là một ứng viên, chưa xác nhận nguồn bên ngoài.",
+    "Không tìm thấy luồng trong truy vấn hiện tại chưa xác nhận mã an toàn."
+  ],
+  "endpoint_specifications": {
+    "version": "sql-endpoint-specifications-v1",
+    "java_classpath": [
+      {
+        "path": "/home/khanh/.m2/repository/javax/javaee-api/8.0.1/javaee-api-8.0.1.jar",
+        "sha256": "8c81515555e9be70f3760af53075dcc4fbbf4ca5f882fb1cb28fa113437d977d"
+      }
+    ]
+  },
+  "jdbc_value_evidence": {
+    "version": "jdbc-value-evidence-v2"
+  },
+  "joern_image_id": "sha256:f47692f8334d2eeca9fc83395023773da566ce8397563ff7c66d34a23bfc75c4",
+  "result_count": 8
+}

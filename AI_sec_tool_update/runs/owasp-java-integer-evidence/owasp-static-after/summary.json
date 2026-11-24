@@ -1,0 +1,435 @@
+{
+  "scope": "Source-level verification on frozen OWASP cases without archived SonarQube alerts. These are not a Qwen warning-classification fold.",
+  "probe_sha256": "87d0441c9986403f9f0a5c161bb23688e98d10235545ae77cafa8033820a5194",
+  "argument_status_counts": {
+    "unknown": 2,
+    "constant_sql_text": 2
+  },
+  "cases": [
+    {
+      "sample": "BenchmarkTest01732",
+      "source_sha256": "cd61b83bcd62a549c11667bf07bb1262138f96b3cb684632e08226207eac1458",
+      "jdbc_signatures": [
+        {
+          "file_id": "F0",
+          "line": 77,
+          "column": 47,
+          "owner": "java.sql.Statement",
+          "signature": "executeQuery(java.lang.String)",
+          "role": "sql_text",
+          "argument_index": 1,
+          "argument": {
+            "file_id": "F0",
+            "line": 77
+          },
+          "bindings": []
+        }
+      ],
+      "value_evidence": {
+        "version": "jdbc-value-evidence-v3",
+        "scope": "modeled_java_execution_up_to_the_reported_call",
+        "status": "evaluated",
+        "arguments": [
+          {
+            "call": {
+              "file_id": "F0",
+              "line": 77,
+              "column": 47
+            },
+            "sql_argument": {
+              "file_id": "F0",
+              "line": 77
+            },
+            "status": "unknown",
+            "reason": "unsupported_or_runtime_value",
+            "evidence": [
+              {
+                "file_id": "F0",
+                "line": 47,
+                "role": "runtime_if_changes_control_flow"
+              },
+              {
+                "file_id": "F0",
+                "line": 47,
+                "role": "analysis_stopped_before_call"
+              },
+              {
+                "file_id": "F0",
+                "line": 72,
+                "role": "sql_argument_variable_declaration"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "sample": "BenchmarkTest00436",
+      "source_sha256": "3a5d9a5788170ddb13da4bfa05ced11422f97fac6cbfc2c6bdd3a08c60fc98eb",
+      "jdbc_signatures": [
+        {
+          "file_id": "F0",
+          "line": 58,
+          "column": 23,
+          "owner": "java.sql.Statement",
+          "signature": "execute(java.lang.String)",
+          "role": "sql_text",
+          "argument_index": 1,
+          "argument": {
+            "file_id": "F0",
+            "line": 58
+          },
+          "bindings": []
+        }
+      ],
+      "value_evidence": {
+        "version": "jdbc-value-evidence-v3",
+        "scope": "modeled_java_execution_up_to_the_reported_call",
+        "status": "evaluated",
+        "arguments": [
+          {
+            "call": {
+              "file_id": "F0",
+              "line": 58,
+              "column": 23
+            },
+            "sql_argument": {
+              "file_id": "F0",
+              "line": 58
+            },
+            "status": "constant_sql_text",
+            "reason": "bounded_java_evaluation",
+            "evidence": [
+              {
+                "file_id": "F0",
+                "line": 53,
+                "role": "constant_expression"
+              },
+              {
+                "file_id": "F0",
+                "line": 50,
+                "role": "constant_expression"
+              },
+              {
+                "file_id": "F0",
+                "line": 50,
+                "role": "integer_arithmetic"
+              },
+              {
+                "file_id": "F0",
+                "line": 49,
+                "role": "constant_expression"
+              },
+              {
+                "file_id": "F0",
+                "line": 49,
+                "role": "local_definition"
+              },
+              {
+                "file_id": "F0",
+                "line": 50,
+                "role": "integer_comparison"
+              },
+              {
+                "file_id": "F0",
+                "line": 50,
+                "role": "if_true"
+              },
+              {
+                "file_id": "F0",
+                "line": 50,
+                "role": "local_assignment"
+              },
+              {
+                "file_id": "F0",
+                "line": 53,
+                "role": "string_concatenation"
+              },
+              {
+                "file_id": "F0",
+                "line": 53,
+                "role": "local_definition"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "sample": "BenchmarkTest00928",
+      "source_sha256": "1bcc5fc238eadcb3f8926b5e18acb4de0b4b70547429de13fa59649bc4fb4da7",
+      "jdbc_signatures": [
+        {
+          "file_id": "F0",
+          "line": 60,
+          "column": 32,
+          "owner": "java.sql.Connection",
+          "signature": "prepareStatement(java.lang.String,int)",
+          "role": "sql_text",
+          "argument_index": 1,
+          "argument": {
+            "file_id": "F0",
+            "line": 60
+          },
+          "bindings": [
+            {
+              "file_id": "F0",
+              "line": 61,
+              "owner": "java.sql.PreparedStatement",
+              "signature": "setString(int,java.lang.String)",
+              "role": "bound_parameter_value",
+              "argument_index": 2,
+              "argument": {
+                "file_id": "F0",
+                "line": 61
+              },
+              "association": "same_unreassigned_local_statement"
+            }
+          ]
+        }
+      ],
+      "value_evidence": {
+        "version": "jdbc-value-evidence-v3",
+        "scope": "modeled_java_execution_up_to_the_reported_call",
+        "status": "evaluated",
+        "arguments": [
+          {
+            "call": {
+              "file_id": "F0",
+              "line": 60,
+              "column": 32
+            },
+            "sql_argument": {
+              "file_id": "F0",
+              "line": 60
+            },
+            "status": "constant_sql_text",
+            "reason": "bounded_java_evaluation",
+            "evidence": [
+              {
+                "file_id": "F0",
+                "line": 54,
+                "role": "constant_expression"
+              },
+              {
+                "file_id": "F1",
+                "line": 53,
+                "role": "constant_expression"
+              },
+              {
+                "file_id": "F1",
+                "line": 53,
+                "role": "helper_return"
+              },
+              {
+                "file_id": "F0",
+                "line": 45,
+                "role": "helper_call"
+              },
+              {
+                "file_id": "F0",
+                "line": 45,
+                "role": "local_definition"
+              },
+              {
+                "file_id": "F0",
+                "line": 52,
+                "role": "constant_expression"
+              },
+              {
+                "file_id": "F0",
+                "line": 52,
+                "role": "integer_arithmetic"
+              },
+              {
+                "file_id": "F0",
+                "line": 50,
+                "role": "constant_expression"
+              },
+              {
+                "file_id": "F0",
+                "line": 50,
+                "role": "local_definition"
+              },
+              {
+                "file_id": "F0",
+                "line": 52,
+                "role": "integer_comparison"
+              },
+              {
+                "file_id": "F0",
+                "line": 52,
+                "role": "conditional_value_selected"
+              },
+              {
+                "file_id": "F0",
+                "line": 52,
+                "role": "local_assignment"
+              },
+              {
+                "file_id": "F0",
+                "line": 54,
+                "role": "string_concatenation"
+              },
+              {
+                "file_id": "F0",
+                "line": 54,
+                "role": "local_definition"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "sample": "BenchmarkTest01813",
+      "source_sha256": "698c2d5c424c82f61a3063cee29f3ea08154a93121e1681ba5478e7107d7a881",
+      "jdbc_signatures": [],
+      "value_evidence": {
+        "version": "jdbc-value-evidence-v3",
+        "scope": "modeled_java_execution_up_to_the_reported_call",
+        "status": "jdbc_signature_unresolved",
+        "arguments": []
+      }
+    },
+    {
+      "sample": "BenchmarkTest01384",
+      "source_sha256": "083ce9e2ace68ed35352ec3a91be44c7d3db251629d2795671185958389946ad",
+      "jdbc_signatures": [
+        {
+          "file_id": "F0",
+          "line": 58,
+          "column": 32,
+          "owner": "java.sql.Connection",
+          "signature": "prepareStatement(java.lang.String,int[])",
+          "role": "sql_text",
+          "argument_index": 1,
+          "argument": {
+            "file_id": "F0",
+            "line": 58
+          },
+          "bindings": [
+            {
+              "file_id": "F0",
+              "line": 59,
+              "owner": "java.sql.PreparedStatement",
+              "signature": "setString(int,java.lang.String)",
+              "role": "bound_parameter_value",
+              "argument_index": 2,
+              "argument": {
+                "file_id": "F0",
+                "line": 59
+              },
+              "association": "same_unreassigned_local_statement"
+            }
+          ]
+        }
+      ],
+      "value_evidence": {
+        "version": "jdbc-value-evidence-v3",
+        "scope": "modeled_java_execution_up_to_the_reported_call",
+        "status": "evaluated",
+        "arguments": [
+          {
+            "call": {
+              "file_id": "F0",
+              "line": 58,
+              "column": 32
+            },
+            "sql_argument": {
+              "file_id": "F0",
+              "line": 58
+            },
+            "status": "unknown",
+            "reason": "unsupported_or_runtime_value",
+            "evidence": [
+              {
+                "file_id": "F0",
+                "line": 79,
+                "role": "local_assignment"
+              },
+              {
+                "file_id": "F0",
+                "line": 81,
+                "role": "value_at_reference_unresolved"
+              },
+              {
+                "file_id": "F0",
+                "line": 81,
+                "role": "helper_return"
+              },
+              {
+                "file_id": "F0",
+                "line": 50,
+                "role": "helper_call"
+              },
+              {
+                "file_id": "F0",
+                "line": 50,
+                "role": "local_definition"
+              },
+              {
+                "file_id": "F0",
+                "line": 52,
+                "role": "value_at_reference_unresolved"
+              },
+              {
+                "file_id": "F0",
+                "line": 52,
+                "role": "string_concatenation_with_unresolved_operand"
+              },
+              {
+                "file_id": "F0",
+                "line": 52,
+                "role": "local_definition"
+              },
+              {
+                "file_id": "F0",
+                "line": 58,
+                "role": "value_at_reference_unresolved"
+              },
+              {
+                "file_id": "F0",
+                "line": 52,
+                "role": "sql_argument_variable_declaration"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "sample": "BenchmarkTest00433",
+      "source_sha256": "da1b80c272f121d63770ae39f4977f4e9711773a8af8958c33a9ad677db3bd1a",
+      "jdbc_signatures": [],
+      "value_evidence": {
+        "version": "jdbc-value-evidence-v3",
+        "scope": "modeled_java_execution_up_to_the_reported_call",
+        "status": "jdbc_signature_unresolved",
+        "arguments": []
+      }
+    },
+    {
+      "sample": "BenchmarkTest01088",
+      "source_sha256": "f52d037edcc50fda36a3871ea9463acdf8cdb858dc50d326c3bb3c353da0706e",
+      "jdbc_signatures": [],
+      "value_evidence": {
+        "version": "jdbc-value-evidence-v3",
+        "scope": "modeled_java_execution_up_to_the_reported_call",
+        "status": "jdbc_signature_unresolved",
+        "arguments": []
+      }
+    },
+    {
+      "sample": "BenchmarkTest00341",
+      "source_sha256": "e8271e4e52b68ce963b12db75b8e54b6d5d3c8b6693bb1720414f044ff1ab176",
+      "jdbc_signatures": [],
+      "value_evidence": {
+        "version": "jdbc-value-evidence-v3",
+        "scope": "modeled_java_execution_up_to_the_reported_call",
+        "status": "jdbc_signature_unresolved",
+        "arguments": []
+      }
+    }
+  ]
+}

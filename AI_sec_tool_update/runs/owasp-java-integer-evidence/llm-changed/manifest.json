@@ -1,0 +1,30 @@
+{
+  "model": "qwen2.5-coder:14b-instruct-q4_K_M",
+  "prompt_sha256": "7fa152e90693c92ca2e93e765ac93bbf1327e138bb003cb852e3364597de3554",
+  "schema_sha256": "cbe382e684295a20cc2bcdb5d33b41612bd2c6e8adada0d2bb99b30b9c1c85c8",
+  "options": {
+    "temperature": 0,
+    "seed": 42,
+    "num_ctx": 8192,
+    "num_predict": 1024
+  },
+  "request_version": 1,
+  "validation_version": 1,
+  "cases": [
+    {
+      "issue_id": "75bd39b8-848e-4ac4-ae84-35e78cbd540e",
+      "alert": {
+        "issue_id": "75bd39b8-848e-4ac4-ae84-35e78cbd540e",
+        "component": "thesis_owasp_holdout_v1:experiments/owasp_holdout_v1/inputs/a452b3aafd232245d0753e54eb243d6651f8ef96/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00517.java",
+        "rule": "findsecbugs:SQL_INJECTION_JDBC",
+        "cwe": "CWE-89",
+        "start_line": 62,
+        "end_line": 62
+      },
+      "source": "3b9a5c479b25c60cc66f01cb7633cf513033f630ece04237cb5c9535cd4350d2",
+      "request_sha256": "66c6311d2b7a6b3adb1957599ee7d60498f7013d56b418fb3a01e6ed16904cbd"
+    }
+  ],
+  "model_digest": "9ec8897f747e246e970bc5cfdda85d22f1123dc2e3d34978a010a75968716849",
+  "mode": "ollama"
+}

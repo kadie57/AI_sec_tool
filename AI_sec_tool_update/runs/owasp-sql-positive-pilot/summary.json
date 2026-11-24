@@ -1,0 +1,89 @@
+{
+  "scope": "Positive-only pilot on three previously collected SonarQube warnings outside SQL8. No new Sonar scan; no false-positive estimate.",
+  "benchmark_commit": "a452b3aafd232245d0753e54eb243d6651f8ef96",
+  "labelled_positive_java_files": 272,
+  "model": "qwen2.5-coder:14b-instruct-q4_K_M",
+  "model_digest": "9ec8897f747e246e970bc5cfdda85d22f1123dc2e3d34978a010a75968716849",
+  "verdict_counts": {
+    "LIKELY_TP": 3
+  },
+  "correct_decided": 3,
+  "incorrect_decided": 0,
+  "cases": [
+    {
+      "sample": "BenchmarkTest00008",
+      "issue_id": "a1e3c378-0145-459e-9575-eb10632c612f",
+      "reference_vulnerability": true,
+      "rule": "findsecbugs:SQL_INJECTION_JDBC",
+      "warning_line": 57,
+      "sink_resolution": "one_verified_signature",
+      "static_sql_argument_values": [
+        "unknown"
+      ],
+      "verified_value_note_sent": false,
+      "verdict": "LIKELY_TP",
+      "matches_reference": true,
+      "citations": [
+        {
+          "file_id": "F0",
+          "line": 57
+        },
+        {
+          "file_id": "F0",
+          "line": 46
+        }
+      ],
+      "error": null
+    },
+    {
+      "sample": "BenchmarkTest00438",
+      "issue_id": "47a9f2cb-a6ca-442d-9e56-79839ba05ff2",
+      "reference_vulnerability": true,
+      "rule": "findsecbugs:SQL_INJECTION_JDBC",
+      "warning_line": 58,
+      "sink_resolution": "one_verified_signature",
+      "static_sql_argument_values": [
+        "unknown"
+      ],
+      "verified_value_note_sent": false,
+      "verdict": "LIKELY_TP",
+      "matches_reference": true,
+      "citations": [
+        {
+          "file_id": "F0",
+          "line": 43
+        },
+        {
+          "file_id": "F0",
+          "line": 58
+        }
+      ],
+      "error": null
+    },
+    {
+      "sample": "BenchmarkTest00439",
+      "issue_id": "b540bb38-9153-4ccf-abe4-cdc606763d95",
+      "reference_vulnerability": true,
+      "rule": "findsecbugs:SQL_INJECTION_JDBC",
+      "warning_line": 53,
+      "sink_resolution": "one_verified_signature",
+      "static_sql_argument_values": [
+        "unknown"
+      ],
+      "verified_value_note_sent": false,
+      "verdict": "LIKELY_TP",
+      "matches_reference": true,
+      "citations": [
+        {
+          "file_id": "F0",
+          "line": 43
+        },
+        {
+          "file_id": "F0",
+          "line": 53
+        }
+      ],
+      "error": null
+    }
+  ]
+}
