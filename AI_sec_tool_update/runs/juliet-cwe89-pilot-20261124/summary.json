@@ -1,0 +1,777 @@
+{
+  "scope": "Small, non-blind Juliet Java 1.3 CWE-89 pilot on eight intact source files selected a priori.",
+  "dataset": {
+    "suite": "NIST SARD 111, Juliet Java 1.3",
+    "official_source": "https://samate.nist.gov/SARD/test-suites/111",
+    "archive_sha256": "d985f4177c2bcd7b03455a05c1c8f2e755f55c9eb250accd052f05f877347e60",
+    "original_manifest_sha256": "e0227dee176a75d56aee13482bea309dc78fdfc707762bb7ce42336e7ef6045b",
+    "scope": "Eight CWE-89 files with mixed good and bad methods. Four HTTP and non-HTTP source families and paired direct (01) and same-file method-return (42) variants, selected before scanning.",
+    "case_count": 8,
+    "reference_fragments": "reference-fragments.xml",
+    "samples": [
+      {
+        "name": "CWE89_SQL_Injection__Environment_executeQuery_01.java",
+        "archive_path": "Java/src/testcases/CWE89_SQL_Injection/s02/CWE89_SQL_Injection__Environment_executeQuery_01.java",
+        "project_path": "Clean_Code/testcases/CWE89_SQL_Injection/s02/CWE89_SQL_Injection__Environment_executeQuery_01.java",
+        "sha256": "1134246004f718833d8c8ca4e104eb20cd7dda5535f0c6d0884fe4283a25fec4",
+        "annotated_flaw_lines": [
+          35,
+          47
+        ]
+      },
+      {
+        "name": "CWE89_SQL_Injection__Environment_executeQuery_42.java",
+        "archive_path": "Java/src/testcases/CWE89_SQL_Injection/s02/CWE89_SQL_Injection__Environment_executeQuery_42.java",
+        "project_path": "Clean_Code/testcases/CWE89_SQL_Injection/s02/CWE89_SQL_Injection__Environment_executeQuery_42.java",
+        "sha256": "bbe71a9d3e5d5cd74d9c16f79cc1867e546c37e311e07872e173602e22d1efe2",
+        "annotated_flaw_lines": [
+          54
+        ]
+      },
+      {
+        "name": "CWE89_SQL_Injection__File_prepareStatement_01.java",
+        "archive_path": "Java/src/testcases/CWE89_SQL_Injection/s02/CWE89_SQL_Injection__File_prepareStatement_01.java",
+        "project_path": "Clean_Code/testcases/CWE89_SQL_Injection/s02/CWE89_SQL_Injection__File_prepareStatement_01.java",
+        "sha256": "fffeaf3a15faad924bb991dfa5579a121629bf23efed3a55b31d33ac6d6d9d52",
+        "annotated_flaw_lines": [
+          57,
+          110
+        ]
+      },
+      {
+        "name": "CWE89_SQL_Injection__File_prepareStatement_42.java",
+        "archive_path": "Java/src/testcases/CWE89_SQL_Injection/s02/CWE89_SQL_Injection__File_prepareStatement_42.java",
+        "project_path": "Clean_Code/testcases/CWE89_SQL_Injection/s02/CWE89_SQL_Injection__File_prepareStatement_42.java",
+        "sha256": "4e5448ea25bc873fd48a34f3ea3bd609ff1b01697ffd82c8d237500f0ee43707",
+        "annotated_flaw_lines": [
+          117
+        ]
+      },
+      {
+        "name": "CWE89_SQL_Injection__getCookies_Servlet_prepareStatement_01.java",
+        "archive_path": "Java/src/testcases/CWE89_SQL_Injection/s02/CWE89_SQL_Injection__getCookies_Servlet_prepareStatement_01.java",
+        "project_path": "Clean_Code/testcases/CWE89_SQL_Injection/s02/CWE89_SQL_Injection__getCookies_Servlet_prepareStatement_01.java",
+        "sha256": "7133d690c6cd10fc5e05657ebf6eec9691f5fd9a7655832ffbb86691248e7733",
+        "annotated_flaw_lines": [
+          42,
+          52
+        ]
+      },
+      {
+        "name": "CWE89_SQL_Injection__getCookies_Servlet_prepareStatement_42.java",
+        "archive_path": "Java/src/testcases/CWE89_SQL_Injection/s02/CWE89_SQL_Injection__getCookies_Servlet_prepareStatement_42.java",
+        "project_path": "Clean_Code/testcases/CWE89_SQL_Injection/s02/CWE89_SQL_Injection__getCookies_Servlet_prepareStatement_42.java",
+        "sha256": "91c376777051c4ba08b469ee9553272075ca196c29f29996762a6f3e6b9518d8",
+        "annotated_flaw_lines": [
+          59
+        ]
+      },
+      {
+        "name": "CWE89_SQL_Injection__getParameter_Servlet_executeQuery_01.java",
+        "archive_path": "Java/src/testcases/CWE89_SQL_Injection/s02/CWE89_SQL_Injection__getParameter_Servlet_executeQuery_01.java",
+        "project_path": "Clean_Code/testcases/CWE89_SQL_Injection/s02/CWE89_SQL_Injection__getParameter_Servlet_executeQuery_01.java",
+        "sha256": "b6a7c2934b17ea68c38f26ad2d7bbe49ec76d654e9ed904a9152271d413a4b74",
+        "annotated_flaw_lines": [
+          35,
+          47
+        ]
+      },
+      {
+        "name": "CWE89_SQL_Injection__getParameter_Servlet_executeQuery_42.java",
+        "archive_path": "Java/src/testcases/CWE89_SQL_Injection/s02/CWE89_SQL_Injection__getParameter_Servlet_executeQuery_42.java",
+        "project_path": "Clean_Code/testcases/CWE89_SQL_Injection/s02/CWE89_SQL_Injection__getParameter_Servlet_executeQuery_42.java",
+        "sha256": "9064bde6f7572f9e891319f43805e3d8bc38a1689f55becb527bdc9782217f0b",
+        "annotated_flaw_lines": [
+          54
+        ]
+      }
+    ]
+  },
+  "limitations": [
+    "Original Juliet names bad and goodG2B can reveal the label; this is a non-blind, small pilot.",
+    "One positive and one negative detection per selected file. Some NIST annotations refer to the start of a multiline statement one line before the detector location.",
+    "Scanner output was emitted by local SpotBugs/FindSecBugs, not by the authenticated SonarQube Web API."
+  ],
+  "collector": "Offline FindSecBugs from the local SonarQube plugin",
+  "sonarqube_web_api_used": false,
+  "same_plugin_binary_as_owasp_sonar_snapshot": true,
+  "scan_report": "findsecbugs-offline.xml",
+  "evidence_file": "runs/juliet-cwe89-pilot-20261124/findsecbugs-evidence/sql_evidence.jsonl",
+  "model": "qwen2.5-coder:14b-instruct-q4_K_M",
+  "model_digest": "9ec8897f747e246e970bc5cfdda85d22f1123dc2e3d34978a010a75968716849",
+  "prompt_profile": "iris-contextual",
+  "prompt_sha256": "26e84205a559fb429adba9c87a3a28fdf6a4c6135f4d301f784acee12637a442",
+  "validation_version": 2,
+  "static": {
+    "targeted_files": 8,
+    "detector_alerts": 16,
+    "vulnerable_by_reference": 8,
+    "nonvulnerable_by_reference": 8,
+    "with_verified_jdbc_signature": 16,
+    "with_general_joern_candidate": 4,
+    "with_anchored_http_path": 4,
+    "with_verified_sql_value": 0,
+    "anchored_status_counts": {
+      "no_verified_http_read": 12,
+      "candidate_paths": 4
+    },
+    "with_warning_method_name_visible": 4,
+    "value_evidence_marker_counts": {
+      "scope_before_call_not_modeled": 15,
+      "analysis_stopped_before_call": 1,
+      "statement_not_modeled": 1
+    }
+  },
+  "triage": {
+    "true_positive": 8,
+    "true_negative": 0,
+    "false_positive": 8,
+    "false_negative": 0,
+    "unknown": 0,
+    "error": 0,
+    "pending": 0,
+    "correct": 8,
+    "incorrect": 8,
+    "real_issues_abstained": 0,
+    "nonvulnerable_issues_abstained": 0
+  },
+  "by_source_family_and_api": {
+    "Environment_executeQuery": {
+      "true_positive": 2,
+      "false_positive": 2
+    },
+    "File_prepareStatement": {
+      "true_positive": 2,
+      "false_positive": 2
+    },
+    "getCookies_Servlet_prepareStatement": {
+      "true_positive": 2,
+      "false_positive": 2
+    },
+    "getParameter_Servlet_executeQuery": {
+      "true_positive": 2,
+      "false_positive": 2
+    }
+  },
+  "by_flow_variant": {
+    "01": {
+      "true_positive": 4,
+      "false_positive": 4
+    },
+    "42": {
+      "true_positive": 4,
+      "false_positive": 4
+    }
+  },
+  "cases": [
+    {
+      "issue_id": "juliet-findsecbugs-01",
+      "sample": "CWE89_SQL_Injection__Environment_executeQuery_01.java",
+      "line": 47,
+      "method": "bad",
+      "reference_vulnerability": true,
+      "nearby_nist_flaw_lines": [
+        47
+      ],
+      "label_basis": "Juliet bad method and matching NIST manifest annotation within same call",
+      "source_family_and_api": "Environment_executeQuery",
+      "flow_variant": "01",
+      "visible_ground_truth_method_name": false,
+      "jdbc_signature_count": 1,
+      "candidate_flow_count": 0,
+      "anchored_status": "no_verified_http_read",
+      "http_to_sql_candidate_paths": 0,
+      "value_status": [
+        "unknown"
+      ],
+      "value_evidence_markers": [
+        "scope_before_call_not_modeled"
+      ],
+      "response": "findsecbugs-llm/case-0001.json",
+      "outcome": "true_positive",
+      "verdict": "LIKELY_TP",
+      "citations": [
+        {
+          "file_id": "F0",
+          "line": 47
+        },
+        {
+          "file_id": "F0",
+          "line": 42
+        }
+      ],
+      "warning_citation_added": null,
+      "elapsed_seconds": 192.022
+    },
+    {
+      "issue_id": "juliet-findsecbugs-02",
+      "sample": "CWE89_SQL_Injection__Environment_executeQuery_01.java",
+      "line": 120,
+      "method": "goodG2B",
+      "reference_vulnerability": false,
+      "nearby_nist_flaw_lines": [],
+      "label_basis": "Juliet goodG2B method",
+      "source_family_and_api": "Environment_executeQuery",
+      "flow_variant": "01",
+      "visible_ground_truth_method_name": false,
+      "jdbc_signature_count": 1,
+      "candidate_flow_count": 0,
+      "anchored_status": "no_verified_http_read",
+      "http_to_sql_candidate_paths": 0,
+      "value_status": [
+        "unknown"
+      ],
+      "value_evidence_markers": [
+        "scope_before_call_not_modeled"
+      ],
+      "response": "findsecbugs-llm/case-0002.json",
+      "outcome": "false_positive",
+      "verdict": "LIKELY_TP",
+      "citations": [
+        {
+          "file_id": "F0",
+          "line": 120
+        },
+        {
+          "file_id": "F0",
+          "line": 117
+        }
+      ],
+      "warning_citation_added": null,
+      "elapsed_seconds": 98.836
+    },
+    {
+      "issue_id": "juliet-findsecbugs-03",
+      "sample": "CWE89_SQL_Injection__Environment_executeQuery_42.java",
+      "line": 54,
+      "method": "bad",
+      "reference_vulnerability": true,
+      "nearby_nist_flaw_lines": [
+        54
+      ],
+      "label_basis": "Juliet bad method and matching NIST manifest annotation within same call",
+      "source_family_and_api": "Environment_executeQuery",
+      "flow_variant": "42",
+      "visible_ground_truth_method_name": false,
+      "jdbc_signature_count": 1,
+      "candidate_flow_count": 0,
+      "anchored_status": "no_verified_http_read",
+      "http_to_sql_candidate_paths": 0,
+      "value_status": [
+        "unknown"
+      ],
+      "value_evidence_markers": [
+        "scope_before_call_not_modeled"
+      ],
+      "response": "findsecbugs-llm/case-0003.json",
+      "outcome": "true_positive",
+      "verdict": "LIKELY_TP",
+      "citations": [
+        {
+          "file_id": "F0",
+          "line": 54
+        },
+        {
+          "file_id": "F0",
+          "line": 51
+        }
+      ],
+      "warning_citation_added": null,
+      "elapsed_seconds": 104.379
+    },
+    {
+      "issue_id": "juliet-findsecbugs-04",
+      "sample": "CWE89_SQL_Injection__Environment_executeQuery_42.java",
+      "line": 128,
+      "method": "goodG2B",
+      "reference_vulnerability": false,
+      "nearby_nist_flaw_lines": [],
+      "label_basis": "Juliet goodG2B method",
+      "source_family_and_api": "Environment_executeQuery",
+      "flow_variant": "42",
+      "visible_ground_truth_method_name": false,
+      "jdbc_signature_count": 1,
+      "candidate_flow_count": 0,
+      "anchored_status": "no_verified_http_read",
+      "http_to_sql_candidate_paths": 0,
+      "value_status": [
+        "unknown"
+      ],
+      "value_evidence_markers": [
+        "scope_before_call_not_modeled"
+      ],
+      "response": "findsecbugs-llm/case-0004.json",
+      "outcome": "false_positive",
+      "verdict": "LIKELY_TP",
+      "citations": [
+        {
+          "file_id": "F0",
+          "line": 128
+        },
+        {
+          "file_id": "F0",
+          "line": 123
+        }
+      ],
+      "warning_citation_added": null,
+      "elapsed_seconds": 116.483
+    },
+    {
+      "issue_id": "juliet-findsecbugs-05",
+      "sample": "CWE89_SQL_Injection__File_prepareStatement_01.java",
+      "line": 111,
+      "method": "bad",
+      "reference_vulnerability": true,
+      "nearby_nist_flaw_lines": [
+        110
+      ],
+      "label_basis": "Juliet bad method and matching NIST manifest annotation within same call",
+      "source_family_and_api": "File_prepareStatement",
+      "flow_variant": "01",
+      "visible_ground_truth_method_name": false,
+      "jdbc_signature_count": 1,
+      "candidate_flow_count": 0,
+      "anchored_status": "no_verified_http_read",
+      "http_to_sql_candidate_paths": 0,
+      "value_status": [
+        "unknown"
+      ],
+      "value_evidence_markers": [
+        "analysis_stopped_before_call",
+        "statement_not_modeled"
+      ],
+      "response": "findsecbugs-llm/case-0005.json",
+      "outcome": "true_positive",
+      "verdict": "LIKELY_TP",
+      "citations": [
+        {
+          "file_id": "F0",
+          "line": 111
+        },
+        {
+          "file_id": "F0",
+          "line": 107
+        }
+      ],
+      "warning_citation_added": null,
+      "elapsed_seconds": 115.552
+    },
+    {
+      "issue_id": "juliet-findsecbugs-06",
+      "sample": "CWE89_SQL_Injection__File_prepareStatement_01.java",
+      "line": 178,
+      "method": "goodG2B",
+      "reference_vulnerability": false,
+      "nearby_nist_flaw_lines": [],
+      "label_basis": "Juliet goodG2B method",
+      "source_family_and_api": "File_prepareStatement",
+      "flow_variant": "01",
+      "visible_ground_truth_method_name": false,
+      "jdbc_signature_count": 1,
+      "candidate_flow_count": 0,
+      "anchored_status": "no_verified_http_read",
+      "http_to_sql_candidate_paths": 0,
+      "value_status": [
+        "unknown"
+      ],
+      "value_evidence_markers": [
+        "scope_before_call_not_modeled"
+      ],
+      "response": "findsecbugs-llm/case-0006.json",
+      "outcome": "false_positive",
+      "verdict": "LIKELY_TP",
+      "citations": [
+        {
+          "file_id": "F0",
+          "line": 178
+        },
+        {
+          "file_id": "F0",
+          "line": 174
+        }
+      ],
+      "warning_citation_added": null,
+      "elapsed_seconds": 111.408
+    },
+    {
+      "issue_id": "juliet-findsecbugs-07",
+      "sample": "CWE89_SQL_Injection__File_prepareStatement_42.java",
+      "line": 118,
+      "method": "bad",
+      "reference_vulnerability": true,
+      "nearby_nist_flaw_lines": [
+        117
+      ],
+      "label_basis": "Juliet bad method and matching NIST manifest annotation within same call",
+      "source_family_and_api": "File_prepareStatement",
+      "flow_variant": "42",
+      "visible_ground_truth_method_name": false,
+      "jdbc_signature_count": 1,
+      "candidate_flow_count": 0,
+      "anchored_status": "no_verified_http_read",
+      "http_to_sql_candidate_paths": 0,
+      "value_status": [
+        "unknown"
+      ],
+      "value_evidence_markers": [
+        "scope_before_call_not_modeled"
+      ],
+      "response": "findsecbugs-llm/case-0007.json",
+      "outcome": "true_positive",
+      "verdict": "LIKELY_TP",
+      "citations": [
+        {
+          "file_id": "F0",
+          "line": 118
+        },
+        {
+          "file_id": "F0",
+          "line": 114
+        }
+      ],
+      "warning_citation_added": null,
+      "elapsed_seconds": 133.044
+    },
+    {
+      "issue_id": "juliet-findsecbugs-08",
+      "sample": "CWE89_SQL_Injection__File_prepareStatement_42.java",
+      "line": 186,
+      "method": "goodG2B",
+      "reference_vulnerability": false,
+      "nearby_nist_flaw_lines": [],
+      "label_basis": "Juliet goodG2B method",
+      "source_family_and_api": "File_prepareStatement",
+      "flow_variant": "42",
+      "visible_ground_truth_method_name": false,
+      "jdbc_signature_count": 1,
+      "candidate_flow_count": 0,
+      "anchored_status": "no_verified_http_read",
+      "http_to_sql_candidate_paths": 0,
+      "value_status": [
+        "unknown"
+      ],
+      "value_evidence_markers": [
+        "scope_before_call_not_modeled"
+      ],
+      "response": "findsecbugs-llm/case-0008.json",
+      "outcome": "false_positive",
+      "verdict": "LIKELY_TP",
+      "citations": [
+        {
+          "file_id": "F0",
+          "line": 186
+        },
+        {
+          "file_id": "F0",
+          "line": 182
+        }
+      ],
+      "warning_citation_added": null,
+      "elapsed_seconds": 116.895
+    },
+    {
+      "issue_id": "juliet-findsecbugs-09",
+      "sample": "CWE89_SQL_Injection__getCookies_Servlet_prepareStatement_01.java",
+      "line": 53,
+      "method": "bad",
+      "reference_vulnerability": true,
+      "nearby_nist_flaw_lines": [
+        52
+      ],
+      "label_basis": "Juliet bad method and matching NIST manifest annotation within same call",
+      "source_family_and_api": "getCookies_Servlet_prepareStatement",
+      "flow_variant": "01",
+      "visible_ground_truth_method_name": true,
+      "jdbc_signature_count": 1,
+      "candidate_flow_count": 1,
+      "anchored_status": "candidate_paths",
+      "http_to_sql_candidate_paths": 1,
+      "value_status": [
+        "unknown"
+      ],
+      "value_evidence_markers": [
+        "scope_before_call_not_modeled"
+      ],
+      "response": "findsecbugs-llm/case-0009.json",
+      "outcome": "true_positive",
+      "verdict": "LIKELY_TP",
+      "citations": [
+        {
+          "file_id": "F0",
+          "line": 53
+        },
+        {
+          "file_id": "F0",
+          "line": 42
+        }
+      ],
+      "warning_citation_added": null,
+      "elapsed_seconds": 145.493
+    },
+    {
+      "issue_id": "juliet-findsecbugs-10",
+      "sample": "CWE89_SQL_Injection__getCookies_Servlet_prepareStatement_01.java",
+      "line": 120,
+      "method": "goodG2B",
+      "reference_vulnerability": false,
+      "nearby_nist_flaw_lines": [],
+      "label_basis": "Juliet goodG2B method",
+      "source_family_and_api": "getCookies_Servlet_prepareStatement",
+      "flow_variant": "01",
+      "visible_ground_truth_method_name": false,
+      "jdbc_signature_count": 1,
+      "candidate_flow_count": 0,
+      "anchored_status": "no_verified_http_read",
+      "http_to_sql_candidate_paths": 0,
+      "value_status": [
+        "unknown"
+      ],
+      "value_evidence_markers": [
+        "scope_before_call_not_modeled"
+      ],
+      "response": "findsecbugs-llm/case-0010.json",
+      "outcome": "false_positive",
+      "verdict": "LIKELY_TP",
+      "citations": [
+        {
+          "file_id": "F0",
+          "line": 120
+        },
+        {
+          "file_id": "F0",
+          "line": 119
+        }
+      ],
+      "warning_citation_added": null,
+      "elapsed_seconds": 109.503
+    },
+    {
+      "issue_id": "juliet-findsecbugs-11",
+      "sample": "CWE89_SQL_Injection__getCookies_Servlet_prepareStatement_42.java",
+      "line": 60,
+      "method": "bad",
+      "reference_vulnerability": true,
+      "nearby_nist_flaw_lines": [
+        59
+      ],
+      "label_basis": "Juliet bad method and matching NIST manifest annotation within same call",
+      "source_family_and_api": "getCookies_Servlet_prepareStatement",
+      "flow_variant": "42",
+      "visible_ground_truth_method_name": true,
+      "jdbc_signature_count": 1,
+      "candidate_flow_count": 2,
+      "anchored_status": "candidate_paths",
+      "http_to_sql_candidate_paths": 1,
+      "value_status": [
+        "unknown"
+      ],
+      "value_evidence_markers": [
+        "scope_before_call_not_modeled"
+      ],
+      "response": "findsecbugs-llm/case-0011.json",
+      "outcome": "true_positive",
+      "verdict": "LIKELY_TP",
+      "citations": [
+        {
+          "file_id": "F0",
+          "line": 60
+        },
+        {
+          "file_id": "F0",
+          "line": 38
+        }
+      ],
+      "warning_citation_added": null,
+      "elapsed_seconds": 138.062
+    },
+    {
+      "issue_id": "juliet-findsecbugs-12",
+      "sample": "CWE89_SQL_Injection__getCookies_Servlet_prepareStatement_42.java",
+      "line": 128,
+      "method": "goodG2B",
+      "reference_vulnerability": false,
+      "nearby_nist_flaw_lines": [],
+      "label_basis": "Juliet goodG2B method",
+      "source_family_and_api": "getCookies_Servlet_prepareStatement",
+      "flow_variant": "42",
+      "visible_ground_truth_method_name": false,
+      "jdbc_signature_count": 1,
+      "candidate_flow_count": 0,
+      "anchored_status": "no_verified_http_read",
+      "http_to_sql_candidate_paths": 0,
+      "value_status": [
+        "unknown"
+      ],
+      "value_evidence_markers": [
+        "scope_before_call_not_modeled"
+      ],
+      "response": "findsecbugs-llm/case-0012.json",
+      "outcome": "false_positive",
+      "verdict": "LIKELY_TP",
+      "citations": [
+        {
+          "file_id": "F0",
+          "line": 128
+        },
+        {
+          "file_id": "F0",
+          "line": 124
+        }
+      ],
+      "warning_citation_added": null,
+      "elapsed_seconds": 105.942
+    },
+    {
+      "issue_id": "juliet-findsecbugs-13",
+      "sample": "CWE89_SQL_Injection__getParameter_Servlet_executeQuery_01.java",
+      "line": 47,
+      "method": "bad",
+      "reference_vulnerability": true,
+      "nearby_nist_flaw_lines": [
+        47
+      ],
+      "label_basis": "Juliet bad method and matching NIST manifest annotation within same call",
+      "source_family_and_api": "getParameter_Servlet_executeQuery",
+      "flow_variant": "01",
+      "visible_ground_truth_method_name": true,
+      "jdbc_signature_count": 1,
+      "candidate_flow_count": 1,
+      "anchored_status": "candidate_paths",
+      "http_to_sql_candidate_paths": 1,
+      "value_status": [
+        "unknown"
+      ],
+      "value_evidence_markers": [
+        "scope_before_call_not_modeled"
+      ],
+      "response": "findsecbugs-llm/case-0013.json",
+      "outcome": "true_positive",
+      "verdict": "LIKELY_TP",
+      "citations": [
+        {
+          "file_id": "F0",
+          "line": 47
+        },
+        {
+          "file_id": "F0",
+          "line": 35
+        }
+      ],
+      "warning_citation_added": null,
+      "elapsed_seconds": 135.009
+    },
+    {
+      "issue_id": "juliet-findsecbugs-14",
+      "sample": "CWE89_SQL_Injection__getParameter_Servlet_executeQuery_01.java",
+      "line": 120,
+      "method": "goodG2B",
+      "reference_vulnerability": false,
+      "nearby_nist_flaw_lines": [],
+      "label_basis": "Juliet goodG2B method",
+      "source_family_and_api": "getParameter_Servlet_executeQuery",
+      "flow_variant": "01",
+      "visible_ground_truth_method_name": false,
+      "jdbc_signature_count": 1,
+      "candidate_flow_count": 0,
+      "anchored_status": "no_verified_http_read",
+      "http_to_sql_candidate_paths": 0,
+      "value_status": [
+        "unknown"
+      ],
+      "value_evidence_markers": [
+        "scope_before_call_not_modeled"
+      ],
+      "response": "findsecbugs-llm/case-0014.json",
+      "outcome": "false_positive",
+      "verdict": "LIKELY_TP",
+      "citations": [
+        {
+          "file_id": "F0",
+          "line": 120
+        },
+        {
+          "file_id": "F0",
+          "line": 115
+        }
+      ],
+      "warning_citation_added": null,
+      "elapsed_seconds": 103.258
+    },
+    {
+      "issue_id": "juliet-findsecbugs-15",
+      "sample": "CWE89_SQL_Injection__getParameter_Servlet_executeQuery_42.java",
+      "line": 54,
+      "method": "bad",
+      "reference_vulnerability": true,
+      "nearby_nist_flaw_lines": [
+        54
+      ],
+      "label_basis": "Juliet bad method and matching NIST manifest annotation within same call",
+      "source_family_and_api": "getParameter_Servlet_executeQuery",
+      "flow_variant": "42",
+      "visible_ground_truth_method_name": true,
+      "jdbc_signature_count": 1,
+      "candidate_flow_count": 2,
+      "anchored_status": "candidate_paths",
+      "http_to_sql_candidate_paths": 1,
+      "value_status": [
+        "unknown"
+      ],
+      "value_evidence_markers": [
+        "scope_before_call_not_modeled"
+      ],
+      "response": "findsecbugs-llm/case-0015.json",
+      "outcome": "true_positive",
+      "verdict": "LIKELY_TP",
+      "citations": [
+        {
+          "file_id": "F0",
+          "line": 54
+        },
+        {
+          "file_id": "F0",
+          "line": 35
+        }
+      ],
+      "warning_citation_added": null,
+      "elapsed_seconds": 139.551
+    },
+    {
+      "issue_id": "juliet-findsecbugs-16",
+      "sample": "CWE89_SQL_Injection__getParameter_Servlet_executeQuery_42.java",
+      "line": 128,
+      "method": "goodG2B",
+      "reference_vulnerability": false,
+      "nearby_nist_flaw_lines": [],
+      "label_basis": "Juliet goodG2B method",
+      "source_family_and_api": "getParameter_Servlet_executeQuery",
+      "flow_variant": "42",
+      "visible_ground_truth_method_name": false,
+      "jdbc_signature_count": 1,
+      "candidate_flow_count": 0,
+      "anchored_status": "no_verified_http_read",
+      "http_to_sql_candidate_paths": 0,
+      "value_status": [
+        "unknown"
+      ],
+      "value_evidence_markers": [
+        "scope_before_call_not_modeled"
+      ],
+      "response": "findsecbugs-llm/case-0016.json",
+      "outcome": "false_positive",
+      "verdict": "LIKELY_TP",
+      "citations": [
+        {
+          "file_id": "F0",
+          "line": 128
+        },
+        {
+          "file_id": "F0",
+          "line": 123
+        }
+      ],
+      "warning_citation_added": null,
+      "elapsed_seconds": 106.467
+    }
+  ]
+}

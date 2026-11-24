@@ -1,0 +1,169 @@
+{
+  "labels": [
+    {
+      "issue_id": "juliet-findsecbugs-01",
+      "sample": "CWE89_SQL_Injection__Environment_executeQuery_01.java",
+      "line": 47,
+      "method": "bad",
+      "reference_vulnerability": true,
+      "nearby_nist_flaw_lines": [
+        47
+      ],
+      "label_basis": "Juliet bad method and matching NIST manifest annotation within same call"
+    },
+    {
+      "issue_id": "juliet-findsecbugs-02",
+      "sample": "CWE89_SQL_Injection__Environment_executeQuery_01.java",
+      "line": 120,
+      "method": "goodG2B",
+      "reference_vulnerability": false,
+      "nearby_nist_flaw_lines": [],
+      "label_basis": "Juliet goodG2B method"
+    },
+    {
+      "issue_id": "juliet-findsecbugs-03",
+      "sample": "CWE89_SQL_Injection__Environment_executeQuery_42.java",
+      "line": 54,
+      "method": "bad",
+      "reference_vulnerability": true,
+      "nearby_nist_flaw_lines": [
+        54
+      ],
+      "label_basis": "Juliet bad method and matching NIST manifest annotation within same call"
+    },
+    {
+      "issue_id": "juliet-findsecbugs-04",
+      "sample": "CWE89_SQL_Injection__Environment_executeQuery_42.java",
+      "line": 128,
+      "method": "goodG2B",
+      "reference_vulnerability": false,
+      "nearby_nist_flaw_lines": [],
+      "label_basis": "Juliet goodG2B method"
+    },
+    {
+      "issue_id": "juliet-findsecbugs-05",
+      "sample": "CWE89_SQL_Injection__File_prepareStatement_01.java",
+      "line": 111,
+      "method": "bad",
+      "reference_vulnerability": true,
+      "nearby_nist_flaw_lines": [
+        110
+      ],
+      "label_basis": "Juliet bad method and matching NIST manifest annotation within same call"
+    },
+    {
+      "issue_id": "juliet-findsecbugs-06",
+      "sample": "CWE89_SQL_Injection__File_prepareStatement_01.java",
+      "line": 178,
+      "method": "goodG2B",
+      "reference_vulnerability": false,
+      "nearby_nist_flaw_lines": [],
+      "label_basis": "Juliet goodG2B method"
+    },
+    {
+      "issue_id": "juliet-findsecbugs-07",
+      "sample": "CWE89_SQL_Injection__File_prepareStatement_42.java",
+      "line": 118,
+      "method": "bad",
+      "reference_vulnerability": true,
+      "nearby_nist_flaw_lines": [
+        117
+      ],
+      "label_basis": "Juliet bad method and matching NIST manifest annotation within same call"
+    },
+    {
+      "issue_id": "juliet-findsecbugs-08",
+      "sample": "CWE89_SQL_Injection__File_prepareStatement_42.java",
+      "line": 186,
+      "method": "goodG2B",
+      "reference_vulnerability": false,
+      "nearby_nist_flaw_lines": [],
+      "label_basis": "Juliet goodG2B method"
+    },
+    {
+      "issue_id": "juliet-findsecbugs-09",
+      "sample": "CWE89_SQL_Injection__getCookies_Servlet_prepareStatement_01.java",
+      "line": 53,
+      "method": "bad",
+      "reference_vulnerability": true,
+      "nearby_nist_flaw_lines": [
+        52
+      ],
+      "label_basis": "Juliet bad method and matching NIST manifest annotation within same call"
+    },
+    {
+      "issue_id": "juliet-findsecbugs-10",
+      "sample": "CWE89_SQL_Injection__getCookies_Servlet_prepareStatement_01.java",
+      "line": 120,
+      "method": "goodG2B",
+      "reference_vulnerability": false,
+      "nearby_nist_flaw_lines": [],
+      "label_basis": "Juliet goodG2B method"
+    },
+    {
+      "issue_id": "juliet-findsecbugs-11",
+      "sample": "CWE89_SQL_Injection__getCookies_Servlet_prepareStatement_42.java",
+      "line": 60,
+      "method": "bad",
+      "reference_vulnerability": true,
+      "nearby_nist_flaw_lines": [
+        59
+      ],
+      "label_basis": "Juliet bad method and matching NIST manifest annotation within same call"
+    },
+    {
+      "issue_id": "juliet-findsecbugs-12",
+      "sample": "CWE89_SQL_Injection__getCookies_Servlet_prepareStatement_42.java",
+      "line": 128,
+      "method": "goodG2B",
+      "reference_vulnerability": false,
+      "nearby_nist_flaw_lines": [],
+      "label_basis": "Juliet goodG2B method"
+    },
+    {
+      "issue_id": "juliet-findsecbugs-13",
+      "sample": "CWE89_SQL_Injection__getParameter_Servlet_executeQuery_01.java",
+      "line": 47,
+      "method": "bad",
+      "reference_vulnerability": true,
+      "nearby_nist_flaw_lines": [
+        47
+      ],
+      "label_basis": "Juliet bad method and matching NIST manifest annotation within same call"
+    },
+    {
+      "issue_id": "juliet-findsecbugs-14",
+      "sample": "CWE89_SQL_Injection__getParameter_Servlet_executeQuery_01.java",
+      "line": 120,
+      "method": "goodG2B",
+      "reference_vulnerability": false,
+      "nearby_nist_flaw_lines": [],
+      "label_basis": "Juliet goodG2B method"
+    },
+    {
+      "issue_id": "juliet-findsecbugs-15",
+      "sample": "CWE89_SQL_Injection__getParameter_Servlet_executeQuery_42.java",
+      "line": 54,
+      "method": "bad",
+      "reference_vulnerability": true,
+      "nearby_nist_flaw_lines": [
+        54
+      ],
+      "label_basis": "Juliet bad method and matching NIST manifest annotation within same call"
+    },
+    {
+      "issue_id": "juliet-findsecbugs-16",
+      "sample": "CWE89_SQL_Injection__getParameter_Servlet_executeQuery_42.java",
+      "line": 128,
+      "method": "goodG2B",
+      "reference_vulnerability": false,
+      "nearby_nist_flaw_lines": [],
+      "label_basis": "Juliet goodG2B method"
+    }
+  ],
+  "limitations": [
+    "Original Juliet names bad and goodG2B can reveal the label; this is a non-blind, small pilot.",
+    "One positive and one negative detection per selected file. Some NIST annotations refer to the start of a multiline statement one line before the detector location.",
+    "Scanner output was emitted by local SpotBugs/FindSecBugs, not by the authenticated SonarQube Web API."
+  ]
+}

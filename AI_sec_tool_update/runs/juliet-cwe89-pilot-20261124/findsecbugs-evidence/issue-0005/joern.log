@@ -1,0 +1,173 @@
+=======================================================================================================
+Invoking CPG generator in a separate process. Note that the new process will consume additional memory.
+If you are importing a large codebase (and/or running into memory issues), please try the following:
+1) exit joern
+2) invoke the frontend: /opt/joern/joern-cli/javasrc2cpg -J-Xmx7956m /project/Clean_Code/testcases/CWE89_SQL_Injection/s02/CWE89_SQL_Injection__File_prepareStatement_01.java --output /work/workspace/CWE89_SQL_Injection__File_prepareStatement_01.java/cpg.bin.zip
+3) start joern, import the cpg: `importCpg("path/to/cpg")`
+=======================================================================================================
+
+[INFO ] initialising from existing storage (/work/workspace/CWE89_SQL_Injection__File_prepareStatement_01.java/cpg.bin.tmp)
+[INFO ] Start of pass: io.joern.x2cpg.passes.base.FileCreationPass
+[INFO ] Pass io.joern.x2cpg.passes.base.FileCreationPass completed in 36 ms (75% on mutations). 10 + 0 changes committed from 1 parts.
+[INFO ] Start of pass: io.joern.x2cpg.passes.base.NamespaceCreator
+[INFO ] Pass io.joern.x2cpg.passes.base.NamespaceCreator completed in 6 ms (46% on mutations). 4 + 0 changes committed from 1 parts.
+[INFO ] Start of pass: io.joern.x2cpg.passes.base.TypeDeclStubCreator
+[INFO ] Pass io.joern.x2cpg.passes.base.TypeDeclStubCreator completed in 7 ms (33% on mutations). 13 + 0 changes committed from 1 parts.
+[INFO ] Start of pass: io.joern.x2cpg.passes.base.MethodStubCreator
+[INFO ] Inconsistent/erroneous callInfo on calls to method fullname <operator>.alloc (we have 1 many variants)
+[INFO ] Pass io.joern.x2cpg.passes.base.MethodStubCreator completed in 31 ms (11% on mutations). 181 + 0 changes committed from 1 parts.
+[INFO ] Start of pass: io.joern.x2cpg.passes.base.ParameterIndexCompatPass
+[INFO ] Pass io.joern.x2cpg.passes.base.ParameterIndexCompatPass completed in 2 ms (37% on mutations). 0 + 0 changes committed from 1 parts.
+[INFO ] Start of pass: io.joern.x2cpg.passes.base.MethodDecoratorPass
+[INFO ] Pass io.joern.x2cpg.passes.base.MethodDecoratorPass completed in 10 ms (36% on mutations). 132 + 0 changes committed from 1 parts.
+[INFO ] Start of pass: io.joern.x2cpg.passes.base.AstLinkerPass
+[INFO ] Pass io.joern.x2cpg.passes.base.AstLinkerPass completed in 6 ms (18% on mutations). 34 + 0 changes committed from 1 parts.
+[INFO ] Start of pass: io.joern.x2cpg.passes.base.ContainsEdgePass
+[INFO ] Pass io.joern.x2cpg.passes.base.ContainsEdgePass completed in 8 ms (32% on mutations). 562 + 0 changes committed from 43 parts.
+[INFO ] Start of pass: io.joern.x2cpg.passes.base.TypeRefPass
+[INFO ] Pass io.joern.x2cpg.passes.base.TypeRefPass completed in 3 ms (21% on mutations). 14 + 0 changes committed from 1 parts.
+[INFO ] Start of pass: io.joern.x2cpg.passes.base.TypeEvalPass
+[INFO ] Pass io.joern.x2cpg.passes.base.TypeEvalPass completed in 9 ms (27% on mutations). 539 + 0 changes committed from 6 parts.
+[INFO ] Start of pass: io.shiftleft.semanticcpg.Overlays$$anon$1
+[INFO ] Pass io.shiftleft.semanticcpg.Overlays$$anon$1 completed in 5 ms (26% on mutations). 1 + 0 changes committed from 1 parts.
+[INFO ] Start of pass: io.joern.x2cpg.passes.controlflow.CfgCreationPass
+[WARN ] Using order fallback for try statement finally body
+[INFO ] Pass io.joern.x2cpg.passes.controlflow.CfgCreationPass completed in 37 ms (5% on mutations). 489 + 0 changes committed from 27 parts.
+[INFO ] Start of pass: io.joern.x2cpg.passes.controlflow.cfgdominator.CfgDominatorPass
+[INFO ] Pass io.joern.x2cpg.passes.controlflow.cfgdominator.CfgDominatorPass completed in 21 ms (18% on mutations). 884 + 0 changes committed from 27 parts.
+[INFO ] Start of pass: io.joern.x2cpg.passes.controlflow.codepencegraph.CdgPass
+[INFO ] Pass io.joern.x2cpg.passes.controlflow.codepencegraph.CdgPass completed in 9 ms (12% on mutations). 348 + 0 changes committed from 27 parts.
+[INFO ] Start of pass: io.shiftleft.semanticcpg.Overlays$$anon$1
+[INFO ] Pass io.shiftleft.semanticcpg.Overlays$$anon$1 completed in 1 ms (73% on mutations). 1 + 0 changes committed from 1 parts.
+[INFO ] Start of pass: io.joern.x2cpg.passes.typerelations.TypeHierarchyPass
+[INFO ] Pass io.joern.x2cpg.passes.typerelations.TypeHierarchyPass completed in 3 ms (25% on mutations). 0 + 0 changes committed from 1 parts.
+[INFO ] Start of pass: io.joern.x2cpg.passes.typerelations.AliasLinkerPass
+[INFO ] Pass io.joern.x2cpg.passes.typerelations.AliasLinkerPass completed in 2 ms (25% on mutations). 0 + 0 changes committed from 1 parts.
+[INFO ] Start of pass: io.joern.x2cpg.passes.typerelations.FieldAccessLinkerPass
+[INFO ] Could not create edge. Destination lookup failed. edgeType=REF, srcNodeType=CALL, srcNodeId=30064771091, dstNodeType=MEMBER, dstFullName=ANY.logger
+[INFO ] Could not create edge. Destination lookup failed. edgeType=REF, srcNodeType=CALL, srcNodeId=30064771092, dstNodeType=MEMBER, dstFullName=java.util.logging.Level.WARNING
+[INFO ] Could not create edge. Destination lookup failed. edgeType=REF, srcNodeType=CALL, srcNodeId=30064771096, dstNodeType=MEMBER, dstFullName=ANY.logger
+[INFO ] Could not create edge. Destination lookup failed. edgeType=REF, srcNodeType=CALL, srcNodeId=30064771097, dstNodeType=MEMBER, dstFullName=java.util.logging.Level.WARNING
+[INFO ] Could not create edge. Destination lookup failed. edgeType=REF, srcNodeType=CALL, srcNodeId=30064771101, dstNodeType=MEMBER, dstFullName=ANY.logger
+[INFO ] Could not create edge. Destination lookup failed. edgeType=REF, srcNodeType=CALL, srcNodeId=30064771102, dstNodeType=MEMBER, dstFullName=java.util.logging.Level.WARNING
+[INFO ] Could not create edge. Destination lookup failed. edgeType=REF, srcNodeType=CALL, srcNodeId=30064771106, dstNodeType=MEMBER, dstFullName=ANY.logger
+[INFO ] Could not create edge. Destination lookup failed. edgeType=REF, srcNodeType=CALL, srcNodeId=30064771107, dstNodeType=MEMBER, dstFullName=java.util.logging.Level.WARNING
+[INFO ] Could not create edge. Destination lookup failed. edgeType=REF, srcNodeType=CALL, srcNodeId=30064771124, dstNodeType=MEMBER, dstFullName=ANY.logger
+[INFO ] Could not create edge. Destination lookup failed. edgeType=REF, srcNodeType=CALL, srcNodeId=30064771125, dstNodeType=MEMBER, dstFullName=java.util.logging.Level.WARNING
+[INFO ] Could not create edge. Destination lookup failed. edgeType=REF, srcNodeType=CALL, srcNodeId=30064771129, dstNodeType=MEMBER, dstFullName=ANY.logger
+[INFO ] Could not create edge. Destination lookup failed. edgeType=REF, srcNodeType=CALL, srcNodeId=30064771130, dstNodeType=MEMBER, dstFullName=java.util.logging.Level.WARNING
+[INFO ] Could not create edge. Destination lookup failed. edgeType=REF, srcNodeType=CALL, srcNodeId=30064771134, dstNodeType=MEMBER, dstFullName=ANY.logger
+[INFO ] Could not create edge. Destination lookup failed. edgeType=REF, srcNodeType=CALL, srcNodeId=30064771135, dstNodeType=MEMBER, dstFullName=java.util.logging.Level.WARNING
+[INFO ] Could not create edge. Destination lookup failed. edgeType=REF, srcNodeType=CALL, srcNodeId=30064771155, dstNodeType=MEMBER, dstFullName=ANY.logger
+[INFO ] Could not create edge. Destination lookup failed. edgeType=REF, srcNodeType=CALL, srcNodeId=30064771156, dstNodeType=MEMBER, dstFullName=java.util.logging.Level.WARNING
+[INFO ] Could not create edge. Destination lookup failed. edgeType=REF, srcNodeType=CALL, srcNodeId=30064771160, dstNodeType=MEMBER, dstFullName=ANY.logger
+[INFO ] Could not create edge. Destination lookup failed. edgeType=REF, srcNodeType=CALL, srcNodeId=30064771161, dstNodeType=MEMBER, dstFullName=java.util.logging.Level.WARNING
+[INFO ] Could not create edge. Destination lookup failed. edgeType=REF, srcNodeType=CALL, srcNodeId=30064771165, dstNodeType=MEMBER, dstFullName=ANY.logger
+[INFO ] Could not create edge. Destination lookup failed. edgeType=REF, srcNodeType=CALL, srcNodeId=30064771166, dstNodeType=MEMBER, dstFullName=java.util.logging.Level.WARNING
+[INFO ] Could not create edge. Destination lookup failed. edgeType=REF, srcNodeType=CALL, srcNodeId=30064771186, dstNodeType=MEMBER, dstFullName=ANY.logger
+[INFO ] Could not create edge. Destination lookup failed. edgeType=REF, srcNodeType=CALL, srcNodeId=30064771187, dstNodeType=MEMBER, dstFullName=java.util.logging.Level.WARNING
+[INFO ] Could not create edge. Destination lookup failed. edgeType=REF, srcNodeType=CALL, srcNodeId=30064771191, dstNodeType=MEMBER, dstFullName=ANY.logger
+[INFO ] Could not create edge. Destination lookup failed. edgeType=REF, srcNodeType=CALL, srcNodeId=30064771192, dstNodeType=MEMBER, dstFullName=java.util.logging.Level.WARNING
+[INFO ] Could not create edge. Destination lookup failed. edgeType=REF, srcNodeType=CALL, srcNodeId=30064771196, dstNodeType=MEMBER, dstFullName=ANY.logger
+[INFO ] Could not create edge. Destination lookup failed. edgeType=REF, srcNodeType=CALL, srcNodeId=30064771197, dstNodeType=MEMBER, dstFullName=java.util.logging.Level.WARNING
+[INFO ] Could not create edge. Destination lookup failed. edgeType=REF, srcNodeType=CALL, srcNodeId=30064771201, dstNodeType=MEMBER, dstFullName=ANY.logger
+[INFO ] Could not create edge. Destination lookup failed. edgeType=REF, srcNodeType=CALL, srcNodeId=30064771202, dstNodeType=MEMBER, dstFullName=java.util.logging.Level.WARNING
+[INFO ] Could not create edge. Destination lookup failed. edgeType=REF, srcNodeType=CALL, srcNodeId=30064771218, dstNodeType=MEMBER, dstFullName=ANY.logger
+[INFO ] Could not create edge. Destination lookup failed. edgeType=REF, srcNodeType=CALL, srcNodeId=30064771219, dstNodeType=MEMBER, dstFullName=java.util.logging.Level.WARNING
+[INFO ] Could not create edge. Destination lookup failed. edgeType=REF, srcNodeType=CALL, srcNodeId=30064771223, dstNodeType=MEMBER, dstFullName=ANY.logger
+[INFO ] Could not create edge. Destination lookup failed. edgeType=REF, srcNodeType=CALL, srcNodeId=30064771224, dstNodeType=MEMBER, dstFullName=java.util.logging.Level.WARNING
+[INFO ] Could not create edge. Destination lookup failed. edgeType=REF, srcNodeType=CALL, srcNodeId=30064771228, dstNodeType=MEMBER, dstFullName=ANY.logger
+[INFO ] Could not create edge. Destination lookup failed. edgeType=REF, srcNodeType=CALL, srcNodeId=30064771229, dstNodeType=MEMBER, dstFullName=java.util.logging.Level.WARNING
+[INFO ] Pass io.joern.x2cpg.passes.typerelations.FieldAccessLinkerPass completed in 32 ms (2% on mutations). 0 + 0 changes committed from 1 parts.
+[INFO ] Start of pass: io.shiftleft.semanticcpg.Overlays$$anon$1
+[INFO ] Pass io.shiftleft.semanticcpg.Overlays$$anon$1 completed in 1 ms (75% on mutations). 1 + 0 changes committed from 1 parts.
+[INFO ] Start of pass: io.joern.x2cpg.passes.callgraph.MethodRefLinker
+[INFO ] Pass io.joern.x2cpg.passes.callgraph.MethodRefLinker completed in 1 ms (50% on mutations). 0 + 0 changes committed from 1 parts.
+[INFO ] Start of pass: io.joern.x2cpg.passes.callgraph.StaticCallLinker
+[INFO ] Pass io.joern.x2cpg.passes.callgraph.StaticCallLinker completed in 3 ms (38% on mutations). 109 + 0 changes committed from 2 parts.
+[INFO ] Start of pass: io.joern.x2cpg.passes.callgraph.DynamicCallLinker
+[INFO ] Pass io.joern.x2cpg.passes.callgraph.DynamicCallLinker completed in 13 ms (6% on mutations). 50 + 0 changes committed from 1 parts.
+[INFO ] Start of pass: io.shiftleft.semanticcpg.Overlays$$anon$1
+[INFO ] Pass io.shiftleft.semanticcpg.Overlays$$anon$1 completed in 1 ms (68% on mutations). 1 + 0 changes committed from 1 parts.
+[INFO ] Start of pass: io.joern.dataflowengineoss.passes.reachingdef.ReachingDefPass
+[INFO ] Calculating reaching definitions for: <operator>.addition in <empty>
+[INFO ] Calculating reaching definitions for: testcases.CWE89_SQL_Injection.s02.CWE89_SQL_Injection__File_prepareStatement_01.goodB2G:void() in 
+[INFO ] Calculating reaching definitions for: java.io.FileInputStream.close:<unresolvedSignature>(0) in <empty>
+[INFO ] Calculating reaching definitions for: testcases.CWE89_SQL_Injection.s02.CWE89_SQL_Injection__File_prepareStatement_01.good:void() in 
+[INFO ] Calculating reaching definitions for: java.io.InputStreamReader.<init>:<unresolvedSignature>(2) in <empty>
+[INFO ] Calculating reaching definitions for: testcases.CWE89_SQL_Injection.s02.CWE89_SQL_Injection__File_prepareStatement_01.<init>:void() in 
+[INFO ] Calculating reaching definitions for: testcases.CWE89_SQL_Injection.s02.CWE89_SQL_Injection__File_prepareStatement_01.mainFromParent:<unresolvedSignature>(1) in <empty>
+[INFO ] Calculating reaching definitions for: <unresolvedNamespace>.prepareStatement:<unresolvedSignature>(1) in <empty>
+[INFO ] Number of definitions for java.io.FileInputStream.close:<unresolvedSignature>(0): 1
+[INFO ] Number of definitions for testcases.CWE89_SQL_Injection.s02.CWE89_SQL_Injection__File_prepareStatement_01.<init>:void(): 1
+[INFO ] Number of definitions for <unresolvedNamespace>.prepareStatement:<unresolvedSignature>(1): 2
+[INFO ] Number of definitions for <operator>.addition: 2
+[INFO ] Number of definitions for testcases.CWE89_SQL_Injection.s02.CWE89_SQL_Injection__File_prepareStatement_01.mainFromParent:<unresolvedSignature>(1): 2
+[INFO ] Number of definitions for java.io.InputStreamReader.<init>:<unresolvedSignature>(2): 3
+[INFO ] Number of definitions for testcases.CWE89_SQL_Injection.s02.CWE89_SQL_Injection__File_prepareStatement_01.good:void(): 5
+[INFO ] Calculating reaching definitions for: testcases.CWE89_SQL_Injection.s02.CWE89_SQL_Injection__File_prepareStatement_01.main:<unresolvedSignature>(1) in 
+[INFO ] Calculating reaching definitions for: <unresolvedNamespace>.log:<unresolvedSignature>(3) in <empty>
+[INFO ] Calculating reaching definitions for: <operator>.assignment in <empty>
+[INFO ] Calculating reaching definitions for: <unresolvedNamespace>.setString:<unresolvedSignature>(2) in <empty>
+[INFO ] Number of definitions for <unresolvedNamespace>.setString:<unresolvedSignature>(2): 3
+[INFO ] Calculating reaching definitions for: java.io.InputStreamReader.close:<unresolvedSignature>(0) in <empty>
+[INFO ] Calculating reaching definitions for: <unresolvedNamespace>.close:<unresolvedSignature>(0) in <empty>
+[INFO ] Number of definitions for <unresolvedNamespace>.log:<unresolvedSignature>(3): 4
+[INFO ] Number of definitions for <unresolvedNamespace>.close:<unresolvedSignature>(0): 1
+[INFO ] Number of definitions for <operator>.assignment: 2
+[INFO ] Calculating reaching definitions for: java.io.BufferedReader.<init>:<unresolvedSignature>(1) in <empty>
+[INFO ] Calculating reaching definitions for: java.io.File.<init>:<unresolvedSignature>(1) in <empty>
+[INFO ] Calculating reaching definitions for: testcases.CWE89_SQL_Injection.s02.CWE89_SQL_Injection__File_prepareStatement_01.bad:void() in 
+[INFO ] Number of definitions for java.io.InputStreamReader.close:<unresolvedSignature>(0): 1
+[INFO ] Calculating reaching definitions for: <operator>.alloc in <empty>
+[INFO ] Calculating reaching definitions for: <unresolvedNamespace>.writeLine:<unresolvedSignature>(1) in <empty>
+[INFO ] Number of definitions for java.io.BufferedReader.<init>:<unresolvedSignature>(1): 2
+[INFO ] Number of definitions for java.io.File.<init>:<unresolvedSignature>(1): 2
+[INFO ] Calculating reaching definitions for: <unresolvedNamespace>.execute:<unresolvedSignature>(0) in <empty>
+[INFO ] Number of definitions for testcases.CWE89_SQL_Injection.s02.CWE89_SQL_Injection__File_prepareStatement_01.main:<unresolvedSignature>(1): 3
+[INFO ] Number of definitions for <operator>.alloc: 1
+[INFO ] Calculating reaching definitions for: <unresolvedNamespace>.getDBConnection:<unresolvedSignature>(0) in <empty>
+[INFO ] Number of definitions for <unresolvedNamespace>.writeLine:<unresolvedSignature>(1): 2
+[INFO ] Number of definitions for <unresolvedNamespace>.execute:<unresolvedSignature>(0): 1
+[INFO ] Number of definitions for <unresolvedNamespace>.getDBConnection:<unresolvedSignature>(0): 1
+[INFO ] Calculating reaching definitions for: <operator>.fieldAccess in <empty>
+[INFO ] Calculating reaching definitions for: java.io.FileInputStream.<init>:<unresolvedSignature>(1) in <empty>
+[INFO ] Number of definitions for <operator>.fieldAccess: 2
+[INFO ] Number of definitions for java.io.FileInputStream.<init>:<unresolvedSignature>(1): 2
+[INFO ] Calculating reaching definitions for: java.io.BufferedReader.close:<unresolvedSignature>(0) in <empty>
+[INFO ] Calculating reaching definitions for: <operator>.notEquals in <empty>
+[INFO ] Number of definitions for java.io.BufferedReader.close:<unresolvedSignature>(0): 1
+[INFO ] Calculating reaching definitions for: java.io.BufferedReader.readLine:<unresolvedSignature>(0) in <empty>
+[INFO ] Calculating reaching definitions for: testcases.CWE89_SQL_Injection.s02.CWE89_SQL_Injection__File_prepareStatement_01.goodG2B:void() in 
+[INFO ] Number of definitions for java.io.BufferedReader.readLine:<unresolvedSignature>(0): 1
+[INFO ] Number of definitions for <operator>.notEquals: 2
+[INFO ] Number of definitions for testcases.CWE89_SQL_Injection.s02.CWE89_SQL_Injection__File_prepareStatement_01.goodG2B:void(): 59
+[INFO ] Number of definitions for testcases.CWE89_SQL_Injection.s02.CWE89_SQL_Injection__File_prepareStatement_01.goodB2G:void(): 123
+[INFO ] Number of definitions for testcases.CWE89_SQL_Injection.s02.CWE89_SQL_Injection__File_prepareStatement_01.bad:void(): 125
+[INFO ] Pass io.joern.dataflowengineoss.passes.reachingdef.ReachingDefPass completed in 206 ms (3% on mutations). 1261 + 0 changes committed from 27 parts.
+[INFO ] Start of pass: io.shiftleft.semanticcpg.Overlays$$anon$1
+[INFO ] Pass io.shiftleft.semanticcpg.Overlays$$anon$1 completed in 1 ms (67% on mutations). 1 + 0 changes committed from 1 parts.
+CPG_GATE_BEGIN
+SINK_CALL_COUNT=1
+SINK_ARGUMENT_COUNT=1
+CPG_GATE_END
+CPG_RESULT_BEGIN
+FLOW_COUNT=0
+
+CPG_RESULT_END
+[INFO ] writing to storage at `/work/workspace/CWE89_SQL_Injection__File_prepareStatement_01.java/cpg.bin.tmp`
+[INFO ] closed graph at /work/workspace/CWE89_SQL_Injection__File_prepareStatement_01.java/cpg.bin.tmp
+
+[STDERR]
+executing /work/slice.sc
+Using generator for language: JAVASRC: JavaSrcCpgGenerator
+Creating project `CWE89_SQL_Injection__File_prepareStatement_01.java` for code at `/project/Clean_Code/testcases/CWE89_SQL_Injection/s02/CWE89_SQL_Injection__File_prepareStatement_01.java`
+moving cpg.bin.zip to cpg.bin because it is already a database file
+Creating working copy of CPG to be safe
+Loading base CPG from: /work/workspace/CWE89_SQL_Injection__File_prepareStatement_01.java/cpg.bin.tmp
+Code successfully imported. You can now query it using `cpg`.
+For an overview of all imported code, type `workspace`.
+Adding default overlays to base CPG
+The graph has been modified. You may want to use the `save` command to persist changes to disk.  All changes will also be saved collectively on exit
+The graph has been modified. You may want to use the `save` command to persist changes to disk.  All changes will also be saved collectively on exit
+closing/saving project `CWE89_SQL_Injection__File_prepareStatement_01.java`

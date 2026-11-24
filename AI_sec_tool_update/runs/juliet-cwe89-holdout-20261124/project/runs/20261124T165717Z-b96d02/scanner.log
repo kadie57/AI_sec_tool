@@ -1,0 +1,149 @@
+23:57:19.009 INFO  Scanner configuration file: /home/khanh/.local/share/Trash/files/sonar-scanner-8.0.1.6346-linux-x64/conf/sonar-scanner.properties
+23:57:19.011 INFO  Project root configuration file: /home/khanh/AI_sec_tool/AI_sec_tool_update/runs/juliet-cwe89-holdout-20261124/project/sonar-project.properties
+23:57:19.024 INFO  SonarScanner CLI 8.0.1.6346
+23:57:19.028 INFO  Linux 7.0.0-43-generic amd64
+23:57:21.801 INFO  Communicating with SonarQube Community Build 26.4.0.121862
+23:57:21.802 INFO  JRE provisioning: os[linux], arch[x86_64]
+23:57:22.204 INFO  Starting SonarScanner Engine...
+23:57:22.204 INFO  Java 21.0.9 Eclipse Adoptium (64-bit)
+23:57:25.355 INFO  Load global settings
+23:57:25.453 INFO  Load global settings (done) | time=97ms
+23:57:25.459 INFO  Server id: 4F833BF3-AZ3FLkwzsNhSbbNHKBtO
+23:57:25.470 INFO  Loading required plugins
+23:57:25.470 INFO  Load plugins index
+23:57:25.482 INFO  Load plugins index (done) | time=12ms
+23:57:25.483 INFO  Load/download plugins
+23:57:25.515 INFO  Load/download plugins (done) | time=32ms
+23:57:25.815 INFO  Process project properties
+23:57:25.840 INFO  Process project properties (done) | time=24ms
+23:57:25.855 INFO  Project key: thesis_juliet_cwe89_holdout_v1
+23:57:25.855 INFO  Base dir: /home/khanh/AI_sec_tool/AI_sec_tool_update/runs/juliet-cwe89-holdout-20261124/project
+23:57:25.855 INFO  Working dir: /home/khanh/AI_sec_tool/AI_sec_tool_update/runs/juliet-cwe89-holdout-20261124/project/.scannerwork
+23:57:25.869 INFO  Load project settings for component key: 'thesis_juliet_cwe89_holdout_v1'
+23:57:25.887 INFO  Load project settings for component key: 'thesis_juliet_cwe89_holdout_v1' (done) | time=18ms
+23:57:25.914 INFO  Load quality profiles
+23:57:25.956 INFO  Load quality profiles (done) | time=41ms
+23:57:26.020 INFO  Load active rules
+23:57:26.330 INFO  Load active rules (done) | time=310ms
+23:57:26.341 INFO  Load analysis cache
+23:57:26.360 INFO  Load analysis cache (404) | time=19ms
+23:57:26.559 INFO  Preprocessing files...
+23:57:26.646 INFO  1 language detected in 22 preprocessed files (done) | time=86ms
+23:57:26.646 INFO  0 files ignored because of inclusion/exclusion patterns
+23:57:26.646 INFO  0 files ignored because of scm ignore settings
+23:57:26.647 INFO  Loading plugins for detected languages
+23:57:26.648 INFO  Load/download plugins
+23:57:26.689 INFO  Load/download plugins (done) | time=42ms
+23:57:26.707 INFO  SonarQube plugin API version is 13.5.0.4319, disabling the deprecated SpotBugs profile exporter
+23:57:26.794 INFO  Load project repositories
+23:57:26.916 INFO  Load project repositories (done) | time=121ms
+23:57:26.940 INFO  Indexing files...
+23:57:26.941 INFO  Project configuration:
+23:57:26.941 INFO    Included sources: **/*.java
+23:57:26.952 INFO  22 files indexed (done) | time=11ms
+23:57:26.954 INFO  Quality profile for java: KhoaLuan-Java-SQLi
+23:57:26.954 INFO  ------------- Run sensors on module thesis_juliet_cwe89_holdout_v1
+23:57:26.958 INFO  SonarQube plugin API version is 13.5.0.4319, disabling the deprecated SpotBugs profile exporter
+23:57:27.033 INFO  Load metrics repository
+23:57:27.060 INFO  Load metrics repository (done) | time=27ms
+23:57:27.654 INFO  Sensor JavaSensor [java]
+23:57:27.669 INFO  Server-side caching is enabled. The Java analyzer will not try to leverage data from a previous analysis.
+23:57:27.670 INFO  Using ECJ batch to parse 22 Main java source files with batch size 417 KB.
+23:57:27.953 INFO  Starting batch processing.
+23:57:28.344 INFO  The Java analyzer cannot skip unchanged files in this context. A full analysis is performed for all files.
+23:57:31.621 INFO  100% analyzed
+23:57:31.621 INFO  Batch processing: Done.
+23:57:31.625 INFO  Did not optimize analysis for any files, performed a full analysis for all 22 files.
+23:57:31.625 INFO  No "Test" source files to scan.
+23:57:31.625 INFO  No "Generated" source files to scan.
+23:57:31.625 INFO  Sensor JavaSensor [java] (done) | time=3970ms
+23:57:31.625 INFO  Sensor FindBugs Sensor [findbugs]
+23:57:31.626 INFO  Findbugs plugin version: 4.6.0
+23:57:32.405 INFO  Loading findbugs plugin: /home/khanh/AI_sec_tool/AI_sec_tool_update/runs/juliet-cwe89-holdout-20261124/project/.scannerwork/findbugs/findsecbugs-plugin.jar
+23:57:32.437 INFO  Findbugs output report: /home/khanh/AI_sec_tool/AI_sec_tool_update/runs/juliet-cwe89-holdout-20261124/project/.scannerwork/findbugs-result.xml
+23:57:36.125 INFO  Sensor FindBugs Sensor [findbugs] (done) | time=4501ms
+23:57:36.125 INFO  Sensor SurefireSensor [java]
+23:57:36.126 INFO  parsing [/home/khanh/AI_sec_tool/AI_sec_tool_update/runs/juliet-cwe89-holdout-20261124/project/target/surefire-reports]
+23:57:36.127 INFO  Sensor SurefireSensor [java] (done) | time=2ms
+23:57:36.127 INFO  Sensor JaCoCo XML Report Importer [jacoco]
+23:57:36.129 INFO  'sonar.coverage.jacoco.xmlReportPaths' is not defined. Using default locations: target/site/jacoco/jacoco.xml,target/site/jacoco-it/jacoco.xml,build/reports/jacoco/test/jacocoTestReport.xml
+23:57:36.129 INFO  No report imported, no coverage information will be imported by JaCoCo XML Report Importer
+23:57:36.130 INFO  Sensor JaCoCo XML Report Importer [jacoco] (done) | time=2ms
+23:57:36.130 INFO  Sensor IaC hadolint report Sensor [iac]
+23:57:36.130 INFO  Sensor IaC hadolint report Sensor [iac] (done) | time=1ms
+23:57:36.130 INFO  Sensor Java Config Sensor [iac]
+23:57:36.139 INFO  There are no files to be analyzed for the Java language
+23:57:36.139 INFO  Sensor Java Config Sensor [iac] (done) | time=8ms
+23:57:36.139 INFO  Sensor IaC Docker Sensor [iac]
+23:57:36.140 INFO  There are no files to be analyzed for the Docker language
+23:57:36.141 INFO  Sensor IaC Docker Sensor [iac] (done) | time=2ms
+23:57:36.141 INFO  Sensor TextAndSecretsSensor [text]
+23:57:36.144 INFO  Available processors: 8
+23:57:36.144 INFO  Using 8 threads for analysis.
+23:57:36.395 INFO  The property "sonar.tests" is not set. To improve the analysis accuracy, we categorize a file as a test file if any of the following is true:
+  * The filename starts with "test"
+  * The filename contains "test." or "tests."
+  * Any directory in the file path is named: "doc", "docs", "test", "tests", "mock" or "mocks"
+  * Any directory in the file path has a name ending in "test" or "tests"
+
+23:57:36.416 INFO  Start fetching files for the text and secrets analysis
+23:57:36.422 INFO  Using Git CLI to retrieve dirty files
+23:57:36.466 INFO  Retrieving language associated files and files included via "sonar.text.inclusions" that are tracked by git
+23:57:36.467 INFO  Starting the text and secrets analysis
+23:57:36.469 INFO  22 source files to be analyzed for the text and secrets analysis
+23:57:36.537 INFO  22/22 source files have been analyzed for the text and secrets analysis
+23:57:36.543 INFO  Sensor TextAndSecretsSensor [text] (done) | time=401ms
+23:57:36.550 INFO  ------------- Run sensors on project
+23:57:36.728 INFO  Sensor JaCoCo Aggregate XML Report Importer [jacoco]
+23:57:36.728 INFO  Sensor JaCoCo Aggregate XML Report Importer [jacoco] (done) | time=1ms
+23:57:36.728 INFO  Sensor JavaProjectSensor [java]
+23:57:36.731 INFO  Sensor JavaProjectSensor [java] (done) | time=3ms
+23:57:36.732 INFO  Sensor Zero Coverage Sensor
+23:57:36.749 INFO  Sensor Zero Coverage Sensor (done) | time=18ms
+23:57:36.750 INFO  Sensor Java CPD Block Indexer
+23:57:36.820 INFO  Sensor Java CPD Block Indexer (done) | time=71ms
+23:57:36.821 INFO  ------------- Gather SCA dependencies on project
+23:57:36.824 INFO  Dependency analysis skipped
+23:57:36.826 INFO  SCM Publisher SCM provider for this project is: git
+23:57:36.827 INFO  SCM Publisher 22 source files to be analyzed
+23:57:37.253 INFO  SCM Publisher 0/22 source files have been analyzed (done) | time=425ms
+23:57:37.254 WARN  Missing blame information for the following files:
+23:57:37.254 WARN    * Clean_Code/testcasesupport/AbstractTestCase.java
+23:57:37.255 WARN    * Clean_Code/testcases/CWE89_SQL_Injection/s02/CWE89_SQL_Injection__File_prepareStatement_51b.java
+23:57:37.255 WARN    * Clean_Code/testcases/CWE89_SQL_Injection/s03/CWE89_SQL_Injection__PropertiesFile_executeQuery_51b.java
+23:57:37.255 WARN    * Clean_Code/testcases/CWE89_SQL_Injection/s02/CWE89_SQL_Injection__File_prepareStatement_15.java
+23:57:37.255 WARN    * Clean_Code/testcasesupport/AbstractTestCaseBadOnly.java
+23:57:37.256 WARN    * Clean_Code/testcases/CWE89_SQL_Injection/s03/CWE89_SQL_Injection__getQueryString_Servlet_executeQuery_51b.java
+23:57:37.256 WARN    * Clean_Code/testcasesupport/AbstractTestCaseServletBase.java
+23:57:37.256 WARN    * Clean_Code/testcases/CWE89_SQL_Injection/s03/CWE89_SQL_Injection__PropertiesFile_executeQuery_51a.java
+23:57:37.256 WARN    * Clean_Code/testcases/CWE89_SQL_Injection/s01/CWE89_SQL_Injection__console_readLine_prepareStatement_51a.java
+23:57:37.256 WARN    * Clean_Code/testcasesupport/AbstractTestCaseServletBadOnly.java
+23:57:37.257 WARN    * Clean_Code/testcases/CWE89_SQL_Injection/s03/CWE89_SQL_Injection__getQueryString_Servlet_executeQuery_15.java
+23:57:37.257 WARN    * Clean_Code/testcasesupport/AbstractTestCaseServlet.java
+23:57:37.257 WARN    * Clean_Code/testcasesupport/IO.java
+23:57:37.257 WARN    * Clean_Code/testcases/CWE89_SQL_Injection/s03/CWE89_SQL_Injection__getQueryString_Servlet_executeQuery_51a.java
+23:57:37.257 WARN    * Clean_Code/testcasesupport/AbstractTestCaseBase.java
+23:57:37.257 WARN    * Clean_Code/testcasesupport/AbstractTestCaseClassIssue.java
+23:57:37.258 WARN    * Clean_Code/testcasesupport/AbstractTestCaseClassIssueGood.java
+23:57:37.258 WARN    * Clean_Code/testcasesupport/AbstractTestCaseClassIssueBad.java
+23:57:37.258 WARN    * Clean_Code/testcases/CWE89_SQL_Injection/s01/CWE89_SQL_Injection__console_readLine_prepareStatement_15.java
+23:57:37.258 WARN    * Clean_Code/testcases/CWE89_SQL_Injection/s03/CWE89_SQL_Injection__PropertiesFile_executeQuery_15.java
+23:57:37.259 WARN    * Clean_Code/testcases/CWE89_SQL_Injection/s02/CWE89_SQL_Injection__File_prepareStatement_51a.java
+23:57:37.259 WARN    * Clean_Code/testcases/CWE89_SQL_Injection/s01/CWE89_SQL_Injection__console_readLine_prepareStatement_51b.java
+23:57:37.259 WARN  This may lead to missing/broken features in SonarQube
+23:57:37.263 INFO  CPD Executor 1 file had no CPD blocks
+23:57:37.264 INFO  CPD Executor Calculating CPD for 21 files
+23:57:37.305 INFO  CPD Executor CPD calculation finished (done) | time=41ms
+23:57:37.311 INFO  SCM revision ID '5d686c105475a39d53b847eff693de5a18e32f37'
+23:57:37.421 INFO  Analysis report generated in 100ms, dir size=575.1 kB
+23:57:37.489 INFO  Analysis report compressed in 67ms, zip size=140.1 kB
+23:57:37.566 INFO  Analysis report uploaded in 78ms
+23:57:37.568 INFO  ANALYSIS SUCCESSFUL, you can find the results at: http://127.0.0.1:9000/dashboard?id=thesis_juliet_cwe89_holdout_v1
+23:57:37.568 INFO  Note that you will be able to access the updated dashboard once the server has processed the submitted analysis report
+23:57:37.568 INFO  More about the report processing at http://127.0.0.1:9000/api/ce/task?id=4a2b69bf-02fb-4b60-8ad7-4d37673265b9
+23:57:37.582 INFO  Analysis total time: 12.030 s
+23:57:37.582 INFO  SonarScanner Engine completed successfully
+23:57:37.649 INFO  EXECUTION SUCCESS
+23:57:37.649 INFO  Total time: 18.645s
+
+[STDERR]

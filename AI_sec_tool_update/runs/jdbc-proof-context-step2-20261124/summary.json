@@ -1,0 +1,570 @@
+{
+  "scope": "Comparison against the saved pre-Step-1 Juliet baseline. Apply the improved Java value analysis and render the exact source lines used for the proof. Prompt and inference settings are fixed.",
+  "juliet_baseline": "runs/juliet-cwe89-pilot-20261124/summary.json",
+  "request_checks": "runs/jdbc-proof-context-step2-20261124/request-check.json",
+  "model": "qwen2.5-coder:14b-instruct-q4_K_M",
+  "model_digest": "9ec8897f747e246e970bc5cfdda85d22f1123dc2e3d34978a010a75968716849",
+  "prompt_profile": "iris-contextual",
+  "prompt_sha256": "26e84205a559fb429adba9c87a3a28fdf6a4c6135f4d301f784acee12637a442",
+  "validation_version": 2,
+  "new_ollama_calls": 10,
+  "exact_juliet_requests_reused": 6,
+  "juliet_before": {
+    "true_positive": 8,
+    "true_negative": 0,
+    "false_positive": 8,
+    "false_negative": 0,
+    "unknown": 0,
+    "error": 0,
+    "pending": 0,
+    "correct": 8,
+    "incorrect": 8
+  },
+  "juliet_after": {
+    "true_positive": 8,
+    "true_negative": 8,
+    "false_positive": 0,
+    "false_negative": 0,
+    "unknown": 0,
+    "error": 0,
+    "pending": 0,
+    "correct": 16,
+    "incorrect": 0
+  },
+  "owasp_requests_identical": 12,
+  "owasp_cached_outcomes": {
+    "correct": 9,
+    "wrong": 1,
+    "unknown": 2,
+    "errors": 0,
+    "pending": 0,
+    "decided": 10,
+    "true_positive": 7,
+    "true_negative": 2,
+    "false_positive": 1,
+    "false_negative": 0
+  },
+  "owasp_baseline": "runs/owasp-iris-prompt-full-20261124/summary.json",
+  "cases": [
+    {
+      "issue_id": "juliet-findsecbugs-01",
+      "sample": "CWE89_SQL_Injection__Environment_executeQuery_01.java",
+      "line": 47,
+      "method": "bad",
+      "reference_vulnerability": true,
+      "nearby_nist_flaw_lines": [
+        47
+      ],
+      "label_basis": "Juliet bad method and matching NIST manifest annotation within same call",
+      "request_changed": false,
+      "old_request_sha256": "092144aa653a61bd77e9a03191fbc9207859efe77799278adba2b2d4c12eeddf",
+      "new_request_sha256": "092144aa653a61bd77e9a03191fbc9207859efe77799278adba2b2d4c12eeddf",
+      "proof_source_lines": [],
+      "artifact_origin": "identical_request_reused",
+      "before_verdict": "LIKELY_TP",
+      "after_verdict": "LIKELY_TP",
+      "before_outcome": "true_positive",
+      "after_outcome": "true_positive",
+      "response_file": "runs/juliet-cwe89-pilot-20261124/findsecbugs-llm/case-0001.json",
+      "citations": [
+        {
+          "file_id": "F0",
+          "line": 47
+        },
+        {
+          "file_id": "F0",
+          "line": 42
+        }
+      ]
+    },
+    {
+      "issue_id": "juliet-findsecbugs-02",
+      "sample": "CWE89_SQL_Injection__Environment_executeQuery_01.java",
+      "line": 120,
+      "method": "goodG2B",
+      "reference_vulnerability": false,
+      "nearby_nist_flaw_lines": [],
+      "label_basis": "Juliet goodG2B method",
+      "request_changed": true,
+      "old_request_sha256": "d5d922004471485d6429b9be2d00627431cdc91094aaf3abc3931133b9934167",
+      "new_request_sha256": "fd546fb82f983ad988d3e1a9fa4824e826b03357bbe278ef0d405bd2d29ad61a",
+      "proof_source_lines": [
+        108,
+        120
+      ],
+      "artifact_origin": "new_ollama_call",
+      "before_verdict": "LIKELY_TP",
+      "after_verdict": "LIKELY_FP",
+      "before_outcome": "false_positive",
+      "after_outcome": "true_negative",
+      "response_file": "runs/jdbc-proof-context-step2-20261124/juliet-llm-changed/case-0001.json",
+      "citations": [
+        {
+          "file_id": "F0",
+          "line": 120
+        },
+        {
+          "file_id": "F0",
+          "line": 108
+        }
+      ]
+    },
+    {
+      "issue_id": "juliet-findsecbugs-03",
+      "sample": "CWE89_SQL_Injection__Environment_executeQuery_42.java",
+      "line": 54,
+      "method": "bad",
+      "reference_vulnerability": true,
+      "nearby_nist_flaw_lines": [
+        54
+      ],
+      "label_basis": "Juliet bad method and matching NIST manifest annotation within same call",
+      "request_changed": false,
+      "old_request_sha256": "c0d1f4015dc2c93d9a01aeeade5207cc0e3bb803f23a0678c72bda51ae100f7c",
+      "new_request_sha256": "c0d1f4015dc2c93d9a01aeeade5207cc0e3bb803f23a0678c72bda51ae100f7c",
+      "proof_source_lines": [],
+      "artifact_origin": "identical_request_reused",
+      "before_verdict": "LIKELY_TP",
+      "after_verdict": "LIKELY_TP",
+      "before_outcome": "true_positive",
+      "after_outcome": "true_positive",
+      "response_file": "runs/juliet-cwe89-pilot-20261124/findsecbugs-llm/case-0003.json",
+      "citations": [
+        {
+          "file_id": "F0",
+          "line": 54
+        },
+        {
+          "file_id": "F0",
+          "line": 51
+        }
+      ]
+    },
+    {
+      "issue_id": "juliet-findsecbugs-04",
+      "sample": "CWE89_SQL_Injection__Environment_executeQuery_42.java",
+      "line": 128,
+      "method": "goodG2B",
+      "reference_vulnerability": false,
+      "nearby_nist_flaw_lines": [],
+      "label_basis": "Juliet goodG2B method",
+      "request_changed": true,
+      "old_request_sha256": "9d38d5de8db2d42b68d8fc8b826149521f1e835f3c07024eb7a0d2d2aad66a83",
+      "new_request_sha256": "16a4ab97fce8f2fd74e95f1060f16c8aa3683cfb17cdaae2753793c773d03039",
+      "proof_source_lines": [
+        109,
+        111,
+        116,
+        128
+      ],
+      "artifact_origin": "new_ollama_call",
+      "before_verdict": "LIKELY_TP",
+      "after_verdict": "LIKELY_FP",
+      "before_outcome": "false_positive",
+      "after_outcome": "true_negative",
+      "response_file": "runs/jdbc-proof-context-step2-20261124/juliet-llm-changed/case-0002.json",
+      "citations": [
+        {
+          "file_id": "F0",
+          "line": 128
+        },
+        {
+          "file_id": "F0",
+          "line": 109
+        }
+      ]
+    },
+    {
+      "issue_id": "juliet-findsecbugs-05",
+      "sample": "CWE89_SQL_Injection__File_prepareStatement_01.java",
+      "line": 111,
+      "method": "bad",
+      "reference_vulnerability": true,
+      "nearby_nist_flaw_lines": [
+        110
+      ],
+      "label_basis": "Juliet bad method and matching NIST manifest annotation within same call",
+      "request_changed": false,
+      "old_request_sha256": "9addb74051998b9fd1dc19f46ae7b3b3bf416ec259b9668450560d4f4f1b2650",
+      "new_request_sha256": "9addb74051998b9fd1dc19f46ae7b3b3bf416ec259b9668450560d4f4f1b2650",
+      "proof_source_lines": [],
+      "artifact_origin": "identical_request_reused",
+      "before_verdict": "LIKELY_TP",
+      "after_verdict": "LIKELY_TP",
+      "before_outcome": "true_positive",
+      "after_outcome": "true_positive",
+      "response_file": "runs/juliet-cwe89-pilot-20261124/findsecbugs-llm/case-0005.json",
+      "citations": [
+        {
+          "file_id": "F0",
+          "line": 111
+        },
+        {
+          "file_id": "F0",
+          "line": 107
+        }
+      ]
+    },
+    {
+      "issue_id": "juliet-findsecbugs-06",
+      "sample": "CWE89_SQL_Injection__File_prepareStatement_01.java",
+      "line": 178,
+      "method": "goodG2B",
+      "reference_vulnerability": false,
+      "nearby_nist_flaw_lines": [],
+      "label_basis": "Juliet goodG2B method",
+      "request_changed": true,
+      "old_request_sha256": "31170a4aa0e72afbcdc44830676046ba9eb1ac23dae3ac23b548b133896ebfc3",
+      "new_request_sha256": "302c8d156108696e66e3a9b8e5a273194d774f9f828a1b3b5fc5300c8aa59aba",
+      "proof_source_lines": [
+        169,
+        178
+      ],
+      "artifact_origin": "new_ollama_call",
+      "before_verdict": "LIKELY_TP",
+      "after_verdict": "LIKELY_FP",
+      "before_outcome": "false_positive",
+      "after_outcome": "true_negative",
+      "response_file": "runs/jdbc-proof-context-step2-20261124/juliet-llm-changed/case-0003.json",
+      "citations": [
+        {
+          "file_id": "F0",
+          "line": 178
+        },
+        {
+          "file_id": "F0",
+          "line": 169
+        }
+      ]
+    },
+    {
+      "issue_id": "juliet-findsecbugs-07",
+      "sample": "CWE89_SQL_Injection__File_prepareStatement_42.java",
+      "line": 118,
+      "method": "bad",
+      "reference_vulnerability": true,
+      "nearby_nist_flaw_lines": [
+        117
+      ],
+      "label_basis": "Juliet bad method and matching NIST manifest annotation within same call",
+      "request_changed": false,
+      "old_request_sha256": "0fd32bc4b04cc133fa114d38fb0a35dce6d34e668ec32597a842e7b6aa7918d4",
+      "new_request_sha256": "0fd32bc4b04cc133fa114d38fb0a35dce6d34e668ec32597a842e7b6aa7918d4",
+      "proof_source_lines": [],
+      "artifact_origin": "identical_request_reused",
+      "before_verdict": "LIKELY_TP",
+      "after_verdict": "LIKELY_TP",
+      "before_outcome": "true_positive",
+      "after_outcome": "true_positive",
+      "response_file": "runs/juliet-cwe89-pilot-20261124/findsecbugs-llm/case-0007.json",
+      "citations": [
+        {
+          "file_id": "F0",
+          "line": 118
+        },
+        {
+          "file_id": "F0",
+          "line": 114
+        }
+      ]
+    },
+    {
+      "issue_id": "juliet-findsecbugs-08",
+      "sample": "CWE89_SQL_Injection__File_prepareStatement_42.java",
+      "line": 186,
+      "method": "goodG2B",
+      "reference_vulnerability": false,
+      "nearby_nist_flaw_lines": [],
+      "label_basis": "Juliet goodG2B method",
+      "request_changed": true,
+      "old_request_sha256": "82129626b973221e5dda1466008cb6316d73b6ae76f222eadba5a533f348232a",
+      "new_request_sha256": "8cd1ad6eade67c6780de661de765a28b448db40ab3d211092166ffd125a4b4a3",
+      "proof_source_lines": [
+        170,
+        172,
+        177,
+        186
+      ],
+      "artifact_origin": "new_ollama_call",
+      "before_verdict": "LIKELY_TP",
+      "after_verdict": "LIKELY_FP",
+      "before_outcome": "false_positive",
+      "after_outcome": "true_negative",
+      "response_file": "runs/jdbc-proof-context-step2-20261124/juliet-llm-changed/case-0004.json",
+      "citations": [
+        {
+          "file_id": "F0",
+          "line": 186
+        },
+        {
+          "file_id": "F0",
+          "line": 170
+        }
+      ]
+    },
+    {
+      "issue_id": "juliet-findsecbugs-09",
+      "sample": "CWE89_SQL_Injection__getCookies_Servlet_prepareStatement_01.java",
+      "line": 53,
+      "method": "bad",
+      "reference_vulnerability": true,
+      "nearby_nist_flaw_lines": [
+        52
+      ],
+      "label_basis": "Juliet bad method and matching NIST manifest annotation within same call",
+      "request_changed": false,
+      "old_request_sha256": "e38baeb3c89a01294694662f4b868ff691f60f7a0534aeea309122af697ab098",
+      "new_request_sha256": "e38baeb3c89a01294694662f4b868ff691f60f7a0534aeea309122af697ab098",
+      "proof_source_lines": [],
+      "artifact_origin": "identical_request_reused",
+      "before_verdict": "LIKELY_TP",
+      "after_verdict": "LIKELY_TP",
+      "before_outcome": "true_positive",
+      "after_outcome": "true_positive",
+      "response_file": "runs/juliet-cwe89-pilot-20261124/findsecbugs-llm/case-0009.json",
+      "citations": [
+        {
+          "file_id": "F0",
+          "line": 53
+        },
+        {
+          "file_id": "F0",
+          "line": 42
+        }
+      ]
+    },
+    {
+      "issue_id": "juliet-findsecbugs-10",
+      "sample": "CWE89_SQL_Injection__getCookies_Servlet_prepareStatement_01.java",
+      "line": 120,
+      "method": "goodG2B",
+      "reference_vulnerability": false,
+      "nearby_nist_flaw_lines": [],
+      "label_basis": "Juliet goodG2B method",
+      "request_changed": true,
+      "old_request_sha256": "5191a56512eb1fd5ebb0d343a3be389fd62348b4ae1dd6371176e0e9e6ebc7b7",
+      "new_request_sha256": "e57629664462361b52d4bf285a1baea3237ec73a907b959f65e16f28e8fd298b",
+      "proof_source_lines": [
+        111,
+        120
+      ],
+      "artifact_origin": "new_ollama_call",
+      "before_verdict": "LIKELY_TP",
+      "after_verdict": "LIKELY_FP",
+      "before_outcome": "false_positive",
+      "after_outcome": "true_negative",
+      "response_file": "runs/jdbc-proof-context-step2-20261124/juliet-llm-changed/case-0005.json",
+      "citations": [
+        {
+          "file_id": "F0",
+          "line": 120
+        },
+        {
+          "file_id": "F0",
+          "line": 111
+        }
+      ]
+    },
+    {
+      "issue_id": "juliet-findsecbugs-11",
+      "sample": "CWE89_SQL_Injection__getCookies_Servlet_prepareStatement_42.java",
+      "line": 60,
+      "method": "bad",
+      "reference_vulnerability": true,
+      "nearby_nist_flaw_lines": [
+        59
+      ],
+      "label_basis": "Juliet bad method and matching NIST manifest annotation within same call",
+      "request_changed": false,
+      "old_request_sha256": "acfddfdaedfd1ccffafe7458d2383b0908a5b41b02ce387223d6475017edd275",
+      "new_request_sha256": "acfddfdaedfd1ccffafe7458d2383b0908a5b41b02ce387223d6475017edd275",
+      "proof_source_lines": [],
+      "artifact_origin": "identical_request_reused",
+      "before_verdict": "LIKELY_TP",
+      "after_verdict": "LIKELY_TP",
+      "before_outcome": "true_positive",
+      "after_outcome": "true_positive",
+      "response_file": "runs/juliet-cwe89-pilot-20261124/findsecbugs-llm/case-0011.json",
+      "citations": [
+        {
+          "file_id": "F0",
+          "line": 60
+        },
+        {
+          "file_id": "F0",
+          "line": 38
+        }
+      ]
+    },
+    {
+      "issue_id": "juliet-findsecbugs-12",
+      "sample": "CWE89_SQL_Injection__getCookies_Servlet_prepareStatement_42.java",
+      "line": 128,
+      "method": "goodG2B",
+      "reference_vulnerability": false,
+      "nearby_nist_flaw_lines": [],
+      "label_basis": "Juliet goodG2B method",
+      "request_changed": true,
+      "old_request_sha256": "8fa8e24d4699ed5555ca5b7187fe55cb95a45d8f91c33fe3bf7ab1f50aa82e08",
+      "new_request_sha256": "d78f8d35137ffb65cd94affe843df837557b23c2248262c53f0ceca249a16407",
+      "proof_source_lines": [
+        112,
+        114,
+        119,
+        128
+      ],
+      "artifact_origin": "new_ollama_call",
+      "before_verdict": "LIKELY_TP",
+      "after_verdict": "LIKELY_FP",
+      "before_outcome": "false_positive",
+      "after_outcome": "true_negative",
+      "response_file": "runs/jdbc-proof-context-step2-20261124/juliet-llm-changed/case-0006.json",
+      "citations": [
+        {
+          "file_id": "F0",
+          "line": 128
+        },
+        {
+          "file_id": "F0",
+          "line": 112
+        }
+      ]
+    },
+    {
+      "issue_id": "juliet-findsecbugs-13",
+      "sample": "CWE89_SQL_Injection__getParameter_Servlet_executeQuery_01.java",
+      "line": 47,
+      "method": "bad",
+      "reference_vulnerability": true,
+      "nearby_nist_flaw_lines": [
+        47
+      ],
+      "label_basis": "Juliet bad method and matching NIST manifest annotation within same call",
+      "request_changed": true,
+      "old_request_sha256": "4dde7193693555a3231f4dac09d23c4b8c444b0880e59eda1bc387b7ff124f5a",
+      "new_request_sha256": "0bf96aa7630b1d897b74f01b5f92b9c282e44bb6f76f2b76d52b098443bba140",
+      "proof_source_lines": [
+        35,
+        47
+      ],
+      "artifact_origin": "new_ollama_call",
+      "before_verdict": "LIKELY_TP",
+      "after_verdict": "LIKELY_TP",
+      "before_outcome": "true_positive",
+      "after_outcome": "true_positive",
+      "response_file": "runs/jdbc-proof-context-step2-20261124/juliet-llm-changed/case-0007.json",
+      "citations": [
+        {
+          "file_id": "F0",
+          "line": 47
+        },
+        {
+          "file_id": "F0",
+          "line": 35
+        }
+      ]
+    },
+    {
+      "issue_id": "juliet-findsecbugs-14",
+      "sample": "CWE89_SQL_Injection__getParameter_Servlet_executeQuery_01.java",
+      "line": 120,
+      "method": "goodG2B",
+      "reference_vulnerability": false,
+      "nearby_nist_flaw_lines": [],
+      "label_basis": "Juliet goodG2B method",
+      "request_changed": true,
+      "old_request_sha256": "12a720d3ba314d78a902f32e30bbded180c4f93d10eabac80d89c8b1fc4f3c39",
+      "new_request_sha256": "fd28084044a0c21ef37f28ca0653dad80cafacd40561a2005f16c1e54fdba8ec",
+      "proof_source_lines": [
+        108,
+        120
+      ],
+      "artifact_origin": "new_ollama_call",
+      "before_verdict": "LIKELY_TP",
+      "after_verdict": "LIKELY_FP",
+      "before_outcome": "false_positive",
+      "after_outcome": "true_negative",
+      "response_file": "runs/jdbc-proof-context-step2-20261124/juliet-llm-changed/case-0008.json",
+      "citations": [
+        {
+          "file_id": "F0",
+          "line": 120
+        },
+        {
+          "file_id": "F0",
+          "line": 108
+        }
+      ]
+    },
+    {
+      "issue_id": "juliet-findsecbugs-15",
+      "sample": "CWE89_SQL_Injection__getParameter_Servlet_executeQuery_42.java",
+      "line": 54,
+      "method": "bad",
+      "reference_vulnerability": true,
+      "nearby_nist_flaw_lines": [
+        54
+      ],
+      "label_basis": "Juliet bad method and matching NIST manifest annotation within same call",
+      "request_changed": true,
+      "old_request_sha256": "a987dde5173e204c66232ed7c2f4bd3546eb972c4fdcbf817e46a0f0a108547f",
+      "new_request_sha256": "d8a0f2f7cb7ac2aadd1e91d0ed92a6c32f44cfa5d68ca6683bfa56200ed620aa",
+      "proof_source_lines": [
+        35,
+        37,
+        42,
+        54
+      ],
+      "artifact_origin": "new_ollama_call",
+      "before_verdict": "LIKELY_TP",
+      "after_verdict": "LIKELY_TP",
+      "before_outcome": "true_positive",
+      "after_outcome": "true_positive",
+      "response_file": "runs/jdbc-proof-context-step2-20261124/juliet-llm-changed/case-0009.json",
+      "citations": [
+        {
+          "file_id": "F0",
+          "line": 35
+        },
+        {
+          "file_id": "F0",
+          "line": 54
+        }
+      ]
+    },
+    {
+      "issue_id": "juliet-findsecbugs-16",
+      "sample": "CWE89_SQL_Injection__getParameter_Servlet_executeQuery_42.java",
+      "line": 128,
+      "method": "goodG2B",
+      "reference_vulnerability": false,
+      "nearby_nist_flaw_lines": [],
+      "label_basis": "Juliet goodG2B method",
+      "request_changed": true,
+      "old_request_sha256": "8b649232636ae7c9237e7caecd9c08d9775fbec69f8bce54da0e16928416c2e4",
+      "new_request_sha256": "7ba9a740466c374a989ba3ea81b8702b5bbc619d88b5efba59066be73c5dfc2a",
+      "proof_source_lines": [
+        109,
+        111,
+        116,
+        128
+      ],
+      "artifact_origin": "new_ollama_call",
+      "before_verdict": "LIKELY_TP",
+      "after_verdict": "LIKELY_FP",
+      "before_outcome": "false_positive",
+      "after_outcome": "true_negative",
+      "response_file": "runs/jdbc-proof-context-step2-20261124/juliet-llm-changed/case-0010.json",
+      "citations": [
+        {
+          "file_id": "F0",
+          "line": 128
+        },
+        {
+          "file_id": "F0",
+          "line": 109
+        }
+      ]
+    }
+  ]
+}

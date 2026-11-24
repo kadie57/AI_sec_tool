@@ -1,0 +1,8 @@
+{
+  "flow_count": 1,
+  "paths": "┌─────────────────┬───────────────────────────────────────────────────────────────────┬────┬──────┬────┐\n│nodeType         │tracked                                                            │line│method│file│\n├─────────────────┼───────────────────────────────────────────────────────────────────┼────┼──────┼────┤\n│MethodParameterIn│bad(this, HttpServletRequest request, HttpServletResponse response)│30  │bad   │    │\n│Identifier       │getParameter(\"name\")                                               │35  │bad   │    │\n│Call             │getParameter(\"name\")                                               │35  │bad   │    │\n│Identifier       │data = request.getParameter(\"name\")                                │35  │bad   │    │\n│Call             │\"select * from users where name='\" + data + \"'\"                    │47  │bad   │    │\n└─────────────────┴───────────────────────────────────────────────────────────────────┴────┴──────┴────┘",
+  "scope": "single_file",
+  "sink_call_count": 1,
+  "sink_argument_count": 1,
+  "source_policy": "all_non_receiver_parameters_are_candidates"
+}

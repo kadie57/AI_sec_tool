@@ -23,6 +23,7 @@ VALUE_CHAIN_ROLES = {"local_assignment", "helper_return", "helper_call", "servle
 VALUE_PROOF_ROLES = (BRANCH_ROLES - {"switch_selector"}) | {"local_assignment", "helper_return", "servlet_request_read"}
 INTEGER_EVIDENCE_ROLES = {"integer_arithmetic", "integer_comparison"}
 CONSTANT_CONTEXT_ROLES = {"constant_expression", "constant_string_index"} | INTEGER_EVIDENCE_ROLES
+STRUCTURED_VALUE_ROLES = BRANCH_ROLES | VALUE_CHAIN_ROLES | CONSTANT_CONTEXT_ROLES | {"local_definition"}
 
 
 def positions(value, file_id):
@@ -204,12 +205,10 @@ def render_path_snippets(evidence, *, verified_sink_note=False, structured_sink_
     for line in sorted(anchors):
         related.extend(excerpt(line - SUPPORT_RADIUS, line + SUPPORT_RADIUS))
     if structured_sink_evidence and value_argument:
-        value_facts = value_argument["evidence"]
-        if any(fact["role"] in INTEGER_EVIDENCE_ROLES for fact in value_facts):
-            # A computed condition may depend on definitions outside the Joern excerpts.
-            for fact in value_facts:
-                if fact["file_id"] == "F0" and fact["role"] in CONSTANT_CONTEXT_ROLES:
-                    related.extend(excerpt(fact["line"], fact["line"]))
+        # The verified value may depend on lines outside the excerpts, even without a Joern path.
+        for fact in value_argument["evidence"]:
+            if fact["file_id"] == "F0" and fact["role"] in STRUCTURED_VALUE_ROLES:
+                related.extend(excerpt(fact["line"], fact["line"]))
 
     summary = {key: value for key, value in selected.items()
                if key not in {"paths", "locations", "alert_context", "endpoint_context", "anchored_paths"}}

@@ -1,0 +1,351 @@
+{
+  "scope": "Revalidation of all 12 existing Ollama responses using the same raw model output and the original prompts.",
+  "raw_response_run": "runs/owasp-iris-anchored-full-20261124/llm",
+  "evidence": "runs/owasp-iris-anchored-evidence/evidence/sql_evidence.jsonl",
+  "reference_labels": "../experiments/owasp_holdout_v1/reference_labels.json",
+  "model_digest": "9ec8897f747e246e970bc5cfdda85d22f1123dc2e3d34978a010a75968716849",
+  "validation_before": {
+    "model": "qwen2.5-coder:14b-instruct-q4_K_M",
+    "prompt_sha256": "7fa152e90693c92ca2e93e765ac93bbf1327e138bb003cb852e3364597de3554",
+    "schema_sha256": "cbe382e684295a20cc2bcdb5d33b41612bd2c6e8adada0d2bb99b30b9c1c85c8",
+    "options": {
+      "temperature": 0,
+      "seed": 42,
+      "num_ctx": 8192,
+      "num_predict": 1024
+    },
+    "request_version": 1,
+    "validation_version": 1
+  },
+  "validation_after": {
+    "model": "qwen2.5-coder:14b-instruct-q4_K_M",
+    "prompt_sha256": "7fa152e90693c92ca2e93e765ac93bbf1327e138bb003cb852e3364597de3554",
+    "schema_sha256": "cbe382e684295a20cc2bcdb5d33b41612bd2c6e8adada0d2bb99b30b9c1c85c8",
+    "options": {
+      "temperature": 0,
+      "seed": 42,
+      "num_ctx": 8192,
+      "num_predict": 1024
+    },
+    "request_version": 1,
+    "validation_version": 2,
+    "warning_citation_binding": "sonarqube_alert_start_line"
+  },
+  "before": {
+    "correct": 4,
+    "error": 3,
+    "unknown": 5
+  },
+  "after": {
+    "correct": 7,
+    "unknown": 5
+  },
+  "added_warning_citations": 3,
+  "cases": [
+    {
+      "sample": "BenchmarkTest00438",
+      "issue_id": "47a9f2cb-a6ca-442d-9e56-79839ba05ff2",
+      "reference_vulnerability": true,
+      "request_sha256": "db3bdd91ee176d51d296b234cddb00ffd07089f9ddf0657c023cba2cda63ce89",
+      "before": "correct",
+      "after": "correct",
+      "verdict": "LIKELY_TP",
+      "citations": [
+        {
+          "file_id": "F0",
+          "line": 53
+        },
+        {
+          "file_id": "F0",
+          "line": 58
+        }
+      ],
+      "warning_citation_added": null,
+      "original_error": null
+    },
+    {
+      "sample": "BenchmarkTest00439",
+      "issue_id": "b540bb38-9153-4ccf-abe4-cdc606763d95",
+      "reference_vulnerability": true,
+      "request_sha256": "7587e4dde673102595e7bd37c6c1923581bc85f5a0a03941b51f9fab1dbe0b1f",
+      "before": "correct",
+      "after": "correct",
+      "verdict": "LIKELY_TP",
+      "citations": [
+        {
+          "file_id": "F0",
+          "line": 53
+        },
+        {
+          "file_id": "F0",
+          "line": 48
+        }
+      ],
+      "warning_citation_added": null,
+      "original_error": null
+    },
+    {
+      "sample": "BenchmarkTest00517",
+      "issue_id": "75bd39b8-848e-4ac4-ae84-35e78cbd540e",
+      "reference_vulnerability": false,
+      "request_sha256": "84afa743bdf416068171a4882a1b53d086625582fd9db90b2ded1c643e207f76",
+      "before": "error",
+      "after": "correct",
+      "verdict": "LIKELY_FP",
+      "citations": [
+        {
+          "file_id": "F0",
+          "line": 62
+        },
+        {
+          "file_id": "F0",
+          "line": 53
+        },
+        {
+          "file_id": "F0",
+          "line": 55
+        }
+      ],
+      "warning_citation_added": {
+        "origin": "sonarqube_alert",
+        "reference": {
+          "file_id": "F0",
+          "line": 62
+        }
+      },
+      "original_error": "Decisive verdict needs warning line and supporting evidence"
+    },
+    {
+      "sample": "BenchmarkTest00592",
+      "issue_id": "823079bc-568b-4dd4-95c4-3f9c8cbeed33",
+      "reference_vulnerability": false,
+      "request_sha256": "f5424962c4048fc8c41c2d6b757668229287368336dc1dd1e23590d8e78dea6f",
+      "before": "unknown",
+      "after": "unknown",
+      "verdict": "UNKNOWN",
+      "citations": [
+        {
+          "file_id": "F0",
+          "line": 89
+        },
+        {
+          "file_id": "F0",
+          "line": 90
+        }
+      ],
+      "warning_citation_added": null,
+      "original_error": null
+    },
+    {
+      "sample": "BenchmarkTest00999",
+      "issue_id": "cdeb1d77-373a-4bf5-9b38-7117ab0d4d7d",
+      "reference_vulnerability": false,
+      "request_sha256": "ec41bb5e2ee4aaa09fdfe3d37a103af2591b78a3b1345663f302b51c0579e6d0",
+      "before": "unknown",
+      "after": "unknown",
+      "verdict": "UNKNOWN",
+      "citations": [
+        {
+          "file_id": "F0",
+          "line": 75
+        },
+        {
+          "file_id": "F0",
+          "line": 67
+        }
+      ],
+      "warning_citation_added": null,
+      "original_error": null
+    },
+    {
+      "sample": "BenchmarkTest01093",
+      "issue_id": "42fe8b5f-5d89-4d3b-815b-12adc58a2461",
+      "reference_vulnerability": true,
+      "request_sha256": "1ed5e676d199c5812b7100acc45ad6f576336edce1e12813e176791a787702c9",
+      "before": "error",
+      "after": "correct",
+      "verdict": "LIKELY_TP",
+      "citations": [
+        {
+          "file_id": "F0",
+          "line": 58
+        },
+        {
+          "file_id": "F0",
+          "line": 45
+        },
+        {
+          "file_id": "F0",
+          "line": 53
+        }
+      ],
+      "warning_citation_added": {
+        "origin": "sonarqube_alert",
+        "reference": {
+          "file_id": "F0",
+          "line": 58
+        }
+      },
+      "original_error": "Decisive verdict needs warning line and supporting evidence"
+    },
+    {
+      "sample": "BenchmarkTest01311",
+      "issue_id": "07951150-c656-48e8-a94d-c3d8bcd0a08a",
+      "reference_vulnerability": true,
+      "request_sha256": "c88e0c44546768e548d7287c16bc6440b673e8bece400dc995530ed95d31e907",
+      "before": "correct",
+      "after": "correct",
+      "verdict": "LIKELY_TP",
+      "citations": [
+        {
+          "file_id": "F0",
+          "line": 43
+        },
+        {
+          "file_id": "F0",
+          "line": 53
+        }
+      ],
+      "warning_citation_added": null,
+      "original_error": null
+    },
+    {
+      "sample": "BenchmarkTest01558",
+      "issue_id": "a0b83a09-38be-4ab0-9be5-56c43a811134",
+      "reference_vulnerability": true,
+      "request_sha256": "9d7aeadaa3829bcc0e1c0b223f0d46fc8c147d230f2d7477486db30dd2332c57",
+      "before": "error",
+      "after": "correct",
+      "verdict": "LIKELY_TP",
+      "citations": [
+        {
+          "file_id": "F0",
+          "line": 55
+        },
+        {
+          "file_id": "F0",
+          "line": 50
+        },
+        {
+          "file_id": "F1",
+          "line": 31
+        }
+      ],
+      "warning_citation_added": {
+        "origin": "sonarqube_alert",
+        "reference": {
+          "file_id": "F0",
+          "line": 55
+        }
+      },
+      "original_error": "Decisive verdict needs warning line and supporting evidence"
+    },
+    {
+      "sample": "BenchmarkTest02088",
+      "issue_id": "8040d43a-6c70-4928-b324-f6c4abda92d2",
+      "reference_vulnerability": true,
+      "request_sha256": "85eee8ce0bd24f5b48cd7a0c370d6feb60615ea4351d3658d2bde37ff5e02d25",
+      "before": "unknown",
+      "after": "unknown",
+      "verdict": "UNKNOWN",
+      "citations": [
+        {
+          "file_id": "F0",
+          "line": 44
+        },
+        {
+          "file_id": "F0",
+          "line": 61
+        }
+      ],
+      "warning_citation_added": null,
+      "original_error": null
+    },
+    {
+      "sample": "BenchmarkTest02093",
+      "issue_id": "a59329b9-c85d-488c-9cb3-cef8e94aad66",
+      "reference_vulnerability": false,
+      "request_sha256": "929b7867c30ef14628d0e52c331d097994413b5b119c6d59fe8a01ebba197f98",
+      "before": "correct",
+      "after": "correct",
+      "verdict": "LIKELY_FP",
+      "citations": [
+        {
+          "file_id": "F0",
+          "line": 60
+        },
+        {
+          "file_id": "F0",
+          "line": 81
+        },
+        {
+          "file_id": "F0",
+          "line": 82
+        },
+        {
+          "file_id": "F0",
+          "line": 93
+        }
+      ],
+      "warning_citation_added": null,
+      "original_error": null
+    },
+    {
+      "sample": "BenchmarkTest02171",
+      "issue_id": "eb1d6188-8f9d-406f-b766-9abc0851368f",
+      "reference_vulnerability": true,
+      "request_sha256": "8e34ca613e8754082a6d7ca8dc4ea24cf8b5db31874bb3be36fc6ae5ebdec61a",
+      "before": "unknown",
+      "after": "unknown",
+      "verdict": "UNKNOWN",
+      "citations": [
+        {
+          "file_id": "F0",
+          "line": 43
+        },
+        {
+          "file_id": "F0",
+          "line": 54
+        }
+      ],
+      "warning_citation_added": null,
+      "original_error": null
+    },
+    {
+      "sample": "BenchmarkTest02186",
+      "issue_id": "d2d8166a-90af-4679-8c1d-7b87d662292a",
+      "reference_vulnerability": true,
+      "request_sha256": "b38da73590d2ef95f98d13062b402daf75358d82cbcfb8bd2eb50dec30fd5bd4",
+      "before": "unknown",
+      "after": "unknown",
+      "verdict": "UNKNOWN",
+      "citations": [
+        {
+          "file_id": "F0",
+          "line": 53
+        },
+        {
+          "file_id": "F0",
+          "line": 46
+        }
+      ],
+      "warning_citation_added": null,
+      "original_error": null
+    }
+  ],
+  "live_verification": {
+    "sample": "BenchmarkTest01558",
+    "model_called": true,
+    "request_sha256": "9d7aeadaa3829bcc0e1c0b223f0d46fc8c147d230f2d7477486db30dd2332c57",
+    "model_digest": "9ec8897f747e246e970bc5cfdda85d22f1123dc2e3d34978a010a75968716849",
+    "verdict": "LIKELY_TP",
+    "warning_citation_added": {
+      "origin": "sonarqube_alert",
+      "reference": {
+        "file_id": "F0",
+        "line": 55
+      }
+    },
+    "result": "live/case-0001.json"
+  }
+}

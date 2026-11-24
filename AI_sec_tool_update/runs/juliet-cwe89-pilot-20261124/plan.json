@@ -1,0 +1,87 @@
+{
+  "suite": "NIST SARD 111, Juliet Java 1.3",
+  "official_source": "https://samate.nist.gov/SARD/test-suites/111",
+  "archive_sha256": "d985f4177c2bcd7b03455a05c1c8f2e755f55c9eb250accd052f05f877347e60",
+  "original_manifest_sha256": "e0227dee176a75d56aee13482bea309dc78fdfc707762bb7ce42336e7ef6045b",
+  "scope": "Eight CWE-89 files with mixed good and bad methods. Four HTTP and non-HTTP source families and paired direct (01) and same-file method-return (42) variants, selected before scanning.",
+  "case_count": 8,
+  "reference_fragments": "reference-fragments.xml",
+  "samples": [
+    {
+      "name": "CWE89_SQL_Injection__Environment_executeQuery_01.java",
+      "archive_path": "Java/src/testcases/CWE89_SQL_Injection/s02/CWE89_SQL_Injection__Environment_executeQuery_01.java",
+      "project_path": "Clean_Code/testcases/CWE89_SQL_Injection/s02/CWE89_SQL_Injection__Environment_executeQuery_01.java",
+      "sha256": "1134246004f718833d8c8ca4e104eb20cd7dda5535f0c6d0884fe4283a25fec4",
+      "annotated_flaw_lines": [
+        35,
+        47
+      ]
+    },
+    {
+      "name": "CWE89_SQL_Injection__Environment_executeQuery_42.java",
+      "archive_path": "Java/src/testcases/CWE89_SQL_Injection/s02/CWE89_SQL_Injection__Environment_executeQuery_42.java",
+      "project_path": "Clean_Code/testcases/CWE89_SQL_Injection/s02/CWE89_SQL_Injection__Environment_executeQuery_42.java",
+      "sha256": "bbe71a9d3e5d5cd74d9c16f79cc1867e546c37e311e07872e173602e22d1efe2",
+      "annotated_flaw_lines": [
+        54
+      ]
+    },
+    {
+      "name": "CWE89_SQL_Injection__File_prepareStatement_01.java",
+      "archive_path": "Java/src/testcases/CWE89_SQL_Injection/s02/CWE89_SQL_Injection__File_prepareStatement_01.java",
+      "project_path": "Clean_Code/testcases/CWE89_SQL_Injection/s02/CWE89_SQL_Injection__File_prepareStatement_01.java",
+      "sha256": "fffeaf3a15faad924bb991dfa5579a121629bf23efed3a55b31d33ac6d6d9d52",
+      "annotated_flaw_lines": [
+        57,
+        110
+      ]
+    },
+    {
+      "name": "CWE89_SQL_Injection__File_prepareStatement_42.java",
+      "archive_path": "Java/src/testcases/CWE89_SQL_Injection/s02/CWE89_SQL_Injection__File_prepareStatement_42.java",
+      "project_path": "Clean_Code/testcases/CWE89_SQL_Injection/s02/CWE89_SQL_Injection__File_prepareStatement_42.java",
+      "sha256": "4e5448ea25bc873fd48a34f3ea3bd609ff1b01697ffd82c8d237500f0ee43707",
+      "annotated_flaw_lines": [
+        117
+      ]
+    },
+    {
+      "name": "CWE89_SQL_Injection__getCookies_Servlet_prepareStatement_01.java",
+      "archive_path": "Java/src/testcases/CWE89_SQL_Injection/s02/CWE89_SQL_Injection__getCookies_Servlet_prepareStatement_01.java",
+      "project_path": "Clean_Code/testcases/CWE89_SQL_Injection/s02/CWE89_SQL_Injection__getCookies_Servlet_prepareStatement_01.java",
+      "sha256": "7133d690c6cd10fc5e05657ebf6eec9691f5fd9a7655832ffbb86691248e7733",
+      "annotated_flaw_lines": [
+        42,
+        52
+      ]
+    },
+    {
+      "name": "CWE89_SQL_Injection__getCookies_Servlet_prepareStatement_42.java",
+      "archive_path": "Java/src/testcases/CWE89_SQL_Injection/s02/CWE89_SQL_Injection__getCookies_Servlet_prepareStatement_42.java",
+      "project_path": "Clean_Code/testcases/CWE89_SQL_Injection/s02/CWE89_SQL_Injection__getCookies_Servlet_prepareStatement_42.java",
+      "sha256": "91c376777051c4ba08b469ee9553272075ca196c29f29996762a6f3e6b9518d8",
+      "annotated_flaw_lines": [
+        59
+      ]
+    },
+    {
+      "name": "CWE89_SQL_Injection__getParameter_Servlet_executeQuery_01.java",
+      "archive_path": "Java/src/testcases/CWE89_SQL_Injection/s02/CWE89_SQL_Injection__getParameter_Servlet_executeQuery_01.java",
+      "project_path": "Clean_Code/testcases/CWE89_SQL_Injection/s02/CWE89_SQL_Injection__getParameter_Servlet_executeQuery_01.java",
+      "sha256": "b6a7c2934b17ea68c38f26ad2d7bbe49ec76d654e9ed904a9152271d413a4b74",
+      "annotated_flaw_lines": [
+        35,
+        47
+      ]
+    },
+    {
+      "name": "CWE89_SQL_Injection__getParameter_Servlet_executeQuery_42.java",
+      "archive_path": "Java/src/testcases/CWE89_SQL_Injection/s02/CWE89_SQL_Injection__getParameter_Servlet_executeQuery_42.java",
+      "project_path": "Clean_Code/testcases/CWE89_SQL_Injection/s02/CWE89_SQL_Injection__getParameter_Servlet_executeQuery_42.java",
+      "sha256": "9064bde6f7572f9e891319f43805e3d8bc38a1689f55becb527bdc9782217f0b",
+      "annotated_flaw_lines": [
+        54
+      ]
+    }
+  ]
+}

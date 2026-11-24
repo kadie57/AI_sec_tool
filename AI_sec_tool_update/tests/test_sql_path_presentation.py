@@ -109,9 +109,9 @@ class SqlPathPresentationTest(unittest.TestCase):
         self.assertEqual(selected["paths"], [])
         self.assertIn("request data read at F1:1 contributes to the SQL text argument at F0:33", selected["verified_alert_sink"])
 
-    def test_unknown_invisible_or_mismatched_proofs_keep_the_control_payload(self):
+    def test_unknown_out_of_range_or_mismatched_proofs_keep_the_control_payload(self):
         path = {"source_line": 10, "intermediate_lines": [], "sql_argument_line": 33}
-        for status, line, column in [("unknown", 10, 5), ("constant_sql_text", 1, 5), ("constant_sql_text", 10, 6)]:
+        for status, line, column in [("unknown", 10, 5), ("constant_sql_text", 45, 5), ("constant_sql_text", 10, 6)]:
             with self.subTest(status=status, line=line, column=column):
                 evidence = self.value_evidence(status, [{"file_id": "F0", "line": line, "role": "constant_expression"}],
                                                proof_column=column)
@@ -120,6 +120,24 @@ class SqlPathPresentationTest(unittest.TestCase):
                 _, baseline = self.plan_case([path], selected_evidence={"endpoint_specifications": evidence["endpoint_specifications"]})
                 self.assertEqual(result, baseline)
                 self.assertEqual(structured, baseline)
+
+    def test_structured_proof_exposes_distant_assignments_and_returns_without_joern_path(self):
+        facts = [{"file_id": "F0", "line": line, "role": role} for line, role in [
+            (5, "constant_expression"), (5, "local_assignment"), (6, "helper_return"),
+            (18, "local_definition"), (18, "helper_call"),
+        ]]
+        evidence = self.value_evidence("constant_sql_text", facts)
+        row, prompt = self.plan_case([], selected_evidence=evidence, structured_sink_evidence=True)
+        selected = prompt["selected_evidence"]
+        self.assertEqual(selected["paths"], [])
+        self.assertEqual(selected["supporting_excerpts"], [
+            f"F0:{line} statement{line}();" for line in (5, 6, 18)
+        ])
+        proof = selected["verified_alert_sink"]
+        self.assertEqual([fact["line"] for fact in proof["value_to_jdbc"]], [5, 6, 18, 33])
+        assessment = {"verdict": "LIKELY_FP", "explanation": "The SQL text is constant.",
+                      "citations": [{"file_id": "F0", "line": 32}, {"file_id": "F0", "line": 5}]}
+        self.assertEqual(validate(assessment, row), assessment)
 
     def test_structured_sink_separates_warning_branch_and_ordered_value_chain(self):
         path = {"source_line": 10, "intermediate_lines": [17, 23, 20, 28], "sql_argument_line": 33}

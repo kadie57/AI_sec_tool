@@ -1,0 +1,227 @@
+{
+  "model": "qwen2.5-coder:14b-instruct-q4_K_M",
+  "prompt_sha256": "26e84205a559fb429adba9c87a3a28fdf6a4c6135f4d301f784acee12637a442",
+  "schema_sha256": "2fb9849c6f59240d72ac291beed80f95a0385c5fcfa56376fa905a3efdecc725",
+  "options": {
+    "temperature": 0,
+    "seed": 42,
+    "num_ctx": 8192,
+    "num_predict": 1024
+  },
+  "request_version": 3,
+  "validation_version": 2,
+  "prompt_profile": "iris-contextual",
+  "warning_citation_binding": "sonarqube_alert_start_line",
+  "cases": [
+    {
+      "issue_id": "juliet-findsecbugs-01",
+      "alert": {
+        "issue_id": "juliet-findsecbugs-01",
+        "component": "juliet_cwe89_findsecbugs:Clean_Code/testcases/CWE89_SQL_Injection/s02/CWE89_SQL_Injection__Environment_executeQuery_01.java",
+        "rule": "findsecbugs:SQL_INJECTION_JDBC",
+        "cwe": "CWE-89",
+        "start_line": 47,
+        "end_line": 47
+      },
+      "source": "1134246004f718833d8c8ca4e104eb20cd7dda5535f0c6d0884fe4283a25fec4",
+      "request_sha256": "092144aa653a61bd77e9a03191fbc9207859efe77799278adba2b2d4c12eeddf"
+    },
+    {
+      "issue_id": "juliet-findsecbugs-02",
+      "alert": {
+        "issue_id": "juliet-findsecbugs-02",
+        "component": "juliet_cwe89_findsecbugs:Clean_Code/testcases/CWE89_SQL_Injection/s02/CWE89_SQL_Injection__Environment_executeQuery_01.java",
+        "rule": "findsecbugs:SQL_INJECTION_JDBC",
+        "cwe": "CWE-89",
+        "start_line": 120,
+        "end_line": 120
+      },
+      "source": "1134246004f718833d8c8ca4e104eb20cd7dda5535f0c6d0884fe4283a25fec4",
+      "request_sha256": "d5d922004471485d6429b9be2d00627431cdc91094aaf3abc3931133b9934167"
+    },
+    {
+      "issue_id": "juliet-findsecbugs-03",
+      "alert": {
+        "issue_id": "juliet-findsecbugs-03",
+        "component": "juliet_cwe89_findsecbugs:Clean_Code/testcases/CWE89_SQL_Injection/s02/CWE89_SQL_Injection__Environment_executeQuery_42.java",
+        "rule": "findsecbugs:SQL_INJECTION_JDBC",
+        "cwe": "CWE-89",
+        "start_line": 54,
+        "end_line": 54
+      },
+      "source": "bbe71a9d3e5d5cd74d9c16f79cc1867e546c37e311e07872e173602e22d1efe2",
+      "request_sha256": "c0d1f4015dc2c93d9a01aeeade5207cc0e3bb803f23a0678c72bda51ae100f7c"
+    },
+    {
+      "issue_id": "juliet-findsecbugs-04",
+      "alert": {
+        "issue_id": "juliet-findsecbugs-04",
+        "component": "juliet_cwe89_findsecbugs:Clean_Code/testcases/CWE89_SQL_Injection/s02/CWE89_SQL_Injection__Environment_executeQuery_42.java",
+        "rule": "findsecbugs:SQL_INJECTION_JDBC",
+        "cwe": "CWE-89",
+        "start_line": 128,
+        "end_line": 128
+      },
+      "source": "bbe71a9d3e5d5cd74d9c16f79cc1867e546c37e311e07872e173602e22d1efe2",
+      "request_sha256": "9d38d5de8db2d42b68d8fc8b826149521f1e835f3c07024eb7a0d2d2aad66a83"
+    },
+    {
+      "issue_id": "juliet-findsecbugs-05",
+      "alert": {
+        "issue_id": "juliet-findsecbugs-05",
+        "component": "juliet_cwe89_findsecbugs:Clean_Code/testcases/CWE89_SQL_Injection/s02/CWE89_SQL_Injection__File_prepareStatement_01.java",
+        "rule": "findsecbugs:SQL_INJECTION_JDBC",
+        "cwe": "CWE-89",
+        "start_line": 111,
+        "end_line": 111
+      },
+      "source": "fffeaf3a15faad924bb991dfa5579a121629bf23efed3a55b31d33ac6d6d9d52",
+      "request_sha256": "9addb74051998b9fd1dc19f46ae7b3b3bf416ec259b9668450560d4f4f1b2650"
+    },
+    {
+      "issue_id": "juliet-findsecbugs-06",
+      "alert": {
+        "issue_id": "juliet-findsecbugs-06",
+        "component": "juliet_cwe89_findsecbugs:Clean_Code/testcases/CWE89_SQL_Injection/s02/CWE89_SQL_Injection__File_prepareStatement_01.java",
+        "rule": "findsecbugs:SQL_INJECTION_JDBC",
+        "cwe": "CWE-89",
+        "start_line": 178,
+        "end_line": 178
+      },
+      "source": "fffeaf3a15faad924bb991dfa5579a121629bf23efed3a55b31d33ac6d6d9d52",
+      "request_sha256": "31170a4aa0e72afbcdc44830676046ba9eb1ac23dae3ac23b548b133896ebfc3"
+    },
+    {
+      "issue_id": "juliet-findsecbugs-07",
+      "alert": {
+        "issue_id": "juliet-findsecbugs-07",
+        "component": "juliet_cwe89_findsecbugs:Clean_Code/testcases/CWE89_SQL_Injection/s02/CWE89_SQL_Injection__File_prepareStatement_42.java",
+        "rule": "findsecbugs:SQL_INJECTION_JDBC",
+        "cwe": "CWE-89",
+        "start_line": 118,
+        "end_line": 118
+      },
+      "source": "4e5448ea25bc873fd48a34f3ea3bd609ff1b01697ffd82c8d237500f0ee43707",
+      "request_sha256": "0fd32bc4b04cc133fa114d38fb0a35dce6d34e668ec32597a842e7b6aa7918d4"
+    },
+    {
+      "issue_id": "juliet-findsecbugs-08",
+      "alert": {
+        "issue_id": "juliet-findsecbugs-08",
+        "component": "juliet_cwe89_findsecbugs:Clean_Code/testcases/CWE89_SQL_Injection/s02/CWE89_SQL_Injection__File_prepareStatement_42.java",
+        "rule": "findsecbugs:SQL_INJECTION_JDBC",
+        "cwe": "CWE-89",
+        "start_line": 186,
+        "end_line": 186
+      },
+      "source": "4e5448ea25bc873fd48a34f3ea3bd609ff1b01697ffd82c8d237500f0ee43707",
+      "request_sha256": "82129626b973221e5dda1466008cb6316d73b6ae76f222eadba5a533f348232a"
+    },
+    {
+      "issue_id": "juliet-findsecbugs-09",
+      "alert": {
+        "issue_id": "juliet-findsecbugs-09",
+        "component": "juliet_cwe89_findsecbugs:Clean_Code/testcases/CWE89_SQL_Injection/s02/CWE89_SQL_Injection__getCookies_Servlet_prepareStatement_01.java",
+        "rule": "findsecbugs:SQL_INJECTION_JDBC",
+        "cwe": "CWE-89",
+        "start_line": 53,
+        "end_line": 53
+      },
+      "source": "7133d690c6cd10fc5e05657ebf6eec9691f5fd9a7655832ffbb86691248e7733",
+      "request_sha256": "e38baeb3c89a01294694662f4b868ff691f60f7a0534aeea309122af697ab098"
+    },
+    {
+      "issue_id": "juliet-findsecbugs-10",
+      "alert": {
+        "issue_id": "juliet-findsecbugs-10",
+        "component": "juliet_cwe89_findsecbugs:Clean_Code/testcases/CWE89_SQL_Injection/s02/CWE89_SQL_Injection__getCookies_Servlet_prepareStatement_01.java",
+        "rule": "findsecbugs:SQL_INJECTION_JDBC",
+        "cwe": "CWE-89",
+        "start_line": 120,
+        "end_line": 120
+      },
+      "source": "7133d690c6cd10fc5e05657ebf6eec9691f5fd9a7655832ffbb86691248e7733",
+      "request_sha256": "5191a56512eb1fd5ebb0d343a3be389fd62348b4ae1dd6371176e0e9e6ebc7b7"
+    },
+    {
+      "issue_id": "juliet-findsecbugs-11",
+      "alert": {
+        "issue_id": "juliet-findsecbugs-11",
+        "component": "juliet_cwe89_findsecbugs:Clean_Code/testcases/CWE89_SQL_Injection/s02/CWE89_SQL_Injection__getCookies_Servlet_prepareStatement_42.java",
+        "rule": "findsecbugs:SQL_INJECTION_JDBC",
+        "cwe": "CWE-89",
+        "start_line": 60,
+        "end_line": 60
+      },
+      "source": "91c376777051c4ba08b469ee9553272075ca196c29f29996762a6f3e6b9518d8",
+      "request_sha256": "acfddfdaedfd1ccffafe7458d2383b0908a5b41b02ce387223d6475017edd275"
+    },
+    {
+      "issue_id": "juliet-findsecbugs-12",
+      "alert": {
+        "issue_id": "juliet-findsecbugs-12",
+        "component": "juliet_cwe89_findsecbugs:Clean_Code/testcases/CWE89_SQL_Injection/s02/CWE89_SQL_Injection__getCookies_Servlet_prepareStatement_42.java",
+        "rule": "findsecbugs:SQL_INJECTION_JDBC",
+        "cwe": "CWE-89",
+        "start_line": 128,
+        "end_line": 128
+      },
+      "source": "91c376777051c4ba08b469ee9553272075ca196c29f29996762a6f3e6b9518d8",
+      "request_sha256": "8fa8e24d4699ed5555ca5b7187fe55cb95a45d8f91c33fe3bf7ab1f50aa82e08"
+    },
+    {
+      "issue_id": "juliet-findsecbugs-13",
+      "alert": {
+        "issue_id": "juliet-findsecbugs-13",
+        "component": "juliet_cwe89_findsecbugs:Clean_Code/testcases/CWE89_SQL_Injection/s02/CWE89_SQL_Injection__getParameter_Servlet_executeQuery_01.java",
+        "rule": "findsecbugs:SQL_INJECTION_JDBC",
+        "cwe": "CWE-89",
+        "start_line": 47,
+        "end_line": 47
+      },
+      "source": "b6a7c2934b17ea68c38f26ad2d7bbe49ec76d654e9ed904a9152271d413a4b74",
+      "request_sha256": "4dde7193693555a3231f4dac09d23c4b8c444b0880e59eda1bc387b7ff124f5a"
+    },
+    {
+      "issue_id": "juliet-findsecbugs-14",
+      "alert": {
+        "issue_id": "juliet-findsecbugs-14",
+        "component": "juliet_cwe89_findsecbugs:Clean_Code/testcases/CWE89_SQL_Injection/s02/CWE89_SQL_Injection__getParameter_Servlet_executeQuery_01.java",
+        "rule": "findsecbugs:SQL_INJECTION_JDBC",
+        "cwe": "CWE-89",
+        "start_line": 120,
+        "end_line": 120
+      },
+      "source": "b6a7c2934b17ea68c38f26ad2d7bbe49ec76d654e9ed904a9152271d413a4b74",
+      "request_sha256": "12a720d3ba314d78a902f32e30bbded180c4f93d10eabac80d89c8b1fc4f3c39"
+    },
+    {
+      "issue_id": "juliet-findsecbugs-15",
+      "alert": {
+        "issue_id": "juliet-findsecbugs-15",
+        "component": "juliet_cwe89_findsecbugs:Clean_Code/testcases/CWE89_SQL_Injection/s02/CWE89_SQL_Injection__getParameter_Servlet_executeQuery_42.java",
+        "rule": "findsecbugs:SQL_INJECTION_JDBC",
+        "cwe": "CWE-89",
+        "start_line": 54,
+        "end_line": 54
+      },
+      "source": "9064bde6f7572f9e891319f43805e3d8bc38a1689f55becb527bdc9782217f0b",
+      "request_sha256": "a987dde5173e204c66232ed7c2f4bd3546eb972c4fdcbf817e46a0f0a108547f"
+    },
+    {
+      "issue_id": "juliet-findsecbugs-16",
+      "alert": {
+        "issue_id": "juliet-findsecbugs-16",
+        "component": "juliet_cwe89_findsecbugs:Clean_Code/testcases/CWE89_SQL_Injection/s02/CWE89_SQL_Injection__getParameter_Servlet_executeQuery_42.java",
+        "rule": "findsecbugs:SQL_INJECTION_JDBC",
+        "cwe": "CWE-89",
+        "start_line": 128,
+        "end_line": 128
+      },
+      "source": "9064bde6f7572f9e891319f43805e3d8bc38a1689f55becb527bdc9782217f0b",
+      "request_sha256": "8b649232636ae7c9237e7caecd9c08d9775fbec69f8bce54da0e16928416c2e4"
+    }
+  ],
+  "model_digest": "9ec8897f747e246e970bc5cfdda85d22f1123dc2e3d34978a010a75968716849",
+  "mode": "ollama"
+}

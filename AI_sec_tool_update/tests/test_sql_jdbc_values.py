@@ -120,6 +120,38 @@ class Example {
 """)
         self.assertEqual(result["status"], "unknown")
 
+    def test_jdbc_result_assigned_to_local_inside_try_preserves_helper_proof(self):
+        result = self.probe("""import java.sql.Statement;
+class Example {
+  void execute(Statement sink) throws Exception {
+    String sql = query();
+    boolean result;
+    try {
+      result = sink.execute(sql);
+    } catch (java.sql.SQLException failure) {
+      throw failure;
+    }
+  }
+  private static String query() {
+    return "SELECT 1";
+  }
+}
+""")
+        self.assertEqual(result["status"], "constant_sql_text")
+        self.assertIn({"file_id": "F0", "line": 13, "role": "helper_return"}, result["evidence"])
+
+    def test_assignment_to_field_stays_outside_the_local_jdbc_rule(self):
+        result = self.probe("""import java.sql.Statement;
+class Example {
+  boolean result;
+  void execute(Statement sink) throws Exception {
+    result = sink.execute("SELECT 1");
+  }
+}
+""")
+        self.assertEqual(result["status"], "unknown")
+        self.assertIn({"file_id": "F0", "line": 5, "role": "scope_before_call_not_modeled"}, result["evidence"])
+
     def test_integer_condition_uses_java_signed_division_and_remainder(self):
         result = self.probe("""import java.sql.Statement;
 class Example {

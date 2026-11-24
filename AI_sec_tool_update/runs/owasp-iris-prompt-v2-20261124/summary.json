@@ -1,0 +1,59 @@
+{
+  "scope": "Fresh Ollama calls for selected alerts with the IRIS-inspired prompt. Evidence was checked against the baseline for all twelve alerts.",
+  "requests_checked": 12,
+  "fresh_cases": 2,
+  "model_digest": "9ec8897f747e246e970bc5cfdda85d22f1123dc2e3d34978a010a75968716849",
+  "baseline_revalidation": "runs/owasp-iris-warning-citation-20261124/summary.json",
+  "live_case_folder": "runs/owasp-iris-prompt-v2-20261124/live",
+  "prompt_baseline_sha256": "7fa152e90693c92ca2e93e765ac93bbf1327e138bb003cb852e3364597de3554",
+  "prompt_v2_sha256": "6b99afc6ea9fd4d2127f46383781a1c31a829b87f3e2597fa1baa5d5b4ff90ef",
+  "profile": "iris-contextual",
+  "cases": [
+    {
+      "sample": "BenchmarkTest00517",
+      "issue_id": "75bd39b8-848e-4ac4-ae84-35e78cbd540e",
+      "reference_vulnerability": false,
+      "old_verdict": "LIKELY_FP",
+      "new_verdict": "LIKELY_TP",
+      "old_outcome": "correct",
+      "new_outcome": "incorrect",
+      "warning_citation_added": {
+        "origin": "sonarqube_alert",
+        "reference": {
+          "file_id": "F0",
+          "line": 62
+        }
+      },
+      "baseline_request_sha256": "84afa743bdf416068171a4882a1b53d086625582fd9db90b2ded1c643e207f76",
+      "new_request_sha256": "742bf580869f7ccb318679c1e301d67f71d2e937e7bf3bf2870b516c889abf17",
+      "evidence_sha256": "f8a6bd785b291b3f786f2c563223346937b31ee47ee6daedd76b945a8cb65625",
+      "elapsed_seconds": 236.649,
+      "response_field_order": [
+        "explanation",
+        "citations",
+        "verdict"
+      ],
+      "prompt_tokens": 1956
+    },
+    {
+      "sample": "BenchmarkTest02171",
+      "issue_id": "eb1d6188-8f9d-406f-b766-9abc0851368f",
+      "reference_vulnerability": true,
+      "old_verdict": "UNKNOWN",
+      "new_verdict": "LIKELY_TP",
+      "old_outcome": "unknown",
+      "new_outcome": "correct",
+      "warning_citation_added": null,
+      "baseline_request_sha256": "8e34ca613e8754082a6d7ca8dc4ea24cf8b5db31874bb3be36fc6ae5ebdec61a",
+      "new_request_sha256": "d216c5965aecadbe0f3ebcc4918090c6ed72bb29291c9519b2e7ecb715eb57c1",
+      "evidence_sha256": "11bc0848545570636be723a8c4c2fd8bfab831b99a6d45a16124ee2f73cc0f1f",
+      "elapsed_seconds": 174.432,
+      "response_field_order": [
+        "explanation",
+        "citations",
+        "verdict"
+      ],
+      "prompt_tokens": 1728
+    }
+  ]
+}

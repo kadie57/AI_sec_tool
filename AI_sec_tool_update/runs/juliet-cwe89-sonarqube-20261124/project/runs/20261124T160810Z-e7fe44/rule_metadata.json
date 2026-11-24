@@ -1,0 +1,1541 @@
+{
+  "findsecbugs:SQL_INJECTION_JDBC": {
+    "rule": {
+      "key": "findsecbugs:SQL_INJECTION_JDBC",
+      "repo": "findsecbugs",
+      "name": "Security - Potential JDBC Injection",
+      "createdAt": "2026-07-02T16:53:29+0000",
+      "severity": "CRITICAL",
+      "status": "READY",
+      "internalKey": "SQL_INJECTION_JDBC",
+      "isTemplate": false,
+      "tags": [],
+      "sysTags": [
+        "cwe",
+        "owasp-a1",
+        "injection",
+        "wasc"
+      ],
+      "lang": "java",
+      "langName": "Java",
+      "params": [],
+      "type": "VULNERABILITY",
+      "remFnOverloaded": false,
+      "scope": "MAIN",
+      "isExternal": false,
+      "descriptionSections": [
+        {
+          "key": "default",
+          "content": "<p>\nThe input values included in SQL queries need to be passed in safely.\nBind variables in prepared statements can be used to easily mitigate the risk of SQL injection.\n</p>\n\n<p>\n    <b>Vulnerable Code:</b><br/>\n    <pre>Connection conn = [...];\nStatement stmt = con.createStatement();\nResultSet rs = stmt.executeQuery(\"update COFFEES set SALES = \"+nbSales+\" where COF_NAME = '\"+coffeeName+\"'\");</pre>\n</p>\n<p>\n    <b>Solution:</b><br/>\n    <pre>Connection conn = [...];\nconn.prepareStatement(\"update COFFEES set SALES = ? where COF_NAME = ?\");\nupdateSales.setInt(1, nbSales);\nupdateSales.setString(2, coffeeName);</pre>\n</p>\n<br/>\n\n<b>References (JDBC)</b><br/>\n<a href=\"https://docs.oracle.com/javase/tutorial/jdbc/basics/prepared.html\">Oracle Documentation: The Java Tutorials &gt; Prepared Statements</a><br/>\n<b>References (SQL injection)</b><br/>\n<a href=\"http://projects.webappsec.org/w/page/13246963/SQL%20Injection\">WASC-19: SQL Injection</a><br/>\n<a href=\"https://capec.mitre.org/data/definitions/66.html\">CAPEC-66: SQL Injection</a><br/>\n<a href=\"https://cwe.mitre.org/data/definitions/89.html\">CWE-89: Improper Neutralization of Special Elements used in an SQL Command ('SQL Injection')</a><br/>\n<a href=\"https://www.owasp.org/index.php/Top_10_2013-A1-Injection\">OWASP: Top 10 2013-A1-Injection</a><br/>\n<a href=\"https://www.owasp.org/index.php/SQL_Injection_Prevention_Cheat_Sheet\">OWASP: SQL Injection Prevention Cheat Sheet</a><br/>\n<a href=\"https://www.owasp.org/index.php/Query_Parameterization_Cheat_Sheet\">OWASP: Query Parameterization Cheat Sheet</a><br/>\n</p>"
+        }
+      ],
+      "educationPrinciples": [],
+      "updatedAt": "2026-07-02T16:53:29+0000",
+      "cleanCodeAttribute": "CONVENTIONAL",
+      "cleanCodeAttributeCategory": "CONSISTENT",
+      "impacts": [
+        {
+          "softwareQuality": "SECURITY",
+          "severity": "HIGH"
+        }
+      ]
+    },
+    "actives": []
+  },
+  "java:S101": {
+    "rule": {
+      "key": "java:S101",
+      "repo": "java",
+      "name": "Class names should comply with a naming convention",
+      "createdAt": "2026-04-25T15:07:27+0000",
+      "severity": "MINOR",
+      "status": "READY",
+      "isTemplate": false,
+      "tags": [],
+      "sysTags": [
+        "convention"
+      ],
+      "lang": "java",
+      "langName": "Java",
+      "params": [
+        {
+          "key": "format",
+          "htmlDesc": "Regular expression used to check the class names against.",
+          "defaultValue": "^[A-Z][a-zA-Z0-9]*$",
+          "type": "STRING"
+        }
+      ],
+      "defaultDebtRemFnType": "CONSTANT_ISSUE",
+      "debtRemFnType": "CONSTANT_ISSUE",
+      "type": "CODE_SMELL",
+      "defaultRemFnType": "CONSTANT_ISSUE",
+      "defaultRemFnBaseEffort": "5min",
+      "remFnType": "CONSTANT_ISSUE",
+      "remFnBaseEffort": "5min",
+      "remFnOverloaded": false,
+      "scope": "MAIN",
+      "isExternal": false,
+      "descriptionSections": [
+        {
+          "key": "root_cause",
+          "content": "<p>Shared naming conventions allow teams to collaborate efficiently.</p>\n<p>This rule raises an issue when a class name does not match a provided regular expression.</p>\n<p>For example, with the default provided regular expression <code>^[A-Z][a-zA-Z0-9]*$</code>, the class:</p>\n<pre>\nclass my_class {...} // Noncompliant\n</pre>\n<p>should be renamed to</p>\n<pre>\nclass MyClass {...}\n</pre>"
+        }
+      ],
+      "educationPrinciples": [],
+      "updatedAt": "2026-04-25T15:07:27+0000",
+      "cleanCodeAttribute": "IDENTIFIABLE",
+      "cleanCodeAttributeCategory": "CONSISTENT",
+      "impacts": [
+        {
+          "softwareQuality": "MAINTAINABILITY",
+          "severity": "LOW"
+        }
+      ]
+    },
+    "actives": []
+  },
+  "java:S106": {
+    "rule": {
+      "key": "java:S106",
+      "repo": "java",
+      "name": "Standard outputs should not be used directly to log anything",
+      "createdAt": "2026-04-25T15:07:27+0000",
+      "severity": "MAJOR",
+      "status": "READY",
+      "isTemplate": false,
+      "tags": [],
+      "sysTags": [
+        "bad-practice",
+        "cert"
+      ],
+      "lang": "java",
+      "langName": "Java",
+      "params": [],
+      "defaultDebtRemFnType": "CONSTANT_ISSUE",
+      "debtRemFnType": "CONSTANT_ISSUE",
+      "type": "CODE_SMELL",
+      "defaultRemFnType": "CONSTANT_ISSUE",
+      "defaultRemFnBaseEffort": "10min",
+      "remFnType": "CONSTANT_ISSUE",
+      "remFnBaseEffort": "10min",
+      "remFnOverloaded": false,
+      "scope": "MAIN",
+      "isExternal": false,
+      "descriptionSections": [
+        {
+          "key": "root_cause",
+          "content": "<p>In software development, logs serve as a record of events within an application, providing crucial insights for debugging. When logging, it is\nessential to ensure that the logs are:</p>\n<ul>\n  <li>easily accessible</li>\n  <li>uniformly formatted for readability</li>\n  <li>properly recorded</li>\n  <li>securely logged when dealing with sensitive data</li>\n</ul>\n<p>Those requirements are not met if a program directly writes to the standard outputs (e.g., System.out, System.err, IO). That is why defining and\nusing a dedicated logger is highly recommended.</p>\n\n<p>The following noncompliant code:</p>\n<pre data-diff-id=\"1\" data-diff-type=\"noncompliant\">\nclass MyClass {\n  public void doSomething() {\n    System.out.println(\"My Message\");  // Noncompliant, output directly to System.out without a logger\n    IO.println(\"Second Message\"); // Noncompliant, same problem, but using Java 25 API.\n  }\n}\n</pre>\n<p>Could be replaced by:</p>\n<pre data-diff-id=\"1\" data-diff-type=\"compliant\">\nimport java.util.logging.Logger;\n\nclass MyClass {\n\n  Logger logger = Logger.getLogger(getClass().getName());\n\n  public void doSomething() {\n    logger.info(\"My Message\");  // Compliant, output via logger\n    logger.info(\"Second Message\");  // Compliant, output via logger\n  }\n}\n</pre>"
+        },
+        {
+          "key": "resources",
+          "content": "<h3>Documentation</h3>\n<ul>\n  <li><a href=\"https://docs.oracle.com/javase/7/docs/api/java/util/logging/Logger.html\">Java SE 7 API Specification: java.util.logging.Logger</a></li>\n  <li>OWASP - <a href=\"https://owasp.org/Top10/A09_2021-Security_Logging_and_Monitoring_Failures/\">Top 10 2021 Category A9 - Security Logging and\n  Monitoring Failures</a></li>\n  <li>OWASP - <a href=\"https://owasp.org/www-project-top-ten/2017/A3_2017-Sensitive_Data_Exposure\">Top 10 2017 Category A3 - Sensitive Data\n  Exposure</a></li>\n  <li><a href=\"https://wiki.sei.cmu.edu/confluence/x/nzdGBQ\">CERT, ERR02-J.</a> - Prevent exceptions while logging data</li>\n</ul>"
+        }
+      ],
+      "educationPrinciples": [],
+      "updatedAt": "2026-04-25T15:07:27+0000",
+      "cleanCodeAttribute": "MODULAR",
+      "cleanCodeAttributeCategory": "ADAPTABLE",
+      "impacts": [
+        {
+          "softwareQuality": "MAINTAINABILITY",
+          "severity": "MEDIUM"
+        }
+      ]
+    },
+    "actives": []
+  },
+  "java:S1075": {
+    "rule": {
+      "key": "java:S1075",
+      "repo": "java",
+      "name": "URIs should not be hardcoded",
+      "createdAt": "2026-04-25T15:07:27+0000",
+      "severity": "MINOR",
+      "status": "READY",
+      "isTemplate": false,
+      "tags": [],
+      "sysTags": [
+        "android",
+        "cert"
+      ],
+      "lang": "java",
+      "langName": "Java",
+      "params": [],
+      "defaultDebtRemFnType": "CONSTANT_ISSUE",
+      "debtRemFnType": "CONSTANT_ISSUE",
+      "type": "CODE_SMELL",
+      "defaultRemFnType": "CONSTANT_ISSUE",
+      "defaultRemFnBaseEffort": "20min",
+      "remFnType": "CONSTANT_ISSUE",
+      "remFnBaseEffort": "20min",
+      "remFnOverloaded": false,
+      "scope": "MAIN",
+      "isExternal": false,
+      "descriptionSections": [
+        {
+          "key": "how_to_fix",
+          "content": "<h4>Noncompliant code example</h4>\n<pre data-diff-id=\"1\" data-diff-type=\"noncompliant\">\npublic class Foo {\n  public static final String FRIENDS_ENDPOINT = \"/user/friends\"; // Compliant path is relative and has only two parts\n\n  public Collection&lt;User&gt; listUsers() {\n    File userList = new File(\"/home/mylogin/Dev/users.txt\"); // Noncompliant\n    Collection&lt;User&gt; users = parse(userList);\n    return users;\n  }\n}\n</pre>\n<h4>Compliant solution</h4>\n<pre data-diff-id=\"1\" data-diff-type=\"compliant\">\npublic class Foo {\n  // Configuration is a class that returns customizable properties: it can be mocked to be injected during tests.\n  private Configuration config;\n  public Foo(Configuration myConfig) {\n    this.config = myConfig;\n  }\n  public Collection&lt;User&gt; listUsers() {\n    // Find here the way to get the correct folder, in this case using the Configuration object\n    String listingFolder = config.getProperty(\"myApplication.listingFolder\");\n    // and use this parameter instead of the hard coded path\n    File userList = new File(listingFolder, \"users.txt\"); // Compliant\n    Collection&lt;User&gt; users = parse(userList);\n    return users;\n  }\n}\n</pre>\n<p>Exceptions examples:</p>\n<pre>\npublic class Foo {\n  public static final String FRIENDS_ENDPOINT = \"/user/friends\"; // Compliant path is relative and has only two parts\n\n  public static final String ACCOUNT = \"/account/group/list.html\"; // Compliant path is used in an annotation\n\n  @Value(\"${base.url}\" + ACCOUNT)\n  private String groupUrl;\n\n  @MyAnnotation()\n  String path = \"/default/url/for/site\"; // Compliant path is annotated\n\n}\n</pre>"
+        },
+        {
+          "key": "root_cause",
+          "content": "<p>Hard-coding a URI makes it difficult to test a program for a variety of reasons:</p>\n<ul>\n  <li>path literals are not always portable across operating systems</li>\n  <li>a given absolute path may not exist in a specific test environment</li>\n  <li>a specified Internet URL may not be available when executing the tests</li>\n  <li>production environment filesystems usually differ from the development environment</li>\n</ul>\n<p>In addition, hard-coded URIs can contain sensitive information, like IP addresses, and they should not be stored in the code.</p>\n<p>For all those reasons, a URI should never be hard coded. Instead, it should be replaced by a customizable parameter.</p>\n<p>Further, even if the elements of a URI are obtained dynamically, portability can still be limited if the path delimiters are hard-coded.</p>\n<p>This rule raises an issue when URIs or path delimiters are hard-coded.</p>\n<h3>Exceptions</h3>\n<p>This rule does not raise an issue when:</p>\n<ul>\n  <li>A constant path is relative and contains at most two parts.</li>\n  <li>A constant path is used in an annotation</li>\n  <li>A path is annotated</li>\n</ul>"
+        }
+      ],
+      "educationPrinciples": [],
+      "updatedAt": "2026-04-25T15:07:27+0000",
+      "cleanCodeAttribute": "CONVENTIONAL",
+      "cleanCodeAttributeCategory": "CONSISTENT",
+      "impacts": [
+        {
+          "softwareQuality": "MAINTAINABILITY",
+          "severity": "LOW"
+        }
+      ]
+    },
+    "actives": []
+  },
+  "java:S1104": {
+    "rule": {
+      "key": "java:S1104",
+      "repo": "java",
+      "name": "Class variable fields should not have public accessibility",
+      "createdAt": "2026-04-25T15:07:27+0000",
+      "severity": "MINOR",
+      "status": "READY",
+      "isTemplate": false,
+      "tags": [],
+      "sysTags": [
+        "cwe"
+      ],
+      "lang": "java",
+      "langName": "Java",
+      "params": [],
+      "defaultDebtRemFnType": "CONSTANT_ISSUE",
+      "debtRemFnType": "CONSTANT_ISSUE",
+      "type": "CODE_SMELL",
+      "defaultRemFnType": "CONSTANT_ISSUE",
+      "defaultRemFnBaseEffort": "10min",
+      "remFnType": "CONSTANT_ISSUE",
+      "remFnBaseEffort": "10min",
+      "remFnOverloaded": false,
+      "scope": "MAIN",
+      "isExternal": false,
+      "descriptionSections": [
+        {
+          "key": "how_to_fix",
+          "content": "<p>Depending on your need there are multiple options:</p>\n<ul>\n  <li>Encapsulate the field\n    <ol>\n      <li>Make the field private.</li>\n      <li>Define methods to get and set the value of the field.\n        <br>\n        These methods are commonly known as getter and setter methods and are prefixed by <code>get</code> and <code>set</code> followed by the name\n        of the field. <em>Note:</em> as a bonus it is now possible to monitor value changes using breakpoints.</li>\n    </ol></li>\n  <li>Mark the field as <code>public final</code> if it is not supposed to change.</li>\n</ul>\n\n<h4>Noncompliant code example</h4>\n<pre data-diff-id=\"1\" data-diff-type=\"noncompliant\">\npublic class MyClass {\n\n  public static final int SOME_CONSTANT = 0;     // Compliant - constants are not checked\n\n  public String firstName;                       // Noncompliant\n\n}\n</pre>\n<h4>Compliant solution</h4>\n<pre data-diff-id=\"1\" data-diff-type=\"compliant\">\npublic class MyClass {\n\n  public static final int SOME_CONSTANT = 0;     // Compliant - constants are not checked\n\n  private String firstName;\n\n  public String getFirstName() {\n    return firstName;\n  }\n\n  public void setFirstName(String firstName) {\n    this.firstName = firstName;\n  }\n\n}\n</pre>\n<h3>How does this work?</h3>\n<p>By having a setter and a getter the code can control how the field is accessed and modified. For example, adding validation in the setter method\nwill ensure that only valid values are set.</p>\n<p>The access modifiers on the setter can also be changed to <code>private</code> or <code>protected</code> to restrain which code can modify the\nvalue.</p>"
+        },
+        {
+          "key": "resources",
+          "content": "<ul>\n  <li>CWE - <a href=\"https://cwe.mitre.org/data/definitions/493\">CWE-493 - Critical Public Variable Without Final Modifier</a></li>\n</ul>"
+        },
+        {
+          "key": "root_cause",
+          "content": "<p>Public fields in public classes do not respect the encapsulation principle and have three main disadvantages:</p>\n<ul>\n  <li>Additional behavior such as validation cannot be added.</li>\n  <li>The internal representation is exposed, and cannot be changed afterwards.</li>\n  <li>Member values are subject to change from anywhere in the code and may not meet the programmer’s assumptions.</li>\n</ul>\n<p>To prevent unauthorized modifications, private attributes and accessor methods (set and get) should be used.</p>\n<h3>What is the potential impact?</h3>\n<p>Public fields can be modified by any part of the code and this can lead to unexpected changes and hard-to-trace bugs.</p>\n<p>Public fields don’t hide the implementation details. As a consequence, it is no longer possible to change how the data is stored internally without\nimpacting the client code of the class.</p>\n<p>The code is harder to maintain.</p>\n<h3>Exceptions</h3>\n<p>This rule ignores <code>public final</code> fields because they are not modifiable. Also, annotated fields, whatever the annotation(s) will be\nignored, as annotations are often used by injection frameworks, which in exchange require having public fields.</p>"
+        }
+      ],
+      "educationPrinciples": [],
+      "updatedAt": "2026-04-25T15:07:27+0000",
+      "cleanCodeAttribute": "MODULAR",
+      "cleanCodeAttributeCategory": "ADAPTABLE",
+      "impacts": [
+        {
+          "softwareQuality": "MAINTAINABILITY",
+          "severity": "LOW"
+        }
+      ]
+    },
+    "actives": []
+  },
+  "java:S1118": {
+    "rule": {
+      "key": "java:S1118",
+      "repo": "java",
+      "name": "Utility classes should not have public constructors",
+      "createdAt": "2026-04-25T15:07:27+0000",
+      "severity": "MAJOR",
+      "status": "READY",
+      "isTemplate": false,
+      "tags": [],
+      "sysTags": [
+        "design"
+      ],
+      "lang": "java",
+      "langName": "Java",
+      "params": [],
+      "defaultDebtRemFnType": "CONSTANT_ISSUE",
+      "debtRemFnType": "CONSTANT_ISSUE",
+      "type": "CODE_SMELL",
+      "defaultRemFnType": "CONSTANT_ISSUE",
+      "defaultRemFnBaseEffort": "5min",
+      "remFnType": "CONSTANT_ISSUE",
+      "remFnBaseEffort": "5min",
+      "remFnOverloaded": false,
+      "scope": "MAIN",
+      "isExternal": false,
+      "descriptionSections": [
+        {
+          "key": "root_cause",
+          "content": "<p>Whenever there are portions of code that are duplicated and do not depend on the state of their container class, they can be centralized inside a\n\"utility class\". A utility class is a class that only has static members, hence it should not be instantiated.</p>\n<h3>Exceptions</h3>\n<p>When a class contains <code>public static void main(String[] args)</code> method it is not considered as a utility class and will be ignored by\nthis rule.</p>"
+        },
+        {
+          "key": "how_to_fix",
+          "content": "<p>To prevent the class from being instantiated, you should define a non-public constructor. This will prevent the compiler from implicitly generating\na public parameterless constructor.</p>\n\n<h4>Noncompliant code example</h4>\n<pre data-diff-id=\"1\" data-diff-type=\"noncompliant\">\nclass StringUtils { // Noncompliant\n\n  public static String concatenate(String s1, String s2) {\n    return s1 + s2;\n  }\n\n}\n</pre>\n<h4>Compliant solution</h4>\n<pre data-diff-id=\"1\" data-diff-type=\"compliant\">\nclass StringUtils { // Compliant\n\n  private StringUtils() {\n    /* This utility class should not be instantiated */\n  }\n\n  public static String concatenate(String s1, String s2) {\n    return s1 + s2;\n  }\n\n}\n</pre>"
+        }
+      ],
+      "educationPrinciples": [],
+      "updatedAt": "2026-04-25T15:07:27+0000",
+      "cleanCodeAttribute": "CLEAR",
+      "cleanCodeAttributeCategory": "INTENTIONAL",
+      "impacts": [
+        {
+          "softwareQuality": "MAINTAINABILITY",
+          "severity": "MEDIUM"
+        }
+      ]
+    },
+    "actives": []
+  },
+  "java:S112": {
+    "rule": {
+      "key": "java:S112",
+      "repo": "java",
+      "name": "Generic exceptions should never be thrown",
+      "createdAt": "2026-04-25T15:07:27+0000",
+      "severity": "MAJOR",
+      "status": "READY",
+      "isTemplate": false,
+      "tags": [],
+      "sysTags": [
+        "cwe",
+        "error-handling",
+        "cert"
+      ],
+      "lang": "java",
+      "langName": "Java",
+      "params": [],
+      "defaultDebtRemFnType": "CONSTANT_ISSUE",
+      "debtRemFnType": "CONSTANT_ISSUE",
+      "type": "CODE_SMELL",
+      "defaultRemFnType": "CONSTANT_ISSUE",
+      "defaultRemFnBaseEffort": "20min",
+      "remFnType": "CONSTANT_ISSUE",
+      "remFnBaseEffort": "20min",
+      "remFnOverloaded": false,
+      "scope": "MAIN",
+      "isExternal": false,
+      "descriptionSections": [
+        {
+          "key": "root_cause",
+          "content": "<p>Throwing generic exceptions such as <code>Error</code>, <code>RuntimeException</code>, <code>Throwable</code>, and <code>Exception</code> will have\na negative impact on any code trying to catch these exceptions.</p>\n<p>From a consumer perspective, it is generally a best practice to only catch exceptions you intend to handle. Other exceptions should ideally be let\nto propagate up the stack trace so that they can be dealt with appropriately. When a generic exception is thrown, it forces consumers to catch\nexceptions they do not intend to handle, which they then have to re-throw.</p>\n<p>Besides, when working with a generic type of exception, the only way to distinguish between multiple exceptions is to check their message, which is\nerror-prone and difficult to maintain. Legitimate exceptions may be unintentionally silenced and errors may be hidden.</p>\n<p>For instance, when a <code>Throwable</code> is caught and not re-thrown, it may mask errors such as <code>OutOfMemoryError</code> and prevent the\nprogram from terminating gracefully.</p>\n<p>When throwing an exception, it is therefore recommended to throw the most specific exception possible so that it can be handled intentionally by\nconsumers.</p>\n<h3>Exceptions</h3>\n<p>Generic exceptions in the signatures of overriding methods are ignored, because an overriding method has to follow the signature of the throw\ndeclaration in the superclass. The issue will be raised on superclass declaration of the method (or won’t be raised at all if superclass is not part\nof the analysis).</p>\n<pre>\n@Override\npublic void myMethod() throws Exception {...}\n</pre>\n<p>Generic exceptions are also ignored in the signatures of methods that make calls to methods that throw generic exceptions.</p>\n<pre>\npublic void myOtherMethod() throws Exception {\n  doTheThing();  // this method throws Exception\n}\n</pre>"
+        },
+        {
+          "key": "introduction",
+          "content": "<p>This rule raises an issue when a generic exception (such as <code>Error</code>, <code>RuntimeException</code>, <code>Throwable</code>, or\n<code>Exception</code>) is thrown.</p>"
+        },
+        {
+          "key": "how_to_fix",
+          "content": "<p>To fix this issue, make sure to throw specific exceptions that are relevant to the context in which they arise. It is recommended to either:</p>\n<ul>\n  <li>Raise a specific exception from the Java standard library when one matches. For example an <code>IllegalArgumentException</code> should be\n  thrown when a method receives an invalid argument.</li>\n  <li>Create a custom exception class deriving from <code>Exception</code> or one of its subclasses.</li>\n</ul>\n\n<h4>Noncompliant code example</h4>\n<pre data-diff-id=\"1\" data-diff-type=\"noncompliant\">\nvoid checkValue(int value) throws Throwable { // Noncompliant: signature is too broad\n    if (value == 42) {\n        throw new RuntimeException(\"Value is 42\"); // Noncompliant: This will be difficult for consumers to handle\n    }\n}\n</pre>\n<h4>Compliant solution</h4>\n<pre data-diff-id=\"1\" data-diff-type=\"compliant\">\nvoid checkValue(int value) {\n    if (value == 42) {\n        throw new IllegalArgumentException(\"Value is 42\"); // Compliant\n    }\n}\n</pre>"
+        },
+        {
+          "key": "resources",
+          "content": "<h3>Standards</h3>\n<ul>\n  <li>CWE - <a href=\"https://cwe.mitre.org/data/definitions/397\">CWE-397 Declaration of Throws for Generic Exception</a></li>\n  <li>CERT - <a href=\"https://wiki.sei.cmu.edu/confluence/x/_DdGBQ\">ERR07-J. Do not throw RuntimeException, Exception, or Throwable</a></li>\n</ul>\n<h3>Related rules</h3>\n<ul>\n  <li><a href='/coding_rules#rule_key=java%3AS1181'>S1181</a> - Generic exceptions should not be caught</li>\n</ul>"
+        }
+      ],
+      "educationPrinciples": [],
+      "updatedAt": "2026-04-25T15:07:27+0000",
+      "cleanCodeAttribute": "COMPLETE",
+      "cleanCodeAttributeCategory": "INTENTIONAL",
+      "impacts": [
+        {
+          "softwareQuality": "MAINTAINABILITY",
+          "severity": "MEDIUM"
+        }
+      ]
+    },
+    "actives": []
+  },
+  "java:S1124": {
+    "rule": {
+      "key": "java:S1124",
+      "repo": "java",
+      "name": "Modifiers should be declared in the correct order",
+      "createdAt": "2026-04-25T15:07:27+0000",
+      "severity": "MINOR",
+      "status": "READY",
+      "isTemplate": false,
+      "tags": [],
+      "sysTags": [
+        "convention"
+      ],
+      "lang": "java",
+      "langName": "Java",
+      "params": [],
+      "defaultDebtRemFnType": "CONSTANT_ISSUE",
+      "debtRemFnType": "CONSTANT_ISSUE",
+      "type": "CODE_SMELL",
+      "defaultRemFnType": "CONSTANT_ISSUE",
+      "defaultRemFnBaseEffort": "2min",
+      "remFnType": "CONSTANT_ISSUE",
+      "remFnBaseEffort": "2min",
+      "remFnOverloaded": false,
+      "scope": "ALL",
+      "isExternal": false,
+      "descriptionSections": [
+        {
+          "key": "root_cause",
+          "content": "<p>The Java Language Specification recommends listing modifiers in the following order:</p>\n<ol>\n  <li>Annotations</li>\n  <li>public</li>\n  <li>protected</li>\n  <li>private</li>\n  <li>abstract</li>\n  <li>static</li>\n  <li>final</li>\n  <li>transient</li>\n  <li>volatile</li>\n  <li>synchronized</li>\n  <li>native</li>\n  <li>default</li>\n  <li>strictfp</li>\n</ol>\n<p>Not following this convention has no technical impact, but will reduce the code’s readability because most developers are used to the standard\norder.</p>\n<h3>Noncompliant code example</h3>\n<pre>\nstatic public void main(String[] args) {   // Noncompliant\n}\n</pre>\n<h3>Compliant solution</h3>\n<pre>\npublic static void main(String[] args) {   // Compliant\n}\n</pre>"
+        }
+      ],
+      "educationPrinciples": [],
+      "updatedAt": "2026-04-25T15:07:27+0000",
+      "cleanCodeAttribute": "CLEAR",
+      "cleanCodeAttributeCategory": "INTENTIONAL",
+      "impacts": [
+        {
+          "softwareQuality": "MAINTAINABILITY",
+          "severity": "LOW"
+        }
+      ]
+    },
+    "actives": []
+  },
+  "java:S1128": {
+    "rule": {
+      "key": "java:S1128",
+      "repo": "java",
+      "name": "Unnecessary imports should be removed",
+      "createdAt": "2026-04-25T15:07:27+0000",
+      "severity": "MINOR",
+      "status": "READY",
+      "isTemplate": false,
+      "tags": [],
+      "sysTags": [
+        "unused"
+      ],
+      "lang": "java",
+      "langName": "Java",
+      "params": [],
+      "defaultDebtRemFnType": "CONSTANT_ISSUE",
+      "debtRemFnType": "CONSTANT_ISSUE",
+      "type": "CODE_SMELL",
+      "defaultRemFnType": "CONSTANT_ISSUE",
+      "defaultRemFnBaseEffort": "1min",
+      "remFnType": "CONSTANT_ISSUE",
+      "remFnBaseEffort": "1min",
+      "remFnOverloaded": false,
+      "scope": "ALL",
+      "isExternal": false,
+      "descriptionSections": [
+        {
+          "key": "root_cause",
+          "content": "<p>Unnecessary imports refer to importing types that are not used or referenced anywhere in the code.</p>\n<p>Although they don’t affect the runtime behavior of the application after compilation, removing them will:</p>\n<ul>\n  <li>Improve the readability and maintainability of the code.</li>\n  <li>Help avoid potential naming conflicts.</li>\n  <li>Improve the build time, as the compiler has fewer lines to read and fewer types to resolve.</li>\n  <li>Reduce the number of items the code editor will show for auto-completion, thereby showing fewer irrelevant suggestions.</li>\n</ul>\n<h3>Exceptions</h3>\n<p>Imports for types mentioned in Javadocs are ignored.</p>"
+        },
+        {
+          "key": "how_to_fix",
+          "content": "<p>While it’s not difficult to remove these unneeded lines manually, modern code editors support the removal of every unnecessary import with a single\nclick from every file of the project.</p>\n\n<h4>Noncompliant code example</h4>\n<pre data-diff-id=\"1\" data-diff-type=\"noncompliant\">\npackage myapp.helpers;\n\nimport module java.logging; // Module imports are a Java 25 feature\nimport module java.logging; // Noncompliant - module is imported twice\n\nimport java.io.IOException;\nimport java.nio.file.*;\nimport java.nio.file.*;     // Noncompliant - package is imported twice\nimport java.lang.Runnable;  // Noncompliant - java.lang is imported by default\n\npublic class FileHelper {\n    private static final Logger LOGGER = Logger.getLogger(\"FileLogger\");\n\n    public static String readFirstLine(String filePath) throws IOException {\n        LOGGER.log(Level.INFO, \"Reading first line from: \" + filePath);\n        return Files.readAllLines(Paths.get(filePath)).get(0);\n    }\n}\n</pre>\n<h4>Compliant solution</h4>\n<pre data-diff-id=\"1\" data-diff-type=\"compliant\">\npackage myapp.helpers;\n\nimport module java.logging;\n\nimport java.io.IOException;\nimport java.nio.file.*;\n\npublic class FileHelper {\n    private static final Logger LOGGER = Logger.getLogger(\"FileLogger\");\n\n    public static String readFirstLine(String filePath) throws IOException {\n        LOGGER.log(Level.INFO, \"Reading first line from: \" + filePath);\n        return Files.readAllLines(Paths.get(filePath)).get(0);\n    }\n}\n</pre>"
+        },
+        {
+          "key": "resources",
+          "content": "<h3>Documentation</h3>\n<ul>\n  <li><a href=\"https://docs.oracle.com/javase/tutorial/java/package/usepkgs.html\">Java packages</a></li>\n</ul>\n<h3>Related rules</h3>\n<ul>\n  <li><a href='/coding_rules#rule_key=java%3AS1144'>S1144</a> - Unused \"private\" methods should be removed</li>\n  <li><a href='/coding_rules#rule_key=java%3AS1481'>S1481</a> - Unused local variables should be removed</li>\n</ul>"
+        }
+      ],
+      "educationPrinciples": [],
+      "updatedAt": "2026-04-25T15:07:27+0000",
+      "cleanCodeAttribute": "CLEAR",
+      "cleanCodeAttributeCategory": "INTENTIONAL",
+      "impacts": [
+        {
+          "softwareQuality": "MAINTAINABILITY",
+          "severity": "LOW"
+        }
+      ]
+    },
+    "actives": []
+  },
+  "java:S1149": {
+    "rule": {
+      "key": "java:S1149",
+      "repo": "java",
+      "name": "Synchronized classes \"Vector\", \"Hashtable\", \"Stack\" and \"StringBuffer\" should not be used",
+      "createdAt": "2026-04-25T15:07:27+0000",
+      "severity": "MAJOR",
+      "status": "READY",
+      "isTemplate": false,
+      "tags": [],
+      "sysTags": [
+        "performance"
+      ],
+      "lang": "java",
+      "langName": "Java",
+      "params": [],
+      "defaultDebtRemFnType": "CONSTANT_ISSUE",
+      "debtRemFnType": "CONSTANT_ISSUE",
+      "type": "CODE_SMELL",
+      "defaultRemFnType": "CONSTANT_ISSUE",
+      "defaultRemFnBaseEffort": "20min",
+      "remFnType": "CONSTANT_ISSUE",
+      "remFnBaseEffort": "20min",
+      "remFnOverloaded": false,
+      "scope": "MAIN",
+      "isExternal": false,
+      "descriptionSections": [
+        {
+          "key": "root_cause",
+          "content": "<p>Early classes of the Java API, such as <code>Vector</code>, <code>Hashtable</code> and <code>StringBuffer</code>, were synchronized to make them\nthread-safe. However, synchronization has a significant negative impact on performance, even when using these collections from a single thread.</p>\n<p>It is often best to use their non-synchronized counterparts:</p>\n<ul>\n  <li><code>ArrayList</code> or <code>LinkedList</code> instead of <code>Vector</code></li>\n  <li><code>Deque</code> instead of <code>Stack</code></li>\n  <li><code>HashMap</code> instead of <code>Hashtable</code></li>\n  <li><code>StringBuilder</code> instead of <code>StringBuffer</code></li>\n</ul>\n<p>Even when used in synchronized contexts, you should think twice before using their synchronized counterparts, since their usage can be costly. If\nyou are confident the usage is legitimate, you can safely ignore this warning.</p>\n<h3>Noncompliant code example</h3>\n<pre data-diff-id=\"1\" data-diff-type=\"noncompliant\">\nVector&lt;Cat&gt; cats = new Vector&lt;&gt;();\n</pre>\n<h3>Compliant solution</h3>\n<pre data-diff-id=\"1\" data-diff-type=\"compliant\">\nArrayList&lt;Cat&gt; cats = new ArrayList&lt;&gt;();\n</pre>\n<h3>Exceptions</h3>\n<p>Usage of these synchronized classes is ignored in the signatures of overriding methods.</p>\n<pre>\n@Override\npublic Vector getCats() {...} // Compliant\n</pre>"
+        }
+      ],
+      "educationPrinciples": [],
+      "updatedAt": "2026-04-25T15:07:27+0000",
+      "cleanCodeAttribute": "CONVENTIONAL",
+      "cleanCodeAttributeCategory": "CONSISTENT",
+      "impacts": [
+        {
+          "softwareQuality": "MAINTAINABILITY",
+          "severity": "MEDIUM"
+        }
+      ]
+    },
+    "actives": []
+  },
+  "java:S115": {
+    "rule": {
+      "key": "java:S115",
+      "repo": "java",
+      "name": "Constant names should comply with a naming convention",
+      "createdAt": "2026-04-25T15:07:27+0000",
+      "severity": "CRITICAL",
+      "status": "READY",
+      "isTemplate": false,
+      "tags": [],
+      "sysTags": [
+        "convention"
+      ],
+      "lang": "java",
+      "langName": "Java",
+      "params": [
+        {
+          "key": "format",
+          "htmlDesc": "Regular expression used to check the constant names against.",
+          "defaultValue": "^[A-Z][A-Z0-9]*(_[A-Z0-9]+)*$",
+          "type": "STRING"
+        }
+      ],
+      "defaultDebtRemFnType": "CONSTANT_ISSUE",
+      "debtRemFnType": "CONSTANT_ISSUE",
+      "type": "CODE_SMELL",
+      "defaultRemFnType": "CONSTANT_ISSUE",
+      "defaultRemFnBaseEffort": "2min",
+      "remFnType": "CONSTANT_ISSUE",
+      "remFnBaseEffort": "2min",
+      "remFnOverloaded": false,
+      "scope": "ALL",
+      "isExternal": false,
+      "descriptionSections": [
+        {
+          "key": "introduction",
+          "content": "<p>Constants should be named consistently to communicate intent and improve maintainability. Rename your constants to follow your project’s naming\nconvention to address this issue.</p>"
+        },
+        {
+          "key": "how_to_fix",
+          "content": "<p>First, familiarize yourself with the particular naming convention of the project in question. Then, update the name of the constant to match the\nconvention, as well as all usages of the name. For many IDEs, you can use built-in renaming and refactoring features to update all usages of a\nconstant at once.</p>\n\n<h4>Noncompliant code example</h4>\n<p>The following example assumes that constant names should match the default regular expression <code>^[A-Z][A-Z0-9]*(_[A-Z0-9]+)*$</code>:</p>\n<pre data-diff-id=\"1\" data-diff-type=\"noncompliant\">\npublic class MyClass {\n  public static final float pi = 3.14159f; // Noncompliant: Constant is not capitalized\n\n  void myMethod() {\n    System.out.println(pi);\n  }\n}\n\npublic enum MyEnum {\n  optionOne, // Noncompliant\n  optionTwo; // Noncompliant\n}\n</pre>\n<h4>Compliant solution</h4>\n<pre data-diff-id=\"1\" data-diff-type=\"compliant\">\npublic class MyClass {\n  public static final float PI = 3.14159f;\n\n  void myMethod() {\n    System.out.println(PI);\n  }\n}\n\npublic enum MyEnum {\n  OPTION_ONE,\n  OPTION_TWO;\n}\n</pre>\n<h3>Exceptions</h3>\n<p>The rule applies to fields of primitive types (for example, <code>float</code>), boxed primitives (<code>Float</code>), and Strings. We do not\napply it to other types, which can be mutated, or have methods with side effects.</p>\n<pre>\npublic static final Logger log = getLogger(MyClass.class);\npublic static final List&lt;Integer&gt; myList = new ArrayList&lt;&gt;();\n\n// call with side-effects\nlog.info(\"message\")\n\n// mutating an object\nmyList.add(28);\n</pre>"
+        },
+        {
+          "key": "resources",
+          "content": "<h3>External coding guidelines</h3>\n<ul>\n  <li><a href=\"https://google.github.io/styleguide/javaguide.html#s5.2.4-constant-names\">The Google Java Style Guide on Constant Names</a>.</li>\n</ul>"
+        },
+        {
+          "key": "root_cause",
+          "content": "<p>Constants are variables whose value does not change during the runtime of a program after initialization. Oftentimes, constants are used in\nmultiple locations across different subroutines.</p>\n<p>It is important that the names of constants follow a consistent and easily recognizable pattern. This way, readers immediately understand that the\nreferenced value does not change, which simplifies debugging.</p>\n<p>Or, in the case of primitive constants, that accessing the constant is thread-safe.</p>\n<p>This rule checks that all constant names match a given regular expression.</p>\n<h3>What is the potential impact?</h3>\n<p>Ignoring the naming convention for constants makes the code less readable since constants and variables are harder to tell apart. Code that is hard\nto understand is also difficult to maintain between different team members.</p>"
+        }
+      ],
+      "educationPrinciples": [],
+      "updatedAt": "2026-04-25T15:07:27+0000",
+      "cleanCodeAttribute": "IDENTIFIABLE",
+      "cleanCodeAttributeCategory": "CONSISTENT",
+      "impacts": [
+        {
+          "softwareQuality": "MAINTAINABILITY",
+          "severity": "HIGH"
+        }
+      ]
+    },
+    "actives": []
+  },
+  "java:S1161": {
+    "rule": {
+      "key": "java:S1161",
+      "repo": "java",
+      "name": "\"@Override\" should be used on overriding and implementing methods",
+      "createdAt": "2026-04-25T15:07:27+0000",
+      "severity": "MAJOR",
+      "status": "READY",
+      "isTemplate": false,
+      "tags": [],
+      "sysTags": [
+        "bad-practice"
+      ],
+      "lang": "java",
+      "langName": "Java",
+      "params": [],
+      "defaultDebtRemFnType": "CONSTANT_ISSUE",
+      "debtRemFnType": "CONSTANT_ISSUE",
+      "type": "CODE_SMELL",
+      "defaultRemFnType": "CONSTANT_ISSUE",
+      "defaultRemFnBaseEffort": "5min",
+      "remFnType": "CONSTANT_ISSUE",
+      "remFnBaseEffort": "5min",
+      "remFnOverloaded": false,
+      "scope": "ALL",
+      "isExternal": false,
+      "descriptionSections": [
+        {
+          "key": "root_cause",
+          "content": "<p>While not mandatory, using the <code>@Override</code> annotation on compliant methods improves readability by making it explicit that methods are\noverridden.</p>\n<p>A compliant method either overrides a parent method or implements an interface or abstract method.</p>\n<h3>Noncompliant code example</h3>\n<pre data-diff-id=\"1\" data-diff-type=\"noncompliant\">\nclass ParentClass {\n  public boolean doSomething(){/*...*/}\n}\nclass FirstChildClass extends ParentClass {\n  public boolean doSomething(){/*...*/}  // Noncompliant\n}\n</pre>\n<h3>Compliant solution</h3>\n<pre data-diff-id=\"1\" data-diff-type=\"compliant\">\nclass ParentClass {\n  public boolean doSomething(){/*...*/}\n}\nclass FirstChildClass extends ParentClass {\n  @Override\n  public boolean doSomething(){/*...*/}  // Compliant\n}\n</pre>\n<h3>Exceptions</h3>\n<p>This rule does not raise issues when overriding methods from <code>Object</code> (eg: <code>equals()</code>, <code>hashCode()</code>,\n<code>toString()</code>, …​).</p>"
+        }
+      ],
+      "educationPrinciples": [],
+      "updatedAt": "2026-04-25T15:07:27+0000",
+      "cleanCodeAttribute": "CLEAR",
+      "cleanCodeAttributeCategory": "INTENTIONAL",
+      "impacts": [
+        {
+          "softwareQuality": "MAINTAINABILITY",
+          "severity": "MEDIUM"
+        }
+      ]
+    },
+    "actives": []
+  },
+  "java:S1172": {
+    "rule": {
+      "key": "java:S1172",
+      "repo": "java",
+      "name": "Unused method parameters should be removed",
+      "createdAt": "2026-04-25T15:07:27+0000",
+      "severity": "MAJOR",
+      "status": "READY",
+      "isTemplate": false,
+      "tags": [],
+      "sysTags": [
+        "cert",
+        "unused"
+      ],
+      "lang": "java",
+      "langName": "Java",
+      "params": [],
+      "defaultDebtRemFnType": "CONSTANT_ISSUE",
+      "debtRemFnType": "CONSTANT_ISSUE",
+      "type": "CODE_SMELL",
+      "defaultRemFnType": "CONSTANT_ISSUE",
+      "defaultRemFnBaseEffort": "5min",
+      "remFnType": "CONSTANT_ISSUE",
+      "remFnBaseEffort": "5min",
+      "remFnOverloaded": false,
+      "scope": "ALL",
+      "isExternal": false,
+      "descriptionSections": [
+        {
+          "key": "root_cause",
+          "content": "<p>A typical code smell known as unused function parameters refers to parameters declared in a function but not used anywhere within the function’s\nbody. While this might seem harmless at first glance, it can lead to confusion and potential errors in your code. Disregarding the values passed to\nsuch parameters, the function’s behavior will be the same, but the programmer’s intention won’t be clearly expressed anymore. Therefore, removing\nfunction parameters that are not being utilized is considered best practice.</p>\n<h3>Exceptions</h3>\n<p>The rule will not raise issues for unused parameters:</p>\n<ul>\n  <li>that are annotated with <code>@javax.enterprise.event.Observes</code></li>\n  <li>in overrides and implementation methods</li>\n  <li>in interface <code>default</code> methods</li>\n  <li>in non-private methods that only <code>throw</code> or that have empty bodies</li>\n  <li>in annotated methods, unless the annotation is <code>@SuppressWarning(\"unchecked\")</code> or <code>@SuppressWarning(\"rawtypes\")</code>, in which\n  case the annotation will be ignored</li>\n  <li>in overridable methods (non-final, or not member of a final class, non-static, non-private), if the parameter is documented with a proper\n  javadoc.</li>\n</ul>"
+        },
+        {
+          "key": "resources",
+          "content": "<ul>\n  <li><a href=\"https://wiki.sei.cmu.edu/confluence/x/5dUxBQ\">CERT, MSC12-C.</a> - Detect and remove code that has no effect or is never executed</li>\n</ul>"
+        },
+        {
+          "key": "how_to_fix",
+          "content": "<p>Having unused function parameters in your code can lead to confusion and misunderstanding of a developer’s intention. They reduce code readability\nand introduce the potential for errors. To avoid these problems, developers should remove unused parameters from function declarations.</p>\n\n<h4>Noncompliant code example</h4>\n<pre data-diff-id=\"1\" data-diff-type=\"noncompliant\">\nvoid doSomething(int a, int b) { // Noncompliant, \"b\" is unused\n  compute(a);\n}\n</pre>\n<h4>Compliant solution</h4>\n<pre data-diff-id=\"1\" data-diff-type=\"compliant\">\nvoid doSomething(int a) {\n  compute(a);\n}\n</pre>\n<p>Examples of exceptions:</p>\n<pre>\n@Override\nvoid doSomething(int a, int b) {     // no issue reported on b\n  compute(a);\n}\n\npublic void foo(String s) {\n  // designed to be extended but noop in standard case\n}\n\nprotected void bar(String s) {\n  //open-closed principle\n}\n\npublic void qix(String s) {\n  throw new UnsupportedOperationException(\"This method should be implemented in subclasses\");\n}\n\n/**\n * @param s This string may be used for further computation in overriding classes\n */\nprotected void foobar(int a, String s) { // no issue, method is overridable and unused parameter has proper javadoc\n  compute(a);\n}\n</pre>"
+        }
+      ],
+      "educationPrinciples": [],
+      "updatedAt": "2026-04-25T15:07:27+0000",
+      "cleanCodeAttribute": "CLEAR",
+      "cleanCodeAttributeCategory": "INTENTIONAL",
+      "impacts": [
+        {
+          "softwareQuality": "MAINTAINABILITY",
+          "severity": "MEDIUM"
+        }
+      ]
+    },
+    "actives": []
+  },
+  "java:S1181": {
+    "rule": {
+      "key": "java:S1181",
+      "repo": "java",
+      "name": "Throwable and Error should not be caught",
+      "createdAt": "2026-04-25T15:07:27+0000",
+      "severity": "MAJOR",
+      "status": "READY",
+      "isTemplate": false,
+      "tags": [],
+      "sysTags": [
+        "cwe",
+        "error-handling",
+        "bad-practice",
+        "cert"
+      ],
+      "lang": "java",
+      "langName": "Java",
+      "params": [],
+      "defaultDebtRemFnType": "CONSTANT_ISSUE",
+      "debtRemFnType": "CONSTANT_ISSUE",
+      "type": "CODE_SMELL",
+      "defaultRemFnType": "CONSTANT_ISSUE",
+      "defaultRemFnBaseEffort": "20min",
+      "remFnType": "CONSTANT_ISSUE",
+      "remFnBaseEffort": "20min",
+      "remFnOverloaded": false,
+      "scope": "MAIN",
+      "isExternal": false,
+      "descriptionSections": [
+        {
+          "key": "resources",
+          "content": "<ul>\n  <li>CWE - <a href=\"https://cwe.mitre.org/data/definitions/396\">CWE-396 - Declaration of Catch for Generic Exception</a></li>\n  <li><a href=\"https://wiki.sei.cmu.edu/confluence/display/java/ERR08-J.+Do+not+catch+NullPointerException+or+any+of+its+ancestors\">CERT, ERR08-J.</a>\n  - Do not catch NullPointerException or any of its ancestors</li>\n</ul>"
+        },
+        {
+          "key": "root_cause",
+          "content": "<p><code>Throwable</code> is the superclass of all errors and exceptions in Java. <code>Error</code> is the superclass of all errors, which are not\nmeant to be caught by applications.</p>\n<p>Catching either <code>Throwable</code> or <code>Error</code> will also catch <code>OutOfMemoryError</code> and <code>InternalError</code>, from\nwhich an application should not attempt to recover.</p>\n<h3>Noncompliant code example</h3>\n<pre>\ntry { /* ... */ } catch (Throwable t) { /* ... */ }\ntry { /* ... */ } catch (Error e) { /* ... */ }\n</pre>\n<h3>Compliant solution</h3>\n<pre>\ntry { /* ... */ } catch (RuntimeException e) { /* ... */ }\ntry { /* ... */ } catch (MyException e) { /* ... */ }\n</pre>"
+        }
+      ],
+      "educationPrinciples": [],
+      "updatedAt": "2026-04-25T15:07:27+0000",
+      "cleanCodeAttribute": "CONVENTIONAL",
+      "cleanCodeAttributeCategory": "CONSISTENT",
+      "impacts": [
+        {
+          "softwareQuality": "MAINTAINABILITY",
+          "severity": "MEDIUM"
+        }
+      ]
+    },
+    "actives": []
+  },
+  "java:S1192": {
+    "rule": {
+      "key": "java:S1192",
+      "repo": "java",
+      "name": "String literals should not be duplicated",
+      "createdAt": "2026-04-25T15:07:27+0000",
+      "severity": "CRITICAL",
+      "status": "READY",
+      "isTemplate": false,
+      "tags": [],
+      "sysTags": [
+        "design"
+      ],
+      "lang": "java",
+      "langName": "Java",
+      "params": [
+        {
+          "key": "threshold",
+          "htmlDesc": "Number of times a literal must be duplicated to trigger an issue",
+          "defaultValue": "3",
+          "type": "INTEGER"
+        }
+      ],
+      "defaultDebtRemFnType": "LINEAR_OFFSET",
+      "debtRemFnType": "LINEAR_OFFSET",
+      "type": "CODE_SMELL",
+      "defaultRemFnType": "LINEAR_OFFSET",
+      "defaultRemFnGapMultiplier": "2min",
+      "defaultRemFnBaseEffort": "2min",
+      "remFnType": "LINEAR_OFFSET",
+      "remFnGapMultiplier": "2min",
+      "remFnBaseEffort": "2min",
+      "remFnOverloaded": false,
+      "gapDescription": "per duplicate instance",
+      "scope": "MAIN",
+      "isExternal": false,
+      "descriptionSections": [
+        {
+          "key": "root_cause",
+          "content": "<p>Duplicated string literals make the process of refactoring complex and error-prone, as any change would need to be propagated on all\noccurrences.</p>\n<h3>Exceptions</h3>\n<p>To prevent generating some false-positives, literals having less than 5 characters are excluded.</p>"
+        },
+        {
+          "key": "how_to_fix",
+          "content": "<p>Use constants to replace the duplicated string literals. Constants can be referenced from many places, but only need to be updated in a single\nplace.</p>\n\n<h4>Noncompliant code example</h4>\n<p>With the default threshold of 3:</p>\n<pre data-diff-id=\"1\" data-diff-type=\"noncompliant\">\npublic void run() {\n  prepare(\"action1\");                              // Noncompliant - \"action1\" is duplicated 3 times\n  execute(\"action1\");\n  release(\"action1\");\n}\n\n@SuppressWarning(\"all\")                            // Compliant - annotations are excluded\nprivate void method1() { /* ... */ }\n@SuppressWarning(\"all\")\nprivate void method2() { /* ... */ }\n\npublic String printInQuotes(String a, String b) {\n  return \"'\" + a + \"'\" + b + \"'\";               // Compliant - literal \"'\" has less than 5 characters and is excluded\n}\n</pre>\n<h4>Compliant solution</h4>\n<pre data-diff-id=\"1\" data-diff-type=\"compliant\">\nprivate static final String ACTION_1 = \"action1\";  // Compliant\n\npublic void run() {\n  prepare(ACTION_1);                               // Compliant\n  execute(ACTION_1);\n  release(ACTION_1);\n}\n</pre>"
+        }
+      ],
+      "educationPrinciples": [],
+      "updatedAt": "2026-04-25T15:07:27+0000",
+      "cleanCodeAttribute": "DISTINCT",
+      "cleanCodeAttributeCategory": "ADAPTABLE",
+      "impacts": [
+        {
+          "softwareQuality": "MAINTAINABILITY",
+          "severity": "HIGH"
+        }
+      ]
+    },
+    "actives": []
+  },
+  "java:S1197": {
+    "rule": {
+      "key": "java:S1197",
+      "repo": "java",
+      "name": "Array designators \"[]\" should be on the type, not the variable",
+      "createdAt": "2026-04-25T15:07:27+0000",
+      "severity": "MINOR",
+      "status": "READY",
+      "isTemplate": false,
+      "tags": [],
+      "sysTags": [
+        "convention"
+      ],
+      "lang": "java",
+      "langName": "Java",
+      "params": [],
+      "defaultDebtRemFnType": "CONSTANT_ISSUE",
+      "debtRemFnType": "CONSTANT_ISSUE",
+      "type": "CODE_SMELL",
+      "defaultRemFnType": "CONSTANT_ISSUE",
+      "defaultRemFnBaseEffort": "5min",
+      "remFnType": "CONSTANT_ISSUE",
+      "remFnBaseEffort": "5min",
+      "remFnOverloaded": false,
+      "scope": "ALL",
+      "isExternal": false,
+      "descriptionSections": [
+        {
+          "key": "root_cause",
+          "content": "<p>Array designators should always be located on the type for better code readability. Otherwise, developers must look both at the type and the\nvariable name to know whether or not a variable is an array.</p>\n<h3>Noncompliant code example</h3>\n<pre>\nint matrix[][];   // Noncompliant\nint[] matrix[];   // Noncompliant\n</pre>\n<h3>Compliant solution</h3>\n<pre>\nint[][] matrix;   // Compliant\n</pre>"
+        }
+      ],
+      "educationPrinciples": [],
+      "updatedAt": "2026-04-25T15:07:27+0000",
+      "cleanCodeAttribute": "FORMATTED",
+      "cleanCodeAttributeCategory": "CONSISTENT",
+      "impacts": [
+        {
+          "softwareQuality": "MAINTAINABILITY",
+          "severity": "LOW"
+        }
+      ]
+    },
+    "actives": []
+  },
+  "java:S1199": {
+    "rule": {
+      "key": "java:S1199",
+      "repo": "java",
+      "name": "Nested code blocks should not be used",
+      "createdAt": "2026-04-25T15:07:27+0000",
+      "severity": "MINOR",
+      "status": "READY",
+      "isTemplate": false,
+      "tags": [],
+      "sysTags": [
+        "bad-practice"
+      ],
+      "lang": "java",
+      "langName": "Java",
+      "params": [],
+      "defaultDebtRemFnType": "CONSTANT_ISSUE",
+      "debtRemFnType": "CONSTANT_ISSUE",
+      "type": "CODE_SMELL",
+      "defaultRemFnType": "CONSTANT_ISSUE",
+      "defaultRemFnBaseEffort": "10min",
+      "remFnType": "CONSTANT_ISSUE",
+      "remFnBaseEffort": "10min",
+      "remFnOverloaded": false,
+      "scope": "MAIN",
+      "isExternal": false,
+      "descriptionSections": [
+        {
+          "key": "root_cause",
+          "content": "<p>Nested code blocks create new scopes where variables declared within are inaccessible from the outside, and their lifespan ends with the block.</p>\n<p>Although this may appear beneficial, their usage within a function often suggests that the function is overloaded. Thus, it may violate the Single\nResponsibility Principle, and the function needs to be broken down into smaller functions.</p>\n<p>The presence of nested blocks that don’t affect the control flow might suggest possible mistakes in the code.</p>\n<h3>Exceptions</h3>\n<p>The usage of a code block after a <code>case</code> is allowed.</p>"
+        },
+        {
+          "key": "resources",
+          "content": "<h3>Documentation</h3>\n<ul>\n  <li>Wikipedia - <a href=\"https://en.wikipedia.org/wiki/Single-responsibility_principle\">Single Responsibility Principle</a></li>\n  <li>Baeldung - <a href=\"https://www.baeldung.com/java-single-responsibility-principle\">Single Responsibility Principle</a></li>\n</ul>"
+        },
+        {
+          "key": "how_to_fix",
+          "content": "<p>The nested code blocks should be extracted into separate methods.</p>\n\n<h4>Noncompliant code example</h4>\n<pre data-diff-id=\"1\" data-diff-type=\"noncompliant\">\nclass Example {\n\n    private final Deque&lt;Integer&gt; stack = new LinkedList&lt;&gt;();\n\n    public void evaluate(int operator) {\n      switch (operator) {\n        case ADD: {\n          /* ... */\n          { // Noncompliant - Extract this nested code block into a method\n            int a = stack.pop();\n            int b = stack.pop();\n            int result = a + b;\n            stack.push(result);\n          }\n          /* ... */\n          break;\n        }\n        /* ... */\n      }\n    }\n}\n</pre>\n<h4>Compliant solution</h4>\n<pre data-diff-id=\"1\" data-diff-type=\"compliant\">\nclass Example {\n\n    private final Deque&lt;Integer&gt; stack = new LinkedList&lt;&gt;();\n\n    public void evaluate(int operator) {\n      switch (operator) {\n        case ADD: {\n          /* ... */\n          evaluateAdd();\n          /* ... */\n          break;\n        }\n        /* ... */\n      }\n    }\n\n    private void evaluateAdd() {\n      int a = stack.pop();\n      int b = stack.pop();\n      int result = a + b;\n      stack.push(result);\n    }\n}\n</pre>"
+        }
+      ],
+      "educationPrinciples": [],
+      "updatedAt": "2026-04-25T15:07:27+0000",
+      "cleanCodeAttribute": "CLEAR",
+      "cleanCodeAttributeCategory": "INTENTIONAL",
+      "impacts": [
+        {
+          "softwareQuality": "MAINTAINABILITY",
+          "severity": "LOW"
+        }
+      ]
+    },
+    "actives": []
+  },
+  "java:S120": {
+    "rule": {
+      "key": "java:S120",
+      "repo": "java",
+      "name": "Package names should comply with a naming convention",
+      "createdAt": "2026-04-25T15:07:27+0000",
+      "severity": "MINOR",
+      "status": "READY",
+      "isTemplate": false,
+      "tags": [],
+      "sysTags": [
+        "convention"
+      ],
+      "lang": "java",
+      "langName": "Java",
+      "params": [
+        {
+          "key": "format",
+          "htmlDesc": "Regular expression used to check the package names against.",
+          "defaultValue": "^[a-z_]+(\\.[a-z_][a-z0-9_]*)*$",
+          "type": "STRING"
+        }
+      ],
+      "defaultDebtRemFnType": "CONSTANT_ISSUE",
+      "debtRemFnType": "CONSTANT_ISSUE",
+      "type": "CODE_SMELL",
+      "defaultRemFnType": "CONSTANT_ISSUE",
+      "defaultRemFnBaseEffort": "10min",
+      "remFnType": "CONSTANT_ISSUE",
+      "remFnBaseEffort": "10min",
+      "remFnOverloaded": false,
+      "scope": "MAIN",
+      "isExternal": false,
+      "descriptionSections": [
+        {
+          "key": "root_cause",
+          "content": "<p>Shared naming conventions improve readability and allow teams to collaborate efficiently. This rule checks that all package names match a provided\nregular expression.</p>"
+        },
+        {
+          "key": "how_to_fix",
+          "content": "<p>Rename packages with the expected naming convention</p>\n\n<h4>Noncompliant code example</h4>\n<p>With the default regular expression <code>^[a-z_]+(\\.[a-z_][a-z0-9_]*)*$</code>:</p>\n<pre data-diff-id=\"1\" data-diff-type=\"noncompliant\">\npackage org.exAmple; // Noncompliant\n</pre>\n<h4>Compliant solution</h4>\n<pre data-diff-id=\"1\" data-diff-type=\"compliant\">\npackage org.example;\n</pre>"
+        }
+      ],
+      "educationPrinciples": [],
+      "updatedAt": "2026-04-25T15:07:27+0000",
+      "cleanCodeAttribute": "IDENTIFIABLE",
+      "cleanCodeAttributeCategory": "CONSISTENT",
+      "impacts": [
+        {
+          "softwareQuality": "MAINTAINABILITY",
+          "severity": "LOW"
+        }
+      ]
+    },
+    "actives": []
+  },
+  "java:S125": {
+    "rule": {
+      "key": "java:S125",
+      "repo": "java",
+      "name": "Sections of code should not be commented out",
+      "createdAt": "2026-04-25T15:07:27+0000",
+      "severity": "MAJOR",
+      "status": "READY",
+      "isTemplate": false,
+      "tags": [],
+      "sysTags": [
+        "unused"
+      ],
+      "lang": "java",
+      "langName": "Java",
+      "params": [],
+      "defaultDebtRemFnType": "CONSTANT_ISSUE",
+      "debtRemFnType": "CONSTANT_ISSUE",
+      "type": "CODE_SMELL",
+      "defaultRemFnType": "CONSTANT_ISSUE",
+      "defaultRemFnBaseEffort": "5min",
+      "remFnType": "CONSTANT_ISSUE",
+      "remFnBaseEffort": "5min",
+      "remFnOverloaded": false,
+      "scope": "ALL",
+      "isExternal": false,
+      "descriptionSections": [
+        {
+          "key": "root_cause",
+          "content": "<p>Commented-out code distracts the focus from the actual executed code. It creates a noise that increases maintenance code. And because it is never\nexecuted, it quickly becomes out of date and invalid.</p>\n<p>Commented-out code should be deleted and can be retrieved from source control history if required.</p>"
+        }
+      ],
+      "educationPrinciples": [],
+      "updatedAt": "2026-04-25T15:07:27+0000",
+      "cleanCodeAttribute": "CLEAR",
+      "cleanCodeAttributeCategory": "INTENTIONAL",
+      "impacts": [
+        {
+          "softwareQuality": "MAINTAINABILITY",
+          "severity": "MEDIUM"
+        }
+      ]
+    },
+    "actives": []
+  },
+  "java:S1444": {
+    "rule": {
+      "key": "java:S1444",
+      "repo": "java",
+      "name": "\"public static\" fields should be constant",
+      "createdAt": "2026-04-25T15:07:27+0000",
+      "severity": "MINOR",
+      "status": "READY",
+      "isTemplate": false,
+      "tags": [],
+      "sysTags": [
+        "cwe",
+        "cert"
+      ],
+      "lang": "java",
+      "langName": "Java",
+      "params": [],
+      "defaultDebtRemFnType": "CONSTANT_ISSUE",
+      "debtRemFnType": "CONSTANT_ISSUE",
+      "type": "CODE_SMELL",
+      "defaultRemFnType": "CONSTANT_ISSUE",
+      "defaultRemFnBaseEffort": "20min",
+      "remFnType": "CONSTANT_ISSUE",
+      "remFnBaseEffort": "20min",
+      "remFnOverloaded": false,
+      "scope": "MAIN",
+      "isExternal": false,
+      "descriptionSections": [
+        {
+          "key": "root_cause",
+          "content": "<p>There is no good reason to declare a field \"public\" and \"static\" without also declaring it \"final\". Most of the time this is a kludge to share a\nstate among several objects. But with this approach, any object can do whatever it wants with the shared state, such as setting it to\n<code>null</code>.</p>\n<h3>Noncompliant code example</h3>\n<pre>\npublic class Greeter {\n  public static Foo foo = new Foo();\n  ...\n}\n</pre>\n<h3>Compliant solution</h3>\n<pre>\npublic class Greeter {\n  public static final Foo FOO = new Foo();\n  ...\n}\n</pre>"
+        },
+        {
+          "key": "resources",
+          "content": "<ul>\n  <li>CWE - <a href=\"https://cwe.mitre.org/data/definitions/500\">CWE-500 - Public Static Field Not Marked Final</a></li>\n  <li><a href=\"https://wiki.sei.cmu.edu/confluence/x/WjdGBQ\">CERT OBJ10-J.</a> - Do not use public static nonfinal fields</li>\n</ul>"
+        }
+      ],
+      "educationPrinciples": [],
+      "updatedAt": "2026-04-25T15:07:27+0000",
+      "cleanCodeAttribute": "MODULAR",
+      "cleanCodeAttributeCategory": "ADAPTABLE",
+      "impacts": [
+        {
+          "softwareQuality": "MAINTAINABILITY",
+          "severity": "LOW"
+        }
+      ]
+    },
+    "actives": []
+  },
+  "java:S1874": {
+    "rule": {
+      "key": "java:S1874",
+      "repo": "java",
+      "name": "\"@Deprecated\" code should not be used",
+      "createdAt": "2026-04-25T15:07:27+0000",
+      "severity": "MINOR",
+      "status": "READY",
+      "isTemplate": false,
+      "tags": [],
+      "sysTags": [
+        "cwe",
+        "obsolete",
+        "cert"
+      ],
+      "lang": "java",
+      "langName": "Java",
+      "params": [],
+      "defaultDebtRemFnType": "CONSTANT_ISSUE",
+      "debtRemFnType": "CONSTANT_ISSUE",
+      "type": "CODE_SMELL",
+      "defaultRemFnType": "CONSTANT_ISSUE",
+      "defaultRemFnBaseEffort": "15min",
+      "remFnType": "CONSTANT_ISSUE",
+      "remFnBaseEffort": "15min",
+      "remFnOverloaded": false,
+      "scope": "ALL",
+      "isExternal": false,
+      "descriptionSections": [
+        {
+          "key": "root_cause",
+          "content": "<p>Code is sometimes annotated as deprecated by developers maintaining libraries or APIs to indicate that the method, class, or other programming\nelement is no longer recommended for use. This is typically due to the introduction of a newer or more effective alternative. For example, when a\nbetter solution has been identified, or when the existing code presents potential errors or security risks.</p>\n<p>Deprecation is a good practice because it helps to phase out obsolete code in a controlled manner, without breaking existing software that may\nstill depend on it. It is a way to warn other developers not to use the deprecated element in new code, and to replace it in existing code when\npossible.</p>\n<p>Deprecated classes, interfaces, and their members should not be used, inherited or extended because they will eventually be removed. The\ndeprecation period allows you to make a smooth transition away from the aging, soon-to-be-retired technology.</p>\n<p>Check the documentation or the deprecation message to understand why the code was deprecated and what the recommended alternative is.</p>\n<pre>\n/**\n * @deprecated  As of release 1.3, replaced by {@link #Foo}\n */\n@Deprecated\npublic class Fum { ... }\n\npublic class Foo {\n  /**\n   * @deprecated  As of release 1.7, replaced by {@link #newMethod()}\n   */\n  @Deprecated\n  public void oldMethod() { ... }\n\n  public void newMethod() { ... }\n}\n\npublic class Bar extends Foo {\n  public void oldMethod() { ... } // Noncompliant; don't override a deprecated method\n}\n\npublic class Baz extends Fum {  // Noncompliant; Fum is deprecated\n  public void myMethod() {\n    Foo foo = new Foo();\n    foo.oldMethod();  // Noncompliant; oldMethod method is deprecated\n  }\n}\n</pre>"
+        },
+        {
+          "key": "resources",
+          "content": "<h3>Documentation</h3>\n<ul>\n  <li>CWE - <a href=\"https://cwe.mitre.org/data/definitions/477\">CWE-477 - Use of Obsolete Functions</a></li>\n</ul>"
+        }
+      ],
+      "educationPrinciples": [],
+      "updatedAt": "2026-04-25T15:07:27+0000",
+      "cleanCodeAttribute": "CONVENTIONAL",
+      "cleanCodeAttributeCategory": "CONSISTENT",
+      "impacts": [
+        {
+          "softwareQuality": "MAINTAINABILITY",
+          "severity": "LOW"
+        }
+      ]
+    },
+    "actives": []
+  },
+  "java:S1905": {
+    "rule": {
+      "key": "java:S1905",
+      "repo": "java",
+      "name": "Redundant casts should not be used",
+      "createdAt": "2026-04-25T15:07:27+0000",
+      "severity": "MINOR",
+      "status": "READY",
+      "isTemplate": false,
+      "tags": [],
+      "sysTags": [
+        "redundant",
+        "clumsy"
+      ],
+      "lang": "java",
+      "langName": "Java",
+      "params": [],
+      "defaultDebtRemFnType": "CONSTANT_ISSUE",
+      "debtRemFnType": "CONSTANT_ISSUE",
+      "type": "CODE_SMELL",
+      "defaultRemFnType": "CONSTANT_ISSUE",
+      "defaultRemFnBaseEffort": "5min",
+      "remFnType": "CONSTANT_ISSUE",
+      "remFnBaseEffort": "5min",
+      "remFnOverloaded": false,
+      "scope": "MAIN",
+      "isExternal": false,
+      "descriptionSections": [
+        {
+          "key": "root_cause",
+          "content": "<p>Casting expressions are utilized to convert one data type to another, such as transforming an integer into a string. This is especially crucial in\nstrongly typed languages like C, C++, C#, Java, Python, and others.</p>\n<p>However, there are instances where casting expressions are not needed. These include situations like:</p>\n<ul>\n  <li>casting a variable to its own type</li>\n  <li>casting a subclass to a parent class (in the case of polymorphism)</li>\n  <li>the programming language is capable of automatically converting the given type to another</li>\n</ul>\n<p>These scenarios are considered unnecessary casting expressions. They can complicate the code and make it more difficult to understand, without\noffering any advantages.</p>\n<p>As a result, it’s generally advised to avoid unnecessary casting expressions. Instead, rely on the language’s type system to ensure type safety and\ncode clarity.</p>\n<h3>Exceptions</h3>\n<p>Casting may be required to distinguish the method to call in the case of overloading:</p>\n<pre>\nclass A {}\nclass B extends A{}\nclass C {\n  void fun(A a){}\n  void fun(B b){}\n\n  void foo() {\n    B b = new B();\n    fun(b);\n    fun((A) b); // Compliant, required to call the first method so cast is not redundant.\n  }\n}\n</pre>"
+        },
+        {
+          "key": "how_to_fix",
+          "content": "<p>To fix your code remove the unnecessary casting expression.</p>\n\n<h4>Noncompliant code example</h4>\n<pre data-diff-id=\"1\" data-diff-type=\"noncompliant\">\nclass Example {\n    public void example(List&lt;String&gt; list) {\n        for (String item: (List&lt;String&gt;) list) {  // Noncompliant, Remove this unnecessary cast to \"List\".\n          //...\n        }\n    }\n}\n</pre>\n<h4>Compliant solution</h4>\n<pre data-diff-id=\"1\" data-diff-type=\"compliant\">\nclass Example {\n    public void example() {\n        for (String foo : getFoos()) {\n          //...\n        }\n    }\n\n    public List&lt;String&gt; getFoos() {\n        return List.of(\"foo1\", \"foo2\");\n    }\n}\n</pre>"
+        },
+        {
+          "key": "resources",
+          "content": "<h3>Documentation</h3>\n<ul>\n  <li>Geeksforgeeks - <a href=\"https://www.geeksforgeeks.org/type-conversion-java-examples/\">Type conversion in Java with Examples</a></li>\n  <li>Wikipedia - <a href=\"https://en.wikipedia.org/wiki/Type_conversion\">Type Conversion</a></li>\n  <li>Wikipedia - <a href=\"https://en.wikipedia.org/wiki/Strong_and_weak_typing\">Strong and Weak Typing</a></li>\n  <li>Wikipedia - <a href=\"https://en.wikipedia.org/wiki/Polymorphism_(computer_science)\"> Polymorphism (Computer Science)</a></li>\n</ul>"
+        }
+      ],
+      "educationPrinciples": [],
+      "updatedAt": "2026-04-25T15:07:27+0000",
+      "cleanCodeAttribute": "CLEAR",
+      "cleanCodeAttributeCategory": "INTENTIONAL",
+      "impacts": [
+        {
+          "softwareQuality": "MAINTAINABILITY",
+          "severity": "LOW"
+        }
+      ]
+    },
+    "actives": []
+  },
+  "java:S2093": {
+    "rule": {
+      "key": "java:S2093",
+      "repo": "java",
+      "name": "Try-with-resources should be used",
+      "createdAt": "2026-04-25T15:07:27+0000",
+      "severity": "CRITICAL",
+      "status": "READY",
+      "isTemplate": false,
+      "tags": [],
+      "sysTags": [
+        "java8",
+        "cert",
+        "pitfall"
+      ],
+      "lang": "java",
+      "langName": "Java",
+      "params": [],
+      "defaultDebtRemFnType": "CONSTANT_ISSUE",
+      "debtRemFnType": "CONSTANT_ISSUE",
+      "type": "CODE_SMELL",
+      "defaultRemFnType": "CONSTANT_ISSUE",
+      "defaultRemFnBaseEffort": "15min",
+      "remFnType": "CONSTANT_ISSUE",
+      "remFnBaseEffort": "15min",
+      "remFnOverloaded": false,
+      "scope": "ALL",
+      "isExternal": false,
+      "descriptionSections": [
+        {
+          "key": "how_to_fix",
+          "content": "<p>Use the try-with-resources syntax by moving the <code>Closable</code> variable declarations after the <code>try</code> keyword surrounded by\nparentheses and separated by <code>;</code>:</p>\n<pre>\ntry (/* resources declarations */) {\n  // resources usage ...\n}\n</pre>\n\n<h4>Noncompliant code example</h4>\n<pre data-diff-id=\"1\" data-diff-type=\"noncompliant\">\nFileReader fr = null;\nBufferedReader br = null;\n\ntry { // Noncompliant, the FileReader and BufferedReader are instantiated without try-with-resources\n  fr = new FileReader(fileName);\n  br = new BufferedReader(fr);\n  return br.readLine();\n} catch (...) {\n  ...\n} finally {\n\n  if (br != null) { // br has to be closed manually\n    try {\n      br.close();\n    } catch(IOException e){...}\n  }\n\n  if (fr != null ) { // fr has to be closed manually\n    try {\n      br.close();\n    } catch(IOException e){...}\n  }\n\n}\n</pre>\n<h4>Compliant solution</h4>\n<pre data-diff-id=\"1\" data-diff-type=\"compliant\">\ntry ( // Compliant, all resources are instantiated within a try-with-resources statement and hence automatically closed after use\n    FileReader fr = new FileReader(fileName);\n    BufferedReader br = new BufferedReader(fr)\n  ) {\n  return br.readLine();\n}\ncatch (...) {}\n</pre>"
+        },
+        {
+          "key": "root_cause",
+          "content": "<p>Many resources in Java need be closed after they have been used. If they are not, the garbage collector cannot reclaim the resources' memory, and\nthey are still considered to be in use by the operating system. Such resources are considered to be leaked, which can lead to performance issues.</p>\n<p>Java 7 introduced the try-with-resources statement, which guarantees that the resource in question will be closed.</p>\n<pre>\ntry (InputStream input = Files.newInputStream(path)) {\n  // \"input\" will be closed after the execution of this block\n}\n</pre>\n<p>This syntax is safer than the traditional method using <code>try</code>, <code>catch</code>, and <code>finally</code> and hence should be\npreferred.</p>\n<p>This rule raises an issue if a closeable resources is not opened using a try-with-resources statement.</p>\n<p>This rule is automatically disabled when the project’s <code>sonar.java.source</code> is lower than <code>7</code> as the close-with-resources\nstatement was unavailable prior to Java 7.</p>"
+        },
+        {
+          "key": "resources",
+          "content": "<ul>\n  <li><a href=\"https://wiki.sei.cmu.edu/confluence/x/6DZGBQ\">CERT, ERR54-J.</a> - Use a try-with-resources statement to safely handle closeable\n  resources</li>\n  <li><a href=\"https://docs.oracle.com/javase/tutorial/essential/exceptions/tryResourceClose.html\">The Java™ Tutorials - The try-with-resources\n  Statement</a></li>\n</ul>"
+        }
+      ],
+      "educationPrinciples": [],
+      "updatedAt": "2026-04-25T15:07:27+0000",
+      "cleanCodeAttribute": "CONVENTIONAL",
+      "cleanCodeAttributeCategory": "CONSISTENT",
+      "impacts": [
+        {
+          "softwareQuality": "MAINTAINABILITY",
+          "severity": "HIGH"
+        }
+      ]
+    },
+    "actives": []
+  },
+  "java:S2115": {
+    "rule": {
+      "key": "java:S2115",
+      "repo": "java",
+      "name": "A secure password should be used when connecting to a database",
+      "createdAt": "2026-04-25T15:07:27+0000",
+      "severity": "BLOCKER",
+      "status": "READY",
+      "isTemplate": false,
+      "tags": [],
+      "sysTags": [
+        "cwe"
+      ],
+      "lang": "java",
+      "langName": "Java",
+      "params": [],
+      "defaultDebtRemFnType": "CONSTANT_ISSUE",
+      "debtRemFnType": "CONSTANT_ISSUE",
+      "type": "VULNERABILITY",
+      "defaultRemFnType": "CONSTANT_ISSUE",
+      "defaultRemFnBaseEffort": "45min",
+      "remFnType": "CONSTANT_ISSUE",
+      "remFnBaseEffort": "45min",
+      "remFnOverloaded": false,
+      "scope": "MAIN",
+      "isExternal": false,
+      "descriptionSections": [
+        {
+          "key": "introduction",
+          "content": "<p>When accessing a database, an empty password should be avoided as it introduces a weakness.</p>"
+        },
+        {
+          "key": "resources",
+          "content": "<ul>\n  <li><a href=\"https://docs.oracle.com/javase/tutorial/essential/environment/properties.html\">Java Properties</a></li>\n</ul>\n<h3>Standards</h3>\n<ul>\n  <li>OWASP - <a href=\"https://owasp.org/Top10/A07_2021-Identification_and_Authentication_Failures/\">Top 10 2021 Category A7 - Identification and\n  Authentication Failures</a></li>\n  <li>OWASP - <a href=\"https://owasp.org/www-project-top-ten/2017/A2_2017-Broken_Authentication\">Top 10 2017 Category A2 - Broken\n  Authentication</a></li>\n  <li>OWASP - <a href=\"https://owasp.org/www-project-top-ten/2017/A3_2017-Sensitive_Data_Exposure\">Top 10 2017 Category A3 - Sensitive Data\n  Exposure</a></li>\n  <li>CWE - <a href=\"https://cwe.mitre.org/data/definitions/521\">CWE-521 - Weak Password Requirements</a></li>\n</ul>"
+        },
+        {
+          "key": "how_to_fix",
+          "content": "<p>The following code uses an empty password to connect to a Postgres database.</p>\n<p>The vulnerability can be fixed by using a strong password retrieved from Properties. This <code>database.password</code> property is set during\ndeployment. Its value should be strong and different for each database.</p>\n<h4>Noncompliant code example</h4>\n<pre data-diff-id=\"201\" data-diff-type=\"noncompliant\">\nConnection conn = DriverManager.getConnection(\"jdbc:derby:memory:myDB;create=true\", \"login\", \"\"); // Noncompliant\n</pre>\n<h4>Compliant solution</h4>\n<pre data-diff-id=\"201\" data-diff-type=\"compliant\">\nString password = System.getProperty(\"database.password\");\nConnection conn = DriverManager.getConnection(\"jdbc:derby:memory:myDB;create=true\", \"login\", password);\n</pre>\n<h3>Pitfalls</h3>\n<h4>Hard-coded passwords</h4>\n<p>It could be tempting to replace the empty password with a hard-coded one. Hard-coding passwords in the code can pose significant security risks.\nHere are a few reasons why it is not recommended:</p>\n<ol>\n  <li>Security Vulnerability: Hard-coded passwords can be easily discovered by anyone who has access to the code, such as other developers or\n  attackers. This can lead to unauthorized access to the database and potential data breaches.</li>\n  <li>Lack of Flexibility: Hard-coded passwords make it difficult to change the password without modifying the code. If the password needs to be\n  updated, it would require recompiling and redeploying the code, which can be time-consuming and error-prone.</li>\n  <li>Version Control Issues: Storing passwords in code can lead to version control issues. If the code is shared or stored in a version control\n  system, the password will be visible to anyone with access to the repository, which is a security risk.</li>\n</ol>\n<p>To mitigate these risks, it is recommended to use secure methods for storing and retrieving passwords, such as using environment variables,\nconfiguration files, or secure key management systems. These methods allow for better security, flexibility, and separation of sensitive information\nfrom the codebase.</p>",
+          "context": {
+            "displayName": "Java SE",
+            "key": "java_se"
+          }
+        },
+        {
+          "key": "root_cause",
+          "content": "<p>When a database does not require a password for authentication, it allows anyone to access and manipulate the data stored within it. Exploiting\nthis vulnerability typically involves identifying the target database and establishing a connection to it without the need for any authentication\ncredentials.</p>\n<h3>What is the potential impact?</h3>\n<p>Once connected, an attacker can perform various malicious actions, such as viewing, modifying, or deleting sensitive information, potentially\nleading to data breaches or unauthorized access to critical systems. It is crucial to address this vulnerability promptly to ensure the security and\nintegrity of the database and the data it contains.</p>\n<h4>Unauthorized Access to Sensitive Data</h4>\n<p>When a database lacks a password for authentication, it opens the door for unauthorized individuals to gain access to sensitive data. This can\ninclude personally identifiable information (PII), financial records, intellectual property, or any other confidential information stored in the\ndatabase. Without proper access controls in place, malicious actors can exploit this vulnerability to retrieve sensitive data, potentially leading to\nidentity theft, financial loss, or reputational damage.</p>\n<h4>Compromise of System Integrity</h4>\n<p>Without a password requirement, unauthorized individuals can gain unrestricted access to a database, potentially compromising the integrity of the\nentire system. Attackers can inject malicious code, alter configurations, or manipulate data within the database, leading to system malfunctions,\nunauthorized system access, or even complete system compromise. This can disrupt business operations, cause financial losses, and expose the\norganization to further security risks.</p>\n<h4>Unwanted Modifications or Deletions</h4>\n<p>The absence of a password for database access allows anyone to make modifications or deletions to the data stored within it. This poses a\nsignificant risk, as unauthorized changes can lead to data corruption, loss of critical information, or the introduction of malicious content. For\nexample, an attacker could modify financial records, tamper with customer orders, or delete important files, causing severe disruptions to business\nprocesses and potentially leading to financial and legal consequences.</p>\n<p>Overall, the lack of a password configured to access a database poses a serious security risk, enabling unauthorized access, data breaches, system\ncompromise, and unwanted modifications or deletions. It is essential to address this vulnerability promptly to safeguard sensitive data, maintain\nsystem integrity, and protect the organization from potential harm.</p>"
+        }
+      ],
+      "educationPrinciples": [],
+      "updatedAt": "2026-04-25T15:07:27+0000",
+      "cleanCodeAttribute": "TRUSTWORTHY",
+      "cleanCodeAttributeCategory": "RESPONSIBLE",
+      "impacts": [
+        {
+          "softwareQuality": "SECURITY",
+          "severity": "BLOCKER"
+        }
+      ]
+    },
+    "actives": []
+  },
+  "java:S2119": {
+    "rule": {
+      "key": "java:S2119",
+      "repo": "java",
+      "name": "\"Random\" objects should be reused",
+      "createdAt": "2026-04-25T15:07:27+0000",
+      "severity": "CRITICAL",
+      "status": "READY",
+      "isTemplate": false,
+      "tags": [],
+      "sysTags": [],
+      "lang": "java",
+      "langName": "Java",
+      "params": [],
+      "defaultDebtRemFnType": "CONSTANT_ISSUE",
+      "debtRemFnType": "CONSTANT_ISSUE",
+      "type": "BUG",
+      "defaultRemFnType": "CONSTANT_ISSUE",
+      "defaultRemFnBaseEffort": "5min",
+      "remFnType": "CONSTANT_ISSUE",
+      "remFnBaseEffort": "5min",
+      "remFnOverloaded": false,
+      "scope": "MAIN",
+      "isExternal": false,
+      "descriptionSections": [
+        {
+          "key": "root_cause",
+          "content": "<p>Creating a new <code>Random</code> object each time a random value is needed is inefficient and may produce numbers that are not random, depending\non the JDK. For better efficiency and randomness, create a single <code>Random</code>, store it, and reuse it.</p>\n<p>The <code>Random()</code> constructor tries to set the seed with a distinct value every time. However, there is no guarantee that the seed will be\nrandomly or uniformly distributed. Some JDK will use the current time as seed, making the generated numbers not random.</p>\n<p>This rule finds cases where a new <code>Random</code> is created each time a method is invoked.</p>\n<h3>Exceptions</h3>\n<p>This rule doesn’t apply to classes that use a <code>Random</code> in their constructors or the static <code>main</code> function and nowhere\nelse.</p>"
+        },
+        {
+          "key": "how_to_fix",
+          "content": "<p>Define and reuse the <code>Random</code> object.</p>\n\n<h4>Noncompliant code example</h4>\n<pre data-diff-id=\"1\" data-diff-type=\"noncompliant\">\nclass MyClass {\n\n    public void doSomethingCommon() {\n      Random random = new Random();        // Noncompliant - new instance created with each invocation\n      int rValue = random.nextInt();\n    }\n}\n</pre>\n<h4>Compliant solution</h4>\n<pre data-diff-id=\"1\" data-diff-type=\"compliant\">\nclass MyClass {\n    private Random random = new Random();  // Compliant\n\n    public void doSomethingCommon() {\n      int rValue = this.random.nextInt();\n    }\n}\n</pre>"
+        },
+        {
+          "key": "resources",
+          "content": "<h3>Documentation</h3>\n<ul>\n  <li><a href=\"https://docs.oracle.com/en/java/javase/20/docs/api/java.base/java/util/Random.html\">Oracle Java SE - Random</a></li>\n</ul>\n<h3>Articles &amp; blog posts</h3>\n<ul>\n  <li>OWASP - <a href=\"https://owasp.org/www-project-top-ten/2017/A6_2017-Security_Misconfiguration\">Top 10 2017 Category A6 - Security\n  Misconfiguration</a></li>\n  <li><a href=\"https://www.baeldung.com/java-generating-random-numbers\">Baeldung - generating random number</a></li>\n</ul>"
+        }
+      ],
+      "educationPrinciples": [],
+      "updatedAt": "2026-04-25T15:07:27+0000",
+      "cleanCodeAttribute": "COMPLETE",
+      "cleanCodeAttributeCategory": "INTENTIONAL",
+      "impacts": [
+        {
+          "softwareQuality": "RELIABILITY",
+          "severity": "HIGH"
+        }
+      ]
+    },
+    "actives": []
+  },
+  "java:S3400": {
+    "rule": {
+      "key": "java:S3400",
+      "repo": "java",
+      "name": "Methods should not return constants",
+      "createdAt": "2026-04-25T15:07:27+0000",
+      "severity": "MINOR",
+      "status": "READY",
+      "isTemplate": false,
+      "tags": [],
+      "sysTags": [
+        "confusing"
+      ],
+      "lang": "java",
+      "langName": "Java",
+      "params": [],
+      "defaultDebtRemFnType": "CONSTANT_ISSUE",
+      "debtRemFnType": "CONSTANT_ISSUE",
+      "type": "CODE_SMELL",
+      "defaultRemFnType": "CONSTANT_ISSUE",
+      "defaultRemFnBaseEffort": "5min",
+      "remFnType": "CONSTANT_ISSUE",
+      "remFnBaseEffort": "5min",
+      "remFnOverloaded": false,
+      "scope": "MAIN",
+      "isExternal": false,
+      "descriptionSections": [
+        {
+          "key": "root_cause",
+          "content": "<p>There’s no point in forcing the overhead of a method call for a method that always returns the same constant value. Even worse, the fact that a\nmethod call must be made will likely mislead developers who call the method thinking that something more is done. Declare a constant instead.</p>\n<p>This rule raises an issue if on methods that contain only one statement: the <code>return</code> of a constant value.</p>\n<h3>Noncompliant code example</h3>\n<pre>\nint getBestNumber() {\n  return 12;  // Noncompliant\n}\n</pre>\n<h3>Compliant solution</h3>\n<pre>\nstatic final int BEST_NUMBER = 12;\n</pre>\n<h3>Exceptions</h3>\n<p>The following types of method are ignored:</p>\n<ul>\n  <li>methods that override a method.</li>\n  <li>methods that are not final (not having the <code>final</code>, <code>private</code> or <code>static</code> modifier and not in a record or a\n  final class).</li>\n  <li>methods with annotations, such as <code>@Override</code> or Spring’s <code>@RequestMapping</code>.</li>\n</ul>"
+        }
+      ],
+      "educationPrinciples": [],
+      "updatedAt": "2026-04-25T15:07:27+0000",
+      "cleanCodeAttribute": "CLEAR",
+      "cleanCodeAttributeCategory": "INTENTIONAL",
+      "impacts": [
+        {
+          "softwareQuality": "MAINTAINABILITY",
+          "severity": "LOW"
+        }
+      ]
+    },
+    "actives": []
+  },
+  "java:S4144": {
+    "rule": {
+      "key": "java:S4144",
+      "repo": "java",
+      "name": "Methods should not have identical implementations",
+      "createdAt": "2026-04-25T15:07:27+0000",
+      "severity": "MAJOR",
+      "status": "READY",
+      "isTemplate": false,
+      "tags": [],
+      "sysTags": [
+        "confusing",
+        "duplicate",
+        "suspicious"
+      ],
+      "lang": "java",
+      "langName": "Java",
+      "params": [],
+      "defaultDebtRemFnType": "CONSTANT_ISSUE",
+      "debtRemFnType": "CONSTANT_ISSUE",
+      "type": "CODE_SMELL",
+      "defaultRemFnType": "CONSTANT_ISSUE",
+      "defaultRemFnBaseEffort": "15min",
+      "remFnType": "CONSTANT_ISSUE",
+      "remFnBaseEffort": "15min",
+      "remFnOverloaded": false,
+      "scope": "ALL",
+      "isExternal": false,
+      "descriptionSections": [
+        {
+          "key": "root_cause",
+          "content": "<p>Two methods having the same implementation are suspicious. It might be that something else was intended. Or the duplication is intentional, which\nbecomes a maintenance burden.</p>\n<pre data-diff-id=\"1\" data-diff-type=\"noncompliant\">\nprivate final static String CODE = \"bounteous\";\n\npublic String calculateCode() {\n  doTheThing();\n  return CODE;\n}\n\npublic String getName() {  // Noncompliant: duplicates calculateCode\n  doTheThing();\n  return CODE;\n}\n</pre>\n<p>If the identical logic is intentional, the code should be refactored to avoid duplication. For example, by having both methods call the same method\nor by having one implementation invoke the other.</p>\n<pre data-diff-id=\"1\" data-diff-type=\"compliant\">\nprivate final static String CODE = \"bounteous\";\n\npublic String getCode() {\n  doTheThing();\n  return CODE;\n}\n\npublic String getName() { // The intent is clear\n  return getCode();\n}\n</pre>\n<h3>Exceptions</h3>\n<p>Methods that are not accessors (getters and setters), with fewer than 2 statements are ignored.</p>"
+        }
+      ],
+      "educationPrinciples": [],
+      "updatedAt": "2026-04-25T15:07:27+0000",
+      "cleanCodeAttribute": "DISTINCT",
+      "cleanCodeAttributeCategory": "ADAPTABLE",
+      "impacts": [
+        {
+          "softwareQuality": "MAINTAINABILITY",
+          "severity": "MEDIUM"
+        }
+      ]
+    },
+    "actives": []
+  },
+  "java:S4719": {
+    "rule": {
+      "key": "java:S4719",
+      "repo": "java",
+      "name": "\"StandardCharsets\" constants should be preferred",
+      "createdAt": "2026-04-25T15:07:27+0000",
+      "severity": "MINOR",
+      "status": "READY",
+      "isTemplate": false,
+      "tags": [],
+      "sysTags": [
+        "java7",
+        "clumsy"
+      ],
+      "lang": "java",
+      "langName": "Java",
+      "params": [],
+      "defaultDebtRemFnType": "CONSTANT_ISSUE",
+      "debtRemFnType": "CONSTANT_ISSUE",
+      "type": "CODE_SMELL",
+      "defaultRemFnType": "CONSTANT_ISSUE",
+      "defaultRemFnBaseEffort": "1min",
+      "remFnType": "CONSTANT_ISSUE",
+      "remFnBaseEffort": "1min",
+      "remFnOverloaded": false,
+      "scope": "MAIN",
+      "isExternal": false,
+      "descriptionSections": [
+        {
+          "key": "root_cause",
+          "content": "<p>JDK7 introduced the class <code>java.nio.charset.StandardCharsets</code>. It provides constants for all charsets that are guaranteed to be\navailable on every implementation of the Java platform.</p>\n<ul>\n  <li>ISO_8859_1</li>\n  <li>US_ASCII</li>\n  <li>UTF_16</li>\n  <li>UTF_16BE</li>\n  <li>UTF_16LE</li>\n  <li>UTF_8</li>\n</ul>\n<p>These constants should be preferred to:</p>\n<ul>\n  <li>the use of a String such as \"UTF-8\" which has the drawback of requiring the <code>catch</code>/<code>throw</code> of an\n  <code>UnsupportedEncodingException</code> that will never actually happen</li>\n  <li>the use of Guava’s <code>Charsets</code> class, which has been obsolete since JDK7</li>\n</ul>\n<h3>Noncompliant code example</h3>\n<pre>\ntry {\n  byte[] bytes = string.getBytes(\"UTF-8\"); // Noncompliant; use a String instead of StandardCharsets.UTF_8\n} catch (UnsupportedEncodingException e) {\n  throw new AssertionError(e);\n}\n// ...\nbyte[] bytes = string.getBytes(Charsets.UTF_8); // Noncompliant; Guava way obsolete since JDK7\n</pre>\n<h3>Compliant solution</h3>\n<pre>\nbyte[] bytes = string.getBytes(StandardCharsets.UTF_8)\n</pre>"
+        }
+      ],
+      "educationPrinciples": [],
+      "updatedAt": "2026-04-25T15:07:27+0000",
+      "cleanCodeAttribute": "CONVENTIONAL",
+      "cleanCodeAttributeCategory": "CONSISTENT",
+      "impacts": [
+        {
+          "softwareQuality": "MAINTAINABILITY",
+          "severity": "LOW"
+        }
+      ]
+    },
+    "actives": []
+  },
+  "java:S5411": {
+    "rule": {
+      "key": "java:S5411",
+      "repo": "java",
+      "name": "Avoid using boxed \"Boolean\" types directly in boolean expressions",
+      "createdAt": "2026-04-25T15:07:27+0000",
+      "severity": "MINOR",
+      "status": "READY",
+      "isTemplate": false,
+      "tags": [],
+      "sysTags": [
+        "pitfall"
+      ],
+      "lang": "java",
+      "langName": "Java",
+      "params": [],
+      "defaultDebtRemFnType": "CONSTANT_ISSUE",
+      "debtRemFnType": "CONSTANT_ISSUE",
+      "type": "CODE_SMELL",
+      "defaultRemFnType": "CONSTANT_ISSUE",
+      "defaultRemFnBaseEffort": "5min",
+      "remFnType": "CONSTANT_ISSUE",
+      "remFnBaseEffort": "5min",
+      "remFnOverloaded": false,
+      "scope": "MAIN",
+      "isExternal": false,
+      "descriptionSections": [
+        {
+          "key": "resources",
+          "content": "<ul>\n  <li><a href=\"https://docs.oracle.com/javase/specs/jls/se8/html/jls-5.html#jls-5.1.8\">Java Language Specification §5.1.8 Unboxing Conversion</a></li>\n</ul>"
+        },
+        {
+          "key": "root_cause",
+          "content": "<p>When boxed type <code>java.lang.Boolean</code> is used as an expression to determine the control flow (as described in <a\nhref=\"https://docs.oracle.com/javase/specs/jls/se8/html/jls-4.html#jls-4.2.5\">Java Language Specification §4.2.5 The <code>boolean</code> Type and\nboolean Values</a>) it will throw a <code>NullPointerException</code> if the value is <code>null</code> (as defined in <a\nhref=\"https://docs.oracle.com/javase/specs/jls/se8/html/jls-5.html#jls-5.1.8\">Java Language Specification §5.1.8 Unboxing Conversion</a>).</p>\n<p>It is safer to avoid such conversion altogether and handle the <code>null</code> value explicitly.</p>\n<p>Note, however, that no issues will be raised for Booleans that have already been null-checked or are marked <code>@NonNull/@NotNull</code>.</p>\n<h3>Noncompliant code example</h3>\n<pre>\nBoolean b = getBoolean();\nif (b) {  // Noncompliant, it will throw NPE when b == null\n  foo();\n} else {\n  bar();\n}\n</pre>\n<h3>Compliant solution</h3>\n<pre>\nBoolean b = getBoolean();\nif (Boolean.TRUE.equals(b)) {\n  foo();\n} else {\n  bar();  // will be invoked for both b == false and b == null\n}\n\n\nBoolean b = getBoolean();\nif(b != null){\n  String test = b ? \"test\" : \"\";\n}\n</pre>\n<h3>Exceptions</h3>\n<p>The issue is not raised if the expression is annotated <code>@NonNull</code> / <code>@NotNull</code>. This is useful if a boxed type is an\ninstantiation of a generic type parameter and cannot be avoided.</p>\n<pre>\nList&lt;Boolean&gt; list = new ArrayList&lt;&gt;();\nlist.add(true);\nlist.add(false);\nlist.forEach((@NonNull Boolean value) -&gt; {\n  // Compliant\n  if(value) {\n    System.out.println(\"yes\");\n  }\n});\n\n@NonNull Boolean someMethod() { /* ... */ }\n\n// Compliant\nif(someMethod()) { /* ... */ }\n\n@NonNull Boolean boxedNonNull = Boolean.TRUE;\n\n// Compliant\nif(boxedNonNull) { /* ... */ }\n</pre>"
+        }
+      ],
+      "educationPrinciples": [],
+      "updatedAt": "2026-04-25T15:07:27+0000",
+      "cleanCodeAttribute": "COMPLETE",
+      "cleanCodeAttributeCategory": "INTENTIONAL",
+      "impacts": [
+        {
+          "softwareQuality": "MAINTAINABILITY",
+          "severity": "LOW"
+        }
+      ]
+    },
+    "actives": []
+  },
+  "java:S6905": {
+    "rule": {
+      "key": "java:S6905",
+      "repo": "java",
+      "name": "SQL queries should retrieve only necessary fields",
+      "createdAt": "2026-04-25T15:07:27+0000",
+      "severity": "MAJOR",
+      "status": "READY",
+      "isTemplate": false,
+      "tags": [],
+      "sysTags": [
+        "sustainability",
+        "sql"
+      ],
+      "lang": "java",
+      "langName": "Java",
+      "params": [],
+      "defaultDebtRemFnType": "CONSTANT_ISSUE",
+      "debtRemFnType": "CONSTANT_ISSUE",
+      "type": "CODE_SMELL",
+      "defaultRemFnType": "CONSTANT_ISSUE",
+      "defaultRemFnBaseEffort": "5min",
+      "remFnType": "CONSTANT_ISSUE",
+      "remFnBaseEffort": "5min",
+      "remFnOverloaded": false,
+      "scope": "MAIN",
+      "isExternal": false,
+      "descriptionSections": [
+        {
+          "key": "introduction",
+          "content": "<p>The <em>Java Database Connectivity (JDBC) API</em> provides the <code>java.sql.Statement</code> interface that allows to represent an SQL statement\nand to execute queries with the database.</p>"
+        },
+        {
+          "key": "how_to_fix",
+          "content": "<p>Make the <code>SELECT *</code> an explicit selection of the required fields.</p>\n\n<h4>Noncompliant code example</h4>\n<pre data-diff-id=\"1\" data-diff-type=\"noncompliant\">\npublic class OrderRepository {\n\n    public record OrderSummary(String name, String orderId, BigDecimal price) { }\n\n    public List&lt;OrderSummary&gt; queryOrderSummaries(Connection conn) {\n            String sql = \"SELECT * \" +                                                         // Noncompliant\n                          \"FROM Orders JOIN Customers ON Orders.customerId = Customers.id \";\n\n            Statement stmt = conn.createStatement();\n            ResultSet rs = stmt.executeQuery(sql);\n\n            return convertResultToOrderSummaryList(rs);\n    }\n}\n</pre>\n<h4>Compliant solution</h4>\n<pre data-diff-id=\"1\" data-diff-type=\"compliant\">\npublic class OrderRepository {\n\n    public record OrderSummary(String name, String orderId, BigDecimal price) { }\n\n    public List&lt;OrderSummary&gt; queryOrderSummaries(Connection conn) {\n            String sql = \"SELECT Customers.name, Orders.id, Orders.price \" +                   // Compliant\n                          \"FROM Orders JOIN Customers ON Orders.customerId = Customers.id \";\n\n            Statement stmt = conn.createStatement();\n            ResultSet rs = stmt.executeQuery(sql);\n\n            return convertResultToOrderSummaryList(rs);\n    }\n}\n</pre>"
+        },
+        {
+          "key": "resources",
+          "content": "<h3>Documentation</h3>\n<ul>\n  <li><a href=\"https://docs.oracle.com/en/java/javase/21/docs/api/java.sql/java/sql/Statement.html\">Oracle SDK - Statement</a></li>\n  <li><a href=\"https://www.oreilly.com/library/view/high-performance-mysql/9780596101718/ch04.html\">O’Reilly - High Performance MySQL - Query\n  Performance Optimization</a></li>\n</ul>\n<h3>Articles &amp; blog posts</h3>\n<ul>\n  <li><a href=\"https://www.geeksforgeeks.org/difference-between-execute-query-and-update-methods-in-java/\">GeeksforGeeks - Difference Between\n  Execute(), query() and Update() Methods in Java</a></li>\n</ul>"
+        },
+        {
+          "key": "root_cause",
+          "content": "<p>A common reason for a poorly performant query is because it’s processing more data than required.</p>\n<p>Querying unnecessary data demands extra work on the server, adds network overhead, and consumes memory and CPU resources on the application server.\nThe effect is amplified when the query includes multiple <em>joins</em>.</p>\n<p>The rule flags an issue when a <code>SELECT *</code> query is provided as an argument to methods in <code>java.sql.Connection</code> and\n<code>java.sql.Statement</code>.</p>\n<h3>What is the potential impact?</h3>\n<ul>\n  <li><em>Performance</em>: the unnecessary extra data being processed brings overhead.</li>\n  <li><em>Sustainability</em>: the extra resources used have a negative impact on the environment.</li>\n</ul>"
+        }
+      ],
+      "educationPrinciples": [],
+      "updatedAt": "2026-04-25T15:07:27+0000",
+      "cleanCodeAttribute": "EFFICIENT",
+      "cleanCodeAttributeCategory": "INTENTIONAL",
+      "impacts": [
+        {
+          "softwareQuality": "MAINTAINABILITY",
+          "severity": "MEDIUM"
+        }
+      ]
+    },
+    "actives": []
+  }
+}

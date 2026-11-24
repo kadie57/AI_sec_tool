@@ -1,0 +1,194 @@
+{
+  "scope": "Eight predetermined Juliet CWE-89 cases from four source/API families, with switch-flow 15 and cross-file flow 51 for each. All source files differ from the earlier pilot.",
+  "suite": "NIST SARD 111, Juliet Java 1.3",
+  "official_source": "https://samate.nist.gov/SARD/test-suites/111",
+  "archive_sha256": "d985f4177c2bcd7b03455a05c1c8f2e755f55c9eb250accd052f05f877347e60",
+  "previous_pilot_excluded": "runs/juliet-cwe89-pilot-20261124/plan.json",
+  "planned_cases": [
+    {
+      "family": "getQueryString_Servlet_executeQuery",
+      "flow_variant": "15",
+      "case": "CWE89_SQL_Injection__getQueryString_Servlet_executeQuery_15",
+      "sources": [
+        {
+          "archive_path": "Java/src/testcases/CWE89_SQL_Injection/s03/CWE89_SQL_Injection__getQueryString_Servlet_executeQuery_15.java",
+          "project_path": "Clean_Code/testcases/CWE89_SQL_Injection/s03/CWE89_SQL_Injection__getQueryString_Servlet_executeQuery_15.java",
+          "sha256": "cae4421ec5981ad3e86a69f980aaf54e9ecbd55fb03a364e5964aef3f9de58ce",
+          "manifest_flaw_lines": [
+            40,
+            71
+          ]
+        }
+      ]
+    },
+    {
+      "family": "getQueryString_Servlet_executeQuery",
+      "flow_variant": "51",
+      "case": "CWE89_SQL_Injection__getQueryString_Servlet_executeQuery_51",
+      "sources": [
+        {
+          "archive_path": "Java/src/testcases/CWE89_SQL_Injection/s03/CWE89_SQL_Injection__getQueryString_Servlet_executeQuery_51a.java",
+          "project_path": "Clean_Code/testcases/CWE89_SQL_Injection/s03/CWE89_SQL_Injection__getQueryString_Servlet_executeQuery_51a.java",
+          "sha256": "152c0d1b5fef4f3bd876e0fb39f922d3d5f90d497d207531f76169ab1fe7e5e0",
+          "manifest_flaw_lines": [
+            34
+          ]
+        },
+        {
+          "archive_path": "Java/src/testcases/CWE89_SQL_Injection/s03/CWE89_SQL_Injection__getQueryString_Servlet_executeQuery_51b.java",
+          "project_path": "Clean_Code/testcases/CWE89_SQL_Injection/s03/CWE89_SQL_Injection__getQueryString_Servlet_executeQuery_51b.java",
+          "sha256": "72bdddb4fb7501506ddaae02db60283e522e58ea6cab34fd018537999d9dcd99",
+          "manifest_flaw_lines": []
+        }
+      ]
+    },
+    {
+      "family": "PropertiesFile_executeQuery",
+      "flow_variant": "15",
+      "case": "CWE89_SQL_Injection__PropertiesFile_executeQuery_15",
+      "sources": [
+        {
+          "archive_path": "Java/src/testcases/CWE89_SQL_Injection/s03/CWE89_SQL_Injection__PropertiesFile_executeQuery_15.java",
+          "project_path": "Clean_Code/testcases/CWE89_SQL_Injection/s03/CWE89_SQL_Injection__PropertiesFile_executeQuery_15.java",
+          "sha256": "aac814018f51d39db1fa6011c1c3cad42a9e73192188488a19a1a6a1139af165",
+          "manifest_flaw_lines": [
+            52,
+            93
+          ]
+        }
+      ]
+    },
+    {
+      "family": "PropertiesFile_executeQuery",
+      "flow_variant": "51",
+      "case": "CWE89_SQL_Injection__PropertiesFile_executeQuery_51",
+      "sources": [
+        {
+          "archive_path": "Java/src/testcases/CWE89_SQL_Injection/s03/CWE89_SQL_Injection__PropertiesFile_executeQuery_51a.java",
+          "project_path": "Clean_Code/testcases/CWE89_SQL_Injection/s03/CWE89_SQL_Injection__PropertiesFile_executeQuery_51a.java",
+          "sha256": "906a2c5fe6e0e1d24d5a40e380fc352dd128f3ba62b49d37e22d7c4e3041ac58",
+          "manifest_flaw_lines": [
+            49
+          ]
+        },
+        {
+          "archive_path": "Java/src/testcases/CWE89_SQL_Injection/s03/CWE89_SQL_Injection__PropertiesFile_executeQuery_51b.java",
+          "project_path": "Clean_Code/testcases/CWE89_SQL_Injection/s03/CWE89_SQL_Injection__PropertiesFile_executeQuery_51b.java",
+          "sha256": "3946b5526e0e7a7ffc1a062fe54e3e2d6f8bfb4a76679208f6026f784795a5c2",
+          "manifest_flaw_lines": []
+        }
+      ]
+    },
+    {
+      "family": "File_prepareStatement",
+      "flow_variant": "15",
+      "case": "CWE89_SQL_Injection__File_prepareStatement_15",
+      "sources": [
+        {
+          "archive_path": "Java/src/testcases/CWE89_SQL_Injection/s02/CWE89_SQL_Injection__File_prepareStatement_15.java",
+          "project_path": "Clean_Code/testcases/CWE89_SQL_Injection/s02/CWE89_SQL_Injection__File_prepareStatement_15.java",
+          "sha256": "daa1e503440774b0e300e91331218e8fd1a5e34d663b1f6456ff3846007adab3",
+          "manifest_flaw_lines": [
+            58,
+            120
+          ]
+        }
+      ]
+    },
+    {
+      "family": "File_prepareStatement",
+      "flow_variant": "51",
+      "case": "CWE89_SQL_Injection__File_prepareStatement_51",
+      "sources": [
+        {
+          "archive_path": "Java/src/testcases/CWE89_SQL_Injection/s02/CWE89_SQL_Injection__File_prepareStatement_51a.java",
+          "project_path": "Clean_Code/testcases/CWE89_SQL_Injection/s02/CWE89_SQL_Injection__File_prepareStatement_51a.java",
+          "sha256": "e332baf77f5636eee9393b58fe32c3836157d3df351addc57e324be8f2a73fcf",
+          "manifest_flaw_lines": [
+            54
+          ]
+        },
+        {
+          "archive_path": "Java/src/testcases/CWE89_SQL_Injection/s02/CWE89_SQL_Injection__File_prepareStatement_51b.java",
+          "project_path": "Clean_Code/testcases/CWE89_SQL_Injection/s02/CWE89_SQL_Injection__File_prepareStatement_51b.java",
+          "sha256": "372048bb6b52d128196a141930d92112940f8596b47ab48019fc22cd54c2cb75",
+          "manifest_flaw_lines": []
+        }
+      ]
+    },
+    {
+      "family": "console_readLine_prepareStatement",
+      "flow_variant": "15",
+      "case": "CWE89_SQL_Injection__console_readLine_prepareStatement_15",
+      "sources": [
+        {
+          "archive_path": "Java/src/testcases/CWE89_SQL_Injection/s01/CWE89_SQL_Injection__console_readLine_prepareStatement_15.java",
+          "project_path": "Clean_Code/testcases/CWE89_SQL_Injection/s01/CWE89_SQL_Injection__console_readLine_prepareStatement_15.java",
+          "sha256": "8cdd2679788c4e97cfadfaca513fc9368f590c5f3e3227ecf39d6d6126b228ff",
+          "manifest_flaw_lines": [
+            51,
+            101
+          ]
+        }
+      ]
+    },
+    {
+      "family": "console_readLine_prepareStatement",
+      "flow_variant": "51",
+      "case": "CWE89_SQL_Injection__console_readLine_prepareStatement_51",
+      "sources": [
+        {
+          "archive_path": "Java/src/testcases/CWE89_SQL_Injection/s01/CWE89_SQL_Injection__console_readLine_prepareStatement_51a.java",
+          "project_path": "Clean_Code/testcases/CWE89_SQL_Injection/s01/CWE89_SQL_Injection__console_readLine_prepareStatement_51a.java",
+          "sha256": "aefc3511b2cf81e904e01b07ed2404744cfaea2a1a0c8e1189c5bd495e52fec4",
+          "manifest_flaw_lines": [
+            48
+          ]
+        },
+        {
+          "archive_path": "Java/src/testcases/CWE89_SQL_Injection/s01/CWE89_SQL_Injection__console_readLine_prepareStatement_51b.java",
+          "project_path": "Clean_Code/testcases/CWE89_SQL_Injection/s01/CWE89_SQL_Injection__console_readLine_prepareStatement_51b.java",
+          "sha256": "3aa83fb3cfea509c26017ca2c9be491e65164c11c3fd72b6b789c6cab7010fbd",
+          "manifest_flaw_lines": []
+        }
+      ]
+    }
+  ],
+  "source_files": 12,
+  "program_sha256": {
+    "prepare_sql_evidence.py": "35fb7d76dec1c4080eeed755741110a4613d1ac1710caa5c9fc2cc35766be288",
+    "sql_llm_experiment.py": "a69e4d0f5c37c1d22e27438276476f10e80ea774a91b56a728e1f15d182f229e",
+    "collect_sonar_sql.py": "4cbc41dbb546eb2f19b7d5558ba36f424d4c3804b8e576666c0d7e72ed5ce519",
+    "sql_pipeline/__init__.py": "4d093994f156ff133e31b3cb6dc4013471b87b0dac0d3fed5d00dc646cc0230a",
+    "sql_pipeline/cwe_mapper.py": "a7a15bbc4a2d1eb84f4ea23a341ce85d8d1b23bece18d975d1da09c1d163f28c",
+    "sql_pipeline/evidence/SqlEndpointProbe.java": "5d89319f9ee8bcec063a61681eec48f19b1e5615d443a2d2ccc7ce58fbef16fb",
+    "sql_pipeline/evidence/SqlValueEvidence.java": "99ffb3df153722795157ca22dea82ffc8194d00f28ee102f35b500940c6b0c17",
+    "sql_pipeline/evidence/__init__.py": "f1584847ef683228127f5c18c7944c4110b5dd5eb638c08cf70de7ec1292d9cc",
+    "sql_pipeline/evidence/joern_sql.py": "85990ed7e0089686da5e9f529d4c6cf0bbefc5f889af70a83587d4bf3df07b50",
+    "sql_pipeline/evidence/source_text.py": "f23da2d5e0b21d0d35ca73e59c74fe2059377517e1c3f7746514a92495c65d8d",
+    "sql_pipeline/evidence/sql_context_bundle_v1.py": "b7ed50ce78b2a3cabf25883423ad1835ca97b325f4fa50874c25f7b16c8f8591",
+    "sql_pipeline/evidence/sql_endpoint_specifications.py": "e2205dd9afa8d725093c7c6aea825590caa2d94391a5c0bae003abcc09fb4f6b",
+    "sql_pipeline/evidence/sql_evidence_selection.py": "90bdfd622d45a837022b894a7e937ead23c23f9989cb81f1196039e52dc474a8",
+    "sql_pipeline/evidence/sql_path_presentation.py": "2ae3d08da1ff48b99c9ac2babefd6c57bea4a561232e53add34c6648d064f094",
+    "sql_pipeline/evidence/sql_source_paths.py": "6521e9c07ef787d09c9dbf0b7900916f2be62c04e3494bf761ffc6bff18198d7",
+    "sql_pipeline/run_io.py": "691d869264fb6c2c688f45253df661d76af97c6dd43e9c44289e484ae0228233"
+  },
+  "inference_configuration": {
+    "model": "qwen2.5-coder:14b-instruct-q4_K_M",
+    "prompt_sha256": "26e84205a559fb429adba9c87a3a28fdf6a4c6135f4d301f784acee12637a442",
+    "schema_sha256": "2fb9849c6f59240d72ac291beed80f95a0385c5fcfa56376fa905a3efdecc725",
+    "options": {
+      "temperature": 0,
+      "seed": 42,
+      "num_ctx": 8192,
+      "num_predict": 1024
+    },
+    "request_version": 3,
+    "validation_version": 2,
+    "prompt_profile": "iris-contextual",
+    "warning_citation_binding": "sonarqube_alert_start_line"
+  },
+  "model_digest": "9ec8897f747e246e970bc5cfdda85d22f1123dc2e3d34978a010a75968716849",
+  "sonar_profile_name": "KhoaLuan-Java-SQLi",
+  "reference_fragments": "reference-fragments.xml"
+}

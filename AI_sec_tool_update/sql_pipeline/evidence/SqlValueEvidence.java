@@ -3,6 +3,7 @@ import com.sun.source.util.TreePath;
 import com.sun.source.util.TreeScanner;
 import java.util.*;
 import javax.lang.model.element.Element;
+import javax.lang.model.element.ElementKind;
 import javax.lang.model.element.VariableElement;
 import javax.lang.model.type.TypeKind;
 
@@ -403,6 +404,13 @@ class SqlValueEvidence {
         }
         Tree rhs = tree instanceof ExpressionStatementTree statement ? statement.getExpression()
             : tree instanceof VariableTree local ? local.getInitializer() : tree instanceof ReturnTree ret ? ret.getExpression() : null;
+        if (rhs instanceof AssignmentTree assignment && assignment.getVariable() instanceof IdentifierTree
+                && assignment.getExpression() == sink.tree()) {
+            var target = probe.trees.getElement(child(child(path, assignment), assignment.getVariable()));
+            if (target != null && target.getKind() == ElementKind.LOCAL_VARIABLE) {
+                rhs = assignment.getExpression();
+            }
+        }
         if (rhs == sink.tree() && !hasWrites(rhs)) return expression(child(sink.path(), sink.tree().getArguments().get(0)), env, 0).with(guards);
         return unknownAt(path, "scope_before_call_not_modeled");
     }

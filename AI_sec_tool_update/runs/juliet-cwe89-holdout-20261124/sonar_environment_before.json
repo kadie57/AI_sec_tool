@@ -1,0 +1,6623 @@
+{
+  "system": {
+    "id": "4F833BF3-AZ3FLkwzsNhSbbNHKBtO",
+    "version": "26.4.0.121862",
+    "status": "UP"
+  },
+  "source_project": "thesis_juliet_cwe89_pilot_v1",
+  "java_profile": {
+    "key": "603e4c2c-40d0-45f4-83e3-98aacef2416b",
+    "name": "KhoaLuan-Java-SQLi",
+    "language": "java",
+    "rulesUpdatedAt": "2026-10-09T15:34:33+0000"
+  },
+  "active_rules": {
+    "rules": [
+      {
+        "key": "findsecbugs:COMMAND_INJECTION",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "CRITICAL",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "findsecbugs:PATH_TRAVERSAL_IN",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "MAJOR",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "findsecbugs:SQL_INJECTION_JDBC",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "CRITICAL",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S100",
+        "default_params": [
+          {
+            "key": "format",
+            "htmlDesc": "Regular expression used to check the method names against.",
+            "defaultValue": "^[a-z][a-zA-Z0-9]*$",
+            "type": "STRING"
+          }
+        ],
+        "activations": [
+          {
+            "severity": "MINOR",
+            "inherit": "NONE",
+            "params": [
+              {
+                "key": "format",
+                "value": "^[a-z][a-zA-Z0-9]*$"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "key": "java:S101",
+        "default_params": [
+          {
+            "key": "format",
+            "htmlDesc": "Regular expression used to check the class names against.",
+            "defaultValue": "^[A-Z][a-zA-Z0-9]*$",
+            "type": "STRING"
+          }
+        ],
+        "activations": [
+          {
+            "severity": "MINOR",
+            "inherit": "NONE",
+            "params": [
+              {
+                "key": "format",
+                "value": "^[A-Z][a-zA-Z0-9]*$"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "key": "java:S106",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "MAJOR",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S1065",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "MAJOR",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S1066",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "MAJOR",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S1068",
+        "default_params": [
+          {
+            "key": "ignoreAnnotations",
+            "htmlDesc": "Ignore annotations with next names (fully qualified class names separated with &quot;,&quot;).",
+            "type": "STRING"
+          }
+        ],
+        "activations": [
+          {
+            "severity": "MAJOR",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S107",
+        "default_params": [
+          {
+            "key": "constructorMax",
+            "htmlDesc": "Maximum authorized number of parameters for a constructor",
+            "defaultValue": "7",
+            "type": "INTEGER"
+          },
+          {
+            "key": "max",
+            "htmlDesc": "Maximum authorized number of parameters",
+            "defaultValue": "7",
+            "type": "INTEGER"
+          }
+        ],
+        "activations": [
+          {
+            "severity": "MAJOR",
+            "inherit": "NONE",
+            "params": [
+              {
+                "key": "constructorMax",
+                "value": "7"
+              },
+              {
+                "key": "max",
+                "value": "7"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "key": "java:S1075",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "MINOR",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S108",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "MAJOR",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S110",
+        "default_params": [
+          {
+            "key": "filteredClasses",
+            "htmlDesc": "Classes to be filtered out of the count of inheritance. Ex : java.fwk.AbstractFwkClass, java.fwkPackage.*",
+            "type": "STRING"
+          },
+          {
+            "key": "max",
+            "htmlDesc": "Maximum depth of the inheritance tree. (Number)",
+            "defaultValue": "5",
+            "type": "INTEGER"
+          }
+        ],
+        "activations": [
+          {
+            "severity": "MAJOR",
+            "inherit": "NONE",
+            "params": [
+              {
+                "key": "max",
+                "value": "5"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "key": "java:S1104",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "MINOR",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S1110",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "MAJOR",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S1111",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "MAJOR",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S1113",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "CRITICAL",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S1116",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "MINOR",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S1117",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "MAJOR",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S1118",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "MAJOR",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S1119",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "MAJOR",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S112",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "MAJOR",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S1121",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "MAJOR",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S1123",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "MAJOR",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S1124",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "MINOR",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S1125",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "MINOR",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S1126",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "MINOR",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S1128",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "MINOR",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S1130",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "MINOR",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S1133",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "INFO",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S1134",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "MAJOR",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S1135",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "INFO",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S114",
+        "default_params": [
+          {
+            "key": "format",
+            "htmlDesc": "Regular expression used to check the interface names against.",
+            "defaultValue": "^[A-Z][a-zA-Z0-9]*$",
+            "type": "STRING"
+          }
+        ],
+        "activations": [
+          {
+            "severity": "MINOR",
+            "inherit": "NONE",
+            "params": [
+              {
+                "key": "format",
+                "value": "^[A-Z][a-zA-Z0-9]*$"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "key": "java:S1141",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "MAJOR",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S1143",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "CRITICAL",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S1144",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "MAJOR",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S1149",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "MAJOR",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S115",
+        "default_params": [
+          {
+            "key": "format",
+            "htmlDesc": "Regular expression used to check the constant names against.",
+            "defaultValue": "^[A-Z][A-Z0-9]*(_[A-Z0-9]+)*$",
+            "type": "STRING"
+          }
+        ],
+        "activations": [
+          {
+            "severity": "CRITICAL",
+            "inherit": "NONE",
+            "params": [
+              {
+                "key": "format",
+                "value": "^[A-Z][A-Z0-9]*(_[A-Z0-9]+)*$"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "key": "java:S1150",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "MAJOR",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S1153",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "MINOR",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S1155",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "MINOR",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S1157",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "MINOR",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S1158",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "MINOR",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S116",
+        "default_params": [
+          {
+            "key": "format",
+            "htmlDesc": "Regular expression used to check the field names against.",
+            "defaultValue": "^[a-z][a-zA-Z0-9]*$",
+            "type": "STRING"
+          }
+        ],
+        "activations": [
+          {
+            "severity": "MINOR",
+            "inherit": "NONE",
+            "params": [
+              {
+                "key": "format",
+                "value": "^[a-z][a-zA-Z0-9]*$"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "key": "java:S1161",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "MAJOR",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S1163",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "CRITICAL",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S1165",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "MINOR",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S1168",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "MAJOR",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S117",
+        "default_params": [
+          {
+            "key": "format",
+            "htmlDesc": "Regular expression used to check the names against.",
+            "defaultValue": "^[a-z][a-zA-Z0-9]*$",
+            "type": "STRING"
+          }
+        ],
+        "activations": [
+          {
+            "severity": "MINOR",
+            "inherit": "NONE",
+            "params": [
+              {
+                "key": "format",
+                "value": "^[a-z][a-zA-Z0-9]*$"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "key": "java:S1170",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "MINOR",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S1171",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "MAJOR",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S1172",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "MAJOR",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S1174",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "CRITICAL",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S1175",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "CRITICAL",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S1181",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "MAJOR",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S1182",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "MINOR",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S1185",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "MINOR",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S1186",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "CRITICAL",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S119",
+        "default_params": [
+          {
+            "key": "format",
+            "htmlDesc": "Regular expression used to check the type parameter names against.",
+            "defaultValue": "^[A-Z][0-9]?$",
+            "type": "STRING"
+          }
+        ],
+        "activations": [
+          {
+            "severity": "MINOR",
+            "inherit": "NONE",
+            "params": [
+              {
+                "key": "format",
+                "value": "^[A-Z][0-9]?$"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "key": "java:S1190",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "BLOCKER",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S1191",
+        "default_params": [
+          {
+            "key": "Exclude",
+            "htmlDesc": "Comma separated list of Sun packages to be ignored by this rule. Example: sun.misc,sun.security.validator",
+            "type": "STRING"
+          }
+        ],
+        "activations": [
+          {
+            "severity": "MAJOR",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S1192",
+        "default_params": [
+          {
+            "key": "threshold",
+            "htmlDesc": "Number of times a literal must be duplicated to trigger an issue",
+            "defaultValue": "3",
+            "type": "INTEGER"
+          }
+        ],
+        "activations": [
+          {
+            "severity": "CRITICAL",
+            "inherit": "NONE",
+            "params": [
+              {
+                "key": "threshold",
+                "value": "3"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "key": "java:S1193",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "MAJOR",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S1195",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "MINOR",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S1197",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "MINOR",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S1199",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "MINOR",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S120",
+        "default_params": [
+          {
+            "key": "format",
+            "htmlDesc": "Regular expression used to check the package names against.",
+            "defaultValue": "^[a-z_]+(\\.[a-z_][a-z0-9_]*)*$",
+            "type": "STRING"
+          }
+        ],
+        "activations": [
+          {
+            "severity": "MINOR",
+            "inherit": "NONE",
+            "params": [
+              {
+                "key": "format",
+                "value": "^[a-z_]+(\\.[a-z_][a-z0-9_]*)*$"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "key": "java:S1201",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "MAJOR",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S1206",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "MINOR",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S1210",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "MINOR",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S1214",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "CRITICAL",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S1215",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "CRITICAL",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S1217",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "MAJOR",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S1219",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "BLOCKER",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S1220",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "MINOR",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S1221",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "MAJOR",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S1223",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "MAJOR",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S1226",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "MINOR",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S125",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "MAJOR",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S1264",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "MINOR",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S127",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "MAJOR",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S128",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "BLOCKER",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S1301",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "MINOR",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S131",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "CRITICAL",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S1313",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "MINOR",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S1317",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "MAJOR",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S1319",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "MINOR",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S135",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "MINOR",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S1444",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "MINOR",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S1450",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "MINOR",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S1452",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "CRITICAL",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S1479",
+        "default_params": [
+          {
+            "key": "maximum",
+            "htmlDesc": "Maximum number of case",
+            "defaultValue": "30",
+            "type": "INTEGER"
+          }
+        ],
+        "activations": [
+          {
+            "severity": "MAJOR",
+            "inherit": "NONE",
+            "params": [
+              {
+                "key": "maximum",
+                "value": "30"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "key": "java:S1481",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "MINOR",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S1488",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "MINOR",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S1596",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "MINOR",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S1598",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "CRITICAL",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S1602",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "MINOR",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S1604",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "MAJOR",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S1607",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "MAJOR",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S1611",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "MINOR",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S1612",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "MINOR",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S1640",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "MINOR",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S1643",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "MINOR",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S1656",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "MAJOR",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S1659",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "MINOR",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S1700",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "MAJOR",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S1710",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "MINOR",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S1751",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "MAJOR",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S1764",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "MAJOR",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S1844",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "MAJOR",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S1845",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "BLOCKER",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S1849",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "MAJOR",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S1854",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "MAJOR",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S1858",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "MINOR",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S1860",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "MAJOR",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S1862",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "MAJOR",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S1871",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "MAJOR",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S1872",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "MAJOR",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S1874",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "MINOR",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S1905",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "MINOR",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S1940",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "MINOR",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S1948",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "CRITICAL",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S1989",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "MINOR",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S1994",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "CRITICAL",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S2053",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "CRITICAL",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S2055",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "MINOR",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S2060",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "MAJOR",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S2061",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "MAJOR",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S2062",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "CRITICAL",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S2065",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "MINOR",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S2066",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "MINOR",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S2068",
+        "default_params": [
+          {
+            "key": "credentialWords",
+            "htmlDesc": "Comma separated list of words identifying potential passwords",
+            "defaultValue": "password,passwd,pwd,passphrase,java.naming.security.credentials",
+            "type": "STRING"
+          }
+        ],
+        "activations": [
+          {
+            "severity": "MAJOR",
+            "inherit": "NONE",
+            "params": [
+              {
+                "key": "credentialWords",
+                "value": "password,passwd,pwd,passphrase,java.naming.security.credentials"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "key": "java:S2077",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "MAJOR",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S2092",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "MINOR",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S2093",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "CRITICAL",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S2094",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "MINOR",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S2095",
+        "default_params": [
+          {
+            "key": "excludedResourceTypes",
+            "htmlDesc": "Comma separated list of the excluded resource types, using fully qualified names (example: &quot;org.apache.hadoop.fs.FileSystem&quot;)",
+            "type": "STRING"
+          }
+        ],
+        "activations": [
+          {
+            "severity": "BLOCKER",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S2097",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "MINOR",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S2109",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "MAJOR",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S2110",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "MAJOR",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S2111",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "MAJOR",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S2112",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "MAJOR",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S2114",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "MAJOR",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S2115",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "BLOCKER",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S2116",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "MAJOR",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S2118",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "MAJOR",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S2119",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "CRITICAL",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S2121",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "MAJOR",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S2122",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "CRITICAL",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S2123",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "MAJOR",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S2127",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "MAJOR",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S2129",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "MAJOR",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S2130",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "MINOR",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S2133",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "MAJOR",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S2134",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "MAJOR",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S2139",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "MAJOR",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S2140",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "MINOR",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S2142",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "MAJOR",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S2147",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "MINOR",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S2151",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "CRITICAL",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S2153",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "MINOR",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S2154",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "MAJOR",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S2157",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "CRITICAL",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S2159",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "MAJOR",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S2160",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "MINOR",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S2166",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "MAJOR",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S2167",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "MINOR",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S2168",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "BLOCKER",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S2175",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "MAJOR",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S2176",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "CRITICAL",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S2177",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "MAJOR",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S2178",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "BLOCKER",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S2183",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "MINOR",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S2184",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "MINOR",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S2185",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "MAJOR",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S2186",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "CRITICAL",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S2187",
+        "default_params": [
+          {
+            "key": "TestClassNamePattern",
+            "htmlDesc": "Test class name pattern (regular expression)",
+            "defaultValue": ".*(Test|Tests|TestCase)",
+            "type": "STRING"
+          }
+        ],
+        "activations": [
+          {
+            "severity": "BLOCKER",
+            "inherit": "NONE",
+            "params": [
+              {
+                "key": "TestClassNamePattern",
+                "value": ".*(Test|Tests|TestCase)"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "key": "java:S2188",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "BLOCKER",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S2189",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "BLOCKER",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S2200",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "MINOR",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S2201",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "MAJOR",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S2204",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "MAJOR",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S2209",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "MAJOR",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S2222",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "CRITICAL",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S2225",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "MAJOR",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S2226",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "MAJOR",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S2229",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "BLOCKER",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S2230",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "MAJOR",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S2232",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "MAJOR",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S2234",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "MAJOR",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S2235",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "CRITICAL",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S2236",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "BLOCKER",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S2245",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "CRITICAL",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S2251",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "MAJOR",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S2252",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "MAJOR",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S2254",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "CRITICAL",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S2257",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "CRITICAL",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S2259",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "MAJOR",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S2272",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "MINOR",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S2273",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "MAJOR",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S2274",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "CRITICAL",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S2275",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "BLOCKER",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S2276",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "BLOCKER",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S2293",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "MINOR",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S2326",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "MAJOR",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S2386",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "MINOR",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S2387",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "BLOCKER",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S2388",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "MAJOR",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S2390",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "CRITICAL",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S2437",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "BLOCKER",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S2438",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "MAJOR",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S2440",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "MAJOR",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S2441",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "MAJOR",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S2442",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "MAJOR",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S2445",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "MAJOR",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S2446",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "MAJOR",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S2447",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "CRITICAL",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S2479",
+        "default_params": [
+          {
+            "key": "allowTabsInTextBlocks",
+            "htmlDesc": "Allow tabs in text blocks",
+            "defaultValue": "false",
+            "type": "BOOLEAN"
+          }
+        ],
+        "activations": [
+          {
+            "severity": "CRITICAL",
+            "inherit": "NONE",
+            "params": [
+              {
+                "key": "allowTabsInTextBlocks",
+                "value": "false"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "key": "java:S2583",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "MAJOR",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S2589",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "MAJOR",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S2612",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "MAJOR",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S2629",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "MAJOR",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S2637",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "MINOR",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S2638",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "CRITICAL",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S2639",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "MAJOR",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S2674",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "MINOR",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S2675",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "MAJOR",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S2676",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "MINOR",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S2677",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "MAJOR",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S2681",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "MAJOR",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S2689",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "BLOCKER",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S2692",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "CRITICAL",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S2695",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "BLOCKER",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S2696",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "CRITICAL",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S2699",
+        "default_params": [
+          {
+            "key": "customAssertionMethods",
+            "htmlDesc": "Comma-separated list of fully qualified method symbols that should be considered as assertion methods. The wildcard character can be used at the end of the method name.",
+            "type": "STRING"
+          }
+        ],
+        "activations": [
+          {
+            "severity": "BLOCKER",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S2718",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "MAJOR",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S2737",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "MINOR",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S2755",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "BLOCKER",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S2757",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "MAJOR",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S2761",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "MAJOR",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S2786",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "MINOR",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S2789",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "MAJOR",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S2864",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "MAJOR",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S2885",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "MAJOR",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S2886",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "MAJOR",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S2924",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "MINOR",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S2925",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "MAJOR",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S2970",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "BLOCKER",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S2975",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "BLOCKER",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S3008",
+        "default_params": [
+          {
+            "key": "format",
+            "htmlDesc": "Regular expression used to check the field names against.",
+            "defaultValue": "^[a-z][a-zA-Z0-9]*$",
+            "type": "STRING"
+          }
+        ],
+        "activations": [
+          {
+            "severity": "MINOR",
+            "inherit": "NONE",
+            "params": [
+              {
+                "key": "format",
+                "value": "^[a-z][a-zA-Z0-9]*$"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "key": "java:S3010",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "MAJOR",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S3011",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "MAJOR",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S3012",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "MINOR",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S3014",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "BLOCKER",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S3020",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "MINOR",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S3024",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "MINOR",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S3033",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "MINOR",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S3034",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "MAJOR",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S3038",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "MINOR",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S3039",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "MAJOR",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S3042",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "MAJOR",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S3046",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "BLOCKER",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S3051",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "MINOR",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S3063",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "MAJOR",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S3064",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "MAJOR",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S3065",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "MAJOR",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S3066",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "MINOR",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S3067",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "MAJOR",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S3077",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "MINOR",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S3078",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "MAJOR",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S3252",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "CRITICAL",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S3305",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "CRITICAL",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S3329",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "CRITICAL",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S3330",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "MINOR",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S3346",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "MAJOR",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S3358",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "MAJOR",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S3398",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "MINOR",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S3400",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "MINOR",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S3415",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "MAJOR",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S3416",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "MINOR",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S3436",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "MAJOR",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S3457",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "MAJOR",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S3516",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "BLOCKER",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S3518",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "CRITICAL",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S3551",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "MAJOR",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S3577",
+        "default_params": [
+          {
+            "key": "format",
+            "htmlDesc": "Regular expression against which test class names are checked.",
+            "defaultValue": "^((Test|IT)[a-zA-Z0-9_]+|[A-Z][a-zA-Z0-9_]*(Test|Tests|TestCase|IT|ITCase))$",
+            "type": "STRING"
+          }
+        ],
+        "activations": [
+          {
+            "severity": "MINOR",
+            "inherit": "NONE",
+            "params": [
+              {
+                "key": "format",
+                "value": "^((Test|IT)[a-zA-Z0-9_]+|[A-Z][a-zA-Z0-9_]*(Test|Tests|TestCase|IT|ITCase))$"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "key": "java:S3599",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "MINOR",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S3626",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "MINOR",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S3631",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "MAJOR",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S3655",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "MAJOR",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S3740",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "MAJOR",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S3751",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "MAJOR",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S3752",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "MINOR",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S3753",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "BLOCKER",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S3776",
+        "default_params": [
+          {
+            "key": "Threshold",
+            "htmlDesc": "The maximum authorized complexity.",
+            "defaultValue": "15",
+            "type": "INTEGER"
+          }
+        ],
+        "activations": [
+          {
+            "severity": "CRITICAL",
+            "inherit": "NONE",
+            "params": [
+              {
+                "key": "Threshold",
+                "value": "15"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "key": "java:S3824",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "MAJOR",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S3864",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "MAJOR",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S3878",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "MINOR",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S3923",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "MAJOR",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S3958",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "MAJOR",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S3959",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "MAJOR",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S3972",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "CRITICAL",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S3973",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "CRITICAL",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S3981",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "MAJOR",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S3984",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "MAJOR",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S3985",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "MAJOR",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S3986",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "MAJOR",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S4030",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "MINOR",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S4032",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "MINOR",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S4034",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "MINOR",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S4036",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "MINOR",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S4042",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "MAJOR",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S4065",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "MINOR",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S4087",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "MINOR",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S4143",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "MAJOR",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S4144",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "MAJOR",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S4165",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "MAJOR",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S4201",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "MINOR",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S4274",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "MAJOR",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S4275",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "CRITICAL",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S4276",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "MINOR",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S4347",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "CRITICAL",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S4348",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "MAJOR",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S4349",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "MINOR",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S4351",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "MAJOR",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S4423",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "CRITICAL",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S4425",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "MAJOR",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S4426",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "CRITICAL",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S4433",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "CRITICAL",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S4434",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "MAJOR",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S4449",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "MAJOR",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S4454",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "CRITICAL",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S4488",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "MINOR",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S4502",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "CRITICAL",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S4507",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "MINOR",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S4512",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "CRITICAL",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S4517",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "MAJOR",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S4524",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "CRITICAL",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S4544",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "CRITICAL",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S4601",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "CRITICAL",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S4602",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "BLOCKER",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S4635",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "CRITICAL",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S4682",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "MINOR",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S4684",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "CRITICAL",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S4719",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "MINOR",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S4738",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "MAJOR",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S4790",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "CRITICAL",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S4830",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "CRITICAL",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S4838",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "MINOR",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S4925",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "MAJOR",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S4929",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "MINOR",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S4968",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "MINOR",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S4970",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "CRITICAL",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S4973",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "MAJOR",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S4977",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "MINOR",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S5042",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "CRITICAL",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S5122",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "MINOR",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S5164",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "MAJOR",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S5247",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "MAJOR",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S5261",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "MAJOR",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S5301",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "MINOR",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S5320",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "CRITICAL",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S5322",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "CRITICAL",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S5324",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "CRITICAL",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S5329",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "MAJOR",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S5332",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "CRITICAL",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S5344",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "CRITICAL",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S5361",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "CRITICAL",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S5411",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "MINOR",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S5413",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "MAJOR",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S5443",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "CRITICAL",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S5445",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "CRITICAL",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S5527",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "CRITICAL",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S5542",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "CRITICAL",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S5547",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "CRITICAL",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S5659",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "CRITICAL",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S5663",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "MINOR",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S5664",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "MAJOR",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S5665",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "MINOR",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S5669",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "MAJOR",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S5679",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "MAJOR",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S5689",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "MINOR",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S5693",
+        "default_params": [
+          {
+            "key": "fileUploadSizeLimit",
+            "htmlDesc": "The maximum size of HTTP requests handling file uploads (in bytes).",
+            "defaultValue": "8388608",
+            "type": "STRING"
+          }
+        ],
+        "activations": [
+          {
+            "severity": "MAJOR",
+            "inherit": "NONE",
+            "params": [
+              {
+                "key": "fileUploadSizeLimit",
+                "value": "8388608"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "key": "java:S5738",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "MAJOR",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S5776",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "MAJOR",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S5777",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "MINOR",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S5778",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "MAJOR",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S5779",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "CRITICAL",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S5783",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "CRITICAL",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S5785",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "MAJOR",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S5786",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "INFO",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S5790",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "CRITICAL",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S5803",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "CRITICAL",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S5804",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "MAJOR",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S5808",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "MAJOR",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S5810",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "MAJOR",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S5826",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "CRITICAL",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S5831",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "MAJOR",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S5833",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "MAJOR",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S5838",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "MINOR",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S5841",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "MINOR",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S5842",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "MINOR",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S5843",
+        "default_params": [
+          {
+            "key": "maxComplexity",
+            "htmlDesc": "The maximum authorized complexity.",
+            "defaultValue": "20",
+            "type": "INTEGER"
+          }
+        ],
+        "activations": [
+          {
+            "severity": "MAJOR",
+            "inherit": "NONE",
+            "params": [
+              {
+                "key": "maxComplexity",
+                "value": "20"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "key": "java:S5845",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "CRITICAL",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S5846",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "CRITICAL",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S5850",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "MAJOR",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S5852",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "CRITICAL",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S5853",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "MINOR",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S5854",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "MAJOR",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S5855",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "MAJOR",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S5856",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "CRITICAL",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S5857",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "MINOR",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S5860",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "MAJOR",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S5863",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "MAJOR",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S5866",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "MAJOR",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S5868",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "MAJOR",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S5869",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "MAJOR",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S5876",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "CRITICAL",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S5917",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "MAJOR",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S5958",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "MAJOR",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S5960",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "MAJOR",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S5961",
+        "default_params": [
+          {
+            "key": "MaximumAssertionNumber",
+            "htmlDesc": "The maximum authorized number of assertions in a test method",
+            "defaultValue": "25",
+            "type": "INTEGER"
+          }
+        ],
+        "activations": [
+          {
+            "severity": "MAJOR",
+            "inherit": "NONE",
+            "params": [
+              {
+                "key": "MaximumAssertionNumber",
+                "value": "25"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "key": "java:S5967",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "MAJOR",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S5969",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "CRITICAL",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S5973",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "MAJOR",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S5976",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "MAJOR",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S5993",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "MAJOR",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S5994",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "CRITICAL",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S5996",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "CRITICAL",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S5998",
+        "default_params": [
+          {
+            "key": "maxStackConsumptionFactor",
+            "htmlDesc": "An indicator approximately proportional to how quickly the stack grows relative to the input size. An issue will be reported if the value for a regex exceeds the maximum set here. Setting this to 0 will cause an issue to be reported for all regular expressions with non-constant stack consumption.",
+            "defaultValue": "5.0",
+            "type": "STRING"
+          }
+        ],
+        "activations": [
+          {
+            "severity": "MAJOR",
+            "inherit": "NONE",
+            "params": [
+              {
+                "key": "maxStackConsumptionFactor",
+                "value": "5.0"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "key": "java:S6001",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "CRITICAL",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S6002",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "CRITICAL",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S6019",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "MAJOR",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S6035",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "MAJOR",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S6068",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "MINOR",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S6070",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "MAJOR",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S6103",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "MAJOR",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S6104",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "CRITICAL",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S6126",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "MAJOR",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S6201",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "MINOR",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S6202",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "MAJOR",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S6203",
+        "default_params": [
+          {
+            "key": "MaximumNumberOfLines",
+            "htmlDesc": "The maximum number of lines in a text block that can be nested into a complex expression.",
+            "defaultValue": "5",
+            "type": "INTEGER"
+          }
+        ],
+        "activations": [
+          {
+            "severity": "MINOR",
+            "inherit": "NONE",
+            "params": [
+              {
+                "key": "MaximumNumberOfLines",
+                "value": "5"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "key": "java:S6204",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "MAJOR",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S6205",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "MINOR",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S6206",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "MAJOR",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S6207",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "MAJOR",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S6208",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "INFO",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S6209",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "CRITICAL",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S6213",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "MAJOR",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S6216",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "MAJOR",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S6217",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "MINOR",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S6218",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "MAJOR",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S6219",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "MINOR",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S6241",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "MAJOR",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S6242",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "MAJOR",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S6243",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "MAJOR",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S6244",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "MINOR",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S6246",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "MINOR",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S6262",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "MINOR",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S6263",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "MAJOR",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S6288",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "MAJOR",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S6293",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "MAJOR",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S6301",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "MAJOR",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S6326",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "MAJOR",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S6331",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "MAJOR",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S6353",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "MINOR",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S6355",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "MAJOR",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S6362",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "MAJOR",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S6363",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "MAJOR",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S6373",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "BLOCKER",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S6376",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "MAJOR",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S6377",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "MAJOR",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S6395",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "MAJOR",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S6396",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "MAJOR",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S6397",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "MAJOR",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S6418",
+        "default_params": [
+          {
+            "key": "randomnessSensibility",
+            "htmlDesc": "Allows to tune the Randomness Sensibility (from 0 to 10)",
+            "defaultValue": "5.0",
+            "type": "STRING"
+          },
+          {
+            "key": "secretWords",
+            "htmlDesc": "Comma separated list of words identifying potential secrets",
+            "defaultValue": "api[_.-]?key,auth,credential,secret,token",
+            "type": "STRING"
+          }
+        ],
+        "activations": [
+          {
+            "severity": "BLOCKER",
+            "inherit": "NONE",
+            "params": [
+              {
+                "key": "randomnessSensibility",
+                "value": "5.0"
+              },
+              {
+                "key": "secretWords",
+                "value": "api[_.-]?key,auth,credential,secret,token"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "key": "java:S6432",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "CRITICAL",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S6437",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "BLOCKER",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S6485",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "MAJOR",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S6539",
+        "default_params": [
+          {
+            "key": "couplingThreshold",
+            "htmlDesc": "Maximum number of classes a single class is allowed to depend upon. This value is an experimental value.",
+            "defaultValue": "20",
+            "type": "INTEGER"
+          }
+        ],
+        "activations": [
+          {
+            "severity": "INFO",
+            "inherit": "NONE",
+            "params": [
+              {
+                "key": "couplingThreshold",
+                "value": "20"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "key": "java:S6541",
+        "default_params": [
+          {
+            "key": "cyclomaticThreshold",
+            "htmlDesc": "The maximum cyclomatic complexity allowed.",
+            "defaultValue": "15",
+            "type": "INTEGER"
+          },
+          {
+            "key": "locThreshold",
+            "htmlDesc": "The maximum number of LOC allowed.",
+            "defaultValue": "65",
+            "type": "INTEGER"
+          },
+          {
+            "key": "nestingThreshold",
+            "htmlDesc": "The maximum nesting level allowed.",
+            "defaultValue": "3",
+            "type": "INTEGER"
+          },
+          {
+            "key": "nodvThreshold",
+            "htmlDesc": "The maximum number of defined local variables allowed.",
+            "defaultValue": "7",
+            "type": "INTEGER"
+          }
+        ],
+        "activations": [
+          {
+            "severity": "INFO",
+            "inherit": "NONE",
+            "params": [
+              {
+                "key": "cyclomaticThreshold",
+                "value": "15"
+              },
+              {
+                "key": "locThreshold",
+                "value": "65"
+              },
+              {
+                "key": "nestingThreshold",
+                "value": "3"
+              },
+              {
+                "key": "nodvThreshold",
+                "value": "7"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "key": "java:S6548",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "INFO",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S6804",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "MAJOR",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S6806",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "MAJOR",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S6809",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "CRITICAL",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S6810",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "MAJOR",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S6813",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "MAJOR",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S6814",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "CRITICAL",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S6816",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "CRITICAL",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S6817",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "CRITICAL",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S6818",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "CRITICAL",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S6829",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "MAJOR",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S6830",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "MAJOR",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S6831",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "MAJOR",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S6832",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "MAJOR",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S6833",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "MAJOR",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S6837",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "MAJOR",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S6838",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "MAJOR",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S6856",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "MAJOR",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S6857",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "CRITICAL",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S6862",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "MAJOR",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S6863",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "MAJOR",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S6876",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "CRITICAL",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S6877",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "CRITICAL",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S6878",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "MAJOR",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S6880",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "MAJOR",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S6881",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "CRITICAL",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S6885",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "MAJOR",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S6889",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "MAJOR",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S6901",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "MAJOR",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S6905",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "MAJOR",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S6906",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "MAJOR",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S6909",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "MAJOR",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S6912",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "MAJOR",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S6913",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "MAJOR",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S6915",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "MAJOR",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S6916",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "MAJOR",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S7158",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "MINOR",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S7177",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "MAJOR",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S7178",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "CRITICAL",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S7179",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "MAJOR",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S7180",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "MAJOR",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S7183",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "MAJOR",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S7184",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "CRITICAL",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S7185",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "CRITICAL",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S7186",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "CRITICAL",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S7190",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "CRITICAL",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S7409",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "MAJOR",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S7435",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "MINOR",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S7466",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "MINOR",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S7467",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "MINOR",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S7474",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "MINOR",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S7475",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "INFO",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S7476",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "MINOR",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S7477",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "MINOR",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S7478",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "MINOR",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S7479",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "MINOR",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S7481",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "MINOR",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S7482",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "MAJOR",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S7629",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "MINOR",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S8346",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "MAJOR",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S8432",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "MAJOR",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S8433",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "MAJOR",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S8444",
+        "default_params": [
+          {
+            "key": "statementsThreshold",
+            "htmlDesc": "Maximum number of statements allowed before the constructor call.",
+            "defaultValue": "5",
+            "type": "INTEGER"
+          }
+        ],
+        "activations": [
+          {
+            "severity": "MAJOR",
+            "inherit": "NONE",
+            "params": [
+              {
+                "key": "statementsThreshold",
+                "value": "5"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "key": "java:S8445",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "MINOR",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S8446",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "MAJOR",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S8447",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "CRITICAL",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S8450",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "MINOR",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S8465",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "MAJOR",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S8469",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "MINOR",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S8491",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "MAJOR",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      },
+      {
+        "key": "java:S899",
+        "default_params": [],
+        "activations": [
+          {
+            "severity": "MINOR",
+            "inherit": "NONE",
+            "params": []
+          }
+        ]
+      }
+    ],
+    "activation_details_complete": true
+  },
+  "plugins": {
+    "available": true,
+    "plugins": [
+      {
+        "key": "cayc",
+        "name": "Clean as You Code",
+        "version": "2.6 (build 3665)",
+        "hash": "9621b3acc1db2f6f8504fa95a774eb9e"
+      },
+      {
+        "key": "csharp",
+        "name": "C# Code Quality and Security",
+        "version": "10.23 (build 137933)",
+        "hash": "f0d891d9f3105be4fd96be5114dbc927"
+      },
+      {
+        "key": "findbugs",
+        "name": "Findbugs",
+        "version": "4.6.0",
+        "hash": "a2d327cb698bc26dfd53952410929939"
+      },
+      {
+        "key": "flex",
+        "name": "Flex Code Quality and Security",
+        "version": "2.17 (build 6043)",
+        "hash": "42d5f84e68fd98fbaec725a5eed5978c"
+      },
+      {
+        "key": "go",
+        "name": "Go Code Quality and Security",
+        "version": "1.35.0.5808",
+        "hash": "80156d0d70ed47a22eee1653423f5b3f"
+      },
+      {
+        "key": "iac",
+        "name": "IaC Code Quality and Security",
+        "version": "2.8.0.19776",
+        "hash": "8586ebb5ff08f172cdf39779d6d1d122"
+      },
+      {
+        "key": "jacoco",
+        "name": "JaCoCo",
+        "version": "1.5.1 (build 5340)",
+        "hash": "846007542c940368b73511ca0dad705e"
+      },
+      {
+        "key": "java",
+        "name": "Java Code Quality and Security",
+        "version": "8.27 (build 43088)",
+        "hash": "f2ede29ecfaf3d4bbd892b89df163e1c"
+      },
+      {
+        "key": "javascript",
+        "name": "JavaScript/TypeScript/CSS Code Quality and Security",
+        "version": "12.3 (build 39932)",
+        "hash": "65a08646556c854a9f37da47dc1aa239"
+      },
+      {
+        "key": "javasymbolicexecution",
+        "name": "Java Advanced Code Quality Analyzer",
+        "version": "8.16.3 (build 1589)",
+        "hash": "6153ff870f91a7bbdc1fc91d754d78a4"
+      },
+      {
+        "key": "kotlin",
+        "name": "Kotlin Code Quality and Security",
+        "version": "3.4.0 (build 8957)",
+        "hash": "0af8528afa667da13f01a7159c0a7e1d"
+      },
+      {
+        "key": "php",
+        "name": "PHP Code Quality and Security",
+        "version": "3.55.0.15704",
+        "hash": "084aa15b5fcad3b3ddefa115fccfe274"
+      },
+      {
+        "key": "python",
+        "name": "Python Code Quality and Security",
+        "version": "5.20 (build 32295)",
+        "hash": "cb501087db96311729779daa67915fba"
+      },
+      {
+        "key": "ruby",
+        "name": "Ruby Code Quality and Security",
+        "version": "1.22.0 (build 1992)",
+        "hash": "0c7930d3518d467393fc40ed093a8641"
+      },
+      {
+        "key": "rust",
+        "name": "Rust Code Quality and Security",
+        "version": "1.4.0.2802",
+        "hash": "7c6394f0a31e531625c33f50dd074b34"
+      },
+      {
+        "key": "sonarscala",
+        "name": "Scala Code Quality and Security",
+        "version": "1.22.0 (build 2217)",
+        "hash": "eb7a6246b4543cdd6a9a7fbf8b9d40e0"
+      },
+      {
+        "key": "text",
+        "name": "Text Code Quality and Security",
+        "version": "2.42.0.10784",
+        "hash": "e290cc53b97a1fa6d14145ba343bb30c"
+      },
+      {
+        "key": "vbnet",
+        "name": "VB.NET Code Quality and Security",
+        "version": "10.23 (build 137933)",
+        "hash": "b089052a6ea56edc8abd0a8b289462cb"
+      },
+      {
+        "key": "web",
+        "name": "HTML Code Quality and Security",
+        "version": "3.25 (build 7473)",
+        "hash": "6c3fd71ba23241e40fa3d6d2ea5f101d"
+      },
+      {
+        "key": "xml",
+        "name": "XML Code Quality and Security",
+        "version": "2.16 (build 7616)",
+        "hash": "f37d515b15e705952c18e5a0e3aa6dcf"
+      }
+    ]
+  },
+  "limitations": [
+    "Plugin metadata is not a cryptographic snapshot of server analyzer binaries.",
+    "Missing activation/plugin details remain explicit in this record."
+  ]
+}

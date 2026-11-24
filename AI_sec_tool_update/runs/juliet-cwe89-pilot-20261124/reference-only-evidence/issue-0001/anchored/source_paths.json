@@ -1,0 +1,44 @@
+{
+  "status": "candidate_paths",
+  "matched_sources": 1,
+  "source_count": 1,
+  "candidate_paths_found": 1,
+  "search_limit_hit": false,
+  "paths": [
+    {
+      "source": {
+        "file_id": "F0",
+        "line": 35,
+        "method": "bad",
+        "method_start": 30,
+        "method_end": 94,
+        "node_type": "Call",
+        "api_owner": "javax.servlet.ServletRequest",
+        "api_signature": "getParameter(java.lang.String)"
+      },
+      "steps": [],
+      "sink": {
+        "file_id": "F0",
+        "line": 47,
+        "name": "executeQuery",
+        "method": "bad",
+        "method_start": 30,
+        "method_end": 94
+      },
+      "omitted_steps": 0,
+      "unlocated_nodes": 0,
+      "dispatch": []
+    }
+  ],
+  "paths_not_shown": 0,
+  "version": "sql-anchored-paths-v1",
+  "scope": "verified_java_bundle",
+  "inputs": {
+    "F0": {
+      "path": "Clean_Code/testcases/CWE89_SQL_Injection/s02/CWE89_SQL_Injection__getParameter_Servlet_executeQuery_01.java",
+      "source_sha256": "b6a7c2934b17ea68c38f26ad2d7bbe49ec76d654e9ed904a9152271d413a4b74",
+      "staged_sha256": "b4db65f6baf6e5396504dcb33413cc4e944ddd3c77dba54fd28e03b2bf79f549"
+    }
+  },
+  "interpretation": "Candidate dataflow. Runtime branch and dispatch feasibility require separate evidence."
+}

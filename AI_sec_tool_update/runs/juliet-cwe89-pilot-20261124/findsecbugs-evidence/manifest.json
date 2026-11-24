@@ -1,0 +1,40 @@
+{
+  "collection": "/home/khanh/AI_sec_tool/AI_sec_tool_update/runs/juliet-cwe89-pilot-20261124/findsecbugs-collection",
+  "collection_manifest_sha256": "c0614d90287776a6beec8ed221928a596b48a130c0b6f3aeafce150a5465de91",
+  "collection_issues_sha256": "8e07d9084313c1c07f9a957862311c40ee187c065126f76de17ddde8e0be12c3",
+  "analysis_id": "findsecbugs-offline-sha256:236e4d64aa56f153051ba8e4c3c0451c7894ab34b15c834523f6ee9a4ca783ad",
+  "project": "juliet_cwe89_findsecbugs",
+  "mapping_version": "sql89-v2",
+  "benchmark_commit": null,
+  "state": "COMPLETED",
+  "issue_count": 16,
+  "joern_mode": "live",
+  "limitations": [
+    "Truy vấn Joern nền phân tích phạm vi một tệp Java.",
+    "Luồng từ tham số là một ứng viên, chưa xác nhận nguồn bên ngoài.",
+    "Không tìm thấy luồng trong truy vấn hiện tại chưa xác nhận mã an toàn.",
+    "Đường liên tệp là ứng viên. Cần bằng chứng riêng cho nhánh và đích gọi lúc chạy."
+  ],
+  "endpoint_specifications": {
+    "version": "sql-endpoint-specifications-v1",
+    "java_classpath": [
+      {
+        "path": "/home/khanh/AI_sec_tool/AI_sec_tool_update/runs/juliet-cwe89-pilot-20261124/project/lib/servlet-api.jar",
+        "sha256": "4b4f665c8daed0cd2c7a78175cd9590f73cd6d587c6a681e99b3574ae4a97c99"
+      },
+      {
+        "path": "/home/khanh/AI_sec_tool/AI_sec_tool_update/runs/juliet-cwe89-pilot-20261124/testcasesupport.jar",
+        "sha256": "6e088b66049f2b8636f7bd84f5ae918e95de892c335b353054adede827cc045e"
+      }
+    ]
+  },
+  "jdbc_value_evidence": {
+    "version": "jdbc-value-evidence-v3"
+  },
+  "joern_source_paths": {
+    "version": "sql-anchored-paths-v1",
+    "mode": "live"
+  },
+  "joern_image_id": "sha256:f47692f8334d2eeca9fc83395023773da566ce8397563ff7c66d34a23bfc75c4",
+  "result_count": 16
+}

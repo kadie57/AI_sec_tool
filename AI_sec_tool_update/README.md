@@ -127,6 +127,8 @@ python3 sql_llm_experiment.py run runs/sql8-anchored-evidence/sql_evidence.jsonl
 
 Thêm `--bind-warning-citation` vào lệnh `sql_llm_experiment.py run` để gắn dòng đầu của vùng cảnh báo khi Qwen đưa ra kết luận TP/FP có trích dẫn hỗ trợ hợp lệ nhưng bỏ sót dòng cảnh báo. Dòng được gắn phải có trong mã hiển thị. Kết quả lưu nguồn gốc của dòng bổ sung ở `warning_citation_added` và giữ phản hồi Ollama để đối chiếu. Manifest ghi phiên bản kiểm tra riêng để nhận biết khi so sánh các lượt chạy.
 
+Thêm `--prompt-profile iris-contextual` vào lệnh `run` để thử prompt lấy ý tưởng từ mục 3.5 của [bài báo IRIS](https://proceedings.iclr.cc/paper_files/paper/2025/file/582d4e27fa24168f3af1f4582655034b-Paper-Conference.pdf). Qwen nêu căn cứ và trích dẫn trước nhãn, phân biệt văn bản SQL với giá trị được bind, và kiểm tra bằng chứng Java theo đúng nhánh trước khi dựa vào đường ứng viên Joern. Gói bằng chứng, các nhãn và cách kiểm tra kết quả dùng cùng định dạng như trước. Lệnh mặc định chọn `baseline`. Khi đối chứng hai prompt, dùng cùng tệp bằng chứng, cùng model và cùng lựa chọn gắn trích dẫn cho cả hai lượt.
+
 ## Kiểm tra lại lượt quét đã lưu
 
 Chạy từ `AI_sec_tool_update/`. Trong ví dụ này, `..` là thư mục dự án gốc.

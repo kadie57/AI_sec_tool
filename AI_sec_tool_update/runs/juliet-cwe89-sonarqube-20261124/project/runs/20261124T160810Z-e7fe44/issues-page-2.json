@@ -1,0 +1,5178 @@
+{
+  "total": 199,
+  "p": 2,
+  "ps": 100,
+  "paging": {
+    "pageIndex": 2,
+    "pageSize": 100,
+    "total": 199
+  },
+  "effortTotal": 1771,
+  "issues": [
+    {
+      "key": "ad24a6d5-08f5-4d08-96d6-10ec20f36f53",
+      "rule": "java:S1197",
+      "severity": "MINOR",
+      "component": "thesis_juliet_cwe89_pilot_v1:Clean_Code/testcases/CWE89_SQL_Injection/s02/CWE89_SQL_Injection__getCookies_Servlet_prepareStatement_42.java",
+      "project": "thesis_juliet_cwe89_pilot_v1",
+      "line": 38,
+      "hash": "8bc57d0a103a403772c3036b91521057",
+      "textRange": {
+        "startLine": 38,
+        "endLine": 38,
+        "startOffset": 19,
+        "endOffset": 34
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "Move the array designators [] to the type.",
+      "effort": "5min",
+      "debt": "5min",
+      "author": "",
+      "tags": [
+        "convention"
+      ],
+      "creationDate": "2026-11-24T16:08:19+0000",
+      "updateDate": "2026-11-24T16:08:19+0000",
+      "type": "CODE_SMELL",
+      "scope": "MAIN",
+      "quickFixAvailable": true,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "FORMATTED",
+      "cleanCodeAttributeCategory": "CONSISTENT",
+      "impacts": [
+        {
+          "softwareQuality": "MAINTAINABILITY",
+          "severity": "LOW"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "b09cc22f-2528-4f89-afa8-2e4cbdac3650",
+      "rule": "findsecbugs:SQL_INJECTION_JDBC",
+      "severity": "CRITICAL",
+      "component": "thesis_juliet_cwe89_pilot_v1:Clean_Code/testcases/CWE89_SQL_Injection/s02/CWE89_SQL_Injection__getCookies_Servlet_prepareStatement_42.java",
+      "project": "thesis_juliet_cwe89_pilot_v1",
+      "line": 60,
+      "hash": "eaf33b902edf96d1b065cb3b52bd725a",
+      "textRange": {
+        "startLine": 60,
+        "endLine": 60,
+        "startOffset": 0,
+        "endOffset": 128
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "This use of java/sql/Connection.prepareStatement(Ljava/lang/String;)Ljava/sql/PreparedStatement; can be vulnerable to SQL injection (with JDBC)",
+      "author": "",
+      "tags": [
+        "cwe",
+        "owasp-a1",
+        "injection",
+        "wasc"
+      ],
+      "creationDate": "2026-11-24T16:08:19+0000",
+      "updateDate": "2026-11-24T16:08:19+0000",
+      "type": "VULNERABILITY",
+      "scope": "MAIN",
+      "quickFixAvailable": false,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "CONVENTIONAL",
+      "cleanCodeAttributeCategory": "CONSISTENT",
+      "impacts": [
+        {
+          "softwareQuality": "SECURITY",
+          "severity": "HIGH"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "3e336c81-8c21-4240-8144-f24af58ceb25",
+      "rule": "java:S5411",
+      "severity": "MINOR",
+      "component": "thesis_juliet_cwe89_pilot_v1:Clean_Code/testcases/CWE89_SQL_Injection/s02/CWE89_SQL_Injection__getCookies_Servlet_prepareStatement_42.java",
+      "project": "thesis_juliet_cwe89_pilot_v1",
+      "line": 64,
+      "hash": "e7aafd59da1660dacace0013fb5bc0c1",
+      "textRange": {
+        "startLine": 64,
+        "endLine": 64,
+        "startOffset": 16,
+        "endOffset": 22
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "Use a primitive boolean expression here.",
+      "effort": "5min",
+      "debt": "5min",
+      "author": "",
+      "tags": [
+        "pitfall"
+      ],
+      "creationDate": "2026-11-24T16:08:19+0000",
+      "updateDate": "2026-11-24T16:08:19+0000",
+      "type": "CODE_SMELL",
+      "scope": "MAIN",
+      "quickFixAvailable": true,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "COMPLETE",
+      "cleanCodeAttributeCategory": "INTENTIONAL",
+      "impacts": [
+        {
+          "softwareQuality": "MAINTAINABILITY",
+          "severity": "LOW"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "4a3fbf0f-c852-4236-a362-322627bfcb06",
+      "rule": "java:S1192",
+      "severity": "CRITICAL",
+      "component": "thesis_juliet_cwe89_pilot_v1:Clean_Code/testcases/CWE89_SQL_Injection/s02/CWE89_SQL_Injection__getCookies_Servlet_prepareStatement_42.java",
+      "project": "thesis_juliet_cwe89_pilot_v1",
+      "line": 66,
+      "hash": "2c026fd65c320c89e081b60188a53a32",
+      "textRange": {
+        "startLine": 66,
+        "endLine": 66,
+        "startOffset": 47,
+        "endOffset": 71
+      },
+      "flows": [
+        {
+          "locations": [
+            {
+              "component": "thesis_juliet_cwe89_pilot_v1:Clean_Code/testcases/CWE89_SQL_Injection/s02/CWE89_SQL_Injection__getCookies_Servlet_prepareStatement_42.java",
+              "textRange": {
+                "startLine": 66,
+                "endLine": 66,
+                "startOffset": 47,
+                "endOffset": 71
+              },
+              "msg": "Duplication",
+              "msgFormattings": []
+            }
+          ]
+        },
+        {
+          "locations": [
+            {
+              "component": "thesis_juliet_cwe89_pilot_v1:Clean_Code/testcases/CWE89_SQL_Injection/s02/CWE89_SQL_Injection__getCookies_Servlet_prepareStatement_42.java",
+              "textRange": {
+                "startLine": 134,
+                "endLine": 134,
+                "startOffset": 47,
+                "endOffset": 71
+              },
+              "msg": "Duplication",
+              "msgFormattings": []
+            }
+          ]
+        },
+        {
+          "locations": [
+            {
+              "component": "thesis_juliet_cwe89_pilot_v1:Clean_Code/testcases/CWE89_SQL_Injection/s02/CWE89_SQL_Injection__getCookies_Servlet_prepareStatement_42.java",
+              "textRange": {
+                "startLine": 212,
+                "endLine": 212,
+                "startOffset": 47,
+                "endOffset": 71
+              },
+              "msg": "Duplication",
+              "msgFormattings": []
+            }
+          ]
+        }
+      ],
+      "status": "OPEN",
+      "message": "Define a constant instead of duplicating this literal \", updated successfully\" 3 times.",
+      "effort": "8min",
+      "debt": "8min",
+      "author": "",
+      "tags": [
+        "design"
+      ],
+      "creationDate": "2026-11-24T16:08:19+0000",
+      "updateDate": "2026-11-24T16:08:19+0000",
+      "type": "CODE_SMELL",
+      "scope": "MAIN",
+      "quickFixAvailable": false,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "DISTINCT",
+      "cleanCodeAttributeCategory": "ADAPTABLE",
+      "impacts": [
+        {
+          "softwareQuality": "MAINTAINABILITY",
+          "severity": "HIGH"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "fe4470b8-1e05-49bf-9451-0b864abb4038",
+      "rule": "java:S1192",
+      "severity": "CRITICAL",
+      "component": "thesis_juliet_cwe89_pilot_v1:Clean_Code/testcases/CWE89_SQL_Injection/s02/CWE89_SQL_Injection__getCookies_Servlet_prepareStatement_42.java",
+      "project": "thesis_juliet_cwe89_pilot_v1",
+      "line": 66,
+      "hash": "2c026fd65c320c89e081b60188a53a32",
+      "textRange": {
+        "startLine": 66,
+        "endLine": 66,
+        "startOffset": 29,
+        "endOffset": 37
+      },
+      "flows": [
+        {
+          "locations": [
+            {
+              "component": "thesis_juliet_cwe89_pilot_v1:Clean_Code/testcases/CWE89_SQL_Injection/s02/CWE89_SQL_Injection__getCookies_Servlet_prepareStatement_42.java",
+              "textRange": {
+                "startLine": 66,
+                "endLine": 66,
+                "startOffset": 29,
+                "endOffset": 37
+              },
+              "msg": "Duplication",
+              "msgFormattings": []
+            }
+          ]
+        },
+        {
+          "locations": [
+            {
+              "component": "thesis_juliet_cwe89_pilot_v1:Clean_Code/testcases/CWE89_SQL_Injection/s02/CWE89_SQL_Injection__getCookies_Servlet_prepareStatement_42.java",
+              "textRange": {
+                "startLine": 134,
+                "endLine": 134,
+                "startOffset": 29,
+                "endOffset": 37
+              },
+              "msg": "Duplication",
+              "msgFormattings": []
+            }
+          ]
+        },
+        {
+          "locations": [
+            {
+              "component": "thesis_juliet_cwe89_pilot_v1:Clean_Code/testcases/CWE89_SQL_Injection/s02/CWE89_SQL_Injection__getCookies_Servlet_prepareStatement_42.java",
+              "textRange": {
+                "startLine": 212,
+                "endLine": 212,
+                "startOffset": 29,
+                "endOffset": 37
+              },
+              "msg": "Duplication",
+              "msgFormattings": []
+            }
+          ]
+        }
+      ],
+      "status": "OPEN",
+      "message": "Define a constant instead of duplicating this literal \"Name, \" 3 times.",
+      "effort": "8min",
+      "debt": "8min",
+      "author": "",
+      "tags": [
+        "design"
+      ],
+      "creationDate": "2026-11-24T16:08:19+0000",
+      "updateDate": "2026-11-24T16:08:19+0000",
+      "type": "CODE_SMELL",
+      "scope": "MAIN",
+      "quickFixAvailable": false,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "DISTINCT",
+      "cleanCodeAttributeCategory": "ADAPTABLE",
+      "impacts": [
+        {
+          "softwareQuality": "MAINTAINABILITY",
+          "severity": "HIGH"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "4c042f9b-d6b3-4e07-ac12-9b517241ff5f",
+      "rule": "java:S1192",
+      "severity": "CRITICAL",
+      "component": "thesis_juliet_cwe89_pilot_v1:Clean_Code/testcases/CWE89_SQL_Injection/s02/CWE89_SQL_Injection__getCookies_Servlet_prepareStatement_42.java",
+      "project": "thesis_juliet_cwe89_pilot_v1",
+      "line": 70,
+      "hash": "758f4d4c65f71b1c9b017e1de134b62b",
+      "textRange": {
+        "startLine": 70,
+        "endLine": 70,
+        "startOffset": 29,
+        "endOffset": 66
+      },
+      "flows": [
+        {
+          "locations": [
+            {
+              "component": "thesis_juliet_cwe89_pilot_v1:Clean_Code/testcases/CWE89_SQL_Injection/s02/CWE89_SQL_Injection__getCookies_Servlet_prepareStatement_42.java",
+              "textRange": {
+                "startLine": 70,
+                "endLine": 70,
+                "startOffset": 29,
+                "endOffset": 66
+              },
+              "msg": "Duplication",
+              "msgFormattings": []
+            }
+          ]
+        },
+        {
+          "locations": [
+            {
+              "component": "thesis_juliet_cwe89_pilot_v1:Clean_Code/testcases/CWE89_SQL_Injection/s02/CWE89_SQL_Injection__getCookies_Servlet_prepareStatement_42.java",
+              "textRange": {
+                "startLine": 138,
+                "endLine": 138,
+                "startOffset": 29,
+                "endOffset": 66
+              },
+              "msg": "Duplication",
+              "msgFormattings": []
+            }
+          ]
+        },
+        {
+          "locations": [
+            {
+              "component": "thesis_juliet_cwe89_pilot_v1:Clean_Code/testcases/CWE89_SQL_Injection/s02/CWE89_SQL_Injection__getCookies_Servlet_prepareStatement_42.java",
+              "textRange": {
+                "startLine": 216,
+                "endLine": 216,
+                "startOffset": 29,
+                "endOffset": 66
+              },
+              "msg": "Duplication",
+              "msgFormattings": []
+            }
+          ]
+        }
+      ],
+      "status": "OPEN",
+      "message": "Define a constant instead of duplicating this literal \"Unable to update records for user: \" 3 times.",
+      "effort": "8min",
+      "debt": "8min",
+      "author": "",
+      "tags": [
+        "design"
+      ],
+      "creationDate": "2026-11-24T16:08:19+0000",
+      "updateDate": "2026-11-24T16:08:19+0000",
+      "type": "CODE_SMELL",
+      "scope": "MAIN",
+      "quickFixAvailable": false,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "DISTINCT",
+      "cleanCodeAttributeCategory": "ADAPTABLE",
+      "impacts": [
+        {
+          "softwareQuality": "MAINTAINABILITY",
+          "severity": "HIGH"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "1cf591d5-6885-474f-99e5-d03b03695d0a",
+      "rule": "java:S1192",
+      "severity": "CRITICAL",
+      "component": "thesis_juliet_cwe89_pilot_v1:Clean_Code/testcases/CWE89_SQL_Injection/s02/CWE89_SQL_Injection__getCookies_Servlet_prepareStatement_42.java",
+      "project": "thesis_juliet_cwe89_pilot_v1",
+      "line": 75,
+      "hash": "4aaacd7a95c701c80a797f086d2f898f",
+      "textRange": {
+        "startLine": 75,
+        "endLine": 75,
+        "startOffset": 41,
+        "endOffset": 76
+      },
+      "flows": [
+        {
+          "locations": [
+            {
+              "component": "thesis_juliet_cwe89_pilot_v1:Clean_Code/testcases/CWE89_SQL_Injection/s02/CWE89_SQL_Injection__getCookies_Servlet_prepareStatement_42.java",
+              "textRange": {
+                "startLine": 75,
+                "endLine": 75,
+                "startOffset": 41,
+                "endOffset": 76
+              },
+              "msg": "Duplication",
+              "msgFormattings": []
+            }
+          ]
+        },
+        {
+          "locations": [
+            {
+              "component": "thesis_juliet_cwe89_pilot_v1:Clean_Code/testcases/CWE89_SQL_Injection/s02/CWE89_SQL_Injection__getCookies_Servlet_prepareStatement_42.java",
+              "textRange": {
+                "startLine": 143,
+                "endLine": 143,
+                "startOffset": 41,
+                "endOffset": 76
+              },
+              "msg": "Duplication",
+              "msgFormattings": []
+            }
+          ]
+        },
+        {
+          "locations": [
+            {
+              "component": "thesis_juliet_cwe89_pilot_v1:Clean_Code/testcases/CWE89_SQL_Injection/s02/CWE89_SQL_Injection__getCookies_Servlet_prepareStatement_42.java",
+              "textRange": {
+                "startLine": 221,
+                "endLine": 221,
+                "startOffset": 41,
+                "endOffset": 76
+              },
+              "msg": "Duplication",
+              "msgFormattings": []
+            }
+          ]
+        }
+      ],
+      "status": "OPEN",
+      "message": "Define a constant instead of duplicating this literal \"Error getting database connection\" 3 times.",
+      "effort": "8min",
+      "debt": "8min",
+      "author": "",
+      "tags": [
+        "design"
+      ],
+      "creationDate": "2026-11-24T16:08:19+0000",
+      "updateDate": "2026-11-24T16:08:19+0000",
+      "type": "CODE_SMELL",
+      "scope": "MAIN",
+      "quickFixAvailable": false,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "DISTINCT",
+      "cleanCodeAttributeCategory": "ADAPTABLE",
+      "impacts": [
+        {
+          "softwareQuality": "MAINTAINABILITY",
+          "severity": "HIGH"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "2650f7fd-2feb-4d7e-943f-1809d47ea237",
+      "rule": "java:S1192",
+      "severity": "CRITICAL",
+      "component": "thesis_juliet_cwe89_pilot_v1:Clean_Code/testcases/CWE89_SQL_Injection/s02/CWE89_SQL_Injection__getCookies_Servlet_prepareStatement_42.java",
+      "project": "thesis_juliet_cwe89_pilot_v1",
+      "line": 88,
+      "hash": "b4a1d7d5a1137bec5ebc810152b3a3af",
+      "textRange": {
+        "startLine": 88,
+        "endLine": 88,
+        "startOffset": 45,
+        "endOffset": 78
+      },
+      "flows": [
+        {
+          "locations": [
+            {
+              "component": "thesis_juliet_cwe89_pilot_v1:Clean_Code/testcases/CWE89_SQL_Injection/s02/CWE89_SQL_Injection__getCookies_Servlet_prepareStatement_42.java",
+              "textRange": {
+                "startLine": 88,
+                "endLine": 88,
+                "startOffset": 45,
+                "endOffset": 78
+              },
+              "msg": "Duplication",
+              "msgFormattings": []
+            }
+          ]
+        },
+        {
+          "locations": [
+            {
+              "component": "thesis_juliet_cwe89_pilot_v1:Clean_Code/testcases/CWE89_SQL_Injection/s02/CWE89_SQL_Injection__getCookies_Servlet_prepareStatement_42.java",
+              "textRange": {
+                "startLine": 156,
+                "endLine": 156,
+                "startOffset": 45,
+                "endOffset": 78
+              },
+              "msg": "Duplication",
+              "msgFormattings": []
+            }
+          ]
+        },
+        {
+          "locations": [
+            {
+              "component": "thesis_juliet_cwe89_pilot_v1:Clean_Code/testcases/CWE89_SQL_Injection/s02/CWE89_SQL_Injection__getCookies_Servlet_prepareStatement_42.java",
+              "textRange": {
+                "startLine": 234,
+                "endLine": 234,
+                "startOffset": 45,
+                "endOffset": 78
+              },
+              "msg": "Duplication",
+              "msgFormattings": []
+            }
+          ]
+        }
+      ],
+      "status": "OPEN",
+      "message": "Define a constant instead of duplicating this literal \"Error closing PreparedStatement\" 3 times.",
+      "effort": "8min",
+      "debt": "8min",
+      "author": "",
+      "tags": [
+        "design"
+      ],
+      "creationDate": "2026-11-24T16:08:19+0000",
+      "updateDate": "2026-11-24T16:08:19+0000",
+      "type": "CODE_SMELL",
+      "scope": "MAIN",
+      "quickFixAvailable": false,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "DISTINCT",
+      "cleanCodeAttributeCategory": "ADAPTABLE",
+      "impacts": [
+        {
+          "softwareQuality": "MAINTAINABILITY",
+          "severity": "HIGH"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "46b63ae1-93ee-49ec-a6f2-7039b4d35032",
+      "rule": "java:S1192",
+      "severity": "CRITICAL",
+      "component": "thesis_juliet_cwe89_pilot_v1:Clean_Code/testcases/CWE89_SQL_Injection/s02/CWE89_SQL_Injection__getCookies_Servlet_prepareStatement_42.java",
+      "project": "thesis_juliet_cwe89_pilot_v1",
+      "line": 100,
+      "hash": "1f61b332cd72a75c540c7d37c6a55b7a",
+      "textRange": {
+        "startLine": 100,
+        "endLine": 100,
+        "startOffset": 45,
+        "endOffset": 71
+      },
+      "flows": [
+        {
+          "locations": [
+            {
+              "component": "thesis_juliet_cwe89_pilot_v1:Clean_Code/testcases/CWE89_SQL_Injection/s02/CWE89_SQL_Injection__getCookies_Servlet_prepareStatement_42.java",
+              "textRange": {
+                "startLine": 100,
+                "endLine": 100,
+                "startOffset": 45,
+                "endOffset": 71
+              },
+              "msg": "Duplication",
+              "msgFormattings": []
+            }
+          ]
+        },
+        {
+          "locations": [
+            {
+              "component": "thesis_juliet_cwe89_pilot_v1:Clean_Code/testcases/CWE89_SQL_Injection/s02/CWE89_SQL_Injection__getCookies_Servlet_prepareStatement_42.java",
+              "textRange": {
+                "startLine": 168,
+                "endLine": 168,
+                "startOffset": 45,
+                "endOffset": 71
+              },
+              "msg": "Duplication",
+              "msgFormattings": []
+            }
+          ]
+        },
+        {
+          "locations": [
+            {
+              "component": "thesis_juliet_cwe89_pilot_v1:Clean_Code/testcases/CWE89_SQL_Injection/s02/CWE89_SQL_Injection__getCookies_Servlet_prepareStatement_42.java",
+              "textRange": {
+                "startLine": 246,
+                "endLine": 246,
+                "startOffset": 45,
+                "endOffset": 71
+              },
+              "msg": "Duplication",
+              "msgFormattings": []
+            }
+          ]
+        }
+      ],
+      "status": "OPEN",
+      "message": "Define a constant instead of duplicating this literal \"Error closing Connection\" 3 times.",
+      "effort": "8min",
+      "debt": "8min",
+      "author": "",
+      "tags": [
+        "design"
+      ],
+      "creationDate": "2026-11-24T16:08:19+0000",
+      "updateDate": "2026-11-24T16:08:19+0000",
+      "type": "CODE_SMELL",
+      "scope": "MAIN",
+      "quickFixAvailable": false,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "DISTINCT",
+      "cleanCodeAttributeCategory": "ADAPTABLE",
+      "impacts": [
+        {
+          "softwareQuality": "MAINTAINABILITY",
+          "severity": "HIGH"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "3471f461-df2b-44d3-b43e-a1b1dc34b93f",
+      "rule": "java:S1172",
+      "severity": "MAJOR",
+      "component": "thesis_juliet_cwe89_pilot_v1:Clean_Code/testcases/CWE89_SQL_Injection/s02/CWE89_SQL_Injection__getCookies_Servlet_prepareStatement_42.java",
+      "project": "thesis_juliet_cwe89_pilot_v1",
+      "line": 107,
+      "hash": "213bc62511a37ba934b229cd0979b5e8",
+      "textRange": {
+        "startLine": 107,
+        "endLine": 107,
+        "startOffset": 52,
+        "endOffset": 59
+      },
+      "flows": [
+        {
+          "locations": [
+            {
+              "component": "thesis_juliet_cwe89_pilot_v1:Clean_Code/testcases/CWE89_SQL_Injection/s02/CWE89_SQL_Injection__getCookies_Servlet_prepareStatement_42.java",
+              "textRange": {
+                "startLine": 107,
+                "endLine": 107,
+                "startOffset": 81,
+                "endOffset": 89
+              },
+              "msg": "Parameter \"response\"",
+              "msgFormattings": []
+            }
+          ]
+        }
+      ],
+      "status": "OPEN",
+      "message": "Remove these unused method parameters \"request\", \"response\".",
+      "effort": "5min",
+      "debt": "5min",
+      "author": "",
+      "tags": [
+        "cert",
+        "unused"
+      ],
+      "creationDate": "2026-11-24T16:08:19+0000",
+      "updateDate": "2026-11-24T16:08:19+0000",
+      "type": "CODE_SMELL",
+      "scope": "MAIN",
+      "quickFixAvailable": true,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "CLEAR",
+      "cleanCodeAttributeCategory": "INTENTIONAL",
+      "impacts": [
+        {
+          "softwareQuality": "MAINTAINABILITY",
+          "severity": "MEDIUM"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "999a2a32-1143-4d7b-86d4-16c9d0a64971",
+      "rule": "java:S112",
+      "severity": "MAJOR",
+      "component": "thesis_juliet_cwe89_pilot_v1:Clean_Code/testcases/CWE89_SQL_Injection/s02/CWE89_SQL_Injection__getCookies_Servlet_prepareStatement_42.java",
+      "project": "thesis_juliet_cwe89_pilot_v1",
+      "line": 107,
+      "hash": "213bc62511a37ba934b229cd0979b5e8",
+      "textRange": {
+        "startLine": 107,
+        "endLine": 107,
+        "startOffset": 98,
+        "endOffset": 107
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "Replace generic exceptions with specific library exceptions or a custom exception.",
+      "effort": "20min",
+      "debt": "20min",
+      "author": "",
+      "tags": [
+        "cwe",
+        "error-handling",
+        "cert"
+      ],
+      "creationDate": "2026-11-24T16:08:19+0000",
+      "updateDate": "2026-11-24T16:08:19+0000",
+      "type": "CODE_SMELL",
+      "scope": "MAIN",
+      "quickFixAvailable": false,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "COMPLETE",
+      "cleanCodeAttributeCategory": "INTENTIONAL",
+      "impacts": [
+        {
+          "softwareQuality": "MAINTAINABILITY",
+          "severity": "MEDIUM"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "0b74a827-dab2-4f1e-b736-4e9c61c33a4a",
+      "rule": "findsecbugs:SQL_INJECTION_JDBC",
+      "severity": "CRITICAL",
+      "component": "thesis_juliet_cwe89_pilot_v1:Clean_Code/testcases/CWE89_SQL_Injection/s02/CWE89_SQL_Injection__getCookies_Servlet_prepareStatement_42.java",
+      "project": "thesis_juliet_cwe89_pilot_v1",
+      "line": 128,
+      "hash": "eaf33b902edf96d1b065cb3b52bd725a",
+      "textRange": {
+        "startLine": 128,
+        "endLine": 128,
+        "startOffset": 0,
+        "endOffset": 128
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "This use of java/sql/Connection.prepareStatement(Ljava/lang/String;)Ljava/sql/PreparedStatement; can be vulnerable to SQL injection (with JDBC)",
+      "author": "",
+      "tags": [
+        "cwe",
+        "owasp-a1",
+        "injection",
+        "wasc"
+      ],
+      "creationDate": "2026-11-24T16:08:19+0000",
+      "updateDate": "2026-11-24T16:08:19+0000",
+      "type": "VULNERABILITY",
+      "scope": "MAIN",
+      "quickFixAvailable": false,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "CONVENTIONAL",
+      "cleanCodeAttributeCategory": "CONSISTENT",
+      "impacts": [
+        {
+          "softwareQuality": "SECURITY",
+          "severity": "HIGH"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "678c6f30-a009-40fa-ae45-07e3fbe0063e",
+      "rule": "java:S5411",
+      "severity": "MINOR",
+      "component": "thesis_juliet_cwe89_pilot_v1:Clean_Code/testcases/CWE89_SQL_Injection/s02/CWE89_SQL_Injection__getCookies_Servlet_prepareStatement_42.java",
+      "project": "thesis_juliet_cwe89_pilot_v1",
+      "line": 132,
+      "hash": "e7aafd59da1660dacace0013fb5bc0c1",
+      "textRange": {
+        "startLine": 132,
+        "endLine": 132,
+        "startOffset": 16,
+        "endOffset": 22
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "Use a primitive boolean expression here.",
+      "effort": "5min",
+      "debt": "5min",
+      "author": "",
+      "tags": [
+        "pitfall"
+      ],
+      "creationDate": "2026-11-24T16:08:19+0000",
+      "updateDate": "2026-11-24T16:08:19+0000",
+      "type": "CODE_SMELL",
+      "scope": "MAIN",
+      "quickFixAvailable": true,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "COMPLETE",
+      "cleanCodeAttributeCategory": "INTENTIONAL",
+      "impacts": [
+        {
+          "softwareQuality": "MAINTAINABILITY",
+          "severity": "LOW"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "7f87d552-15d5-43f5-985e-093938903bcd",
+      "rule": "java:S1172",
+      "severity": "MAJOR",
+      "component": "thesis_juliet_cwe89_pilot_v1:Clean_Code/testcases/CWE89_SQL_Injection/s02/CWE89_SQL_Injection__getCookies_Servlet_prepareStatement_42.java",
+      "project": "thesis_juliet_cwe89_pilot_v1",
+      "line": 175,
+      "hash": "f60256a2193bbccb06246ac870fd8b64",
+      "textRange": {
+        "startLine": 175,
+        "endLine": 175,
+        "startOffset": 81,
+        "endOffset": 89
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "Remove this unused method parameter \"response\".",
+      "effort": "5min",
+      "debt": "5min",
+      "author": "",
+      "tags": [
+        "cert",
+        "unused"
+      ],
+      "creationDate": "2026-11-24T16:08:19+0000",
+      "updateDate": "2026-11-24T16:08:19+0000",
+      "type": "CODE_SMELL",
+      "scope": "MAIN",
+      "quickFixAvailable": true,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "CLEAR",
+      "cleanCodeAttributeCategory": "INTENTIONAL",
+      "impacts": [
+        {
+          "softwareQuality": "MAINTAINABILITY",
+          "severity": "MEDIUM"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "92586dd5-57e8-4b61-a576-d5cd012b49fd",
+      "rule": "java:S4144",
+      "severity": "MAJOR",
+      "component": "thesis_juliet_cwe89_pilot_v1:Clean_Code/testcases/CWE89_SQL_Injection/s02/CWE89_SQL_Injection__getCookies_Servlet_prepareStatement_42.java",
+      "project": "thesis_juliet_cwe89_pilot_v1",
+      "line": 175,
+      "hash": "f60256a2193bbccb06246ac870fd8b64",
+      "textRange": {
+        "startLine": 175,
+        "endLine": 175,
+        "startOffset": 19,
+        "endOffset": 32
+      },
+      "flows": [
+        {
+          "locations": [
+            {
+              "component": "thesis_juliet_cwe89_pilot_v1:Clean_Code/testcases/CWE89_SQL_Injection/s02/CWE89_SQL_Injection__getCookies_Servlet_prepareStatement_42.java",
+              "textRange": {
+                "startLine": 30,
+                "endLine": 30,
+                "startOffset": 19,
+                "endOffset": 28
+              },
+              "msg": "original implementation",
+              "msgFormattings": []
+            }
+          ]
+        }
+      ],
+      "status": "OPEN",
+      "message": "Update this method so that its implementation is not identical to \"badSource\" on line 30.",
+      "effort": "15min",
+      "debt": "15min",
+      "author": "",
+      "tags": [
+        "confusing",
+        "duplicate",
+        "suspicious"
+      ],
+      "creationDate": "2026-11-24T16:08:19+0000",
+      "updateDate": "2026-11-24T16:08:19+0000",
+      "type": "CODE_SMELL",
+      "scope": "MAIN",
+      "quickFixAvailable": false,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "DISTINCT",
+      "cleanCodeAttributeCategory": "ADAPTABLE",
+      "impacts": [
+        {
+          "softwareQuality": "MAINTAINABILITY",
+          "severity": "MEDIUM"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "b4efd608-76f7-4c20-9ace-3f9f7eb416be",
+      "rule": "java:S112",
+      "severity": "MAJOR",
+      "component": "thesis_juliet_cwe89_pilot_v1:Clean_Code/testcases/CWE89_SQL_Injection/s02/CWE89_SQL_Injection__getCookies_Servlet_prepareStatement_42.java",
+      "project": "thesis_juliet_cwe89_pilot_v1",
+      "line": 175,
+      "hash": "f60256a2193bbccb06246ac870fd8b64",
+      "textRange": {
+        "startLine": 175,
+        "endLine": 175,
+        "startOffset": 98,
+        "endOffset": 107
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "Replace generic exceptions with specific library exceptions or a custom exception.",
+      "effort": "20min",
+      "debt": "20min",
+      "author": "",
+      "tags": [
+        "cwe",
+        "error-handling",
+        "cert"
+      ],
+      "creationDate": "2026-11-24T16:08:19+0000",
+      "updateDate": "2026-11-24T16:08:19+0000",
+      "type": "CODE_SMELL",
+      "scope": "MAIN",
+      "quickFixAvailable": false,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "COMPLETE",
+      "cleanCodeAttributeCategory": "INTENTIONAL",
+      "impacts": [
+        {
+          "softwareQuality": "MAINTAINABILITY",
+          "severity": "MEDIUM"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "5ba05c56-ad66-44d3-95c8-92bd4d234d7d",
+      "rule": "java:S1199",
+      "severity": "MINOR",
+      "component": "thesis_juliet_cwe89_pilot_v1:Clean_Code/testcases/CWE89_SQL_Injection/s02/CWE89_SQL_Injection__getCookies_Servlet_prepareStatement_42.java",
+      "project": "thesis_juliet_cwe89_pilot_v1",
+      "line": 182,
+      "hash": "f95b70fdc3088560732a5ac135644506",
+      "textRange": {
+        "startLine": 182,
+        "endLine": 182,
+        "startOffset": 8,
+        "endOffset": 9
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "Extract this nested code block into a method.",
+      "effort": "10min",
+      "debt": "10min",
+      "author": "",
+      "tags": [
+        "bad-practice"
+      ],
+      "creationDate": "2026-11-24T16:08:19+0000",
+      "updateDate": "2026-11-24T16:08:19+0000",
+      "type": "CODE_SMELL",
+      "scope": "MAIN",
+      "quickFixAvailable": false,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "CLEAR",
+      "cleanCodeAttributeCategory": "INTENTIONAL",
+      "impacts": [
+        {
+          "softwareQuality": "MAINTAINABILITY",
+          "severity": "LOW"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "1c80e72e-65f4-4879-a80d-9f808bb15953",
+      "rule": "java:S1197",
+      "severity": "MINOR",
+      "component": "thesis_juliet_cwe89_pilot_v1:Clean_Code/testcases/CWE89_SQL_Injection/s02/CWE89_SQL_Injection__getCookies_Servlet_prepareStatement_42.java",
+      "project": "thesis_juliet_cwe89_pilot_v1",
+      "line": 183,
+      "hash": "8bc57d0a103a403772c3036b91521057",
+      "textRange": {
+        "startLine": 183,
+        "endLine": 183,
+        "startOffset": 19,
+        "endOffset": 34
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "Move the array designators [] to the type.",
+      "effort": "5min",
+      "debt": "5min",
+      "author": "",
+      "tags": [
+        "convention"
+      ],
+      "creationDate": "2026-11-24T16:08:19+0000",
+      "updateDate": "2026-11-24T16:08:19+0000",
+      "type": "CODE_SMELL",
+      "scope": "MAIN",
+      "quickFixAvailable": true,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "FORMATTED",
+      "cleanCodeAttributeCategory": "CONSISTENT",
+      "impacts": [
+        {
+          "softwareQuality": "MAINTAINABILITY",
+          "severity": "LOW"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "b2663d56-91a4-4a3c-9d6f-ae571c87ace7",
+      "rule": "java:S5411",
+      "severity": "MINOR",
+      "component": "thesis_juliet_cwe89_pilot_v1:Clean_Code/testcases/CWE89_SQL_Injection/s02/CWE89_SQL_Injection__getCookies_Servlet_prepareStatement_42.java",
+      "project": "thesis_juliet_cwe89_pilot_v1",
+      "line": 210,
+      "hash": "e7aafd59da1660dacace0013fb5bc0c1",
+      "textRange": {
+        "startLine": 210,
+        "endLine": 210,
+        "startOffset": 16,
+        "endOffset": 22
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "Use a primitive boolean expression here.",
+      "effort": "5min",
+      "debt": "5min",
+      "author": "",
+      "tags": [
+        "pitfall"
+      ],
+      "creationDate": "2026-11-24T16:08:19+0000",
+      "updateDate": "2026-11-24T16:08:19+0000",
+      "type": "CODE_SMELL",
+      "scope": "MAIN",
+      "quickFixAvailable": true,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "COMPLETE",
+      "cleanCodeAttributeCategory": "INTENTIONAL",
+      "impacts": [
+        {
+          "softwareQuality": "MAINTAINABILITY",
+          "severity": "LOW"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "fa9198bd-7175-4323-9ddb-1bd9e2aba8e3",
+      "rule": "java:S120",
+      "severity": "MINOR",
+      "component": "thesis_juliet_cwe89_pilot_v1:Clean_Code/testcases/CWE89_SQL_Injection/s02/CWE89_SQL_Injection__getParameter_Servlet_executeQuery_01.java",
+      "project": "thesis_juliet_cwe89_pilot_v1",
+      "line": 18,
+      "hash": "894afd388e50e60a87d66a04f27b2ea1",
+      "textRange": {
+        "startLine": 18,
+        "endLine": 18,
+        "startOffset": 8,
+        "endOffset": 41
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "Rename this package name to match the regular expression '^[a-z_]+(\\.[a-z_][a-z0-9_]*)*$'.",
+      "effort": "10min",
+      "debt": "10min",
+      "author": "",
+      "tags": [
+        "convention"
+      ],
+      "creationDate": "2026-11-24T16:08:19+0000",
+      "updateDate": "2026-11-24T16:08:19+0000",
+      "type": "CODE_SMELL",
+      "scope": "MAIN",
+      "quickFixAvailable": false,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "IDENTIFIABLE",
+      "cleanCodeAttributeCategory": "CONSISTENT",
+      "impacts": [
+        {
+          "softwareQuality": "MAINTAINABILITY",
+          "severity": "LOW"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "8b6a321a-d2e3-42ee-a871-43f92db9b006",
+      "rule": "java:S101",
+      "severity": "MINOR",
+      "component": "thesis_juliet_cwe89_pilot_v1:Clean_Code/testcases/CWE89_SQL_Injection/s02/CWE89_SQL_Injection__getParameter_Servlet_executeQuery_01.java",
+      "project": "thesis_juliet_cwe89_pilot_v1",
+      "line": 28,
+      "hash": "0f992ed480ace17ec0830a7915599c9e",
+      "textRange": {
+        "startLine": 28,
+        "endLine": 28,
+        "startOffset": 13,
+        "endOffset": 70
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "Rename this class name to match the regular expression '^[A-Z][a-zA-Z0-9]*$'.",
+      "effort": "5min",
+      "debt": "5min",
+      "author": "",
+      "tags": [
+        "convention"
+      ],
+      "creationDate": "2026-11-24T16:08:19+0000",
+      "updateDate": "2026-11-24T16:08:19+0000",
+      "type": "CODE_SMELL",
+      "scope": "MAIN",
+      "quickFixAvailable": false,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "IDENTIFIABLE",
+      "cleanCodeAttributeCategory": "CONSISTENT",
+      "impacts": [
+        {
+          "softwareQuality": "MAINTAINABILITY",
+          "severity": "LOW"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "bdd459bb-5625-4300-a020-74ec9c4ff81c",
+      "rule": "findsecbugs:SQL_INJECTION_JDBC",
+      "severity": "CRITICAL",
+      "component": "thesis_juliet_cwe89_pilot_v1:Clean_Code/testcases/CWE89_SQL_Injection/s02/CWE89_SQL_Injection__getParameter_Servlet_executeQuery_01.java",
+      "project": "thesis_juliet_cwe89_pilot_v1",
+      "line": 47,
+      "hash": "60269a5b0f1dde2b26e9eb165c121501",
+      "textRange": {
+        "startLine": 47,
+        "endLine": 47,
+        "startOffset": 0,
+        "endOffset": 95
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "This use of java/sql/Statement.executeQuery(Ljava/lang/String;)Ljava/sql/ResultSet; can be vulnerable to SQL injection (with JDBC)",
+      "author": "",
+      "tags": [
+        "cwe",
+        "owasp-a1",
+        "injection",
+        "wasc"
+      ],
+      "creationDate": "2026-11-24T16:08:19+0000",
+      "updateDate": "2026-11-24T16:08:19+0000",
+      "type": "VULNERABILITY",
+      "scope": "MAIN",
+      "quickFixAvailable": false,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "CONVENTIONAL",
+      "cleanCodeAttributeCategory": "CONSISTENT",
+      "impacts": [
+        {
+          "softwareQuality": "SECURITY",
+          "severity": "HIGH"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "20b561bf-56aa-40c1-86ae-04b5a7bb3768",
+      "rule": "java:S1192",
+      "severity": "CRITICAL",
+      "component": "thesis_juliet_cwe89_pilot_v1:Clean_Code/testcases/CWE89_SQL_Injection/s02/CWE89_SQL_Injection__getParameter_Servlet_executeQuery_01.java",
+      "project": "thesis_juliet_cwe89_pilot_v1",
+      "line": 53,
+      "hash": "4aaacd7a95c701c80a797f086d2f898f",
+      "textRange": {
+        "startLine": 53,
+        "endLine": 53,
+        "startOffset": 41,
+        "endOffset": 76
+      },
+      "flows": [
+        {
+          "locations": [
+            {
+              "component": "thesis_juliet_cwe89_pilot_v1:Clean_Code/testcases/CWE89_SQL_Injection/s02/CWE89_SQL_Injection__getParameter_Servlet_executeQuery_01.java",
+              "textRange": {
+                "startLine": 53,
+                "endLine": 53,
+                "startOffset": 41,
+                "endOffset": 76
+              },
+              "msg": "Duplication",
+              "msgFormattings": []
+            }
+          ]
+        },
+        {
+          "locations": [
+            {
+              "component": "thesis_juliet_cwe89_pilot_v1:Clean_Code/testcases/CWE89_SQL_Injection/s02/CWE89_SQL_Injection__getParameter_Servlet_executeQuery_01.java",
+              "textRange": {
+                "startLine": 126,
+                "endLine": 126,
+                "startOffset": 41,
+                "endOffset": 76
+              },
+              "msg": "Duplication",
+              "msgFormattings": []
+            }
+          ]
+        },
+        {
+          "locations": [
+            {
+              "component": "thesis_juliet_cwe89_pilot_v1:Clean_Code/testcases/CWE89_SQL_Injection/s02/CWE89_SQL_Injection__getParameter_Servlet_executeQuery_01.java",
+              "textRange": {
+                "startLine": 194,
+                "endLine": 194,
+                "startOffset": 41,
+                "endOffset": 76
+              },
+              "msg": "Duplication",
+              "msgFormattings": []
+            }
+          ]
+        }
+      ],
+      "status": "OPEN",
+      "message": "Define a constant instead of duplicating this literal \"Error getting database connection\" 3 times.",
+      "effort": "8min",
+      "debt": "8min",
+      "author": "",
+      "tags": [
+        "design"
+      ],
+      "creationDate": "2026-11-24T16:08:19+0000",
+      "updateDate": "2026-11-24T16:08:19+0000",
+      "type": "CODE_SMELL",
+      "scope": "MAIN",
+      "quickFixAvailable": false,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "DISTINCT",
+      "cleanCodeAttributeCategory": "ADAPTABLE",
+      "impacts": [
+        {
+          "softwareQuality": "MAINTAINABILITY",
+          "severity": "HIGH"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "43d66d22-393b-4500-bde7-bb1bcb7ed587",
+      "rule": "java:S1192",
+      "severity": "CRITICAL",
+      "component": "thesis_juliet_cwe89_pilot_v1:Clean_Code/testcases/CWE89_SQL_Injection/s02/CWE89_SQL_Injection__getParameter_Servlet_executeQuery_01.java",
+      "project": "thesis_juliet_cwe89_pilot_v1",
+      "line": 66,
+      "hash": "08479dd9ee6319f97cd0a73c633d0c91",
+      "textRange": {
+        "startLine": 66,
+        "endLine": 66,
+        "startOffset": 45,
+        "endOffset": 70
+      },
+      "flows": [
+        {
+          "locations": [
+            {
+              "component": "thesis_juliet_cwe89_pilot_v1:Clean_Code/testcases/CWE89_SQL_Injection/s02/CWE89_SQL_Injection__getParameter_Servlet_executeQuery_01.java",
+              "textRange": {
+                "startLine": 66,
+                "endLine": 66,
+                "startOffset": 45,
+                "endOffset": 70
+              },
+              "msg": "Duplication",
+              "msgFormattings": []
+            }
+          ]
+        },
+        {
+          "locations": [
+            {
+              "component": "thesis_juliet_cwe89_pilot_v1:Clean_Code/testcases/CWE89_SQL_Injection/s02/CWE89_SQL_Injection__getParameter_Servlet_executeQuery_01.java",
+              "textRange": {
+                "startLine": 139,
+                "endLine": 139,
+                "startOffset": 45,
+                "endOffset": 70
+              },
+              "msg": "Duplication",
+              "msgFormattings": []
+            }
+          ]
+        },
+        {
+          "locations": [
+            {
+              "component": "thesis_juliet_cwe89_pilot_v1:Clean_Code/testcases/CWE89_SQL_Injection/s02/CWE89_SQL_Injection__getParameter_Servlet_executeQuery_01.java",
+              "textRange": {
+                "startLine": 207,
+                "endLine": 207,
+                "startOffset": 45,
+                "endOffset": 70
+              },
+              "msg": "Duplication",
+              "msgFormattings": []
+            }
+          ]
+        }
+      ],
+      "status": "OPEN",
+      "message": "Define a constant instead of duplicating this literal \"Error closing ResultSet\" 3 times.",
+      "effort": "8min",
+      "debt": "8min",
+      "author": "",
+      "tags": [
+        "design"
+      ],
+      "creationDate": "2026-11-24T16:08:19+0000",
+      "updateDate": "2026-11-24T16:08:19+0000",
+      "type": "CODE_SMELL",
+      "scope": "MAIN",
+      "quickFixAvailable": false,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "DISTINCT",
+      "cleanCodeAttributeCategory": "ADAPTABLE",
+      "impacts": [
+        {
+          "softwareQuality": "MAINTAINABILITY",
+          "severity": "HIGH"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "3a64f7a3-f8d5-4547-982a-dbc098c111d4",
+      "rule": "java:S1192",
+      "severity": "CRITICAL",
+      "component": "thesis_juliet_cwe89_pilot_v1:Clean_Code/testcases/CWE89_SQL_Injection/s02/CWE89_SQL_Injection__getParameter_Servlet_executeQuery_01.java",
+      "project": "thesis_juliet_cwe89_pilot_v1",
+      "line": 90,
+      "hash": "1f61b332cd72a75c540c7d37c6a55b7a",
+      "textRange": {
+        "startLine": 90,
+        "endLine": 90,
+        "startOffset": 45,
+        "endOffset": 71
+      },
+      "flows": [
+        {
+          "locations": [
+            {
+              "component": "thesis_juliet_cwe89_pilot_v1:Clean_Code/testcases/CWE89_SQL_Injection/s02/CWE89_SQL_Injection__getParameter_Servlet_executeQuery_01.java",
+              "textRange": {
+                "startLine": 90,
+                "endLine": 90,
+                "startOffset": 45,
+                "endOffset": 71
+              },
+              "msg": "Duplication",
+              "msgFormattings": []
+            }
+          ]
+        },
+        {
+          "locations": [
+            {
+              "component": "thesis_juliet_cwe89_pilot_v1:Clean_Code/testcases/CWE89_SQL_Injection/s02/CWE89_SQL_Injection__getParameter_Servlet_executeQuery_01.java",
+              "textRange": {
+                "startLine": 163,
+                "endLine": 163,
+                "startOffset": 45,
+                "endOffset": 71
+              },
+              "msg": "Duplication",
+              "msgFormattings": []
+            }
+          ]
+        },
+        {
+          "locations": [
+            {
+              "component": "thesis_juliet_cwe89_pilot_v1:Clean_Code/testcases/CWE89_SQL_Injection/s02/CWE89_SQL_Injection__getParameter_Servlet_executeQuery_01.java",
+              "textRange": {
+                "startLine": 231,
+                "endLine": 231,
+                "startOffset": 45,
+                "endOffset": 71
+              },
+              "msg": "Duplication",
+              "msgFormattings": []
+            }
+          ]
+        }
+      ],
+      "status": "OPEN",
+      "message": "Define a constant instead of duplicating this literal \"Error closing Connection\" 3 times.",
+      "effort": "8min",
+      "debt": "8min",
+      "author": "",
+      "tags": [
+        "design"
+      ],
+      "creationDate": "2026-11-24T16:08:19+0000",
+      "updateDate": "2026-11-24T16:08:19+0000",
+      "type": "CODE_SMELL",
+      "scope": "MAIN",
+      "quickFixAvailable": false,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "DISTINCT",
+      "cleanCodeAttributeCategory": "ADAPTABLE",
+      "impacts": [
+        {
+          "softwareQuality": "MAINTAINABILITY",
+          "severity": "HIGH"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "0b0ceaa4-3dc1-471b-ba13-c48de828cbcf",
+      "rule": "java:S1172",
+      "severity": "MAJOR",
+      "component": "thesis_juliet_cwe89_pilot_v1:Clean_Code/testcases/CWE89_SQL_Injection/s02/CWE89_SQL_Injection__getParameter_Servlet_executeQuery_01.java",
+      "project": "thesis_juliet_cwe89_pilot_v1",
+      "line": 103,
+      "hash": "fd2ba69ec834c827eef83ecf0e479ba5",
+      "textRange": {
+        "startLine": 103,
+        "endLine": 103,
+        "startOffset": 44,
+        "endOffset": 51
+      },
+      "flows": [
+        {
+          "locations": [
+            {
+              "component": "thesis_juliet_cwe89_pilot_v1:Clean_Code/testcases/CWE89_SQL_Injection/s02/CWE89_SQL_Injection__getParameter_Servlet_executeQuery_01.java",
+              "textRange": {
+                "startLine": 103,
+                "endLine": 103,
+                "startOffset": 73,
+                "endOffset": 81
+              },
+              "msg": "Parameter \"response\"",
+              "msgFormattings": []
+            }
+          ]
+        }
+      ],
+      "status": "OPEN",
+      "message": "Remove these unused method parameters \"request\", \"response\".",
+      "effort": "5min",
+      "debt": "5min",
+      "author": "",
+      "tags": [
+        "cert",
+        "unused"
+      ],
+      "creationDate": "2026-11-24T16:08:19+0000",
+      "updateDate": "2026-11-24T16:08:19+0000",
+      "type": "CODE_SMELL",
+      "scope": "MAIN",
+      "quickFixAvailable": true,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "CLEAR",
+      "cleanCodeAttributeCategory": "INTENTIONAL",
+      "impacts": [
+        {
+          "softwareQuality": "MAINTAINABILITY",
+          "severity": "MEDIUM"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "160f233d-ec9e-4959-aa30-d675c44180f1",
+      "rule": "java:S112",
+      "severity": "MAJOR",
+      "component": "thesis_juliet_cwe89_pilot_v1:Clean_Code/testcases/CWE89_SQL_Injection/s02/CWE89_SQL_Injection__getParameter_Servlet_executeQuery_01.java",
+      "project": "thesis_juliet_cwe89_pilot_v1",
+      "line": 103,
+      "hash": "fd2ba69ec834c827eef83ecf0e479ba5",
+      "textRange": {
+        "startLine": 103,
+        "endLine": 103,
+        "startOffset": 90,
+        "endOffset": 99
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "Replace generic exceptions with specific library exceptions or a custom exception.",
+      "effort": "20min",
+      "debt": "20min",
+      "author": "",
+      "tags": [
+        "cwe",
+        "error-handling",
+        "cert"
+      ],
+      "creationDate": "2026-11-24T16:08:19+0000",
+      "updateDate": "2026-11-24T16:08:19+0000",
+      "type": "CODE_SMELL",
+      "scope": "MAIN",
+      "quickFixAvailable": false,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "COMPLETE",
+      "cleanCodeAttributeCategory": "INTENTIONAL",
+      "impacts": [
+        {
+          "softwareQuality": "MAINTAINABILITY",
+          "severity": "MEDIUM"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "f2992530-94b8-4663-8ae7-23f5d4c24791",
+      "rule": "findsecbugs:SQL_INJECTION_JDBC",
+      "severity": "CRITICAL",
+      "component": "thesis_juliet_cwe89_pilot_v1:Clean_Code/testcases/CWE89_SQL_Injection/s02/CWE89_SQL_Injection__getParameter_Servlet_executeQuery_01.java",
+      "project": "thesis_juliet_cwe89_pilot_v1",
+      "line": 120,
+      "hash": "60269a5b0f1dde2b26e9eb165c121501",
+      "textRange": {
+        "startLine": 120,
+        "endLine": 120,
+        "startOffset": 0,
+        "endOffset": 95
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "This use of java/sql/Statement.executeQuery(Ljava/lang/String;)Ljava/sql/ResultSet; can be vulnerable to SQL injection (with JDBC)",
+      "author": "",
+      "tags": [
+        "cwe",
+        "owasp-a1",
+        "injection",
+        "wasc"
+      ],
+      "creationDate": "2026-11-24T16:08:19+0000",
+      "updateDate": "2026-11-24T16:08:19+0000",
+      "type": "VULNERABILITY",
+      "scope": "MAIN",
+      "quickFixAvailable": false,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "CONVENTIONAL",
+      "cleanCodeAttributeCategory": "CONSISTENT",
+      "impacts": [
+        {
+          "softwareQuality": "SECURITY",
+          "severity": "HIGH"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "40b2721b-8bee-4b99-aa49-1a51681a4b8a",
+      "rule": "java:S1172",
+      "severity": "MAJOR",
+      "component": "thesis_juliet_cwe89_pilot_v1:Clean_Code/testcases/CWE89_SQL_Injection/s02/CWE89_SQL_Injection__getParameter_Servlet_executeQuery_01.java",
+      "project": "thesis_juliet_cwe89_pilot_v1",
+      "line": 170,
+      "hash": "ee2675e1f2d6ea74ca3a2f2c1f123ae4",
+      "textRange": {
+        "startLine": 170,
+        "endLine": 170,
+        "startOffset": 73,
+        "endOffset": 81
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "Remove this unused method parameter \"response\".",
+      "effort": "5min",
+      "debt": "5min",
+      "author": "",
+      "tags": [
+        "cert",
+        "unused"
+      ],
+      "creationDate": "2026-11-24T16:08:19+0000",
+      "updateDate": "2026-11-24T16:08:19+0000",
+      "type": "CODE_SMELL",
+      "scope": "MAIN",
+      "quickFixAvailable": true,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "CLEAR",
+      "cleanCodeAttributeCategory": "INTENTIONAL",
+      "impacts": [
+        {
+          "softwareQuality": "MAINTAINABILITY",
+          "severity": "MEDIUM"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "ac419484-c317-4f4f-aecf-3d2c143e7dd0",
+      "rule": "java:S112",
+      "severity": "MAJOR",
+      "component": "thesis_juliet_cwe89_pilot_v1:Clean_Code/testcases/CWE89_SQL_Injection/s02/CWE89_SQL_Injection__getParameter_Servlet_executeQuery_01.java",
+      "project": "thesis_juliet_cwe89_pilot_v1",
+      "line": 170,
+      "hash": "ee2675e1f2d6ea74ca3a2f2c1f123ae4",
+      "textRange": {
+        "startLine": 170,
+        "endLine": 170,
+        "startOffset": 90,
+        "endOffset": 99
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "Replace generic exceptions with specific library exceptions or a custom exception.",
+      "effort": "20min",
+      "debt": "20min",
+      "author": "",
+      "tags": [
+        "cwe",
+        "error-handling",
+        "cert"
+      ],
+      "creationDate": "2026-11-24T16:08:19+0000",
+      "updateDate": "2026-11-24T16:08:19+0000",
+      "type": "CODE_SMELL",
+      "scope": "MAIN",
+      "quickFixAvailable": false,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "COMPLETE",
+      "cleanCodeAttributeCategory": "INTENTIONAL",
+      "impacts": [
+        {
+          "softwareQuality": "MAINTAINABILITY",
+          "severity": "MEDIUM"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "e03ed1c4-45d7-4c7f-a258-031acce67e47",
+      "rule": "java:S6905",
+      "severity": "MAJOR",
+      "component": "thesis_juliet_cwe89_pilot_v1:Clean_Code/testcases/CWE89_SQL_Injection/s02/CWE89_SQL_Injection__getParameter_Servlet_executeQuery_01.java",
+      "project": "thesis_juliet_cwe89_pilot_v1",
+      "line": 185,
+      "hash": "0f6494c0a1670adf2ca75ff2112d6d4b",
+      "textRange": {
+        "startLine": 185,
+        "endLine": 185,
+        "startOffset": 57,
+        "endOffset": 91
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "Don't use the query \"SELECT *\".",
+      "effort": "5min",
+      "debt": "5min",
+      "author": "",
+      "tags": [
+        "sustainability",
+        "sql"
+      ],
+      "creationDate": "2026-11-24T16:08:19+0000",
+      "updateDate": "2026-11-24T16:08:19+0000",
+      "type": "CODE_SMELL",
+      "scope": "MAIN",
+      "quickFixAvailable": false,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "EFFICIENT",
+      "cleanCodeAttributeCategory": "INTENTIONAL",
+      "impacts": [
+        {
+          "softwareQuality": "MAINTAINABILITY",
+          "severity": "MEDIUM"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "29989023-1db7-462a-a309-2ff4e132ed6a",
+      "rule": "java:S120",
+      "severity": "MINOR",
+      "component": "thesis_juliet_cwe89_pilot_v1:Clean_Code/testcases/CWE89_SQL_Injection/s02/CWE89_SQL_Injection__getParameter_Servlet_executeQuery_42.java",
+      "project": "thesis_juliet_cwe89_pilot_v1",
+      "line": 18,
+      "hash": "894afd388e50e60a87d66a04f27b2ea1",
+      "textRange": {
+        "startLine": 18,
+        "endLine": 18,
+        "startOffset": 8,
+        "endOffset": 41
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "Rename this package name to match the regular expression '^[a-z_]+(\\.[a-z_][a-z0-9_]*)*$'.",
+      "effort": "10min",
+      "debt": "10min",
+      "author": "",
+      "tags": [
+        "convention"
+      ],
+      "creationDate": "2026-11-24T16:08:19+0000",
+      "updateDate": "2026-11-24T16:08:19+0000",
+      "type": "CODE_SMELL",
+      "scope": "MAIN",
+      "quickFixAvailable": false,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "IDENTIFIABLE",
+      "cleanCodeAttributeCategory": "CONSISTENT",
+      "impacts": [
+        {
+          "softwareQuality": "MAINTAINABILITY",
+          "severity": "LOW"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "5c879987-657a-4aba-b0a4-e8de8f6b0a37",
+      "rule": "java:S101",
+      "severity": "MINOR",
+      "component": "thesis_juliet_cwe89_pilot_v1:Clean_Code/testcases/CWE89_SQL_Injection/s02/CWE89_SQL_Injection__getParameter_Servlet_executeQuery_42.java",
+      "project": "thesis_juliet_cwe89_pilot_v1",
+      "line": 28,
+      "hash": "ed93d292c913699f2abe37f480e6622d",
+      "textRange": {
+        "startLine": 28,
+        "endLine": 28,
+        "startOffset": 13,
+        "endOffset": 70
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "Rename this class name to match the regular expression '^[A-Z][a-zA-Z0-9]*$'.",
+      "effort": "5min",
+      "debt": "5min",
+      "author": "",
+      "tags": [
+        "convention"
+      ],
+      "creationDate": "2026-11-24T16:08:19+0000",
+      "updateDate": "2026-11-24T16:08:19+0000",
+      "type": "CODE_SMELL",
+      "scope": "MAIN",
+      "quickFixAvailable": false,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "IDENTIFIABLE",
+      "cleanCodeAttributeCategory": "CONSISTENT",
+      "impacts": [
+        {
+          "softwareQuality": "MAINTAINABILITY",
+          "severity": "LOW"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "8ec347e5-e270-4f38-b7be-8e6d65296a6d",
+      "rule": "java:S112",
+      "severity": "MAJOR",
+      "component": "thesis_juliet_cwe89_pilot_v1:Clean_Code/testcases/CWE89_SQL_Injection/s02/CWE89_SQL_Injection__getParameter_Servlet_executeQuery_42.java",
+      "project": "thesis_juliet_cwe89_pilot_v1",
+      "line": 30,
+      "hash": "8a695553563c919a32eece07c5c8bb73",
+      "textRange": {
+        "startLine": 30,
+        "endLine": 30,
+        "startOffset": 94,
+        "endOffset": 103
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "Replace generic exceptions with specific library exceptions or a custom exception.",
+      "effort": "20min",
+      "debt": "20min",
+      "author": "",
+      "tags": [
+        "cwe",
+        "error-handling",
+        "cert"
+      ],
+      "creationDate": "2026-11-24T16:08:19+0000",
+      "updateDate": "2026-11-24T16:08:19+0000",
+      "type": "CODE_SMELL",
+      "scope": "MAIN",
+      "quickFixAvailable": false,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "COMPLETE",
+      "cleanCodeAttributeCategory": "INTENTIONAL",
+      "impacts": [
+        {
+          "softwareQuality": "MAINTAINABILITY",
+          "severity": "MEDIUM"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "aaac7375-1864-4182-910f-f374dadc3681",
+      "rule": "java:S1172",
+      "severity": "MAJOR",
+      "component": "thesis_juliet_cwe89_pilot_v1:Clean_Code/testcases/CWE89_SQL_Injection/s02/CWE89_SQL_Injection__getParameter_Servlet_executeQuery_42.java",
+      "project": "thesis_juliet_cwe89_pilot_v1",
+      "line": 30,
+      "hash": "8a695553563c919a32eece07c5c8bb73",
+      "textRange": {
+        "startLine": 30,
+        "endLine": 30,
+        "startOffset": 77,
+        "endOffset": 85
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "Remove this unused method parameter \"response\".",
+      "effort": "5min",
+      "debt": "5min",
+      "author": "",
+      "tags": [
+        "cert",
+        "unused"
+      ],
+      "creationDate": "2026-11-24T16:08:19+0000",
+      "updateDate": "2026-11-24T16:08:19+0000",
+      "type": "CODE_SMELL",
+      "scope": "MAIN",
+      "quickFixAvailable": true,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "CLEAR",
+      "cleanCodeAttributeCategory": "INTENTIONAL",
+      "impacts": [
+        {
+          "softwareQuality": "MAINTAINABILITY",
+          "severity": "MEDIUM"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "53537098-a610-433f-9ea1-dccb0db7e3c9",
+      "rule": "findsecbugs:SQL_INJECTION_JDBC",
+      "severity": "CRITICAL",
+      "component": "thesis_juliet_cwe89_pilot_v1:Clean_Code/testcases/CWE89_SQL_Injection/s02/CWE89_SQL_Injection__getParameter_Servlet_executeQuery_42.java",
+      "project": "thesis_juliet_cwe89_pilot_v1",
+      "line": 54,
+      "hash": "60269a5b0f1dde2b26e9eb165c121501",
+      "textRange": {
+        "startLine": 54,
+        "endLine": 54,
+        "startOffset": 0,
+        "endOffset": 95
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "This use of java/sql/Statement.executeQuery(Ljava/lang/String;)Ljava/sql/ResultSet; can be vulnerable to SQL injection (with JDBC)",
+      "author": "",
+      "tags": [
+        "cwe",
+        "owasp-a1",
+        "injection",
+        "wasc"
+      ],
+      "creationDate": "2026-11-24T16:08:19+0000",
+      "updateDate": "2026-11-24T16:08:19+0000",
+      "type": "VULNERABILITY",
+      "scope": "MAIN",
+      "quickFixAvailable": false,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "CONVENTIONAL",
+      "cleanCodeAttributeCategory": "CONSISTENT",
+      "impacts": [
+        {
+          "softwareQuality": "SECURITY",
+          "severity": "HIGH"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "af0b1a77-4ac8-4f9c-8135-b7731b3a761e",
+      "rule": "java:S1192",
+      "severity": "CRITICAL",
+      "component": "thesis_juliet_cwe89_pilot_v1:Clean_Code/testcases/CWE89_SQL_Injection/s02/CWE89_SQL_Injection__getParameter_Servlet_executeQuery_42.java",
+      "project": "thesis_juliet_cwe89_pilot_v1",
+      "line": 60,
+      "hash": "4aaacd7a95c701c80a797f086d2f898f",
+      "textRange": {
+        "startLine": 60,
+        "endLine": 60,
+        "startOffset": 41,
+        "endOffset": 76
+      },
+      "flows": [
+        {
+          "locations": [
+            {
+              "component": "thesis_juliet_cwe89_pilot_v1:Clean_Code/testcases/CWE89_SQL_Injection/s02/CWE89_SQL_Injection__getParameter_Servlet_executeQuery_42.java",
+              "textRange": {
+                "startLine": 60,
+                "endLine": 60,
+                "startOffset": 41,
+                "endOffset": 76
+              },
+              "msg": "Duplication",
+              "msgFormattings": []
+            }
+          ]
+        },
+        {
+          "locations": [
+            {
+              "component": "thesis_juliet_cwe89_pilot_v1:Clean_Code/testcases/CWE89_SQL_Injection/s02/CWE89_SQL_Injection__getParameter_Servlet_executeQuery_42.java",
+              "textRange": {
+                "startLine": 134,
+                "endLine": 134,
+                "startOffset": 41,
+                "endOffset": 76
+              },
+              "msg": "Duplication",
+              "msgFormattings": []
+            }
+          ]
+        },
+        {
+          "locations": [
+            {
+              "component": "thesis_juliet_cwe89_pilot_v1:Clean_Code/testcases/CWE89_SQL_Injection/s02/CWE89_SQL_Injection__getParameter_Servlet_executeQuery_42.java",
+              "textRange": {
+                "startLine": 209,
+                "endLine": 209,
+                "startOffset": 41,
+                "endOffset": 76
+              },
+              "msg": "Duplication",
+              "msgFormattings": []
+            }
+          ]
+        }
+      ],
+      "status": "OPEN",
+      "message": "Define a constant instead of duplicating this literal \"Error getting database connection\" 3 times.",
+      "effort": "8min",
+      "debt": "8min",
+      "author": "",
+      "tags": [
+        "design"
+      ],
+      "creationDate": "2026-11-24T16:08:19+0000",
+      "updateDate": "2026-11-24T16:08:19+0000",
+      "type": "CODE_SMELL",
+      "scope": "MAIN",
+      "quickFixAvailable": false,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "DISTINCT",
+      "cleanCodeAttributeCategory": "ADAPTABLE",
+      "impacts": [
+        {
+          "softwareQuality": "MAINTAINABILITY",
+          "severity": "HIGH"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "80287fd3-bb23-4445-aadc-afd7cbb8f18d",
+      "rule": "java:S1192",
+      "severity": "CRITICAL",
+      "component": "thesis_juliet_cwe89_pilot_v1:Clean_Code/testcases/CWE89_SQL_Injection/s02/CWE89_SQL_Injection__getParameter_Servlet_executeQuery_42.java",
+      "project": "thesis_juliet_cwe89_pilot_v1",
+      "line": 73,
+      "hash": "08479dd9ee6319f97cd0a73c633d0c91",
+      "textRange": {
+        "startLine": 73,
+        "endLine": 73,
+        "startOffset": 45,
+        "endOffset": 70
+      },
+      "flows": [
+        {
+          "locations": [
+            {
+              "component": "thesis_juliet_cwe89_pilot_v1:Clean_Code/testcases/CWE89_SQL_Injection/s02/CWE89_SQL_Injection__getParameter_Servlet_executeQuery_42.java",
+              "textRange": {
+                "startLine": 73,
+                "endLine": 73,
+                "startOffset": 45,
+                "endOffset": 70
+              },
+              "msg": "Duplication",
+              "msgFormattings": []
+            }
+          ]
+        },
+        {
+          "locations": [
+            {
+              "component": "thesis_juliet_cwe89_pilot_v1:Clean_Code/testcases/CWE89_SQL_Injection/s02/CWE89_SQL_Injection__getParameter_Servlet_executeQuery_42.java",
+              "textRange": {
+                "startLine": 147,
+                "endLine": 147,
+                "startOffset": 45,
+                "endOffset": 70
+              },
+              "msg": "Duplication",
+              "msgFormattings": []
+            }
+          ]
+        },
+        {
+          "locations": [
+            {
+              "component": "thesis_juliet_cwe89_pilot_v1:Clean_Code/testcases/CWE89_SQL_Injection/s02/CWE89_SQL_Injection__getParameter_Servlet_executeQuery_42.java",
+              "textRange": {
+                "startLine": 222,
+                "endLine": 222,
+                "startOffset": 45,
+                "endOffset": 70
+              },
+              "msg": "Duplication",
+              "msgFormattings": []
+            }
+          ]
+        }
+      ],
+      "status": "OPEN",
+      "message": "Define a constant instead of duplicating this literal \"Error closing ResultSet\" 3 times.",
+      "effort": "8min",
+      "debt": "8min",
+      "author": "",
+      "tags": [
+        "design"
+      ],
+      "creationDate": "2026-11-24T16:08:19+0000",
+      "updateDate": "2026-11-24T16:08:19+0000",
+      "type": "CODE_SMELL",
+      "scope": "MAIN",
+      "quickFixAvailable": false,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "DISTINCT",
+      "cleanCodeAttributeCategory": "ADAPTABLE",
+      "impacts": [
+        {
+          "softwareQuality": "MAINTAINABILITY",
+          "severity": "HIGH"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "1851b540-1963-4ff0-ab89-a77b53034896",
+      "rule": "java:S1192",
+      "severity": "CRITICAL",
+      "component": "thesis_juliet_cwe89_pilot_v1:Clean_Code/testcases/CWE89_SQL_Injection/s02/CWE89_SQL_Injection__getParameter_Servlet_executeQuery_42.java",
+      "project": "thesis_juliet_cwe89_pilot_v1",
+      "line": 97,
+      "hash": "1f61b332cd72a75c540c7d37c6a55b7a",
+      "textRange": {
+        "startLine": 97,
+        "endLine": 97,
+        "startOffset": 45,
+        "endOffset": 71
+      },
+      "flows": [
+        {
+          "locations": [
+            {
+              "component": "thesis_juliet_cwe89_pilot_v1:Clean_Code/testcases/CWE89_SQL_Injection/s02/CWE89_SQL_Injection__getParameter_Servlet_executeQuery_42.java",
+              "textRange": {
+                "startLine": 97,
+                "endLine": 97,
+                "startOffset": 45,
+                "endOffset": 71
+              },
+              "msg": "Duplication",
+              "msgFormattings": []
+            }
+          ]
+        },
+        {
+          "locations": [
+            {
+              "component": "thesis_juliet_cwe89_pilot_v1:Clean_Code/testcases/CWE89_SQL_Injection/s02/CWE89_SQL_Injection__getParameter_Servlet_executeQuery_42.java",
+              "textRange": {
+                "startLine": 171,
+                "endLine": 171,
+                "startOffset": 45,
+                "endOffset": 71
+              },
+              "msg": "Duplication",
+              "msgFormattings": []
+            }
+          ]
+        },
+        {
+          "locations": [
+            {
+              "component": "thesis_juliet_cwe89_pilot_v1:Clean_Code/testcases/CWE89_SQL_Injection/s02/CWE89_SQL_Injection__getParameter_Servlet_executeQuery_42.java",
+              "textRange": {
+                "startLine": 246,
+                "endLine": 246,
+                "startOffset": 45,
+                "endOffset": 71
+              },
+              "msg": "Duplication",
+              "msgFormattings": []
+            }
+          ]
+        }
+      ],
+      "status": "OPEN",
+      "message": "Define a constant instead of duplicating this literal \"Error closing Connection\" 3 times.",
+      "effort": "8min",
+      "debt": "8min",
+      "author": "",
+      "tags": [
+        "design"
+      ],
+      "creationDate": "2026-11-24T16:08:19+0000",
+      "updateDate": "2026-11-24T16:08:19+0000",
+      "type": "CODE_SMELL",
+      "scope": "MAIN",
+      "quickFixAvailable": false,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "DISTINCT",
+      "cleanCodeAttributeCategory": "ADAPTABLE",
+      "impacts": [
+        {
+          "softwareQuality": "MAINTAINABILITY",
+          "severity": "HIGH"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "9ba8bc8a-124c-42b6-b494-f8fe44a0656e",
+      "rule": "java:S1172",
+      "severity": "MAJOR",
+      "component": "thesis_juliet_cwe89_pilot_v1:Clean_Code/testcases/CWE89_SQL_Injection/s02/CWE89_SQL_Injection__getParameter_Servlet_executeQuery_42.java",
+      "project": "thesis_juliet_cwe89_pilot_v1",
+      "line": 104,
+      "hash": "213bc62511a37ba934b229cd0979b5e8",
+      "textRange": {
+        "startLine": 104,
+        "endLine": 104,
+        "startOffset": 52,
+        "endOffset": 59
+      },
+      "flows": [
+        {
+          "locations": [
+            {
+              "component": "thesis_juliet_cwe89_pilot_v1:Clean_Code/testcases/CWE89_SQL_Injection/s02/CWE89_SQL_Injection__getParameter_Servlet_executeQuery_42.java",
+              "textRange": {
+                "startLine": 104,
+                "endLine": 104,
+                "startOffset": 81,
+                "endOffset": 89
+              },
+              "msg": "Parameter \"response\"",
+              "msgFormattings": []
+            }
+          ]
+        }
+      ],
+      "status": "OPEN",
+      "message": "Remove these unused method parameters \"request\", \"response\".",
+      "effort": "5min",
+      "debt": "5min",
+      "author": "",
+      "tags": [
+        "cert",
+        "unused"
+      ],
+      "creationDate": "2026-11-24T16:08:19+0000",
+      "updateDate": "2026-11-24T16:08:19+0000",
+      "type": "CODE_SMELL",
+      "scope": "MAIN",
+      "quickFixAvailable": true,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "CLEAR",
+      "cleanCodeAttributeCategory": "INTENTIONAL",
+      "impacts": [
+        {
+          "softwareQuality": "MAINTAINABILITY",
+          "severity": "MEDIUM"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "f5fb6f1a-be8b-4f69-8d06-ec9d95412cae",
+      "rule": "java:S112",
+      "severity": "MAJOR",
+      "component": "thesis_juliet_cwe89_pilot_v1:Clean_Code/testcases/CWE89_SQL_Injection/s02/CWE89_SQL_Injection__getParameter_Servlet_executeQuery_42.java",
+      "project": "thesis_juliet_cwe89_pilot_v1",
+      "line": 104,
+      "hash": "213bc62511a37ba934b229cd0979b5e8",
+      "textRange": {
+        "startLine": 104,
+        "endLine": 104,
+        "startOffset": 98,
+        "endOffset": 107
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "Replace generic exceptions with specific library exceptions or a custom exception.",
+      "effort": "20min",
+      "debt": "20min",
+      "author": "",
+      "tags": [
+        "cwe",
+        "error-handling",
+        "cert"
+      ],
+      "creationDate": "2026-11-24T16:08:19+0000",
+      "updateDate": "2026-11-24T16:08:19+0000",
+      "type": "CODE_SMELL",
+      "scope": "MAIN",
+      "quickFixAvailable": false,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "COMPLETE",
+      "cleanCodeAttributeCategory": "INTENTIONAL",
+      "impacts": [
+        {
+          "softwareQuality": "MAINTAINABILITY",
+          "severity": "MEDIUM"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "ea97975b-4b07-475c-b56a-354835dc937d",
+      "rule": "findsecbugs:SQL_INJECTION_JDBC",
+      "severity": "CRITICAL",
+      "component": "thesis_juliet_cwe89_pilot_v1:Clean_Code/testcases/CWE89_SQL_Injection/s02/CWE89_SQL_Injection__getParameter_Servlet_executeQuery_42.java",
+      "project": "thesis_juliet_cwe89_pilot_v1",
+      "line": 128,
+      "hash": "60269a5b0f1dde2b26e9eb165c121501",
+      "textRange": {
+        "startLine": 128,
+        "endLine": 128,
+        "startOffset": 0,
+        "endOffset": 95
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "This use of java/sql/Statement.executeQuery(Ljava/lang/String;)Ljava/sql/ResultSet; can be vulnerable to SQL injection (with JDBC)",
+      "author": "",
+      "tags": [
+        "cwe",
+        "owasp-a1",
+        "injection",
+        "wasc"
+      ],
+      "creationDate": "2026-11-24T16:08:19+0000",
+      "updateDate": "2026-11-24T16:08:19+0000",
+      "type": "VULNERABILITY",
+      "scope": "MAIN",
+      "quickFixAvailable": false,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "CONVENTIONAL",
+      "cleanCodeAttributeCategory": "CONSISTENT",
+      "impacts": [
+        {
+          "softwareQuality": "SECURITY",
+          "severity": "HIGH"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "08623de5-40b9-4d14-8109-1e44e4088f3d",
+      "rule": "java:S4144",
+      "severity": "MAJOR",
+      "component": "thesis_juliet_cwe89_pilot_v1:Clean_Code/testcases/CWE89_SQL_Injection/s02/CWE89_SQL_Injection__getParameter_Servlet_executeQuery_42.java",
+      "project": "thesis_juliet_cwe89_pilot_v1",
+      "line": 178,
+      "hash": "f60256a2193bbccb06246ac870fd8b64",
+      "textRange": {
+        "startLine": 178,
+        "endLine": 178,
+        "startOffset": 19,
+        "endOffset": 32
+      },
+      "flows": [
+        {
+          "locations": [
+            {
+              "component": "thesis_juliet_cwe89_pilot_v1:Clean_Code/testcases/CWE89_SQL_Injection/s02/CWE89_SQL_Injection__getParameter_Servlet_executeQuery_42.java",
+              "textRange": {
+                "startLine": 30,
+                "endLine": 30,
+                "startOffset": 19,
+                "endOffset": 28
+              },
+              "msg": "original implementation",
+              "msgFormattings": []
+            }
+          ]
+        }
+      ],
+      "status": "OPEN",
+      "message": "Update this method so that its implementation is not identical to \"badSource\" on line 30.",
+      "effort": "15min",
+      "debt": "15min",
+      "author": "",
+      "tags": [
+        "confusing",
+        "duplicate",
+        "suspicious"
+      ],
+      "creationDate": "2026-11-24T16:08:19+0000",
+      "updateDate": "2026-11-24T16:08:19+0000",
+      "type": "CODE_SMELL",
+      "scope": "MAIN",
+      "quickFixAvailable": false,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "DISTINCT",
+      "cleanCodeAttributeCategory": "ADAPTABLE",
+      "impacts": [
+        {
+          "softwareQuality": "MAINTAINABILITY",
+          "severity": "MEDIUM"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "71413657-9eed-448b-9385-959f6007c653",
+      "rule": "java:S1172",
+      "severity": "MAJOR",
+      "component": "thesis_juliet_cwe89_pilot_v1:Clean_Code/testcases/CWE89_SQL_Injection/s02/CWE89_SQL_Injection__getParameter_Servlet_executeQuery_42.java",
+      "project": "thesis_juliet_cwe89_pilot_v1",
+      "line": 178,
+      "hash": "f60256a2193bbccb06246ac870fd8b64",
+      "textRange": {
+        "startLine": 178,
+        "endLine": 178,
+        "startOffset": 81,
+        "endOffset": 89
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "Remove this unused method parameter \"response\".",
+      "effort": "5min",
+      "debt": "5min",
+      "author": "",
+      "tags": [
+        "cert",
+        "unused"
+      ],
+      "creationDate": "2026-11-24T16:08:19+0000",
+      "updateDate": "2026-11-24T16:08:19+0000",
+      "type": "CODE_SMELL",
+      "scope": "MAIN",
+      "quickFixAvailable": true,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "CLEAR",
+      "cleanCodeAttributeCategory": "INTENTIONAL",
+      "impacts": [
+        {
+          "softwareQuality": "MAINTAINABILITY",
+          "severity": "MEDIUM"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "fbe9d18f-0226-4d11-aad7-94aec40d8330",
+      "rule": "java:S112",
+      "severity": "MAJOR",
+      "component": "thesis_juliet_cwe89_pilot_v1:Clean_Code/testcases/CWE89_SQL_Injection/s02/CWE89_SQL_Injection__getParameter_Servlet_executeQuery_42.java",
+      "project": "thesis_juliet_cwe89_pilot_v1",
+      "line": 178,
+      "hash": "f60256a2193bbccb06246ac870fd8b64",
+      "textRange": {
+        "startLine": 178,
+        "endLine": 178,
+        "startOffset": 98,
+        "endOffset": 107
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "Replace generic exceptions with specific library exceptions or a custom exception.",
+      "effort": "20min",
+      "debt": "20min",
+      "author": "",
+      "tags": [
+        "cwe",
+        "error-handling",
+        "cert"
+      ],
+      "creationDate": "2026-11-24T16:08:19+0000",
+      "updateDate": "2026-11-24T16:08:19+0000",
+      "type": "CODE_SMELL",
+      "scope": "MAIN",
+      "quickFixAvailable": false,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "COMPLETE",
+      "cleanCodeAttributeCategory": "INTENTIONAL",
+      "impacts": [
+        {
+          "softwareQuality": "MAINTAINABILITY",
+          "severity": "MEDIUM"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "d9cf14eb-f77f-4515-9fd6-dd504e612200",
+      "rule": "java:S6905",
+      "severity": "MAJOR",
+      "component": "thesis_juliet_cwe89_pilot_v1:Clean_Code/testcases/CWE89_SQL_Injection/s02/CWE89_SQL_Injection__getParameter_Servlet_executeQuery_42.java",
+      "project": "thesis_juliet_cwe89_pilot_v1",
+      "line": 200,
+      "hash": "0f6494c0a1670adf2ca75ff2112d6d4b",
+      "textRange": {
+        "startLine": 200,
+        "endLine": 200,
+        "startOffset": 57,
+        "endOffset": 91
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "Don't use the query \"SELECT *\".",
+      "effort": "5min",
+      "debt": "5min",
+      "author": "",
+      "tags": [
+        "sustainability",
+        "sql"
+      ],
+      "creationDate": "2026-11-24T16:08:19+0000",
+      "updateDate": "2026-11-24T16:08:19+0000",
+      "type": "CODE_SMELL",
+      "scope": "MAIN",
+      "quickFixAvailable": false,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "EFFICIENT",
+      "cleanCodeAttributeCategory": "INTENTIONAL",
+      "impacts": [
+        {
+          "softwareQuality": "MAINTAINABILITY",
+          "severity": "MEDIUM"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "5639be4b-b3e5-4af1-b4e4-e0e072e2b222",
+      "rule": "java:S112",
+      "severity": "MAJOR",
+      "component": "thesis_juliet_cwe89_pilot_v1:Clean_Code/testcasesupport/AbstractTestCase.java",
+      "project": "thesis_juliet_cwe89_pilot_v1",
+      "line": 12,
+      "hash": "535996d6445258b106cd1e1f44cd58ac",
+      "textRange": {
+        "startLine": 12,
+        "endLine": 12,
+        "startOffset": 38,
+        "endOffset": 47
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "Replace generic exceptions with specific library exceptions or a custom exception.",
+      "effort": "20min",
+      "debt": "20min",
+      "author": "",
+      "tags": [
+        "cwe",
+        "error-handling",
+        "cert"
+      ],
+      "creationDate": "2026-11-24T16:08:19+0000",
+      "updateDate": "2026-11-24T16:08:19+0000",
+      "type": "CODE_SMELL",
+      "scope": "MAIN",
+      "quickFixAvailable": false,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "COMPLETE",
+      "cleanCodeAttributeCategory": "INTENTIONAL",
+      "impacts": [
+        {
+          "softwareQuality": "MAINTAINABILITY",
+          "severity": "MEDIUM"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "32314cd9-5c13-404d-9fa0-09c97f23090f",
+      "rule": "java:S112",
+      "severity": "MAJOR",
+      "component": "thesis_juliet_cwe89_pilot_v1:Clean_Code/testcasesupport/AbstractTestCase.java",
+      "project": "thesis_juliet_cwe89_pilot_v1",
+      "line": 14,
+      "hash": "2ee6272e2e6c33de4f81de5c6d712c14",
+      "textRange": {
+        "startLine": 14,
+        "endLine": 14,
+        "startOffset": 39,
+        "endOffset": 48
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "Replace generic exceptions with specific library exceptions or a custom exception.",
+      "effort": "20min",
+      "debt": "20min",
+      "author": "",
+      "tags": [
+        "cwe",
+        "error-handling",
+        "cert"
+      ],
+      "creationDate": "2026-11-24T16:08:19+0000",
+      "updateDate": "2026-11-24T16:08:19+0000",
+      "type": "CODE_SMELL",
+      "scope": "MAIN",
+      "quickFixAvailable": false,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "COMPLETE",
+      "cleanCodeAttributeCategory": "INTENTIONAL",
+      "impacts": [
+        {
+          "softwareQuality": "MAINTAINABILITY",
+          "severity": "MEDIUM"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "514e61c4-3de8-48d2-b0b0-1dfa64a42d39",
+      "rule": "java:S1197",
+      "severity": "MINOR",
+      "component": "thesis_juliet_cwe89_pilot_v1:Clean_Code/testcasesupport/AbstractTestCase.java",
+      "project": "thesis_juliet_cwe89_pilot_v1",
+      "line": 32,
+      "hash": "849fe35fbdf9819f1ae6b3c96b943aef",
+      "textRange": {
+        "startLine": 32,
+        "endLine": 32,
+        "startOffset": 30,
+        "endOffset": 50
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "Move the array designators [] to the type.",
+      "effort": "5min",
+      "debt": "5min",
+      "author": "",
+      "tags": [
+        "convention"
+      ],
+      "creationDate": "2026-11-24T16:08:19+0000",
+      "updateDate": "2026-11-24T16:08:19+0000",
+      "type": "CODE_SMELL",
+      "scope": "MAIN",
+      "quickFixAvailable": true,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "FORMATTED",
+      "cleanCodeAttributeCategory": "CONSISTENT",
+      "impacts": [
+        {
+          "softwareQuality": "MAINTAINABILITY",
+          "severity": "LOW"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "91cc9617-7b95-4cd5-b3ba-08e8cbe910b4",
+      "rule": "java:S1197",
+      "severity": "MINOR",
+      "component": "thesis_juliet_cwe89_pilot_v1:Clean_Code/testcasesupport/AbstractTestCase.java",
+      "project": "thesis_juliet_cwe89_pilot_v1",
+      "line": 54,
+      "hash": "849fe35fbdf9819f1ae6b3c96b943aef",
+      "textRange": {
+        "startLine": 54,
+        "endLine": 54,
+        "startOffset": 30,
+        "endOffset": 50
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "Move the array designators [] to the type.",
+      "effort": "5min",
+      "debt": "5min",
+      "author": "",
+      "tags": [
+        "convention"
+      ],
+      "creationDate": "2026-11-24T16:08:19+0000",
+      "updateDate": "2026-11-24T16:08:19+0000",
+      "type": "CODE_SMELL",
+      "scope": "MAIN",
+      "quickFixAvailable": true,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "FORMATTED",
+      "cleanCodeAttributeCategory": "CONSISTENT",
+      "impacts": [
+        {
+          "softwareQuality": "MAINTAINABILITY",
+          "severity": "LOW"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "bc77fea7-8bb7-46ec-807e-77407a448ba9",
+      "rule": "java:S112",
+      "severity": "MAJOR",
+      "component": "thesis_juliet_cwe89_pilot_v1:Clean_Code/testcasesupport/AbstractTestCaseBadOnly.java",
+      "project": "thesis_juliet_cwe89_pilot_v1",
+      "line": 10,
+      "hash": "535996d6445258b106cd1e1f44cd58ac",
+      "textRange": {
+        "startLine": 10,
+        "endLine": 10,
+        "startOffset": 38,
+        "endOffset": 47
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "Replace generic exceptions with specific library exceptions or a custom exception.",
+      "effort": "20min",
+      "debt": "20min",
+      "author": "",
+      "tags": [
+        "cwe",
+        "error-handling",
+        "cert"
+      ],
+      "creationDate": "2026-11-24T16:08:19+0000",
+      "updateDate": "2026-11-24T16:08:19+0000",
+      "type": "CODE_SMELL",
+      "scope": "MAIN",
+      "quickFixAvailable": false,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "COMPLETE",
+      "cleanCodeAttributeCategory": "INTENTIONAL",
+      "impacts": [
+        {
+          "softwareQuality": "MAINTAINABILITY",
+          "severity": "MEDIUM"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "bd7a78e9-e881-4230-ba9c-3ca0dbb93538",
+      "rule": "java:S1197",
+      "severity": "MINOR",
+      "component": "thesis_juliet_cwe89_pilot_v1:Clean_Code/testcasesupport/AbstractTestCaseBadOnly.java",
+      "project": "thesis_juliet_cwe89_pilot_v1",
+      "line": 29,
+      "hash": "849fe35fbdf9819f1ae6b3c96b943aef",
+      "textRange": {
+        "startLine": 29,
+        "endLine": 29,
+        "startOffset": 30,
+        "endOffset": 50
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "Move the array designators [] to the type.",
+      "effort": "5min",
+      "debt": "5min",
+      "author": "",
+      "tags": [
+        "convention"
+      ],
+      "creationDate": "2026-11-24T16:08:19+0000",
+      "updateDate": "2026-11-24T16:08:19+0000",
+      "type": "CODE_SMELL",
+      "scope": "MAIN",
+      "quickFixAvailable": true,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "FORMATTED",
+      "cleanCodeAttributeCategory": "CONSISTENT",
+      "impacts": [
+        {
+          "softwareQuality": "MAINTAINABILITY",
+          "severity": "LOW"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "6c598d1a-9fe5-45a4-8b99-4b9212e289f8",
+      "rule": "java:S1172",
+      "severity": "MAJOR",
+      "component": "thesis_juliet_cwe89_pilot_v1:Clean_Code/testcasesupport/AbstractTestCaseBase.java",
+      "project": "thesis_juliet_cwe89_pilot_v1",
+      "line": 18,
+      "hash": "d9ee95ff258cb611c6419b06a9f502d1",
+      "textRange": {
+        "startLine": 18,
+        "endLine": 18,
+        "startOffset": 47,
+        "endOffset": 51
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "Remove this unused method parameter \"args\".",
+      "effort": "5min",
+      "debt": "5min",
+      "author": "",
+      "tags": [
+        "cert",
+        "unused"
+      ],
+      "creationDate": "2026-11-24T16:08:19+0000",
+      "updateDate": "2026-11-24T16:08:19+0000",
+      "type": "CODE_SMELL",
+      "scope": "MAIN",
+      "quickFixAvailable": true,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "CLEAR",
+      "cleanCodeAttributeCategory": "INTENTIONAL",
+      "impacts": [
+        {
+          "softwareQuality": "MAINTAINABILITY",
+          "severity": "MEDIUM"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "28ede97d-7064-4e36-8a57-1f2c19328707",
+      "rule": "java:S1197",
+      "severity": "MINOR",
+      "component": "thesis_juliet_cwe89_pilot_v1:Clean_Code/testcasesupport/AbstractTestCaseBase.java",
+      "project": "thesis_juliet_cwe89_pilot_v1",
+      "line": 21,
+      "hash": "140fd5c67a549c27e0fd66ab0f02e19a",
+      "textRange": {
+        "startLine": 21,
+        "endLine": 21,
+        "startOffset": 26,
+        "endOffset": 46
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "Move the array designators [] to the type.",
+      "effort": "5min",
+      "debt": "5min",
+      "author": "",
+      "tags": [
+        "convention"
+      ],
+      "creationDate": "2026-11-24T16:08:19+0000",
+      "updateDate": "2026-11-24T16:08:19+0000",
+      "type": "CODE_SMELL",
+      "scope": "MAIN",
+      "quickFixAvailable": true,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "FORMATTED",
+      "cleanCodeAttributeCategory": "CONSISTENT",
+      "impacts": [
+        {
+          "softwareQuality": "MAINTAINABILITY",
+          "severity": "LOW"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "42507370-48e2-4905-8fb7-59c157bef177",
+      "rule": "java:S1874",
+      "severity": "MINOR",
+      "component": "thesis_juliet_cwe89_pilot_v1:Clean_Code/testcasesupport/AbstractTestCaseBase.java",
+      "project": "thesis_juliet_cwe89_pilot_v1",
+      "line": 27,
+      "hash": "e95ee76c72d3a9a010f5a61bd2807c48",
+      "textRange": {
+        "startLine": 27,
+        "endLine": 27,
+        "startOffset": 71,
+        "endOffset": 82
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "Remove this use of \"newInstance\"; it is deprecated.",
+      "effort": "15min",
+      "debt": "15min",
+      "author": "",
+      "tags": [
+        "cwe",
+        "obsolete",
+        "cert"
+      ],
+      "creationDate": "2026-11-24T16:08:19+0000",
+      "updateDate": "2026-11-24T16:08:19+0000",
+      "type": "CODE_SMELL",
+      "scope": "MAIN",
+      "quickFixAvailable": false,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "CONVENTIONAL",
+      "cleanCodeAttributeCategory": "CONSISTENT",
+      "impacts": [
+        {
+          "softwareQuality": "MAINTAINABILITY",
+          "severity": "LOW"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "e9d6fb4c-1a43-487d-b570-3dad25ffcc37",
+      "rule": "java:S1197",
+      "severity": "MINOR",
+      "component": "thesis_juliet_cwe89_pilot_v1:Clean_Code/testcasesupport/AbstractTestCaseClassIssue.java",
+      "project": "thesis_juliet_cwe89_pilot_v1",
+      "line": 32,
+      "hash": "849fe35fbdf9819f1ae6b3c96b943aef",
+      "textRange": {
+        "startLine": 32,
+        "endLine": 32,
+        "startOffset": 30,
+        "endOffset": 50
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "Move the array designators [] to the type.",
+      "effort": "5min",
+      "debt": "5min",
+      "author": "",
+      "tags": [
+        "convention"
+      ],
+      "creationDate": "2026-11-24T16:08:19+0000",
+      "updateDate": "2026-11-24T16:08:19+0000",
+      "type": "CODE_SMELL",
+      "scope": "MAIN",
+      "quickFixAvailable": true,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "FORMATTED",
+      "cleanCodeAttributeCategory": "CONSISTENT",
+      "impacts": [
+        {
+          "softwareQuality": "MAINTAINABILITY",
+          "severity": "LOW"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "61e3a6ce-9338-49cd-99f0-8ed56bad7b7f",
+      "rule": "java:S1197",
+      "severity": "MINOR",
+      "component": "thesis_juliet_cwe89_pilot_v1:Clean_Code/testcasesupport/AbstractTestCaseClassIssue.java",
+      "project": "thesis_juliet_cwe89_pilot_v1",
+      "line": 54,
+      "hash": "849fe35fbdf9819f1ae6b3c96b943aef",
+      "textRange": {
+        "startLine": 54,
+        "endLine": 54,
+        "startOffset": 30,
+        "endOffset": 50
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "Move the array designators [] to the type.",
+      "effort": "5min",
+      "debt": "5min",
+      "author": "",
+      "tags": [
+        "convention"
+      ],
+      "creationDate": "2026-11-24T16:08:19+0000",
+      "updateDate": "2026-11-24T16:08:19+0000",
+      "type": "CODE_SMELL",
+      "scope": "MAIN",
+      "quickFixAvailable": true,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "FORMATTED",
+      "cleanCodeAttributeCategory": "CONSISTENT",
+      "impacts": [
+        {
+          "softwareQuality": "MAINTAINABILITY",
+          "severity": "LOW"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "76ace153-cdfb-46d1-8813-6f3367bec241",
+      "rule": "java:S112",
+      "severity": "MAJOR",
+      "component": "thesis_juliet_cwe89_pilot_v1:Clean_Code/testcasesupport/AbstractTestCaseClassIssueBad.java",
+      "project": "thesis_juliet_cwe89_pilot_v1",
+      "line": 12,
+      "hash": "535996d6445258b106cd1e1f44cd58ac",
+      "textRange": {
+        "startLine": 12,
+        "endLine": 12,
+        "startOffset": 38,
+        "endOffset": 47
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "Replace generic exceptions with specific library exceptions or a custom exception.",
+      "effort": "20min",
+      "debt": "20min",
+      "author": "",
+      "tags": [
+        "cwe",
+        "error-handling",
+        "cert"
+      ],
+      "creationDate": "2026-11-24T16:08:19+0000",
+      "updateDate": "2026-11-24T16:08:19+0000",
+      "type": "CODE_SMELL",
+      "scope": "MAIN",
+      "quickFixAvailable": false,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "COMPLETE",
+      "cleanCodeAttributeCategory": "INTENTIONAL",
+      "impacts": [
+        {
+          "softwareQuality": "MAINTAINABILITY",
+          "severity": "MEDIUM"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "27402104-8c68-4fc1-9835-8655d52b8c44",
+      "rule": "java:S1197",
+      "severity": "MINOR",
+      "component": "thesis_juliet_cwe89_pilot_v1:Clean_Code/testcasesupport/AbstractTestCaseClassIssueBad.java",
+      "project": "thesis_juliet_cwe89_pilot_v1",
+      "line": 30,
+      "hash": "849fe35fbdf9819f1ae6b3c96b943aef",
+      "textRange": {
+        "startLine": 30,
+        "endLine": 30,
+        "startOffset": 30,
+        "endOffset": 50
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "Move the array designators [] to the type.",
+      "effort": "5min",
+      "debt": "5min",
+      "author": "",
+      "tags": [
+        "convention"
+      ],
+      "creationDate": "2026-11-24T16:08:19+0000",
+      "updateDate": "2026-11-24T16:08:19+0000",
+      "type": "CODE_SMELL",
+      "scope": "MAIN",
+      "quickFixAvailable": true,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "FORMATTED",
+      "cleanCodeAttributeCategory": "CONSISTENT",
+      "impacts": [
+        {
+          "softwareQuality": "MAINTAINABILITY",
+          "severity": "LOW"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "155f4925-008f-4632-b9b7-3048c636cbaf",
+      "rule": "java:S112",
+      "severity": "MAJOR",
+      "component": "thesis_juliet_cwe89_pilot_v1:Clean_Code/testcasesupport/AbstractTestCaseClassIssueGood.java",
+      "project": "thesis_juliet_cwe89_pilot_v1",
+      "line": 12,
+      "hash": "2ee6272e2e6c33de4f81de5c6d712c14",
+      "textRange": {
+        "startLine": 12,
+        "endLine": 12,
+        "startOffset": 39,
+        "endOffset": 48
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "Replace generic exceptions with specific library exceptions or a custom exception.",
+      "effort": "20min",
+      "debt": "20min",
+      "author": "",
+      "tags": [
+        "cwe",
+        "error-handling",
+        "cert"
+      ],
+      "creationDate": "2026-11-24T16:08:19+0000",
+      "updateDate": "2026-11-24T16:08:19+0000",
+      "type": "CODE_SMELL",
+      "scope": "MAIN",
+      "quickFixAvailable": false,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "COMPLETE",
+      "cleanCodeAttributeCategory": "INTENTIONAL",
+      "impacts": [
+        {
+          "softwareQuality": "MAINTAINABILITY",
+          "severity": "MEDIUM"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "86b1a43a-3d51-4ce0-9f19-eebcdb43121b",
+      "rule": "java:S1197",
+      "severity": "MINOR",
+      "component": "thesis_juliet_cwe89_pilot_v1:Clean_Code/testcasesupport/AbstractTestCaseClassIssueGood.java",
+      "project": "thesis_juliet_cwe89_pilot_v1",
+      "line": 31,
+      "hash": "849fe35fbdf9819f1ae6b3c96b943aef",
+      "textRange": {
+        "startLine": 31,
+        "endLine": 31,
+        "startOffset": 30,
+        "endOffset": 50
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "Move the array designators [] to the type.",
+      "effort": "5min",
+      "debt": "5min",
+      "author": "",
+      "tags": [
+        "convention"
+      ],
+      "creationDate": "2026-11-24T16:08:19+0000",
+      "updateDate": "2026-11-24T16:08:19+0000",
+      "type": "CODE_SMELL",
+      "scope": "MAIN",
+      "quickFixAvailable": true,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "FORMATTED",
+      "cleanCodeAttributeCategory": "CONSISTENT",
+      "impacts": [
+        {
+          "softwareQuality": "MAINTAINABILITY",
+          "severity": "LOW"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "b624b671-5631-413e-8282-208f98e02bfc",
+      "rule": "java:S112",
+      "severity": "MAJOR",
+      "component": "thesis_juliet_cwe89_pilot_v1:Clean_Code/testcasesupport/AbstractTestCaseServlet.java",
+      "project": "thesis_juliet_cwe89_pilot_v1",
+      "line": 27,
+      "hash": "4816219cb6cb8880638601b8ef40484d",
+      "textRange": {
+        "startLine": 27,
+        "endLine": 27,
+        "startOffset": 49,
+        "endOffset": 58
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "Replace generic exceptions with specific library exceptions or a custom exception.",
+      "effort": "20min",
+      "debt": "20min",
+      "author": "",
+      "tags": [
+        "cwe",
+        "error-handling",
+        "cert"
+      ],
+      "creationDate": "2026-11-24T16:08:19+0000",
+      "updateDate": "2026-11-24T16:08:19+0000",
+      "type": "CODE_SMELL",
+      "scope": "MAIN",
+      "quickFixAvailable": false,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "COMPLETE",
+      "cleanCodeAttributeCategory": "INTENTIONAL",
+      "impacts": [
+        {
+          "softwareQuality": "MAINTAINABILITY",
+          "severity": "MEDIUM"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "e838c875-fcd5-43d6-992e-4b90a9221845",
+      "rule": "java:S112",
+      "severity": "MAJOR",
+      "component": "thesis_juliet_cwe89_pilot_v1:Clean_Code/testcasesupport/AbstractTestCaseServlet.java",
+      "project": "thesis_juliet_cwe89_pilot_v1",
+      "line": 30,
+      "hash": "4816219cb6cb8880638601b8ef40484d",
+      "textRange": {
+        "startLine": 30,
+        "endLine": 30,
+        "startOffset": 49,
+        "endOffset": 58
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "Replace generic exceptions with specific library exceptions or a custom exception.",
+      "effort": "20min",
+      "debt": "20min",
+      "author": "",
+      "tags": [
+        "cwe",
+        "error-handling",
+        "cert"
+      ],
+      "creationDate": "2026-11-24T16:08:19+0000",
+      "updateDate": "2026-11-24T16:08:19+0000",
+      "type": "CODE_SMELL",
+      "scope": "MAIN",
+      "quickFixAvailable": false,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "COMPLETE",
+      "cleanCodeAttributeCategory": "INTENTIONAL",
+      "impacts": [
+        {
+          "softwareQuality": "MAINTAINABILITY",
+          "severity": "MEDIUM"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "460357c7-bfc8-4cee-ad56-983dd9849ef1",
+      "rule": "java:S125",
+      "severity": "MAJOR",
+      "component": "thesis_juliet_cwe89_pilot_v1:Clean_Code/testcasesupport/AbstractTestCaseServlet.java",
+      "project": "thesis_juliet_cwe89_pilot_v1",
+      "line": 42,
+      "hash": "57b84efaef1f28d36984869cdebaab12",
+      "textRange": {
+        "startLine": 42,
+        "endLine": 42,
+        "startOffset": 75,
+        "endOffset": 113
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "This block of commented-out lines of code should be removed.",
+      "effort": "5min",
+      "debt": "5min",
+      "author": "",
+      "tags": [
+        "unused"
+      ],
+      "creationDate": "2026-11-24T16:08:19+0000",
+      "updateDate": "2026-11-24T16:08:19+0000",
+      "type": "CODE_SMELL",
+      "scope": "MAIN",
+      "quickFixAvailable": false,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "CLEAR",
+      "cleanCodeAttributeCategory": "INTENTIONAL",
+      "impacts": [
+        {
+          "softwareQuality": "MAINTAINABILITY",
+          "severity": "MEDIUM"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "e7852983-f36e-43c7-9d22-2779b4f23b16",
+      "rule": "java:S1197",
+      "severity": "MINOR",
+      "component": "thesis_juliet_cwe89_pilot_v1:Clean_Code/testcasesupport/AbstractTestCaseServlet.java",
+      "project": "thesis_juliet_cwe89_pilot_v1",
+      "line": 60,
+      "hash": "849fe35fbdf9819f1ae6b3c96b943aef",
+      "textRange": {
+        "startLine": 60,
+        "endLine": 60,
+        "startOffset": 30,
+        "endOffset": 50
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "Move the array designators [] to the type.",
+      "effort": "5min",
+      "debt": "5min",
+      "author": "",
+      "tags": [
+        "convention"
+      ],
+      "creationDate": "2026-11-24T16:08:19+0000",
+      "updateDate": "2026-11-24T16:08:19+0000",
+      "type": "CODE_SMELL",
+      "scope": "MAIN",
+      "quickFixAvailable": true,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "FORMATTED",
+      "cleanCodeAttributeCategory": "CONSISTENT",
+      "impacts": [
+        {
+          "softwareQuality": "MAINTAINABILITY",
+          "severity": "LOW"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "8c6f5ef3-a156-41a7-8e65-4b7f6a3652b7",
+      "rule": "java:S1197",
+      "severity": "MINOR",
+      "component": "thesis_juliet_cwe89_pilot_v1:Clean_Code/testcasesupport/AbstractTestCaseServlet.java",
+      "project": "thesis_juliet_cwe89_pilot_v1",
+      "line": 82,
+      "hash": "849fe35fbdf9819f1ae6b3c96b943aef",
+      "textRange": {
+        "startLine": 82,
+        "endLine": 82,
+        "startOffset": 30,
+        "endOffset": 50
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "Move the array designators [] to the type.",
+      "effort": "5min",
+      "debt": "5min",
+      "author": "",
+      "tags": [
+        "convention"
+      ],
+      "creationDate": "2026-11-24T16:08:19+0000",
+      "updateDate": "2026-11-24T16:08:19+0000",
+      "type": "CODE_SMELL",
+      "scope": "MAIN",
+      "quickFixAvailable": true,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "FORMATTED",
+      "cleanCodeAttributeCategory": "CONSISTENT",
+      "impacts": [
+        {
+          "softwareQuality": "MAINTAINABILITY",
+          "severity": "LOW"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "d57ef8e6-c4bf-49ea-a3e8-36bd42e379b1",
+      "rule": "java:S112",
+      "severity": "MAJOR",
+      "component": "thesis_juliet_cwe89_pilot_v1:Clean_Code/testcasesupport/AbstractTestCaseServletBadOnly.java",
+      "project": "thesis_juliet_cwe89_pilot_v1",
+      "line": 27,
+      "hash": "4816219cb6cb8880638601b8ef40484d",
+      "textRange": {
+        "startLine": 27,
+        "endLine": 27,
+        "startOffset": 49,
+        "endOffset": 58
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "Replace generic exceptions with specific library exceptions or a custom exception.",
+      "effort": "20min",
+      "debt": "20min",
+      "author": "",
+      "tags": [
+        "cwe",
+        "error-handling",
+        "cert"
+      ],
+      "creationDate": "2026-11-24T16:08:19+0000",
+      "updateDate": "2026-11-24T16:08:19+0000",
+      "type": "CODE_SMELL",
+      "scope": "MAIN",
+      "quickFixAvailable": false,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "COMPLETE",
+      "cleanCodeAttributeCategory": "INTENTIONAL",
+      "impacts": [
+        {
+          "softwareQuality": "MAINTAINABILITY",
+          "severity": "MEDIUM"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "fa0b5b3c-c796-4e38-883a-8620a6818589",
+      "rule": "java:S125",
+      "severity": "MAJOR",
+      "component": "thesis_juliet_cwe89_pilot_v1:Clean_Code/testcasesupport/AbstractTestCaseServletBadOnly.java",
+      "project": "thesis_juliet_cwe89_pilot_v1",
+      "line": 39,
+      "hash": "57b84efaef1f28d36984869cdebaab12",
+      "textRange": {
+        "startLine": 39,
+        "endLine": 39,
+        "startOffset": 75,
+        "endOffset": 113
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "This block of commented-out lines of code should be removed.",
+      "effort": "5min",
+      "debt": "5min",
+      "author": "",
+      "tags": [
+        "unused"
+      ],
+      "creationDate": "2026-11-24T16:08:19+0000",
+      "updateDate": "2026-11-24T16:08:19+0000",
+      "type": "CODE_SMELL",
+      "scope": "MAIN",
+      "quickFixAvailable": false,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "CLEAR",
+      "cleanCodeAttributeCategory": "INTENTIONAL",
+      "impacts": [
+        {
+          "softwareQuality": "MAINTAINABILITY",
+          "severity": "MEDIUM"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "88a448a5-c42c-46a0-a517-ae5da9fe4f69",
+      "rule": "java:S1197",
+      "severity": "MINOR",
+      "component": "thesis_juliet_cwe89_pilot_v1:Clean_Code/testcasesupport/AbstractTestCaseServletBadOnly.java",
+      "project": "thesis_juliet_cwe89_pilot_v1",
+      "line": 57,
+      "hash": "849fe35fbdf9819f1ae6b3c96b943aef",
+      "textRange": {
+        "startLine": 57,
+        "endLine": 57,
+        "startOffset": 30,
+        "endOffset": 50
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "Move the array designators [] to the type.",
+      "effort": "5min",
+      "debt": "5min",
+      "author": "",
+      "tags": [
+        "convention"
+      ],
+      "creationDate": "2026-11-24T16:08:19+0000",
+      "updateDate": "2026-11-24T16:08:19+0000",
+      "type": "CODE_SMELL",
+      "scope": "MAIN",
+      "quickFixAvailable": true,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "FORMATTED",
+      "cleanCodeAttributeCategory": "CONSISTENT",
+      "impacts": [
+        {
+          "softwareQuality": "MAINTAINABILITY",
+          "severity": "LOW"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "ce50d8cb-afea-4000-9e07-f48c767e9ebe",
+      "rule": "java:S1172",
+      "severity": "MAJOR",
+      "component": "thesis_juliet_cwe89_pilot_v1:Clean_Code/testcasesupport/AbstractTestCaseServletBase.java",
+      "project": "thesis_juliet_cwe89_pilot_v1",
+      "line": 31,
+      "hash": "d9ee95ff258cb611c6419b06a9f502d1",
+      "textRange": {
+        "startLine": 31,
+        "endLine": 31,
+        "startOffset": 47,
+        "endOffset": 51
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "Remove this unused method parameter \"args\".",
+      "effort": "5min",
+      "debt": "5min",
+      "author": "",
+      "tags": [
+        "cert",
+        "unused"
+      ],
+      "creationDate": "2026-11-24T16:08:19+0000",
+      "updateDate": "2026-11-24T16:08:19+0000",
+      "type": "CODE_SMELL",
+      "scope": "MAIN",
+      "quickFixAvailable": true,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "CLEAR",
+      "cleanCodeAttributeCategory": "INTENTIONAL",
+      "impacts": [
+        {
+          "softwareQuality": "MAINTAINABILITY",
+          "severity": "MEDIUM"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "d08a1fb6-0d40-429b-b8e7-796be48d96c9",
+      "rule": "java:S1197",
+      "severity": "MINOR",
+      "component": "thesis_juliet_cwe89_pilot_v1:Clean_Code/testcasesupport/AbstractTestCaseServletBase.java",
+      "project": "thesis_juliet_cwe89_pilot_v1",
+      "line": 34,
+      "hash": "140fd5c67a549c27e0fd66ab0f02e19a",
+      "textRange": {
+        "startLine": 34,
+        "endLine": 34,
+        "startOffset": 26,
+        "endOffset": 46
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "Move the array designators [] to the type.",
+      "effort": "5min",
+      "debt": "5min",
+      "author": "",
+      "tags": [
+        "convention"
+      ],
+      "creationDate": "2026-11-24T16:08:19+0000",
+      "updateDate": "2026-11-24T16:08:19+0000",
+      "type": "CODE_SMELL",
+      "scope": "MAIN",
+      "quickFixAvailable": true,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "FORMATTED",
+      "cleanCodeAttributeCategory": "CONSISTENT",
+      "impacts": [
+        {
+          "softwareQuality": "MAINTAINABILITY",
+          "severity": "LOW"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "f4e6cb54-7b28-4522-8a2a-b50ae832e337",
+      "rule": "java:S1874",
+      "severity": "MINOR",
+      "component": "thesis_juliet_cwe89_pilot_v1:Clean_Code/testcasesupport/AbstractTestCaseServletBase.java",
+      "project": "thesis_juliet_cwe89_pilot_v1",
+      "line": 40,
+      "hash": "dcae8782e073bb7bd1b18aaef112abeb",
+      "textRange": {
+        "startLine": 40,
+        "endLine": 40,
+        "startOffset": 63,
+        "endOffset": 74
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "Remove this use of \"newInstance\"; it is deprecated.",
+      "effort": "15min",
+      "debt": "15min",
+      "author": "",
+      "tags": [
+        "cwe",
+        "obsolete",
+        "cert"
+      ],
+      "creationDate": "2026-11-24T16:08:19+0000",
+      "updateDate": "2026-11-24T16:08:19+0000",
+      "type": "CODE_SMELL",
+      "scope": "MAIN",
+      "quickFixAvailable": false,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "CONVENTIONAL",
+      "cleanCodeAttributeCategory": "CONSISTENT",
+      "impacts": [
+        {
+          "softwareQuality": "MAINTAINABILITY",
+          "severity": "LOW"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "4260c9a5-44cf-4e32-acca-b54780317729",
+      "rule": "java:S1124",
+      "severity": "MINOR",
+      "component": "thesis_juliet_cwe89_pilot_v1:Clean_Code/testcasesupport/AbstractTestCaseServletBase.java",
+      "project": "thesis_juliet_cwe89_pilot_v1",
+      "line": 61,
+      "hash": "2bae2ff1614bf249e87ecd1b6f579376",
+      "textRange": {
+        "startLine": 61,
+        "endLine": 61,
+        "startOffset": 13,
+        "endOffset": 19
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "Reorder the modifiers to comply with the Java Language Specification.",
+      "effort": "2min",
+      "debt": "2min",
+      "author": "",
+      "tags": [
+        "convention"
+      ],
+      "creationDate": "2026-11-24T16:08:19+0000",
+      "updateDate": "2026-11-24T16:08:19+0000",
+      "type": "CODE_SMELL",
+      "scope": "MAIN",
+      "quickFixAvailable": true,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "CLEAR",
+      "cleanCodeAttributeCategory": "INTENTIONAL",
+      "impacts": [
+        {
+          "softwareQuality": "MAINTAINABILITY",
+          "severity": "LOW"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "5adf3971-ebab-49a4-b623-e84f73a1f152",
+      "rule": "java:S1161",
+      "severity": "MAJOR",
+      "component": "thesis_juliet_cwe89_pilot_v1:Clean_Code/testcasesupport/AbstractTestCaseServletBase.java",
+      "project": "thesis_juliet_cwe89_pilot_v1",
+      "line": 63,
+      "hash": "00bfbbca7295696f01fa4cca2cd8e5a9",
+      "textRange": {
+        "startLine": 63,
+        "endLine": 63,
+        "startOffset": 16,
+        "endOffset": 22
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "Add the \"@Override\" annotation above this method signature",
+      "effort": "5min",
+      "debt": "5min",
+      "author": "",
+      "tags": [
+        "bad-practice"
+      ],
+      "creationDate": "2026-11-24T16:08:19+0000",
+      "updateDate": "2026-11-24T16:08:19+0000",
+      "type": "CODE_SMELL",
+      "scope": "MAIN",
+      "quickFixAvailable": true,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "CLEAR",
+      "cleanCodeAttributeCategory": "INTENTIONAL",
+      "impacts": [
+        {
+          "softwareQuality": "MAINTAINABILITY",
+          "severity": "MEDIUM"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "6cf1acec-5aa2-4bd6-bdc0-91004d89528f",
+      "rule": "java:S1161",
+      "severity": "MAJOR",
+      "component": "thesis_juliet_cwe89_pilot_v1:Clean_Code/testcasesupport/AbstractTestCaseServletBase.java",
+      "project": "thesis_juliet_cwe89_pilot_v1",
+      "line": 68,
+      "hash": "2eabcfb50fae06cd652a7cc185f5a41d",
+      "textRange": {
+        "startLine": 68,
+        "endLine": 68,
+        "startOffset": 16,
+        "endOffset": 21
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "Add the \"@Override\" annotation above this method signature",
+      "effort": "5min",
+      "debt": "5min",
+      "author": "",
+      "tags": [
+        "bad-practice"
+      ],
+      "creationDate": "2026-11-24T16:08:19+0000",
+      "updateDate": "2026-11-24T16:08:19+0000",
+      "type": "CODE_SMELL",
+      "scope": "MAIN",
+      "quickFixAvailable": true,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "CLEAR",
+      "cleanCodeAttributeCategory": "INTENTIONAL",
+      "impacts": [
+        {
+          "softwareQuality": "MAINTAINABILITY",
+          "severity": "MEDIUM"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "16ef1abf-8d7e-48fc-98b2-8a3572f93baf",
+      "rule": "java:S1181",
+      "severity": "MAJOR",
+      "component": "thesis_juliet_cwe89_pilot_v1:Clean_Code/testcasesupport/AbstractTestCaseServletBase.java",
+      "project": "thesis_juliet_cwe89_pilot_v1",
+      "line": 74,
+      "hash": "bf44a9531c3e1d9f8b95574e143daa96",
+      "textRange": {
+        "startLine": 74,
+        "endLine": 74,
+        "startOffset": 15,
+        "endOffset": 24
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "Catch Exception instead of Throwable.",
+      "effort": "20min",
+      "debt": "20min",
+      "author": "",
+      "tags": [
+        "cwe",
+        "error-handling",
+        "bad-practice",
+        "cert"
+      ],
+      "creationDate": "2026-11-24T16:08:19+0000",
+      "updateDate": "2026-11-24T16:08:19+0000",
+      "type": "CODE_SMELL",
+      "scope": "MAIN",
+      "quickFixAvailable": false,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "CONVENTIONAL",
+      "cleanCodeAttributeCategory": "CONSISTENT",
+      "impacts": [
+        {
+          "softwareQuality": "MAINTAINABILITY",
+          "severity": "MEDIUM"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "891ab6a9-5910-4a35-885c-420d676631fd",
+      "rule": "java:S1197",
+      "severity": "MINOR",
+      "component": "thesis_juliet_cwe89_pilot_v1:Clean_Code/testcasesupport/AbstractTestCaseServletBase.java",
+      "project": "thesis_juliet_cwe89_pilot_v1",
+      "line": 80,
+      "hash": "849fe35fbdf9819f1ae6b3c96b943aef",
+      "textRange": {
+        "startLine": 80,
+        "endLine": 80,
+        "startOffset": 30,
+        "endOffset": 50
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "Move the array designators [] to the type.",
+      "effort": "5min",
+      "debt": "5min",
+      "author": "",
+      "tags": [
+        "convention"
+      ],
+      "creationDate": "2026-11-24T16:08:19+0000",
+      "updateDate": "2026-11-24T16:08:19+0000",
+      "type": "CODE_SMELL",
+      "scope": "MAIN",
+      "quickFixAvailable": true,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "FORMATTED",
+      "cleanCodeAttributeCategory": "CONSISTENT",
+      "impacts": [
+        {
+          "softwareQuality": "MAINTAINABILITY",
+          "severity": "LOW"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "f5350ca9-cb2a-434f-857f-033e4b2e7de2",
+      "rule": "java:S1128",
+      "severity": "MINOR",
+      "component": "thesis_juliet_cwe89_pilot_v1:Clean_Code/testcasesupport/IO.java",
+      "project": "thesis_juliet_cwe89_pilot_v1",
+      "line": 8,
+      "hash": "2a9dbc5176864b0a5826f663180384fe",
+      "textRange": {
+        "startLine": 8,
+        "endLine": 8,
+        "startOffset": 7,
+        "endOffset": 16
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "Remove this unused import 'java.io'.",
+      "effort": "1min",
+      "debt": "1min",
+      "author": "",
+      "tags": [
+        "unused"
+      ],
+      "creationDate": "2026-11-24T16:08:19+0000",
+      "updateDate": "2026-11-24T16:08:19+0000",
+      "type": "CODE_SMELL",
+      "scope": "MAIN",
+      "quickFixAvailable": true,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "CLEAR",
+      "cleanCodeAttributeCategory": "INTENTIONAL",
+      "impacts": [
+        {
+          "softwareQuality": "MAINTAINABILITY",
+          "severity": "LOW"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "9c4f9a87-5986-4078-a87f-15e9907b23fe",
+      "rule": "java:S1128",
+      "severity": "MINOR",
+      "component": "thesis_juliet_cwe89_pilot_v1:Clean_Code/testcasesupport/IO.java",
+      "project": "thesis_juliet_cwe89_pilot_v1",
+      "line": 10,
+      "hash": "1d888748ec60a9962b75d44c4eade1f9",
+      "textRange": {
+        "startLine": 10,
+        "endLine": 10,
+        "startOffset": 7,
+        "endOffset": 24
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "Remove this unused import 'java.util.regex'.",
+      "effort": "1min",
+      "debt": "1min",
+      "author": "",
+      "tags": [
+        "unused"
+      ],
+      "creationDate": "2026-11-24T16:08:19+0000",
+      "updateDate": "2026-11-24T16:08:19+0000",
+      "type": "CODE_SMELL",
+      "scope": "MAIN",
+      "quickFixAvailable": true,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "CLEAR",
+      "cleanCodeAttributeCategory": "INTENTIONAL",
+      "impacts": [
+        {
+          "softwareQuality": "MAINTAINABILITY",
+          "severity": "LOW"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "4f0a8a86-5904-433c-8b80-06b44c393fa2",
+      "rule": "java:S1118",
+      "severity": "MAJOR",
+      "component": "thesis_juliet_cwe89_pilot_v1:Clean_Code/testcasesupport/IO.java",
+      "project": "thesis_juliet_cwe89_pilot_v1",
+      "line": 13,
+      "hash": "210241cd67566f3a9261bc914b6fed50",
+      "textRange": {
+        "startLine": 13,
+        "endLine": 13,
+        "startOffset": 13,
+        "endOffset": 15
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "Add a private constructor to hide the implicit public one.",
+      "effort": "5min",
+      "debt": "5min",
+      "author": "",
+      "tags": [
+        "design"
+      ],
+      "creationDate": "2026-11-24T16:08:19+0000",
+      "updateDate": "2026-11-24T16:08:19+0000",
+      "type": "CODE_SMELL",
+      "scope": "MAIN",
+      "quickFixAvailable": true,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "CLEAR",
+      "cleanCodeAttributeCategory": "INTENTIONAL",
+      "impacts": [
+        {
+          "softwareQuality": "MAINTAINABILITY",
+          "severity": "MEDIUM"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "d0183830-1726-4724-a834-2d35138ce9e4",
+      "rule": "java:S115",
+      "severity": "CRITICAL",
+      "component": "thesis_juliet_cwe89_pilot_v1:Clean_Code/testcasesupport/IO.java",
+      "project": "thesis_juliet_cwe89_pilot_v1",
+      "line": 19,
+      "hash": "119e396182667d12c2b03cb72e587f16",
+      "textRange": {
+        "startLine": 19,
+        "endLine": 19,
+        "startOffset": 32,
+        "endOffset": 37
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "Rename this constant name to match the regular expression '^[A-Z][A-Z0-9]*(_[A-Z0-9]+)*$'.",
+      "effort": "2min",
+      "debt": "2min",
+      "author": "",
+      "tags": [
+        "convention"
+      ],
+      "creationDate": "2026-11-24T16:08:19+0000",
+      "updateDate": "2026-11-24T16:08:19+0000",
+      "type": "CODE_SMELL",
+      "scope": "MAIN",
+      "quickFixAvailable": false,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "IDENTIFIABLE",
+      "cleanCodeAttributeCategory": "CONSISTENT",
+      "impacts": [
+        {
+          "softwareQuality": "MAINTAINABILITY",
+          "severity": "HIGH"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "c1129266-7317-4887-87eb-d2984d51cbe0",
+      "rule": "java:S115",
+      "severity": "CRITICAL",
+      "component": "thesis_juliet_cwe89_pilot_v1:Clean_Code/testcasesupport/IO.java",
+      "project": "thesis_juliet_cwe89_pilot_v1",
+      "line": 20,
+      "hash": "b852c2cead973b1f16f9cdc7a17be77f",
+      "textRange": {
+        "startLine": 20,
+        "endLine": 20,
+        "startOffset": 32,
+        "endOffset": 42
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "Rename this constant name to match the regular expression '^[A-Z][A-Z0-9]*(_[A-Z0-9]+)*$'.",
+      "effort": "2min",
+      "debt": "2min",
+      "author": "",
+      "tags": [
+        "convention"
+      ],
+      "creationDate": "2026-11-24T16:08:19+0000",
+      "updateDate": "2026-11-24T16:08:19+0000",
+      "type": "CODE_SMELL",
+      "scope": "MAIN",
+      "quickFixAvailable": false,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "IDENTIFIABLE",
+      "cleanCodeAttributeCategory": "CONSISTENT",
+      "impacts": [
+        {
+          "softwareQuality": "MAINTAINABILITY",
+          "severity": "HIGH"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "d308bb0f-8fa6-4475-b448-8d08f74a5186",
+      "rule": "java:S115",
+      "severity": "CRITICAL",
+      "component": "thesis_juliet_cwe89_pilot_v1:Clean_Code/testcasesupport/IO.java",
+      "project": "thesis_juliet_cwe89_pilot_v1",
+      "line": 21,
+      "hash": "9a35f033f3f811aca877e7c6b5aa99f4",
+      "textRange": {
+        "startLine": 21,
+        "endLine": 21,
+        "startOffset": 32,
+        "endOffset": 42
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "Rename this constant name to match the regular expression '^[A-Z][A-Z0-9]*(_[A-Z0-9]+)*$'.",
+      "effort": "2min",
+      "debt": "2min",
+      "author": "",
+      "tags": [
+        "convention"
+      ],
+      "creationDate": "2026-11-24T16:08:19+0000",
+      "updateDate": "2026-11-24T16:08:19+0000",
+      "type": "CODE_SMELL",
+      "scope": "MAIN",
+      "quickFixAvailable": false,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "IDENTIFIABLE",
+      "cleanCodeAttributeCategory": "CONSISTENT",
+      "impacts": [
+        {
+          "softwareQuality": "MAINTAINABILITY",
+          "severity": "HIGH"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "7a6af362-9571-4c0e-aa52-4cd3d357b650",
+      "rule": "java:S106",
+      "severity": "MAJOR",
+      "component": "thesis_juliet_cwe89_pilot_v1:Clean_Code/testcasesupport/IO.java",
+      "project": "thesis_juliet_cwe89_pilot_v1",
+      "line": 27,
+      "hash": "58c13aa9c40488e3af6b701499054470",
+      "textRange": {
+        "startLine": 27,
+        "endLine": 27,
+        "startOffset": 8,
+        "endOffset": 18
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "Replace this use of System.out by a logger.",
+      "effort": "10min",
+      "debt": "10min",
+      "author": "",
+      "tags": [
+        "bad-practice",
+        "cert"
+      ],
+      "creationDate": "2026-11-24T16:08:19+0000",
+      "updateDate": "2026-11-24T16:08:19+0000",
+      "type": "CODE_SMELL",
+      "scope": "MAIN",
+      "quickFixAvailable": false,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "MODULAR",
+      "cleanCodeAttributeCategory": "ADAPTABLE",
+      "impacts": [
+        {
+          "softwareQuality": "MAINTAINABILITY",
+          "severity": "MEDIUM"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "3ba23f23-55b4-48d1-aef7-f97039c4f0d2",
+      "rule": "java:S106",
+      "severity": "MAJOR",
+      "component": "thesis_juliet_cwe89_pilot_v1:Clean_Code/testcasesupport/IO.java",
+      "project": "thesis_juliet_cwe89_pilot_v1",
+      "line": 32,
+      "hash": "55d57adc55d4ff4c57a99320539786e1",
+      "textRange": {
+        "startLine": 32,
+        "endLine": 32,
+        "startOffset": 8,
+        "endOffset": 18
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "Replace this use of System.out by a logger.",
+      "effort": "10min",
+      "debt": "10min",
+      "author": "",
+      "tags": [
+        "bad-practice",
+        "cert"
+      ],
+      "creationDate": "2026-11-24T16:08:19+0000",
+      "updateDate": "2026-11-24T16:08:19+0000",
+      "type": "CODE_SMELL",
+      "scope": "MAIN",
+      "quickFixAvailable": false,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "MODULAR",
+      "cleanCodeAttributeCategory": "ADAPTABLE",
+      "impacts": [
+        {
+          "softwareQuality": "MAINTAINABILITY",
+          "severity": "MEDIUM"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "f08f24e1-0959-40a2-8018-7ea48764f070",
+      "rule": "java:S2115",
+      "severity": "BLOCKER",
+      "component": "thesis_juliet_cwe89_pilot_v1:Clean_Code/testcasesupport/IO.java",
+      "project": "thesis_juliet_cwe89_pilot_v1",
+      "line": 70,
+      "hash": "09ef221cc78c68a38da059f1f2c081fe",
+      "textRange": {
+        "startLine": 70,
+        "endLine": 70,
+        "startOffset": 15,
+        "endOffset": 73
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "Add password protection to this database.",
+      "effort": "45min",
+      "debt": "45min",
+      "author": "",
+      "tags": [
+        "cwe"
+      ],
+      "creationDate": "2026-11-24T16:08:19+0000",
+      "updateDate": "2026-11-24T16:08:19+0000",
+      "type": "VULNERABILITY",
+      "scope": "MAIN",
+      "quickFixAvailable": false,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "TRUSTWORTHY",
+      "cleanCodeAttributeCategory": "RESPONSIBLE",
+      "impacts": [
+        {
+          "softwareQuality": "SECURITY",
+          "severity": "BLOCKER"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "27e4ce92-0f2d-476f-a51e-e9fdcdf4f385",
+      "rule": "java:S1444",
+      "severity": "MINOR",
+      "component": "thesis_juliet_cwe89_pilot_v1:Clean_Code/testcasesupport/IO.java",
+      "project": "thesis_juliet_cwe89_pilot_v1",
+      "line": 84,
+      "hash": "2d3c63deaa73e5c2908c8583e1370fb9",
+      "textRange": {
+        "startLine": 84,
+        "endLine": 84,
+        "startOffset": 26,
+        "endOffset": 36
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "Make this \"public static staticTrue\" field final",
+      "effort": "20min",
+      "debt": "20min",
+      "author": "",
+      "tags": [
+        "cwe",
+        "cert"
+      ],
+      "creationDate": "2026-11-24T16:08:19+0000",
+      "updateDate": "2026-11-24T16:08:19+0000",
+      "type": "CODE_SMELL",
+      "scope": "MAIN",
+      "quickFixAvailable": false,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "MODULAR",
+      "cleanCodeAttributeCategory": "ADAPTABLE",
+      "impacts": [
+        {
+          "softwareQuality": "MAINTAINABILITY",
+          "severity": "LOW"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "83846ffc-cb65-42d1-a870-3ef5d9e1c783",
+      "rule": "java:S1104",
+      "severity": "MINOR",
+      "component": "thesis_juliet_cwe89_pilot_v1:Clean_Code/testcasesupport/IO.java",
+      "project": "thesis_juliet_cwe89_pilot_v1",
+      "line": 84,
+      "hash": "2d3c63deaa73e5c2908c8583e1370fb9",
+      "textRange": {
+        "startLine": 84,
+        "endLine": 84,
+        "startOffset": 26,
+        "endOffset": 36
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "Make staticTrue a static final constant or non-public and provide accessors if needed.",
+      "effort": "10min",
+      "debt": "10min",
+      "author": "",
+      "tags": [
+        "cwe"
+      ],
+      "creationDate": "2026-11-24T16:08:19+0000",
+      "updateDate": "2026-11-24T16:08:19+0000",
+      "type": "CODE_SMELL",
+      "scope": "MAIN",
+      "quickFixAvailable": false,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "MODULAR",
+      "cleanCodeAttributeCategory": "ADAPTABLE",
+      "impacts": [
+        {
+          "softwareQuality": "MAINTAINABILITY",
+          "severity": "LOW"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "12c775fc-300b-44aa-bce1-14eb179a878e",
+      "rule": "java:S1104",
+      "severity": "MINOR",
+      "component": "thesis_juliet_cwe89_pilot_v1:Clean_Code/testcasesupport/IO.java",
+      "project": "thesis_juliet_cwe89_pilot_v1",
+      "line": 85,
+      "hash": "a406f391f2987ce602681ae4758b2325",
+      "textRange": {
+        "startLine": 85,
+        "endLine": 85,
+        "startOffset": 26,
+        "endOffset": 37
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "Make staticFalse a static final constant or non-public and provide accessors if needed.",
+      "effort": "10min",
+      "debt": "10min",
+      "author": "",
+      "tags": [
+        "cwe"
+      ],
+      "creationDate": "2026-11-24T16:08:19+0000",
+      "updateDate": "2026-11-24T16:08:19+0000",
+      "type": "CODE_SMELL",
+      "scope": "MAIN",
+      "quickFixAvailable": false,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "MODULAR",
+      "cleanCodeAttributeCategory": "ADAPTABLE",
+      "impacts": [
+        {
+          "softwareQuality": "MAINTAINABILITY",
+          "severity": "LOW"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "daff5af2-eea0-46eb-ae6b-87d681d701f8",
+      "rule": "java:S1444",
+      "severity": "MINOR",
+      "component": "thesis_juliet_cwe89_pilot_v1:Clean_Code/testcasesupport/IO.java",
+      "project": "thesis_juliet_cwe89_pilot_v1",
+      "line": 85,
+      "hash": "a406f391f2987ce602681ae4758b2325",
+      "textRange": {
+        "startLine": 85,
+        "endLine": 85,
+        "startOffset": 26,
+        "endOffset": 37
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "Make this \"public static staticFalse\" field final",
+      "effort": "20min",
+      "debt": "20min",
+      "author": "",
+      "tags": [
+        "cwe",
+        "cert"
+      ],
+      "creationDate": "2026-11-24T16:08:19+0000",
+      "updateDate": "2026-11-24T16:08:19+0000",
+      "type": "CODE_SMELL",
+      "scope": "MAIN",
+      "quickFixAvailable": false,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "MODULAR",
+      "cleanCodeAttributeCategory": "ADAPTABLE",
+      "impacts": [
+        {
+          "softwareQuality": "MAINTAINABILITY",
+          "severity": "LOW"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "ad4df73f-f063-4c14-9700-d9acbda11337",
+      "rule": "java:S1444",
+      "severity": "MINOR",
+      "component": "thesis_juliet_cwe89_pilot_v1:Clean_Code/testcasesupport/IO.java",
+      "project": "thesis_juliet_cwe89_pilot_v1",
+      "line": 86,
+      "hash": "535c46108aaa38af6ef746d56234d07e",
+      "textRange": {
+        "startLine": 86,
+        "endLine": 86,
+        "startOffset": 22,
+        "endOffset": 32
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "Make this \"public static staticFive\" field final",
+      "effort": "20min",
+      "debt": "20min",
+      "author": "",
+      "tags": [
+        "cwe",
+        "cert"
+      ],
+      "creationDate": "2026-11-24T16:08:19+0000",
+      "updateDate": "2026-11-24T16:08:19+0000",
+      "type": "CODE_SMELL",
+      "scope": "MAIN",
+      "quickFixAvailable": false,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "MODULAR",
+      "cleanCodeAttributeCategory": "ADAPTABLE",
+      "impacts": [
+        {
+          "softwareQuality": "MAINTAINABILITY",
+          "severity": "LOW"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "e1dbbfb5-ae16-40d8-9645-85a2f3e642be",
+      "rule": "java:S1104",
+      "severity": "MINOR",
+      "component": "thesis_juliet_cwe89_pilot_v1:Clean_Code/testcasesupport/IO.java",
+      "project": "thesis_juliet_cwe89_pilot_v1",
+      "line": 86,
+      "hash": "535c46108aaa38af6ef746d56234d07e",
+      "textRange": {
+        "startLine": 86,
+        "endLine": 86,
+        "startOffset": 22,
+        "endOffset": 32
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "Make staticFive a static final constant or non-public and provide accessors if needed.",
+      "effort": "10min",
+      "debt": "10min",
+      "author": "",
+      "tags": [
+        "cwe"
+      ],
+      "creationDate": "2026-11-24T16:08:19+0000",
+      "updateDate": "2026-11-24T16:08:19+0000",
+      "type": "CODE_SMELL",
+      "scope": "MAIN",
+      "quickFixAvailable": false,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "MODULAR",
+      "cleanCodeAttributeCategory": "ADAPTABLE",
+      "impacts": [
+        {
+          "softwareQuality": "MAINTAINABILITY",
+          "severity": "LOW"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "71397cb8-5852-4877-bb93-c4988c39cf2c",
+      "rule": "java:S3400",
+      "severity": "MINOR",
+      "component": "thesis_juliet_cwe89_pilot_v1:Clean_Code/testcasesupport/IO.java",
+      "project": "thesis_juliet_cwe89_pilot_v1",
+      "line": 90,
+      "hash": "8a6c141756d58ae351cd56242e5f3361",
+      "textRange": {
+        "startLine": 90,
+        "endLine": 90,
+        "startOffset": 15,
+        "endOffset": 19
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "Remove this method and declare a constant for this value.",
+      "effort": "5min",
+      "debt": "5min",
+      "author": "",
+      "tags": [
+        "confusing"
+      ],
+      "creationDate": "2026-11-24T16:08:19+0000",
+      "updateDate": "2026-11-24T16:08:19+0000",
+      "type": "CODE_SMELL",
+      "scope": "MAIN",
+      "quickFixAvailable": false,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "CLEAR",
+      "cleanCodeAttributeCategory": "INTENTIONAL",
+      "impacts": [
+        {
+          "softwareQuality": "MAINTAINABILITY",
+          "severity": "LOW"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "aea4af8d-1749-48a8-880c-5c46b82516a5",
+      "rule": "java:S3400",
+      "severity": "MINOR",
+      "component": "thesis_juliet_cwe89_pilot_v1:Clean_Code/testcasesupport/IO.java",
+      "project": "thesis_juliet_cwe89_pilot_v1",
+      "line": 95,
+      "hash": "d1fe4dae1118fe43410f233c92f0438e",
+      "textRange": {
+        "startLine": 95,
+        "endLine": 95,
+        "startOffset": 15,
+        "endOffset": 20
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "Remove this method and declare a constant for this value.",
+      "effort": "5min",
+      "debt": "5min",
+      "author": "",
+      "tags": [
+        "confusing"
+      ],
+      "creationDate": "2026-11-24T16:08:19+0000",
+      "updateDate": "2026-11-24T16:08:19+0000",
+      "type": "CODE_SMELL",
+      "scope": "MAIN",
+      "quickFixAvailable": false,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "CLEAR",
+      "cleanCodeAttributeCategory": "INTENTIONAL",
+      "impacts": [
+        {
+          "softwareQuality": "MAINTAINABILITY",
+          "severity": "LOW"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "24e688ec-e45e-46d3-bbf1-8377adc05771",
+      "rule": "java:S2119",
+      "severity": "CRITICAL",
+      "component": "thesis_juliet_cwe89_pilot_v1:Clean_Code/testcasesupport/IO.java",
+      "project": "thesis_juliet_cwe89_pilot_v1",
+      "line": 100,
+      "hash": "8a575d2eb837678762595a7422b62f2d",
+      "textRange": {
+        "startLine": 100,
+        "endLine": 100,
+        "startOffset": 20,
+        "endOffset": 36
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "Save and re-use this \"Random\".",
+      "effort": "5min",
+      "debt": "5min",
+      "author": "",
+      "tags": [],
+      "creationDate": "2026-11-24T16:08:19+0000",
+      "updateDate": "2026-11-24T16:08:19+0000",
+      "type": "BUG",
+      "scope": "MAIN",
+      "quickFixAvailable": false,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "COMPLETE",
+      "cleanCodeAttributeCategory": "INTENTIONAL",
+      "impacts": [
+        {
+          "softwareQuality": "RELIABILITY",
+          "severity": "HIGH"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "226a3025-3de8-4e5d-b4a6-9a2bc25ed7e8",
+      "rule": "java:S1197",
+      "severity": "MINOR",
+      "component": "thesis_juliet_cwe89_pilot_v1:Clean_Code/testcasesupport/IO.java",
+      "project": "thesis_juliet_cwe89_pilot_v1",
+      "line": 105,
+      "hash": "27d28c6c77e637e5004cbf77ce7f7628",
+      "textRange": {
+        "startLine": 105,
+        "endLine": 105,
+        "startOffset": 37,
+        "endOffset": 49
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "Move the array designators [] to the type.",
+      "effort": "5min",
+      "debt": "5min",
+      "author": "",
+      "tags": [
+        "convention"
+      ],
+      "creationDate": "2026-11-24T16:08:19+0000",
+      "updateDate": "2026-11-24T16:08:19+0000",
+      "type": "CODE_SMELL",
+      "scope": "MAIN",
+      "quickFixAvailable": true,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "FORMATTED",
+      "cleanCodeAttributeCategory": "CONSISTENT",
+      "impacts": [
+        {
+          "softwareQuality": "MAINTAINABILITY",
+          "severity": "LOW"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "6ddd339d-8d62-46ac-8292-2cf45dea452f",
+      "rule": "java:S1149",
+      "severity": "MAJOR",
+      "component": "thesis_juliet_cwe89_pilot_v1:Clean_Code/testcasesupport/IO.java",
+      "project": "thesis_juliet_cwe89_pilot_v1",
+      "line": 107,
+      "hash": "d057a464548a08675d4059a27b37b925",
+      "textRange": {
+        "startLine": 107,
+        "endLine": 107,
+        "startOffset": 8,
+        "endOffset": 20
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "Replace the synchronized class \"StringBuffer\" by an unsynchronized one such as \"StringBuilder\".",
+      "effort": "20min",
+      "debt": "20min",
+      "author": "",
+      "tags": [
+        "performance"
+      ],
+      "creationDate": "2026-11-24T16:08:19+0000",
+      "updateDate": "2026-11-24T16:08:19+0000",
+      "type": "CODE_SMELL",
+      "scope": "MAIN",
+      "quickFixAvailable": false,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "CONVENTIONAL",
+      "cleanCodeAttributeCategory": "CONSISTENT",
+      "impacts": [
+        {
+          "softwareQuality": "MAINTAINABILITY",
+          "severity": "MEDIUM"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "3887111f-bfad-4ddd-ab8a-b5e5acde84dd",
+      "rule": "java:S1905",
+      "severity": "MINOR",
+      "component": "thesis_juliet_cwe89_pilot_v1:Clean_Code/testcasesupport/IO.java",
+      "project": "thesis_juliet_cwe89_pilot_v1",
+      "line": 112,
+      "hash": "e253239246f2669044f4fd0899f1e77e",
+      "textRange": {
+        "startLine": 112,
+        "endLine": 112,
+        "startOffset": 17,
+        "endOffset": 22
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "Remove this unnecessary cast to \"int\".",
+      "effort": "5min",
+      "debt": "5min",
+      "author": "",
+      "tags": [
+        "redundant",
+        "clumsy"
+      ],
+      "creationDate": "2026-11-24T16:08:19+0000",
+      "updateDate": "2026-11-24T16:08:19+0000",
+      "type": "CODE_SMELL",
+      "scope": "MAIN",
+      "quickFixAvailable": true,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "CLEAR",
+      "cleanCodeAttributeCategory": "INTENTIONAL",
+      "impacts": [
+        {
+          "softwareQuality": "MAINTAINABILITY",
+          "severity": "LOW"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "c0e55c75-62b5-44e3-b7ea-e170b03c2a83",
+      "rule": "java:S1905",
+      "severity": "MINOR",
+      "component": "thesis_juliet_cwe89_pilot_v1:Clean_Code/testcasesupport/IO.java",
+      "project": "thesis_juliet_cwe89_pilot_v1",
+      "line": 117,
+      "hash": "712554aaa480fe063479618ff439e23e",
+      "textRange": {
+        "startLine": 117,
+        "endLine": 117,
+        "startOffset": 43,
+        "endOffset": 48
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "Remove this unnecessary cast to \"int\".",
+      "effort": "5min",
+      "debt": "5min",
+      "author": "",
+      "tags": [
+        "redundant",
+        "clumsy"
+      ],
+      "creationDate": "2026-11-24T16:08:19+0000",
+      "updateDate": "2026-11-24T16:08:19+0000",
+      "type": "CODE_SMELL",
+      "scope": "MAIN",
+      "quickFixAvailable": true,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "CLEAR",
+      "cleanCodeAttributeCategory": "INTENTIONAL",
+      "impacts": [
+        {
+          "softwareQuality": "MAINTAINABILITY",
+          "severity": "LOW"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    }
+  ],
+  "components": [
+    {
+      "key": "thesis_juliet_cwe89_pilot_v1:Clean_Code/testcases/CWE89_SQL_Injection/s02/CWE89_SQL_Injection__getParameter_Servlet_executeQuery_42.java",
+      "enabled": true,
+      "qualifier": "FIL",
+      "name": "CWE89_SQL_Injection__getParameter_Servlet_executeQuery_42.java",
+      "longName": "Clean_Code/testcases/CWE89_SQL_Injection/s02/CWE89_SQL_Injection__getParameter_Servlet_executeQuery_42.java",
+      "path": "Clean_Code/testcases/CWE89_SQL_Injection/s02/CWE89_SQL_Injection__getParameter_Servlet_executeQuery_42.java"
+    },
+    {
+      "key": "thesis_juliet_cwe89_pilot_v1:Clean_Code/testcases/CWE89_SQL_Injection/s02/CWE89_SQL_Injection__getParameter_Servlet_executeQuery_01.java",
+      "enabled": true,
+      "qualifier": "FIL",
+      "name": "CWE89_SQL_Injection__getParameter_Servlet_executeQuery_01.java",
+      "longName": "Clean_Code/testcases/CWE89_SQL_Injection/s02/CWE89_SQL_Injection__getParameter_Servlet_executeQuery_01.java",
+      "path": "Clean_Code/testcases/CWE89_SQL_Injection/s02/CWE89_SQL_Injection__getParameter_Servlet_executeQuery_01.java"
+    },
+    {
+      "key": "thesis_juliet_cwe89_pilot_v1:Clean_Code/testcases/CWE89_SQL_Injection/s02/CWE89_SQL_Injection__getCookies_Servlet_prepareStatement_42.java",
+      "enabled": true,
+      "qualifier": "FIL",
+      "name": "CWE89_SQL_Injection__getCookies_Servlet_prepareStatement_42.java",
+      "longName": "Clean_Code/testcases/CWE89_SQL_Injection/s02/CWE89_SQL_Injection__getCookies_Servlet_prepareStatement_42.java",
+      "path": "Clean_Code/testcases/CWE89_SQL_Injection/s02/CWE89_SQL_Injection__getCookies_Servlet_prepareStatement_42.java"
+    },
+    {
+      "key": "thesis_juliet_cwe89_pilot_v1:Clean_Code/testcasesupport/IO.java",
+      "enabled": true,
+      "qualifier": "FIL",
+      "name": "IO.java",
+      "longName": "Clean_Code/testcasesupport/IO.java",
+      "path": "Clean_Code/testcasesupport/IO.java"
+    },
+    {
+      "key": "thesis_juliet_cwe89_pilot_v1:Clean_Code/testcasesupport/AbstractTestCase.java",
+      "enabled": true,
+      "qualifier": "FIL",
+      "name": "AbstractTestCase.java",
+      "longName": "Clean_Code/testcasesupport/AbstractTestCase.java",
+      "path": "Clean_Code/testcasesupport/AbstractTestCase.java"
+    },
+    {
+      "key": "thesis_juliet_cwe89_pilot_v1:Clean_Code/testcasesupport/AbstractTestCaseBadOnly.java",
+      "enabled": true,
+      "qualifier": "FIL",
+      "name": "AbstractTestCaseBadOnly.java",
+      "longName": "Clean_Code/testcasesupport/AbstractTestCaseBadOnly.java",
+      "path": "Clean_Code/testcasesupport/AbstractTestCaseBadOnly.java"
+    },
+    {
+      "key": "thesis_juliet_cwe89_pilot_v1:Clean_Code/testcasesupport/AbstractTestCaseServletBase.java",
+      "enabled": true,
+      "qualifier": "FIL",
+      "name": "AbstractTestCaseServletBase.java",
+      "longName": "Clean_Code/testcasesupport/AbstractTestCaseServletBase.java",
+      "path": "Clean_Code/testcasesupport/AbstractTestCaseServletBase.java"
+    },
+    {
+      "key": "thesis_juliet_cwe89_pilot_v1:Clean_Code/testcasesupport/AbstractTestCaseServletBadOnly.java",
+      "enabled": true,
+      "qualifier": "FIL",
+      "name": "AbstractTestCaseServletBadOnly.java",
+      "longName": "Clean_Code/testcasesupport/AbstractTestCaseServletBadOnly.java",
+      "path": "Clean_Code/testcasesupport/AbstractTestCaseServletBadOnly.java"
+    },
+    {
+      "key": "thesis_juliet_cwe89_pilot_v1:Clean_Code/testcasesupport/AbstractTestCaseClassIssueBad.java",
+      "enabled": true,
+      "qualifier": "FIL",
+      "name": "AbstractTestCaseClassIssueBad.java",
+      "longName": "Clean_Code/testcasesupport/AbstractTestCaseClassIssueBad.java",
+      "path": "Clean_Code/testcasesupport/AbstractTestCaseClassIssueBad.java"
+    },
+    {
+      "key": "thesis_juliet_cwe89_pilot_v1:Clean_Code/testcasesupport/AbstractTestCaseServlet.java",
+      "enabled": true,
+      "qualifier": "FIL",
+      "name": "AbstractTestCaseServlet.java",
+      "longName": "Clean_Code/testcasesupport/AbstractTestCaseServlet.java",
+      "path": "Clean_Code/testcasesupport/AbstractTestCaseServlet.java"
+    },
+    {
+      "key": "thesis_juliet_cwe89_pilot_v1:Clean_Code/testcasesupport/AbstractTestCaseClassIssue.java",
+      "enabled": true,
+      "qualifier": "FIL",
+      "name": "AbstractTestCaseClassIssue.java",
+      "longName": "Clean_Code/testcasesupport/AbstractTestCaseClassIssue.java",
+      "path": "Clean_Code/testcasesupport/AbstractTestCaseClassIssue.java"
+    },
+    {
+      "key": "thesis_juliet_cwe89_pilot_v1:Clean_Code/testcasesupport/AbstractTestCaseClassIssueGood.java",
+      "enabled": true,
+      "qualifier": "FIL",
+      "name": "AbstractTestCaseClassIssueGood.java",
+      "longName": "Clean_Code/testcasesupport/AbstractTestCaseClassIssueGood.java",
+      "path": "Clean_Code/testcasesupport/AbstractTestCaseClassIssueGood.java"
+    },
+    {
+      "key": "thesis_juliet_cwe89_pilot_v1:Clean_Code/testcasesupport/AbstractTestCaseBase.java",
+      "enabled": true,
+      "qualifier": "FIL",
+      "name": "AbstractTestCaseBase.java",
+      "longName": "Clean_Code/testcasesupport/AbstractTestCaseBase.java",
+      "path": "Clean_Code/testcasesupport/AbstractTestCaseBase.java"
+    },
+    {
+      "key": "thesis_juliet_cwe89_pilot_v1",
+      "enabled": true,
+      "qualifier": "TRK",
+      "name": "Thesis Juliet Java CWE-89 pilot",
+      "longName": "Thesis Juliet Java CWE-89 pilot"
+    }
+  ],
+  "facets": []
+}

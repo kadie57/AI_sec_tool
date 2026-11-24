@@ -1,0 +1,112 @@
+{
+  "scope": "Fresh Ollama calls for selected alerts with the IRIS-inspired prompt. Evidence was checked against the baseline for all twelve alerts.",
+  "requests_checked": 12,
+  "fresh_cases": 3,
+  "model_digest": "9ec8897f747e246e970bc5cfdda85d22f1123dc2e3d34978a010a75968716849",
+  "baseline_revalidation": "runs/owasp-iris-warning-citation-20261124/summary.json",
+  "live_case_folder": "runs/owasp-iris-prompt-verified-first-20261124/live",
+  "prompt_baseline_sha256": "7fa152e90693c92ca2e93e765ac93bbf1327e138bb003cb852e3364597de3554",
+  "prompt_v2_sha256": "26e84205a559fb429adba9c87a3a28fdf6a4c6135f4d301f784acee12637a442",
+  "profile": "iris-contextual",
+  "cases": [
+    {
+      "sample": "BenchmarkTest00517",
+      "issue_id": "75bd39b8-848e-4ac4-ae84-35e78cbd540e",
+      "reference_vulnerability": false,
+      "old_verdict": "LIKELY_FP",
+      "new_verdict": "LIKELY_FP",
+      "old_outcome": "correct",
+      "new_outcome": "correct",
+      "warning_citation_added": null,
+      "baseline_request_sha256": "84afa743bdf416068171a4882a1b53d086625582fd9db90b2ded1c643e207f76",
+      "new_request_sha256": "08178dd9d550fd97b3927195c5b830f47b6ca43ebdebb32ff3d353646ff80109",
+      "evidence_sha256": "f8a6bd785b291b3f786f2c563223346937b31ee47ee6daedd76b945a8cb65625",
+      "elapsed_seconds": 277.736,
+      "citations": [
+        {
+          "file_id": "F0",
+          "line": 62
+        },
+        {
+          "file_id": "F0",
+          "line": 55
+        }
+      ],
+      "response_field_order": [
+        "explanation",
+        "citations",
+        "verdict"
+      ],
+      "prompt_tokens": 2097
+    },
+    {
+      "sample": "BenchmarkTest02093",
+      "issue_id": "a59329b9-c85d-488c-9cb3-cef8e94aad66",
+      "reference_vulnerability": false,
+      "old_verdict": "LIKELY_FP",
+      "new_verdict": "LIKELY_FP",
+      "old_outcome": "correct",
+      "new_outcome": "correct",
+      "warning_citation_added": null,
+      "baseline_request_sha256": "929b7867c30ef14628d0e52c331d097994413b5b119c6d59fe8a01ebba197f98",
+      "new_request_sha256": "753f5a65f1d4646c0f8d1064f77a2e9e9c779ba16adeb71228601b0a2ff385de",
+      "evidence_sha256": "8019d1ec8553f1fdff54fffc2f2725ba4fe5cd3d8162cd091c6fdbd6d742eb01",
+      "elapsed_seconds": 240.327,
+      "citations": [
+        {
+          "file_id": "F0",
+          "line": 60
+        },
+        {
+          "file_id": "F0",
+          "line": 81
+        },
+        {
+          "file_id": "F0",
+          "line": 82
+        },
+        {
+          "file_id": "F0",
+          "line": 93
+        }
+      ],
+      "response_field_order": [
+        "explanation",
+        "citations",
+        "verdict"
+      ],
+      "prompt_tokens": 2372
+    },
+    {
+      "sample": "BenchmarkTest02171",
+      "issue_id": "eb1d6188-8f9d-406f-b766-9abc0851368f",
+      "reference_vulnerability": true,
+      "old_verdict": "UNKNOWN",
+      "new_verdict": "LIKELY_TP",
+      "old_outcome": "unknown",
+      "new_outcome": "correct",
+      "warning_citation_added": null,
+      "baseline_request_sha256": "8e34ca613e8754082a6d7ca8dc4ea24cf8b5db31874bb3be36fc6ae5ebdec61a",
+      "new_request_sha256": "deb601f49fd8ff9692befe5b7fcae10e1fabeeaeee2b6b2175535cccbd52596d",
+      "evidence_sha256": "11bc0848545570636be723a8c4c2fd8bfab831b99a6d45a16124ee2f73cc0f1f",
+      "elapsed_seconds": 175.642,
+      "citations": [
+        {
+          "file_id": "F0",
+          "line": 54
+        },
+        {
+          "file_id": "F0",
+          "line": 72
+        }
+      ],
+      "response_field_order": [
+        "explanation",
+        "citations",
+        "verdict"
+      ],
+      "prompt_tokens": 1869
+    }
+  ],
+  "earlier_draft": "runs/owasp-iris-prompt-v2-20261124/summary.json"
+}

@@ -1,0 +1,652 @@
+{
+  "scope": "End-to-end authenticated SonarQube scan to local Qwen on the same 8 Juliet Java 1.3 pilot files.",
+  "project": "thesis_juliet_cwe89_pilot_v1",
+  "analysis_id": "88d90f81-5dca-4ec6-b76a-5226ff8d1b55",
+  "java_profile": "KhoaLuan-Java-SQLi",
+  "sonarqube_version": "26.4.0.121862",
+  "collection": {
+    "source": "authenticated SonarQube Web API after a new SonarScanner run",
+    "project": "thesis_juliet_cwe89_pilot_v1",
+    "source_root": "/home/khanh/AI_sec_tool/AI_sec_tool_update/runs/juliet-cwe89-sonarqube-20261124/project",
+    "collection_dir": "/home/khanh/AI_sec_tool/AI_sec_tool_update/runs/juliet-cwe89-sonarqube-20261124/project/runs/20261124T160810Z-e7fe44",
+    "analysis_id": "88d90f81-5dca-4ec6-b76a-5226ff8d1b55",
+    "all_warnings": 199,
+    "cwe89_warnings": 16,
+    "cwe89_rule_counts": {
+      "findsecbugs:SQL_INJECTION_JDBC": 16
+    }
+  },
+  "warning_labels": "runs/juliet-cwe89-sonarqube-20261124/reference-labels.json",
+  "evidence_file": "runs/juliet-cwe89-sonarqube-20261124/evidence/sql_evidence.jsonl",
+  "raw_llm_results": "runs/juliet-cwe89-sonarqube-20261124/llm",
+  "prior_offline_experiment": "runs/jdbc-proof-context-step2-20261124/summary.json",
+  "model": "qwen2.5-coder:14b-instruct-q4_K_M",
+  "model_digest": "9ec8897f747e246e970bc5cfdda85d22f1123dc2e3d34978a010a75968716849",
+  "prompt_profile": "iris-contextual",
+  "validation_version": 2,
+  "static": {
+    "targeted_files": 8,
+    "cwe89_warnings": 16,
+    "all_sonar_warnings": 199,
+    "sonar_flow_count": 0,
+    "verified_jdbc_signatures": 16,
+    "with_anchored_http_path": 4,
+    "verified_sql_value": 10,
+    "value_status_counts": {
+      "unknown": 6,
+      "constant_sql_text": 8,
+      "external_input_contributes": 2
+    },
+    "equivalent_to_offline_evidence_ignoring_issue_and_project_ids": 16
+  },
+  "triage": {
+    "true_positive": 7,
+    "true_negative": 8,
+    "false_positive": 0,
+    "false_negative": 0,
+    "unknown": 1,
+    "error": 0,
+    "pending": 0,
+    "correct": 15,
+    "incorrect": 0
+  },
+  "fresh_ollama_calls": 16,
+  "cases": [
+    {
+      "issue_id": "20e02703-65ba-4cca-8148-c790b221fba4",
+      "sample": "CWE89_SQL_Injection__Environment_executeQuery_01.java",
+      "source_path": "Clean_Code/testcases/CWE89_SQL_Injection/s02/CWE89_SQL_Injection__Environment_executeQuery_01.java",
+      "raw_sonar_line": 47,
+      "start_line": 47,
+      "end_line": 47,
+      "rule": "findsecbugs:SQL_INJECTION_JDBC",
+      "flows_present": false,
+      "reference_vulnerability": true,
+      "reference_method": "bad",
+      "reference_line": 47,
+      "offline_issue_id": "juliet-findsecbugs-01",
+      "outcome": "true_positive",
+      "offline_outcome": "true_positive",
+      "matches_offline_payload_apart_from_issue_and_project_identity": true,
+      "request_sha256": "51002afecd55b2ed86b4a742a8db23e54182646f133bbf30b5615e7614441a74",
+      "jdbc_signature_count": 1,
+      "anchored_http_paths": 0,
+      "java_value_status": [
+        "unknown"
+      ],
+      "response": "llm/case-0001.json",
+      "elapsed_seconds": 161.596,
+      "verdict": "LIKELY_TP",
+      "citations": [
+        {
+          "file_id": "F0",
+          "line": 47
+        },
+        {
+          "file_id": "F0",
+          "line": 42
+        }
+      ],
+      "warning_citation_added": null
+    },
+    {
+      "issue_id": "eec9cadc-e56e-4893-ac5c-76383eb54b1b",
+      "sample": "CWE89_SQL_Injection__Environment_executeQuery_01.java",
+      "source_path": "Clean_Code/testcases/CWE89_SQL_Injection/s02/CWE89_SQL_Injection__Environment_executeQuery_01.java",
+      "raw_sonar_line": 120,
+      "start_line": 120,
+      "end_line": 120,
+      "rule": "findsecbugs:SQL_INJECTION_JDBC",
+      "flows_present": false,
+      "reference_vulnerability": false,
+      "reference_method": "goodG2B",
+      "reference_line": 120,
+      "offline_issue_id": "juliet-findsecbugs-02",
+      "outcome": "true_negative",
+      "offline_outcome": "true_negative",
+      "matches_offline_payload_apart_from_issue_and_project_identity": true,
+      "request_sha256": "e400b33c7958be1f976bf445a1b15c44ba0909d7850d6b25d15938e9c3087746",
+      "jdbc_signature_count": 1,
+      "anchored_http_paths": 0,
+      "java_value_status": [
+        "constant_sql_text"
+      ],
+      "response": "llm/case-0002.json",
+      "elapsed_seconds": 116.348,
+      "verdict": "LIKELY_FP",
+      "citations": [
+        {
+          "file_id": "F0",
+          "line": 120
+        },
+        {
+          "file_id": "F0",
+          "line": 108
+        }
+      ],
+      "warning_citation_added": null
+    },
+    {
+      "issue_id": "c9042db3-a3bb-42bb-a823-04b595b42757",
+      "sample": "CWE89_SQL_Injection__Environment_executeQuery_42.java",
+      "source_path": "Clean_Code/testcases/CWE89_SQL_Injection/s02/CWE89_SQL_Injection__Environment_executeQuery_42.java",
+      "raw_sonar_line": 54,
+      "start_line": 54,
+      "end_line": 54,
+      "rule": "findsecbugs:SQL_INJECTION_JDBC",
+      "flows_present": false,
+      "reference_vulnerability": true,
+      "reference_method": "bad",
+      "reference_line": 54,
+      "offline_issue_id": "juliet-findsecbugs-03",
+      "outcome": "true_positive",
+      "offline_outcome": "true_positive",
+      "matches_offline_payload_apart_from_issue_and_project_identity": true,
+      "request_sha256": "34b573145e390d922726144f8d06653a270c1b384422da5517f26b1bdb70c3b9",
+      "jdbc_signature_count": 1,
+      "anchored_http_paths": 0,
+      "java_value_status": [
+        "unknown"
+      ],
+      "response": "llm/case-0003.json",
+      "elapsed_seconds": 92.229,
+      "verdict": "LIKELY_TP",
+      "citations": [
+        {
+          "file_id": "F0",
+          "line": 54
+        },
+        {
+          "file_id": "F0",
+          "line": 51
+        }
+      ],
+      "warning_citation_added": null
+    },
+    {
+      "issue_id": "067bbbe6-6f75-4709-87b1-7f3326450753",
+      "sample": "CWE89_SQL_Injection__Environment_executeQuery_42.java",
+      "source_path": "Clean_Code/testcases/CWE89_SQL_Injection/s02/CWE89_SQL_Injection__Environment_executeQuery_42.java",
+      "raw_sonar_line": 128,
+      "start_line": 128,
+      "end_line": 128,
+      "rule": "findsecbugs:SQL_INJECTION_JDBC",
+      "flows_present": false,
+      "reference_vulnerability": false,
+      "reference_method": "goodG2B",
+      "reference_line": 128,
+      "offline_issue_id": "juliet-findsecbugs-04",
+      "outcome": "true_negative",
+      "offline_outcome": "true_negative",
+      "matches_offline_payload_apart_from_issue_and_project_identity": true,
+      "request_sha256": "3e8f0f6758a922b711012e7e3cded53e7df3acafc9ee8b86b0c0a58a410e5650",
+      "jdbc_signature_count": 1,
+      "anchored_http_paths": 0,
+      "java_value_status": [
+        "constant_sql_text"
+      ],
+      "response": "llm/case-0004.json",
+      "elapsed_seconds": 133.23,
+      "verdict": "LIKELY_FP",
+      "citations": [
+        {
+          "file_id": "F0",
+          "line": 128
+        },
+        {
+          "file_id": "F0",
+          "line": 109
+        }
+      ],
+      "warning_citation_added": null
+    },
+    {
+      "issue_id": "4b52dcfc-2925-4d0b-8f31-3219c97141c8",
+      "sample": "CWE89_SQL_Injection__File_prepareStatement_01.java",
+      "source_path": "Clean_Code/testcases/CWE89_SQL_Injection/s02/CWE89_SQL_Injection__File_prepareStatement_01.java",
+      "raw_sonar_line": 111,
+      "start_line": 111,
+      "end_line": 111,
+      "rule": "findsecbugs:SQL_INJECTION_JDBC",
+      "flows_present": false,
+      "reference_vulnerability": true,
+      "reference_method": "bad",
+      "reference_line": 111,
+      "offline_issue_id": "juliet-findsecbugs-05",
+      "outcome": "unknown",
+      "offline_outcome": "true_positive",
+      "matches_offline_payload_apart_from_issue_and_project_identity": true,
+      "request_sha256": "86a41430bcc6d09470a71c0ba6c1372e5c30193b9feed1b5b7d704bbefcb5189",
+      "jdbc_signature_count": 1,
+      "anchored_http_paths": 0,
+      "java_value_status": [
+        "unknown"
+      ],
+      "response": "llm/case-0005.json",
+      "elapsed_seconds": 98.632,
+      "verdict": "UNKNOWN",
+      "citations": [
+        {
+          "file_id": "F0",
+          "line": 111
+        },
+        {
+          "file_id": "F0",
+          "line": 110
+        }
+      ],
+      "warning_citation_added": null
+    },
+    {
+      "issue_id": "d4763791-2f0d-4092-9c86-685576c61b7e",
+      "sample": "CWE89_SQL_Injection__File_prepareStatement_01.java",
+      "source_path": "Clean_Code/testcases/CWE89_SQL_Injection/s02/CWE89_SQL_Injection__File_prepareStatement_01.java",
+      "raw_sonar_line": 178,
+      "start_line": 178,
+      "end_line": 178,
+      "rule": "findsecbugs:SQL_INJECTION_JDBC",
+      "flows_present": false,
+      "reference_vulnerability": false,
+      "reference_method": "goodG2B",
+      "reference_line": 178,
+      "offline_issue_id": "juliet-findsecbugs-06",
+      "outcome": "true_negative",
+      "offline_outcome": "true_negative",
+      "matches_offline_payload_apart_from_issue_and_project_identity": true,
+      "request_sha256": "3683cb4c8a86c320e76a46eca371d7b52db5707e56123f062708539fc7ce09dd",
+      "jdbc_signature_count": 1,
+      "anchored_http_paths": 0,
+      "java_value_status": [
+        "constant_sql_text"
+      ],
+      "response": "llm/case-0006.json",
+      "elapsed_seconds": 113.278,
+      "verdict": "LIKELY_FP",
+      "citations": [
+        {
+          "file_id": "F0",
+          "line": 178
+        },
+        {
+          "file_id": "F0",
+          "line": 169
+        }
+      ],
+      "warning_citation_added": null
+    },
+    {
+      "issue_id": "300c7a70-843c-4c98-a86e-694a1f1929e4",
+      "sample": "CWE89_SQL_Injection__File_prepareStatement_42.java",
+      "source_path": "Clean_Code/testcases/CWE89_SQL_Injection/s02/CWE89_SQL_Injection__File_prepareStatement_42.java",
+      "raw_sonar_line": 118,
+      "start_line": 118,
+      "end_line": 118,
+      "rule": "findsecbugs:SQL_INJECTION_JDBC",
+      "flows_present": false,
+      "reference_vulnerability": true,
+      "reference_method": "bad",
+      "reference_line": 118,
+      "offline_issue_id": "juliet-findsecbugs-07",
+      "outcome": "true_positive",
+      "offline_outcome": "true_positive",
+      "matches_offline_payload_apart_from_issue_and_project_identity": true,
+      "request_sha256": "c7e825d0b77d40aac80ed61b6a40b662cf8cba65be88eacf2a2c60b1f20c91c7",
+      "jdbc_signature_count": 1,
+      "anchored_http_paths": 0,
+      "java_value_status": [
+        "unknown"
+      ],
+      "response": "llm/case-0007.json",
+      "elapsed_seconds": 90.58,
+      "verdict": "LIKELY_TP",
+      "citations": [
+        {
+          "file_id": "F0",
+          "line": 118
+        },
+        {
+          "file_id": "F0",
+          "line": 114
+        }
+      ],
+      "warning_citation_added": null
+    },
+    {
+      "issue_id": "05fe06e9-36e2-457d-bc1d-83715964de17",
+      "sample": "CWE89_SQL_Injection__File_prepareStatement_42.java",
+      "source_path": "Clean_Code/testcases/CWE89_SQL_Injection/s02/CWE89_SQL_Injection__File_prepareStatement_42.java",
+      "raw_sonar_line": 186,
+      "start_line": 186,
+      "end_line": 186,
+      "rule": "findsecbugs:SQL_INJECTION_JDBC",
+      "flows_present": false,
+      "reference_vulnerability": false,
+      "reference_method": "goodG2B",
+      "reference_line": 186,
+      "offline_issue_id": "juliet-findsecbugs-08",
+      "outcome": "true_negative",
+      "offline_outcome": "true_negative",
+      "matches_offline_payload_apart_from_issue_and_project_identity": true,
+      "request_sha256": "8b4a9e2e94c96f26184f9b94035d115a7be99d53e509485df67d3bbac13acaba",
+      "jdbc_signature_count": 1,
+      "anchored_http_paths": 0,
+      "java_value_status": [
+        "constant_sql_text"
+      ],
+      "response": "llm/case-0008.json",
+      "elapsed_seconds": 128.291,
+      "verdict": "LIKELY_FP",
+      "citations": [
+        {
+          "file_id": "F0",
+          "line": 186
+        },
+        {
+          "file_id": "F0",
+          "line": 170
+        }
+      ],
+      "warning_citation_added": null
+    },
+    {
+      "issue_id": "9f6c8cef-35d4-457b-979c-524fafb8def5",
+      "sample": "CWE89_SQL_Injection__getCookies_Servlet_prepareStatement_01.java",
+      "source_path": "Clean_Code/testcases/CWE89_SQL_Injection/s02/CWE89_SQL_Injection__getCookies_Servlet_prepareStatement_01.java",
+      "raw_sonar_line": 53,
+      "start_line": 53,
+      "end_line": 53,
+      "rule": "findsecbugs:SQL_INJECTION_JDBC",
+      "flows_present": false,
+      "reference_vulnerability": true,
+      "reference_method": "bad",
+      "reference_line": 53,
+      "offline_issue_id": "juliet-findsecbugs-09",
+      "outcome": "true_positive",
+      "offline_outcome": "true_positive",
+      "matches_offline_payload_apart_from_issue_and_project_identity": true,
+      "request_sha256": "b5c163eb922fb426313c83047d8946fa4f01db34ca5d74a097e8db51883010bc",
+      "jdbc_signature_count": 1,
+      "anchored_http_paths": 1,
+      "java_value_status": [
+        "unknown"
+      ],
+      "response": "llm/case-0009.json",
+      "elapsed_seconds": 129.624,
+      "verdict": "LIKELY_TP",
+      "citations": [
+        {
+          "file_id": "F0",
+          "line": 53
+        },
+        {
+          "file_id": "F0",
+          "line": 38
+        }
+      ],
+      "warning_citation_added": null
+    },
+    {
+      "issue_id": "0abb5aa4-2390-4d50-b0c2-6ef4a30f4f5b",
+      "sample": "CWE89_SQL_Injection__getCookies_Servlet_prepareStatement_01.java",
+      "source_path": "Clean_Code/testcases/CWE89_SQL_Injection/s02/CWE89_SQL_Injection__getCookies_Servlet_prepareStatement_01.java",
+      "raw_sonar_line": 120,
+      "start_line": 120,
+      "end_line": 120,
+      "rule": "findsecbugs:SQL_INJECTION_JDBC",
+      "flows_present": false,
+      "reference_vulnerability": false,
+      "reference_method": "goodG2B",
+      "reference_line": 120,
+      "offline_issue_id": "juliet-findsecbugs-10",
+      "outcome": "true_negative",
+      "offline_outcome": "true_negative",
+      "matches_offline_payload_apart_from_issue_and_project_identity": true,
+      "request_sha256": "edd4b5f6c65d204eae108014c7e9caf1bf21393b1f2ce36d0400cc6a864d4572",
+      "jdbc_signature_count": 1,
+      "anchored_http_paths": 0,
+      "java_value_status": [
+        "constant_sql_text"
+      ],
+      "response": "llm/case-0010.json",
+      "elapsed_seconds": 112.275,
+      "verdict": "LIKELY_FP",
+      "citations": [
+        {
+          "file_id": "F0",
+          "line": 120
+        },
+        {
+          "file_id": "F0",
+          "line": 111
+        }
+      ],
+      "warning_citation_added": null
+    },
+    {
+      "issue_id": "b09cc22f-2528-4f89-afa8-2e4cbdac3650",
+      "sample": "CWE89_SQL_Injection__getCookies_Servlet_prepareStatement_42.java",
+      "source_path": "Clean_Code/testcases/CWE89_SQL_Injection/s02/CWE89_SQL_Injection__getCookies_Servlet_prepareStatement_42.java",
+      "raw_sonar_line": 60,
+      "start_line": 60,
+      "end_line": 60,
+      "rule": "findsecbugs:SQL_INJECTION_JDBC",
+      "flows_present": false,
+      "reference_vulnerability": true,
+      "reference_method": "bad",
+      "reference_line": 60,
+      "offline_issue_id": "juliet-findsecbugs-11",
+      "outcome": "true_positive",
+      "offline_outcome": "true_positive",
+      "matches_offline_payload_apart_from_issue_and_project_identity": true,
+      "request_sha256": "22d7a34f1bcf27f81d1755096b4ce8eb0c99f50c0fcefdfe8928b41b6f087276",
+      "jdbc_signature_count": 1,
+      "anchored_http_paths": 1,
+      "java_value_status": [
+        "unknown"
+      ],
+      "response": "llm/case-0011.json",
+      "elapsed_seconds": 125.638,
+      "verdict": "LIKELY_TP",
+      "citations": [
+        {
+          "file_id": "F0",
+          "line": 60
+        },
+        {
+          "file_id": "F0",
+          "line": 38
+        }
+      ],
+      "warning_citation_added": null
+    },
+    {
+      "issue_id": "0b74a827-dab2-4f1e-b736-4e9c61c33a4a",
+      "sample": "CWE89_SQL_Injection__getCookies_Servlet_prepareStatement_42.java",
+      "source_path": "Clean_Code/testcases/CWE89_SQL_Injection/s02/CWE89_SQL_Injection__getCookies_Servlet_prepareStatement_42.java",
+      "raw_sonar_line": 128,
+      "start_line": 128,
+      "end_line": 128,
+      "rule": "findsecbugs:SQL_INJECTION_JDBC",
+      "flows_present": false,
+      "reference_vulnerability": false,
+      "reference_method": "goodG2B",
+      "reference_line": 128,
+      "offline_issue_id": "juliet-findsecbugs-12",
+      "outcome": "true_negative",
+      "offline_outcome": "true_negative",
+      "matches_offline_payload_apart_from_issue_and_project_identity": true,
+      "request_sha256": "c660a5304f5cedbe95d6adf23d7ac09742484f643f42a64dbb982dbc7edafc7e",
+      "jdbc_signature_count": 1,
+      "anchored_http_paths": 0,
+      "java_value_status": [
+        "constant_sql_text"
+      ],
+      "response": "llm/case-0012.json",
+      "elapsed_seconds": 117.065,
+      "verdict": "LIKELY_FP",
+      "citations": [
+        {
+          "file_id": "F0",
+          "line": 128
+        },
+        {
+          "file_id": "F0",
+          "line": 112
+        }
+      ],
+      "warning_citation_added": null
+    },
+    {
+      "issue_id": "bdd459bb-5625-4300-a020-74ec9c4ff81c",
+      "sample": "CWE89_SQL_Injection__getParameter_Servlet_executeQuery_01.java",
+      "source_path": "Clean_Code/testcases/CWE89_SQL_Injection/s02/CWE89_SQL_Injection__getParameter_Servlet_executeQuery_01.java",
+      "raw_sonar_line": 47,
+      "start_line": 47,
+      "end_line": 47,
+      "rule": "findsecbugs:SQL_INJECTION_JDBC",
+      "flows_present": false,
+      "reference_vulnerability": true,
+      "reference_method": "bad",
+      "reference_line": 47,
+      "offline_issue_id": "juliet-findsecbugs-13",
+      "outcome": "true_positive",
+      "offline_outcome": "true_positive",
+      "matches_offline_payload_apart_from_issue_and_project_identity": true,
+      "request_sha256": "3cb4e784f5e758982559c91d53b4fcf15d2aa3bd196ee51b11d379e6fd02747d",
+      "jdbc_signature_count": 1,
+      "anchored_http_paths": 1,
+      "java_value_status": [
+        "external_input_contributes"
+      ],
+      "response": "llm/case-0013.json",
+      "elapsed_seconds": 144.195,
+      "verdict": "LIKELY_TP",
+      "citations": [
+        {
+          "file_id": "F0",
+          "line": 47
+        },
+        {
+          "file_id": "F0",
+          "line": 35
+        }
+      ],
+      "warning_citation_added": null
+    },
+    {
+      "issue_id": "f2992530-94b8-4663-8ae7-23f5d4c24791",
+      "sample": "CWE89_SQL_Injection__getParameter_Servlet_executeQuery_01.java",
+      "source_path": "Clean_Code/testcases/CWE89_SQL_Injection/s02/CWE89_SQL_Injection__getParameter_Servlet_executeQuery_01.java",
+      "raw_sonar_line": 120,
+      "start_line": 120,
+      "end_line": 120,
+      "rule": "findsecbugs:SQL_INJECTION_JDBC",
+      "flows_present": false,
+      "reference_vulnerability": false,
+      "reference_method": "goodG2B",
+      "reference_line": 120,
+      "offline_issue_id": "juliet-findsecbugs-14",
+      "outcome": "true_negative",
+      "offline_outcome": "true_negative",
+      "matches_offline_payload_apart_from_issue_and_project_identity": true,
+      "request_sha256": "927b4daad503cb76a2fd028135c7b70ad9ab054d7cf05fcfd2bacc9b6f3deaac",
+      "jdbc_signature_count": 1,
+      "anchored_http_paths": 0,
+      "java_value_status": [
+        "constant_sql_text"
+      ],
+      "response": "llm/case-0014.json",
+      "elapsed_seconds": 111.546,
+      "verdict": "LIKELY_FP",
+      "citations": [
+        {
+          "file_id": "F0",
+          "line": 120
+        },
+        {
+          "file_id": "F0",
+          "line": 108
+        }
+      ],
+      "warning_citation_added": null
+    },
+    {
+      "issue_id": "53537098-a610-433f-9ea1-dccb0db7e3c9",
+      "sample": "CWE89_SQL_Injection__getParameter_Servlet_executeQuery_42.java",
+      "source_path": "Clean_Code/testcases/CWE89_SQL_Injection/s02/CWE89_SQL_Injection__getParameter_Servlet_executeQuery_42.java",
+      "raw_sonar_line": 54,
+      "start_line": 54,
+      "end_line": 54,
+      "rule": "findsecbugs:SQL_INJECTION_JDBC",
+      "flows_present": false,
+      "reference_vulnerability": true,
+      "reference_method": "bad",
+      "reference_line": 54,
+      "offline_issue_id": "juliet-findsecbugs-15",
+      "outcome": "true_positive",
+      "offline_outcome": "true_positive",
+      "matches_offline_payload_apart_from_issue_and_project_identity": true,
+      "request_sha256": "fe7d129ee0f3cdd2cdb3d9d3511c86bbf3c75194da37b9e08793220aba2e4ac7",
+      "jdbc_signature_count": 1,
+      "anchored_http_paths": 1,
+      "java_value_status": [
+        "external_input_contributes"
+      ],
+      "response": "llm/case-0015.json",
+      "elapsed_seconds": 158.307,
+      "verdict": "LIKELY_TP",
+      "citations": [
+        {
+          "file_id": "F0",
+          "line": 54
+        },
+        {
+          "file_id": "F0",
+          "line": 35
+        }
+      ],
+      "warning_citation_added": null
+    },
+    {
+      "issue_id": "ea97975b-4b07-475c-b56a-354835dc937d",
+      "sample": "CWE89_SQL_Injection__getParameter_Servlet_executeQuery_42.java",
+      "source_path": "Clean_Code/testcases/CWE89_SQL_Injection/s02/CWE89_SQL_Injection__getParameter_Servlet_executeQuery_42.java",
+      "raw_sonar_line": 128,
+      "start_line": 128,
+      "end_line": 128,
+      "rule": "findsecbugs:SQL_INJECTION_JDBC",
+      "flows_present": false,
+      "reference_vulnerability": false,
+      "reference_method": "goodG2B",
+      "reference_line": 128,
+      "offline_issue_id": "juliet-findsecbugs-16",
+      "outcome": "true_negative",
+      "offline_outcome": "true_negative",
+      "matches_offline_payload_apart_from_issue_and_project_identity": true,
+      "request_sha256": "cdc004df608604206e200b328ed6f57bf75adbc00f0a0dfba484020491cab090",
+      "jdbc_signature_count": 1,
+      "anchored_http_paths": 0,
+      "java_value_status": [
+        "constant_sql_text"
+      ],
+      "response": "llm/case-0016.json",
+      "elapsed_seconds": 134.137,
+      "verdict": "LIKELY_FP",
+      "citations": [
+        {
+          "file_id": "F0",
+          "line": 128
+        },
+        {
+          "file_id": "F0",
+          "line": 109
+        }
+      ],
+      "warning_citation_added": null
+    }
+  ],
+  "limitations": [
+    "This verifies the production-style scan/triage workflow on a previously used small cohort.",
+    "Juliet source can reveal reference labels through descriptive method names."
+  ]
+}

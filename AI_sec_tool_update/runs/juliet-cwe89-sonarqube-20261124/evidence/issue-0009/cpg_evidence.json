@@ -1,0 +1,8 @@
+{
+  "flow_count": 1,
+  "paths": "┌─────────────────┬─────────────────────────────────────────────────────────────────────────┬────┬──────┬────┐\n│nodeType         │tracked                                                                  │line│method│file│\n├─────────────────┼─────────────────────────────────────────────────────────────────────────┼────┼──────┼────┤\n│MethodParameterIn│bad(this, HttpServletRequest request, HttpServletResponse response)      │30  │bad   │    │\n│Identifier       │getCookies()                                                             │38  │bad   │    │\n│Call             │getCookies()                                                             │38  │bad   │    │\n│Identifier       │Cookie[] cookieSources = request.getCookies()                            │38  │bad   │    │\n│Identifier       │cookieSources != null                                                    │39  │bad   │    │\n│Call             │cookieSources[0].getValue()                                              │42  │bad   │    │\n│Call             │cookieSources[0].getValue()                                              │42  │bad   │    │\n│Identifier       │data = cookieSources[0].getValue()                                       │42  │bad   │    │\n│Call             │\"insert into users (status) values ('updated') where name='\" + data + \"'\"│53  │bad   │    │\n└─────────────────┴─────────────────────────────────────────────────────────────────────────┴────┴──────┴────┘",
+  "scope": "single_file",
+  "sink_call_count": 1,
+  "sink_argument_count": 1,
+  "source_policy": "all_non_receiver_parameters_are_candidates"
+}

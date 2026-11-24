@@ -1,0 +1,61 @@
+{
+  "status": "candidate_paths",
+  "matched_sources": 1,
+  "source_count": 1,
+  "candidate_paths_found": 1,
+  "search_limit_hit": false,
+  "paths": [
+    {
+      "source": {
+        "file_id": "F0",
+        "line": 38,
+        "method": "bad",
+        "method_start": 30,
+        "method_end": 97,
+        "node_type": "Call",
+        "api_owner": "javax.servlet.http.HttpServletRequest",
+        "api_signature": "getCookies()"
+      },
+      "steps": [
+        {
+          "file_id": "F0",
+          "line": 39,
+          "method": "bad",
+          "method_start": 30,
+          "method_end": 97,
+          "node_type": "Identifier"
+        },
+        {
+          "file_id": "F0",
+          "line": 42,
+          "method": "bad",
+          "method_start": 30,
+          "method_end": 97,
+          "node_type": "Call"
+        }
+      ],
+      "sink": {
+        "file_id": "F0",
+        "line": 53,
+        "name": "prepareStatement",
+        "method": "bad",
+        "method_start": 30,
+        "method_end": 97
+      },
+      "omitted_steps": 0,
+      "unlocated_nodes": 0,
+      "dispatch": []
+    }
+  ],
+  "paths_not_shown": 0,
+  "version": "sql-anchored-paths-v1",
+  "scope": "verified_java_bundle",
+  "inputs": {
+    "F0": {
+      "path": "Clean_Code/testcases/CWE89_SQL_Injection/s02/CWE89_SQL_Injection__getCookies_Servlet_prepareStatement_01.java",
+      "source_sha256": "7133d690c6cd10fc5e05657ebf6eec9691f5fd9a7655832ffbb86691248e7733",
+      "staged_sha256": "0a88d2d29a33b06b332d98256d6e62a556d63878fbd4501c64fe139fc83cc5e7"
+    }
+  },
+  "interpretation": "Candidate dataflow. Runtime branch and dispatch feasibility require separate evidence."
+}
