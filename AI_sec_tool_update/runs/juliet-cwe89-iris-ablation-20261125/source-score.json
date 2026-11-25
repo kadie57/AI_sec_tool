@@ -1,0 +1,300 @@
+{
+  "total": {
+    "total": 16,
+    "role_correct": 15,
+    "role_and_kind_correct": 12,
+    "source_true_positive": 9,
+    "source_false_positive": 0,
+    "source_false_negative": 0
+  },
+  "juliet": {
+    "total": 12,
+    "role_correct": 12,
+    "role_and_kind_correct": 9,
+    "source_true_positive": 8,
+    "source_false_positive": 0,
+    "source_false_negative": 0
+  },
+  "wrapper_controls": {
+    "total": 4,
+    "role_correct": 3,
+    "role_and_kind_correct": 3,
+    "source_true_positive": 1,
+    "source_false_positive": 0,
+    "source_false_negative": 0
+  },
+  "cases": {
+    "9158fd8a6f782147": {
+      "reference": {
+        "label": "external_read",
+        "kind": "console"
+      },
+      "predicted": {
+        "id": "9158fd8a6f782147",
+        "label": "external_read",
+        "kind": "console",
+        "citation": {
+          "section": "call",
+          "line": 51
+        }
+      },
+      "role_correct": true,
+      "role_and_kind_correct": true
+    },
+    "90de84fe0348ae76": {
+      "reference": {
+        "label": "external_read",
+        "kind": "console"
+      },
+      "predicted": {
+        "id": "90de84fe0348ae76",
+        "label": "external_read",
+        "kind": "console",
+        "citation": {
+          "section": "call",
+          "line": 48
+        }
+      },
+      "role_correct": true,
+      "role_and_kind_correct": true
+    },
+    "5f85d438c8e259d6": {
+      "reference": {
+        "label": "external_read",
+        "kind": "file"
+      },
+      "predicted": {
+        "id": "5f85d438c8e259d6",
+        "label": "external_read",
+        "kind": "file",
+        "citation": {
+          "section": "call",
+          "line": 58
+        }
+      },
+      "role_correct": true,
+      "role_and_kind_correct": true
+    },
+    "6ca02555f4033062": {
+      "reference": {
+        "label": "external_read",
+        "kind": "file"
+      },
+      "predicted": {
+        "id": "6ca02555f4033062",
+        "label": "external_read",
+        "kind": "file",
+        "citation": {
+          "section": "call",
+          "line": 54
+        }
+      },
+      "role_correct": true,
+      "role_and_kind_correct": true
+    },
+    "73076a8741570143": {
+      "reference": {
+        "label": "external_read",
+        "kind": "configuration"
+      },
+      "predicted": {
+        "id": "73076a8741570143",
+        "label": "external_read",
+        "kind": "file",
+        "citation": {
+          "section": "call",
+          "line": 52
+        }
+      },
+      "role_correct": true,
+      "role_and_kind_correct": false
+    },
+    "960f2acfa15b68cb": {
+      "reference": {
+        "label": "external_read",
+        "kind": "configuration"
+      },
+      "predicted": {
+        "id": "960f2acfa15b68cb",
+        "label": "external_read",
+        "kind": "file",
+        "citation": {
+          "section": "call",
+          "line": 49
+        }
+      },
+      "role_correct": true,
+      "role_and_kind_correct": false
+    },
+    "4476f62fcba9562b": {
+      "reference": {
+        "label": "external_read",
+        "kind": "request"
+      },
+      "predicted": {
+        "id": "4476f62fcba9562b",
+        "label": "external_read",
+        "kind": null,
+        "citation": {
+          "section": "call",
+          "line": 41
+        }
+      },
+      "role_correct": true,
+      "role_and_kind_correct": false
+    },
+    "9f7b8e130573cb9b": {
+      "reference": {
+        "label": "forwards_input",
+        "kind": null
+      },
+      "predicted": {
+        "id": "9f7b8e130573cb9b",
+        "label": "forwards_input",
+        "kind": null,
+        "citation": {
+          "section": "call",
+          "line": 44
+        }
+      },
+      "role_correct": true,
+      "role_and_kind_correct": true
+    },
+    "9c26914ea208403c": {
+      "reference": {
+        "label": "forwards_input",
+        "kind": null
+      },
+      "predicted": {
+        "id": "9c26914ea208403c",
+        "label": "forwards_input",
+        "kind": null,
+        "citation": {
+          "section": "call",
+          "line": 47
+        }
+      },
+      "role_correct": true,
+      "role_and_kind_correct": true
+    },
+    "32c6e1ff87d6fd9b": {
+      "reference": {
+        "label": "external_read",
+        "kind": "request"
+      },
+      "predicted": {
+        "id": "32c6e1ff87d6fd9b",
+        "label": "external_read",
+        "kind": "request",
+        "citation": {
+          "section": "call",
+          "line": 35
+        }
+      },
+      "role_correct": true,
+      "role_and_kind_correct": true
+    },
+    "fe31799deb0621de": {
+      "reference": {
+        "label": "forwards_input",
+        "kind": null
+      },
+      "predicted": {
+        "id": "fe31799deb0621de",
+        "label": "forwards_input",
+        "kind": null,
+        "citation": {
+          "section": "call",
+          "line": 38
+        }
+      },
+      "role_correct": true,
+      "role_and_kind_correct": true
+    },
+    "26ef12c921d7a87f": {
+      "reference": {
+        "label": "forwards_input",
+        "kind": null
+      },
+      "predicted": {
+        "id": "26ef12c921d7a87f",
+        "label": "forwards_input",
+        "kind": null,
+        "citation": {
+          "section": "call",
+          "line": 41
+        }
+      },
+      "role_correct": true,
+      "role_and_kind_correct": true
+    },
+    "53b45af9fa688b83": {
+      "reference": {
+        "label": "external_read",
+        "kind": "request"
+      },
+      "predicted": {
+        "id": "53b45af9fa688b83",
+        "label": "external_read",
+        "kind": "request",
+        "citation": {
+          "section": "definition",
+          "line": 15
+        }
+      },
+      "role_correct": true,
+      "role_and_kind_correct": true
+    },
+    "29fb4c967210fa64": {
+      "reference": {
+        "label": "forwards_input",
+        "kind": null
+      },
+      "predicted": {
+        "id": "29fb4c967210fa64",
+        "label": "forwards_input",
+        "kind": null,
+        "citation": {
+          "section": "definition",
+          "line": 19
+        }
+      },
+      "role_correct": true,
+      "role_and_kind_correct": true
+    },
+    "0e4158c9ed5b0d74": {
+      "reference": {
+        "label": "constant",
+        "kind": null
+      },
+      "predicted": {
+        "id": "0e4158c9ed5b0d74",
+        "label": "constant",
+        "kind": null,
+        "citation": {
+          "section": "definition",
+          "line": 23
+        }
+      },
+      "role_correct": true,
+      "role_and_kind_correct": true
+    },
+    "13daf825d4d4b4d0": {
+      "reference": {
+        "label": "unknown",
+        "kind": null
+      },
+      "predicted": {
+        "id": "13daf825d4d4b4d0",
+        "label": "forwards_input",
+        "kind": null,
+        "citation": {
+          "section": "definition",
+          "line": 27
+        }
+      },
+      "role_correct": false,
+      "role_and_kind_correct": false
+    }
+  }
+}

@@ -1,0 +1,1067 @@
+{
+  "version": "sql-source-proposals-v1",
+  "evidence_sha256": "7243be158ddc1fd321f3d31bd864a931e9bbad8c97681060d9c09c441b11a18c",
+  "joern_image_id": "sha256:f47692f8334d2eeca9fc83395023773da566ce8397563ff7c66d34a23bfc75c4",
+  "candidates": {
+    "9158fd8a6f782147": {
+      "path": "Clean_Code/testcases/CWE89_SQL_Injection/s01/CWE89_SQL_Injection__console_readLine_prepareStatement_15.java",
+      "sha256": "8cdd2679788c4e97cfadfaca513fc9368f590c5f3e3227ecf39d6d6126b228ff",
+      "line": 51,
+      "column": 43,
+      "owner": "java.io.BufferedReader",
+      "signature": "readLine()",
+      "context": {
+        "call": [
+          {
+            "line": 41,
+            "code": "data = \"\";"
+          },
+          {
+            "line": 42,
+            "code": "{"
+          },
+          {
+            "line": 43,
+            "code": "InputStreamReader readerInputStream = null;"
+          },
+          {
+            "line": 44,
+            "code": "BufferedReader readerBuffered = null;"
+          },
+          {
+            "line": 46,
+            "code": "try"
+          },
+          {
+            "line": 47,
+            "code": "{"
+          },
+          {
+            "line": 48,
+            "code": "readerInputStream = new InputStreamReader(System.in, \"UTF-8\");"
+          },
+          {
+            "line": 49,
+            "code": "readerBuffered = new BufferedReader(readerInputStream);"
+          },
+          {
+            "line": 51,
+            "code": "data = readerBuffered.readLine();"
+          },
+          {
+            "line": 52,
+            "code": "}"
+          },
+          {
+            "line": 53,
+            "code": "catch (IOException exceptIO)"
+          }
+        ],
+        "definition": []
+      }
+    },
+    "90de84fe0348ae76": {
+      "path": "Clean_Code/testcases/CWE89_SQL_Injection/s01/CWE89_SQL_Injection__console_readLine_prepareStatement_51a.java",
+      "sha256": "aefc3511b2cf81e904e01b07ed2404744cfaea2a1a0c8e1189c5bd495e52fec4",
+      "line": 48,
+      "column": 39,
+      "owner": "java.io.BufferedReader",
+      "signature": "readLine()",
+      "context": {
+        "call": [
+          {
+            "line": 38,
+            "code": "InputStreamReader readerInputStream = null;"
+          },
+          {
+            "line": 39,
+            "code": "BufferedReader readerBuffered = null;"
+          },
+          {
+            "line": 42,
+            "code": "try"
+          },
+          {
+            "line": 43,
+            "code": "{"
+          },
+          {
+            "line": 44,
+            "code": "readerInputStream = new InputStreamReader(System.in, \"UTF-8\");"
+          },
+          {
+            "line": 45,
+            "code": "readerBuffered = new BufferedReader(readerInputStream);"
+          },
+          {
+            "line": 48,
+            "code": "data = readerBuffered.readLine();"
+          },
+          {
+            "line": 49,
+            "code": "}"
+          },
+          {
+            "line": 50,
+            "code": "catch (IOException exceptIO)"
+          }
+        ],
+        "definition": []
+      }
+    },
+    "5f85d438c8e259d6": {
+      "path": "Clean_Code/testcases/CWE89_SQL_Injection/s02/CWE89_SQL_Injection__File_prepareStatement_15.java",
+      "sha256": "daa1e503440774b0e300e91331218e8fd1a5e34d663b1f6456ff3846007adab3",
+      "line": 58,
+      "column": 43,
+      "owner": "java.io.BufferedReader",
+      "signature": "readLine()",
+      "context": {
+        "call": [
+          {
+            "line": 48,
+            "code": "BufferedReader readerBuffered = null;"
+          },
+          {
+            "line": 49,
+            "code": "try"
+          },
+          {
+            "line": 50,
+            "code": "{"
+          },
+          {
+            "line": 52,
+            "code": "streamFileInput = new FileInputStream(file);"
+          },
+          {
+            "line": 53,
+            "code": "readerInputStream = new InputStreamReader(streamFileInput, \"UTF-8\");"
+          },
+          {
+            "line": 54,
+            "code": "readerBuffered = new BufferedReader(readerInputStream);"
+          },
+          {
+            "line": 58,
+            "code": "data = readerBuffered.readLine();"
+          },
+          {
+            "line": 59,
+            "code": "}"
+          },
+          {
+            "line": 60,
+            "code": "catch (IOException exceptIO)"
+          }
+        ],
+        "definition": []
+      }
+    },
+    "6ca02555f4033062": {
+      "path": "Clean_Code/testcases/CWE89_SQL_Injection/s02/CWE89_SQL_Injection__File_prepareStatement_51a.java",
+      "sha256": "e332baf77f5636eee9393b58fe32c3836157d3df351addc57e324be8f2a73fcf",
+      "line": 54,
+      "column": 39,
+      "owner": "java.io.BufferedReader",
+      "signature": "readLine()",
+      "context": {
+        "call": [
+          {
+            "line": 44,
+            "code": "try"
+          },
+          {
+            "line": 45,
+            "code": "{"
+          },
+          {
+            "line": 47,
+            "code": "streamFileInput = new FileInputStream(file);"
+          },
+          {
+            "line": 48,
+            "code": "readerInputStream = new InputStreamReader(streamFileInput, \"UTF-8\");"
+          },
+          {
+            "line": 49,
+            "code": "readerBuffered = new BufferedReader(readerInputStream);"
+          },
+          {
+            "line": 54,
+            "code": "data = readerBuffered.readLine();"
+          },
+          {
+            "line": 55,
+            "code": "}"
+          },
+          {
+            "line": 56,
+            "code": "catch (IOException exceptIO)"
+          }
+        ],
+        "definition": []
+      }
+    },
+    "73076a8741570143": {
+      "path": "Clean_Code/testcases/CWE89_SQL_Injection/s03/CWE89_SQL_Injection__PropertiesFile_executeQuery_15.java",
+      "sha256": "aac814018f51d39db1fa6011c1c3cad42a9e73192188488a19a1a6a1139af165",
+      "line": 52,
+      "column": 39,
+      "owner": "java.util.Properties",
+      "signature": "getProperty(java.lang.String)",
+      "context": {
+        "call": [
+          {
+            "line": 42,
+            "code": "data = \"\";"
+          },
+          {
+            "line": 44,
+            "code": "{"
+          },
+          {
+            "line": 45,
+            "code": "Properties properties = new Properties();"
+          },
+          {
+            "line": 46,
+            "code": "FileInputStream streamFileInput = null;"
+          },
+          {
+            "line": 47,
+            "code": "try"
+          },
+          {
+            "line": 48,
+            "code": "{"
+          },
+          {
+            "line": 49,
+            "code": "streamFileInput = new FileInputStream(\"../common/config.properties\");"
+          },
+          {
+            "line": 50,
+            "code": "properties.load(streamFileInput);"
+          },
+          {
+            "line": 52,
+            "code": "data = properties.getProperty(\"data\");"
+          },
+          {
+            "line": 53,
+            "code": "}"
+          },
+          {
+            "line": 54,
+            "code": "catch (IOException exceptIO)"
+          }
+        ],
+        "definition": []
+      }
+    },
+    "960f2acfa15b68cb": {
+      "path": "Clean_Code/testcases/CWE89_SQL_Injection/s03/CWE89_SQL_Injection__PropertiesFile_executeQuery_51a.java",
+      "sha256": "906a2c5fe6e0e1d24d5a40e380fc352dd128f3ba62b49d37e22d7c4e3041ac58",
+      "line": 49,
+      "column": 35,
+      "owner": "java.util.Properties",
+      "signature": "getProperty(java.lang.String)",
+      "context": {
+        "call": [
+          {
+            "line": 39,
+            "code": "{"
+          },
+          {
+            "line": 40,
+            "code": "Properties properties = new Properties();"
+          },
+          {
+            "line": 41,
+            "code": "FileInputStream streamFileInput = null;"
+          },
+          {
+            "line": 43,
+            "code": "try"
+          },
+          {
+            "line": 44,
+            "code": "{"
+          },
+          {
+            "line": 45,
+            "code": "streamFileInput = new FileInputStream(\"../common/config.properties\");"
+          },
+          {
+            "line": 46,
+            "code": "properties.load(streamFileInput);"
+          },
+          {
+            "line": 49,
+            "code": "data = properties.getProperty(\"data\");"
+          },
+          {
+            "line": 50,
+            "code": "}"
+          },
+          {
+            "line": 51,
+            "code": "catch (IOException exceptIO)"
+          }
+        ],
+        "definition": []
+      }
+    },
+    "4476f62fcba9562b": {
+      "path": "Clean_Code/testcases/CWE89_SQL_Injection/s03/CWE89_SQL_Injection__getQueryString_Servlet_executeQuery_15.java",
+      "sha256": "cae4421ec5981ad3e86a69f980aaf54e9ecbd55fb03a364e5964aef3f9de58ce",
+      "line": 41,
+      "column": 73,
+      "owner": "javax.servlet.http.HttpServletRequest",
+      "signature": "getQueryString()",
+      "context": {
+        "call": [
+          {
+            "line": 31,
+            "code": "public void bad(HttpServletRequest request, HttpServletResponse response) throws Throwable"
+          },
+          {
+            "line": 32,
+            "code": "{"
+          },
+          {
+            "line": 33,
+            "code": "String data;"
+          },
+          {
+            "line": 35,
+            "code": "switch (6)"
+          },
+          {
+            "line": 36,
+            "code": "{"
+          },
+          {
+            "line": 37,
+            "code": "case 6:"
+          },
+          {
+            "line": 38,
+            "code": "data = \"\";"
+          },
+          {
+            "line": 40,
+            "code": "{"
+          },
+          {
+            "line": 41,
+            "code": "StringTokenizer tokenizer = new StringTokenizer(request.getQueryString(), \"&\");"
+          },
+          {
+            "line": 42,
+            "code": "while (tokenizer.hasMoreTokens())"
+          },
+          {
+            "line": 43,
+            "code": "{"
+          }
+        ],
+        "definition": []
+      }
+    },
+    "9f7b8e130573cb9b": {
+      "path": "Clean_Code/testcases/CWE89_SQL_Injection/s03/CWE89_SQL_Injection__getQueryString_Servlet_executeQuery_15.java",
+      "sha256": "cae4421ec5981ad3e86a69f980aaf54e9ecbd55fb03a364e5964aef3f9de58ce",
+      "line": 44,
+      "column": 46,
+      "owner": "java.util.StringTokenizer",
+      "signature": "nextToken()",
+      "context": {
+        "call": [
+          {
+            "line": 35,
+            "code": "switch (6)"
+          },
+          {
+            "line": 36,
+            "code": "{"
+          },
+          {
+            "line": 37,
+            "code": "case 6:"
+          },
+          {
+            "line": 38,
+            "code": "data = \"\";"
+          },
+          {
+            "line": 40,
+            "code": "{"
+          },
+          {
+            "line": 41,
+            "code": "StringTokenizer tokenizer = new StringTokenizer(request.getQueryString(), \"&\");"
+          },
+          {
+            "line": 42,
+            "code": "while (tokenizer.hasMoreTokens())"
+          },
+          {
+            "line": 43,
+            "code": "{"
+          },
+          {
+            "line": 44,
+            "code": "String token = tokenizer.nextToken();"
+          },
+          {
+            "line": 45,
+            "code": "if(token.startsWith(\"id=\"))"
+          },
+          {
+            "line": 46,
+            "code": "{"
+          }
+        ],
+        "definition": []
+      }
+    },
+    "9c26914ea208403c": {
+      "path": "Clean_Code/testcases/CWE89_SQL_Injection/s03/CWE89_SQL_Injection__getQueryString_Servlet_executeQuery_15.java",
+      "sha256": "cae4421ec5981ad3e86a69f980aaf54e9ecbd55fb03a364e5964aef3f9de58ce",
+      "line": 47,
+      "column": 38,
+      "owner": "java.lang.String",
+      "signature": "substring(int)",
+      "context": {
+        "call": [
+          {
+            "line": 37,
+            "code": "case 6:"
+          },
+          {
+            "line": 38,
+            "code": "data = \"\";"
+          },
+          {
+            "line": 40,
+            "code": "{"
+          },
+          {
+            "line": 41,
+            "code": "StringTokenizer tokenizer = new StringTokenizer(request.getQueryString(), \"&\");"
+          },
+          {
+            "line": 42,
+            "code": "while (tokenizer.hasMoreTokens())"
+          },
+          {
+            "line": 43,
+            "code": "{"
+          },
+          {
+            "line": 44,
+            "code": "String token = tokenizer.nextToken();"
+          },
+          {
+            "line": 45,
+            "code": "if(token.startsWith(\"id=\"))"
+          },
+          {
+            "line": 46,
+            "code": "{"
+          },
+          {
+            "line": 47,
+            "code": "data = token.substring(3);"
+          },
+          {
+            "line": 48,
+            "code": "break;"
+          },
+          {
+            "line": 49,
+            "code": "}"
+          }
+        ],
+        "definition": []
+      }
+    },
+    "32c6e1ff87d6fd9b": {
+      "path": "Clean_Code/testcases/CWE89_SQL_Injection/s03/CWE89_SQL_Injection__getQueryString_Servlet_executeQuery_51a.java",
+      "sha256": "152c0d1b5fef4f3bd876e0fb39f922d3d5f90d497d207531f76169ab1fe7e5e0",
+      "line": 35,
+      "column": 69,
+      "owner": "javax.servlet.http.HttpServletRequest",
+      "signature": "getQueryString()",
+      "context": {
+        "call": [
+          {
+            "line": 25,
+            "code": "public class CWE89_SQL_Injection__getQueryString_Servlet_executeQuery_51a extends AbstractTestCaseServlet"
+          },
+          {
+            "line": 26,
+            "code": "{"
+          },
+          {
+            "line": 27,
+            "code": "public void bad(HttpServletRequest request, HttpServletResponse response) throws Throwable"
+          },
+          {
+            "line": 28,
+            "code": "{"
+          },
+          {
+            "line": 29,
+            "code": "String data;"
+          },
+          {
+            "line": 31,
+            "code": "data = \"\";"
+          },
+          {
+            "line": 34,
+            "code": "{"
+          },
+          {
+            "line": 35,
+            "code": "StringTokenizer tokenizer = new StringTokenizer(request.getQueryString(), \"&\");"
+          },
+          {
+            "line": 36,
+            "code": "while (tokenizer.hasMoreTokens())"
+          },
+          {
+            "line": 37,
+            "code": "{"
+          }
+        ],
+        "definition": []
+      }
+    },
+    "fe31799deb0621de": {
+      "path": "Clean_Code/testcases/CWE89_SQL_Injection/s03/CWE89_SQL_Injection__getQueryString_Servlet_executeQuery_51a.java",
+      "sha256": "152c0d1b5fef4f3bd876e0fb39f922d3d5f90d497d207531f76169ab1fe7e5e0",
+      "line": 38,
+      "column": 42,
+      "owner": "java.util.StringTokenizer",
+      "signature": "nextToken()",
+      "context": {
+        "call": [
+          {
+            "line": 28,
+            "code": "{"
+          },
+          {
+            "line": 29,
+            "code": "String data;"
+          },
+          {
+            "line": 31,
+            "code": "data = \"\";"
+          },
+          {
+            "line": 34,
+            "code": "{"
+          },
+          {
+            "line": 35,
+            "code": "StringTokenizer tokenizer = new StringTokenizer(request.getQueryString(), \"&\");"
+          },
+          {
+            "line": 36,
+            "code": "while (tokenizer.hasMoreTokens())"
+          },
+          {
+            "line": 37,
+            "code": "{"
+          },
+          {
+            "line": 38,
+            "code": "String token = tokenizer.nextToken();"
+          },
+          {
+            "line": 39,
+            "code": "if(token.startsWith(\"id=\"))"
+          },
+          {
+            "line": 40,
+            "code": "{"
+          }
+        ],
+        "definition": []
+      }
+    },
+    "26ef12c921d7a87f": {
+      "path": "Clean_Code/testcases/CWE89_SQL_Injection/s03/CWE89_SQL_Injection__getQueryString_Servlet_executeQuery_51a.java",
+      "sha256": "152c0d1b5fef4f3bd876e0fb39f922d3d5f90d497d207531f76169ab1fe7e5e0",
+      "line": 41,
+      "column": 34,
+      "owner": "java.lang.String",
+      "signature": "substring(int)",
+      "context": {
+        "call": [
+          {
+            "line": 31,
+            "code": "data = \"\";"
+          },
+          {
+            "line": 34,
+            "code": "{"
+          },
+          {
+            "line": 35,
+            "code": "StringTokenizer tokenizer = new StringTokenizer(request.getQueryString(), \"&\");"
+          },
+          {
+            "line": 36,
+            "code": "while (tokenizer.hasMoreTokens())"
+          },
+          {
+            "line": 37,
+            "code": "{"
+          },
+          {
+            "line": 38,
+            "code": "String token = tokenizer.nextToken();"
+          },
+          {
+            "line": 39,
+            "code": "if(token.startsWith(\"id=\"))"
+          },
+          {
+            "line": 40,
+            "code": "{"
+          },
+          {
+            "line": 41,
+            "code": "data = token.substring(3);"
+          },
+          {
+            "line": 42,
+            "code": "break;"
+          },
+          {
+            "line": 43,
+            "code": "}"
+          }
+        ],
+        "definition": []
+      }
+    },
+    "53b45af9fa688b83": {
+      "path": "WrapperReview.java",
+      "sha256": "71bc53422b9bf620c6801fdecf548a7c04307936dbd7f32508260a46eb310d6b",
+      "line": 7,
+      "column": 24,
+      "owner": "WrapperReview",
+      "signature": "resolveFirst(javax.servlet.ServletRequest)",
+      "definition": {
+        "path": "WrapperReview.java",
+        "sha256": "71bc53422b9bf620c6801fdecf548a7c04307936dbd7f32508260a46eb310d6b",
+        "line": 14,
+        "end_line": 16
+      },
+      "context": {
+        "call": [
+          {
+            "line": 1,
+            "code": "import java.sql.SQLException;"
+          },
+          {
+            "line": 2,
+            "code": "import java.sql.Statement;"
+          },
+          {
+            "line": 3,
+            "code": "import javax.servlet.ServletRequest;"
+          },
+          {
+            "line": 5,
+            "code": "class WrapperReview {"
+          },
+          {
+            "line": 6,
+            "code": "void review(Statement database, ServletRequest request, String text, Object state) throws SQLException {"
+          },
+          {
+            "line": 7,
+            "code": "String first = resolveFirst(request);"
+          },
+          {
+            "line": 8,
+            "code": "String second = resolveSecond(text);"
+          },
+          {
+            "line": 9,
+            "code": "String third = resolveThird();"
+          }
+        ],
+        "definition": [
+          {
+            "line": 14,
+            "code": "private static String resolveFirst(ServletRequest request) {"
+          },
+          {
+            "line": 15,
+            "code": "return request.getParameter(\"field\");"
+          },
+          {
+            "line": 16,
+            "code": "}"
+          }
+        ]
+      }
+    },
+    "29fb4c967210fa64": {
+      "path": "WrapperReview.java",
+      "sha256": "71bc53422b9bf620c6801fdecf548a7c04307936dbd7f32508260a46eb310d6b",
+      "line": 8,
+      "column": 25,
+      "owner": "WrapperReview",
+      "signature": "resolveSecond(java.lang.String)",
+      "definition": {
+        "path": "WrapperReview.java",
+        "sha256": "71bc53422b9bf620c6801fdecf548a7c04307936dbd7f32508260a46eb310d6b",
+        "line": 18,
+        "end_line": 20
+      },
+      "context": {
+        "call": [
+          {
+            "line": 1,
+            "code": "import java.sql.SQLException;"
+          },
+          {
+            "line": 2,
+            "code": "import java.sql.Statement;"
+          },
+          {
+            "line": 3,
+            "code": "import javax.servlet.ServletRequest;"
+          },
+          {
+            "line": 5,
+            "code": "class WrapperReview {"
+          },
+          {
+            "line": 6,
+            "code": "void review(Statement database, ServletRequest request, String text, Object state) throws SQLException {"
+          },
+          {
+            "line": 7,
+            "code": "String first = resolveFirst(request);"
+          },
+          {
+            "line": 8,
+            "code": "String second = resolveSecond(text);"
+          },
+          {
+            "line": 9,
+            "code": "String third = resolveThird();"
+          },
+          {
+            "line": 10,
+            "code": "String fourth = resolveFourth(state);"
+          }
+        ],
+        "definition": [
+          {
+            "line": 18,
+            "code": "private static String resolveSecond(String value) {"
+          },
+          {
+            "line": 19,
+            "code": "return value.trim();"
+          },
+          {
+            "line": 20,
+            "code": "}"
+          }
+        ]
+      }
+    },
+    "0e4158c9ed5b0d74": {
+      "path": "WrapperReview.java",
+      "sha256": "71bc53422b9bf620c6801fdecf548a7c04307936dbd7f32508260a46eb310d6b",
+      "line": 9,
+      "column": 24,
+      "owner": "WrapperReview",
+      "signature": "resolveThird()",
+      "definition": {
+        "path": "WrapperReview.java",
+        "sha256": "71bc53422b9bf620c6801fdecf548a7c04307936dbd7f32508260a46eb310d6b",
+        "line": 22,
+        "end_line": 24
+      },
+      "context": {
+        "call": [
+          {
+            "line": 1,
+            "code": "import java.sql.SQLException;"
+          },
+          {
+            "line": 2,
+            "code": "import java.sql.Statement;"
+          },
+          {
+            "line": 3,
+            "code": "import javax.servlet.ServletRequest;"
+          },
+          {
+            "line": 5,
+            "code": "class WrapperReview {"
+          },
+          {
+            "line": 6,
+            "code": "void review(Statement database, ServletRequest request, String text, Object state) throws SQLException {"
+          },
+          {
+            "line": 7,
+            "code": "String first = resolveFirst(request);"
+          },
+          {
+            "line": 8,
+            "code": "String second = resolveSecond(text);"
+          },
+          {
+            "line": 9,
+            "code": "String third = resolveThird();"
+          },
+          {
+            "line": 10,
+            "code": "String fourth = resolveFourth(state);"
+          },
+          {
+            "line": 11,
+            "code": "database.execute(first + second + third + fourth);"
+          }
+        ],
+        "definition": [
+          {
+            "line": 22,
+            "code": "private static String resolveThird() {"
+          },
+          {
+            "line": 23,
+            "code": "return \"fixed\";"
+          },
+          {
+            "line": 24,
+            "code": "}"
+          }
+        ]
+      }
+    },
+    "13daf825d4d4b4d0": {
+      "path": "WrapperReview.java",
+      "sha256": "71bc53422b9bf620c6801fdecf548a7c04307936dbd7f32508260a46eb310d6b",
+      "line": 10,
+      "column": 25,
+      "owner": "WrapperReview",
+      "signature": "resolveFourth(java.lang.Object)",
+      "definition": {
+        "path": "WrapperReview.java",
+        "sha256": "71bc53422b9bf620c6801fdecf548a7c04307936dbd7f32508260a46eb310d6b",
+        "line": 26,
+        "end_line": 28
+      },
+      "context": {
+        "call": [
+          {
+            "line": 1,
+            "code": "import java.sql.SQLException;"
+          },
+          {
+            "line": 2,
+            "code": "import java.sql.Statement;"
+          },
+          {
+            "line": 3,
+            "code": "import javax.servlet.ServletRequest;"
+          },
+          {
+            "line": 5,
+            "code": "class WrapperReview {"
+          },
+          {
+            "line": 6,
+            "code": "void review(Statement database, ServletRequest request, String text, Object state) throws SQLException {"
+          },
+          {
+            "line": 7,
+            "code": "String first = resolveFirst(request);"
+          },
+          {
+            "line": 8,
+            "code": "String second = resolveSecond(text);"
+          },
+          {
+            "line": 9,
+            "code": "String third = resolveThird();"
+          },
+          {
+            "line": 10,
+            "code": "String fourth = resolveFourth(state);"
+          },
+          {
+            "line": 11,
+            "code": "database.execute(first + second + third + fourth);"
+          },
+          {
+            "line": 12,
+            "code": "}"
+          }
+        ],
+        "definition": [
+          {
+            "line": 26,
+            "code": "private static String resolveFourth(Object state) {"
+          },
+          {
+            "line": 27,
+            "code": "return state.toString();"
+          },
+          {
+            "line": 28,
+            "code": "}"
+          }
+        ]
+      }
+    }
+  },
+  "by_alert": {
+    "378ca037-f43b-4634-a211-0fcf9095521b": {
+      "9158fd8a6f782147": {
+        "file_id": "F0",
+        "line": 51,
+        "column": 43,
+        "owner": "java.io.BufferedReader",
+        "signature": "readLine()",
+        "fixed_dispatch": false
+      }
+    },
+    "b04c4dbe-c038-49e6-8766-d4369af69258": {},
+    "6242a6c3-37da-47cf-b852-fdf88f2b365d": {},
+    "cb0ef271-0908-48cc-a629-ebcd55dffdbe": {
+      "90de84fe0348ae76": {
+        "file_id": "F1",
+        "line": 48,
+        "column": 39,
+        "owner": "java.io.BufferedReader",
+        "signature": "readLine()",
+        "fixed_dispatch": false
+      }
+    },
+    "5fe3836a-002b-4c02-a370-25b179ce0166": {},
+    "01f367b4-e33d-4943-9704-b1276f21670f": {
+      "5f85d438c8e259d6": {
+        "file_id": "F0",
+        "line": 58,
+        "column": 43,
+        "owner": "java.io.BufferedReader",
+        "signature": "readLine()",
+        "fixed_dispatch": false
+      }
+    },
+    "eca9e33f-c1b4-4f40-b228-ffca9bbf352c": {},
+    "41c2e331-09a4-4fea-a12d-fb2f4e973c5c": {},
+    "c5ff1b8c-06b9-479d-a6d9-2db18c0e0907": {
+      "6ca02555f4033062": {
+        "file_id": "F1",
+        "line": 54,
+        "column": 39,
+        "owner": "java.io.BufferedReader",
+        "signature": "readLine()",
+        "fixed_dispatch": false
+      }
+    },
+    "583d1694-00fe-4207-b183-fc6e41270c61": {},
+    "21ead17d-6124-4cb2-a7e3-d14eb8861f09": {
+      "73076a8741570143": {
+        "file_id": "F0",
+        "line": 52,
+        "column": 39,
+        "owner": "java.util.Properties",
+        "signature": "getProperty(java.lang.String)",
+        "fixed_dispatch": true
+      }
+    },
+    "3a8b18cd-647c-4576-b0b8-57f4ddf607f9": {},
+    "8a920075-b83f-4495-b866-d6013b45b0b3": {},
+    "a194dd88-d2fe-418a-bb15-f6cf613ec7f4": {
+      "960f2acfa15b68cb": {
+        "file_id": "F1",
+        "line": 49,
+        "column": 35,
+        "owner": "java.util.Properties",
+        "signature": "getProperty(java.lang.String)",
+        "fixed_dispatch": true
+      }
+    },
+    "feb7fe7b-4f4f-4942-b05a-186d84ca8c14": {},
+    "70b72c6c-9b7c-43c1-97e2-0bc6ad003552": {
+      "4476f62fcba9562b": {
+        "file_id": "F0",
+        "line": 41,
+        "column": 73,
+        "owner": "javax.servlet.http.HttpServletRequest",
+        "signature": "getQueryString()",
+        "fixed_dispatch": false
+      },
+      "9f7b8e130573cb9b": {
+        "file_id": "F0",
+        "line": 44,
+        "column": 46,
+        "owner": "java.util.StringTokenizer",
+        "signature": "nextToken()",
+        "fixed_dispatch": true
+      },
+      "9c26914ea208403c": {
+        "file_id": "F0",
+        "line": 47,
+        "column": 38,
+        "owner": "java.lang.String",
+        "signature": "substring(int)",
+        "fixed_dispatch": true
+      }
+    },
+    "da88f899-be06-46ed-965c-3e8c31ffb411": {},
+    "c1e33d65-db6a-4cfd-a95f-7813efb1b397": {},
+    "fd8e298a-9b39-4ddf-a7df-84a2099dc040": {
+      "32c6e1ff87d6fd9b": {
+        "file_id": "F1",
+        "line": 35,
+        "column": 69,
+        "owner": "javax.servlet.http.HttpServletRequest",
+        "signature": "getQueryString()",
+        "fixed_dispatch": false
+      },
+      "fe31799deb0621de": {
+        "file_id": "F1",
+        "line": 38,
+        "column": 42,
+        "owner": "java.util.StringTokenizer",
+        "signature": "nextToken()",
+        "fixed_dispatch": true
+      },
+      "26ef12c921d7a87f": {
+        "file_id": "F1",
+        "line": 41,
+        "column": 34,
+        "owner": "java.lang.String",
+        "signature": "substring(int)",
+        "fixed_dispatch": true
+      }
+    },
+    "c161bf7c-0b64-4648-bb57-f169bad62223": {}
+  },
+  "controls": [
+    "53b45af9fa688b83",
+    "29fb4c967210fa64",
+    "0e4158c9ed5b0d74",
+    "13daf825d4d4b4d0"
+  ]
+}

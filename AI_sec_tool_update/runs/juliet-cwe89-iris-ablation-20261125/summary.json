@@ -1,0 +1,249 @@
+{
+  "scope": "A/B/C ablation on the same 20 saved SonarQube Juliet CWE-89 alerts",
+  "reference_labels": "runs/juliet-cwe89-holdout-20261124/warning-labels.json",
+  "collection": {
+    "source": "authenticated SonarQube Web API after a new SonarScanner run",
+    "project": "thesis_juliet_cwe89_holdout_v1",
+    "source_root": "/home/khanh/AI_sec_tool/AI_sec_tool_update/runs/juliet-cwe89-holdout-20261124/project",
+    "collection_dir": "/home/khanh/AI_sec_tool/AI_sec_tool_update/runs/juliet-cwe89-holdout-20261124/project/runs/20261124T165717Z-b96d02",
+    "analysis_id": "cba95a3c-6ea8-427a-a3c4-d6fbaa3f5760",
+    "all_warnings": 340,
+    "cwe89_warnings": 20,
+    "cwe89_rule_counts": {
+      "findsecbugs:SQL_INJECTION_JDBC": 20
+    }
+  },
+  "model": "qwen2.5-coder:14b-instruct-q4_K_M",
+  "model_digest": "9ec8897f747e246e970bc5cfdda85d22f1123dc2e3d34978a010a75968716849",
+  "prompt_sha256": "26e84205a559fb429adba9c87a3a28fdf6a4c6135f4d301f784acee12637a442",
+  "validation_version": 2,
+  "stages": {
+    "A": {
+      "description": "Snapshot caller evidence baseline",
+      "evidence_file": "runs/juliet-cwe89-caller-evidence-20261125/evidence/sql_evidence.jsonl",
+      "llm_manifest": "runs/juliet-cwe89-caller-evidence-20261125/llm/manifest.json",
+      "triage": {
+        "true_positive": 7,
+        "true_negative": 4,
+        "false_positive": 6,
+        "false_negative": 0,
+        "unknown": 3,
+        "error": 0,
+        "correct": 11
+      },
+      "by_flow_variant": {
+        "15": {
+          "true_positive": 3,
+          "true_negative": 0,
+          "false_positive": 6,
+          "false_negative": 0,
+          "unknown": 3,
+          "error": 0,
+          "correct": 3
+        },
+        "51": {
+          "true_positive": 4,
+          "true_negative": 4,
+          "false_positive": 0,
+          "false_negative": 0,
+          "unknown": 0,
+          "error": 0,
+          "correct": 8
+        }
+      },
+      "evidence": {
+        "resolved_cross_file_caller_sites": 8,
+        "jdbc_value_status_counts": {
+          "unknown": 16,
+          "constant_sql_text": 4
+        },
+        "warnings_with_anchored_joern_paths": 1
+      },
+      "fresh_ollama_calls": 8,
+      "identical_request_responses_reused": 12
+    },
+    "B": {
+      "description": "A plus JDK traversal to a JDBC call inside a selected switch case",
+      "evidence_file": "runs/juliet-cwe89-iris-ablation-20261125/b-switch/evidence/sql_evidence.jsonl",
+      "llm_manifest": "runs/juliet-cwe89-iris-ablation-20261125/b-switch/llm/manifest.json",
+      "triage": {
+        "true_positive": 7,
+        "true_negative": 12,
+        "false_positive": 0,
+        "false_negative": 0,
+        "unknown": 1,
+        "error": 0,
+        "correct": 19
+      },
+      "by_flow_variant": {
+        "15": {
+          "true_positive": 3,
+          "true_negative": 8,
+          "false_positive": 0,
+          "false_negative": 0,
+          "unknown": 1,
+          "error": 0,
+          "correct": 11
+        },
+        "51": {
+          "true_positive": 4,
+          "true_negative": 4,
+          "false_positive": 0,
+          "false_negative": 0,
+          "unknown": 0,
+          "error": 0,
+          "correct": 8
+        }
+      },
+      "evidence": {
+        "resolved_cross_file_caller_sites": 8,
+        "jdbc_value_status_counts": {
+          "unknown": 8,
+          "constant_sql_text": 12
+        },
+        "warnings_with_anchored_joern_paths": 1
+      },
+      "fresh_ollama_calls": 8,
+      "identical_request_responses_reused": 12
+    },
+    "C": {
+      "description": "B plus Joern paths from separately scored Qwen source proposals",
+      "evidence_file": "runs/juliet-cwe89-iris-ablation-20261125/c-source-specs/evidence/sql_evidence.jsonl",
+      "llm_manifest": "runs/juliet-cwe89-iris-ablation-20261125/c-source-specs/llm/manifest.json",
+      "triage": {
+        "true_positive": 8,
+        "true_negative": 12,
+        "false_positive": 0,
+        "false_negative": 0,
+        "unknown": 0,
+        "error": 0,
+        "correct": 20
+      },
+      "by_flow_variant": {
+        "15": {
+          "true_positive": 4,
+          "true_negative": 8,
+          "false_positive": 0,
+          "false_negative": 0,
+          "unknown": 0,
+          "error": 0,
+          "correct": 12
+        },
+        "51": {
+          "true_positive": 4,
+          "true_negative": 4,
+          "false_positive": 0,
+          "false_negative": 0,
+          "unknown": 0,
+          "error": 0,
+          "correct": 8
+        }
+      },
+      "evidence": {
+        "resolved_cross_file_caller_sites": 8,
+        "jdbc_value_status_counts": {
+          "unknown": 8,
+          "constant_sql_text": 12
+        },
+        "warnings_with_anchored_joern_paths": 8
+      },
+      "fresh_ollama_calls": 7,
+      "identical_request_responses_reused": 13
+    }
+  },
+  "source_classification": {
+    "total": {
+      "total": 16,
+      "role_correct": 15,
+      "role_and_kind_correct": 12,
+      "source_true_positive": 9,
+      "source_false_positive": 0,
+      "source_false_negative": 0
+    },
+    "juliet": {
+      "total": 12,
+      "role_correct": 12,
+      "role_and_kind_correct": 9,
+      "source_true_positive": 8,
+      "source_false_positive": 0,
+      "source_false_negative": 0
+    },
+    "wrapper_controls": {
+      "total": 4,
+      "role_correct": 3,
+      "role_and_kind_correct": 3,
+      "source_true_positive": 1,
+      "source_false_positive": 0,
+      "source_false_negative": 0
+    }
+  },
+  "changed_verdicts": {
+    "A_to_B": [
+      {
+        "issue_id": "b04c4dbe-c038-49e6-8766-d4369af69258",
+        "component": "thesis_juliet_cwe89_holdout_v1:Clean_Code/testcases/CWE89_SQL_Injection/s01/CWE89_SQL_Injection__console_readLine_prepareStatement_15.java",
+        "evidence_changed": true,
+        "before": "LIKELY_TP",
+        "after": "LIKELY_FP"
+      },
+      {
+        "issue_id": "6242a6c3-37da-47cf-b852-fdf88f2b365d",
+        "component": "thesis_juliet_cwe89_holdout_v1:Clean_Code/testcases/CWE89_SQL_Injection/s01/CWE89_SQL_Injection__console_readLine_prepareStatement_15.java",
+        "evidence_changed": true,
+        "before": "LIKELY_TP",
+        "after": "LIKELY_FP"
+      },
+      {
+        "issue_id": "eca9e33f-c1b4-4f40-b228-ffca9bbf352c",
+        "component": "thesis_juliet_cwe89_holdout_v1:Clean_Code/testcases/CWE89_SQL_Injection/s02/CWE89_SQL_Injection__File_prepareStatement_15.java",
+        "evidence_changed": true,
+        "before": "UNKNOWN",
+        "after": "LIKELY_FP"
+      },
+      {
+        "issue_id": "41c2e331-09a4-4fea-a12d-fb2f4e973c5c",
+        "component": "thesis_juliet_cwe89_holdout_v1:Clean_Code/testcases/CWE89_SQL_Injection/s02/CWE89_SQL_Injection__File_prepareStatement_15.java",
+        "evidence_changed": true,
+        "before": "LIKELY_TP",
+        "after": "LIKELY_FP"
+      },
+      {
+        "issue_id": "3a8b18cd-647c-4576-b0b8-57f4ddf607f9",
+        "component": "thesis_juliet_cwe89_holdout_v1:Clean_Code/testcases/CWE89_SQL_Injection/s03/CWE89_SQL_Injection__PropertiesFile_executeQuery_15.java",
+        "evidence_changed": true,
+        "before": "LIKELY_TP",
+        "after": "LIKELY_FP"
+      },
+      {
+        "issue_id": "8a920075-b83f-4495-b866-d6013b45b0b3",
+        "component": "thesis_juliet_cwe89_holdout_v1:Clean_Code/testcases/CWE89_SQL_Injection/s03/CWE89_SQL_Injection__PropertiesFile_executeQuery_15.java",
+        "evidence_changed": true,
+        "before": "UNKNOWN",
+        "after": "LIKELY_FP"
+      },
+      {
+        "issue_id": "da88f899-be06-46ed-965c-3e8c31ffb411",
+        "component": "thesis_juliet_cwe89_holdout_v1:Clean_Code/testcases/CWE89_SQL_Injection/s03/CWE89_SQL_Injection__getQueryString_Servlet_executeQuery_15.java",
+        "evidence_changed": true,
+        "before": "LIKELY_TP",
+        "after": "LIKELY_FP"
+      },
+      {
+        "issue_id": "c1e33d65-db6a-4cfd-a95f-7813efb1b397",
+        "component": "thesis_juliet_cwe89_holdout_v1:Clean_Code/testcases/CWE89_SQL_Injection/s03/CWE89_SQL_Injection__getQueryString_Servlet_executeQuery_15.java",
+        "evidence_changed": true,
+        "before": "LIKELY_TP",
+        "after": "LIKELY_FP"
+      }
+    ],
+    "B_to_C": [
+      {
+        "issue_id": "378ca037-f43b-4634-a211-0fcf9095521b",
+        "component": "thesis_juliet_cwe89_holdout_v1:Clean_Code/testcases/CWE89_SQL_Injection/s01/CWE89_SQL_Injection__console_readLine_prepareStatement_15.java",
+        "evidence_changed": true,
+        "before": "UNKNOWN",
+        "after": "LIKELY_TP"
+      }
+    ]
+  }
+}

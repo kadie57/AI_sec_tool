@@ -1,0 +1,100 @@
+{
+  "status": "candidate_paths",
+  "matched_sources": 1,
+  "source_count": 1,
+  "candidate_paths_found": 1,
+  "search_limit_hit": false,
+  "paths": [
+    {
+      "source": {
+        "file_id": "F1",
+        "line": 35,
+        "method": "bad",
+        "method_start": 27,
+        "method_end": 48,
+        "node_type": "Call",
+        "api_owner": "javax.servlet.http.HttpServletRequest",
+        "api_signature": "getQueryString()",
+        "semantic_status": "qwen_candidate",
+        "input_kind": "request"
+      },
+      "steps": [
+        {
+          "file_id": "F1",
+          "line": 36,
+          "method": "bad",
+          "method_start": 27,
+          "method_end": 48,
+          "node_type": "Identifier"
+        },
+        {
+          "file_id": "F1",
+          "line": 38,
+          "method": "bad",
+          "method_start": 27,
+          "method_end": 48,
+          "node_type": "Identifier"
+        },
+        {
+          "file_id": "F1",
+          "line": 39,
+          "method": "bad",
+          "method_start": 27,
+          "method_end": 48,
+          "node_type": "Identifier"
+        },
+        {
+          "file_id": "F1",
+          "line": 41,
+          "method": "bad",
+          "method_start": 27,
+          "method_end": 48,
+          "node_type": "Identifier"
+        },
+        {
+          "file_id": "F1",
+          "line": 47,
+          "method": "bad",
+          "method_start": 27,
+          "method_end": 48,
+          "node_type": "Identifier"
+        },
+        {
+          "file_id": "F0",
+          "line": 29,
+          "method": "badSink",
+          "method_start": 29,
+          "method_end": 89,
+          "node_type": "MethodParameterIn"
+        }
+      ],
+      "sink": {
+        "file_id": "F0",
+        "line": 42,
+        "name": "executeQuery",
+        "method": "badSink",
+        "method_start": 29,
+        "method_end": 89
+      },
+      "omitted_steps": 0,
+      "unlocated_nodes": 0,
+      "dispatch": []
+    }
+  ],
+  "paths_not_shown": 0,
+  "version": "sql-anchored-paths-v1",
+  "scope": "verified_java_bundle",
+  "inputs": {
+    "F0": {
+      "path": "Clean_Code/testcases/CWE89_SQL_Injection/s03/CWE89_SQL_Injection__getQueryString_Servlet_executeQuery_51b.java",
+      "source_sha256": "72bdddb4fb7501506ddaae02db60283e522e58ea6cab34fd018537999d9dcd99",
+      "staged_sha256": "236cbb64633075af54849c2eea094de5db84fd271c52408763ff15250b78a679"
+    },
+    "F1": {
+      "path": "Clean_Code/testcases/CWE89_SQL_Injection/s03/CWE89_SQL_Injection__getQueryString_Servlet_executeQuery_51a.java",
+      "source_sha256": "152c0d1b5fef4f3bd876e0fb39f922d3d5f90d497d207531f76169ab1fe7e5e0",
+      "staged_sha256": "f3ea6b1c4650e6e8ab6523d2d1185bfedb03345e864640491a197f5494561e08"
+    }
+  },
+  "interpretation": "Candidate dataflow. Runtime branch and dispatch feasibility require separate evidence."
+}

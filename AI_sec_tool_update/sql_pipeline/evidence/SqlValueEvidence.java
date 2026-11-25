@@ -32,8 +32,9 @@ class SqlValueEvidence {
         }
     }
     private static final Value UNKNOWN = new Value("unknown", null, List.of());
-    private enum Transfer { NEXT, RETURN, BREAK, UNSUPPORTED }
+    private enum Transfer { NEXT, RETURN, BREAK, TARGET, UNSUPPORTED }
     private record Outcome(Transfer transfer, Value value) {}
+    private record ArgumentTarget(SqlEndpointProbe.Call call, int index, Set<Tree> ancestors) {}
     private static final Outcome NEXT = new Outcome(Transfer.NEXT, UNKNOWN);
     private static final Outcome BREAK = new Outcome(Transfer.BREAK, UNKNOWN);
     private static final Outcome UNSUPPORTED = new Outcome(Transfer.UNSUPPORTED, UNKNOWN);
@@ -270,18 +271,26 @@ class SqlValueEvidence {
     }
 
     private Outcome block(TreePath path, List<? extends StatementTree> statements, Map<Element, Value> env,
-                          List<Step> guards, int depth) {
+                          List<Step> guards, int depth, ArgumentTarget target) {
         for (var statement : statements) {
-            var result = execute(child(path, statement), env, guards, depth);
+            var result = visitStatement(child(path, statement), env, guards, depth, target);
             if (result.transfer() != Transfer.NEXT) return result;
         }
         return NEXT;
     }
 
+    private Outcome visitStatement(TreePath path, Map<Element, Value> env, List<Step> guards,
+                                   int depth, ArgumentTarget target) {
+        if (target != null && target.ancestors().contains(path.getLeaf())) {
+            return new Outcome(Transfer.TARGET, seek(path, target, env, guards));
+        }
+        return execute(path, env, guards, depth);
+    }
+
     private Outcome execute(TreePath path, Map<Element, Value> env, List<Step> guards, int depth) {
         if (--remaining < 0) return UNSUPPORTED;
         var tree = path.getLeaf();
-        if (tree instanceof BlockTree b) return block(path, b.getStatements(), env, guards, depth);
+        if (tree instanceof BlockTree b) return block(path, b.getStatements(), env, guards, depth, null);
         if (tree instanceof EmptyStatementTree || tree instanceof ClassTree) return NEXT;
         if (tree instanceof VariableTree variable) {
             var rhs = variable.getInitializer();
@@ -311,7 +320,7 @@ class SqlValueEvidence {
         }
         if (tree instanceof BreakTree br && br.getLabel() == null) return BREAK;
         if (tree instanceof IfTree branch) return when(path, branch, env, guards, depth);
-        if (tree instanceof SwitchTree branch) return choose(path, branch, env, guards, depth);
+        if (tree instanceof SwitchTree branch) return choose(path, branch, env, guards, depth, null);
         return new Outcome(Transfer.UNSUPPORTED, unknownAt(path, "statement_not_modeled"));
     }
 
@@ -343,7 +352,8 @@ class SqlValueEvidence {
     }
 
     @SuppressWarnings("preview")
-    private Outcome choose(TreePath path, SwitchTree branch, Map<Element, Value> env, List<Step> guards, int depth) {
+    private Outcome choose(TreePath path, SwitchTree branch, Map<Element, Value> env, List<Step> guards,
+                           int depth, ArgumentTarget target) {
         if (hasWrites(branch.getExpression())) return UNSUPPORTED;
         var selector = expression(child(path, branch.getExpression()), env, depth);
         if (!switchValue(selector.literal())) return new Outcome(Transfer.UNSUPPORTED, unknownAt(path, "runtime_switch_selector"));
@@ -372,24 +382,24 @@ class SqlValueEvidence {
             var entryPath = child(path, entry);
             switchContext = context(switchContext, step(entryPath, i == selected ? "switch_case_selected" : "switch_fallthrough"), List.of());
             if (entry.getCaseKind() == CaseTree.CaseKind.RULE) {
-                var result = execute(child(entryPath, entry.getBody()), env, switchContext, depth);
+                var result = visitStatement(child(entryPath, entry.getBody()), env, switchContext, depth, target);
                 return result.transfer() == Transfer.BREAK ? NEXT : result;
             }
-            var result = block(entryPath, entry.getStatements(), env, switchContext, depth);
+            var result = block(entryPath, entry.getStatements(), env, switchContext, depth, target);
             if (result.transfer() == Transfer.BREAK) return NEXT;
             if (result.transfer() != Transfer.NEXT) return result;
         }
         return NEXT;
     }
 
-    private Value seek(TreePath path, SqlEndpointProbe.Call call, int argumentIndex, Set<Tree> ancestors,
-                       Map<Element, Value> env, List<Step> guards) {
+    private Value seek(TreePath path, ArgumentTarget target, Map<Element, Value> env, List<Step> guards) {
         if (--remaining < 0) return UNKNOWN;
         var tree = path.getLeaf();
+        var ancestors = target.ancestors();
         if (tree instanceof BlockTree block) {
             for (var statement : block.getStatements()) {
                 var next = child(path, statement);
-                if (ancestors.contains(statement)) return seek(next, call, argumentIndex, ancestors, env, guards);
+                if (ancestors.contains(statement)) return seek(next, target, env, guards);
                 var outcome = execute(next, env, guards, 0);
                 if (outcome.transfer() != Transfer.NEXT) {
                     return UNKNOWN.with(outcome.transfer() == Transfer.UNSUPPORTED ? outcome.value().steps() : List.of())
@@ -398,27 +408,33 @@ class SqlValueEvidence {
             }
         }
         if (tree instanceof TryTree attempt && attempt.getResources().isEmpty() && ancestors.contains(attempt.getBlock())) {
-            return seek(child(path, attempt.getBlock()), call, argumentIndex, ancestors, env, guards);
+            return seek(child(path, attempt.getBlock()), target, env, guards);
         }
         if (tree instanceof IfTree branch && !hasWrites(branch.getCondition())) {
             var condition = expression(child(path, branch.getCondition()), env, 0);
             if (condition.literal() instanceof Boolean selected) {
                 var body = selected ? branch.getThenStatement() : branch.getElseStatement();
-                if (body != null && ancestors.contains(body)) return seek(child(path, body), call, argumentIndex, ancestors, env,
+                if (body != null && ancestors.contains(body)) return seek(child(path, body), target, env,
                     context(guards, condition.steps(), step(path, selected ? "if_true" : "if_false")));
             }
         }
+        if (tree instanceof SwitchTree branch) {
+            var outcome = choose(path, branch, env, guards, 0, target);
+            if (outcome.transfer() == Transfer.TARGET || outcome.transfer() == Transfer.UNSUPPORTED) return outcome.value();
+            return unknownAt(path, "switch_target_not_reached");
+        }
+        var call = target.call();
         Tree rhs = tree instanceof ExpressionStatementTree statement ? statement.getExpression()
             : tree instanceof VariableTree local ? local.getInitializer() : tree instanceof ReturnTree ret ? ret.getExpression() : null;
         if (rhs instanceof AssignmentTree assignment && assignment.getVariable() instanceof IdentifierTree
                 && assignment.getExpression() == call.tree()) {
-            var target = probe.trees.getElement(child(child(path, assignment), assignment.getVariable()));
-            if (target != null && target.getKind() == ElementKind.LOCAL_VARIABLE) {
+            var assigned = probe.trees.getElement(child(child(path, assignment), assignment.getVariable()));
+            if (assigned != null && assigned.getKind() == ElementKind.LOCAL_VARIABLE) {
                 rhs = assignment.getExpression();
             }
         }
         if (rhs == call.tree() && !hasWrites(rhs)) {
-            return expression(child(call.path(), call.tree().getArguments().get(argumentIndex)), env, 0).with(guards);
+            return expression(child(call.path(), call.tree().getArguments().get(target.index())), env, 0).with(guards);
         }
         return unknownAt(path, "scope_before_call_not_modeled");
     }
@@ -444,7 +460,7 @@ class SqlValueEvidence {
         for (var path = call.path(); path != method; path = path.getParentPath()) {
             ancestors.add(path.getLeaf());
         }
-        return seek(child(method, call.enclosing().getBody()), call, argumentIndex, ancestors, env, List.of());
+        return seek(child(method, call.enclosing().getBody()), new ArgumentTarget(call, argumentIndex, ancestors), env, List.of());
     }
 
     private SqlEndpointProbe.Call incomingCall(TreePath method) {
@@ -492,19 +508,41 @@ class SqlValueEvidence {
         }
     }
 
+    private void sourceCandidates(SqlEndpointProbe.Call sink, SqlEndpointProbe.Call caller) {
+        for (var call : probe.calls) {
+            var inSink = call.file().equals(sink.file()) && call.enclosing() == sink.enclosing() && call.line() <= sink.line();
+            var inCaller = caller != null && call.file().equals(caller.file())
+                && call.enclosing() == caller.enclosing() && call.line() <= caller.line();
+            var type = probe.trees.getTypeMirror(call.path());
+            if ((!inSink && !inCaller) || !type.toString().equals("java.lang.String") || call.sqlArgument()) continue;
+            var definition = probe.trees.getPath(call.target());
+            if (definition != null && definition.getLeaf() instanceof MethodTree method
+                    && method.getBody() != null && probe.units.containsKey(definition.getCompilationUnit())) {
+                var unit = definition.getCompilationUnit();
+                var end = probe.trees.getSourcePositions().getEndPosition(unit, method);
+                if (end > 0) {
+                    SqlEndpointProbe.emit("C", call.file(), call.line(), call.column(), call.owner(), call.signature(),
+                        fixedDispatch(call),
+                        probe.units.get(unit), probe.line(unit, method), unit.getLineMap().getLineNumber(end - 1));
+                }
+            } else if (definition == null) {
+                SqlEndpointProbe.emit("C", call.file(), call.line(), call.column(), call.owner(), call.signature(), fixedDispatch(call));
+            }
+        }
+    }
+
     private void report(SqlEndpointProbe.Call sink) {
         var method = enclosingMethod(sink);
         Value result = UNKNOWN;
         if (method != null && sink.enclosing().getBody() != null) {
+            var caller = System.getProperty("sql.evidence.snapshotCallers") == null ? null : incomingCall(method);
+            if (Boolean.getBoolean("sql.evidence.sourceCandidates")) sourceCandidates(sink, caller);
             result = evaluateArgument(sink, 0, method, initialEnvironment(method));
-            if (result.isUnknown() && System.getProperty("sql.evidence.snapshotCallers") != null) {
-                var caller = incomingCall(method);
-                if (caller != null) {
-                    var contextual = fromCaller(sink, method, caller);
-                    if (!contextual.isUnknown()) {
-                        result = contextual;
-                        emitCallerSources(result);
-                    }
+            if (result.isUnknown() && caller != null) {
+                var contextual = fromCaller(sink, method, caller);
+                if (!contextual.isUnknown()) {
+                    result = contextual;
+                    emitCallerSources(result);
                 }
             }
         }

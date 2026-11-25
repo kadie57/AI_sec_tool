@@ -120,6 +120,40 @@ class Example {
         self.assertEqual(roles["switch_fallthrough"], 12)
         self.assertEqual(roles["helper_return"], 15)
 
+    def test_jdbc_inside_switch_tracks_fallthrough_to_target(self):
+        result = self.probe("""import java.sql.Statement;
+class Example {
+  void run(Statement sink, String outside) throws Exception {
+    String sql = outside;
+    switch (1) {
+      case 1:
+        sql = "SELECT 1";
+      case 2:
+        sink.execute(sql);
+        break;
+    }
+  }
+}
+""")
+        self.assertEqual(result["status"], "constant_sql_text")
+        roles = {fact["role"]: fact["line"] for fact in result["evidence"]}
+        self.assertEqual(roles["switch_case_selected"], 6)
+        self.assertEqual(roles["switch_fallthrough"], 8)
+
+    def test_jdbc_in_unselected_case_is_not_reported_as_a_value_proof(self):
+        result = self.probe("""import java.sql.Statement;
+class Example {
+  void run(Statement sink) throws Exception {
+    switch (1) {
+      case 1: break;
+      case 2: sink.execute("SELECT 1");
+    }
+  }
+}
+""")
+        self.assertEqual(result["status"], "unknown")
+        self.assertIn({"file_id": "F0", "line": 4, "role": "switch_target_not_reached"}, result["evidence"])
+
     def test_if_and_default_are_resolved_across_distinct_helper_calls(self):
         result = self.probe("""import java.sql.Statement;
 class Example {

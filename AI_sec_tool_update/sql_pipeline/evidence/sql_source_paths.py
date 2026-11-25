@@ -1,4 +1,4 @@
-"""Joern paths from verified Servlet reads to the SQL argument of one alert."""
+"""Joern paths from typed source sites to the SQL argument of one alert."""
 
 from hashlib import sha256
 import json
@@ -13,7 +13,7 @@ PATH_LIMIT = 12
 
 
 def endpoints(specifications):
-    """Use a typed read, including reads proved inside a wrapper, and one JDBC target."""
+    """Use typed reads and optional source proposals with one verified JDBC target."""
     sources = {}
     for source in specifications["sources"]:
         if source["role"] == "servlet_request_read":
@@ -26,6 +26,9 @@ def endpoints(specifications):
         sources[read["file_id"], read["line"], name] = {
             **read, "name": name,
         }
+    for source in specifications.get("source_proposals", []):
+        name = source["signature"].partition("(")[0]
+        sources.setdefault((source["file_id"], source["line"], name), {**source, "name": name})
     sinks = specifications["sinks"]
     sink = sinks[0] if specifications["sink_resolution"] == "one_verified_signature" and len(sinks) == 1 else None
     if sink and (sink["file_id"], sink["role"], sink["argument_index"]) != ("F0", "sql_text", 1):
@@ -142,7 +145,7 @@ def select_paths(stdout, files, sources, sink):
         source = sources[key[0]]
         first = path[0]
         if not first or first["node_type"] != "Call" or any(first[k] != source[k] for k in ("file_id", "line")):
-            raise ValueError("Đường Joern lệch vị trí đọc HTTP đã xác minh.")
+            raise ValueError("Đường Joern lệch vị trí nguồn đã đối chiếu.")
         # The final node is the queried argument. Its CPG position can be synthetic,
         # so display its source position from the verified Java signature instead.
         argument = {**sink["argument"], "name": sink["signature"].partition("(")[0]}
@@ -160,8 +163,11 @@ def select_paths(stdout, files, sources, sink):
             continue
         seen.add(signature)
         focused = select_steps(steps)
+        origin = {**first, "api_owner": source["owner"], "api_signature": source["signature"]}
+        if source.get("semantic_status") == "qwen_candidate":
+            origin.update(semantic_status="qwen_candidate", input_kind=source["input_kind"])
         paths.append({
-            "source": {**first, "api_owner": source["owner"], "api_signature": source["signature"]},
+            "source": origin,
             "steps": focused,
             "sink": argument,
             "omitted_steps": len(steps) - len(focused),
@@ -173,7 +179,8 @@ def select_paths(stdout, files, sources, sink):
     elif sink_match != (1, 1):
         status = "sink_not_unique_in_cpg"
     else:
-        status = "no_candidate_path" if counts else "no_matched_http_read"
+        no_match = "no_matched_source" if any("semantic_status" in source for source in sources) else "no_matched_http_read"
+        status = "no_candidate_path" if counts else no_match
     return {
         "status": status,
         "matched_sources": sum(count == 1 for count in matched.values()),

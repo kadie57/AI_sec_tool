@@ -96,7 +96,7 @@ Phạm vi xác minh là snapshot tệp chính và các helper đã được ghé
 
 Thêm `--infer-jdbc-values` vào lệnh trên và chọn thư mục đầu ra mới. Tùy chọn dùng `javac` và yêu cầu `--infer-specifications`. Pipeline thêm `selected_evidence.jdbc_value_evidence` ngay trong gói gửi cho Ollama. Mỗi mục gắn với chữ ký JDBC và vị trí đối số SQL đã được xác minh.
 
-Bộ phân tích dùng AST và symbol của JDK. Nó theo biến cục bộ, một số biểu thức hằng, nhánh `if` và `switch` có điều kiện xác định, phép ghép chuỗi và lời gọi helper có thể xác định đích. Các kết quả `constant_sql_text` và `external_input_contributes` có tọa độ giải thích. Với `unknown`, gói có thể ghi vị trí phép ghép chuỗi, khai báo biến SQL hoặc nơi phân tích dừng. Phân tích có giới hạn độ sâu helper và số bước. Kết quả mô tả đường Java được phân tích tới lời gọi, chưa kết luận đúng sai của cảnh báo.
+Bộ phân tích dùng AST và symbol của JDK. Nó theo biến cục bộ, một số biểu thức hằng, nhánh `if` và `switch` có điều kiện xác định, phép ghép chuỗi và lời gọi helper có thể xác định đích. Với JDBC bên trong `switch`, bộ phân tích đi từ `case` được chọn đến lời gọi đã đối chiếu và ghi lại cả trường hợp rơi qua `case` kế tiếp. Các kết quả `constant_sql_text` và `external_input_contributes` có tọa độ giải thích. Với `unknown`, gói có thể ghi vị trí phép ghép chuỗi, khai báo biến SQL hoặc nơi phân tích dừng. Phân tích có giới hạn độ sâu helper và số bước. Kết quả mô tả đường Java được phân tích tới lời gọi, chưa kết luận đúng sai của cảnh báo.
 
 Bộ phân tích tính `+`, `-`, `*`, `/`, `%` và so sánh thứ tự với toán hạng `int` hoặc `char` có giá trị đã xác định. Phép tính tuân theo ngữ nghĩa `int` của Java, gồm tràn số và chia lấy phần nguyên. Khi toán hạng phụ thuộc runtime hoặc phép chia có mẫu số 0, giá trị vẫn ở trạng thái `unknown`. Gói `--structured-sink-evidence` có thể thêm đúng dòng định nghĩa hằng cần để kiểm tra phép tính, kể cả khi dòng đó nằm ngoài trích đoạn Joern.
 
@@ -132,6 +132,17 @@ python3 sql_llm_experiment.py run runs/sql8-anchored-evidence/sql_evidence.jsonl
 Thêm `--bind-warning-citation` vào lệnh `sql_llm_experiment.py run` để gắn dòng đầu của vùng cảnh báo khi Qwen đưa ra kết luận TP/FP có trích dẫn hỗ trợ hợp lệ nhưng bỏ sót dòng cảnh báo. Dòng được gắn phải có trong mã hiển thị. Kết quả lưu nguồn gốc của dòng bổ sung ở `warning_citation_added` và giữ phản hồi Ollama để đối chiếu. Manifest ghi phiên bản kiểm tra riêng để nhận biết khi so sánh các lượt chạy.
 
 Thêm `--prompt-profile iris-contextual` vào lệnh `run` để thử prompt lấy ý tưởng từ mục 3.5 của [bài báo IRIS](https://proceedings.iclr.cc/paper_files/paper/2025/file/582d4e27fa24168f3af1f4582655034b-Paper-Conference.pdf). Qwen nêu căn cứ và trích dẫn trước nhãn, phân biệt văn bản SQL với giá trị được bind, và kiểm tra bằng chứng Java theo đúng nhánh trước khi dựa vào đường ứng viên Joern. Gói bằng chứng, các nhãn và cách kiểm tra kết quả dùng cùng định dạng như trước. Lệnh mặc định chọn `baseline`. Khi đối chứng hai prompt, dùng cùng tệp bằng chứng, cùng model và cùng lựa chọn gắn trích dẫn cho cả hai lượt.
+
+## Thử đặc tả nguồn do Qwen đề xuất
+
+Dùng `sql_source_spec_experiment.py` sau bước chuẩn bị bằng chứng để đo riêng việc gán nhãn nguồn.
+
+- `inventory` nhận `sql_evidence.jsonl` và lặp `--java-classpath` như lượt chuẩn bị. JDK lấy các lời gọi trả `String` từ phương thức có cảnh báo và lời gọi liên tệp đã phân giải. `--controls fixtures/source_specs/WrapperReview.java` thêm ví dụ đối chứng.
+- `label` nhận `inventory.json` và `--model-digest`. Qwen phân loại nguồn ngoài, giá trị chuyển tiếp, hằng hoặc chưa rõ. Nhãn đã phân loại dẫn dòng từ mã đã đưa vào prompt. Kết quả và request gốc được lưu theo lô. Dùng `--resume` với cùng tham số để tiếp tục lượt bị gián đoạn.
+- `score` đối chiếu nhãn với tệp tham chiếu đã lập trước, gồm trường `labels` ánh xạ mã ứng viên tới `label` và `kind`.
+- `apply` nhận `sql_evidence.jsonl`, `inventory.json` và thư mục kết quả của `label`. Joern kiểm tra nguồn ứng viên tới đối số SQL đã xác minh và lưu bộ bằng chứng mới ở `--out`. Chạy `sql_llm_experiment.py run` với cùng cấu hình thẩm định để so sánh với bằng chứng trước khi `apply`.
+
+Ở lượt thử này, nguồn do model đề xuất được đánh dấu riêng trong đường đi Joern. Chữ ký Java xác nhận điểm gọi. Khả năng người dùng kiểm soát giá trị cần được đánh giá theo ngữ cảnh.
 
 ## Kiểm tra lại lượt quét đã lưu
 

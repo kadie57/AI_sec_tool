@@ -1,0 +1,46 @@
+{
+  "status": "candidate_paths",
+  "matched_sources": 1,
+  "source_count": 1,
+  "candidate_paths_found": 1,
+  "search_limit_hit": false,
+  "paths": [
+    {
+      "source": {
+        "file_id": "F0",
+        "line": 51,
+        "method": "bad",
+        "method_start": 34,
+        "method_end": 149,
+        "node_type": "Call",
+        "api_owner": "java.io.BufferedReader",
+        "api_signature": "readLine()",
+        "semantic_status": "qwen_candidate",
+        "input_kind": "console"
+      },
+      "steps": [],
+      "sink": {
+        "file_id": "F0",
+        "line": 102,
+        "name": "prepareStatement",
+        "method": "bad",
+        "method_start": 34,
+        "method_end": 149
+      },
+      "omitted_steps": 0,
+      "unlocated_nodes": 0,
+      "dispatch": []
+    }
+  ],
+  "paths_not_shown": 0,
+  "version": "sql-anchored-paths-v1",
+  "scope": "verified_java_bundle",
+  "inputs": {
+    "F0": {
+      "path": "Clean_Code/testcases/CWE89_SQL_Injection/s01/CWE89_SQL_Injection__console_readLine_prepareStatement_15.java",
+      "source_sha256": "8cdd2679788c4e97cfadfaca513fc9368f590c5f3e3227ecf39d6d6126b228ff",
+      "staged_sha256": "370441fb4dfaad8876afa309e0858864c3f75f5efc7923c2ea688446b7abb43e"
+    }
+  },
+  "interpretation": "Candidate dataflow. Runtime branch and dispatch feasibility require separate evidence."
+}

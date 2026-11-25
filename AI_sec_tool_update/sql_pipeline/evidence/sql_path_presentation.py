@@ -184,6 +184,9 @@ def render_path_snippets(evidence, *, verified_sink_note=False, structured_sink_
     for path in anchored_paths:
         source = anchored_endpoint(path["source"])
         source["verified_api"] = path["source"]["api_owner"] + "." + path["source"]["api_signature"]
+        if path["source"].get("semantic_status") == "qwen_candidate":
+            source.update(semantic_status="qwen_candidate", input_kind=path["source"]["input_kind"],
+                          note="Java signature verified. External origin is proposed. User control requires context.")
         steps = []
         for ref in path["steps"]:
             code = excerpt(ref["line"], ref["line"], repeat=(ref["line"],), file_id=ref["file_id"])
@@ -226,8 +229,9 @@ def render_path_snippets(evidence, *, verified_sink_note=False, structured_sink_
     if anchored_paths:
         summary.pop("paths_with_unmapped_endpoints", None)
         summary.pop("paths_not_shown", None)
+        has_proposals = any(path["source"].get("semantic_status") == "qwen_candidate" for path in anchored_paths)
         summary.update(scope=anchored["scope"], path_status=anchored["status"],
-                       source_basis="statically_verified_servlet_read",
+                       source_basis="typed_reads_with_qwen_proposals" if has_proposals else "statically_verified_servlet_read",
                        anchored_dataflow={key: anchored[key] for key in (
                            "candidate_paths_found", "matched_sources", "source_count", "paths_not_shown",
                            "search_limit_hit", "interpretation",

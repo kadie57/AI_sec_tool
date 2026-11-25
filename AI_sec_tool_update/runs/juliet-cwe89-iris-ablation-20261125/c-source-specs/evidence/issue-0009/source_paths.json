@@ -1,0 +1,68 @@
+{
+  "status": "candidate_paths",
+  "matched_sources": 1,
+  "source_count": 1,
+  "candidate_paths_found": 1,
+  "search_limit_hit": false,
+  "paths": [
+    {
+      "source": {
+        "file_id": "F1",
+        "line": 54,
+        "method": "bad",
+        "method_start": 33,
+        "method_end": 102,
+        "node_type": "Call",
+        "api_owner": "java.io.BufferedReader",
+        "api_signature": "readLine()",
+        "semantic_status": "qwen_candidate",
+        "input_kind": "file"
+      },
+      "steps": [
+        {
+          "file_id": "F1",
+          "line": 101,
+          "method": "bad",
+          "method_start": 33,
+          "method_end": 102,
+          "node_type": "Identifier"
+        },
+        {
+          "file_id": "F0",
+          "line": 29,
+          "method": "badSink",
+          "method_start": 29,
+          "method_end": 83,
+          "node_type": "MethodParameterIn"
+        }
+      ],
+      "sink": {
+        "file_id": "F0",
+        "line": 39,
+        "name": "prepareStatement",
+        "method": "badSink",
+        "method_start": 29,
+        "method_end": 83
+      },
+      "omitted_steps": 0,
+      "unlocated_nodes": 0,
+      "dispatch": []
+    }
+  ],
+  "paths_not_shown": 0,
+  "version": "sql-anchored-paths-v1",
+  "scope": "verified_java_bundle",
+  "inputs": {
+    "F0": {
+      "path": "Clean_Code/testcases/CWE89_SQL_Injection/s02/CWE89_SQL_Injection__File_prepareStatement_51b.java",
+      "source_sha256": "372048bb6b52d128196a141930d92112940f8596b47ab48019fc22cd54c2cb75",
+      "staged_sha256": "7cf9731e5946c7b8f8c0e32bf6bc433fa9d619513a482ee79d7add19fe7469a3"
+    },
+    "F1": {
+      "path": "Clean_Code/testcases/CWE89_SQL_Injection/s02/CWE89_SQL_Injection__File_prepareStatement_51a.java",
+      "source_sha256": "e332baf77f5636eee9393b58fe32c3836157d3df351addc57e324be8f2a73fcf",
+      "staged_sha256": "6426162271c4dcb59b7cc79bde03dfbab51d213902b3be81b4ca1880d56fa7f7"
+    }
+  },
+  "interpretation": "Candidate dataflow. Runtime branch and dispatch feasibility require separate evidence."
+}

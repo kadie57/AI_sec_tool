@@ -12,7 +12,7 @@ from ..run_io import run_command
 VERSION = "sql-endpoint-specifications-v1"
 PROBE = Path(__file__).with_name("SqlEndpointProbe.java")
 VALUE_PROBE = Path(__file__).with_name("SqlValueEvidence.java")
-VALUE_VERSION = "jdbc-value-evidence-v3"
+VALUE_VERSION = "jdbc-value-evidence-v4"
 MAX_SOURCES = 8
 
 
@@ -32,7 +32,7 @@ def java_dependencies(jars):
     return entries
 
 
-def parse_probe(stdout, bundle, selected, value_evidence=False):
+def parse_probe(stdout, bundle, selected, value_evidence=False, *, source_candidates=False):
     files = bundle["files"]
     code = {key: file["masked_source"].splitlines() for key, file in files.items()}
     selected_lines = {node["line"] for node in selected.get("locations", [])}
@@ -44,6 +44,8 @@ def parse_probe(stdout, bundle, selected, value_evidence=False):
         return {"file_id": file_id, "line": line}
 
     result = {"version": VERSION, "scope": "one_sonar_alert", "sources": [], "sinks": []}
+    if source_candidates:
+        result["source_candidates"] = []
     query_by_position = {}
     values_by_position = {}
     for text in stdout.splitlines():
@@ -82,6 +84,15 @@ def parse_probe(stdout, bundle, selected, value_evidence=False):
         elif record == "E" and value_evidence:
             position, column, file_id, line, role = fields
             values_by_position[position, column]["evidence"].append({**ref(file_id, line), "role": role})
+        elif record == "C" and source_candidates:
+            file_id, position, column, owner, signature, fixed, *definition = fields
+            candidate = {**ref(file_id, position), "column": int(column), "owner": owner, "signature": signature,
+                         "fixed_dispatch": fixed == "true"}
+            if definition:
+                declaration, first, last = definition
+                candidate["definition"] = {**ref(declaration, first), "end_line": ref(declaration, last)["line"]}
+            if candidate not in result["source_candidates"]:
+                result["source_candidates"].append(candidate)
         elif record == "I" and value_evidence:
             file_id, position, column, owner, signature = fields
             source = {**ref(file_id, position), "column": int(column), "owner": owner, "signature": signature,
@@ -125,19 +136,21 @@ def parse_probe(stdout, bundle, selected, value_evidence=False):
     return result
 
 
-def infer_specifications(item, bundle, selected, dependencies, log, *, value_evidence=False):
+def infer_specifications(item, bundle, selected, dependencies, log, *, value_evidence=False, source_candidates=False):
     """Use only the verified source bundle and explicitly provided local classpath."""
     with TemporaryDirectory(prefix="sql-specifications-") as directory:
         staging = Path(directory)
         empty = staging / "empty"
         empty.mkdir()
         command = ["java", str(PROBE)]
-        if value_evidence:
+        if value_evidence or source_candidates:
             run_command(["javac", "--release", "17", "-proc:none", "-d", str(staging), str(PROBE), str(VALUE_PROBE)],
                         log.with_name("java_value_probe_build.log"), 45, cwd=staging)
             command = ["java"]
             if caller_ids := bundle.get("snapshot_callers"):
                 command.append("-Dsql.evidence.snapshotCallers=" + ",".join(caller_ids))
+            if source_candidates:
+                command.append("-Dsql.evidence.sourceCandidates=true")
             command.extend(["-cp", str(staging), "SqlValueEvidence"])
         command.extend([str(item.start), str(item.end),
                         os.pathsep.join(entry["path"] for entry in dependencies) or str(empty), str(empty)])
@@ -149,4 +162,4 @@ def infer_specifications(item, bundle, selected, dependencies, log, *, value_evi
             path.write_text(file["masked_source"], encoding="utf-8")
             command.extend([file_id, str(path)])
         stdout = run_command(command, log, 45, cwd=staging)
-        return parse_probe(stdout, bundle, selected, value_evidence)
+        return parse_probe(stdout, bundle, selected, value_evidence or source_candidates, source_candidates=source_candidates)

@@ -1,0 +1,20 @@
+STATUS	0
+Q	F0	11	18	java.sql.Statement	execute(java.lang.String)	11
+C	F0	7	24	WrapperReview	resolveFirst(javax.servlet.ServletRequest)	true	F0	14	16
+C	F0	8	25	WrapperReview	resolveSecond(java.lang.String)	true	F0	18	20
+C	F0	9	24	WrapperReview	resolveThird()	true	F0	22	24
+C	F0	10	25	WrapperReview	resolveFourth(java.lang.Object)	true	F0	26	28
+V	11	18	unknown	unsupported_or_runtime_value
+E	11	18	F0	19	call_result_not_modeled
+E	11	18	F0	19	helper_return
+E	11	18	F0	8	helper_call
+E	11	18	F0	8	local_definition
+E	11	18	F0	11	value_at_reference_unresolved
+E	11	18	F0	11	string_concatenation_with_unresolved_operand
+E	11	18	F0	27	call_result_not_modeled
+E	11	18	F0	27	helper_return
+E	11	18	F0	10	helper_call
+E	11	18	F0	10	local_definition
+H	7	24	WrapperReview	resolveFirst(javax.servlet.ServletRequest)	true	F0	15	javax.servlet.ServletRequest	getParameter(java.lang.String)	fixed_declaration
+
+[STDERR]
