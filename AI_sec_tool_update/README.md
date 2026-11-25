@@ -104,6 +104,10 @@ Bộ phân tích tính `+`, `-`, `*`, `/`, `%` và so sánh thứ tự với to�
 
 Có thể thêm `--confirmed-jdbc-values-only` vào lệnh `sql_llm_experiment.py run` để thử cách trình bày chỉ gửi bằng chứng giá trị đã xác minh. Tùy chọn bỏ trường này khỏi request khi phân tích còn `unknown` hoặc có nhiều đối số SQL ứng viên. Hồ sơ bằng chứng vẫn chứa tọa độ đã thu được.
 
+Thêm `--snapshot-callers` cùng `--infer-jdbc-values` để lấy mã ở phía gọi từ snapshot SonarQube. Pipeline kiểm tra hash các tệp Java theo manifest, tìm tệp tham chiếu kiểu chứa cảnh báo rồi dùng chữ ký do JDK phân giải để ghép đối số với tham số. `endpoint_specifications.sinks[].resolved_caller` lưu tọa độ hai phía. Khi chứng minh được giá trị, gói bằng chứng ghi rõ lời gọi mà kết quả áp dụng.
+
+Phân tích này xét một lời gọi trực tiếp có đích xác định trong nhóm tệp được chọn. Nhiều điểm gọi, đích gọi chưa rõ hoặc luồng giá trị ngoài phạm vi AST đã mô hình hóa có thể khiến kết quả vẫn là `unknown`. Tùy chọn mặc định tắt để có thể đối chứng trên cùng tập cảnh báo.
+
 ## Đường đi liên tệp từ nguồn HTTP
 
 Thêm `--joern-source-paths` cùng `--infer-specifications` khi chuẩn bị dữ liệu. Sau khi JDK phân giải chữ ký API, Joern nạp tệp Java chính và các helper đã kiểm tra phiên bản. Truy vấn bắt đầu từ lời gọi Servlet đọc HTTP đã xác minh và dừng ở đối số văn bản SQL của lời gọi JDBC đã đối chiếu. Tùy chọn này chạy Joern cục bộ, kể cả khi `--recorded-joern` được dùng để tái sử dụng truy vấn nền. Cần image Joern có sẵn trên máy.
@@ -131,12 +135,12 @@ Thêm `--prompt-profile iris-contextual` vào lệnh `run` để thử prompt l�
 
 ## Kiểm tra lại lượt quét đã lưu
 
-Chạy từ `AI_sec_tool_update/`. Trong ví dụ này, `..` là thư mục dự án gốc.
+Chạy từ `AI_sec_tool_update/`. Đặt `LEGACY_PROJECT_ROOT` thành đường dẫn đến bản lưu trữ của dự án gốc, nơi còn `runs/` và `Clean_Code/` của lượt quét.
 
 ```bash
 python3 prepare_sql_evidence.py \
-  --from-run ../runs/20261011T121215Z-15797d \
-  --source-root .. \
+  --from-run "$LEGACY_PROJECT_ROOT/runs/20261011T121215Z-15797d" \
+  --source-root "$LEGACY_PROJECT_ROOT" \
   --only-component project_1:Clean_Code/pilot_sql89/Trial04.java \
   --check
 ```

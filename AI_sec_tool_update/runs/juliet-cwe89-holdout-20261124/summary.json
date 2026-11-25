@@ -1,0 +1,1065 @@
+{
+  "scope": "Juliet CWE-89 holdout selected and labeled before scanning. Distinct source files from the earlier pilot; unchanged SQL pipeline.",
+  "project": "thesis_juliet_cwe89_holdout_v1",
+  "analysis_id": "cba95a3c-6ea8-427a-a3c4-d6fbaa3f5760",
+  "java_profile": "KhoaLuan-Java-SQLi",
+  "plan": "runs/juliet-cwe89-holdout-20261124/plan.json",
+  "collection": {
+    "source": "authenticated SonarQube Web API after a new SonarScanner run",
+    "project": "thesis_juliet_cwe89_holdout_v1",
+    "source_root": "/home/khanh/AI_sec_tool/AI_sec_tool_update/runs/juliet-cwe89-holdout-20261124/project",
+    "collection_dir": "/home/khanh/AI_sec_tool/AI_sec_tool_update/runs/juliet-cwe89-holdout-20261124/project/runs/20261124T165717Z-b96d02",
+    "analysis_id": "cba95a3c-6ea8-427a-a3c4-d6fbaa3f5760",
+    "all_warnings": 340,
+    "cwe89_warnings": 20,
+    "cwe89_rule_counts": {
+      "findsecbugs:SQL_INJECTION_JDBC": 20
+    }
+  },
+  "official_reference_labels": "runs/juliet-cwe89-holdout-20261124/reference-jdbc-sites.json",
+  "matched_warnings": "runs/juliet-cwe89-holdout-20261124/warning-labels.json",
+  "evidence_file": "runs/juliet-cwe89-holdout-20261124/evidence/sql_evidence.jsonl",
+  "model": "qwen2.5-coder:14b-instruct-q4_K_M",
+  "model_digest": "9ec8897f747e246e970bc5cfdda85d22f1123dc2e3d34978a010a75968716849",
+  "prompt_sha256": "26e84205a559fb429adba9c87a3a28fdf6a4c6135f4d301f784acee12637a442",
+  "validation_version": 2,
+  "fresh_ollama_calls": 20,
+  "scanner_detection": {
+    "reference_vulnerable_sites": 8,
+    "reference_clean_sites": 24,
+    "vulnerable_sites_flagged": 8,
+    "clean_sites_flagged": 12,
+    "cwe89_warnings": 20,
+    "warning_reference_labels": {
+      "vulnerable": 8,
+      "clean": 12
+    }
+  },
+  "evidence": {
+    "verified_jdbc_signatures": 20,
+    "anchored_http_paths": 1,
+    "sonar_warnings_with_exported_flows": 0,
+    "verified_sql_value_sites": 0,
+    "value_status_counts": {
+      "unknown": 20
+    },
+    "verified_proof_displayed": 0,
+    "warning_method_label_visible": 9,
+    "value_evidence_marker_counts": {
+      "analysis_stopped_before_call": 4,
+      "statement_not_modeled": 4,
+      "scope_before_call_not_modeled": 8,
+      "string_concatenation_with_unresolved_operand": 8,
+      "value_at_reference_unresolved": 8
+    }
+  },
+  "triage": {
+    "true_positive": 7,
+    "true_negative": 0,
+    "false_positive": 10,
+    "false_negative": 0,
+    "unknown": 3,
+    "error": 0,
+    "pending": 0,
+    "correct": 7,
+    "incorrect": 10,
+    "real_issues_abstained": 1,
+    "nonvulnerable_issues_abstained": 2
+  },
+  "by_flow_variant": {
+    "15": {
+      "true_positive": 3,
+      "true_negative": 0,
+      "false_positive": 6,
+      "false_negative": 0,
+      "unknown": 3,
+      "error": 0,
+      "pending": 0,
+      "correct": 3,
+      "incorrect": 6,
+      "real_issues_abstained": 1,
+      "nonvulnerable_issues_abstained": 2
+    },
+    "51": {
+      "true_positive": 4,
+      "true_negative": 0,
+      "false_positive": 4,
+      "false_negative": 0,
+      "unknown": 0,
+      "error": 0,
+      "pending": 0,
+      "correct": 4,
+      "incorrect": 4,
+      "real_issues_abstained": 0,
+      "nonvulnerable_issues_abstained": 0
+    }
+  },
+  "by_source_family": {
+    "File_prepareStatement": {
+      "true_positive": 2,
+      "true_negative": 0,
+      "false_positive": 2,
+      "false_negative": 0,
+      "unknown": 1,
+      "error": 0,
+      "pending": 0,
+      "correct": 2,
+      "incorrect": 2,
+      "real_issues_abstained": 0,
+      "nonvulnerable_issues_abstained": 1
+    },
+    "PropertiesFile_executeQuery": {
+      "true_positive": 2,
+      "true_negative": 0,
+      "false_positive": 2,
+      "false_negative": 0,
+      "unknown": 1,
+      "error": 0,
+      "pending": 0,
+      "correct": 2,
+      "incorrect": 2,
+      "real_issues_abstained": 0,
+      "nonvulnerable_issues_abstained": 1
+    },
+    "console_readLine_prepareStatement": {
+      "true_positive": 1,
+      "true_negative": 0,
+      "false_positive": 3,
+      "false_negative": 0,
+      "unknown": 1,
+      "error": 0,
+      "pending": 0,
+      "correct": 1,
+      "incorrect": 3,
+      "real_issues_abstained": 1,
+      "nonvulnerable_issues_abstained": 0
+    },
+    "getQueryString_Servlet_executeQuery": {
+      "true_positive": 2,
+      "true_negative": 0,
+      "false_positive": 3,
+      "false_negative": 0,
+      "unknown": 0,
+      "error": 0,
+      "pending": 0,
+      "correct": 2,
+      "incorrect": 3,
+      "real_issues_abstained": 0,
+      "nonvulnerable_issues_abstained": 0
+    }
+  },
+  "pilot_context": {
+    "scope": "Previously used Juliet pilot, not a paired before/after on this holdout.",
+    "result": {
+      "true_positive": 7,
+      "true_negative": 8,
+      "false_positive": 0,
+      "false_negative": 0,
+      "unknown": 1,
+      "error": 0,
+      "pending": 0,
+      "correct": 15,
+      "incorrect": 0
+    },
+    "report": "runs/juliet-cwe89-sonarqube-20261124/summary.json"
+  },
+  "cases": [
+    {
+      "issue_id": "378ca037-f43b-4634-a211-0fcf9095521b",
+      "sonar_component": "thesis_juliet_cwe89_holdout_v1:Clean_Code/testcases/CWE89_SQL_Injection/s01/CWE89_SQL_Injection__console_readLine_prepareStatement_15.java",
+      "start_line": 102,
+      "end_line": 102,
+      "rule": "findsecbugs:SQL_INJECTION_JDBC",
+      "flows_present": false,
+      "reference_site_id": 25,
+      "reference_vulnerability": true,
+      "case": "CWE89_SQL_Injection__console_readLine_prepareStatement_15",
+      "flow_variant": "15",
+      "family": "console_readLine_prepareStatement",
+      "method": "bad",
+      "jdbc_api": "prepareStatement",
+      "outcome": "unknown",
+      "jdbc_signature_count": 1,
+      "java_files_in_evidence": 1,
+      "anchored_status": "no_verified_http_read",
+      "anchored_http_paths": 0,
+      "value_statuses": [
+        "unknown"
+      ],
+      "value_evidence_markers": [
+        "analysis_stopped_before_call",
+        "statement_not_modeled"
+      ],
+      "verified_proof_displayed": false,
+      "request_sha256": "f44277f17a47ae557e3e80305e78195ce064e4c74f3e5d7f1fda11b5fb6ab737",
+      "reference_method_label_visible": false,
+      "response": "llm/case-0001.json",
+      "elapsed_seconds": 183.79,
+      "verdict": "UNKNOWN",
+      "citations": [
+        {
+          "file_id": "F0",
+          "line": 102
+        },
+        {
+          "file_id": "F0",
+          "line": 97
+        }
+      ],
+      "warning_citation_added": null,
+      "references_absent_verified_value": false
+    },
+    {
+      "issue_id": "b04c4dbe-c038-49e6-8766-d4369af69258",
+      "sonar_component": "thesis_juliet_cwe89_holdout_v1:Clean_Code/testcases/CWE89_SQL_Injection/s01/CWE89_SQL_Injection__console_readLine_prepareStatement_15.java",
+      "start_line": 178,
+      "end_line": 178,
+      "rule": "findsecbugs:SQL_INJECTION_JDBC",
+      "flows_present": false,
+      "reference_site_id": 26,
+      "reference_vulnerability": false,
+      "case": "CWE89_SQL_Injection__console_readLine_prepareStatement_15",
+      "flow_variant": "15",
+      "family": "console_readLine_prepareStatement",
+      "method": "goodG2B1",
+      "jdbc_api": "prepareStatement",
+      "outcome": "false_positive",
+      "jdbc_signature_count": 1,
+      "java_files_in_evidence": 1,
+      "anchored_status": "no_verified_http_read",
+      "anchored_http_paths": 0,
+      "value_statuses": [
+        "unknown"
+      ],
+      "value_evidence_markers": [
+        "scope_before_call_not_modeled"
+      ],
+      "verified_proof_displayed": false,
+      "request_sha256": "732d4cb9d3a00bf801ee679367f1163ce23a1af925acbd649d010160d690178b",
+      "reference_method_label_visible": false,
+      "response": "llm/case-0002.json",
+      "elapsed_seconds": 106.724,
+      "verdict": "LIKELY_TP",
+      "citations": [
+        {
+          "file_id": "F0",
+          "line": 178
+        },
+        {
+          "file_id": "F0",
+          "line": 173
+        }
+      ],
+      "warning_citation_added": null,
+      "references_absent_verified_value": false
+    },
+    {
+      "issue_id": "6242a6c3-37da-47cf-b852-fdf88f2b365d",
+      "sonar_component": "thesis_juliet_cwe89_holdout_v1:Clean_Code/testcases/CWE89_SQL_Injection/s01/CWE89_SQL_Injection__console_readLine_prepareStatement_15.java",
+      "start_line": 254,
+      "end_line": 254,
+      "rule": "findsecbugs:SQL_INJECTION_JDBC",
+      "flows_present": false,
+      "reference_site_id": 27,
+      "reference_vulnerability": false,
+      "case": "CWE89_SQL_Injection__console_readLine_prepareStatement_15",
+      "flow_variant": "15",
+      "family": "console_readLine_prepareStatement",
+      "method": "goodG2B2",
+      "jdbc_api": "prepareStatement",
+      "outcome": "false_positive",
+      "jdbc_signature_count": 1,
+      "java_files_in_evidence": 1,
+      "anchored_status": "no_verified_http_read",
+      "anchored_http_paths": 0,
+      "value_statuses": [
+        "unknown"
+      ],
+      "value_evidence_markers": [
+        "scope_before_call_not_modeled"
+      ],
+      "verified_proof_displayed": false,
+      "request_sha256": "8e625f7a252910601b9c35a0ec682685f1c9342b5a9877d939a5b43063841a73",
+      "reference_method_label_visible": false,
+      "response": "llm/case-0003.json",
+      "elapsed_seconds": 107.312,
+      "verdict": "LIKELY_TP",
+      "citations": [
+        {
+          "file_id": "F0",
+          "line": 254
+        },
+        {
+          "file_id": "F0",
+          "line": 253
+        }
+      ],
+      "warning_citation_added": null,
+      "references_absent_verified_value": false
+    },
+    {
+      "issue_id": "cb0ef271-0908-48cc-a629-ebcd55dffdbe",
+      "sonar_component": "thesis_juliet_cwe89_holdout_v1:Clean_Code/testcases/CWE89_SQL_Injection/s01/CWE89_SQL_Injection__console_readLine_prepareStatement_51b.java",
+      "start_line": 39,
+      "end_line": 39,
+      "rule": "findsecbugs:SQL_INJECTION_JDBC",
+      "flows_present": false,
+      "reference_site_id": 30,
+      "reference_vulnerability": true,
+      "case": "CWE89_SQL_Injection__console_readLine_prepareStatement_51",
+      "flow_variant": "51",
+      "family": "console_readLine_prepareStatement",
+      "method": "badSink",
+      "jdbc_api": "prepareStatement",
+      "outcome": "true_positive",
+      "jdbc_signature_count": 1,
+      "java_files_in_evidence": 1,
+      "anchored_status": "no_verified_http_read",
+      "anchored_http_paths": 0,
+      "value_statuses": [
+        "unknown"
+      ],
+      "value_evidence_markers": [
+        "string_concatenation_with_unresolved_operand",
+        "value_at_reference_unresolved"
+      ],
+      "verified_proof_displayed": false,
+      "request_sha256": "6eeef0839547f724b5822a6b4e81ae1597de4d6152593b791aed000fa2e40a1d",
+      "reference_method_label_visible": true,
+      "response": "llm/case-0004.json",
+      "elapsed_seconds": 133.231,
+      "verdict": "LIKELY_TP",
+      "citations": [
+        {
+          "file_id": "F0",
+          "line": 39
+        },
+        {
+          "file_id": "F0",
+          "line": 29
+        }
+      ],
+      "warning_citation_added": null,
+      "references_absent_verified_value": false
+    },
+    {
+      "issue_id": "5fe3836a-002b-4c02-a370-25b179ce0166",
+      "sonar_component": "thesis_juliet_cwe89_holdout_v1:Clean_Code/testcases/CWE89_SQL_Injection/s01/CWE89_SQL_Injection__console_readLine_prepareStatement_51b.java",
+      "start_line": 96,
+      "end_line": 96,
+      "rule": "findsecbugs:SQL_INJECTION_JDBC",
+      "flows_present": false,
+      "reference_site_id": 31,
+      "reference_vulnerability": false,
+      "case": "CWE89_SQL_Injection__console_readLine_prepareStatement_51",
+      "flow_variant": "51",
+      "family": "console_readLine_prepareStatement",
+      "method": "goodG2BSink",
+      "jdbc_api": "prepareStatement",
+      "outcome": "false_positive",
+      "jdbc_signature_count": 1,
+      "java_files_in_evidence": 1,
+      "anchored_status": "no_verified_http_read",
+      "anchored_http_paths": 0,
+      "value_statuses": [
+        "unknown"
+      ],
+      "value_evidence_markers": [
+        "string_concatenation_with_unresolved_operand",
+        "value_at_reference_unresolved"
+      ],
+      "verified_proof_displayed": false,
+      "request_sha256": "ad881741e3def42e1fed41f8e9fc6957d44e51720b2454733706b29359d4adfb",
+      "reference_method_label_visible": true,
+      "response": "llm/case-0005.json",
+      "elapsed_seconds": 108.865,
+      "verdict": "LIKELY_TP",
+      "citations": [
+        {
+          "file_id": "F0",
+          "line": 96
+        },
+        {
+          "file_id": "F0",
+          "line": 87
+        }
+      ],
+      "warning_citation_added": null,
+      "references_absent_verified_value": false
+    },
+    {
+      "issue_id": "01f367b4-e33d-4943-9704-b1276f21670f",
+      "sonar_component": "thesis_juliet_cwe89_holdout_v1:Clean_Code/testcases/CWE89_SQL_Injection/s02/CWE89_SQL_Injection__File_prepareStatement_15.java",
+      "start_line": 121,
+      "end_line": 121,
+      "rule": "findsecbugs:SQL_INJECTION_JDBC",
+      "flows_present": false,
+      "reference_site_id": 17,
+      "reference_vulnerability": true,
+      "case": "CWE89_SQL_Injection__File_prepareStatement_15",
+      "flow_variant": "15",
+      "family": "File_prepareStatement",
+      "method": "bad",
+      "jdbc_api": "prepareStatement",
+      "outcome": "true_positive",
+      "jdbc_signature_count": 1,
+      "java_files_in_evidence": 1,
+      "anchored_status": "no_verified_http_read",
+      "anchored_http_paths": 0,
+      "value_statuses": [
+        "unknown"
+      ],
+      "value_evidence_markers": [
+        "analysis_stopped_before_call",
+        "statement_not_modeled"
+      ],
+      "verified_proof_displayed": false,
+      "request_sha256": "397c0cd2285582b92cf9752c44c2e4002464a9935eedc0c20cc3b9ab8e1118b4",
+      "reference_method_label_visible": false,
+      "response": "llm/case-0006.json",
+      "elapsed_seconds": 115.51,
+      "verdict": "LIKELY_TP",
+      "citations": [
+        {
+          "file_id": "F0",
+          "line": 121
+        },
+        {
+          "file_id": "F0",
+          "line": 116
+        }
+      ],
+      "warning_citation_added": null,
+      "references_absent_verified_value": false
+    },
+    {
+      "issue_id": "eca9e33f-c1b4-4f40-b228-ffca9bbf352c",
+      "sonar_component": "thesis_juliet_cwe89_holdout_v1:Clean_Code/testcases/CWE89_SQL_Injection/s02/CWE89_SQL_Injection__File_prepareStatement_15.java",
+      "start_line": 197,
+      "end_line": 197,
+      "rule": "findsecbugs:SQL_INJECTION_JDBC",
+      "flows_present": false,
+      "reference_site_id": 18,
+      "reference_vulnerability": false,
+      "case": "CWE89_SQL_Injection__File_prepareStatement_15",
+      "flow_variant": "15",
+      "family": "File_prepareStatement",
+      "method": "goodG2B1",
+      "jdbc_api": "prepareStatement",
+      "outcome": "unknown",
+      "jdbc_signature_count": 1,
+      "java_files_in_evidence": 1,
+      "anchored_status": "no_verified_http_read",
+      "anchored_http_paths": 0,
+      "value_statuses": [
+        "unknown"
+      ],
+      "value_evidence_markers": [
+        "scope_before_call_not_modeled"
+      ],
+      "verified_proof_displayed": false,
+      "request_sha256": "d6ab6d277ba05dcfc4dd47b92cb6b3dee6879166af6b603f21259ae62147cab5",
+      "reference_method_label_visible": false,
+      "response": "llm/case-0007.json",
+      "elapsed_seconds": 116.159,
+      "verdict": "UNKNOWN",
+      "citations": [
+        {
+          "file_id": "F0",
+          "line": 197
+        },
+        {
+          "file_id": "F0",
+          "line": 192
+        }
+      ],
+      "warning_citation_added": null,
+      "references_absent_verified_value": false
+    },
+    {
+      "issue_id": "41c2e331-09a4-4fea-a12d-fb2f4e973c5c",
+      "sonar_component": "thesis_juliet_cwe89_holdout_v1:Clean_Code/testcases/CWE89_SQL_Injection/s02/CWE89_SQL_Injection__File_prepareStatement_15.java",
+      "start_line": 273,
+      "end_line": 273,
+      "rule": "findsecbugs:SQL_INJECTION_JDBC",
+      "flows_present": false,
+      "reference_site_id": 19,
+      "reference_vulnerability": false,
+      "case": "CWE89_SQL_Injection__File_prepareStatement_15",
+      "flow_variant": "15",
+      "family": "File_prepareStatement",
+      "method": "goodG2B2",
+      "jdbc_api": "prepareStatement",
+      "outcome": "false_positive",
+      "jdbc_signature_count": 1,
+      "java_files_in_evidence": 1,
+      "anchored_status": "no_verified_http_read",
+      "anchored_http_paths": 0,
+      "value_statuses": [
+        "unknown"
+      ],
+      "value_evidence_markers": [
+        "scope_before_call_not_modeled"
+      ],
+      "verified_proof_displayed": false,
+      "request_sha256": "6347e645561bb6a15cf07f8a147a496aedcb86d49e19dcc05ed23e7ed56270e7",
+      "reference_method_label_visible": false,
+      "response": "llm/case-0008.json",
+      "elapsed_seconds": 108.842,
+      "verdict": "LIKELY_TP",
+      "citations": [
+        {
+          "file_id": "F0",
+          "line": 273
+        },
+        {
+          "file_id": "F0",
+          "line": 268
+        }
+      ],
+      "warning_citation_added": null,
+      "references_absent_verified_value": false
+    },
+    {
+      "issue_id": "c5ff1b8c-06b9-479d-a6d9-2db18c0e0907",
+      "sonar_component": "thesis_juliet_cwe89_holdout_v1:Clean_Code/testcases/CWE89_SQL_Injection/s02/CWE89_SQL_Injection__File_prepareStatement_51b.java",
+      "start_line": 39,
+      "end_line": 39,
+      "rule": "findsecbugs:SQL_INJECTION_JDBC",
+      "flows_present": false,
+      "reference_site_id": 22,
+      "reference_vulnerability": true,
+      "case": "CWE89_SQL_Injection__File_prepareStatement_51",
+      "flow_variant": "51",
+      "family": "File_prepareStatement",
+      "method": "badSink",
+      "jdbc_api": "prepareStatement",
+      "outcome": "true_positive",
+      "jdbc_signature_count": 1,
+      "java_files_in_evidence": 1,
+      "anchored_status": "no_verified_http_read",
+      "anchored_http_paths": 0,
+      "value_statuses": [
+        "unknown"
+      ],
+      "value_evidence_markers": [
+        "string_concatenation_with_unresolved_operand",
+        "value_at_reference_unresolved"
+      ],
+      "verified_proof_displayed": false,
+      "request_sha256": "6cdd483fa5de6c5f7b5bb9b0758fc55942d945b774f468321bc6e34f512a6927",
+      "reference_method_label_visible": true,
+      "response": "llm/case-0009.json",
+      "elapsed_seconds": 109.341,
+      "verdict": "LIKELY_TP",
+      "citations": [
+        {
+          "file_id": "F0",
+          "line": 39
+        },
+        {
+          "file_id": "F0",
+          "line": 29
+        }
+      ],
+      "warning_citation_added": null,
+      "references_absent_verified_value": false
+    },
+    {
+      "issue_id": "583d1694-00fe-4207-b183-fc6e41270c61",
+      "sonar_component": "thesis_juliet_cwe89_holdout_v1:Clean_Code/testcases/CWE89_SQL_Injection/s02/CWE89_SQL_Injection__File_prepareStatement_51b.java",
+      "start_line": 96,
+      "end_line": 96,
+      "rule": "findsecbugs:SQL_INJECTION_JDBC",
+      "flows_present": false,
+      "reference_site_id": 23,
+      "reference_vulnerability": false,
+      "case": "CWE89_SQL_Injection__File_prepareStatement_51",
+      "flow_variant": "51",
+      "family": "File_prepareStatement",
+      "method": "goodG2BSink",
+      "jdbc_api": "prepareStatement",
+      "outcome": "false_positive",
+      "jdbc_signature_count": 1,
+      "java_files_in_evidence": 1,
+      "anchored_status": "no_verified_http_read",
+      "anchored_http_paths": 0,
+      "value_statuses": [
+        "unknown"
+      ],
+      "value_evidence_markers": [
+        "string_concatenation_with_unresolved_operand",
+        "value_at_reference_unresolved"
+      ],
+      "verified_proof_displayed": false,
+      "request_sha256": "48743aa668acae47c5b84f10ec518eb9b512bfda6232891eb3779b0dd8564c0a",
+      "reference_method_label_visible": true,
+      "response": "llm/case-0010.json",
+      "elapsed_seconds": 104.231,
+      "verdict": "LIKELY_TP",
+      "citations": [
+        {
+          "file_id": "F0",
+          "line": 96
+        },
+        {
+          "file_id": "F0",
+          "line": 86
+        }
+      ],
+      "warning_citation_added": null,
+      "references_absent_verified_value": false
+    },
+    {
+      "issue_id": "21ead17d-6124-4cb2-a7e3-d14eb8861f09",
+      "sonar_component": "thesis_juliet_cwe89_holdout_v1:Clean_Code/testcases/CWE89_SQL_Injection/s03/CWE89_SQL_Injection__PropertiesFile_executeQuery_15.java",
+      "start_line": 93,
+      "end_line": 93,
+      "rule": "findsecbugs:SQL_INJECTION_JDBC",
+      "flows_present": false,
+      "reference_site_id": 9,
+      "reference_vulnerability": true,
+      "case": "CWE89_SQL_Injection__PropertiesFile_executeQuery_15",
+      "flow_variant": "15",
+      "family": "PropertiesFile_executeQuery",
+      "method": "bad",
+      "jdbc_api": "executeQuery",
+      "outcome": "true_positive",
+      "jdbc_signature_count": 1,
+      "java_files_in_evidence": 1,
+      "anchored_status": "no_verified_http_read",
+      "anchored_http_paths": 0,
+      "value_statuses": [
+        "unknown"
+      ],
+      "value_evidence_markers": [
+        "analysis_stopped_before_call",
+        "statement_not_modeled"
+      ],
+      "verified_proof_displayed": false,
+      "request_sha256": "de22018fcf38c8a11db66b3a1bc19a8f0dbfb42e0ef6524655f2944666234b5b",
+      "reference_method_label_visible": false,
+      "response": "llm/case-0011.json",
+      "elapsed_seconds": 100.764,
+      "verdict": "LIKELY_TP",
+      "citations": [
+        {
+          "file_id": "F0",
+          "line": 93
+        },
+        {
+          "file_id": "F0",
+          "line": 88
+        }
+      ],
+      "warning_citation_added": null,
+      "references_absent_verified_value": false
+    },
+    {
+      "issue_id": "3a8b18cd-647c-4576-b0b8-57f4ddf607f9",
+      "sonar_component": "thesis_juliet_cwe89_holdout_v1:Clean_Code/testcases/CWE89_SQL_Injection/s03/CWE89_SQL_Injection__PropertiesFile_executeQuery_15.java",
+      "start_line": 175,
+      "end_line": 175,
+      "rule": "findsecbugs:SQL_INJECTION_JDBC",
+      "flows_present": false,
+      "reference_site_id": 10,
+      "reference_vulnerability": false,
+      "case": "CWE89_SQL_Injection__PropertiesFile_executeQuery_15",
+      "flow_variant": "15",
+      "family": "PropertiesFile_executeQuery",
+      "method": "goodG2B1",
+      "jdbc_api": "executeQuery",
+      "outcome": "false_positive",
+      "jdbc_signature_count": 1,
+      "java_files_in_evidence": 1,
+      "anchored_status": "no_verified_http_read",
+      "anchored_http_paths": 0,
+      "value_statuses": [
+        "unknown"
+      ],
+      "value_evidence_markers": [
+        "scope_before_call_not_modeled"
+      ],
+      "verified_proof_displayed": false,
+      "request_sha256": "81e9abc2c971e216aa6ae2bd7200e2479dd1833b335f6f327ee11e57333bcf54",
+      "reference_method_label_visible": false,
+      "response": "llm/case-0012.json",
+      "elapsed_seconds": 94.306,
+      "verdict": "LIKELY_TP",
+      "citations": [
+        {
+          "file_id": "F0",
+          "line": 175
+        },
+        {
+          "file_id": "F0",
+          "line": 172
+        }
+      ],
+      "warning_citation_added": null,
+      "references_absent_verified_value": false
+    },
+    {
+      "issue_id": "8a920075-b83f-4495-b866-d6013b45b0b3",
+      "sonar_component": "thesis_juliet_cwe89_holdout_v1:Clean_Code/testcases/CWE89_SQL_Injection/s03/CWE89_SQL_Injection__PropertiesFile_executeQuery_15.java",
+      "start_line": 257,
+      "end_line": 257,
+      "rule": "findsecbugs:SQL_INJECTION_JDBC",
+      "flows_present": false,
+      "reference_site_id": 11,
+      "reference_vulnerability": false,
+      "case": "CWE89_SQL_Injection__PropertiesFile_executeQuery_15",
+      "flow_variant": "15",
+      "family": "PropertiesFile_executeQuery",
+      "method": "goodG2B2",
+      "jdbc_api": "executeQuery",
+      "outcome": "unknown",
+      "jdbc_signature_count": 1,
+      "java_files_in_evidence": 1,
+      "anchored_status": "no_verified_http_read",
+      "anchored_http_paths": 0,
+      "value_statuses": [
+        "unknown"
+      ],
+      "value_evidence_markers": [
+        "scope_before_call_not_modeled"
+      ],
+      "verified_proof_displayed": false,
+      "request_sha256": "c6db9135a429dd592eaac43bf471987a3cea8b28be337cae87808d8e3fe15d31",
+      "reference_method_label_visible": false,
+      "response": "llm/case-0013.json",
+      "elapsed_seconds": 95.283,
+      "verdict": "UNKNOWN",
+      "citations": [
+        {
+          "file_id": "F0",
+          "line": 257
+        },
+        {
+          "file_id": "F0",
+          "line": 252
+        }
+      ],
+      "warning_citation_added": null,
+      "references_absent_verified_value": false
+    },
+    {
+      "issue_id": "a194dd88-d2fe-418a-bb15-f6cf613ec7f4",
+      "sonar_component": "thesis_juliet_cwe89_holdout_v1:Clean_Code/testcases/CWE89_SQL_Injection/s03/CWE89_SQL_Injection__PropertiesFile_executeQuery_51b.java",
+      "start_line": 42,
+      "end_line": 42,
+      "rule": "findsecbugs:SQL_INJECTION_JDBC",
+      "flows_present": false,
+      "reference_site_id": 14,
+      "reference_vulnerability": true,
+      "case": "CWE89_SQL_Injection__PropertiesFile_executeQuery_51",
+      "flow_variant": "51",
+      "family": "PropertiesFile_executeQuery",
+      "method": "badSink",
+      "jdbc_api": "executeQuery",
+      "outcome": "true_positive",
+      "jdbc_signature_count": 1,
+      "java_files_in_evidence": 1,
+      "anchored_status": "no_verified_http_read",
+      "anchored_http_paths": 0,
+      "value_statuses": [
+        "unknown"
+      ],
+      "value_evidence_markers": [
+        "string_concatenation_with_unresolved_operand",
+        "value_at_reference_unresolved"
+      ],
+      "verified_proof_displayed": false,
+      "request_sha256": "32e026c6514875cefd1198c30064f53d716d7a202ee37bff39eb578475d2795f",
+      "reference_method_label_visible": true,
+      "response": "llm/case-0014.json",
+      "elapsed_seconds": 115.381,
+      "verdict": "LIKELY_TP",
+      "citations": [
+        {
+          "file_id": "F0",
+          "line": 42
+        },
+        {
+          "file_id": "F0",
+          "line": 37
+        }
+      ],
+      "warning_citation_added": null,
+      "references_absent_verified_value": false
+    },
+    {
+      "issue_id": "feb7fe7b-4f4f-4942-b05a-186d84ca8c14",
+      "sonar_component": "thesis_juliet_cwe89_holdout_v1:Clean_Code/testcases/CWE89_SQL_Injection/s03/CWE89_SQL_Injection__PropertiesFile_executeQuery_51b.java",
+      "start_line": 105,
+      "end_line": 105,
+      "rule": "findsecbugs:SQL_INJECTION_JDBC",
+      "flows_present": false,
+      "reference_site_id": 15,
+      "reference_vulnerability": false,
+      "case": "CWE89_SQL_Injection__PropertiesFile_executeQuery_51",
+      "flow_variant": "51",
+      "family": "PropertiesFile_executeQuery",
+      "method": "goodG2BSink",
+      "jdbc_api": "executeQuery",
+      "outcome": "false_positive",
+      "jdbc_signature_count": 1,
+      "java_files_in_evidence": 1,
+      "anchored_status": "no_verified_http_read",
+      "anchored_http_paths": 0,
+      "value_statuses": [
+        "unknown"
+      ],
+      "value_evidence_markers": [
+        "string_concatenation_with_unresolved_operand",
+        "value_at_reference_unresolved"
+      ],
+      "verified_proof_displayed": false,
+      "request_sha256": "5f2c4b47f695e0cb11da80cddc0f035f978a394db0f2b03793a168365323f82c",
+      "reference_method_label_visible": true,
+      "response": "llm/case-0015.json",
+      "elapsed_seconds": 100.998,
+      "verdict": "LIKELY_TP",
+      "citations": [
+        {
+          "file_id": "F0",
+          "line": 105
+        },
+        {
+          "file_id": "F0",
+          "line": 93
+        }
+      ],
+      "warning_citation_added": null,
+      "references_absent_verified_value": false
+    },
+    {
+      "issue_id": "70b72c6c-9b7c-43c1-97e2-0bc6ad003552",
+      "sonar_component": "thesis_juliet_cwe89_holdout_v1:Clean_Code/testcases/CWE89_SQL_Injection/s03/CWE89_SQL_Injection__getQueryString_Servlet_executeQuery_15.java",
+      "start_line": 71,
+      "end_line": 71,
+      "rule": "findsecbugs:SQL_INJECTION_JDBC",
+      "flows_present": false,
+      "reference_site_id": 1,
+      "reference_vulnerability": true,
+      "case": "CWE89_SQL_Injection__getQueryString_Servlet_executeQuery_15",
+      "flow_variant": "15",
+      "family": "getQueryString_Servlet_executeQuery",
+      "method": "bad",
+      "jdbc_api": "executeQuery",
+      "outcome": "true_positive",
+      "jdbc_signature_count": 1,
+      "java_files_in_evidence": 1,
+      "anchored_status": "candidate_paths",
+      "anchored_http_paths": 1,
+      "value_statuses": [
+        "unknown"
+      ],
+      "value_evidence_markers": [
+        "analysis_stopped_before_call",
+        "statement_not_modeled"
+      ],
+      "verified_proof_displayed": false,
+      "request_sha256": "7b11e09106f311ab435117a0a004ef6f5994b24ead4f84fb9203bbe0daf64cc2",
+      "reference_method_label_visible": true,
+      "response": "llm/case-0016.json",
+      "elapsed_seconds": 145.201,
+      "verdict": "LIKELY_TP",
+      "citations": [
+        {
+          "file_id": "F0",
+          "line": 71
+        },
+        {
+          "file_id": "F0",
+          "line": 41
+        }
+      ],
+      "warning_citation_added": null,
+      "references_absent_verified_value": false
+    },
+    {
+      "issue_id": "da88f899-be06-46ed-965c-3e8c31ffb411",
+      "sonar_component": "thesis_juliet_cwe89_holdout_v1:Clean_Code/testcases/CWE89_SQL_Injection/s03/CWE89_SQL_Injection__getQueryString_Servlet_executeQuery_15.java",
+      "start_line": 153,
+      "end_line": 153,
+      "rule": "findsecbugs:SQL_INJECTION_JDBC",
+      "flows_present": false,
+      "reference_site_id": 2,
+      "reference_vulnerability": false,
+      "case": "CWE89_SQL_Injection__getQueryString_Servlet_executeQuery_15",
+      "flow_variant": "15",
+      "family": "getQueryString_Servlet_executeQuery",
+      "method": "goodG2B1",
+      "jdbc_api": "executeQuery",
+      "outcome": "false_positive",
+      "jdbc_signature_count": 1,
+      "java_files_in_evidence": 1,
+      "anchored_status": "no_verified_http_read",
+      "anchored_http_paths": 0,
+      "value_statuses": [
+        "unknown"
+      ],
+      "value_evidence_markers": [
+        "scope_before_call_not_modeled"
+      ],
+      "verified_proof_displayed": false,
+      "request_sha256": "11faa253bc4669aaf77d06c667f692e087cc76e7512bf2ff6ccb5505c414568c",
+      "reference_method_label_visible": false,
+      "response": "llm/case-0017.json",
+      "elapsed_seconds": 110.041,
+      "verdict": "LIKELY_TP",
+      "citations": [
+        {
+          "file_id": "F0",
+          "line": 153
+        },
+        {
+          "file_id": "F0",
+          "line": 148
+        }
+      ],
+      "warning_citation_added": null,
+      "references_absent_verified_value": false
+    },
+    {
+      "issue_id": "c1e33d65-db6a-4cfd-a95f-7813efb1b397",
+      "sonar_component": "thesis_juliet_cwe89_holdout_v1:Clean_Code/testcases/CWE89_SQL_Injection/s03/CWE89_SQL_Injection__getQueryString_Servlet_executeQuery_15.java",
+      "start_line": 235,
+      "end_line": 235,
+      "rule": "findsecbugs:SQL_INJECTION_JDBC",
+      "flows_present": false,
+      "reference_site_id": 3,
+      "reference_vulnerability": false,
+      "case": "CWE89_SQL_Injection__getQueryString_Servlet_executeQuery_15",
+      "flow_variant": "15",
+      "family": "getQueryString_Servlet_executeQuery",
+      "method": "goodG2B2",
+      "jdbc_api": "executeQuery",
+      "outcome": "false_positive",
+      "jdbc_signature_count": 1,
+      "java_files_in_evidence": 1,
+      "anchored_status": "no_verified_http_read",
+      "anchored_http_paths": 0,
+      "value_statuses": [
+        "unknown"
+      ],
+      "value_evidence_markers": [
+        "scope_before_call_not_modeled"
+      ],
+      "verified_proof_displayed": false,
+      "request_sha256": "48777ca3a4e22f4d26985ef765c77a1c107f4e6c20564a1f331321d588f3ffaa",
+      "reference_method_label_visible": false,
+      "response": "llm/case-0018.json",
+      "elapsed_seconds": 99.741,
+      "verdict": "LIKELY_TP",
+      "citations": [
+        {
+          "file_id": "F0",
+          "line": 235
+        },
+        {
+          "file_id": "F0",
+          "line": 230
+        }
+      ],
+      "warning_citation_added": null,
+      "references_absent_verified_value": false
+    },
+    {
+      "issue_id": "fd8e298a-9b39-4ddf-a7df-84a2099dc040",
+      "sonar_component": "thesis_juliet_cwe89_holdout_v1:Clean_Code/testcases/CWE89_SQL_Injection/s03/CWE89_SQL_Injection__getQueryString_Servlet_executeQuery_51b.java",
+      "start_line": 42,
+      "end_line": 42,
+      "rule": "findsecbugs:SQL_INJECTION_JDBC",
+      "flows_present": false,
+      "reference_site_id": 6,
+      "reference_vulnerability": true,
+      "case": "CWE89_SQL_Injection__getQueryString_Servlet_executeQuery_51",
+      "flow_variant": "51",
+      "family": "getQueryString_Servlet_executeQuery",
+      "method": "badSink",
+      "jdbc_api": "executeQuery",
+      "outcome": "true_positive",
+      "jdbc_signature_count": 1,
+      "java_files_in_evidence": 1,
+      "anchored_status": "no_verified_http_read",
+      "anchored_http_paths": 0,
+      "value_statuses": [
+        "unknown"
+      ],
+      "value_evidence_markers": [
+        "string_concatenation_with_unresolved_operand",
+        "value_at_reference_unresolved"
+      ],
+      "verified_proof_displayed": false,
+      "request_sha256": "b00a310468f7a020b59519bab7e85ed6512c3115788b87d155fc5842143a9077",
+      "reference_method_label_visible": true,
+      "response": "llm/case-0019.json",
+      "elapsed_seconds": 113.655,
+      "verdict": "LIKELY_TP",
+      "citations": [
+        {
+          "file_id": "F0",
+          "line": 42
+        },
+        {
+          "file_id": "F0",
+          "line": 37
+        }
+      ],
+      "warning_citation_added": null,
+      "references_absent_verified_value": false
+    },
+    {
+      "issue_id": "c161bf7c-0b64-4648-bb57-f169bad62223",
+      "sonar_component": "thesis_juliet_cwe89_holdout_v1:Clean_Code/testcases/CWE89_SQL_Injection/s03/CWE89_SQL_Injection__getQueryString_Servlet_executeQuery_51b.java",
+      "start_line": 105,
+      "end_line": 105,
+      "rule": "findsecbugs:SQL_INJECTION_JDBC",
+      "flows_present": false,
+      "reference_site_id": 7,
+      "reference_vulnerability": false,
+      "case": "CWE89_SQL_Injection__getQueryString_Servlet_executeQuery_51",
+      "flow_variant": "51",
+      "family": "getQueryString_Servlet_executeQuery",
+      "method": "goodG2BSink",
+      "jdbc_api": "executeQuery",
+      "outcome": "false_positive",
+      "jdbc_signature_count": 1,
+      "java_files_in_evidence": 1,
+      "anchored_status": "no_verified_http_read",
+      "anchored_http_paths": 0,
+      "value_statuses": [
+        "unknown"
+      ],
+      "value_evidence_markers": [
+        "string_concatenation_with_unresolved_operand",
+        "value_at_reference_unresolved"
+      ],
+      "verified_proof_displayed": false,
+      "request_sha256": "eece79a1c811461fb21974cbccd2643208def9853ab60f4a51895f0fd5c041af",
+      "reference_method_label_visible": true,
+      "response": "llm/case-0020.json",
+      "elapsed_seconds": 104.759,
+      "verdict": "LIKELY_TP",
+      "citations": [
+        {
+          "file_id": "F0",
+          "line": 105
+        },
+        {
+          "file_id": "F0",
+          "line": 92
+        }
+      ],
+      "warning_citation_added": null,
+      "references_absent_verified_value": false
+    }
+  ],
+  "limitations": [
+    "Eight held-out code cases; results are not representative of all of Juliet.",
+    "Original Juliet method names can expose labels.",
+    "The production bundle only loads one Juliet Java file per warning when the scan lacks a supported helper snapshot."
+  ]
+}

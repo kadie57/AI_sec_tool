@@ -1,8 +1,0 @@
-{
-  "flow_count": 1,
-  "paths": "┌─────────────────┬────────────────────────────────────────────────────────────────────┬────┬──────┬────┐\n│nodeType         │tracked                                                             │line│method│file│\n├─────────────────┼────────────────────────────────────────────────────────────────────┼────┼──────┼────┤\n│MethodParameterIn│main(String[] args)                                                 │10  │main  │    │\n│Call             │String value = args[0]                                              │14  │main  │    │\n│Identifier       │String value = args[0]                                              │14  │main  │    │\n│Identifier       │matches(\"[A-Za-z0-9_]{1,32}\")                                       │15  │main  │    │\n│Call             │\"SELECT id FROM users WHERE username = '\" + value + \"'\"             │18  │main  │    │\n│Identifier       │String sql = \"SELECT id FROM users WHERE username = '\" + value + \"'\"│18  │main  │    │\n│Identifier       │executeQuery(sql)                                                   │23  │main  │    │\n└─────────────────┴────────────────────────────────────────────────────────────────────┴────┴──────┴────┘",
-  "scope": "single_file",
-  "sink_call_count": 1,
-  "sink_argument_count": 1,
-  "source_policy": "all_non_receiver_parameters_are_candidates"
-}

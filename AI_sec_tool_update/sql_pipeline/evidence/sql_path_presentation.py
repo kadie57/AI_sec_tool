@@ -10,6 +10,8 @@ VALUE_EVIDENCE_ROLES = {
     "if_false": "selected else branch",
     "conditional_value_selected": "selected conditional expression",
     "local_assignment": "value assignment",
+    "caller_argument": "argument at the resolved caller",
+    "callee_parameter": "matching callee parameter",
     "helper_return": "helper return",
     "helper_call": "helper call",
     "servlet_request_read": "request data read",
@@ -19,8 +21,12 @@ BRANCH_ROLES = {
     "switch_selector", "switch_case_selected", "switch_fallthrough",
     "if_true", "if_false", "conditional_value_selected",
 }
-VALUE_CHAIN_ROLES = {"local_assignment", "helper_return", "helper_call", "servlet_request_read", "string_concatenation"}
-VALUE_PROOF_ROLES = (BRANCH_ROLES - {"switch_selector"}) | {"local_assignment", "helper_return", "servlet_request_read"}
+CALLER_ROLES = {"caller_argument", "callee_parameter"}
+VALUE_CHAIN_ROLES = CALLER_ROLES | {"local_assignment", "helper_return", "helper_call", "servlet_request_read",
+                                  "string_concatenation"}
+VALUE_PROOF_ROLES = (BRANCH_ROLES - {"switch_selector"}) | CALLER_ROLES | {
+    "local_assignment", "helper_return", "servlet_request_read",
+}
 INTEGER_EVIDENCE_ROLES = {"integer_arithmetic", "integer_comparison"}
 CONSTANT_CONTEXT_ROLES = {"constant_expression", "constant_string_index"} | INTEGER_EVIDENCE_ROLES
 STRUCTURED_VALUE_ROLES = BRANCH_ROLES | VALUE_CHAIN_ROLES | CONSTANT_CONTEXT_ROLES | {"local_definition"}
@@ -92,6 +98,9 @@ def verified_display(argument, visible, files, *, structured=False):
                      f"contributes to the SQL text argument at {location} on the evaluated execution.")
     else:
         return None
+    if "caller_argument" in refs and "callee_parameter" in refs:
+        statement += (f" This finding is scoped to the modeled call from {refs['caller_argument']} "
+                      f"through the parameter at {refs['callee_parameter']}.")
 
     if structured:
         branch = [fact for fact in rendered_facts if fact["role"] in BRANCH_ROLES]
@@ -170,6 +179,8 @@ def render_path_snippets(evidence, *, verified_sink_note=False, structured_sink_
         }
 
     paths = []
+    has_resolved_caller = any(sink.get("resolved_caller")
+                              for sink in selected.get("endpoint_specifications", {}).get("sinks", []))
     for path in anchored_paths:
         source = anchored_endpoint(path["source"])
         source["verified_api"] = path["source"]["api_owner"] + "." + path["source"]["api_signature"]
@@ -235,7 +246,7 @@ def render_path_snippets(evidence, *, verified_sink_note=False, structured_sink_
                 summary["anchored_dataflow"]["modeled_sql_value"] = value_argument["status"]
     display = {
         "alert": alert,
-        "source_line_notation": ("F<id>:<original line number> <code>" if anchored_paths
+        "source_line_notation": ("F<id>:<original line number> <code>" if anchored_paths or has_resolved_caller
                                  else "F0:<original line number> <code>"),
         "selected_evidence": {**presented, **summary},
         "files": [{key: value for key, value in main_file.items() if key != "lines"},

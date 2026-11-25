@@ -1,0 +1,77 @@
+{
+  "status": "candidate_paths",
+  "matched_sources": 1,
+  "source_count": 1,
+  "candidate_paths_found": 1,
+  "search_limit_hit": false,
+  "paths": [
+    {
+      "source": {
+        "file_id": "F0",
+        "line": 41,
+        "method": "bad",
+        "method_start": 31,
+        "method_end": 122,
+        "node_type": "Call",
+        "api_owner": "javax.servlet.http.HttpServletRequest",
+        "api_signature": "getQueryString()"
+      },
+      "steps": [
+        {
+          "file_id": "F0",
+          "line": 42,
+          "method": "bad",
+          "method_start": 31,
+          "method_end": 122,
+          "node_type": "Identifier"
+        },
+        {
+          "file_id": "F0",
+          "line": 44,
+          "method": "bad",
+          "method_start": 31,
+          "method_end": 122,
+          "node_type": "Identifier"
+        },
+        {
+          "file_id": "F0",
+          "line": 45,
+          "method": "bad",
+          "method_start": 31,
+          "method_end": 122,
+          "node_type": "Identifier"
+        },
+        {
+          "file_id": "F0",
+          "line": 47,
+          "method": "bad",
+          "method_start": 31,
+          "method_end": 122,
+          "node_type": "Identifier"
+        }
+      ],
+      "sink": {
+        "file_id": "F0",
+        "line": 71,
+        "name": "executeQuery",
+        "method": "bad",
+        "method_start": 31,
+        "method_end": 122
+      },
+      "omitted_steps": 0,
+      "unlocated_nodes": 0,
+      "dispatch": []
+    }
+  ],
+  "paths_not_shown": 0,
+  "version": "sql-anchored-paths-v1",
+  "scope": "verified_java_bundle",
+  "inputs": {
+    "F0": {
+      "path": "Clean_Code/testcases/CWE89_SQL_Injection/s03/CWE89_SQL_Injection__getQueryString_Servlet_executeQuery_15.java",
+      "source_sha256": "cae4421ec5981ad3e86a69f980aaf54e9ecbd55fb03a364e5964aef3f9de58ce",
+      "staged_sha256": "3698cdc75527311659bdaedf63fa67ff01395f42bc1079cfcce47ed34078863d"
+    }
+  },
+  "interpretation": "Candidate dataflow. Runtime branch and dispatch feasibility require separate evidence."
+}

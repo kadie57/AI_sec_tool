@@ -12,10 +12,13 @@ SERVLET_JAR = Path.home() / ".m2/repository/javax/javaee-api/8.0.1/javaee-api-8.
 
 @unittest.skipUnless(shutil.which("java") and shutil.which("javac"), "A full JDK is required")
 class SqlJdbcValueEvidenceTest(unittest.TestCase):
-    def probe(self, source, dependencies=()):
+    def probe(self, source, dependencies=(), caller=None):
         alert, = (n for n, line in enumerate(source.splitlines(), 1) if "sink.execute(" in line)
         item = SimpleNamespace(start=alert, end=alert)
         bundle = {"files": {"F0": {"kind": "JAVA", "path": "Example.java", "masked_source": source}}}
+        if caller is not None:
+            bundle["files"]["F1"] = {"kind": "JAVA", "path": "Caller.java", "masked_source": caller}
+            bundle["snapshot_callers"] = ["F1"]
         deps = [{"path": str(jar)} for jar in dependencies]
         with tempfile.TemporaryDirectory() as directory:
             result = infer_specifications(item, bundle, {}, deps, Path(directory) / "java.log", value_evidence=True)
@@ -23,6 +26,74 @@ class SqlJdbcValueEvidenceTest(unittest.TestCase):
         argument, = result["jdbc_value_evidence"]["arguments"]
         self.assertEqual(argument["call"]["line"], alert)
         return argument
+
+    def test_incoming_call_uses_symbol_and_propagates_the_argument(self):
+        result = self.probe("""import java.sql.Statement;
+class Example {
+  void run(Statement sink, String value) throws Exception {
+    sink.execute("SELECT " + value);
+  }
+  void run(Statement sink, int value) {}
+}
+""", caller="""import java.sql.Statement;
+class Caller {
+  void run(Statement sink) throws Exception {
+    String value = "constant";
+    (new Example()).run(sink, 2);
+    (new Example()).run(sink, value);
+  }
+}
+""")
+        self.assertEqual(result["status"], "constant_sql_text")
+        self.assertIn({"file_id": "F1", "line": 6, "role": "caller_argument"}, result["evidence"])
+        self.assertIn({"file_id": "F0", "line": 3, "role": "callee_parameter"}, result["evidence"])
+
+    def test_conflicting_incoming_call_sites_keep_the_value_unknown(self):
+        result = self.probe("""import java.sql.Statement;
+class Example {
+  static void run(Statement sink, String value) throws Exception {
+    sink.execute("SELECT " + value);
+  }
+}
+""", caller="""import java.sql.Statement;
+class Caller {
+  void run(Statement sink, String outside) throws Exception {
+    Example.run(sink, "constant");
+    Example.run(sink, outside);
+  }
+}
+""")
+        self.assertEqual(result["status"], "unknown")
+
+    @unittest.skipUnless(SERVLET_JAR.is_file(), "Servlet library is unavailable")
+    def test_servlet_read_in_the_caller_keeps_its_file_coordinate(self):
+        source = """import java.sql.Statement;
+class Example {
+  static void run(Statement sink, String value) throws Exception {
+    sink.execute("SELECT " + value);
+  }
+}
+"""
+        caller = """import java.sql.Statement;
+import javax.servlet.ServletRequest;
+class Caller {
+  void run(Statement sink, ServletRequest input) throws Exception {
+    Example.run(sink, input.getParameter("field"));
+  }
+}
+"""
+        item = SimpleNamespace(start=4, end=4)
+        bundle = {"files": {
+            "F0": {"kind": "JAVA", "path": "Example.java", "masked_source": source},
+            "F1": {"kind": "JAVA", "path": "Caller.java", "masked_source": caller},
+        }, "snapshot_callers": ["F1"]}
+        with tempfile.TemporaryDirectory() as directory:
+            result = infer_specifications(item, bundle, {}, [{"path": str(SERVLET_JAR)}],
+                                          Path(directory) / "java.log", value_evidence=True)
+        argument, = result["jdbc_value_evidence"]["arguments"]
+        self.assertEqual(argument["status"], "external_input_contributes")
+        read, = result["sources"]
+        self.assertEqual((read["file_id"], read["line"], read["role"]), ("F1", 5, "servlet_request_read"))
 
     def test_fallthrough_uses_the_last_assignment_on_selected_path(self):
         result = self.probe("""import java.sql.Statement;

@@ -63,6 +63,15 @@ def parse_probe(stdout, bundle, selected, value_evidence=False):
                 "role": "bound_parameter_value", "argument_index": 2, "argument": ref("F0", argument),
                 "association": "same_unreassigned_local_statement",
             })
+        elif record == "A" and value_evidence:
+            position, column, file_id, call, call_column, owner, signature, index, argument, param = fields
+            sink = query_by_position[position, column]
+            site = sink.setdefault("resolved_caller", {
+                **ref(file_id, call), "column": int(call_column), "owner": owner, "signature": signature,
+                "scope": "single_resolved_direct_call_in_analyzed_sources", "arguments": [],
+            })
+            site["arguments"].append({"index": int(index), "argument": ref(file_id, argument),
+                                      "parameter": ref("F0", param)})
         elif record == "V" and value_evidence:
             position, column, status, reason = fields
             sink = query_by_position[position, column]
@@ -73,6 +82,12 @@ def parse_probe(stdout, bundle, selected, value_evidence=False):
         elif record == "E" and value_evidence:
             position, column, file_id, line, role = fields
             values_by_position[position, column]["evidence"].append({**ref(file_id, line), "role": role})
+        elif record == "I" and value_evidence:
+            file_id, position, column, owner, signature = fields
+            source = {**ref(file_id, position), "column": int(column), "owner": owner, "signature": signature,
+                      "role": "servlet_request_read", "flow_to_sql": "not_established"}
+            if source not in result["sources"]:
+                result["sources"].append(source)
         elif record in {"S", "H"}:
             position, column, owner, signature, near_sink, *wrapper = fields
             location = ref("F0", position)
@@ -94,7 +109,8 @@ def parse_probe(stdout, bundle, selected, value_evidence=False):
     count = len(result["sinks"])
     result["sink_resolution"] = {0: "unresolved", 1: "one_verified_signature"}.get(count, "multiple_verified_signatures")
     sources = result["sources"]
-    sources.sort(key=lambda source: (source["line"] not in selected_lines, source["line"], source["column"]))
+    sources.sort(key=lambda source: (source["file_id"] != "F0" or source["line"] not in selected_lines,
+                                     source["file_id"], source["line"], source["column"]))
     result["source_facts_omitted"] = max(0, len(sources) - MAX_SOURCES)
     result["sources"] = sources[:MAX_SOURCES]
     if value_evidence:
@@ -119,7 +135,10 @@ def infer_specifications(item, bundle, selected, dependencies, log, *, value_evi
         if value_evidence:
             run_command(["javac", "--release", "17", "-proc:none", "-d", str(staging), str(PROBE), str(VALUE_PROBE)],
                         log.with_name("java_value_probe_build.log"), 45, cwd=staging)
-            command = ["java", "-cp", str(staging), "SqlValueEvidence"]
+            command = ["java"]
+            if caller_ids := bundle.get("snapshot_callers"):
+                command.append("-Dsql.evidence.snapshotCallers=" + ",".join(caller_ids))
+            command.extend(["-cp", str(staging), "SqlValueEvidence"])
         command.extend([str(item.start), str(item.end),
                         os.pathsep.join(entry["path"] for entry in dependencies) or str(empty), str(empty)])
         for file_id, file in bundle["files"].items():

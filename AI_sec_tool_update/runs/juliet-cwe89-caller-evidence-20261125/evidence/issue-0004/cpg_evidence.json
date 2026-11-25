@@ -1,0 +1,8 @@
+{
+  "flow_count": 1,
+  "paths": "┌─────────────────┬─────────────────────────────────────────────────────────────────────────┬────┬───────┬────┐\n│nodeType         │tracked                                                                  │line│method │file│\n├─────────────────┼─────────────────────────────────────────────────────────────────────────┼────┼───────┼────┤\n│MethodParameterIn│badSink(this, String data)                                               │29  │badSink│    │\n│Call             │\"insert into users (status) values ('updated') where name='\" + data + \"'\"│39  │badSink│    │\n└─────────────────┴─────────────────────────────────────────────────────────────────────────┴────┴───────┴────┘",
+  "scope": "single_file",
+  "sink_call_count": 1,
+  "sink_argument_count": 1,
+  "source_policy": "all_non_receiver_parameters_are_candidates"
+}

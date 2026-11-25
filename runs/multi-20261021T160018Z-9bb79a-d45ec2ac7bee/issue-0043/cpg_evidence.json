@@ -1,6 +1,0 @@
-{
-  "flow_count": 1,
-  "paths": "┌─────────────────┬────────────────────────────────────────────────────┬────┬──────┬──────────────┐\n│nodeType         │tracked                                             │line│method│file          │\n├─────────────────┼────────────────────────────────────────────────────┼────┼──────┼──────────────┤\n│MethodParameterIn│search(String value)                                │4   │search│Sample303.java│\n│Identifier       │trim()                                              │5   │search│Sample303.java│\n│Call             │trim()                                              │5   │search│Sample303.java│\n│Identifier       │value = value.trim()                                │5   │search│Sample303.java│\n│Call             │\"/usr/bin/find /tmp -name \" + value                 │6   │search│Sample303.java│\n│Identifier       │String command = \"/usr/bin/find /tmp -name \" + value│6   │search│Sample303.java│\n│Identifier       │getRuntime().exec(command)                          │7   │search│Sample303.java│\n└─────────────────┴────────────────────────────────────────────────────┴────┴──────┴──────────────┘",
-  "scope": "single_file",
-  "source_policy": "parameters_are_candidates_not_proven_external"
-}

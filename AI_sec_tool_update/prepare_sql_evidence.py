@@ -18,6 +18,8 @@ from sql_pipeline.evidence.sql_endpoint_specifications import VERSION as SPECIFI
 from sql_pipeline.evidence.sql_endpoint_specifications import VALUE_VERSION
 from sql_pipeline.evidence.sql_endpoint_specifications import infer_specifications, java_dependencies
 from sql_pipeline.evidence.sql_evidence_selection import select_evidence
+from sql_pipeline.evidence.sql_snapshot_callers import VERSION as SNAPSHOT_CALLERS_VERSION
+from sql_pipeline.evidence.sql_snapshot_callers import add_snapshot_callers
 from sql_pipeline.evidence.sql_source_paths import VERSION as SOURCE_PATHS_VERSION
 from sql_pipeline.evidence.sql_source_paths import infer_source_paths
 from sql_pipeline.run_io import redact, run_command, save_json
@@ -169,7 +171,7 @@ def prepare_source_context(inputs, commit, benchmark_root):
 
 
 def export_evidence(inputs, provenance, output, bundles, recorded, specification_dependencies=None, *,
-                    jdbc_values=False, joern_source_paths=False):
+                    jdbc_values=False, joern_source_paths=False, snapshot_callers=False):
     if joern_source_paths and recorded is not None:
         image_id = recorded[0]
         if not isinstance(image_id, str) or not re.fullmatch(r"sha256:[0-9a-f]{64}", image_id):
@@ -190,6 +192,8 @@ def export_evidence(inputs, provenance, output, bundles, recorded, specification
         manifest["endpoint_specifications"] = {"version": SPECIFICATION_VERSION, "java_classpath": specification_dependencies}
     if jdbc_values:
         manifest["jdbc_value_evidence"] = {"version": VALUE_VERSION}
+    if snapshot_callers:
+        manifest["snapshot_callers"] = {"version": SNAPSHOT_CALLERS_VERSION}
     if joern_source_paths:
         manifest["joern_source_paths"] = {"version": SOURCE_PATHS_VERSION, "mode": "live"}
         manifest["limitations"].append("Đường liên tệp là ứng viên. Cần bằng chứng riêng cho nhánh và đích gọi lúc chạy.")
@@ -273,6 +277,8 @@ def main():
                         help="Chạy Joern trên gói Java để nối các API đọc HTTP đã xác minh tới JDBC.")
     parser.add_argument("--infer-specifications", action="store_true", help="Xác minh source/sink của từng cảnh báo bằng JDK.")
     parser.add_argument("--infer-jdbc-values", action="store_true", help="Bổ sung bằng chứng nhánh và giá trị tới đối số SQL.")
+    parser.add_argument("--snapshot-callers", action="store_true",
+                        help="Đối chiếu đối số ở tệp gọi trong snapshot Java của lượt thu thập.")
     parser.add_argument("--java-classpath", type=Path, action="append", default=[], metavar="JAR",
                         help="JAR cục bộ dùng phân giải chữ ký Java, có thể lặp lại.")
     default_benchmark = Path.home() / "AI_sec_benchmarks" / "BenchmarkJava"
@@ -286,12 +292,20 @@ def main():
         parser.error("--java-classpath cần --infer-specifications")
     if args.infer_jdbc_values and not args.infer_specifications:
         parser.error("--infer-jdbc-values cần --infer-specifications")
+    if args.snapshot_callers and not args.infer_jdbc_values:
+        parser.error("--snapshot-callers cần --infer-jdbc-values")
     if args.joern_source_paths and not args.infer_specifications:
         parser.error("--joern-source-paths cần --infer-specifications")
     collection = args.from_run.resolve()
     try:
-        inputs, provenance = prepare_inputs(collection, args.source_root.resolve(), set(args.only_component))
+        source_root = args.source_root.resolve()
+        inputs, provenance = prepare_inputs(collection, source_root, set(args.only_component))
         bundles = prepare_source_context(inputs, provenance["benchmark_commit"], args.benchmark_root.expanduser())
+        if args.snapshot_callers:
+            manifest_raw = (collection / "manifest.json").read_bytes()
+            if sha256(manifest_raw).hexdigest() != provenance["collection_manifest_sha256"]:
+                raise ValueError("Manifest đã thay đổi trong lúc chuẩn bị bằng chứng.")
+            add_snapshot_callers(inputs, bundles, source_root, json.loads(manifest_raw)["source_hashes"])
         recorded = read_recorded_joern(args.recorded_joern.resolve(), inputs) if args.recorded_joern else None
         dependencies = java_dependencies(args.java_classpath) if args.infer_specifications else None
         if args.check:
@@ -301,7 +315,8 @@ def main():
         if output.is_relative_to(collection):
             raise ValueError("Đặt đầu ra bên ngoài thư mục lượt thu thập.")
         export_evidence(inputs, provenance, output, bundles, recorded, dependencies,
-                        jdbc_values=args.infer_jdbc_values, joern_source_paths=args.joern_source_paths)
+                        jdbc_values=args.infer_jdbc_values, joern_source_paths=args.joern_source_paths,
+                        snapshot_callers=args.snapshot_callers)
         print(f"SQL_EVIDENCE_OK: {len(inputs)} cảnh báo. Kết quả: {output / 'sql_evidence.jsonl'}")
         return 0
     except (OSError, ValueError, RuntimeError, KeyError, IndexError) as exc:

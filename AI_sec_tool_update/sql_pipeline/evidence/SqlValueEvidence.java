@@ -4,6 +4,7 @@ import com.sun.source.util.TreeScanner;
 import java.util.*;
 import javax.lang.model.element.Element;
 import javax.lang.model.element.ElementKind;
+import javax.lang.model.element.ExecutableElement;
 import javax.lang.model.element.VariableElement;
 import javax.lang.model.type.TypeKind;
 
@@ -258,9 +259,13 @@ class SqlValueEvidence {
 
     private boolean fixedDispatch(SqlEndpointProbe.Call call) {
         if (!probe.dispatch(call).equals("declaration_only")) return true;
-        if (!(call.tree().getMethodSelect() instanceof MemberSelectTree member)
-                || !(member.getExpression() instanceof NewClassTree created) || created.getClassBody() != null) return false;
-        var type = probe.trees.getTypeMirror(child(child(call.path(), member), created));
+        if (!(call.tree().getMethodSelect() instanceof MemberSelectTree member)) return false;
+        var receiver = child(child(call.path(), member), member.getExpression());
+        while (receiver.getLeaf() instanceof ParenthesizedTree parenthesized) {
+            receiver = child(receiver, parenthesized.getExpression());
+        }
+        if (!(receiver.getLeaf() instanceof NewClassTree created) || created.getClassBody() != null) return false;
+        var type = probe.trees.getTypeMirror(receiver);
         return type != null && type.toString().equals(call.owner());
     }
 
@@ -377,13 +382,14 @@ class SqlValueEvidence {
         return NEXT;
     }
 
-    private Value seek(TreePath path, SqlEndpointProbe.Call sink, Set<Tree> ancestors, Map<Element, Value> env, List<Step> guards) {
+    private Value seek(TreePath path, SqlEndpointProbe.Call call, int argumentIndex, Set<Tree> ancestors,
+                       Map<Element, Value> env, List<Step> guards) {
         if (--remaining < 0) return UNKNOWN;
         var tree = path.getLeaf();
         if (tree instanceof BlockTree block) {
             for (var statement : block.getStatements()) {
                 var next = child(path, statement);
-                if (ancestors.contains(statement)) return seek(next, sink, ancestors, env, guards);
+                if (ancestors.contains(statement)) return seek(next, call, argumentIndex, ancestors, env, guards);
                 var outcome = execute(next, env, guards, 0);
                 if (outcome.transfer() != Transfer.NEXT) {
                     return UNKNOWN.with(outcome.transfer() == Transfer.UNSUPPORTED ? outcome.value().steps() : List.of())
@@ -392,41 +398,115 @@ class SqlValueEvidence {
             }
         }
         if (tree instanceof TryTree attempt && attempt.getResources().isEmpty() && ancestors.contains(attempt.getBlock())) {
-            return seek(child(path, attempt.getBlock()), sink, ancestors, env, guards);
+            return seek(child(path, attempt.getBlock()), call, argumentIndex, ancestors, env, guards);
         }
         if (tree instanceof IfTree branch && !hasWrites(branch.getCondition())) {
             var condition = expression(child(path, branch.getCondition()), env, 0);
             if (condition.literal() instanceof Boolean selected) {
                 var body = selected ? branch.getThenStatement() : branch.getElseStatement();
-                if (body != null && ancestors.contains(body)) return seek(child(path, body), sink, ancestors, env,
+                if (body != null && ancestors.contains(body)) return seek(child(path, body), call, argumentIndex, ancestors, env,
                     context(guards, condition.steps(), step(path, selected ? "if_true" : "if_false")));
             }
         }
         Tree rhs = tree instanceof ExpressionStatementTree statement ? statement.getExpression()
             : tree instanceof VariableTree local ? local.getInitializer() : tree instanceof ReturnTree ret ? ret.getExpression() : null;
         if (rhs instanceof AssignmentTree assignment && assignment.getVariable() instanceof IdentifierTree
-                && assignment.getExpression() == sink.tree()) {
+                && assignment.getExpression() == call.tree()) {
             var target = probe.trees.getElement(child(child(path, assignment), assignment.getVariable()));
             if (target != null && target.getKind() == ElementKind.LOCAL_VARIABLE) {
                 rhs = assignment.getExpression();
             }
         }
-        if (rhs == sink.tree() && !hasWrites(rhs)) return expression(child(sink.path(), sink.tree().getArguments().get(0)), env, 0).with(guards);
+        if (rhs == call.tree() && !hasWrites(rhs)) {
+            return expression(child(call.path(), call.tree().getArguments().get(argumentIndex)), env, 0).with(guards);
+        }
         return unknownAt(path, "scope_before_call_not_modeled");
     }
 
-    private void report(SqlEndpointProbe.Call sink) {
-        var ancestors = Collections.newSetFromMap(new IdentityHashMap<Tree, Boolean>());
-        var method = sink.path();
-        while (method != null && method.getLeaf() != sink.enclosing()) {
-            ancestors.add(method.getLeaf());
-            method = method.getParentPath();
+    private static TreePath enclosingMethod(SqlEndpointProbe.Call call) {
+        if (call.enclosing() == null) return null;
+        var method = call.path();
+        while (method != null && method.getLeaf() != call.enclosing()) method = method.getParentPath();
+        return method;
+    }
+
+    private Map<Element, Value> initialEnvironment(TreePath method) {
+        var env = new HashMap<Element, Value>();
+        for (var param : ((MethodTree) method.getLeaf()).getParameters()) {
+            env.put(probe.trees.getElement(child(method, param)), UNKNOWN);
         }
+        return env;
+    }
+
+    private Value evaluateArgument(SqlEndpointProbe.Call call, int argumentIndex, TreePath method, Map<Element, Value> env) {
+        if (method == null || call.enclosing().getBody() == null) return UNKNOWN;
+        var ancestors = Collections.newSetFromMap(new IdentityHashMap<Tree, Boolean>());
+        for (var path = call.path(); path != method; path = path.getParentPath()) {
+            ancestors.add(path.getLeaf());
+        }
+        return seek(child(method, call.enclosing().getBody()), call, argumentIndex, ancestors, env, List.of());
+    }
+
+    private SqlEndpointProbe.Call incomingCall(TreePath method) {
+        var included = List.of(System.getProperty("sql.evidence.snapshotCallers", "").split(","));
+        var target = probe.trees.getElement(method);
+        if (!(target instanceof ExecutableElement executable)
+                || executable.isVarArgs() || executable.getParameters().size() > 8) return null;
+        var matches = probe.calls.stream().filter(call -> call.target().equals(target)).toList();
+        if (matches.size() != 1) return null;
+        var call = matches.get(0);
+        return included.contains(call.file()) && call.enclosing() != null && fixedDispatch(call)
+            && call.tree().getArguments().size() == executable.getParameters().size() ? call : null;
+    }
+
+    private Value fromCaller(SqlEndpointProbe.Call sink, TreePath method, SqlEndpointProbe.Call caller) {
+        var callerMethod = enclosingMethod(caller);
+        if (callerMethod == null) return UNKNOWN;
+        var env = initialEnvironment(method);
+        var params = sink.enclosing().getParameters();
+        for (int i = 0; i < params.size(); i++) {
+            var parameter = child(method, params.get(i));
+            var argument = child(caller.path(), caller.tree().getArguments().get(i));
+            var symbol = probe.trees.getElement(parameter);
+            if (symbol == null) return UNKNOWN;
+            SqlEndpointProbe.emit("A", sink.line(), sink.column(), caller.file(), caller.line(), caller.column(),
+                caller.owner(), caller.signature(), i + 1, probe.line(argument.getCompilationUnit(), argument.getLeaf()),
+                probe.line(parameter.getCompilationUnit(), parameter.getLeaf()));
+            var value = convert(evaluateArgument(caller, i, callerMethod, initialEnvironment(callerMethod)),
+                                symbol.asType().toString());
+            env.put(symbol, value.with(step(argument, "caller_argument")).with(step(parameter, "callee_parameter")));
+        }
+        return evaluateArgument(sink, 0, method, env);
+    }
+
+    private void emitCallerSources(Value result) {
+        if (!result.status().equals("external_input_contributes")) return;
+        for (var fact : result.steps()) {
+            if (fact.file().equals("F0") || !fact.role().equals("servlet_request_read")) continue;
+            var reads = probe.calls.stream().filter(call -> call.file().equals(fact.file()) && call.line() == fact.line()
+                && call.readsRequest() && probe.trees.getPath(call.target()) == null).toList();
+            if (reads.size() == 1) {
+                var read = reads.get(0);
+                SqlEndpointProbe.emit("I", read.file(), read.line(), read.column(), read.owner(), read.signature());
+            }
+        }
+    }
+
+    private void report(SqlEndpointProbe.Call sink) {
+        var method = enclosingMethod(sink);
         Value result = UNKNOWN;
         if (method != null && sink.enclosing().getBody() != null) {
-            var env = new HashMap<Element, Value>();
-            for (var param : sink.enclosing().getParameters()) env.put(probe.trees.getElement(child(method, param)), UNKNOWN);
-            result = seek(child(method, sink.enclosing().getBody()), sink, ancestors, env, List.of());
+            result = evaluateArgument(sink, 0, method, initialEnvironment(method));
+            if (result.isUnknown() && System.getProperty("sql.evidence.snapshotCallers") != null) {
+                var caller = incomingCall(method);
+                if (caller != null) {
+                    var contextual = fromCaller(sink, method, caller);
+                    if (!contextual.isUnknown()) {
+                        result = contextual;
+                        emitCallerSources(result);
+                    }
+                }
+            }
         }
         SqlEndpointProbe.emit("V", sink.line(), sink.column(), result.isConstant() ? "constant_sql_text" : result.status(), remaining < 0 ? "budget_exhausted" :
             result.isUnknown() ? "unsupported_or_runtime_value" : "bounded_java_evaluation");

@@ -1,6 +1,0 @@
-{
-  "flow_count": 1,
-  "paths": "┌─────────────────┬────────────────────────────────────────────────┬────┬──────┬───────────────┐\n│nodeType         │tracked                                         │line│method│file           │\n├─────────────────┼────────────────────────────────────────────────┼────┼──────┼───────────────┤\n│MethodParameterIn│main(String[] args)                             │7   │main  │PathCase02.java│\n│Call             │String fileName = args[0]                       │11  │main  │PathCase02.java│\n│Identifier       │String fileName = args[0]                       │11  │main  │PathCase02.java│\n│Identifier       │matches(\"[A-Za-z0-9_]{1,32}\")                   │12  │main  │PathCase02.java│\n│Call             │\"/var/www/uploads/\" + fileName                  │15  │main  │PathCase02.java│\n│Identifier       │String fullPath = \"/var/www/uploads/\" + fileName│15  │main  │PathCase02.java│\n│Identifier       │new File(fullPath)                              │16  │main  │PathCase02.java│\n└─────────────────┴────────────────────────────────────────────────┴────┴──────┴───────────────┘",
-  "scope": "single_file",
-  "source_policy": "parameters_are_candidates_not_proven_external"
-}

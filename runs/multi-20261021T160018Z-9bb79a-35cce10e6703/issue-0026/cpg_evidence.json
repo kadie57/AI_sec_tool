@@ -1,6 +1,0 @@
-{
-  "flow_count": 1,
-  "paths": "┌─────────────────┬─────────────────────────────────────────────┬────┬──────┬──────────────┐\n│nodeType         │tracked                                      │line│method│file          │\n├─────────────────┼─────────────────────────────────────────────┼────┼──────┼──────────────┤\n│MethodParameterIn│read(String value)                           │4   │read  │Sample203.java│\n│Identifier       │trim()                                       │5   │read  │Sample203.java│\n│Call             │trim()                                       │5   │read  │Sample203.java│\n│Identifier       │value = value.trim()                         │5   │read  │Sample203.java│\n│Call             │\"/var/www/uploads/\" + value                  │6   │read  │Sample203.java│\n│Identifier       │String fullPath = \"/var/www/uploads/\" + value│6   │read  │Sample203.java│\n│Identifier       │new java.io.File(fullPath)                   │7   │read  │Sample203.java│\n└─────────────────┴─────────────────────────────────────────────┴────┴──────┴──────────────┘",
-  "scope": "single_file",
-  "source_policy": "parameters_are_candidates_not_proven_external"
-}
