@@ -1,0 +1,2106 @@
+Parsing code at: /project - language: `JAVASRC`
+[+] Running language frontend
+=======================================================================================================
+Invoking CPG generator in a separate process. Note that the new process will consume additional memory.
+If you are importing a large codebase (and/or running into memory issues), please try the following:
+1) exit joern
+2) invoke the frontend: /opt/joern/joern-cli/javasrc2cpg -J-Xmx7956m --delombok-mode no-delombok --inference-jar-paths /work/type-jars/0001.jar,/work/type-jars/0002.jar,/work/type-jars/0003.jar,/work/type-jars/0004.jar,/work/type-jars/0005.jar,/work/type-jars/0006.jar,/work/type-jars/0007.jar,/work/type-jars/0008.jar,/work/type-jars/0009.jar,/work/type-jars/0010.jar,/work/type-jars/0011.jar,/work/type-jars/0012.jar,/work/type-jars/0013.jar,/work/type-jars/0014.jar,/work/type-jars/0015.jar,/work/type-jars/0016.jar,/work/type-jars/0017.jar,/work/type-jars/0018.jar,/work/type-jars/0019.jar,/work/type-jars/0020.jar,/work/type-jars/0021.jar,/work/type-jars/0022.jar,/work/type-jars/0023.jar,/work/type-jars/0024.jar,/work/type-jars/0025.jar,/work/type-jars/0026.jar,/work/type-jars/0027.jar,/work/type-jars/0028.jar,/work/type-jars/0029.jar,/work/type-jars/0030.jar,/work/type-jars/0031.jar,/work/type-jars/0032.jar,/work/type-jars/0033.jar,/work/type-jars/0034.jar,/work/type-jars/0035.jar,/work/type-jars/0036.jar,/work/type-jars/0037.jar,/work/type-jars/0038.jar,/work/type-jars/0039.jar,/work/type-jars/0040.jar,/work/type-jars/0041.jar,/work/type-jars/0042.jar,/work/type-jars/0043.jar,/work/type-jars/0044.jar,/work/type-jars/0045.jar,/work/type-jars/0046.jar,/work/type-jars/0047.jar,/work/type-jars/0048.jar,/work/type-jars/0049.jar,/work/type-jars/0050.jar,/work/type-jars/0051.jar,/work/type-jars/0052.jar,/work/type-jars/0053.jar,/work/type-jars/0054.jar,/work/type-jars/0055.jar,/work/type-jars/0056.jar,/work/type-jars/0057.jar,/work/type-jars/0058.jar,/work/type-jars/0059.jar,/work/type-jars/0060.jar,/work/type-jars/0061.jar,/work/type-jars/0062.jar,/work/type-jars/0063.jar,/work/type-jars/0064.jar,/work/type-jars/0065.jar,/work/type-jars/0066.jar,/work/type-jars/0067.jar,/work/type-jars/0068.jar,/work/type-jars/0069.jar,/work/type-jars/0070.jar,/work/type-jars/0071.jar,/work/type-jars/0072.jar,/work/type-jars/0073.jar,/work/type-jars/0074.jar,/work/type-jars/0075.jar,/work/type-jars/0076.jar,/work/type-jars/0077.jar,/work/type-jars/0078.jar,/work/type-jars/0079.jar,/work/type-jars/0080.jar,/work/type-jars/0081.jar,/work/type-jars/0082.jar,/work/type-jars/0083.jar,/work/type-jars/0084.jar,/work/type-jars/0085.jar,/work/type-jars/0086.jar,/work/type-jars/0087.jar,/work/type-jars/0088.jar,/work/type-jars/0089.jar,/work/type-jars/0090.jar,/work/type-jars/0091.jar,/work/type-jars/0092.jar,/work/type-jars/0093.jar,/work/type-jars/0094.jar,/work/type-jars/0095.jar,/work/type-jars/0096.jar,/work/type-jars/0097.jar,/work/type-jars/0098.jar,/work/type-jars/0099.jar,/work/type-jars/0100.jar,/work/type-jars/0101.jar,/work/type-jars/0102.jar,/work/type-jars/0103.jar,/work/type-jars/0104.jar,/work/type-jars/0105.jar,/work/type-jars/0106.jar,/work/type-jars/0107.jar,/work/type-jars/0108.jar,/work/type-jars/0109.jar,/work/type-jars/0110.jar,/work/type-jars/0111.jar,/work/type-jars/0112.jar,/work/type-jars/0113.jar,/work/type-jars/0114.jar,/work/type-jars/0115.jar,/work/type-jars/0116.jar,/work/type-jars/0117.jar,/work/type-jars/0118.jar,/work/type-jars/0119.jar,/work/type-jars/0120.jar,/work/type-jars/0121.jar,/work/type-jars/0122.jar,/work/type-jars/0123.jar,/work/type-jars/0124.jar,/work/type-jars/0125.jar,/work/type-jars/0126.jar,/work/type-jars/0127.jar,/work/type-jars/0128.jar,/work/type-jars/0129.jar,/work/type-jars/0130.jar,/work/type-jars/0131.jar,/work/type-jars/0132.jar /project --output /work/snapshot.bin
+3) start joern, import the cpg: `importCpg("path/to/cpg")`
+=======================================================================================================
+
+[+] Applying default overlays
+Successfully wrote graph to: /work/snapshot.bin
+To load the graph, type `joern /work/snapshot.bin`
+[INFO ] initialising from existing storage (/work/workspace/snapshot/cpg.bin.tmp)
+SQL_CASE	1
+SQL_PATH	SINK	1	1
+SQL_PATH	SOURCE	0	1
+SQL_PATH	COUNT	0	1
+SQL_PATH	NODE	0	0	Call	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00344.java	44	doPost	38	72
+SQL_PATH	NODE	0	0	Identifier	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00344.java	44	doPost	38	72
+SQL_PATH	NODE	0	0	Identifier	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00344.java	46	doPost	38	72
+SQL_PATH	NODE	0	0	Identifier	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00344.java	46	doPost	38	72
+SQL_PATH	NODE	0	0	Identifier	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00344.java	47	doPost	38	72
+SQL_PATH	NODE	0	0	Call	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00344.java	47	doPost	38	72
+SQL_PATH	NODE	0	0	Identifier	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00344.java	47	doPost	38	72
+SQL_PATH	NODE	0	0	Identifier	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00344.java	51	doPost	38	72
+SQL_PATH	NODE	0	0	Call	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00344.java	51	doPost	38	72
+SQL_PATH	NODE	0	0	Call	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00344.java	51	doPost	38	72
+SQL_PATH	NODE	0	0	Identifier	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00344.java	51	doPost	38	72
+SQL_PATH	NODE	0	0	Identifier	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00344.java	58	doPost	38	72
+SQL_PATH	NODE	0	0	Identifier	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00344.java	58	doPost	38	72
+SQL_PATH	NODE	0	0	Call	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00344.java	60	doPost	38	72
+SQL_PATH	NODE	0	0	Identifier	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00344.java	60	doPost	38	72
+SQL_PATH	NODE	0	0	Identifier	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00344.java	65	doPost	38	72
+SQL_PATH	SOURCE	1	1
+SQL_PATH	COUNT	1	0
+SQL_PATH	SOURCE	2	1
+SQL_PATH	COUNT	2	0
+SQL_PATH	SOURCE	3	1
+SQL_PATH	COUNT	3	0
+SQL_PATH	SOURCE	4	1
+SQL_PATH	COUNT	4	0
+SQL_PATH	SOURCE	5	1
+SQL_PATH	COUNT	5	0
+SQL_PATH	SOURCE	6	1
+SQL_PATH	COUNT	6	0
+SQL_PATH	SOURCE	7	1
+SQL_PATH	COUNT	7	0
+SQL_PATH	SOURCE	8	1
+SQL_PATH	COUNT	8	0
+SQL_PATH	SOURCE	9	1
+SQL_PATH	COUNT	9	0
+SQL_PATH	SOURCE	10	1
+SQL_PATH	COUNT	10	0
+SQL_PATH	SOURCE	11	1
+SQL_PATH	COUNT	11	0
+SQL_PATH	SOURCE	12	1
+SQL_PATH	COUNT	12	0
+SQL_PATH	SOURCE	13	1
+SQL_PATH	COUNT	13	0
+SQL_PATH	SOURCE	14	1
+SQL_PATH	COUNT	14	0
+SQL_PATH	SOURCE	15	1
+SQL_PATH	COUNT	15	0
+SQL_PATH	SOURCE	16	1
+SQL_PATH	COUNT	16	0
+SQL_PATH	SOURCE	17	1
+SQL_PATH	COUNT	17	0
+SQL_PATH	SOURCE	18	1
+SQL_PATH	COUNT	18	0
+SQL_PATH	SOURCE	19	1
+SQL_PATH	COUNT	19	0
+SQL_PATH	SOURCE	20	1
+SQL_PATH	COUNT	20	0
+SQL_PATH	SOURCE	21	1
+SQL_PATH	COUNT	21	0
+SQL_PATH	SOURCE	22	1
+SQL_PATH	COUNT	22	0
+SQL_PATH	SOURCE	23	1
+SQL_PATH	COUNT	23	0
+SQL_PATH	SOURCE	24	1
+SQL_PATH	COUNT	24	0
+SQL_PATH	SOURCE	25	1
+SQL_PATH	COUNT	25	0
+SQL_PATH	SOURCE	26	1
+SQL_PATH	COUNT	26	0
+SQL_PATH	SOURCE	27	1
+SQL_PATH	COUNT	27	0
+SQL_PATH	SOURCE	28	1
+SQL_PATH	COUNT	28	0
+SQL_PATH	SOURCE	29	1
+SQL_PATH	COUNT	29	0
+SQL_PATH	SOURCE	30	1
+SQL_PATH	COUNT	30	0
+SQL_PATH	SOURCE	31	1
+SQL_PATH	COUNT	31	0
+SQL_PATH	SOURCE	32	1
+SQL_PATH	COUNT	32	0
+SQL_PATH	SOURCE	33	1
+SQL_PATH	COUNT	33	0
+SQL_CASE	2
+SQL_PATH	SINK	1	1
+SQL_PATH	SOURCE	0	1
+SQL_PATH	COUNT	0	1
+SQL_PATH	NODE	0	0	Call	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00594.java	45	doPost	38	82
+SQL_PATH	NODE	0	0	Identifier	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00594.java	45	doPost	38	82
+SQL_PATH	NODE	0	0	Identifier	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00594.java	46	doPost	38	82
+SQL_PATH	NODE	0	0	Identifier	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00594.java	47	doPost	38	82
+SQL_PATH	NODE	0	0	Call	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00594.java	47	doPost	38	82
+SQL_PATH	NODE	0	0	Identifier	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00594.java	47	doPost	38	82
+SQL_PATH	NODE	0	0	Identifier	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00594.java	48	doPost	38	82
+SQL_PATH	NODE	0	0	Identifier	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00594.java	53	doPost	38	82
+SQL_PATH	NODE	0	0	Identifier	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00594.java	53	doPost	38	82
+SQL_PATH	NODE	0	0	Identifier	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00594.java	63	doPost	38	82
+SQL_PATH	NODE	0	0	Identifier	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00594.java	63	doPost	38	82
+SQL_PATH	NODE	0	0	Identifier	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00594.java	64	doPost	38	82
+SQL_PATH	NODE	0	0	Identifier	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00594.java	65	doPost	38	82
+SQL_PATH	NODE	0	0	Call	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00594.java	65	doPost	38	82
+SQL_PATH	NODE	0	0	Identifier	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00594.java	65	doPost	38	82
+SQL_PATH	NODE	0	0	Call	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00594.java	67	doPost	38	82
+SQL_PATH	NODE	0	0	Identifier	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00594.java	67	doPost	38	82
+SQL_PATH	NODE	0	0	Identifier	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00594.java	73	doPost	38	82
+SQL_PATH	SOURCE	1	1
+SQL_PATH	COUNT	1	0
+SQL_PATH	SOURCE	2	1
+SQL_PATH	COUNT	2	1
+SQL_PATH	NODE	2	0	Call	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00594.java	47	doPost	38	82
+SQL_PATH	NODE	2	0	Call	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00594.java	47	doPost	38	82
+SQL_PATH	NODE	2	0	Identifier	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00594.java	47	doPost	38	82
+SQL_PATH	NODE	2	0	Identifier	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00594.java	48	doPost	38	82
+SQL_PATH	NODE	2	0	Identifier	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00594.java	53	doPost	38	82
+SQL_PATH	NODE	2	0	Identifier	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00594.java	53	doPost	38	82
+SQL_PATH	NODE	2	0	Identifier	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00594.java	63	doPost	38	82
+SQL_PATH	NODE	2	0	Identifier	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00594.java	63	doPost	38	82
+SQL_PATH	NODE	2	0	Identifier	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00594.java	64	doPost	38	82
+SQL_PATH	NODE	2	0	Identifier	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00594.java	65	doPost	38	82
+SQL_PATH	NODE	2	0	Call	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00594.java	65	doPost	38	82
+SQL_PATH	NODE	2	0	Identifier	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00594.java	65	doPost	38	82
+SQL_PATH	NODE	2	0	Call	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00594.java	67	doPost	38	82
+SQL_PATH	NODE	2	0	Identifier	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00594.java	67	doPost	38	82
+SQL_PATH	NODE	2	0	Identifier	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00594.java	73	doPost	38	82
+SQL_PATH	SOURCE	3	1
+SQL_PATH	COUNT	3	0
+SQL_PATH	SOURCE	4	1
+SQL_PATH	COUNT	4	0
+SQL_PATH	SOURCE	5	1
+SQL_PATH	COUNT	5	0
+SQL_PATH	SOURCE	6	1
+SQL_PATH	COUNT	6	0
+SQL_PATH	SOURCE	7	1
+SQL_PATH	COUNT	7	0
+SQL_PATH	SOURCE	8	1
+SQL_PATH	COUNT	8	0
+SQL_PATH	SOURCE	9	1
+SQL_PATH	COUNT	9	0
+SQL_PATH	SOURCE	10	1
+SQL_PATH	COUNT	10	0
+SQL_PATH	SOURCE	11	1
+SQL_PATH	COUNT	11	0
+SQL_PATH	SOURCE	12	1
+SQL_PATH	COUNT	12	0
+SQL_PATH	SOURCE	13	1
+SQL_PATH	COUNT	13	0
+SQL_PATH	SOURCE	14	1
+SQL_PATH	COUNT	14	0
+SQL_PATH	SOURCE	15	1
+SQL_PATH	COUNT	15	0
+SQL_PATH	SOURCE	16	1
+SQL_PATH	COUNT	16	0
+SQL_PATH	SOURCE	17	1
+SQL_PATH	COUNT	17	0
+SQL_PATH	SOURCE	18	1
+SQL_PATH	COUNT	18	0
+SQL_PATH	SOURCE	19	1
+SQL_PATH	COUNT	19	0
+SQL_PATH	SOURCE	20	1
+SQL_PATH	COUNT	20	0
+SQL_PATH	SOURCE	21	1
+SQL_PATH	COUNT	21	0
+SQL_PATH	SOURCE	22	1
+SQL_PATH	COUNT	22	0
+SQL_PATH	SOURCE	23	1
+SQL_PATH	COUNT	23	0
+SQL_PATH	SOURCE	24	1
+SQL_PATH	COUNT	24	0
+SQL_PATH	SOURCE	25	1
+SQL_PATH	COUNT	25	0
+SQL_PATH	SOURCE	26	1
+SQL_PATH	COUNT	26	0
+SQL_PATH	SOURCE	27	1
+SQL_PATH	COUNT	27	0
+SQL_PATH	SOURCE	28	1
+SQL_PATH	COUNT	28	0
+SQL_PATH	SOURCE	29	1
+SQL_PATH	COUNT	29	0
+SQL_PATH	SOURCE	30	1
+SQL_PATH	COUNT	30	0
+SQL_PATH	SOURCE	31	1
+SQL_PATH	COUNT	31	0
+SQL_PATH	SOURCE	32	1
+SQL_PATH	COUNT	32	0
+SQL_PATH	SOURCE	33	1
+SQL_PATH	COUNT	33	0
+SQL_PATH	SOURCE	34	1
+SQL_PATH	COUNT	34	0
+SQL_CASE	3
+SQL_PATH	SINK	1	1
+SQL_PATH	SOURCE	0	1
+SQL_PATH	COUNT	0	1
+SQL_PATH	NODE	0	0	Call	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00602.java	45	doPost	38	84
+SQL_PATH	NODE	0	0	Identifier	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00602.java	45	doPost	38	84
+SQL_PATH	NODE	0	0	Identifier	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00602.java	46	doPost	38	84
+SQL_PATH	NODE	0	0	Identifier	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00602.java	47	doPost	38	84
+SQL_PATH	NODE	0	0	Call	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00602.java	47	doPost	38	84
+SQL_PATH	NODE	0	0	Identifier	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00602.java	47	doPost	38	84
+SQL_PATH	NODE	0	0	Identifier	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00602.java	48	doPost	38	84
+SQL_PATH	NODE	0	0	Identifier	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00602.java	53	doPost	38	84
+SQL_PATH	NODE	0	0	Identifier	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00602.java	53	doPost	38	84
+SQL_PATH	NODE	0	0	Identifier	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00602.java	61	doPost	38	84
+SQL_PATH	NODE	0	0	Identifier	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00602.java	64	doPost	38	84
+SQL_PATH	NODE	0	0	Identifier	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00602.java	64	doPost	38	84
+SQL_PATH	NODE	0	0	Identifier	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00602.java	65	doPost	38	84
+SQL_PATH	NODE	0	0	Identifier	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00602.java	67	doPost	38	84
+SQL_PATH	NODE	0	0	Identifier	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00602.java	69	doPost	38	84
+SQL_PATH	NODE	0	0	Call	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00602.java	69	doPost	38	84
+SQL_PATH	NODE	0	0	Identifier	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00602.java	69	doPost	38	84
+SQL_PATH	NODE	0	0	Call	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00602.java	72	doPost	38	84
+SQL_PATH	NODE	0	0	Identifier	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00602.java	72	doPost	38	84
+SQL_PATH	NODE	0	0	Identifier	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00602.java	77	doPost	38	84
+SQL_PATH	SOURCE	1	1
+SQL_PATH	COUNT	1	0
+SQL_PATH	SOURCE	2	1
+SQL_PATH	COUNT	2	1
+SQL_PATH	NODE	2	0	Call	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00602.java	47	doPost	38	84
+SQL_PATH	NODE	2	0	Call	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00602.java	47	doPost	38	84
+SQL_PATH	NODE	2	0	Identifier	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00602.java	47	doPost	38	84
+SQL_PATH	NODE	2	0	Identifier	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00602.java	48	doPost	38	84
+SQL_PATH	NODE	2	0	Identifier	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00602.java	53	doPost	38	84
+SQL_PATH	NODE	2	0	Identifier	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00602.java	53	doPost	38	84
+SQL_PATH	NODE	2	0	Identifier	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00602.java	61	doPost	38	84
+SQL_PATH	NODE	2	0	Identifier	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00602.java	64	doPost	38	84
+SQL_PATH	NODE	2	0	Identifier	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00602.java	64	doPost	38	84
+SQL_PATH	NODE	2	0	Identifier	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00602.java	65	doPost	38	84
+SQL_PATH	NODE	2	0	Identifier	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00602.java	67	doPost	38	84
+SQL_PATH	NODE	2	0	Identifier	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00602.java	69	doPost	38	84
+SQL_PATH	NODE	2	0	Call	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00602.java	69	doPost	38	84
+SQL_PATH	NODE	2	0	Identifier	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00602.java	69	doPost	38	84
+SQL_PATH	NODE	2	0	Call	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00602.java	72	doPost	38	84
+SQL_PATH	NODE	2	0	Identifier	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00602.java	72	doPost	38	84
+SQL_PATH	NODE	2	0	Identifier	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00602.java	77	doPost	38	84
+SQL_PATH	SOURCE	3	1
+SQL_PATH	COUNT	3	0
+SQL_PATH	SOURCE	4	1
+SQL_PATH	COUNT	4	0
+SQL_PATH	SOURCE	5	1
+SQL_PATH	COUNT	5	0
+SQL_PATH	SOURCE	6	1
+SQL_PATH	COUNT	6	0
+SQL_PATH	SOURCE	7	1
+SQL_PATH	COUNT	7	0
+SQL_PATH	SOURCE	8	1
+SQL_PATH	COUNT	8	0
+SQL_PATH	SOURCE	9	1
+SQL_PATH	COUNT	9	0
+SQL_PATH	SOURCE	10	1
+SQL_PATH	COUNT	10	0
+SQL_PATH	SOURCE	11	1
+SQL_PATH	COUNT	11	0
+SQL_PATH	SOURCE	12	1
+SQL_PATH	COUNT	12	0
+SQL_PATH	SOURCE	13	1
+SQL_PATH	COUNT	13	0
+SQL_PATH	SOURCE	14	1
+SQL_PATH	COUNT	14	0
+SQL_PATH	SOURCE	15	1
+SQL_PATH	COUNT	15	0
+SQL_PATH	SOURCE	16	1
+SQL_PATH	COUNT	16	0
+SQL_PATH	SOURCE	17	1
+SQL_PATH	COUNT	17	0
+SQL_PATH	SOURCE	18	1
+SQL_PATH	COUNT	18	0
+SQL_PATH	SOURCE	19	1
+SQL_PATH	COUNT	19	0
+SQL_PATH	SOURCE	20	1
+SQL_PATH	COUNT	20	0
+SQL_PATH	SOURCE	21	1
+SQL_PATH	COUNT	21	0
+SQL_PATH	SOURCE	22	1
+SQL_PATH	COUNT	22	0
+SQL_PATH	SOURCE	23	1
+SQL_PATH	COUNT	23	0
+SQL_PATH	SOURCE	24	1
+SQL_PATH	COUNT	24	0
+SQL_PATH	SOURCE	25	1
+SQL_PATH	COUNT	25	0
+SQL_PATH	SOURCE	26	1
+SQL_PATH	COUNT	26	0
+SQL_PATH	SOURCE	27	1
+SQL_PATH	COUNT	27	0
+SQL_PATH	SOURCE	28	1
+SQL_PATH	COUNT	28	0
+SQL_PATH	SOURCE	29	1
+SQL_PATH	COUNT	29	0
+SQL_PATH	SOURCE	30	1
+SQL_PATH	COUNT	30	0
+SQL_PATH	SOURCE	31	1
+SQL_PATH	COUNT	31	0
+SQL_PATH	SOURCE	32	1
+SQL_PATH	COUNT	32	0
+SQL_PATH	SOURCE	33	1
+SQL_PATH	COUNT	33	0
+SQL_PATH	SOURCE	34	1
+SQL_PATH	COUNT	34	0
+SQL_CASE	4
+SQL_PATH	SINK	1	1
+SQL_PATH	SOURCE	0	1
+SQL_PATH	COUNT	0	1
+SQL_PATH	NODE	0	0	Call	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00604.java	45	doPost	38	81
+SQL_PATH	NODE	0	0	Identifier	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00604.java	45	doPost	38	81
+SQL_PATH	NODE	0	0	Identifier	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00604.java	46	doPost	38	81
+SQL_PATH	NODE	0	0	Identifier	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00604.java	47	doPost	38	81
+SQL_PATH	NODE	0	0	Call	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00604.java	47	doPost	38	81
+SQL_PATH	NODE	0	0	Identifier	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00604.java	47	doPost	38	81
+SQL_PATH	NODE	0	0	Identifier	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00604.java	48	doPost	38	81
+SQL_PATH	NODE	0	0	Identifier	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00604.java	53	doPost	38	81
+SQL_PATH	NODE	0	0	Identifier	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00604.java	53	doPost	38	81
+SQL_PATH	NODE	0	0	Identifier	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00604.java	61	doPost	38	81
+SQL_PATH	NODE	0	0	Identifier	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00604.java	66	doPost	38	81
+SQL_PATH	NODE	0	0	Call	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00604.java	66	doPost	38	81
+SQL_PATH	NODE	0	0	Call	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00604.java	65	doPost	38	81
+SQL_PATH	NODE	0	0	Call	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00604.java	65	doPost	38	81
+SQL_PATH	NODE	0	0	Call	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00604.java	64	doPost	38	81
+SQL_PATH	NODE	0	0	Call	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00604.java	64	doPost	38	81
+SQL_PATH	NODE	0	0	Identifier	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00604.java	62	doPost	38	81
+SQL_PATH	NODE	0	0	Call	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00604.java	69	doPost	38	81
+SQL_PATH	NODE	0	0	Identifier	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00604.java	69	doPost	38	81
+SQL_PATH	NODE	0	0	Identifier	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00604.java	74	doPost	38	81
+SQL_PATH	SOURCE	1	1
+SQL_PATH	COUNT	1	0
+SQL_PATH	SOURCE	2	1
+SQL_PATH	COUNT	2	1
+SQL_PATH	NODE	2	0	Call	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00604.java	47	doPost	38	81
+SQL_PATH	NODE	2	0	Call	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00604.java	47	doPost	38	81
+SQL_PATH	NODE	2	0	Identifier	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00604.java	47	doPost	38	81
+SQL_PATH	NODE	2	0	Identifier	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00604.java	48	doPost	38	81
+SQL_PATH	NODE	2	0	Identifier	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00604.java	53	doPost	38	81
+SQL_PATH	NODE	2	0	Identifier	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00604.java	53	doPost	38	81
+SQL_PATH	NODE	2	0	Identifier	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00604.java	61	doPost	38	81
+SQL_PATH	NODE	2	0	Identifier	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00604.java	66	doPost	38	81
+SQL_PATH	NODE	2	0	Call	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00604.java	66	doPost	38	81
+SQL_PATH	NODE	2	0	Call	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00604.java	65	doPost	38	81
+SQL_PATH	NODE	2	0	Call	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00604.java	65	doPost	38	81
+SQL_PATH	NODE	2	0	Call	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00604.java	64	doPost	38	81
+SQL_PATH	NODE	2	0	Call	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00604.java	64	doPost	38	81
+SQL_PATH	NODE	2	0	Identifier	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00604.java	62	doPost	38	81
+SQL_PATH	NODE	2	0	Call	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00604.java	69	doPost	38	81
+SQL_PATH	NODE	2	0	Identifier	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00604.java	69	doPost	38	81
+SQL_PATH	NODE	2	0	Identifier	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00604.java	74	doPost	38	81
+SQL_PATH	SOURCE	3	1
+SQL_PATH	COUNT	3	0
+SQL_PATH	SOURCE	4	1
+SQL_PATH	COUNT	4	0
+SQL_PATH	SOURCE	5	1
+SQL_PATH	COUNT	5	0
+SQL_PATH	SOURCE	6	1
+SQL_PATH	COUNT	6	0
+SQL_PATH	SOURCE	7	1
+SQL_PATH	COUNT	7	0
+SQL_PATH	SOURCE	8	1
+SQL_PATH	COUNT	8	0
+SQL_PATH	SOURCE	9	1
+SQL_PATH	COUNT	9	0
+SQL_PATH	SOURCE	10	1
+SQL_PATH	COUNT	10	0
+SQL_PATH	SOURCE	11	1
+SQL_PATH	COUNT	11	0
+SQL_PATH	SOURCE	12	1
+SQL_PATH	COUNT	12	0
+SQL_PATH	SOURCE	13	1
+SQL_PATH	COUNT	13	0
+SQL_PATH	SOURCE	14	1
+SQL_PATH	COUNT	14	0
+SQL_PATH	SOURCE	15	1
+SQL_PATH	COUNT	15	0
+SQL_PATH	SOURCE	16	1
+SQL_PATH	COUNT	16	0
+SQL_PATH	SOURCE	17	1
+SQL_PATH	COUNT	17	0
+SQL_PATH	SOURCE	18	1
+SQL_PATH	COUNT	18	0
+SQL_PATH	SOURCE	19	1
+SQL_PATH	COUNT	19	0
+SQL_PATH	SOURCE	20	1
+SQL_PATH	COUNT	20	0
+SQL_PATH	SOURCE	21	1
+SQL_PATH	COUNT	21	0
+SQL_PATH	SOURCE	22	1
+SQL_PATH	COUNT	22	0
+SQL_PATH	SOURCE	23	1
+SQL_PATH	COUNT	23	0
+SQL_PATH	SOURCE	24	1
+SQL_PATH	COUNT	24	0
+SQL_PATH	SOURCE	25	1
+SQL_PATH	COUNT	25	0
+SQL_PATH	SOURCE	26	1
+SQL_PATH	COUNT	26	0
+SQL_PATH	SOURCE	27	1
+SQL_PATH	COUNT	27	0
+SQL_PATH	SOURCE	28	1
+SQL_PATH	COUNT	28	0
+SQL_PATH	SOURCE	29	1
+SQL_PATH	COUNT	29	0
+SQL_PATH	SOURCE	30	1
+SQL_PATH	COUNT	30	0
+SQL_PATH	SOURCE	31	1
+SQL_PATH	COUNT	31	0
+SQL_PATH	SOURCE	32	1
+SQL_PATH	COUNT	32	0
+SQL_PATH	SOURCE	33	1
+SQL_PATH	COUNT	33	0
+SQL_PATH	SOURCE	34	1
+SQL_PATH	COUNT	34	0
+SQL_CASE	5
+SQL_PATH	SINK	1	1
+SQL_PATH	SOURCE	0	1
+SQL_PATH	COUNT	0	1
+SQL_PATH	NODE	0	0	Call	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00838.java	43	doPost	38	110
+SQL_PATH	NODE	0	0	Identifier	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00838.java	43	doPost	38	110
+SQL_PATH	NODE	0	0	Identifier	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00838.java	46	doPost	38	110
+SQL_PATH	NODE	0	0	Identifier	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00838.java	46	doPost	38	110
+SQL_PATH	NODE	0	0	Call	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00838.java	46	doPost	38	110
+SQL_PATH	NODE	0	0	Identifier	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00838.java	46	doPost	38	110
+SQL_PATH	NODE	0	0	Identifier	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00838.java	47	doPost	38	110
+SQL_PATH	NODE	0	0	Call	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00838.java	58	doPost	38	110
+SQL_PATH	NODE	0	0	Identifier	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00838.java	57	doPost	38	110
+SQL_PATH	NODE	0	0	Identifier	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00838.java	64	doPost	38	110
+SQL_PATH	NODE	0	0	Call	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00838.java	64	doPost	38	110
+SQL_PATH	NODE	0	0	Identifier	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00838.java	64	doPost	38	110
+SQL_PATH	NODE	0	0	Identifier	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00838.java	65	doPost	38	110
+SQL_PATH	NODE	0	0	Identifier	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00838.java	66	doPost	38	110
+SQL_PATH	NODE	0	0	Call	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00838.java	66	doPost	38	110
+SQL_PATH	NODE	0	0	Identifier	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00838.java	66	doPost	38	110
+SQL_PATH	NODE	0	0	Call	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00838.java	66	doPost	38	110
+SQL_PATH	NODE	0	0	Identifier	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00838.java	66	doPost	38	110
+SQL_PATH	NODE	0	0	Identifier	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00838.java	68	doPost	38	110
+SQL_PATH	NODE	0	0	Call	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00838.java	68	doPost	38	110
+SQL_PATH	NODE	0	0	Call	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00838.java	68	doPost	38	110
+SQL_PATH	NODE	0	0	Identifier	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00838.java	68	doPost	38	110
+SQL_PATH	NODE	0	0	Identifier	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00838.java	77	doPost	38	110
+SQL_PATH	NODE	0	0	Identifier	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00838.java	77	doPost	38	110
+SQL_PATH	NODE	0	0	Call	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00838.java	91	doPost	38	110
+SQL_PATH	NODE	0	0	Identifier	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00838.java	91	doPost	38	110
+SQL_PATH	NODE	0	0	Identifier	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00838.java	98	doPost	38	110
+SQL_PATH	SOURCE	1	1
+SQL_PATH	COUNT	1	0
+SQL_PATH	SOURCE	2	1
+SQL_PATH	COUNT	2	0
+SQL_PATH	SOURCE	3	1
+SQL_PATH	COUNT	3	0
+SQL_PATH	SOURCE	4	1
+SQL_PATH	COUNT	4	0
+SQL_PATH	SOURCE	5	1
+SQL_PATH	COUNT	5	0
+SQL_PATH	SOURCE	6	1
+SQL_PATH	COUNT	6	0
+SQL_PATH	SOURCE	7	1
+SQL_PATH	COUNT	7	0
+SQL_PATH	SOURCE	8	1
+SQL_PATH	COUNT	8	0
+SQL_PATH	SOURCE	9	1
+SQL_PATH	COUNT	9	0
+SQL_PATH	SOURCE	10	1
+SQL_PATH	COUNT	10	0
+SQL_PATH	SOURCE	11	1
+SQL_PATH	COUNT	11	0
+SQL_PATH	SOURCE	12	1
+SQL_PATH	COUNT	12	0
+SQL_PATH	SOURCE	13	1
+SQL_PATH	COUNT	13	0
+SQL_PATH	SOURCE	14	1
+SQL_PATH	COUNT	14	0
+SQL_PATH	SOURCE	15	1
+SQL_PATH	COUNT	15	0
+SQL_PATH	SOURCE	16	1
+SQL_PATH	COUNT	16	0
+SQL_PATH	SOURCE	17	1
+SQL_PATH	COUNT	17	0
+SQL_PATH	SOURCE	18	1
+SQL_PATH	COUNT	18	0
+SQL_PATH	SOURCE	19	1
+SQL_PATH	COUNT	19	0
+SQL_PATH	SOURCE	20	1
+SQL_PATH	COUNT	20	0
+SQL_PATH	SOURCE	21	1
+SQL_PATH	COUNT	21	0
+SQL_PATH	SOURCE	22	1
+SQL_PATH	COUNT	22	0
+SQL_PATH	SOURCE	23	1
+SQL_PATH	COUNT	23	0
+SQL_PATH	SOURCE	24	1
+SQL_PATH	COUNT	24	0
+SQL_PATH	SOURCE	25	1
+SQL_PATH	COUNT	25	0
+SQL_PATH	SOURCE	26	1
+SQL_PATH	COUNT	26	0
+SQL_PATH	SOURCE	27	1
+SQL_PATH	COUNT	27	0
+SQL_PATH	SOURCE	28	1
+SQL_PATH	COUNT	28	0
+SQL_PATH	SOURCE	29	1
+SQL_PATH	COUNT	29	0
+SQL_PATH	SOURCE	30	1
+SQL_PATH	COUNT	30	0
+SQL_PATH	SOURCE	31	1
+SQL_PATH	COUNT	31	0
+SQL_PATH	SOURCE	32	1
+SQL_PATH	COUNT	32	0
+SQL_PATH	SOURCE	33	1
+SQL_PATH	COUNT	33	0
+SQL_CASE	6
+SQL_PATH	SINK	1	1
+SQL_PATH	SOURCE	0	1
+SQL_PATH	COUNT	0	0
+SQL_PATH	SOURCE	1	1
+SQL_PATH	COUNT	1	0
+SQL_PATH	SOURCE	2	1
+SQL_PATH	COUNT	2	0
+SQL_PATH	SOURCE	3	1
+SQL_PATH	COUNT	3	0
+SQL_PATH	SOURCE	4	1
+SQL_PATH	COUNT	4	0
+SQL_PATH	SOURCE	5	1
+SQL_PATH	COUNT	5	0
+SQL_PATH	SOURCE	6	1
+SQL_PATH	COUNT	6	0
+SQL_PATH	SOURCE	7	1
+SQL_PATH	COUNT	7	0
+SQL_PATH	SOURCE	8	1
+SQL_PATH	COUNT	8	0
+SQL_PATH	SOURCE	9	1
+SQL_PATH	COUNT	9	0
+SQL_PATH	SOURCE	10	1
+SQL_PATH	COUNT	10	0
+SQL_PATH	SOURCE	11	1
+SQL_PATH	COUNT	11	0
+SQL_PATH	SOURCE	12	1
+SQL_PATH	COUNT	12	0
+SQL_PATH	SOURCE	13	1
+SQL_PATH	COUNT	13	0
+SQL_PATH	SOURCE	14	1
+SQL_PATH	COUNT	14	0
+SQL_PATH	SOURCE	15	1
+SQL_PATH	COUNT	15	0
+SQL_PATH	SOURCE	16	1
+SQL_PATH	COUNT	16	0
+SQL_PATH	SOURCE	17	1
+SQL_PATH	COUNT	17	0
+SQL_PATH	SOURCE	18	1
+SQL_PATH	COUNT	18	0
+SQL_PATH	SOURCE	19	1
+SQL_PATH	COUNT	19	0
+SQL_PATH	SOURCE	20	1
+SQL_PATH	COUNT	20	0
+SQL_PATH	SOURCE	21	1
+SQL_PATH	COUNT	21	0
+SQL_PATH	SOURCE	22	1
+SQL_PATH	COUNT	22	0
+SQL_PATH	SOURCE	23	1
+SQL_PATH	COUNT	23	0
+SQL_PATH	SOURCE	24	1
+SQL_PATH	COUNT	24	0
+SQL_PATH	SOURCE	25	1
+SQL_PATH	COUNT	25	0
+SQL_PATH	SOURCE	26	1
+SQL_PATH	COUNT	26	0
+SQL_PATH	SOURCE	27	1
+SQL_PATH	COUNT	27	0
+SQL_PATH	SOURCE	28	1
+SQL_PATH	COUNT	28	0
+SQL_PATH	SOURCE	29	1
+SQL_PATH	COUNT	29	0
+SQL_PATH	SOURCE	30	1
+SQL_PATH	COUNT	30	0
+SQL_PATH	SOURCE	31	1
+SQL_PATH	COUNT	31	0
+SQL_PATH	SOURCE	32	1
+SQL_PATH	COUNT	32	0
+SQL_PATH	SOURCE	33	1
+SQL_PATH	COUNT	33	0
+SQL_CASE	7
+SQL_PATH	SINK	1	1
+SQL_PATH	SOURCE	0	1
+SQL_PATH	COUNT	0	0
+SQL_PATH	SOURCE	1	1
+SQL_PATH	COUNT	1	0
+SQL_PATH	SOURCE	2	1
+SQL_PATH	COUNT	2	0
+SQL_PATH	SOURCE	3	1
+SQL_PATH	COUNT	3	0
+SQL_PATH	SOURCE	4	1
+SQL_PATH	COUNT	4	0
+SQL_PATH	SOURCE	5	1
+SQL_PATH	COUNT	5	0
+SQL_PATH	SOURCE	6	1
+SQL_PATH	COUNT	6	0
+SQL_PATH	SOURCE	7	1
+SQL_PATH	COUNT	7	0
+SQL_PATH	SOURCE	8	1
+SQL_PATH	COUNT	8	0
+SQL_PATH	SOURCE	9	1
+SQL_PATH	COUNT	9	0
+SQL_PATH	SOURCE	10	1
+SQL_PATH	COUNT	10	0
+SQL_PATH	SOURCE	11	1
+SQL_PATH	COUNT	11	0
+SQL_PATH	SOURCE	12	1
+SQL_PATH	COUNT	12	0
+SQL_PATH	SOURCE	13	1
+SQL_PATH	COUNT	13	0
+SQL_PATH	SOURCE	14	1
+SQL_PATH	COUNT	14	0
+SQL_PATH	SOURCE	15	1
+SQL_PATH	COUNT	15	0
+SQL_PATH	SOURCE	16	1
+SQL_PATH	COUNT	16	0
+SQL_PATH	SOURCE	17	1
+SQL_PATH	COUNT	17	0
+SQL_PATH	SOURCE	18	1
+SQL_PATH	COUNT	18	0
+SQL_PATH	SOURCE	19	1
+SQL_PATH	COUNT	19	0
+SQL_PATH	SOURCE	20	1
+SQL_PATH	COUNT	20	0
+SQL_PATH	SOURCE	21	1
+SQL_PATH	COUNT	21	0
+SQL_PATH	SOURCE	22	1
+SQL_PATH	COUNT	22	0
+SQL_PATH	SOURCE	23	1
+SQL_PATH	COUNT	23	0
+SQL_PATH	SOURCE	24	1
+SQL_PATH	COUNT	24	0
+SQL_PATH	SOURCE	25	1
+SQL_PATH	COUNT	25	0
+SQL_PATH	SOURCE	26	1
+SQL_PATH	COUNT	26	0
+SQL_PATH	SOURCE	27	1
+SQL_PATH	COUNT	27	0
+SQL_PATH	SOURCE	28	1
+SQL_PATH	COUNT	28	0
+SQL_PATH	SOURCE	29	1
+SQL_PATH	COUNT	29	0
+SQL_PATH	SOURCE	30	1
+SQL_PATH	COUNT	30	0
+SQL_PATH	SOURCE	31	1
+SQL_PATH	COUNT	31	0
+SQL_PATH	SOURCE	32	1
+SQL_PATH	COUNT	32	0
+SQL_PATH	SOURCE	33	1
+SQL_PATH	COUNT	33	0
+SQL_CASE	8
+SQL_PATH	SINK	1	1
+SQL_PATH	SOURCE	0	1
+SQL_PATH	COUNT	0	1
+SQL_PATH	NODE	0	0	Call	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00940.java	45	doPost	38	71
+SQL_PATH	NODE	0	0	Identifier	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00940.java	45	doPost	38	71
+SQL_PATH	NODE	0	0	Identifier	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00940.java	48	doPost	38	71
+SQL_PATH	NODE	0	0	Identifier	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00940.java	51	doPost	38	71
+SQL_PATH	NODE	0	0	Identifier	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00940.java	51	doPost	38	71
+SQL_PATH	NODE	0	0	Identifier	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00940.java	52	doPost	38	71
+SQL_PATH	NODE	0	0	Identifier	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00940.java	54	doPost	38	71
+SQL_PATH	NODE	0	0	Identifier	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00940.java	56	doPost	38	71
+SQL_PATH	NODE	0	0	Call	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00940.java	56	doPost	38	71
+SQL_PATH	NODE	0	0	Identifier	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00940.java	56	doPost	38	71
+SQL_PATH	NODE	0	0	Call	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00940.java	59	doPost	38	71
+SQL_PATH	NODE	0	0	Identifier	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00940.java	59	doPost	38	71
+SQL_PATH	NODE	0	0	Identifier	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00940.java	64	doPost	38	71
+SQL_PATH	SOURCE	1	1
+SQL_PATH	COUNT	1	0
+SQL_PATH	SOURCE	2	1
+SQL_PATH	COUNT	2	0
+SQL_PATH	SOURCE	3	1
+SQL_PATH	COUNT	3	0
+SQL_PATH	SOURCE	4	1
+SQL_PATH	COUNT	4	0
+SQL_PATH	SOURCE	5	1
+SQL_PATH	COUNT	5	0
+SQL_PATH	SOURCE	6	1
+SQL_PATH	COUNT	6	0
+SQL_PATH	SOURCE	7	1
+SQL_PATH	COUNT	7	0
+SQL_PATH	SOURCE	8	1
+SQL_PATH	COUNT	8	0
+SQL_PATH	SOURCE	9	1
+SQL_PATH	COUNT	9	0
+SQL_PATH	SOURCE	10	1
+SQL_PATH	COUNT	10	0
+SQL_PATH	SOURCE	11	1
+SQL_PATH	COUNT	11	0
+SQL_PATH	SOURCE	12	1
+SQL_PATH	COUNT	12	0
+SQL_PATH	SOURCE	13	1
+SQL_PATH	COUNT	13	0
+SQL_PATH	SOURCE	14	1
+SQL_PATH	COUNT	14	0
+SQL_PATH	SOURCE	15	1
+SQL_PATH	COUNT	15	0
+SQL_PATH	SOURCE	16	1
+SQL_PATH	COUNT	16	0
+SQL_PATH	SOURCE	17	1
+SQL_PATH	COUNT	17	0
+SQL_PATH	SOURCE	18	1
+SQL_PATH	COUNT	18	0
+SQL_PATH	SOURCE	19	1
+SQL_PATH	COUNT	19	0
+SQL_PATH	SOURCE	20	1
+SQL_PATH	COUNT	20	0
+SQL_PATH	SOURCE	21	1
+SQL_PATH	COUNT	21	0
+SQL_PATH	SOURCE	22	1
+SQL_PATH	COUNT	22	0
+SQL_PATH	SOURCE	23	1
+SQL_PATH	COUNT	23	0
+SQL_PATH	SOURCE	24	1
+SQL_PATH	COUNT	24	0
+SQL_PATH	SOURCE	25	1
+SQL_PATH	COUNT	25	0
+SQL_PATH	SOURCE	26	1
+SQL_PATH	COUNT	26	0
+SQL_PATH	SOURCE	27	1
+SQL_PATH	COUNT	27	0
+SQL_PATH	SOURCE	28	1
+SQL_PATH	COUNT	28	0
+SQL_PATH	SOURCE	29	1
+SQL_PATH	COUNT	29	0
+SQL_PATH	SOURCE	30	1
+SQL_PATH	COUNT	30	0
+SQL_PATH	SOURCE	31	1
+SQL_PATH	COUNT	31	0
+SQL_PATH	SOURCE	32	1
+SQL_PATH	COUNT	32	0
+SQL_PATH	SOURCE	33	1
+SQL_PATH	COUNT	33	0
+SQL_PATH	SOURCE	34	1
+SQL_PATH	COUNT	34	0
+SQL_CASE	9
+SQL_PATH	SINK	1	1
+SQL_PATH	SOURCE	0	1
+SQL_PATH	COUNT	0	1
+SQL_PATH	NODE	0	0	Call	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00996.java	55	doPost	50	83
+SQL_PATH	NODE	0	0	Identifier	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00996.java	55	doPost	50	83
+SQL_PATH	NODE	0	0	Identifier	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00996.java	58	doPost	50	83
+SQL_PATH	NODE	0	0	Call	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00996.java	59	doPost	50	83
+SQL_PATH	NODE	0	0	Identifier	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00996.java	59	doPost	50	83
+SQL_PATH	NODE	0	0	Identifier	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00996.java	60	doPost	50	83
+SQL_PATH	NODE	0	0	Identifier	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00996.java	61	doPost	50	83
+SQL_PATH	NODE	0	0	Call	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00996.java	61	doPost	50	83
+SQL_PATH	NODE	0	0	Call	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00996.java	61	doPost	50	83
+SQL_PATH	NODE	0	0	Call	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00996.java	61	doPost	50	83
+SQL_PATH	NODE	0	0	Identifier	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00996.java	61	doPost	50	83
+SQL_PATH	NODE	0	0	Identifier	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00996.java	67	doPost	50	83
+SQL_PATH	NODE	0	0	MethodParameterIn	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00996.java	87	doSomething	87	100
+SQL_PATH	NODE	0	0	Identifier	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00996.java	91	doSomething	87	100
+SQL_PATH	NODE	0	0	Identifier	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00996.java	96	doSomething	87	100
+SQL_PATH	NODE	0	0	Call	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00996.java	96	doSomething	87	100
+SQL_PATH	NODE	0	0	Call	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00996.java	95	doSomething	87	100
+SQL_PATH	NODE	0	0	Call	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00996.java	95	doSomething	87	100
+SQL_PATH	NODE	0	0	Call	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00996.java	94	doSomething	87	100
+SQL_PATH	NODE	0	0	Call	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00996.java	94	doSomething	87	100
+SQL_PATH	NODE	0	0	Identifier	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00996.java	92	doSomething	87	100
+SQL_PATH	NODE	0	0	Identifier	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00996.java	99	doSomething	87	100
+SQL_PATH	NODE	0	0	Return	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00996.java	99	doSomething	87	100
+SQL_PATH	NODE	0	0	MethodReturn	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00996.java	87	doSomething	87	100
+SQL_PATH	NODE	0	0	Call	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00996.java	67	doPost	50	83
+SQL_PATH	NODE	0	0	Identifier	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00996.java	67	doPost	50	83
+SQL_PATH	NODE	0	0	Call	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00996.java	69	doPost	50	83
+SQL_PATH	NODE	0	0	Identifier	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00996.java	69	doPost	50	83
+SQL_PATH	NODE	0	0	Identifier	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00996.java	74	doPost	50	83
+SQL_PATH	SOURCE	1	1
+SQL_PATH	COUNT	1	0
+SQL_PATH	SOURCE	2	1
+SQL_PATH	COUNT	2	1
+SQL_PATH	NODE	2	0	Call	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00996.java	61	doPost	50	83
+SQL_PATH	NODE	2	0	Call	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00996.java	61	doPost	50	83
+SQL_PATH	NODE	2	0	Call	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00996.java	61	doPost	50	83
+SQL_PATH	NODE	2	0	Identifier	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00996.java	61	doPost	50	83
+SQL_PATH	NODE	2	0	Identifier	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00996.java	67	doPost	50	83
+SQL_PATH	NODE	2	0	MethodParameterIn	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00996.java	87	doSomething	87	100
+SQL_PATH	NODE	2	0	Identifier	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00996.java	91	doSomething	87	100
+SQL_PATH	NODE	2	0	Identifier	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00996.java	96	doSomething	87	100
+SQL_PATH	NODE	2	0	Call	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00996.java	96	doSomething	87	100
+SQL_PATH	NODE	2	0	Call	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00996.java	95	doSomething	87	100
+SQL_PATH	NODE	2	0	Call	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00996.java	95	doSomething	87	100
+SQL_PATH	NODE	2	0	Call	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00996.java	94	doSomething	87	100
+SQL_PATH	NODE	2	0	Call	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00996.java	94	doSomething	87	100
+SQL_PATH	NODE	2	0	Identifier	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00996.java	92	doSomething	87	100
+SQL_PATH	NODE	2	0	Identifier	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00996.java	99	doSomething	87	100
+SQL_PATH	NODE	2	0	Return	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00996.java	99	doSomething	87	100
+SQL_PATH	NODE	2	0	MethodReturn	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00996.java	87	doSomething	87	100
+SQL_PATH	NODE	2	0	Call	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00996.java	67	doPost	50	83
+SQL_PATH	NODE	2	0	Identifier	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00996.java	67	doPost	50	83
+SQL_PATH	NODE	2	0	Call	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00996.java	69	doPost	50	83
+SQL_PATH	NODE	2	0	Identifier	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00996.java	69	doPost	50	83
+SQL_PATH	NODE	2	0	Identifier	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00996.java	74	doPost	50	83
+SQL_PATH	SOURCE	3	1
+SQL_PATH	COUNT	3	0
+SQL_PATH	SOURCE	4	1
+SQL_PATH	COUNT	4	0
+SQL_PATH	SOURCE	5	1
+SQL_PATH	COUNT	5	0
+SQL_PATH	SOURCE	6	1
+SQL_PATH	COUNT	6	0
+SQL_PATH	SOURCE	7	1
+SQL_PATH	COUNT	7	0
+SQL_PATH	SOURCE	8	1
+SQL_PATH	COUNT	8	0
+SQL_PATH	SOURCE	9	1
+SQL_PATH	COUNT	9	0
+SQL_PATH	SOURCE	10	1
+SQL_PATH	COUNT	10	0
+SQL_PATH	SOURCE	11	1
+SQL_PATH	COUNT	11	0
+SQL_PATH	SOURCE	12	1
+SQL_PATH	COUNT	12	0
+SQL_PATH	SOURCE	13	1
+SQL_PATH	COUNT	13	0
+SQL_PATH	SOURCE	14	1
+SQL_PATH	COUNT	14	0
+SQL_PATH	SOURCE	15	1
+SQL_PATH	COUNT	15	0
+SQL_PATH	SOURCE	16	1
+SQL_PATH	COUNT	16	0
+SQL_PATH	SOURCE	17	1
+SQL_PATH	COUNT	17	0
+SQL_PATH	SOURCE	18	1
+SQL_PATH	COUNT	18	0
+SQL_PATH	SOURCE	19	1
+SQL_PATH	COUNT	19	0
+SQL_PATH	SOURCE	20	1
+SQL_PATH	COUNT	20	0
+SQL_PATH	SOURCE	21	1
+SQL_PATH	COUNT	21	0
+SQL_PATH	SOURCE	22	1
+SQL_PATH	COUNT	22	0
+SQL_PATH	SOURCE	23	1
+SQL_PATH	COUNT	23	0
+SQL_PATH	SOURCE	24	1
+SQL_PATH	COUNT	24	0
+SQL_PATH	SOURCE	25	1
+SQL_PATH	COUNT	25	0
+SQL_PATH	SOURCE	26	1
+SQL_PATH	COUNT	26	0
+SQL_PATH	SOURCE	27	1
+SQL_PATH	COUNT	27	0
+SQL_PATH	SOURCE	28	1
+SQL_PATH	COUNT	28	0
+SQL_PATH	SOURCE	29	1
+SQL_PATH	COUNT	29	0
+SQL_PATH	SOURCE	30	1
+SQL_PATH	COUNT	30	0
+SQL_PATH	SOURCE	31	1
+SQL_PATH	COUNT	31	0
+SQL_PATH	SOURCE	32	1
+SQL_PATH	COUNT	32	0
+SQL_PATH	SOURCE	33	1
+SQL_PATH	COUNT	33	0
+SQL_PATH	SOURCE	34	1
+SQL_PATH	COUNT	34	0
+SQL_PATH	SOURCE	35	1
+SQL_PATH	COUNT	35	0
+SQL_CASE	10
+SQL_PATH	SINK	1	1
+SQL_PATH	SOURCE	0	1
+SQL_PATH	COUNT	0	0
+SQL_PATH	SOURCE	1	1
+SQL_PATH	COUNT	1	1
+SQL_PATH	NODE	1	0	Call	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01094.java	45	doPost	38	65
+SQL_PATH	NODE	1	0	Identifier	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01094.java	45	doPost	38	65
+SQL_PATH	NODE	1	0	Identifier	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01094.java	49	doPost	38	65
+SQL_PATH	NODE	1	0	Call	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01094.java	49	doPost	38	65
+SQL_PATH	NODE	1	0	Call	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01094.java	49	doPost	38	65
+SQL_PATH	NODE	1	0	Identifier	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01094.java	49	doPost	38	65
+SQL_PATH	NODE	1	0	Identifier	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01094.java	51	doPost	38	65
+SQL_PATH	NODE	1	0	MethodParameterIn	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01094.java	69	doSomething	69	75
+SQL_PATH	NODE	1	0	Identifier	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01094.java	72	doSomething	69	75
+SQL_PATH	NODE	1	0	Identifier	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01094.java	72	doSomething	69	75
+SQL_PATH	NODE	1	0	Identifier	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01094.java	74	doSomething	69	75
+SQL_PATH	NODE	1	0	Return	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01094.java	74	doSomething	69	75
+SQL_PATH	NODE	1	0	MethodReturn	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01094.java	69	doSomething	69	75
+SQL_PATH	NODE	1	0	Call	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01094.java	51	doPost	38	65
+SQL_PATH	NODE	1	0	Identifier	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01094.java	51	doPost	38	65
+SQL_PATH	NODE	1	0	Call	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01094.java	53	doPost	38	65
+SQL_PATH	NODE	1	0	Identifier	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01094.java	53	doPost	38	65
+SQL_PATH	NODE	1	0	Identifier	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01094.java	58	doPost	38	65
+SQL_PATH	SOURCE	2	1
+SQL_PATH	COUNT	2	1
+SQL_PATH	NODE	2	0	Call	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01094.java	49	doPost	38	65
+SQL_PATH	NODE	2	0	Identifier	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01094.java	49	doPost	38	65
+SQL_PATH	NODE	2	0	Identifier	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01094.java	51	doPost	38	65
+SQL_PATH	NODE	2	0	MethodParameterIn	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01094.java	69	doSomething	69	75
+SQL_PATH	NODE	2	0	Identifier	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01094.java	72	doSomething	69	75
+SQL_PATH	NODE	2	0	Identifier	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01094.java	72	doSomething	69	75
+SQL_PATH	NODE	2	0	Identifier	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01094.java	74	doSomething	69	75
+SQL_PATH	NODE	2	0	Return	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01094.java	74	doSomething	69	75
+SQL_PATH	NODE	2	0	MethodReturn	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01094.java	69	doSomething	69	75
+SQL_PATH	NODE	2	0	Call	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01094.java	51	doPost	38	65
+SQL_PATH	NODE	2	0	Identifier	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01094.java	51	doPost	38	65
+SQL_PATH	NODE	2	0	Call	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01094.java	53	doPost	38	65
+SQL_PATH	NODE	2	0	Identifier	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01094.java	53	doPost	38	65
+SQL_PATH	NODE	2	0	Identifier	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01094.java	58	doPost	38	65
+SQL_PATH	SOURCE	3	1
+SQL_PATH	COUNT	3	0
+SQL_PATH	SOURCE	4	1
+SQL_PATH	COUNT	4	0
+SQL_PATH	SOURCE	5	1
+SQL_PATH	COUNT	5	0
+SQL_PATH	SOURCE	6	1
+SQL_PATH	COUNT	6	0
+SQL_PATH	SOURCE	7	1
+SQL_PATH	COUNT	7	0
+SQL_PATH	SOURCE	8	1
+SQL_PATH	COUNT	8	0
+SQL_PATH	SOURCE	9	1
+SQL_PATH	COUNT	9	0
+SQL_PATH	SOURCE	10	1
+SQL_PATH	COUNT	10	0
+SQL_PATH	SOURCE	11	1
+SQL_PATH	COUNT	11	0
+SQL_PATH	SOURCE	12	1
+SQL_PATH	COUNT	12	0
+SQL_PATH	SOURCE	13	1
+SQL_PATH	COUNT	13	0
+SQL_PATH	SOURCE	14	1
+SQL_PATH	COUNT	14	0
+SQL_PATH	SOURCE	15	1
+SQL_PATH	COUNT	15	0
+SQL_PATH	SOURCE	16	1
+SQL_PATH	COUNT	16	0
+SQL_PATH	SOURCE	17	1
+SQL_PATH	COUNT	17	0
+SQL_PATH	SOURCE	18	1
+SQL_PATH	COUNT	18	0
+SQL_PATH	SOURCE	19	1
+SQL_PATH	COUNT	19	0
+SQL_PATH	SOURCE	20	1
+SQL_PATH	COUNT	20	0
+SQL_PATH	SOURCE	21	1
+SQL_PATH	COUNT	21	0
+SQL_PATH	SOURCE	22	1
+SQL_PATH	COUNT	22	0
+SQL_PATH	SOURCE	23	1
+SQL_PATH	COUNT	23	0
+SQL_PATH	SOURCE	24	1
+SQL_PATH	COUNT	24	0
+SQL_PATH	SOURCE	25	1
+SQL_PATH	COUNT	25	0
+SQL_PATH	SOURCE	26	1
+SQL_PATH	COUNT	26	0
+SQL_PATH	SOURCE	27	1
+SQL_PATH	COUNT	27	0
+SQL_PATH	SOURCE	28	1
+SQL_PATH	COUNT	28	0
+SQL_PATH	SOURCE	29	1
+SQL_PATH	COUNT	29	0
+SQL_PATH	SOURCE	30	1
+SQL_PATH	COUNT	30	0
+SQL_PATH	SOURCE	31	1
+SQL_PATH	COUNT	31	0
+SQL_PATH	SOURCE	32	1
+SQL_PATH	COUNT	32	0
+SQL_PATH	SOURCE	33	1
+SQL_PATH	COUNT	33	0
+SQL_PATH	SOURCE	34	1
+SQL_PATH	COUNT	34	0
+SQL_CASE	11
+SQL_PATH	SINK	1	1
+SQL_PATH	SOURCE	0	1
+SQL_PATH	COUNT	0	1
+SQL_PATH	NODE	0	0	Call	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01220.java	44	doPost	38	67
+SQL_PATH	NODE	0	0	Identifier	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01220.java	44	doPost	38	67
+SQL_PATH	NODE	0	0	Identifier	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01220.java	46	doPost	38	67
+SQL_PATH	NODE	0	0	Identifier	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01220.java	46	doPost	38	67
+SQL_PATH	NODE	0	0	Identifier	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01220.java	47	doPost	38	67
+SQL_PATH	NODE	0	0	Call	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01220.java	47	doPost	38	67
+SQL_PATH	NODE	0	0	Identifier	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01220.java	47	doPost	38	67
+SQL_PATH	NODE	0	0	Identifier	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01220.java	51	doPost	38	67
+SQL_PATH	NODE	0	0	Call	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01220.java	51	doPost	38	67
+SQL_PATH	NODE	0	0	Call	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01220.java	51	doPost	38	67
+SQL_PATH	NODE	0	0	Identifier	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01220.java	51	doPost	38	67
+SQL_PATH	NODE	0	0	Identifier	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01220.java	53	doPost	38	67
+SQL_PATH	NODE	0	0	MethodParameterIn	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01220.java	71	doSomething	71	82
+SQL_PATH	NODE	0	0	Call	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01220.java	79	doSomething	71	82
+SQL_PATH	NODE	0	0	Identifier	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01220.java	79	doSomething	71	82
+SQL_PATH	NODE	0	0	Identifier	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01220.java	81	doSomething	71	82
+SQL_PATH	NODE	0	0	Return	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01220.java	81	doSomething	71	82
+SQL_PATH	NODE	0	0	MethodReturn	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01220.java	71	doSomething	71	82
+SQL_PATH	NODE	0	0	Call	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01220.java	53	doPost	38	67
+SQL_PATH	NODE	0	0	Identifier	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01220.java	53	doPost	38	67
+SQL_PATH	NODE	0	0	Call	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01220.java	55	doPost	38	67
+SQL_PATH	NODE	0	0	Identifier	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01220.java	55	doPost	38	67
+SQL_PATH	NODE	0	0	Identifier	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01220.java	60	doPost	38	67
+SQL_PATH	SOURCE	1	1
+SQL_PATH	COUNT	1	0
+SQL_PATH	SOURCE	2	1
+SQL_PATH	COUNT	2	0
+SQL_PATH	SOURCE	3	1
+SQL_PATH	COUNT	3	0
+SQL_PATH	SOURCE	4	1
+SQL_PATH	COUNT	4	0
+SQL_PATH	SOURCE	5	1
+SQL_PATH	COUNT	5	0
+SQL_PATH	SOURCE	6	1
+SQL_PATH	COUNT	6	0
+SQL_PATH	SOURCE	7	1
+SQL_PATH	COUNT	7	0
+SQL_PATH	SOURCE	8	1
+SQL_PATH	COUNT	8	0
+SQL_PATH	SOURCE	9	1
+SQL_PATH	COUNT	9	0
+SQL_PATH	SOURCE	10	1
+SQL_PATH	COUNT	10	0
+SQL_PATH	SOURCE	11	1
+SQL_PATH	COUNT	11	0
+SQL_PATH	SOURCE	12	1
+SQL_PATH	COUNT	12	0
+SQL_PATH	SOURCE	13	1
+SQL_PATH	COUNT	13	0
+SQL_PATH	SOURCE	14	1
+SQL_PATH	COUNT	14	0
+SQL_PATH	SOURCE	15	1
+SQL_PATH	COUNT	15	0
+SQL_PATH	SOURCE	16	1
+SQL_PATH	COUNT	16	0
+SQL_PATH	SOURCE	17	1
+SQL_PATH	COUNT	17	0
+SQL_PATH	SOURCE	18	1
+SQL_PATH	COUNT	18	0
+SQL_PATH	SOURCE	19	1
+SQL_PATH	COUNT	19	0
+SQL_PATH	SOURCE	20	1
+SQL_PATH	COUNT	20	0
+SQL_PATH	SOURCE	21	1
+SQL_PATH	COUNT	21	0
+SQL_PATH	SOURCE	22	1
+SQL_PATH	COUNT	22	0
+SQL_PATH	SOURCE	23	1
+SQL_PATH	COUNT	23	0
+SQL_PATH	SOURCE	24	1
+SQL_PATH	COUNT	24	0
+SQL_PATH	SOURCE	25	1
+SQL_PATH	COUNT	25	0
+SQL_PATH	SOURCE	26	1
+SQL_PATH	COUNT	26	0
+SQL_PATH	SOURCE	27	1
+SQL_PATH	COUNT	27	0
+SQL_PATH	SOURCE	28	1
+SQL_PATH	COUNT	28	0
+SQL_PATH	SOURCE	29	1
+SQL_PATH	COUNT	29	0
+SQL_PATH	SOURCE	30	1
+SQL_PATH	COUNT	30	0
+SQL_PATH	SOURCE	31	1
+SQL_PATH	COUNT	31	0
+SQL_PATH	SOURCE	32	1
+SQL_PATH	COUNT	32	0
+SQL_PATH	SOURCE	33	1
+SQL_PATH	COUNT	33	0
+SQL_CASE	12
+SQL_PATH	SINK	1	1
+SQL_PATH	SOURCE	0	1
+SQL_PATH	COUNT	0	1
+SQL_PATH	NODE	0	0	Call	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01307.java	43	doPost	38	63
+SQL_PATH	NODE	0	0	Identifier	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01307.java	43	doPost	38	63
+SQL_PATH	NODE	0	0	Identifier	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01307.java	44	doPost	38	63
+SQL_PATH	NODE	0	0	Identifier	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01307.java	46	doPost	38	63
+SQL_PATH	NODE	0	0	MethodParameterIn	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01307.java	67	doSomething	67	78
+SQL_PATH	NODE	0	0	Identifier	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01307.java	75	doSomething	67	78
+SQL_PATH	NODE	0	0	Identifier	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01307.java	75	doSomething	67	78
+SQL_PATH	NODE	0	0	Identifier	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01307.java	77	doSomething	67	78
+SQL_PATH	NODE	0	0	Return	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01307.java	77	doSomething	67	78
+SQL_PATH	NODE	0	0	MethodReturn	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01307.java	67	doSomething	67	78
+SQL_PATH	NODE	0	0	Call	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01307.java	46	doPost	38	63
+SQL_PATH	NODE	0	0	Identifier	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01307.java	46	doPost	38	63
+SQL_PATH	NODE	0	0	Call	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01307.java	48	doPost	38	63
+SQL_PATH	NODE	0	0	Identifier	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01307.java	48	doPost	38	63
+SQL_PATH	NODE	0	0	Identifier	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01307.java	54	doPost	38	63
+SQL_PATH	SOURCE	1	1
+SQL_PATH	COUNT	1	0
+SQL_PATH	SOURCE	2	1
+SQL_PATH	COUNT	2	0
+SQL_PATH	SOURCE	3	1
+SQL_PATH	COUNT	3	0
+SQL_PATH	SOURCE	4	1
+SQL_PATH	COUNT	4	0
+SQL_PATH	SOURCE	5	1
+SQL_PATH	COUNT	5	0
+SQL_PATH	SOURCE	6	1
+SQL_PATH	COUNT	6	0
+SQL_PATH	SOURCE	7	1
+SQL_PATH	COUNT	7	0
+SQL_PATH	SOURCE	8	1
+SQL_PATH	COUNT	8	0
+SQL_PATH	SOURCE	9	1
+SQL_PATH	COUNT	9	0
+SQL_PATH	SOURCE	10	1
+SQL_PATH	COUNT	10	0
+SQL_PATH	SOURCE	11	1
+SQL_PATH	COUNT	11	0
+SQL_PATH	SOURCE	12	1
+SQL_PATH	COUNT	12	0
+SQL_PATH	SOURCE	13	1
+SQL_PATH	COUNT	13	0
+SQL_PATH	SOURCE	14	1
+SQL_PATH	COUNT	14	0
+SQL_PATH	SOURCE	15	1
+SQL_PATH	COUNT	15	0
+SQL_PATH	SOURCE	16	1
+SQL_PATH	COUNT	16	0
+SQL_PATH	SOURCE	17	1
+SQL_PATH	COUNT	17	0
+SQL_PATH	SOURCE	18	1
+SQL_PATH	COUNT	18	0
+SQL_PATH	SOURCE	19	1
+SQL_PATH	COUNT	19	0
+SQL_PATH	SOURCE	20	1
+SQL_PATH	COUNT	20	0
+SQL_PATH	SOURCE	21	1
+SQL_PATH	COUNT	21	0
+SQL_PATH	SOURCE	22	1
+SQL_PATH	COUNT	22	0
+SQL_PATH	SOURCE	23	1
+SQL_PATH	COUNT	23	0
+SQL_PATH	SOURCE	24	1
+SQL_PATH	COUNT	24	0
+SQL_PATH	SOURCE	25	1
+SQL_PATH	COUNT	25	0
+SQL_PATH	SOURCE	26	1
+SQL_PATH	COUNT	26	0
+SQL_PATH	SOURCE	27	1
+SQL_PATH	COUNT	27	0
+SQL_PATH	SOURCE	28	1
+SQL_PATH	COUNT	28	0
+SQL_PATH	SOURCE	29	1
+SQL_PATH	COUNT	29	0
+SQL_PATH	SOURCE	30	1
+SQL_PATH	COUNT	30	0
+SQL_PATH	SOURCE	31	1
+SQL_PATH	COUNT	31	0
+SQL_PATH	SOURCE	32	1
+SQL_PATH	COUNT	32	0
+SQL_PATH	SOURCE	33	1
+SQL_PATH	COUNT	33	0
+SQL_CASE	13
+SQL_PATH	SINK	1	1
+SQL_PATH	SOURCE	0	1
+SQL_PATH	COUNT	0	1
+SQL_PATH	NODE	0	0	Call	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01460.java	45	doPost	38	79
+SQL_PATH	NODE	0	0	Identifier	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01460.java	45	doPost	38	79
+SQL_PATH	NODE	0	0	Identifier	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01460.java	46	doPost	38	79
+SQL_PATH	NODE	0	0	Identifier	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01460.java	47	doPost	38	79
+SQL_PATH	NODE	0	0	Call	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01460.java	47	doPost	38	79
+SQL_PATH	NODE	0	0	Identifier	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01460.java	47	doPost	38	79
+SQL_PATH	NODE	0	0	Identifier	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01460.java	48	doPost	38	79
+SQL_PATH	NODE	0	0	Identifier	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01460.java	53	doPost	38	79
+SQL_PATH	NODE	0	0	Identifier	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01460.java	53	doPost	38	79
+SQL_PATH	NODE	0	0	Identifier	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01460.java	60	doPost	38	79
+SQL_PATH	NODE	0	0	MethodParameterIn	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01460.java	83	doSomething	83	94
+SQL_PATH	NODE	0	0	Identifier	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01460.java	89	doSomething	83	94
+SQL_PATH	NODE	0	0	Identifier	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01460.java	89	doSomething	83	94
+SQL_PATH	NODE	0	0	Identifier	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01460.java	90	doSomething	83	94
+SQL_PATH	NODE	0	0	Identifier	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01460.java	91	doSomething	83	94
+SQL_PATH	NODE	0	0	Call	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01460.java	91	doSomething	83	94
+SQL_PATH	NODE	0	0	Identifier	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01460.java	91	doSomething	83	94
+SQL_PATH	NODE	0	0	Identifier	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01460.java	93	doSomething	83	94
+SQL_PATH	NODE	0	0	Return	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01460.java	93	doSomething	83	94
+SQL_PATH	NODE	0	0	MethodReturn	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01460.java	83	doSomething	83	94
+SQL_PATH	NODE	0	0	Call	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01460.java	60	doPost	38	79
+SQL_PATH	NODE	0	0	Identifier	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01460.java	60	doPost	38	79
+SQL_PATH	NODE	0	0	Call	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01460.java	62	doPost	38	79
+SQL_PATH	NODE	0	0	Identifier	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01460.java	62	doPost	38	79
+SQL_PATH	NODE	0	0	Identifier	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01460.java	69	doPost	38	79
+SQL_PATH	SOURCE	1	1
+SQL_PATH	COUNT	1	0
+SQL_PATH	SOURCE	2	1
+SQL_PATH	COUNT	2	1
+SQL_PATH	NODE	2	0	Call	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01460.java	47	doPost	38	79
+SQL_PATH	NODE	2	0	Call	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01460.java	47	doPost	38	79
+SQL_PATH	NODE	2	0	Identifier	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01460.java	47	doPost	38	79
+SQL_PATH	NODE	2	0	Identifier	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01460.java	48	doPost	38	79
+SQL_PATH	NODE	2	0	Identifier	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01460.java	53	doPost	38	79
+SQL_PATH	NODE	2	0	Identifier	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01460.java	53	doPost	38	79
+SQL_PATH	NODE	2	0	Identifier	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01460.java	60	doPost	38	79
+SQL_PATH	NODE	2	0	MethodParameterIn	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01460.java	83	doSomething	83	94
+SQL_PATH	NODE	2	0	Identifier	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01460.java	89	doSomething	83	94
+SQL_PATH	NODE	2	0	Identifier	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01460.java	89	doSomething	83	94
+SQL_PATH	NODE	2	0	Identifier	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01460.java	90	doSomething	83	94
+SQL_PATH	NODE	2	0	Identifier	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01460.java	91	doSomething	83	94
+SQL_PATH	NODE	2	0	Call	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01460.java	91	doSomething	83	94
+SQL_PATH	NODE	2	0	Identifier	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01460.java	91	doSomething	83	94
+SQL_PATH	NODE	2	0	Identifier	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01460.java	93	doSomething	83	94
+SQL_PATH	NODE	2	0	Return	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01460.java	93	doSomething	83	94
+SQL_PATH	NODE	2	0	MethodReturn	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01460.java	83	doSomething	83	94
+SQL_PATH	NODE	2	0	Call	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01460.java	60	doPost	38	79
+SQL_PATH	NODE	2	0	Identifier	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01460.java	60	doPost	38	79
+SQL_PATH	NODE	2	0	Call	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01460.java	62	doPost	38	79
+SQL_PATH	NODE	2	0	Identifier	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01460.java	62	doPost	38	79
+SQL_PATH	NODE	2	0	Identifier	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01460.java	69	doPost	38	79
+SQL_PATH	SOURCE	3	1
+SQL_PATH	COUNT	3	0
+SQL_PATH	SOURCE	4	1
+SQL_PATH	COUNT	4	0
+SQL_PATH	SOURCE	5	1
+SQL_PATH	COUNT	5	0
+SQL_PATH	SOURCE	6	1
+SQL_PATH	COUNT	6	0
+SQL_PATH	SOURCE	7	1
+SQL_PATH	COUNT	7	0
+SQL_PATH	SOURCE	8	1
+SQL_PATH	COUNT	8	0
+SQL_PATH	SOURCE	9	1
+SQL_PATH	COUNT	9	0
+SQL_PATH	SOURCE	10	1
+SQL_PATH	COUNT	10	0
+SQL_PATH	SOURCE	11	1
+SQL_PATH	COUNT	11	0
+SQL_PATH	SOURCE	12	1
+SQL_PATH	COUNT	12	0
+SQL_PATH	SOURCE	13	1
+SQL_PATH	COUNT	13	0
+SQL_PATH	SOURCE	14	1
+SQL_PATH	COUNT	14	0
+SQL_PATH	SOURCE	15	1
+SQL_PATH	COUNT	15	0
+SQL_PATH	SOURCE	16	1
+SQL_PATH	COUNT	16	0
+SQL_PATH	SOURCE	17	1
+SQL_PATH	COUNT	17	0
+SQL_PATH	SOURCE	18	1
+SQL_PATH	COUNT	18	0
+SQL_PATH	SOURCE	19	1
+SQL_PATH	COUNT	19	0
+SQL_PATH	SOURCE	20	1
+SQL_PATH	COUNT	20	0
+SQL_PATH	SOURCE	21	1
+SQL_PATH	COUNT	21	0
+SQL_PATH	SOURCE	22	1
+SQL_PATH	COUNT	22	0
+SQL_PATH	SOURCE	23	1
+SQL_PATH	COUNT	23	0
+SQL_PATH	SOURCE	24	1
+SQL_PATH	COUNT	24	0
+SQL_PATH	SOURCE	25	1
+SQL_PATH	COUNT	25	0
+SQL_PATH	SOURCE	26	1
+SQL_PATH	COUNT	26	0
+SQL_PATH	SOURCE	27	1
+SQL_PATH	COUNT	27	0
+SQL_PATH	SOURCE	28	1
+SQL_PATH	COUNT	28	0
+SQL_PATH	SOURCE	29	1
+SQL_PATH	COUNT	29	0
+SQL_PATH	SOURCE	30	1
+SQL_PATH	COUNT	30	0
+SQL_PATH	SOURCE	31	1
+SQL_PATH	COUNT	31	0
+SQL_PATH	SOURCE	32	1
+SQL_PATH	COUNT	32	0
+SQL_PATH	SOURCE	33	1
+SQL_PATH	COUNT	33	0
+SQL_PATH	SOURCE	34	1
+SQL_PATH	COUNT	34	0
+SQL_CASE	14
+SQL_PATH	SINK	1	1
+SQL_PATH	SOURCE	0	1
+SQL_PATH	COUNT	0	1
+SQL_PATH	NODE	0	0	Call	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01630.java	43	doPost	38	62
+SQL_PATH	NODE	0	0	Identifier	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01630.java	43	doPost	38	62
+SQL_PATH	NODE	0	0	Identifier	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01630.java	45	doPost	38	62
+SQL_PATH	NODE	0	0	Call	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01630.java	45	doPost	38	62
+SQL_PATH	NODE	0	0	Identifier	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01630.java	45	doPost	38	62
+SQL_PATH	NODE	0	0	Identifier	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01630.java	48	doPost	38	62
+SQL_PATH	NODE	0	0	MethodParameterIn	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01630.java	66	doSomething	66	79
+SQL_PATH	NODE	0	0	Identifier	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01630.java	70	doSomething	66	79
+SQL_PATH	NODE	0	0	Identifier	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01630.java	75	doSomething	66	79
+SQL_PATH	NODE	0	0	Call	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01630.java	75	doSomething	66	79
+SQL_PATH	NODE	0	0	Call	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01630.java	74	doSomething	66	79
+SQL_PATH	NODE	0	0	Call	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01630.java	74	doSomething	66	79
+SQL_PATH	NODE	0	0	Call	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01630.java	73	doSomething	66	79
+SQL_PATH	NODE	0	0	Call	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01630.java	73	doSomething	66	79
+SQL_PATH	NODE	0	0	Identifier	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01630.java	71	doSomething	66	79
+SQL_PATH	NODE	0	0	Identifier	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01630.java	78	doSomething	66	79
+SQL_PATH	NODE	0	0	Return	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01630.java	78	doSomething	66	79
+SQL_PATH	NODE	0	0	MethodReturn	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01630.java	66	doSomething	66	79
+SQL_PATH	NODE	0	0	Call	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01630.java	48	doPost	38	62
+SQL_PATH	NODE	0	0	Identifier	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01630.java	48	doPost	38	62
+SQL_PATH	NODE	0	0	Call	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01630.java	50	doPost	38	62
+SQL_PATH	NODE	0	0	Identifier	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01630.java	50	doPost	38	62
+SQL_PATH	NODE	0	0	Identifier	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01630.java	55	doPost	38	62
+SQL_PATH	SOURCE	1	1
+SQL_PATH	COUNT	1	0
+SQL_PATH	SOURCE	2	1
+SQL_PATH	COUNT	2	0
+SQL_PATH	SOURCE	3	1
+SQL_PATH	COUNT	3	0
+SQL_PATH	SOURCE	4	1
+SQL_PATH	COUNT	4	0
+SQL_PATH	SOURCE	5	1
+SQL_PATH	COUNT	5	0
+SQL_PATH	SOURCE	6	1
+SQL_PATH	COUNT	6	0
+SQL_PATH	SOURCE	7	1
+SQL_PATH	COUNT	7	0
+SQL_PATH	SOURCE	8	1
+SQL_PATH	COUNT	8	0
+SQL_PATH	SOURCE	9	1
+SQL_PATH	COUNT	9	0
+SQL_PATH	SOURCE	10	1
+SQL_PATH	COUNT	10	0
+SQL_PATH	SOURCE	11	1
+SQL_PATH	COUNT	11	0
+SQL_PATH	SOURCE	12	1
+SQL_PATH	COUNT	12	0
+SQL_PATH	SOURCE	13	1
+SQL_PATH	COUNT	13	0
+SQL_PATH	SOURCE	14	1
+SQL_PATH	COUNT	14	0
+SQL_PATH	SOURCE	15	1
+SQL_PATH	COUNT	15	0
+SQL_PATH	SOURCE	16	1
+SQL_PATH	COUNT	16	0
+SQL_PATH	SOURCE	17	1
+SQL_PATH	COUNT	17	0
+SQL_PATH	SOURCE	18	1
+SQL_PATH	COUNT	18	0
+SQL_PATH	SOURCE	19	1
+SQL_PATH	COUNT	19	0
+SQL_PATH	SOURCE	20	1
+SQL_PATH	COUNT	20	0
+SQL_PATH	SOURCE	21	1
+SQL_PATH	COUNT	21	0
+SQL_PATH	SOURCE	22	1
+SQL_PATH	COUNT	22	0
+SQL_PATH	SOURCE	23	1
+SQL_PATH	COUNT	23	0
+SQL_PATH	SOURCE	24	1
+SQL_PATH	COUNT	24	0
+SQL_PATH	SOURCE	25	1
+SQL_PATH	COUNT	25	0
+SQL_PATH	SOURCE	26	1
+SQL_PATH	COUNT	26	0
+SQL_PATH	SOURCE	27	1
+SQL_PATH	COUNT	27	0
+SQL_PATH	SOURCE	28	1
+SQL_PATH	COUNT	28	0
+SQL_PATH	SOURCE	29	1
+SQL_PATH	COUNT	29	0
+SQL_PATH	SOURCE	30	1
+SQL_PATH	COUNT	30	0
+SQL_PATH	SOURCE	31	1
+SQL_PATH	COUNT	31	0
+SQL_PATH	SOURCE	32	1
+SQL_PATH	COUNT	32	0
+SQL_PATH	SOURCE	33	1
+SQL_PATH	COUNT	33	0
+SQL_CASE	15
+SQL_PATH	SINK	1	1
+SQL_PATH	SOURCE	0	1
+SQL_PATH	COUNT	0	1
+SQL_PATH	NODE	0	0	Call	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01728.java	43	doPost	38	85
+SQL_PATH	NODE	0	0	Identifier	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01728.java	43	doPost	38	85
+SQL_PATH	NODE	0	0	Identifier	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01728.java	46	doPost	38	85
+SQL_PATH	NODE	0	0	Identifier	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01728.java	46	doPost	38	85
+SQL_PATH	NODE	0	0	Call	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01728.java	46	doPost	38	85
+SQL_PATH	NODE	0	0	Identifier	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01728.java	46	doPost	38	85
+SQL_PATH	NODE	0	0	Identifier	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01728.java	47	doPost	38	85
+SQL_PATH	NODE	0	0	Call	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01728.java	58	doPost	38	85
+SQL_PATH	NODE	0	0	Identifier	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01728.java	57	doPost	38	85
+SQL_PATH	NODE	0	0	Identifier	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01728.java	64	doPost	38	85
+SQL_PATH	NODE	0	0	Call	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01728.java	64	doPost	38	85
+SQL_PATH	NODE	0	0	Identifier	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01728.java	64	doPost	38	85
+SQL_PATH	NODE	0	0	Identifier	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01728.java	65	doPost	38	85
+SQL_PATH	NODE	0	0	Identifier	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01728.java	66	doPost	38	85
+SQL_PATH	NODE	0	0	Call	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01728.java	66	doPost	38	85
+SQL_PATH	NODE	0	0	Identifier	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01728.java	66	doPost	38	85
+SQL_PATH	NODE	0	0	Call	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01728.java	66	doPost	38	85
+SQL_PATH	NODE	0	0	Identifier	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01728.java	66	doPost	38	85
+SQL_PATH	NODE	0	0	Identifier	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01728.java	68	doPost	38	85
+SQL_PATH	NODE	0	0	Call	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01728.java	68	doPost	38	85
+SQL_PATH	NODE	0	0	Call	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01728.java	68	doPost	38	85
+SQL_PATH	NODE	0	0	Identifier	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01728.java	68	doPost	38	85
+SQL_PATH	NODE	0	0	Identifier	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01728.java	70	doPost	38	85
+SQL_PATH	NODE	0	0	MethodParameterIn	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01728.java	89	doSomething	89	100
+SQL_PATH	NODE	0	0	Call	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01728.java	97	doSomething	89	100
+SQL_PATH	NODE	0	0	Identifier	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01728.java	97	doSomething	89	100
+SQL_PATH	NODE	0	0	Identifier	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01728.java	99	doSomething	89	100
+SQL_PATH	NODE	0	0	Return	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01728.java	99	doSomething	89	100
+SQL_PATH	NODE	0	0	MethodReturn	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01728.java	89	doSomething	89	100
+SQL_PATH	NODE	0	0	Call	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01728.java	70	doPost	38	85
+SQL_PATH	NODE	0	0	Identifier	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01728.java	70	doPost	38	85
+SQL_PATH	NODE	0	0	Call	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01728.java	72	doPost	38	85
+SQL_PATH	NODE	0	0	Identifier	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01728.java	72	doPost	38	85
+SQL_PATH	NODE	0	0	Identifier	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01728.java	77	doPost	38	85
+SQL_PATH	SOURCE	1	1
+SQL_PATH	COUNT	1	0
+SQL_PATH	SOURCE	2	1
+SQL_PATH	COUNT	2	0
+SQL_PATH	SOURCE	3	1
+SQL_PATH	COUNT	3	0
+SQL_PATH	SOURCE	4	1
+SQL_PATH	COUNT	4	0
+SQL_PATH	SOURCE	5	1
+SQL_PATH	COUNT	5	0
+SQL_PATH	SOURCE	6	1
+SQL_PATH	COUNT	6	0
+SQL_PATH	SOURCE	7	1
+SQL_PATH	COUNT	7	0
+SQL_PATH	SOURCE	8	1
+SQL_PATH	COUNT	8	0
+SQL_PATH	SOURCE	9	1
+SQL_PATH	COUNT	9	0
+SQL_PATH	SOURCE	10	1
+SQL_PATH	COUNT	10	0
+SQL_PATH	SOURCE	11	1
+SQL_PATH	COUNT	11	0
+SQL_PATH	SOURCE	12	1
+SQL_PATH	COUNT	12	0
+SQL_PATH	SOURCE	13	1
+SQL_PATH	COUNT	13	0
+SQL_PATH	SOURCE	14	1
+SQL_PATH	COUNT	14	0
+SQL_PATH	SOURCE	15	1
+SQL_PATH	COUNT	15	0
+SQL_PATH	SOURCE	16	1
+SQL_PATH	COUNT	16	0
+SQL_PATH	SOURCE	17	1
+SQL_PATH	COUNT	17	0
+SQL_PATH	SOURCE	18	1
+SQL_PATH	COUNT	18	0
+SQL_PATH	SOURCE	19	1
+SQL_PATH	COUNT	19	0
+SQL_PATH	SOURCE	20	1
+SQL_PATH	COUNT	20	0
+SQL_PATH	SOURCE	21	1
+SQL_PATH	COUNT	21	0
+SQL_PATH	SOURCE	22	1
+SQL_PATH	COUNT	22	0
+SQL_PATH	SOURCE	23	1
+SQL_PATH	COUNT	23	0
+SQL_PATH	SOURCE	24	1
+SQL_PATH	COUNT	24	0
+SQL_PATH	SOURCE	25	1
+SQL_PATH	COUNT	25	0
+SQL_PATH	SOURCE	26	1
+SQL_PATH	COUNT	26	0
+SQL_PATH	SOURCE	27	1
+SQL_PATH	COUNT	27	0
+SQL_PATH	SOURCE	28	1
+SQL_PATH	COUNT	28	0
+SQL_PATH	SOURCE	29	1
+SQL_PATH	COUNT	29	0
+SQL_PATH	SOURCE	30	1
+SQL_PATH	COUNT	30	0
+SQL_PATH	SOURCE	31	1
+SQL_PATH	COUNT	31	0
+SQL_PATH	SOURCE	32	1
+SQL_PATH	COUNT	32	0
+SQL_PATH	SOURCE	33	1
+SQL_PATH	COUNT	33	0
+SQL_CASE	16
+SQL_PATH	SINK	1	1
+SQL_PATH	SOURCE	0	1
+SQL_PATH	COUNT	0	0
+SQL_PATH	SOURCE	1	1
+SQL_PATH	COUNT	1	0
+SQL_PATH	SOURCE	2	1
+SQL_PATH	COUNT	2	0
+SQL_PATH	SOURCE	3	1
+SQL_PATH	COUNT	3	0
+SQL_PATH	SOURCE	4	1
+SQL_PATH	COUNT	4	0
+SQL_PATH	SOURCE	5	1
+SQL_PATH	COUNT	5	0
+SQL_PATH	SOURCE	6	1
+SQL_PATH	COUNT	6	0
+SQL_PATH	SOURCE	7	1
+SQL_PATH	COUNT	7	0
+SQL_PATH	SOURCE	8	1
+SQL_PATH	COUNT	8	0
+SQL_PATH	SOURCE	9	1
+SQL_PATH	COUNT	9	0
+SQL_PATH	SOURCE	10	1
+SQL_PATH	COUNT	10	0
+SQL_PATH	SOURCE	11	1
+SQL_PATH	COUNT	11	0
+SQL_PATH	SOURCE	12	1
+SQL_PATH	COUNT	12	0
+SQL_PATH	SOURCE	13	1
+SQL_PATH	COUNT	13	0
+SQL_PATH	SOURCE	14	1
+SQL_PATH	COUNT	14	0
+SQL_PATH	SOURCE	15	1
+SQL_PATH	COUNT	15	0
+SQL_PATH	SOURCE	16	1
+SQL_PATH	COUNT	16	0
+SQL_PATH	SOURCE	17	1
+SQL_PATH	COUNT	17	0
+SQL_PATH	SOURCE	18	1
+SQL_PATH	COUNT	18	0
+SQL_PATH	SOURCE	19	1
+SQL_PATH	COUNT	19	0
+SQL_PATH	SOURCE	20	1
+SQL_PATH	COUNT	20	0
+SQL_PATH	SOURCE	21	1
+SQL_PATH	COUNT	21	0
+SQL_PATH	SOURCE	22	1
+SQL_PATH	COUNT	22	0
+SQL_PATH	SOURCE	23	1
+SQL_PATH	COUNT	23	0
+SQL_PATH	SOURCE	24	1
+SQL_PATH	COUNT	24	0
+SQL_PATH	SOURCE	25	1
+SQL_PATH	COUNT	25	0
+SQL_PATH	SOURCE	26	1
+SQL_PATH	COUNT	26	0
+SQL_PATH	SOURCE	27	1
+SQL_PATH	COUNT	27	0
+SQL_PATH	SOURCE	28	1
+SQL_PATH	COUNT	28	0
+SQL_PATH	SOURCE	29	1
+SQL_PATH	COUNT	29	0
+SQL_PATH	SOURCE	30	1
+SQL_PATH	COUNT	30	0
+SQL_PATH	SOURCE	31	1
+SQL_PATH	COUNT	31	0
+SQL_PATH	SOURCE	32	1
+SQL_PATH	COUNT	32	0
+SQL_PATH	SOURCE	33	1
+SQL_PATH	COUNT	33	0
+SQL_CASE	17
+SQL_PATH	SINK	1	1
+SQL_PATH	SOURCE	0	1
+SQL_PATH	COUNT	0	1
+SQL_PATH	NODE	0	0	Call	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02096.java	44	doPost	38	67
+SQL_PATH	NODE	0	0	Identifier	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02096.java	44	doPost	38	67
+SQL_PATH	NODE	0	0	Identifier	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02096.java	46	doPost	38	67
+SQL_PATH	NODE	0	0	Identifier	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02096.java	46	doPost	38	67
+SQL_PATH	NODE	0	0	Identifier	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02096.java	47	doPost	38	67
+SQL_PATH	NODE	0	0	Call	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02096.java	47	doPost	38	67
+SQL_PATH	NODE	0	0	Identifier	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02096.java	47	doPost	38	67
+SQL_PATH	NODE	0	0	Identifier	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02096.java	51	doPost	38	67
+SQL_PATH	NODE	0	0	Call	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02096.java	51	doPost	38	67
+SQL_PATH	NODE	0	0	Call	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02096.java	51	doPost	38	67
+SQL_PATH	NODE	0	0	Identifier	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02096.java	51	doPost	38	67
+SQL_PATH	NODE	0	0	Identifier	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02096.java	53	doPost	38	67
+SQL_PATH	NODE	0	0	MethodParameterIn	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02096.java	69	doSomething	69	82
+SQL_PATH	NODE	0	0	Identifier	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02096.java	73	doSomething	69	82
+SQL_PATH	NODE	0	0	Identifier	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02096.java	78	doSomething	69	82
+SQL_PATH	NODE	0	0	Call	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02096.java	78	doSomething	69	82
+SQL_PATH	NODE	0	0	Call	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02096.java	77	doSomething	69	82
+SQL_PATH	NODE	0	0	Call	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02096.java	77	doSomething	69	82
+SQL_PATH	NODE	0	0	Call	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02096.java	76	doSomething	69	82
+SQL_PATH	NODE	0	0	Call	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02096.java	76	doSomething	69	82
+SQL_PATH	NODE	0	0	Identifier	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02096.java	74	doSomething	69	82
+SQL_PATH	NODE	0	0	Identifier	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02096.java	81	doSomething	69	82
+SQL_PATH	NODE	0	0	Return	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02096.java	81	doSomething	69	82
+SQL_PATH	NODE	0	0	MethodReturn	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02096.java	69	doSomething	69	82
+SQL_PATH	NODE	0	0	Call	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02096.java	53	doPost	38	67
+SQL_PATH	NODE	0	0	Identifier	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02096.java	53	doPost	38	67
+SQL_PATH	NODE	0	0	Call	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02096.java	55	doPost	38	67
+SQL_PATH	NODE	0	0	Identifier	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02096.java	55	doPost	38	67
+SQL_PATH	NODE	0	0	Identifier	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02096.java	60	doPost	38	67
+SQL_PATH	SOURCE	1	1
+SQL_PATH	COUNT	1	1
+SQL_PATH	NODE	1	0	Call	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02096.java	47	doPost	38	67
+SQL_PATH	NODE	1	0	Identifier	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02096.java	47	doPost	38	67
+SQL_PATH	NODE	1	0	Identifier	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02096.java	51	doPost	38	67
+SQL_PATH	NODE	1	0	Call	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02096.java	51	doPost	38	67
+SQL_PATH	NODE	1	0	Call	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02096.java	51	doPost	38	67
+SQL_PATH	NODE	1	0	Identifier	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02096.java	51	doPost	38	67
+SQL_PATH	NODE	1	0	Identifier	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02096.java	53	doPost	38	67
+SQL_PATH	NODE	1	0	MethodParameterIn	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02096.java	69	doSomething	69	82
+SQL_PATH	NODE	1	0	Identifier	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02096.java	73	doSomething	69	82
+SQL_PATH	NODE	1	0	Identifier	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02096.java	78	doSomething	69	82
+SQL_PATH	NODE	1	0	Call	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02096.java	78	doSomething	69	82
+SQL_PATH	NODE	1	0	Call	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02096.java	77	doSomething	69	82
+SQL_PATH	NODE	1	0	Call	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02096.java	77	doSomething	69	82
+SQL_PATH	NODE	1	0	Call	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02096.java	76	doSomething	69	82
+SQL_PATH	NODE	1	0	Call	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02096.java	76	doSomething	69	82
+SQL_PATH	NODE	1	0	Identifier	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02096.java	74	doSomething	69	82
+SQL_PATH	NODE	1	0	Identifier	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02096.java	81	doSomething	69	82
+SQL_PATH	NODE	1	0	Return	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02096.java	81	doSomething	69	82
+SQL_PATH	NODE	1	0	MethodReturn	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02096.java	69	doSomething	69	82
+SQL_PATH	NODE	1	0	Call	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02096.java	53	doPost	38	67
+SQL_PATH	NODE	1	0	Identifier	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02096.java	53	doPost	38	67
+SQL_PATH	NODE	1	0	Call	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02096.java	55	doPost	38	67
+SQL_PATH	NODE	1	0	Identifier	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02096.java	55	doPost	38	67
+SQL_PATH	NODE	1	0	Identifier	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02096.java	60	doPost	38	67
+SQL_PATH	SOURCE	2	1
+SQL_PATH	COUNT	2	0
+SQL_PATH	SOURCE	3	1
+SQL_PATH	COUNT	3	0
+SQL_PATH	SOURCE	4	1
+SQL_PATH	COUNT	4	0
+SQL_PATH	SOURCE	5	1
+SQL_PATH	COUNT	5	0
+SQL_PATH	SOURCE	6	1
+SQL_PATH	COUNT	6	0
+SQL_PATH	SOURCE	7	1
+SQL_PATH	COUNT	7	0
+SQL_PATH	SOURCE	8	1
+SQL_PATH	COUNT	8	0
+SQL_PATH	SOURCE	9	1
+SQL_PATH	COUNT	9	0
+SQL_PATH	SOURCE	10	1
+SQL_PATH	COUNT	10	0
+SQL_PATH	SOURCE	11	1
+SQL_PATH	COUNT	11	0
+SQL_PATH	SOURCE	12	1
+SQL_PATH	COUNT	12	0
+SQL_PATH	SOURCE	13	1
+SQL_PATH	COUNT	13	0
+SQL_PATH	SOURCE	14	1
+SQL_PATH	COUNT	14	0
+SQL_PATH	SOURCE	15	1
+SQL_PATH	COUNT	15	0
+SQL_PATH	SOURCE	16	1
+SQL_PATH	COUNT	16	0
+SQL_PATH	SOURCE	17	1
+SQL_PATH	COUNT	17	0
+SQL_PATH	SOURCE	18	1
+SQL_PATH	COUNT	18	0
+SQL_PATH	SOURCE	19	1
+SQL_PATH	COUNT	19	0
+SQL_PATH	SOURCE	20	1
+SQL_PATH	COUNT	20	0
+SQL_PATH	SOURCE	21	1
+SQL_PATH	COUNT	21	0
+SQL_PATH	SOURCE	22	1
+SQL_PATH	COUNT	22	0
+SQL_PATH	SOURCE	23	1
+SQL_PATH	COUNT	23	0
+SQL_PATH	SOURCE	24	1
+SQL_PATH	COUNT	24	0
+SQL_PATH	SOURCE	25	1
+SQL_PATH	COUNT	25	0
+SQL_PATH	SOURCE	26	1
+SQL_PATH	COUNT	26	0
+SQL_PATH	SOURCE	27	1
+SQL_PATH	COUNT	27	0
+SQL_PATH	SOURCE	28	1
+SQL_PATH	COUNT	28	0
+SQL_PATH	SOURCE	29	1
+SQL_PATH	COUNT	29	0
+SQL_PATH	SOURCE	30	1
+SQL_PATH	COUNT	30	0
+SQL_PATH	SOURCE	31	1
+SQL_PATH	COUNT	31	0
+SQL_PATH	SOURCE	32	1
+SQL_PATH	COUNT	32	0
+SQL_PATH	SOURCE	33	1
+SQL_PATH	COUNT	33	0
+SQL_PATH	SOURCE	34	1
+SQL_PATH	COUNT	34	0
+SQL_CASE	18
+SQL_PATH	SINK	1	1
+SQL_PATH	SOURCE	0	1
+SQL_PATH	COUNT	0	1
+SQL_PATH	NODE	0	0	Call	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02099.java	44	doPost	38	67
+SQL_PATH	NODE	0	0	Identifier	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02099.java	44	doPost	38	67
+SQL_PATH	NODE	0	0	Identifier	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02099.java	46	doPost	38	67
+SQL_PATH	NODE	0	0	Identifier	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02099.java	46	doPost	38	67
+SQL_PATH	NODE	0	0	Identifier	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02099.java	47	doPost	38	67
+SQL_PATH	NODE	0	0	Call	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02099.java	47	doPost	38	67
+SQL_PATH	NODE	0	0	Identifier	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02099.java	47	doPost	38	67
+SQL_PATH	NODE	0	0	Identifier	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02099.java	51	doPost	38	67
+SQL_PATH	NODE	0	0	Call	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02099.java	51	doPost	38	67
+SQL_PATH	NODE	0	0	Call	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02099.java	51	doPost	38	67
+SQL_PATH	NODE	0	0	Identifier	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02099.java	51	doPost	38	67
+SQL_PATH	NODE	0	0	Identifier	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02099.java	53	doPost	38	67
+SQL_PATH	NODE	0	0	MethodParameterIn	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02099.java	69	doSomething	69	82
+SQL_PATH	NODE	0	0	Identifier	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02099.java	73	doSomething	69	82
+SQL_PATH	NODE	0	0	Identifier	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02099.java	78	doSomething	69	82
+SQL_PATH	NODE	0	0	Call	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02099.java	78	doSomething	69	82
+SQL_PATH	NODE	0	0	Call	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02099.java	77	doSomething	69	82
+SQL_PATH	NODE	0	0	Call	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02099.java	77	doSomething	69	82
+SQL_PATH	NODE	0	0	Call	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02099.java	76	doSomething	69	82
+SQL_PATH	NODE	0	0	Call	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02099.java	76	doSomething	69	82
+SQL_PATH	NODE	0	0	Identifier	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02099.java	74	doSomething	69	82
+SQL_PATH	NODE	0	0	Identifier	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02099.java	81	doSomething	69	82
+SQL_PATH	NODE	0	0	Return	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02099.java	81	doSomething	69	82
+SQL_PATH	NODE	0	0	MethodReturn	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02099.java	69	doSomething	69	82
+SQL_PATH	NODE	0	0	Call	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02099.java	53	doPost	38	67
+SQL_PATH	NODE	0	0	Identifier	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02099.java	53	doPost	38	67
+SQL_PATH	NODE	0	0	Call	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02099.java	55	doPost	38	67
+SQL_PATH	NODE	0	0	Identifier	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02099.java	55	doPost	38	67
+SQL_PATH	NODE	0	0	Identifier	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02099.java	60	doPost	38	67
+SQL_PATH	SOURCE	1	1
+SQL_PATH	COUNT	1	1
+SQL_PATH	NODE	1	0	Call	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02099.java	47	doPost	38	67
+SQL_PATH	NODE	1	0	Identifier	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02099.java	47	doPost	38	67
+SQL_PATH	NODE	1	0	Identifier	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02099.java	51	doPost	38	67
+SQL_PATH	NODE	1	0	Call	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02099.java	51	doPost	38	67
+SQL_PATH	NODE	1	0	Call	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02099.java	51	doPost	38	67
+SQL_PATH	NODE	1	0	Identifier	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02099.java	51	doPost	38	67
+SQL_PATH	NODE	1	0	Identifier	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02099.java	53	doPost	38	67
+SQL_PATH	NODE	1	0	MethodParameterIn	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02099.java	69	doSomething	69	82
+SQL_PATH	NODE	1	0	Identifier	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02099.java	73	doSomething	69	82
+SQL_PATH	NODE	1	0	Identifier	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02099.java	78	doSomething	69	82
+SQL_PATH	NODE	1	0	Call	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02099.java	78	doSomething	69	82
+SQL_PATH	NODE	1	0	Call	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02099.java	77	doSomething	69	82
+SQL_PATH	NODE	1	0	Call	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02099.java	77	doSomething	69	82
+SQL_PATH	NODE	1	0	Call	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02099.java	76	doSomething	69	82
+SQL_PATH	NODE	1	0	Call	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02099.java	76	doSomething	69	82
+SQL_PATH	NODE	1	0	Identifier	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02099.java	74	doSomething	69	82
+SQL_PATH	NODE	1	0	Identifier	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02099.java	81	doSomething	69	82
+SQL_PATH	NODE	1	0	Return	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02099.java	81	doSomething	69	82
+SQL_PATH	NODE	1	0	MethodReturn	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02099.java	69	doSomething	69	82
+SQL_PATH	NODE	1	0	Call	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02099.java	53	doPost	38	67
+SQL_PATH	NODE	1	0	Identifier	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02099.java	53	doPost	38	67
+SQL_PATH	NODE	1	0	Call	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02099.java	55	doPost	38	67
+SQL_PATH	NODE	1	0	Identifier	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02099.java	55	doPost	38	67
+SQL_PATH	NODE	1	0	Identifier	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02099.java	60	doPost	38	67
+SQL_PATH	SOURCE	2	1
+SQL_PATH	COUNT	2	0
+SQL_PATH	SOURCE	3	1
+SQL_PATH	COUNT	3	0
+SQL_PATH	SOURCE	4	1
+SQL_PATH	COUNT	4	0
+SQL_PATH	SOURCE	5	1
+SQL_PATH	COUNT	5	0
+SQL_PATH	SOURCE	6	1
+SQL_PATH	COUNT	6	0
+SQL_PATH	SOURCE	7	1
+SQL_PATH	COUNT	7	0
+SQL_PATH	SOURCE	8	1
+SQL_PATH	COUNT	8	0
+SQL_PATH	SOURCE	9	1
+SQL_PATH	COUNT	9	0
+SQL_PATH	SOURCE	10	1
+SQL_PATH	COUNT	10	0
+SQL_PATH	SOURCE	11	1
+SQL_PATH	COUNT	11	0
+SQL_PATH	SOURCE	12	1
+SQL_PATH	COUNT	12	0
+SQL_PATH	SOURCE	13	1
+SQL_PATH	COUNT	13	0
+SQL_PATH	SOURCE	14	1
+SQL_PATH	COUNT	14	0
+SQL_PATH	SOURCE	15	1
+SQL_PATH	COUNT	15	0
+SQL_PATH	SOURCE	16	1
+SQL_PATH	COUNT	16	0
+SQL_PATH	SOURCE	17	1
+SQL_PATH	COUNT	17	0
+SQL_PATH	SOURCE	18	1
+SQL_PATH	COUNT	18	0
+SQL_PATH	SOURCE	19	1
+SQL_PATH	COUNT	19	0
+SQL_PATH	SOURCE	20	1
+SQL_PATH	COUNT	20	0
+SQL_PATH	SOURCE	21	1
+SQL_PATH	COUNT	21	0
+SQL_PATH	SOURCE	22	1
+SQL_PATH	COUNT	22	0
+SQL_PATH	SOURCE	23	1
+SQL_PATH	COUNT	23	0
+SQL_PATH	SOURCE	24	1
+SQL_PATH	COUNT	24	0
+SQL_PATH	SOURCE	25	1
+SQL_PATH	COUNT	25	0
+SQL_PATH	SOURCE	26	1
+SQL_PATH	COUNT	26	0
+SQL_PATH	SOURCE	27	1
+SQL_PATH	COUNT	27	0
+SQL_PATH	SOURCE	28	1
+SQL_PATH	COUNT	28	0
+SQL_PATH	SOURCE	29	1
+SQL_PATH	COUNT	29	0
+SQL_PATH	SOURCE	30	1
+SQL_PATH	COUNT	30	0
+SQL_PATH	SOURCE	31	1
+SQL_PATH	COUNT	31	0
+SQL_PATH	SOURCE	32	1
+SQL_PATH	COUNT	32	0
+SQL_PATH	SOURCE	33	1
+SQL_PATH	COUNT	33	0
+SQL_PATH	SOURCE	34	1
+SQL_PATH	COUNT	34	0
+SQL_CASE	19
+SQL_PATH	SINK	1	1
+SQL_PATH	SOURCE	0	1
+SQL_PATH	COUNT	0	1
+SQL_PATH	NODE	0	0	Call	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02529.java	43	doPost	38	64
+SQL_PATH	NODE	0	0	Identifier	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02529.java	43	doPost	38	64
+SQL_PATH	NODE	0	0	Identifier	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02529.java	45	doPost	38	64
+SQL_PATH	NODE	0	0	Call	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02529.java	45	doPost	38	64
+SQL_PATH	NODE	0	0	Identifier	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02529.java	45	doPost	38	64
+SQL_PATH	NODE	0	0	Identifier	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02529.java	48	doPost	38	64
+SQL_PATH	NODE	0	0	MethodParameterIn	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02529.java	66	doSomething	66	78
+SQL_PATH	NODE	0	0	Identifier	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02529.java	72	doSomething	66	78
+SQL_PATH	NODE	0	0	Identifier	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02529.java	72	doSomething	66	78
+SQL_PATH	NODE	0	0	Identifier	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02529.java	73	doSomething	66	78
+SQL_PATH	NODE	0	0	Identifier	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02529.java	74	doSomething	66	78
+SQL_PATH	NODE	0	0	Identifier	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02529.java	75	doSomething	66	78
+SQL_PATH	NODE	0	0	Call	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02529.java	75	doSomething	66	78
+SQL_PATH	NODE	0	0	Identifier	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02529.java	75	doSomething	66	78
+SQL_PATH	NODE	0	0	Identifier	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02529.java	77	doSomething	66	78
+SQL_PATH	NODE	0	0	Return	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02529.java	77	doSomething	66	78
+SQL_PATH	NODE	0	0	MethodReturn	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02529.java	66	doSomething	66	78
+SQL_PATH	NODE	0	0	Call	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02529.java	48	doPost	38	64
+SQL_PATH	NODE	0	0	Identifier	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02529.java	48	doPost	38	64
+SQL_PATH	NODE	0	0	Call	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02529.java	50	doPost	38	64
+SQL_PATH	NODE	0	0	Identifier	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02529.java	50	doPost	38	64
+SQL_PATH	NODE	0	0	Identifier	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02529.java	55	doPost	38	64
+SQL_PATH	SOURCE	1	1
+SQL_PATH	COUNT	1	1
+SQL_PATH	NODE	1	0	Call	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02529.java	48	doPost	38	64
+SQL_PATH	NODE	1	0	Identifier	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02529.java	48	doPost	38	64
+SQL_PATH	NODE	1	0	Call	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02529.java	50	doPost	38	64
+SQL_PATH	NODE	1	0	Identifier	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02529.java	50	doPost	38	64
+SQL_PATH	NODE	1	0	Identifier	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02529.java	55	doPost	38	64
+SQL_PATH	SOURCE	2	1
+SQL_PATH	COUNT	2	0
+SQL_PATH	SOURCE	3	1
+SQL_PATH	COUNT	3	0
+SQL_PATH	SOURCE	4	1
+SQL_PATH	COUNT	4	0
+SQL_PATH	SOURCE	5	1
+SQL_PATH	COUNT	5	0
+SQL_PATH	SOURCE	6	1
+SQL_PATH	COUNT	6	0
+SQL_PATH	SOURCE	7	1
+SQL_PATH	COUNT	7	0
+SQL_PATH	SOURCE	8	1
+SQL_PATH	COUNT	8	0
+SQL_PATH	SOURCE	9	1
+SQL_PATH	COUNT	9	0
+SQL_PATH	SOURCE	10	1
+SQL_PATH	COUNT	10	0
+SQL_PATH	SOURCE	11	1
+SQL_PATH	COUNT	11	0
+SQL_PATH	SOURCE	12	1
+SQL_PATH	COUNT	12	0
+SQL_PATH	SOURCE	13	1
+SQL_PATH	COUNT	13	0
+SQL_PATH	SOURCE	14	1
+SQL_PATH	COUNT	14	0
+SQL_PATH	SOURCE	15	1
+SQL_PATH	COUNT	15	0
+SQL_PATH	SOURCE	16	1
+SQL_PATH	COUNT	16	0
+SQL_PATH	SOURCE	17	1
+SQL_PATH	COUNT	17	0
+SQL_PATH	SOURCE	18	1
+SQL_PATH	COUNT	18	0
+SQL_PATH	SOURCE	19	1
+SQL_PATH	COUNT	19	0
+SQL_PATH	SOURCE	20	1
+SQL_PATH	COUNT	20	0
+SQL_PATH	SOURCE	21	1
+SQL_PATH	COUNT	21	0
+SQL_PATH	SOURCE	22	1
+SQL_PATH	COUNT	22	0
+SQL_PATH	SOURCE	23	1
+SQL_PATH	COUNT	23	0
+SQL_PATH	SOURCE	24	1
+SQL_PATH	COUNT	24	0
+SQL_PATH	SOURCE	25	1
+SQL_PATH	COUNT	25	0
+SQL_PATH	SOURCE	26	1
+SQL_PATH	COUNT	26	0
+SQL_PATH	SOURCE	27	1
+SQL_PATH	COUNT	27	0
+SQL_PATH	SOURCE	28	1
+SQL_PATH	COUNT	28	0
+SQL_PATH	SOURCE	29	1
+SQL_PATH	COUNT	29	0
+SQL_PATH	SOURCE	30	1
+SQL_PATH	COUNT	30	0
+SQL_PATH	SOURCE	31	1
+SQL_PATH	COUNT	31	0
+SQL_PATH	SOURCE	32	1
+SQL_PATH	COUNT	32	0
+SQL_PATH	SOURCE	33	1
+SQL_PATH	COUNT	33	0
+SQL_PATH	SOURCE	34	1
+SQL_PATH	COUNT	34	0
+SQL_CASE	20
+SQL_PATH	SINK	1	1
+SQL_PATH	SOURCE	0	1
+SQL_PATH	COUNT	0	1
+SQL_PATH	NODE	0	0	Call	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02534.java	43	doPost	38	69
+SQL_PATH	NODE	0	0	Identifier	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02534.java	43	doPost	38	69
+SQL_PATH	NODE	0	0	Identifier	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02534.java	45	doPost	38	69
+SQL_PATH	NODE	0	0	Call	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02534.java	45	doPost	38	69
+SQL_PATH	NODE	0	0	Identifier	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02534.java	45	doPost	38	69
+SQL_PATH	NODE	0	0	Identifier	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02534.java	48	doPost	38	69
+SQL_PATH	NODE	0	0	MethodParameterIn	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02534.java	71	doSomething	71	77
+SQL_PATH	NODE	0	0	Identifier	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02534.java	74	doSomething	71	77
+SQL_PATH	NODE	0	0	Identifier	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02534.java	74	doSomething	71	77
+SQL_PATH	NODE	0	0	Identifier	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02534.java	76	doSomething	71	77
+SQL_PATH	NODE	0	0	Return	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02534.java	76	doSomething	71	77
+SQL_PATH	NODE	0	0	MethodReturn	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02534.java	71	doSomething	71	77
+SQL_PATH	NODE	0	0	Call	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02534.java	48	doPost	38	69
+SQL_PATH	NODE	0	0	Identifier	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02534.java	48	doPost	38	69
+SQL_PATH	NODE	0	0	Call	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02534.java	50	doPost	38	69
+SQL_PATH	NODE	0	0	Identifier	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02534.java	50	doPost	38	69
+SQL_PATH	NODE	0	0	Identifier	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02534.java	57	doPost	38	69
+SQL_PATH	SOURCE	1	1
+SQL_PATH	COUNT	1	1
+SQL_PATH	NODE	1	0	Call	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02534.java	48	doPost	38	69
+SQL_PATH	NODE	1	0	Identifier	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02534.java	48	doPost	38	69
+SQL_PATH	NODE	1	0	Call	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02534.java	50	doPost	38	69
+SQL_PATH	NODE	1	0	Identifier	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02534.java	50	doPost	38	69
+SQL_PATH	NODE	1	0	Identifier	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02534.java	57	doPost	38	69
+SQL_PATH	SOURCE	2	1
+SQL_PATH	COUNT	2	0
+SQL_PATH	SOURCE	3	1
+SQL_PATH	COUNT	3	0
+SQL_PATH	SOURCE	4	1
+SQL_PATH	COUNT	4	0
+SQL_PATH	SOURCE	5	1
+SQL_PATH	COUNT	5	0
+SQL_PATH	SOURCE	6	1
+SQL_PATH	COUNT	6	0
+SQL_PATH	SOURCE	7	1
+SQL_PATH	COUNT	7	0
+SQL_PATH	SOURCE	8	1
+SQL_PATH	COUNT	8	0
+SQL_PATH	SOURCE	9	1
+SQL_PATH	COUNT	9	0
+SQL_PATH	SOURCE	10	1
+SQL_PATH	COUNT	10	0
+SQL_PATH	SOURCE	11	1
+SQL_PATH	COUNT	11	0
+SQL_PATH	SOURCE	12	1
+SQL_PATH	COUNT	12	0
+SQL_PATH	SOURCE	13	1
+SQL_PATH	COUNT	13	0
+SQL_PATH	SOURCE	14	1
+SQL_PATH	COUNT	14	0
+SQL_PATH	SOURCE	15	1
+SQL_PATH	COUNT	15	0
+SQL_PATH	SOURCE	16	1
+SQL_PATH	COUNT	16	0
+SQL_PATH	SOURCE	17	1
+SQL_PATH	COUNT	17	0
+SQL_PATH	SOURCE	18	1
+SQL_PATH	COUNT	18	0
+SQL_PATH	SOURCE	19	1
+SQL_PATH	COUNT	19	0
+SQL_PATH	SOURCE	20	1
+SQL_PATH	COUNT	20	0
+SQL_PATH	SOURCE	21	1
+SQL_PATH	COUNT	21	0
+SQL_PATH	SOURCE	22	1
+SQL_PATH	COUNT	22	0
+SQL_PATH	SOURCE	23	1
+SQL_PATH	COUNT	23	0
+SQL_PATH	SOURCE	24	1
+SQL_PATH	COUNT	24	0
+SQL_PATH	SOURCE	25	1
+SQL_PATH	COUNT	25	0
+SQL_PATH	SOURCE	26	1
+SQL_PATH	COUNT	26	0
+SQL_PATH	SOURCE	27	1
+SQL_PATH	COUNT	27	0
+SQL_PATH	SOURCE	28	1
+SQL_PATH	COUNT	28	0
+SQL_PATH	SOURCE	29	1
+SQL_PATH	COUNT	29	0
+SQL_PATH	SOURCE	30	1
+SQL_PATH	COUNT	30	0
+SQL_PATH	SOURCE	31	1
+SQL_PATH	COUNT	31	0
+SQL_PATH	SOURCE	32	1
+SQL_PATH	COUNT	32	0
+SQL_PATH	SOURCE	33	1
+SQL_PATH	COUNT	33	0
+SQL_PATH	SOURCE	34	1
+SQL_PATH	COUNT	34	0
+SQL_CASE	21
+SQL_PATH	SINK	1	1
+SQL_PATH	SOURCE	0	1
+SQL_PATH	COUNT	0	1
+SQL_PATH	NODE	0	0	Call	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02629.java	43	doPost	38	89
+SQL_PATH	NODE	0	0	Identifier	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02629.java	43	doPost	38	89
+SQL_PATH	NODE	0	0	Identifier	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02629.java	46	doPost	38	89
+SQL_PATH	NODE	0	0	Identifier	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02629.java	46	doPost	38	89
+SQL_PATH	NODE	0	0	Call	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02629.java	46	doPost	38	89
+SQL_PATH	NODE	0	0	Identifier	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02629.java	46	doPost	38	89
+SQL_PATH	NODE	0	0	Identifier	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02629.java	47	doPost	38	89
+SQL_PATH	NODE	0	0	Call	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02629.java	58	doPost	38	89
+SQL_PATH	NODE	0	0	Identifier	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02629.java	57	doPost	38	89
+SQL_PATH	NODE	0	0	Identifier	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02629.java	64	doPost	38	89
+SQL_PATH	NODE	0	0	Call	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02629.java	64	doPost	38	89
+SQL_PATH	NODE	0	0	Identifier	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02629.java	64	doPost	38	89
+SQL_PATH	NODE	0	0	Identifier	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02629.java	65	doPost	38	89
+SQL_PATH	NODE	0	0	Identifier	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02629.java	66	doPost	38	89
+SQL_PATH	NODE	0	0	Call	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02629.java	66	doPost	38	89
+SQL_PATH	NODE	0	0	Identifier	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02629.java	66	doPost	38	89
+SQL_PATH	NODE	0	0	Call	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02629.java	66	doPost	38	89
+SQL_PATH	NODE	0	0	Identifier	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02629.java	66	doPost	38	89
+SQL_PATH	NODE	0	0	Identifier	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02629.java	68	doPost	38	89
+SQL_PATH	NODE	0	0	Call	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02629.java	68	doPost	38	89
+SQL_PATH	NODE	0	0	Call	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02629.java	68	doPost	38	89
+SQL_PATH	NODE	0	0	Identifier	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02629.java	68	doPost	38	89
+SQL_PATH	NODE	0	0	Identifier	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02629.java	70	doPost	38	89
+SQL_PATH	NODE	0	0	MethodParameterIn	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02629.java	91	doSomething	91	107
+SQL_PATH	NODE	0	0	Identifier	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02629.java	95	doSomething	91	107
+SQL_PATH	NODE	0	0	Identifier	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02629.java	98	doSomething	91	107
+SQL_PATH	NODE	0	0	Identifier	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02629.java	98	doSomething	91	107
+SQL_PATH	NODE	0	0	Identifier	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02629.java	99	doSomething	91	107
+SQL_PATH	NODE	0	0	Identifier	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02629.java	101	doSomething	91	107
+SQL_PATH	NODE	0	0	Identifier	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02629.java	103	doSomething	91	107
+SQL_PATH	NODE	0	0	Call	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02629.java	103	doSomething	91	107
+SQL_PATH	NODE	0	0	Identifier	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02629.java	103	doSomething	91	107
+SQL_PATH	NODE	0	0	Identifier	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02629.java	106	doSomething	91	107
+SQL_PATH	NODE	0	0	Return	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02629.java	106	doSomething	91	107
+SQL_PATH	NODE	0	0	MethodReturn	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02629.java	91	doSomething	91	107
+SQL_PATH	NODE	0	0	Call	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02629.java	70	doPost	38	89
+SQL_PATH	NODE	0	0	Identifier	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02629.java	70	doPost	38	89
+SQL_PATH	NODE	0	0	Call	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02629.java	72	doPost	38	89
+SQL_PATH	NODE	0	0	Identifier	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02629.java	72	doPost	38	89
+SQL_PATH	NODE	0	0	Identifier	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02629.java	79	doPost	38	89
+SQL_PATH	SOURCE	1	1
+SQL_PATH	COUNT	1	0
+SQL_PATH	SOURCE	2	1
+SQL_PATH	COUNT	2	0
+SQL_PATH	SOURCE	3	1
+SQL_PATH	COUNT	3	0
+SQL_PATH	SOURCE	4	1
+SQL_PATH	COUNT	4	0
+SQL_PATH	SOURCE	5	1
+SQL_PATH	COUNT	5	0
+SQL_PATH	SOURCE	6	1
+SQL_PATH	COUNT	6	0
+SQL_PATH	SOURCE	7	1
+SQL_PATH	COUNT	7	0
+SQL_PATH	SOURCE	8	1
+SQL_PATH	COUNT	8	0
+SQL_PATH	SOURCE	9	1
+SQL_PATH	COUNT	9	0
+SQL_PATH	SOURCE	10	1
+SQL_PATH	COUNT	10	0
+SQL_PATH	SOURCE	11	1
+SQL_PATH	COUNT	11	0
+SQL_PATH	SOURCE	12	1
+SQL_PATH	COUNT	12	0
+SQL_PATH	SOURCE	13	1
+SQL_PATH	COUNT	13	0
+SQL_PATH	SOURCE	14	1
+SQL_PATH	COUNT	14	0
+SQL_PATH	SOURCE	15	1
+SQL_PATH	COUNT	15	0
+SQL_PATH	SOURCE	16	1
+SQL_PATH	COUNT	16	0
+SQL_PATH	SOURCE	17	1
+SQL_PATH	COUNT	17	0
+SQL_PATH	SOURCE	18	1
+SQL_PATH	COUNT	18	0
+SQL_PATH	SOURCE	19	1
+SQL_PATH	COUNT	19	0
+SQL_PATH	SOURCE	20	1
+SQL_PATH	COUNT	20	0
+SQL_PATH	SOURCE	21	1
+SQL_PATH	COUNT	21	0
+SQL_PATH	SOURCE	22	1
+SQL_PATH	COUNT	22	0
+SQL_PATH	SOURCE	23	1
+SQL_PATH	COUNT	23	0
+SQL_PATH	SOURCE	24	1
+SQL_PATH	COUNT	24	0
+SQL_PATH	SOURCE	25	1
+SQL_PATH	COUNT	25	0
+SQL_PATH	SOURCE	26	1
+SQL_PATH	COUNT	26	0
+SQL_PATH	SOURCE	27	1
+SQL_PATH	COUNT	27	0
+SQL_PATH	SOURCE	28	1
+SQL_PATH	COUNT	28	0
+SQL_PATH	SOURCE	29	1
+SQL_PATH	COUNT	29	0
+SQL_PATH	SOURCE	30	1
+SQL_PATH	COUNT	30	0
+SQL_PATH	SOURCE	31	1
+SQL_PATH	COUNT	31	0
+SQL_PATH	SOURCE	32	1
+SQL_PATH	COUNT	32	0
+SQL_PATH	SOURCE	33	1
+SQL_PATH	COUNT	33	0
+
+[STDERR]
+executing /work/slice.sc
+2026-11-25 07:43:42.185 WARN  CfgCreator$               Using order fallback for try statement finally body
+2026-11-25 07:43:42.185 WARN  CfgCreator$               Using order fallback for try statement catch body
+2026-11-25 07:43:42.187 WARN  CfgCreator$               Using order fallback for break statement jump argument
+2026-11-25 07:43:42.315 WARN  CfgCreator$               Using order fallback for for statement init
+2026-11-25 07:43:42.316 WARN  CfgCreator$               Using order fallback for for statement update
+2026-11-25 07:43:42.316 WARN  CfgCreator$               Using order fallback for for statement body
+Creating project `snapshot` for CPG at `/work/snapshot.bin`
+Creating working copy of CPG to be safe
+Loading base CPG from: /work/workspace/snapshot/cpg.bin.tmp
+Overlay dataflowOss already exists - skipping
+The graph has been modified. You may want to use the `save` command to persist changes to disk.  All changes will also be saved collectively on exit
+closing/saving project `snapshot`

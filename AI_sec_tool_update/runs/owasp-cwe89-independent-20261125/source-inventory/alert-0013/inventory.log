@@ -1,0 +1,12 @@
+STATUS	3
+Q	F0	68	32	java.sql.Connection	prepareCall(java.lang.String,int,int)	69
+C	F0	47	42	java.util.Enumeration	nextElement()	false
+C	F0	60	33	org.owasp.benchmark.testcode.BenchmarkTest01460.Test	doSomething(javax.servlet.http.HttpServletRequest,java.lang.String)	true	F0	83	94
+V	68	32	unknown	unsupported_or_runtime_value
+E	68	32	F0	46	statement_not_modeled
+E	68	32	F0	46	analysis_stopped_before_call
+E	68	32	F0	62	sql_argument_variable_declaration
+S	45	55	javax.servlet.ServletRequest	getParameterNames()	true
+S	48	39	javax.servlet.ServletRequest	getParameterValues(java.lang.String)	true
+
+[STDERR]

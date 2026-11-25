@@ -1,0 +1,100 @@
+{
+  "status": "candidate_paths",
+  "matched_sources": 1,
+  "source_count": 1,
+  "candidate_paths_found": 1,
+  "search_limit_hit": false,
+  "paths": [
+    {
+      "source": {
+        "file_id": "F0",
+        "line": 45,
+        "method": "doPost",
+        "method_start": 38,
+        "method_end": 71,
+        "node_type": "Call",
+        "api_owner": "org.owasp.benchmark.helpers.SeparateClassRequest",
+        "api_signature": "getTheValue(java.lang.String)",
+        "semantic_status": "qwen_candidate",
+        "input_kind": "request"
+      },
+      "steps": [
+        {
+          "file_id": "F0",
+          "line": 48,
+          "method": "doPost",
+          "method_start": 38,
+          "method_end": 71,
+          "node_type": "Identifier"
+        },
+        {
+          "file_id": "F0",
+          "line": 51,
+          "method": "doPost",
+          "method_start": 38,
+          "method_end": 71,
+          "node_type": "Identifier"
+        },
+        {
+          "file_id": "F0",
+          "line": 52,
+          "method": "doPost",
+          "method_start": 38,
+          "method_end": 71,
+          "node_type": "Identifier"
+        },
+        {
+          "file_id": "F0",
+          "line": 54,
+          "method": "doPost",
+          "method_start": 38,
+          "method_end": 71,
+          "node_type": "Identifier"
+        },
+        {
+          "file_id": "F0",
+          "line": 56,
+          "method": "doPost",
+          "method_start": 38,
+          "method_end": 71,
+          "node_type": "Identifier"
+        },
+        {
+          "file_id": "F0",
+          "line": 59,
+          "method": "doPost",
+          "method_start": 38,
+          "method_end": 71,
+          "node_type": "Call"
+        }
+      ],
+      "sink": {
+        "file_id": "F0",
+        "line": 64,
+        "name": "executeUpdate",
+        "method": "doPost",
+        "method_start": 38,
+        "method_end": 71
+      },
+      "omitted_steps": 0,
+      "unlocated_nodes": 0,
+      "dispatch": []
+    }
+  ],
+  "paths_not_shown": 0,
+  "version": "sql-anchored-paths-v1",
+  "scope": "verified_java_bundle",
+  "inputs": {
+    "F0": {
+      "path": "src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00940.java",
+      "source_sha256": "5f1eade2a2aadc701ccb44a4eaeb304511b349157068b73d90976556ad826b19",
+      "staged_sha256": "cad8d56e50319ff9ae8d37791bf3436066cf8ffe5e452380383bd6c0c388df44"
+    },
+    "F1": {
+      "path": "src/main/java/org/owasp/benchmark/helpers/SeparateClassRequest.java",
+      "source_sha256": "8ec6b1867d27ebe55c79180755447ece6f98746dcfbf0127b2e4ea5646399739",
+      "staged_sha256": "51a05167990fc969337259f6acd1e481ecbc3e0407008b17163e09fe800ede2b"
+    }
+  },
+  "interpretation": "Candidate dataflow. Runtime branch and dispatch feasibility require separate evidence."
+}

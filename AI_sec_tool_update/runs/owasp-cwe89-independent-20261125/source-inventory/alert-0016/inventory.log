@@ -1,0 +1,18 @@
+STATUS	3
+Q	F0	54	23	java.sql.Statement	execute(java.lang.String,int[])	54
+C	F0	45	28	org.owasp.benchmark.helpers.SeparateClassRequest	getTheValue(java.lang.String)	true	F1	52	54
+C	F0	47	33	org.owasp.benchmark.testcode.BenchmarkTest01818.Test	doSomething(javax.servlet.http.HttpServletRequest,java.lang.String)	true	F0	65	71
+V	54	23	constant_sql_text	bounded_java_evaluation
+E	54	23	F0	49	constant_expression
+E	54	23	F1	53	constant_expression
+E	54	23	F1	53	helper_return
+E	54	23	F0	45	helper_call
+E	54	23	F0	45	local_definition
+E	54	23	F0	68	local_definition
+E	54	23	F0	70	helper_return
+E	54	23	F0	47	helper_call
+E	54	23	F0	47	local_definition
+E	54	23	F0	49	string_concatenation
+E	54	23	F0	49	local_definition
+
+[STDERR]

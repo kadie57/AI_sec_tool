@@ -1,0 +1,14 @@
+STATUS	3
+Q	F0	74	63	java.sql.Connection	prepareCall(java.lang.String)	74
+C	F0	60	31	javax.servlet.http.Cookie	getName()	false
+C	F0	61	49	java.net.URLDecoder	decode(java.lang.String,java.lang.String)	true
+C	F0	61	66	javax.servlet.http.Cookie	getValue()	false
+C	F0	67	33	org.owasp.benchmark.testcode.BenchmarkTest00996.Test	doSomething(javax.servlet.http.HttpServletRequest,java.lang.String)	true	F0	87	100
+V	74	63	unknown	unsupported_or_runtime_value
+E	74	63	F0	58	runtime_if_changes_control_flow
+E	74	63	F0	58	analysis_stopped_before_call
+E	74	63	F0	69	sql_argument_variable_declaration
+S	42	36	javax.servlet.http.HttpServletRequest	getRequestURI()	false
+S	55	58	javax.servlet.http.HttpServletRequest	getCookies()	true
+
+[STDERR]

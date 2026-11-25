@@ -1,0 +1,19 @@
+STATUS	3
+Q	F0	60	23	java.sql.Statement	execute(java.lang.String,int[])	60
+C	F0	47	29	java.util.Enumeration	nextElement()	false
+C	F0	51	37	java.net.URLDecoder	decode(java.lang.String,java.lang.String)	true
+C	F0	53	22	org.owasp.benchmark.testcode.BenchmarkTest02096	doSomething(javax.servlet.http.HttpServletRequest,java.lang.String)	true	F0	69	82
+V	60	23	unknown	unsupported_or_runtime_value
+E	60	23	F0	73	runtime_if_merges_assignments
+E	60	23	F0	81	value_at_reference_unresolved
+E	60	23	F0	81	helper_return
+E	60	23	F0	53	helper_call
+E	60	23	F0	53	local_definition
+E	60	23	F0	55	value_at_reference_unresolved
+E	60	23	F0	55	string_concatenation_with_unresolved_operand
+E	60	23	F0	55	local_definition
+E	60	23	F0	60	value_at_reference_unresolved
+E	60	23	F0	55	sql_argument_variable_declaration
+S	44	57	javax.servlet.http.HttpServletRequest	getHeaders(java.lang.String)	true
+
+[STDERR]

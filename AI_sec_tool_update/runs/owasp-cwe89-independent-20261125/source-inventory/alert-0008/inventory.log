@@ -1,0 +1,14 @@
+STATUS	3
+Q	F0	64	35	java.sql.Statement	executeUpdate(java.lang.String,java.lang.String[])	64
+C	F0	45	28	org.owasp.benchmark.helpers.SeparateClassRequest	getTheValue(java.lang.String)	true	F1	52	54
+C	F0	54	24	java.util.List	remove(int)	false
+C	F0	56	30	java.util.List	get(int)	false
+V	64	35	unknown	unsupported_or_runtime_value
+E	64	35	F0	48	runtime_if_merges_assignments
+E	64	35	F0	59	value_at_reference_unresolved
+E	64	35	F0	59	string_concatenation_with_unresolved_operand
+E	64	35	F0	59	local_definition
+E	64	35	F0	64	value_at_reference_unresolved
+E	64	35	F0	59	sql_argument_variable_declaration
+
+[STDERR]

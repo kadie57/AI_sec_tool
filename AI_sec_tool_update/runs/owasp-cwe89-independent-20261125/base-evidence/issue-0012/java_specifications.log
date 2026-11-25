@@ -1,0 +1,20 @@
+STATUS	3
+Q	F0	54	32	java.sql.Connection	prepareStatement(java.lang.String,java.lang.String[])	54
+V	54	32	constant_sql_text	bounded_java_evaluation
+E	54	32	F0	48	constant_expression
+E	54	32	F0	74	constant_expression
+E	54	32	F0	74	integer_arithmetic
+E	54	32	F0	73	constant_expression
+E	54	32	F0	73	local_definition
+E	54	32	F0	74	integer_comparison
+E	54	32	F0	74	if_true
+E	54	32	F0	74	local_assignment
+E	54	32	F0	77	helper_return
+E	54	32	F0	46	helper_call
+E	54	32	F0	46	local_definition
+E	54	32	F0	48	string_concatenation
+E	54	32	F0	48	local_definition
+B	54	32	55	java.sql.PreparedStatement	setString(int,java.lang.String)	55
+S	43	32	javax.servlet.ServletRequest	getParameter(java.lang.String)	true
+
+[STDERR]

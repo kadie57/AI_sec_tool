@@ -1,0 +1,22 @@
+STATUS	3
+Q	F0	60	35	java.sql.Statement	executeUpdate(java.lang.String)	60
+C	F0	47	29	java.util.Enumeration	nextElement()	false
+C	F0	51	37	java.net.URLDecoder	decode(java.lang.String,java.lang.String)	true
+C	F0	53	33	org.owasp.benchmark.testcode.BenchmarkTest01220.Test	doSomething(javax.servlet.http.HttpServletRequest,java.lang.String)	true	F0	71	82
+V	60	35	constant_sql_text	bounded_java_evaluation
+E	60	35	F0	55	constant_expression
+E	60	35	F0	79	constant_expression
+E	60	35	F0	79	integer_arithmetic
+E	60	35	F0	77	constant_expression
+E	60	35	F0	77	local_definition
+E	60	35	F0	79	integer_comparison
+E	60	35	F0	79	conditional_value_selected
+E	60	35	F0	79	local_assignment
+E	60	35	F0	81	helper_return
+E	60	35	F0	53	helper_call
+E	60	35	F0	53	local_definition
+E	60	35	F0	55	string_concatenation
+E	60	35	F0	55	local_definition
+S	44	57	javax.servlet.http.HttpServletRequest	getHeaders(java.lang.String)	true
+
+[STDERR]
