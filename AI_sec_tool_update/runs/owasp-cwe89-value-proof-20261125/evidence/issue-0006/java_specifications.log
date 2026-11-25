@@ -1,0 +1,24 @@
+STATUS	3
+Q	F0	65	32	java.sql.Connection	prepareStatement(java.lang.String,int)	65
+V	65	32	constant_sql_text	bounded_java_evaluation
+E	65	32	F0	59	constant_expression
+E	65	32	F1	53	constant_expression
+E	65	32	F1	53	helper_return
+E	65	32	F0	45	helper_call
+E	65	32	F0	45	local_definition
+E	65	32	F0	49	collection_initialization
+E	65	32	F0	48	constant_expression
+E	65	32	F0	48	if_true
+E	65	32	F0	49	local_definition
+E	65	32	F0	50	collection_append
+E	65	32	F0	51	collection_append
+E	65	32	F0	52	collection_append
+E	65	32	F0	54	collection_remove
+E	65	32	F0	56	constant_expression
+E	65	32	F0	56	collection_read
+E	65	32	F0	56	local_assignment
+E	65	32	F0	59	string_concatenation
+E	65	32	F0	59	local_definition
+B	65	32	66	java.sql.PreparedStatement	setString(int,java.lang.String)	66
+
+[STDERR]

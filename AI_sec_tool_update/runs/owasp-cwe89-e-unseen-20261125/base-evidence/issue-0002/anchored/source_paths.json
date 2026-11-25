@@ -1,0 +1,69 @@
+{
+  "status": "candidate_paths",
+  "matched_sources": 2,
+  "source_count": 2,
+  "candidate_paths_found": 1,
+  "search_limit_hit": false,
+  "paths": [
+    {
+      "source": {
+        "file_id": "F0",
+        "line": 45,
+        "method": "doPost",
+        "method_start": 38,
+        "method_end": 86,
+        "node_type": "Call",
+        "api_owner": "javax.servlet.http.HttpServletRequest",
+        "api_signature": "getHeader(java.lang.String)"
+      },
+      "steps": [
+        {
+          "file_id": "F0",
+          "line": 49,
+          "method": "doPost",
+          "method_start": 38,
+          "method_end": 86,
+          "node_type": "Identifier"
+        },
+        {
+          "file_id": "F0",
+          "line": 58,
+          "method": "doPost",
+          "method_start": 38,
+          "method_end": 86,
+          "node_type": "Identifier"
+        },
+        {
+          "file_id": "F0",
+          "line": 72,
+          "method": "doPost",
+          "method_start": 38,
+          "method_end": 86,
+          "node_type": "Call"
+        }
+      ],
+      "sink": {
+        "file_id": "F0",
+        "line": 77,
+        "name": "prepareStatement",
+        "method": "doPost",
+        "method_start": 38,
+        "method_end": 86
+      },
+      "omitted_steps": 0,
+      "unlocated_nodes": 0,
+      "dispatch": []
+    }
+  ],
+  "paths_not_shown": 0,
+  "version": "sql-anchored-paths-v1",
+  "scope": "verified_java_bundle",
+  "inputs": {
+    "F0": {
+      "path": "src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00192.java",
+      "source_sha256": "2cf8b1c5ff2557dae7be05aa05e98012052de7357050d0c8122cad38822c3226",
+      "staged_sha256": "7ba50442dee4e24279cfd5374b4e2988efd7da62d9197515084dcfef73fc3c66"
+    }
+  },
+  "interpretation": "Candidate dataflow. Runtime branch and dispatch feasibility require separate evidence."
+}

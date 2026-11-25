@@ -16,16 +16,26 @@ VALUE_EVIDENCE_ROLES = {
     "helper_call": "helper call",
     "servlet_request_read": "request data read",
     "string_concatenation": "SQL string construction",
+    "collection_initialization": "fresh collection",
+    "collection_append": "list append",
+    "collection_remove": "list index removed",
+    "collection_put": "map entry written",
+    "collection_read": "selected list entry or map key",
+    "fixed_values_from_branches": "fixed values on continuing branches",
+    "return_branch_excluded": "branch returns before the target",
+    "loop_local_values_invalidated": "loop-written local values left unknown",
 }
 BRANCH_ROLES = {
     "switch_selector", "switch_case_selected", "switch_fallthrough",
     "if_true", "if_false", "conditional_value_selected",
+    "fixed_values_from_branches", "return_branch_excluded", "loop_local_values_invalidated",
 }
 CALLER_ROLES = {"caller_argument", "callee_parameter"}
-VALUE_CHAIN_ROLES = CALLER_ROLES | {"local_assignment", "helper_return", "helper_call", "servlet_request_read",
-                                  "string_concatenation"}
+COLLECTION_ROLES = {"collection_initialization", "collection_append", "collection_remove", "collection_put", "collection_read"}
+VALUE_CHAIN_ROLES = CALLER_ROLES | COLLECTION_ROLES | {"local_assignment", "helper_return", "helper_call",
+                                                      "servlet_request_read", "string_concatenation"}
 VALUE_PROOF_ROLES = (BRANCH_ROLES - {"switch_selector"}) | CALLER_ROLES | {
-    "local_assignment", "helper_return", "servlet_request_read",
+    "local_assignment", "helper_return", "servlet_request_read", "collection_remove", "collection_read",
 }
 INTEGER_EVIDENCE_ROLES = {"integer_arithmetic", "integer_comparison"}
 CONSTANT_CONTEXT_ROLES = {"constant_expression", "constant_string_index"} | INTEGER_EVIDENCE_ROLES
@@ -56,7 +66,7 @@ def verified_argument(selected, values, alert):
     call_line = sink.get("line")
     sql_argument = sink.get("argument")
     if (argument.get("reason") != "bounded_java_evaluation"
-            or argument.get("status") not in {"constant_sql_text", "external_input_contributes"}
+            or argument.get("status") not in {"constant_sql_text", "fixed_sql_alternatives", "external_input_contributes"}
             or sink.get("role") != "sql_text" or sink.get("argument_index") != 1 or sink.get("file_id") != "F0"
             or type(call_line) is not int or not alert["start_line"] <= call_line <= alert["end_line"]
             or not isinstance(sql_argument, dict) or sql_argument.get("file_id") != "F0"
@@ -93,6 +103,10 @@ def verified_display(argument, visible, files, *, structured=False):
     if argument["status"] == "constant_sql_text" and "constant_expression" in refs:
         statement = (f"Static Java evaluation verified that the SQL text argument at {location} is constant. "
                      "Request data does not contribute to that argument on the evaluated execution.")
+    elif argument["status"] == "fixed_sql_alternatives" and "fixed_values_from_branches" in refs:
+        statement = (f"Static Java evaluation verified that the SQL text argument at {location} has only fixed "
+                     "string alternatives on the modeled paths that reach this call. "
+                     "Input can influence branch selection, but its text is not inserted into any alternative.")
     elif argument["status"] == "external_input_contributes" and "servlet_request_read" in refs:
         statement = (f"Static Java evaluation verified that request data read at {refs['servlet_request_read']} "
                      f"contributes to the SQL text argument at {location} on the evaluated execution.")

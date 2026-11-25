@@ -1,0 +1,164 @@
+{
+  "state": "COMPLETED",
+  "scope": "Unseen OWASP CWE-89 case IDs sampled before the SonarQube scan",
+  "sonarqube": {
+    "analysis_id": "280b66e6-5ffa-45b8-954e-a30ba09e8262",
+    "samples": 30,
+    "warnings": 18,
+    "positive_with_alert": 9,
+    "negative_with_alert": 9,
+    "positive_without_alert": 6,
+    "negative_without_alert": 6,
+    "rules": {
+      "findsecbugs:SQL_INJECTION_JDBC": 18
+    }
+  },
+  "configuration": {
+    "model": "qwen2.5-coder:14b-instruct-q4_K_M",
+    "prompt_sha256": "26e84205a559fb429adba9c87a3a28fdf6a4c6135f4d301f784acee12637a442",
+    "schema_sha256": "2fb9849c6f59240d72ac291beed80f95a0385c5fcfa56376fa905a3efdecc725",
+    "options": {
+      "temperature": 0,
+      "seed": 42,
+      "num_ctx": 8192,
+      "num_predict": 1024
+    },
+    "request_version": 3,
+    "validation_version": 2,
+    "prompt_profile": "iris-contextual",
+    "warning_citation_binding": "sonarqube_alert_start_line",
+    "model_digest": "9ec8897f747e246e970bc5cfdda85d22f1123dc2e3d34978a010a75968716849"
+  },
+  "one_warning_per_alerted_sample": true,
+  "stages": {
+    "D": {
+      "warning_outcomes": {
+        "TP": 8,
+        "UNKNOWN_NEG": 2,
+        "FP": 3,
+        "UNKNOWN_POS": 1,
+        "TN": 4
+      },
+      "warnings": 18,
+      "correct": 12,
+      "samples_without_sonar_warning": {
+        "positive": 6,
+        "negative": 6
+      }
+    },
+    "E": {
+      "warning_outcomes": {
+        "TP": 8,
+        "UNKNOWN_NEG": 2,
+        "TN": 6,
+        "UNKNOWN_POS": 1,
+        "FP": 1
+      },
+      "warnings": 18,
+      "correct": 14,
+      "samples_without_sonar_warning": {
+        "positive": 6,
+        "negative": 6
+      }
+    }
+  },
+  "fresh_ollama_warning_calls": {
+    "D": 3,
+    "E": 18
+  },
+  "shared_warning_responses": 15,
+  "changed_verdicts": [
+    {
+      "issue_id": "87b5243c-6038-48a0-a021-36ecbdc205a3",
+      "component": "thesis_owasp_cwe89_e_unseen_20261125_v1:src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00509.java",
+      "evidence_changed": true,
+      "before": "LIKELY_TP",
+      "after": "LIKELY_FP",
+      "sample": "BenchmarkTest00509",
+      "reference_vulnerability": false,
+      "D_outcome": "FP",
+      "E_outcome": "TN",
+      "D_values": [
+        "unknown"
+      ],
+      "E_values": [
+        "constant_sql_text"
+      ],
+      "anchored_path": true
+    },
+    {
+      "issue_id": "84dc38e5-895c-4802-954e-6e12c8bb9bbd",
+      "component": "thesis_owasp_cwe89_e_unseen_20261125_v1:src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02095.java",
+      "evidence_changed": true,
+      "before": "LIKELY_TP",
+      "after": "LIKELY_FP",
+      "sample": "BenchmarkTest02095",
+      "reference_vulnerability": false,
+      "D_outcome": "FP",
+      "E_outcome": "TN",
+      "D_values": [
+        "unknown"
+      ],
+      "E_values": [
+        "constant_sql_text"
+      ],
+      "anchored_path": true
+    }
+  ],
+  "changed_jdk_values": [
+    {
+      "issue_id": "87b5243c-6038-48a0-a021-36ecbdc205a3",
+      "component": "thesis_owasp_cwe89_e_unseen_20261125_v1:src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00509.java",
+      "evidence_changed": true,
+      "before": "LIKELY_TP",
+      "after": "LIKELY_FP",
+      "sample": "BenchmarkTest00509",
+      "reference_vulnerability": false,
+      "D_outcome": "FP",
+      "E_outcome": "TN",
+      "D_values": [
+        "unknown"
+      ],
+      "E_values": [
+        "constant_sql_text"
+      ],
+      "anchored_path": true
+    },
+    {
+      "issue_id": "84dc38e5-895c-4802-954e-6e12c8bb9bbd",
+      "component": "thesis_owasp_cwe89_e_unseen_20261125_v1:src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02095.java",
+      "evidence_changed": true,
+      "before": "LIKELY_TP",
+      "after": "LIKELY_FP",
+      "sample": "BenchmarkTest02095",
+      "reference_vulnerability": false,
+      "D_outcome": "FP",
+      "E_outcome": "TN",
+      "D_values": [
+        "unknown"
+      ],
+      "E_values": [
+        "constant_sql_text"
+      ],
+      "anchored_path": true
+    },
+    {
+      "issue_id": "270f2ac7-5240-4672-977e-856184c602df",
+      "component": "thesis_owasp_cwe89_e_unseen_20261125_v1:src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02185.java",
+      "evidence_changed": true,
+      "before": "LIKELY_TP",
+      "after": "LIKELY_TP",
+      "sample": "BenchmarkTest02185",
+      "reference_vulnerability": false,
+      "D_outcome": "FP",
+      "E_outcome": "FP",
+      "D_values": [
+        "unknown"
+      ],
+      "E_values": [
+        "fixed_sql_alternatives"
+      ],
+      "anchored_path": true
+    }
+  ]
+}

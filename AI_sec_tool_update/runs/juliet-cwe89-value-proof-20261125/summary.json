@@ -1,0 +1,40 @@
+{
+  "scope": "Same D warnings and paths with a new bounded JDK value interpreter",
+  "baseline": "runs/juliet-cwe89-project-graph-20261125",
+  "labels": "runs/juliet-cwe89-holdout-20261124/warning-labels.json",
+  "review_configuration": {
+    "model": "qwen2.5-coder:14b-instruct-q4_K_M",
+    "prompt_sha256": "26e84205a559fb429adba9c87a3a28fdf6a4c6135f4d301f784acee12637a442",
+    "schema_sha256": "2fb9849c6f59240d72ac291beed80f95a0385c5fcfa56376fa905a3efdecc725",
+    "options": {
+      "temperature": 0,
+      "seed": 42,
+      "num_ctx": 8192,
+      "num_predict": 1024
+    },
+    "request_version": 3,
+    "validation_version": 2,
+    "prompt_profile": "iris-contextual",
+    "warning_citation_binding": "sonarqube_alert_start_line",
+    "model_digest": "9ec8897f747e246e970bc5cfdda85d22f1123dc2e3d34978a010a75968716849",
+    "mode": "ollama"
+  },
+  "jdk_value_changes": [],
+  "D": {
+    "counts": {
+      "TP": 8,
+      "TN": 12
+    },
+    "correct": 20
+  },
+  "E": {
+    "counts": {
+      "TP": 8,
+      "TN": 12
+    },
+    "correct": 20
+  },
+  "fresh_ollama_calls": 0,
+  "responses_reused": 20,
+  "changed_verdicts": []
+}

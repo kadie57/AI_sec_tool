@@ -1,0 +1,23 @@
+STATUS	3
+Q	F0	61	32	java.sql.Connection	prepareStatement(java.lang.String,int,int)	62
+C	F0	47	29	java.util.Enumeration	nextElement()	false
+C	F0	51	37	java.net.URLDecoder	decode(java.lang.String,java.lang.String)	true
+C	F0	53	22	org.owasp.benchmark.testcode.BenchmarkTest02089	doSomething(javax.servlet.http.HttpServletRequest,java.lang.String)	true	F0	75	86
+V	61	32	constant_sql_text	bounded_java_evaluation
+E	61	32	F0	55	constant_expression
+E	61	32	F0	82	constant_expression
+E	61	32	F0	82	integer_arithmetic
+E	61	32	F0	81	constant_expression
+E	61	32	F0	81	local_definition
+E	61	32	F0	82	integer_comparison
+E	61	32	F0	82	if_true
+E	61	32	F0	82	local_assignment
+E	61	32	F0	85	helper_return
+E	61	32	F0	53	helper_call
+E	61	32	F0	53	local_definition
+E	61	32	F0	55	string_concatenation
+E	61	32	F0	55	local_definition
+B	61	32	65	java.sql.PreparedStatement	setString(int,java.lang.String)	65
+S	44	57	javax.servlet.http.HttpServletRequest	getHeaders(java.lang.String)	true
+
+[STDERR]

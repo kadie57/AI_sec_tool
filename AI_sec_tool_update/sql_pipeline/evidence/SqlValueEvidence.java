@@ -1,10 +1,12 @@
 import com.sun.source.tree.*;
 import com.sun.source.util.TreePath;
+import com.sun.source.util.TreePathScanner;
 import com.sun.source.util.TreeScanner;
 import java.util.*;
 import javax.lang.model.element.Element;
 import javax.lang.model.element.ElementKind;
 import javax.lang.model.element.ExecutableElement;
+import javax.lang.model.element.TypeElement;
 import javax.lang.model.element.VariableElement;
 import javax.lang.model.type.TypeKind;
 
@@ -13,6 +15,8 @@ class SqlValueEvidence {
     private static final int BUDGET = 500;
     private static final int MAX_HELPER_DEPTH = 4;
     private static final int MAX_REFERENCES = 32;
+    private static final int MAX_FIXED_STRINGS = 4;
+    private static final int MAX_COLLECTION_ENTRIES = 16;
     private static final Set<Tree.Kind> WRITE_EXPRESSIONS = EnumSet.of(
         Tree.Kind.ASSIGNMENT, Tree.Kind.AND_ASSIGNMENT, Tree.Kind.OR_ASSIGNMENT, Tree.Kind.XOR_ASSIGNMENT,
         Tree.Kind.PLUS_ASSIGNMENT, Tree.Kind.MINUS_ASSIGNMENT, Tree.Kind.MULTIPLY_ASSIGNMENT,
@@ -22,9 +26,14 @@ class SqlValueEvidence {
         Tree.Kind.POSTFIX_DECREMENT);
 
     private record Step(String file, long line, String role) {}
+    private record LocalList(List<Value> elements) {}
+    private record LocalMap(Map<Object, Value> entries) {}
+    private record FixedStrings(Set<String> choices) {}
+    private enum CollectionOperation { APPEND, REMOVE_INDEX, LIST_GET, MAP_PUT, MAP_GET }
     private record Value(String status, Object literal, List<Step> steps) {
         boolean isConstant() { return status.equals("constant"); }
         boolean isUnknown() { return status.equals("unknown"); }
+        boolean isLocalCollection() { return literal instanceof LocalList || literal instanceof LocalMap; }
         Value with(List<Step> context) {
             var ordered = new LinkedHashSet<>(steps);
             ordered.addAll(context);
@@ -41,6 +50,7 @@ class SqlValueEvidence {
 
     private final SqlEndpointProbe probe;
     private final Map<Tree, SqlEndpointProbe.Call> calls = new IdentityHashMap<>();
+    private final Map<Element, Boolean> collectionUses = new HashMap<>();
     private int remaining = BUDGET;
 
     private SqlValueEvidence(SqlEndpointProbe probe) {
@@ -127,7 +137,7 @@ class SqlValueEvidence {
     private static Value convert(Value value, String type) {
         if (value.isUnknown()) return value;
         if (type.equals("java.lang.String")) {
-            return value.isConstant() && !(value.literal() instanceof String) ? UNKNOWN : value;
+            return value.isLocalCollection() || (value.isConstant() && !(value.literal() instanceof String)) ? UNKNOWN : value;
         }
         if (type.equals("boolean") && value.literal() instanceof Boolean) return value;
         if (!numeric(value.literal())) return UNKNOWN;
@@ -139,11 +149,55 @@ class SqlValueEvidence {
         return UNKNOWN;
     }
 
+    private static Set<String> fixedStrings(Value value) {
+        if (value.literal() instanceof FixedStrings set) return set.choices();
+        if (value.literal() instanceof String text) return Set.of(text);
+        return Set.of();
+    }
+
+    private static Value fixedValue(Set<String> choices) {
+        if (choices.isEmpty() || choices.size() > MAX_FIXED_STRINGS) return UNKNOWN;
+        if (choices.size() == 1) return new Value("constant", choices.iterator().next(), List.of());
+        return new Value("fixed_sql_alternatives", new FixedStrings(Set.copyOf(choices)), List.of());
+    }
+
+    private static Set<String> concatenationOperands(Value value) {
+        return value.isConstant() ? Set.of(String.valueOf(value.literal())) : fixedStrings(value);
+    }
+
+    private Value concatenate(TreePath path, Value left, Value right) {
+        if (left.isUnknown() || right.isUnknown() || left.isLocalCollection() || right.isLocalCollection()) {
+            return UNKNOWN.with(left.steps()).with(right.steps()).with(step(path, "string_concatenation_with_unresolved_operand"));
+        }
+        var leftStrings = concatenationOperands(left);
+        var rightStrings = concatenationOperands(right);
+        Value result;
+        if (leftStrings.isEmpty() || rightStrings.isEmpty()) {
+            result = new Value("external_input_contributes", null, List.of());
+        } else {
+            var choices = new LinkedHashSet<String>();
+            for (String first : leftStrings) for (String second : rightStrings) choices.add(first + second);
+            result = fixedValue(choices);
+        }
+        return result.with(left.steps()).with(right.steps()).with(step(path, "string_concatenation"));
+    }
+
+    private static boolean isNullLiteral(Tree tree) {
+        while (tree instanceof ParenthesizedTree parentheses) tree = parentheses.getExpression();
+        return tree.getKind() == Tree.Kind.NULL_LITERAL;
+    }
+
     private Value expression(TreePath path, Map<Element, Value> env, int depth) {
         if (--remaining < 0) return UNKNOWN;
         var tree = path.getLeaf();
         if (tree instanceof LiteralTree item) return literal(path, item.getValue());
         if (tree instanceof ParenthesizedTree paren) return expression(child(path, paren.getExpression()), env, depth);
+        if (tree instanceof TypeCastTree cast) {
+            var type = probe.trees.getTypeMirror(path);
+            if (type != null && type.toString().equals("java.lang.String")) {
+                return convert(expression(child(path, cast.getExpression()), env, depth), "java.lang.String");
+            }
+        }
         if (tree instanceof IdentifierTree || tree instanceof MemberSelectTree) {
             if (probe.trees.getElement(path) instanceof VariableElement variable) {
                 var value = env.containsKey(variable) ? env.get(variable) : literal(path, variable.getConstantValue());
@@ -179,15 +233,13 @@ class SqlValueEvidence {
             var right = expression(rightPath, env, depth);
             var type = probe.trees.getTypeMirror(path);
             if (binary.getKind() == Tree.Kind.PLUS && type != null && type.toString().equals("java.lang.String")) {
-                if (left.isUnknown() || right.isUnknown()) {
-                    var unresolved = UNKNOWN.with(left.isUnknown() ? left.steps() : List.of())
-                        .with(right.isUnknown() ? right.steps() : List.of());
-                    return unresolved.with(step(path, "string_concatenation_with_unresolved_operand"));
+                return concatenate(path, left, right);
+            }
+            if (binary.getKind() == Tree.Kind.EQUAL_TO || binary.getKind() == Tree.Kind.NOT_EQUAL_TO) {
+                if ((isNullLiteral(binary.getLeftOperand()) && (right.isConstant() || right.literal() instanceof FixedStrings))
+                        || (isNullLiteral(binary.getRightOperand()) && (left.isConstant() || left.literal() instanceof FixedStrings))) {
+                    return literal(path, binary.getKind() == Tree.Kind.NOT_EQUAL_TO).with(left.steps()).with(right.steps());
                 }
-                var value = left.isConstant() && right.isConstant()
-                    ? new Value("constant", String.valueOf(left.literal()) + right.literal(), List.of())
-                    : new Value("external_input_contributes", null, List.of());
-                return value.with(left.steps()).with(right.steps()).with(step(path, "string_concatenation"));
             }
             if (left.isConstant() && right.isConstant()
                     && (binary.getKind() == Tree.Kind.EQUAL_TO || binary.getKind() == Tree.Kind.NOT_EQUAL_TO)
@@ -215,9 +267,125 @@ class SqlValueEvidence {
         return unknownAt(path, "expression_not_modeled");
     }
 
+    private static CollectionOperation collectionOperation(SqlEndpointProbe.Call call) {
+        int arity = call.target().getParameters().size();
+        if (call.owner().equals("java.util.List") || call.owner().equals("java.util.ArrayList")) {
+            if (arity != 1) return null;
+            if (call.name().equals("add")) return CollectionOperation.APPEND;
+            if (call.target().getParameters().get(0).asType().getKind() != TypeKind.INT) return null;
+            if (call.name().equals("remove")) return CollectionOperation.REMOVE_INDEX;
+            if (call.name().equals("get")) return CollectionOperation.LIST_GET;
+        } else if (call.owner().equals("java.util.Map") || call.owner().equals("java.util.HashMap")) {
+            if (call.name().equals("put") && arity == 2) return CollectionOperation.MAP_PUT;
+            if (call.name().equals("get") && arity == 1) return CollectionOperation.MAP_GET;
+        }
+        return null;
+    }
+
+    private static boolean collectionRead(CollectionOperation operation) {
+        return operation == CollectionOperation.LIST_GET || operation == CollectionOperation.MAP_GET;
+    }
+
+    private boolean allowedCollectionUse(TreePath reference, TreePath enclosing) {
+        var select = reference.getParentPath();
+        if (select == null || !(select.getLeaf() instanceof MemberSelectTree member)
+                || member.getExpression() != reference.getLeaf()) return false;
+        var invoke = select.getParentPath();
+        if (invoke == null || invoke.getParentPath() == null) return false;
+        var call = calls.get(invoke.getLeaf());
+        if (call == null || call.tree().getMethodSelect() != member) return false;
+        for (var path = invoke; path != enclosing; path = path.getParentPath()) {
+            if (path.getLeaf() instanceof LambdaExpressionTree || path.getLeaf() instanceof ClassTree
+                    || path.getLeaf() instanceof MethodTree) return false;
+        }
+        var operation = collectionOperation(call);
+        return operation != null && (collectionRead(operation)
+            || (invoke.getParentPath().getLeaf() instanceof ExpressionStatementTree statement
+            && statement.getExpression() == invoke.getLeaf()));
+    }
+
+    private boolean onlyLocalCollectionUses(TreePath declaration, Element variable) {
+        var method = declaration;
+        while (method != null && !(method.getLeaf() instanceof MethodTree)) method = method.getParentPath();
+        if (method == null) return false;
+        var enclosing = method;
+        // Every reference must be a supported receiver use. Aliasing and escape invalidate the model.
+        var escapes = new TreePathScanner<Boolean, Void>() {
+            @Override public Boolean visitIdentifier(IdentifierTree tree, Void unused) {
+                var path = getCurrentPath();
+                return variable.equals(probe.trees.getElement(path)) && !allowedCollectionUse(path, enclosing);
+            }
+            @Override public Boolean reduce(Boolean a, Boolean b) {
+                return Boolean.TRUE.equals(a) || Boolean.TRUE.equals(b);
+            }
+        }.scan(method, null);
+        return !Boolean.TRUE.equals(escapes);
+    }
+
+    private Value newLocalCollection(TreePath declaration, Element variable, ExpressionTree initializer) {
+        if (!(initializer instanceof NewClassTree created) || created.getClassBody() != null
+                || !created.getArguments().isEmpty() || variable.getKind() != ElementKind.LOCAL_VARIABLE) return UNKNOWN;
+        var constructor = probe.trees.getElement(child(declaration, created));
+        if (!(constructor instanceof ExecutableElement executable)
+                || !(executable.getEnclosingElement() instanceof TypeElement owner)) return UNKNOWN;
+        Object contents = switch (owner.getQualifiedName().toString()) {
+            case "java.util.ArrayList" -> new LocalList(List.of());
+            case "java.util.HashMap" -> new LocalMap(Map.of());
+            default -> null;
+        };
+        if (contents == null || !collectionUses.computeIfAbsent(variable, key -> onlyLocalCollectionUses(declaration, key))) {
+            return UNKNOWN;
+        }
+        return new Value("local_collection", contents, step(declaration, "collection_initialization"));
+    }
+
+    private Value updateCollection(TreePath path, CollectionOperation operation, Value tracked, Value first, Value second) {
+        Object contents;
+        String role;
+        if (tracked.literal() instanceof LocalList original && operation == CollectionOperation.APPEND) {
+            if (original.elements().size() >= MAX_COLLECTION_ENTRIES) return UNKNOWN;
+            var elements = new ArrayList<>(original.elements());
+            elements.add(first);
+            contents = new LocalList(List.copyOf(elements));
+            role = "collection_append";
+        } else if (tracked.literal() instanceof LocalList original && operation == CollectionOperation.REMOVE_INDEX
+                && first.literal() instanceof Integer index && index >= 0 && index < original.elements().size()) {
+            var elements = new ArrayList<>(original.elements());
+            elements.remove(index.intValue());
+            contents = new LocalList(List.copyOf(elements));
+            role = "collection_remove";
+        } else if (tracked.literal() instanceof LocalMap original && operation == CollectionOperation.MAP_PUT && first.isConstant()) {
+            var entries = new HashMap<>(original.entries());
+            entries.put(first.literal(), second);
+            if (entries.size() > MAX_COLLECTION_ENTRIES) return UNKNOWN;
+            contents = new LocalMap(Map.copyOf(entries));
+            role = "collection_put";
+        } else {
+            return unknownAt(path, "collection_update_unresolved");
+        }
+        return new Value("local_collection", contents, tracked.steps()).with(step(path, role));
+    }
+
+    private Value readCollection(TreePath path, CollectionOperation operation, Value tracked, Value index) {
+        Value result = UNKNOWN;
+        if (operation == CollectionOperation.LIST_GET && tracked.literal() instanceof LocalList list
+                && index.literal() instanceof Integer i && i >= 0 && i < list.elements().size()) {
+            result = list.elements().get(i);
+        } else if (operation == CollectionOperation.MAP_GET && tracked.literal() instanceof LocalMap map && index.isConstant()) {
+            result = map.entries().getOrDefault(index.literal(), UNKNOWN);
+        }
+        return result.with(tracked.steps()).with(index.steps()).with(step(path, "collection_read"));
+    }
+
     private Value invocation(TreePath path, MethodInvocationTree method, Map<Element, Value> env, int depth) {
         var call = calls.get(method);
         if (call == null) return unknownAt(path, "call_signature_unresolved");
+        var receiverValue = env.getOrDefault(call.receiver(), UNKNOWN);
+        var operation = collectionOperation(call);
+        if (receiverValue.isLocalCollection() && collectionRead(operation)) {
+            var index = expression(child(path, method.getArguments().get(0)), env, depth);
+            return readCollection(path, operation, receiverValue, index);
+        }
         var definition = probe.trees.getPath(call.target());
         if (call.readsRequest() && definition == null
                 && call.target().getReturnType().toString().equals("java.lang.String")) {
@@ -297,12 +465,28 @@ class SqlValueEvidence {
             if (hasWrites(rhs)) return UNSUPPORTED;
             var symbol = probe.trees.getElement(path);
             if (symbol == null) return UNSUPPORTED;
-            env.put(symbol, rhs == null ? UNKNOWN : convert(expression(child(path, rhs), env, depth), symbol.asType().toString())
-                .with(guards).with(step(path, "local_definition")));
+            var collection = newLocalCollection(path, symbol, rhs);
+            var value = collection.isLocalCollection() ? collection : rhs == null ? UNKNOWN
+                : convert(expression(child(path, rhs), env, depth), symbol.asType().toString());
+            env.put(symbol, value.with(guards).with(step(path, "local_definition")));
             return NEXT;
         }
         if (tree instanceof ExpressionStatementTree statement) {
             var expr = statement.getExpression();
+            if (expr instanceof MethodInvocationTree method && !hasWrites(expr)) {
+                var call = calls.get(method);
+                var operation = call == null ? null : collectionOperation(call);
+                if (operation != null && !collectionRead(operation)
+                        && env.getOrDefault(call.receiver(), UNKNOWN).isLocalCollection()) {
+                    var tracked = env.get(call.receiver());
+                    var invoke = child(path, expr);
+                    var arguments = method.getArguments();
+                    var first = expression(child(invoke, arguments.get(0)), env, depth);
+                    var second = arguments.size() == 2 ? expression(child(invoke, arguments.get(1)), env, depth) : UNKNOWN;
+                    env.put(call.receiver(), updateCollection(path, operation, tracked, first, second));
+                    return NEXT;
+                }
+            }
             if (expr instanceof AssignmentTree assign) {
                 var assignPath = child(path, assign);
                 var symbol = probe.trees.getElement(child(assignPath, assign.getVariable()));
@@ -319,6 +503,7 @@ class SqlValueEvidence {
                 : expression(child(path, expr), env, depth).with(guards).with(step(path, "helper_return")));
         }
         if (tree instanceof BreakTree br && br.getLabel() == null) return BREAK;
+        if (tree instanceof WhileLoopTree && depth == 0) return afterWhile(path, env);
         if (tree instanceof IfTree branch) return when(path, branch, env, guards, depth);
         if (tree instanceof SwitchTree branch) return choose(path, branch, env, guards, depth, null);
         return new Outcome(Transfer.UNSUPPORTED, unknownAt(path, "statement_not_modeled"));
@@ -331,6 +516,54 @@ class SqlValueEvidence {
         return together;
     }
 
+    private Outcome afterWhile(TreePath loop, Map<Element, Value> env) {
+        var assigned = new HashSet<Element>();
+        // Continue conditionally on reaching the next statement, with every loop-written local unknown.
+        var nonlocalTransfer = new TreePathScanner<Boolean, Void>() {
+            private void forget(ExpressionTree target) {
+                var symbol = probe.trees.getElement(child(getCurrentPath(), target));
+                if (env.containsKey(symbol)) assigned.add(symbol);
+            }
+            @Override public Boolean visitAssignment(AssignmentTree tree, Void unused) {
+                forget(tree.getVariable());
+                return super.visitAssignment(tree, unused);
+            }
+            @Override public Boolean visitCompoundAssignment(CompoundAssignmentTree tree, Void unused) {
+                forget(tree.getVariable());
+                return super.visitCompoundAssignment(tree, unused);
+            }
+            @Override public Boolean visitUnary(UnaryTree tree, Void unused) {
+                if (WRITE_EXPRESSIONS.contains(tree.getKind())) forget(tree.getExpression());
+                return super.visitUnary(tree, unused);
+            }
+            @Override public Boolean visitIdentifier(IdentifierTree tree, Void unused) {
+                var key = probe.trees.getElement(getCurrentPath());
+                if (env.getOrDefault(key, UNKNOWN).isLocalCollection()) assigned.add(key);
+                return false;
+            }
+            @Override public Boolean visitReturn(ReturnTree tree, Void unused) { return true; }
+            @Override public Boolean visitBreak(BreakTree tree, Void unused) { return tree.getLabel() != null; }
+            @Override public Boolean visitContinue(ContinueTree tree, Void unused) { return tree.getLabel() != null; }
+            @Override public Boolean reduce(Boolean a, Boolean b) {
+                return Boolean.TRUE.equals(a) || Boolean.TRUE.equals(b);
+            }
+        }.scan(loop, null);
+        if (Boolean.TRUE.equals(nonlocalTransfer)) return UNSUPPORTED;
+        var invalidated = unknownAt(loop, "loop_local_values_invalidated");
+        for (var variable : assigned) env.put(variable, invalidated);
+        return new Outcome(Transfer.NEXT, invalidated);
+    }
+
+    private Value mergeBranchValues(TreePath branch, Value left, Value right) {
+        if (Objects.equals(left, right)) return left;
+        var first = fixedStrings(left);
+        var second = fixedStrings(right);
+        if (first.isEmpty() || second.isEmpty()) return unknownAt(branch, "runtime_if_merges_assignments");
+        var choices = new LinkedHashSet<>(first);
+        choices.addAll(second);
+        return fixedValue(choices).with(left.steps()).with(right.steps()).with(step(branch, "fixed_values_from_branches"));
+    }
+
     private Outcome when(TreePath path, IfTree branch, Map<Element, Value> env, List<Step> guards, int depth) {
         if (hasWrites(branch.getCondition())) return UNSUPPORTED;
         var condition = expression(child(path, branch.getCondition()), env, depth);
@@ -341,13 +574,20 @@ class SqlValueEvidence {
         }
         var left = new HashMap<>(env);
         var right = new HashMap<>(env);
-        if (execute(child(path, branch.getThenStatement()), left, guards, depth).transfer() != Transfer.NEXT
-                || (branch.getElseStatement() != null
-                && execute(child(path, branch.getElseStatement()), right, guards, depth).transfer() != Transfer.NEXT)) {
+        var onTrue = execute(child(path, branch.getThenStatement()), left, guards, depth);
+        var onFalse = branch.getElseStatement() == null ? NEXT : execute(child(path, branch.getElseStatement()), right, guards, depth);
+        if (depth == 0 && onTrue.transfer() == Transfer.RETURN && onFalse.transfer() == Transfer.NEXT) {
+            env.replaceAll((key, value) -> right.get(key));
+            return new Outcome(Transfer.NEXT, onFalse.value().with(step(path, "return_branch_excluded")));
+        }
+        if (depth == 0 && onFalse.transfer() == Transfer.RETURN && onTrue.transfer() == Transfer.NEXT) {
+            env.replaceAll((key, value) -> left.get(key));
+            return new Outcome(Transfer.NEXT, onTrue.value().with(step(path, "return_branch_excluded")));
+        }
+        if (onTrue.transfer() != Transfer.NEXT || onFalse.transfer() != Transfer.NEXT) {
             return new Outcome(Transfer.UNSUPPORTED, unknownAt(path, "runtime_if_changes_control_flow"));
         }
-        env.replaceAll((key, value) -> Objects.equals(left.get(key), right.get(key)) ? left.get(key)
-            : unknownAt(path, "runtime_if_merges_assignments"));
+        env.replaceAll((key, value) -> mergeBranchValues(path, left.get(key), right.get(key)));
         return NEXT;
     }
 
@@ -405,6 +645,7 @@ class SqlValueEvidence {
                     return UNKNOWN.with(outcome.transfer() == Transfer.UNSUPPORTED ? outcome.value().steps() : List.of())
                         .with(step(next, "analysis_stopped_before_call"));
                 }
+                if (!outcome.value().steps().isEmpty()) guards = context(guards, outcome.value().steps(), List.of());
             }
         }
         if (tree instanceof TryTree attempt && attempt.getResources().isEmpty() && ancestors.contains(attempt.getBlock())) {

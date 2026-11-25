@@ -1,0 +1,18 @@
+STATUS	3
+Q	F0	55	32	java.sql.Connection	prepareStatement(java.lang.String,java.lang.String[])	55
+C	F0	45	28	org.owasp.benchmark.helpers.SeparateClassRequest	getTheValue(java.lang.String)	true	F1	52	54
+C	F0	47	22	org.owasp.benchmark.testcode.BenchmarkTest02730	doSomething(javax.servlet.http.HttpServletRequest,java.lang.String)	true	F0	66	93
+V	55	32	unknown	unsupported_or_runtime_value
+E	55	32	F0	90	local_definition
+E	55	32	F0	92	value_at_reference_unresolved
+E	55	32	F0	92	helper_return
+E	55	32	F0	47	helper_call
+E	55	32	F0	47	local_definition
+E	55	32	F0	49	value_at_reference_unresolved
+E	55	32	F0	49	string_concatenation_with_unresolved_operand
+E	55	32	F0	49	local_definition
+E	55	32	F0	55	value_at_reference_unresolved
+E	55	32	F0	49	sql_argument_variable_declaration
+B	55	32	56	java.sql.PreparedStatement	setString(int,java.lang.String)	56
+
+[STDERR]

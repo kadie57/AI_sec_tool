@@ -1,0 +1,103 @@
+   
+                               
+  
+                                                                                                   
+                         
+                                                                                                
+  
+                                                                                                    
+                                                                                             
+  
+                                                                                            
+                                                                                             
+                                                                
+  
+                       
+                
+   
+package org.owasp.benchmark.testcode;
+
+import java.io.IOException;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+@WebServlet(value = "/sqli-01/BenchmarkTest00842")
+public class BenchmarkTest00842 extends HttpServlet {
+
+    private static final long serialVersionUID = 1L;
+
+    @Override
+    public void doGet(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        doPost(request, response);
+    }
+
+    @Override
+    public void doPost(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        response.setContentType("text/html;charset=UTF-8");
+
+        String queryString = request.getQueryString();
+        String paramval = "BenchmarkTest00842" + "=";
+        int paramLoc = -1;
+        if (queryString != null) paramLoc = queryString.indexOf(paramval);
+        if (paramLoc == -1) {
+            response.getWriter()
+                    .println(
+                            "getQueryString() couldn't find expected parameter '"
+                                    + "BenchmarkTest00842"
+                                    + "' in query string.");
+            return;
+        }
+
+        String param =
+                queryString.substring(
+                        paramLoc
+                                + paramval
+                                        .length());                                                 
+                                     
+                                                                                                  
+                       
+        int ampersandLoc = queryString.indexOf("&", paramLoc);
+        if (ampersandLoc != -1) {
+            param = queryString.substring(paramLoc + paramval.length(), ampersandLoc);
+        }
+        param = java.net.URLDecoder.decode(param, "UTF-8");
+
+        String bar = "";
+        if (param != null) {
+            java.util.List<String> valuesList = new java.util.ArrayList<String>();
+            valuesList.add("safe");
+            valuesList.add(param);
+            valuesList.add("moresafe");
+
+            valuesList.remove(0);                             
+
+            bar = valuesList.get(0);                       
+        }
+
+        String sql = "SELECT userid from USERS where USERNAME='foo' and PASSWORD='" + bar + "'";
+
+        try {
+                            
+                                                                                        
+            Integer results =
+                    org.owasp.benchmark.helpers.DatabaseHelper.JDBCtemplate.queryForObject(
+                            sql, Integer.class);
+            response.getWriter().println("Your results are: " + results);
+
+        } catch (org.springframework.dao.EmptyResultDataAccessException e) {
+            response.getWriter()
+                    .println(
+                            "No results returned for query: "
+                                    + org.owasp.esapi.ESAPI.encoder().encodeForHTML(sql));
+        } catch (org.springframework.dao.DataAccessException e) {
+            if (org.owasp.benchmark.helpers.DatabaseHelper.hideSQLErrors) {
+                response.getWriter().println("Error processing request.");
+            } else throw new ServletException(e);
+        }
+    }
+}

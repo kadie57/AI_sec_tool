@@ -1,0 +1,32 @@
+{
+  "version": "jdbc-value-evidence-v5",
+  "scope": "modeled_java_execution_up_to_the_reported_call",
+  "status": "evaluated",
+  "arguments": [
+    {
+      "call": {
+        "file_id": "F0",
+        "line": 93,
+        "column": 42
+      },
+      "sql_argument": {
+        "file_id": "F0",
+        "line": 93
+      },
+      "status": "unknown",
+      "reason": "unsupported_or_runtime_value",
+      "evidence": [
+        {
+          "file_id": "F0",
+          "line": 47,
+          "role": "statement_not_modeled"
+        },
+        {
+          "file_id": "F0",
+          "line": 39,
+          "role": "analysis_stopped_before_call"
+        }
+      ]
+    }
+  ]
+}

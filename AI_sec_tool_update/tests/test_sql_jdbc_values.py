@@ -66,6 +66,115 @@ class Caller {
         self.assertEqual(result["status"], "unknown")
 
     @unittest.skipUnless(SERVLET_JAR.is_file(), "Servlet library is unavailable")
+    def test_array_list_remove_shifts_the_selected_slot(self):
+        source = """import java.sql.Statement;
+import javax.servlet.ServletRequest;
+import java.util.ArrayList;
+import java.util.List;
+class Example {
+  void run(Statement sink, ServletRequest request) throws Exception {
+    List<String> values = new ArrayList<>();
+    values.add(request.getParameter("name"));
+    values.add("one");
+    values.add("two");
+    values.remove(1);
+    sink.execute("SELECT " + values.get(INDEX));
+  }
+}
+"""
+        proven = self.probe(source.replace("INDEX", "1"), (SERVLET_JAR,))
+        self.assertEqual(proven["status"], "constant_sql_text")
+        self.assertIn({"file_id": "F0", "line": 11, "role": "collection_remove"}, proven["evidence"])
+        unknown_input = self.probe(source.replace("INDEX", "0"), (SERVLET_JAR,))
+        self.assertEqual(unknown_input["status"], "external_input_contributes")
+        self.assertIn({"file_id": "F0", "line": 8, "role": "servlet_request_read"}, unknown_input["evidence"])
+
+    def test_collection_alias_or_object_remove_keeps_value_unknown(self):
+        source = """import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
+class Example {
+  void run(Statement sink, String outside) throws Exception {
+    List<String> values = new ArrayList<>();
+    values.add("fixed");
+    values.add(outside);
+    CHANGE
+    sink.execute("SELECT " + values.get(0));
+  }
+}
+"""
+        for change in ('List<String> alias = values; alias.set(0, outside);', 'values.remove("fixed");'):
+            with self.subTest(change=change):
+                self.assertEqual(self.probe(source.replace("CHANGE", change))["status"], "unknown")
+
+    def test_map_reads_the_exact_key_and_forgets_state_after_unknown_key_write(self):
+        source = """import java.sql.Statement;
+import java.util.HashMap;
+class Example {
+  void run(Statement sink, String key, String input) throws Exception {
+    sink.execute("SELECT " + lookup(key, input));
+  }
+  static String lookup(String key, String input) {
+    var values = new HashMap<String, Object>();
+    values.put("fixed", "first");
+    values.put(SECOND_KEY, input);
+    String value = (String) values.get("other");
+    value = (String) values.get("fixed");
+    return value;
+  }
+}
+"""
+        proven = self.probe(source.replace("SECOND_KEY", '"other"'))
+        self.assertEqual(proven["status"], "constant_sql_text")
+        self.assertIn({"file_id": "F0", "line": 12, "role": "collection_read"}, proven["evidence"])
+        self.assertEqual(self.probe(source.replace("SECOND_KEY", "key"))["status"], "unknown")
+
+    def test_unknown_condition_can_join_fixed_strings_after_a_loop(self):
+        source = """import java.sql.Statement;
+class Example {
+  void run(Statement sink, boolean active, String input) throws Exception {
+    String source = "before";
+    while (active) {
+      source = input;
+      active = false;
+    }
+    String value = "first";
+    if (source != null) value = SELECTED;
+    sink.execute("SELECT " + value);
+  }
+}
+"""
+        proven = self.probe(source.replace("SELECTED", '"second"'))
+        self.assertEqual(proven["status"], "fixed_sql_alternatives")
+        self.assertIn({"file_id": "F0", "line": 10, "role": "fixed_values_from_branches"}, proven["evidence"])
+        self.assertIn({"file_id": "F0", "line": 5, "role": "loop_local_values_invalidated"}, proven["evidence"])
+        self.assertEqual(self.probe(source.replace("SELECTED", "source"))["status"], "unknown")
+
+    def test_excludes_an_early_return_only_when_tracing_to_a_call(self):
+        traced = self.probe("""import java.sql.Statement;
+class Example {
+  void run(Statement sink, boolean leave) throws Exception {
+    if (leave) return;
+    sink.execute("SELECT 1");
+  }
+}
+""")
+        self.assertEqual(traced["status"], "constant_sql_text")
+        self.assertIn({"file_id": "F0", "line": 4, "role": "return_branch_excluded"}, traced["evidence"])
+        helper = self.probe("""import java.sql.Statement;
+class Example {
+  void run(Statement sink, boolean choose, String input) throws Exception {
+    sink.execute(value(choose, input));
+  }
+  static String value(boolean choose, String input) {
+    if (choose) return input;
+    return "SELECT 1";
+  }
+}
+""")
+        self.assertEqual(helper["status"], "unknown")
+
+    @unittest.skipUnless(SERVLET_JAR.is_file(), "Servlet library is unavailable")
     def test_servlet_read_in_the_caller_keeps_its_file_coordinate(self):
         source = """import java.sql.Statement;
 class Example {

@@ -144,7 +144,7 @@ def request_for(row, *, confirmed_jdbc_values_only=False, prompt_profile="baseli
         if confirmed_jdbc_values_only and isinstance(selected, dict) and (values := selected.get("jdbc_value_evidence")):
             arguments = values["arguments"]
             if (len(arguments) != 1
-                    or arguments[0]["status"] not in {"constant_sql_text", "external_input_contributes"}):
+                    or arguments[0]["status"] not in {"constant_sql_text", "fixed_sql_alternatives", "external_input_contributes"}):
                 selected = {key: value for key, value in selected.items() if key != "jdbc_value_evidence"}
         evidence["selected_evidence"] = selected
     system, schema = PROMPT_PROFILES[prompt_profile]

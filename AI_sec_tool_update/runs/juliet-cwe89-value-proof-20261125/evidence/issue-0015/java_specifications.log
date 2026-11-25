@@ -1,0 +1,12 @@
+STATUS	0
+Q	F0	105	38	java.sql.Statement	executeQuery(java.lang.String)	105
+A	105	38	F1	89	70	testcases.CWE89_SQL_Injection.s03.CWE89_SQL_Injection__PropertiesFile_executeQuery_51b	goodG2BSink(java.lang.String)	1	89	92
+V	105	38	constant_sql_text	bounded_java_evaluation
+E	105	38	F0	105	constant_expression
+E	105	38	F1	87	constant_expression
+E	105	38	F1	87	local_assignment
+E	105	38	F1	89	caller_argument
+E	105	38	F0	92	callee_parameter
+E	105	38	F0	105	string_concatenation
+
+[STDERR]

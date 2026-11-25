@@ -1,0 +1,12 @@
+STATUS	0
+Q	F0	96	41	java.sql.Connection	prepareStatement(java.lang.String)	96
+A	96	41	F1	100	76	testcases.CWE89_SQL_Injection.s01.CWE89_SQL_Injection__console_readLine_prepareStatement_51b	goodG2BSink(java.lang.String)	1	100	86
+V	96	41	constant_sql_text	bounded_java_evaluation
+E	96	41	F0	96	constant_expression
+E	96	41	F1	98	constant_expression
+E	96	41	F1	98	local_assignment
+E	96	41	F1	100	caller_argument
+E	96	41	F0	86	callee_parameter
+E	96	41	F0	96	string_concatenation
+
+[STDERR]

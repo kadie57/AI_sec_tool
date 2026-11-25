@@ -1,0 +1,81 @@
+{
+  "state": "COMPLETED",
+  "scope": "JDK-value-only replay of frozen configuration D",
+  "baseline_evidence": "/home/khanh/AI_sec_tool/AI_sec_tool_update/runs/owasp-cwe89-independent-20261125/d-project-graph/evidence/sql_evidence.jsonl",
+  "baseline_sha256": "eeda21441cb48fa1823ca7f6be08005c6010af9a169d449caf55027d360daaab",
+  "value_version": "jdbc-value-evidence-v5",
+  "result_count": 21,
+  "value_status_counts": {
+    "constant_sql_text": 9,
+    "unknown": 10,
+    "fixed_sql_alternatives": 2
+  },
+  "value_changes": [
+    {
+      "issue_id": "aa89b5a6-a6d4-40bc-95ee-11629400c18e",
+      "component": "thesis_owasp_cwe89_d_holdout_20261125_v1:src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00602.java",
+      "line": 77,
+      "before": [
+        "unknown"
+      ],
+      "after": [
+        "fixed_sql_alternatives"
+      ]
+    },
+    {
+      "issue_id": "e07e4ceb-dfcc-4510-a5b7-a3cf57d25b57",
+      "component": "thesis_owasp_cwe89_d_holdout_20261125_v1:src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00838.java",
+      "line": 97,
+      "before": [
+        "unknown"
+      ],
+      "after": [
+        "constant_sql_text"
+      ]
+    },
+    {
+      "issue_id": "ed35b877-4c14-43bc-a67a-3487d53a4e23",
+      "component": "thesis_owasp_cwe89_d_holdout_20261125_v1:src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00927.java",
+      "line": 65,
+      "before": [
+        "unknown"
+      ],
+      "after": [
+        "constant_sql_text"
+      ]
+    },
+    {
+      "issue_id": "52b94280-6e61-4fe5-98b8-a5ed603234c6",
+      "component": "thesis_owasp_cwe89_d_holdout_20261125_v1:src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00940.java",
+      "line": 64,
+      "before": [
+        "unknown"
+      ],
+      "after": [
+        "constant_sql_text"
+      ]
+    },
+    {
+      "issue_id": "67f5c4df-44a0-48ab-877c-e544ca81949b",
+      "component": "thesis_owasp_cwe89_d_holdout_20261125_v1:src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02529.java",
+      "line": 55,
+      "before": [
+        "unknown"
+      ],
+      "after": [
+        "constant_sql_text"
+      ]
+    },
+    {
+      "issue_id": "2d622df7-fb5e-420a-8239-c70a3df8c8b5",
+      "component": "thesis_owasp_cwe89_d_holdout_20261125_v1:src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02629.java",
+      "line": 78,
+      "before": [
+        "unknown"
+      ],
+      "after": [
+        "fixed_sql_alternatives"
+      ]
+    }
+  ]
+}

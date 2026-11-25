@@ -1,0 +1,21 @@
+STATUS	3
+Q	F0	77	63	java.sql.Connection	prepareStatement(java.lang.String)	77
+C	F0	44	21	javax.servlet.http.HttpServletRequest	getHeader(java.lang.String)	false
+C	F0	45	29	javax.servlet.http.HttpServletRequest	getHeader(java.lang.String)	false
+C	F0	49	37	java.net.URLDecoder	decode(java.lang.String,java.lang.String)	true
+V	77	63	unknown	unsupported_or_runtime_value
+E	77	63	F0	53	local_definition
+E	77	63	F0	56	switch_selector
+E	77	63	F0	63	switch_case_selected
+E	77	63	F0	64	switch_fallthrough
+E	77	63	F0	65	local_assignment
+E	77	63	F0	72	value_at_reference_unresolved
+E	77	63	F0	72	string_concatenation_with_unresolved_operand
+E	77	63	F0	72	local_definition
+E	77	63	F0	77	value_at_reference_unresolved
+E	77	63	F0	72	sql_argument_variable_declaration
+B	77	63	78	java.sql.PreparedStatement	setString(int,java.lang.String)	78
+S	44	21	javax.servlet.http.HttpServletRequest	getHeader(java.lang.String)	true
+S	45	29	javax.servlet.http.HttpServletRequest	getHeader(java.lang.String)	true
+
+[STDERR]

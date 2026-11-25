@@ -1,0 +1,48 @@
+{
+  "state": "COMPLETED",
+  "scope": "JDK-value-only replay of frozen configuration D",
+  "baseline_evidence": "/home/khanh/AI_sec_tool/AI_sec_tool_update/runs/owasp-cwe89-e-unseen-20261125/D/evidence/sql_evidence.jsonl",
+  "baseline_sha256": "807812d0efd8984b15ce4f5881081d323c85837bb4474e3408c2fa70c1beb42c",
+  "value_version": "jdbc-value-evidence-v5",
+  "result_count": 18,
+  "value_status_counts": {
+    "unknown": 12,
+    "constant_sql_text": 5,
+    "fixed_sql_alternatives": 1
+  },
+  "value_changes": [
+    {
+      "issue_id": "87b5243c-6038-48a0-a021-36ecbdc205a3",
+      "component": "thesis_owasp_cwe89_e_unseen_20261125_v1:src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00509.java",
+      "line": 64,
+      "before": [
+        "unknown"
+      ],
+      "after": [
+        "constant_sql_text"
+      ]
+    },
+    {
+      "issue_id": "84dc38e5-895c-4802-954e-6e12c8bb9bbd",
+      "component": "thesis_owasp_cwe89_e_unseen_20261125_v1:src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02095.java",
+      "line": 60,
+      "before": [
+        "unknown"
+      ],
+      "after": [
+        "constant_sql_text"
+      ]
+    },
+    {
+      "issue_id": "270f2ac7-5240-4672-977e-856184c602df",
+      "component": "thesis_owasp_cwe89_e_unseen_20261125_v1:src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02185.java",
+      "line": 53,
+      "before": [
+        "unknown"
+      ],
+      "after": [
+        "fixed_sql_alternatives"
+      ]
+    }
+  ]
+}

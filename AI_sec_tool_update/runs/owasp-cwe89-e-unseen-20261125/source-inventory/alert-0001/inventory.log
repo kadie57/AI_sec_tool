@@ -1,0 +1,16 @@
+STATUS	3
+Q	F0	84	32	java.sql.Connection	prepareStatement(java.lang.String,java.lang.String[])	84
+C	F0	59	31	javax.servlet.http.Cookie	getName()	false
+C	F0	60	49	java.net.URLDecoder	decode(java.lang.String,java.lang.String)	true
+C	F0	60	66	javax.servlet.http.Cookie	getValue()	false
+C	F0	73	24	java.util.List	remove(int)	false
+C	F0	75	30	java.util.List	get(int)	false
+V	84	32	unknown	unsupported_or_runtime_value
+E	84	32	F0	57	runtime_if_changes_control_flow
+E	84	32	F0	57	analysis_stopped_before_call
+E	84	32	F0	78	sql_argument_variable_declaration
+B	84	32	85	java.sql.PreparedStatement	setString(int,java.lang.String)	85
+S	41	36	javax.servlet.http.HttpServletRequest	getRequestURI()	false
+S	54	58	javax.servlet.http.HttpServletRequest	getCookies()	true
+
+[STDERR]

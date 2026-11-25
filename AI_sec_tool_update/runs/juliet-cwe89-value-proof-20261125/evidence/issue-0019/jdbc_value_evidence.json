@@ -1,0 +1,37 @@
+{
+  "version": "jdbc-value-evidence-v5",
+  "scope": "modeled_java_execution_up_to_the_reported_call",
+  "status": "evaluated",
+  "arguments": [
+    {
+      "call": {
+        "file_id": "F0",
+        "line": 42,
+        "column": 38
+      },
+      "sql_argument": {
+        "file_id": "F0",
+        "line": 42
+      },
+      "status": "unknown",
+      "reason": "unsupported_or_runtime_value",
+      "evidence": [
+        {
+          "file_id": "F0",
+          "line": 42,
+          "role": "constant_expression"
+        },
+        {
+          "file_id": "F0",
+          "line": 42,
+          "role": "value_at_reference_unresolved"
+        },
+        {
+          "file_id": "F0",
+          "line": 42,
+          "role": "string_concatenation_with_unresolved_operand"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,125 @@
+{
+  "status": "candidate_paths",
+  "matched_sources": 1,
+  "source_count": 1,
+  "candidate_paths_found": 1,
+  "search_limit_hit": false,
+  "paths": [
+    {
+      "source": {
+        "file_id": "F0",
+        "line": 43,
+        "method": "doPost",
+        "method_start": 38,
+        "method_end": 61,
+        "node_type": "Call",
+        "api_owner": "javax.servlet.ServletRequest",
+        "api_signature": "getParameter(java.lang.String)"
+      },
+      "steps": [
+        {
+          "file_id": "F0",
+          "line": 44,
+          "method": "doPost",
+          "method_start": 38,
+          "method_end": 61,
+          "node_type": "Identifier"
+        },
+        {
+          "file_id": "F0",
+          "line": 46,
+          "method": "doPost",
+          "method_start": 38,
+          "method_end": 61,
+          "node_type": "Identifier"
+        },
+        {
+          "file_id": "F0",
+          "line": 63,
+          "method": "doSomething",
+          "method_start": 63,
+          "method_end": 79,
+          "node_type": "MethodParameterIn"
+        },
+        {
+          "file_id": "F0",
+          "line": 67,
+          "method": "doSomething",
+          "method_start": 63,
+          "method_end": 79,
+          "node_type": "Identifier"
+        },
+        {
+          "file_id": "F0",
+          "line": 70,
+          "method": "doSomething",
+          "method_start": 63,
+          "method_end": 79,
+          "node_type": "Identifier"
+        },
+        {
+          "file_id": "F0",
+          "line": 73,
+          "method": "doSomething",
+          "method_start": 63,
+          "method_end": 79,
+          "node_type": "Identifier"
+        },
+        {
+          "file_id": "F0",
+          "line": 75,
+          "method": "doSomething",
+          "method_start": 63,
+          "method_end": 79,
+          "node_type": "Identifier"
+        },
+        {
+          "file_id": "F0",
+          "line": 78,
+          "method": "doSomething",
+          "method_start": 63,
+          "method_end": 79,
+          "node_type": "Identifier"
+        },
+        {
+          "file_id": "F0",
+          "line": 63,
+          "method": "doSomething",
+          "method_start": 63,
+          "method_end": 79,
+          "node_type": "MethodReturn"
+        },
+        {
+          "file_id": "F0",
+          "line": 46,
+          "method": "doPost",
+          "method_start": 38,
+          "method_end": 61,
+          "node_type": "Call"
+        }
+      ],
+      "sink": {
+        "file_id": "F0",
+        "line": 53,
+        "name": "addBatch",
+        "method": "doPost",
+        "method_start": 38,
+        "method_end": 61
+      },
+      "omitted_steps": 2,
+      "unlocated_nodes": 0,
+      "dispatch": []
+    }
+  ],
+  "paths_not_shown": 0,
+  "version": "sql-anchored-paths-v1",
+  "scope": "verified_java_bundle",
+  "inputs": {
+    "F0": {
+      "path": "src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02185.java",
+      "source_sha256": "e50a50c117d0b4c9be52de4093ad31ff8310dd6961e680883e23cf4762455564",
+      "staged_sha256": "982b44cbf12e0b392f5168411f2228da6ea5c81e52dc88b74e74ac3643c00c6f"
+    }
+  },
+  "interpretation": "Candidate dataflow. Runtime branch and dispatch feasibility require separate evidence."
+}

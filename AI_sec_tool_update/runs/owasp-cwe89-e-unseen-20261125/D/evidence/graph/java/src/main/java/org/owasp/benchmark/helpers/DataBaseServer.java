@@ -1,0 +1,88 @@
+   
+                          
+  
+                                                                                                  
+                         
+                                                                                                
+  
+                                                                                                    
+                                                                                             
+  
+                                                                                            
+                                                                                             
+                                                               
+  
+                    
+                
+   
+package org.owasp.benchmark.helpers;
+
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import org.owasp.benchmark.service.pojo.Person;
+import org.owasp.benchmark.service.pojo.XMLMessage;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+public class DataBaseServer {
+
+    @GetMapping(value = "/resetdb")
+    public ResponseEntity<List<XMLMessage>> getOtherOrder(
+            @RequestBody Person model, HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        ArrayList<XMLMessage> resp = new ArrayList<XMLMessage>();
+        resp.add(new XMLMessage("Not Implemented."));
+        return new ResponseEntity<List<XMLMessage>>(resp, HttpStatus.OK);
+    }
+
+    @PostMapping(value = "/testdb")
+    public ResponseEntity<List<XMLMessage>> createOrder2(
+            @RequestBody Person model, HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        List<XMLMessage> resp = new ArrayList<XMLMessage>();
+        resp.add(new XMLMessage("Not Implemented."));
+        return new ResponseEntity<List<XMLMessage>>(resp, HttpStatus.OK);
+    }
+
+    @GetMapping(value = "/getall")
+    public ResponseEntity<List<XMLMessage>> getAll(
+            HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        List<XMLMessage> resp = new ArrayList<XMLMessage>();
+        String sql = "SELECT * from USERS";
+        try {
+            java.sql.Connection connection =
+                    org.owasp.benchmark.helpers.DatabaseHelper.getSqlConnection();
+            java.sql.PreparedStatement statement = connection.prepareStatement(sql);
+            statement.execute();
+            org.owasp.benchmark.helpers.DatabaseHelper.printResults(statement, sql, resp);
+        } catch (java.sql.SQLException e) {
+            if (org.owasp.benchmark.helpers.DatabaseHelper.hideSQLErrors) {
+                e.printStackTrace();
+                resp.add(new XMLMessage("Error processing request: " + e.getMessage()));
+                return new ResponseEntity<List<XMLMessage>>(resp, HttpStatus.OK);
+            } else throw new ServletException(e);
+        }
+        return new ResponseEntity<List<XMLMessage>>(resp, HttpStatus.OK);
+    }
+
+    public static void main(String[] args) {
+                                                                                                   
+                     
+
+          
+                                                                                                                                  
+                                                        
+                                                                                       
+          
+    }
+}

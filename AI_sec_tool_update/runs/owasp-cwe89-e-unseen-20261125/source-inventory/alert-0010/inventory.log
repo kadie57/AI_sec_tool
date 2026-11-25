@@ -1,0 +1,22 @@
+STATUS	3
+Q	F0	59	32	java.sql.Connection	prepareStatement(java.lang.String,int)	59
+C	F0	44	21	javax.servlet.http.HttpServletRequest	getHeader(java.lang.String)	false
+C	F0	45	29	javax.servlet.http.HttpServletRequest	getHeader(java.lang.String)	false
+C	F0	49	37	java.net.URLDecoder	decode(java.lang.String,java.lang.String)	true
+C	F0	51	22	org.owasp.benchmark.testcode.BenchmarkTest01961	doSomething(javax.servlet.http.HttpServletRequest,java.lang.String)	true	F0	70	97
+V	59	32	unknown	unsupported_or_runtime_value
+E	59	32	F0	94	local_definition
+E	59	32	F0	96	value_at_reference_unresolved
+E	59	32	F0	96	helper_return
+E	59	32	F0	51	helper_call
+E	59	32	F0	51	local_definition
+E	59	32	F0	53	value_at_reference_unresolved
+E	59	32	F0	53	string_concatenation_with_unresolved_operand
+E	59	32	F0	53	local_definition
+E	59	32	F0	59	value_at_reference_unresolved
+E	59	32	F0	53	sql_argument_variable_declaration
+B	59	32	60	java.sql.PreparedStatement	setString(int,java.lang.String)	60
+S	44	21	javax.servlet.http.HttpServletRequest	getHeader(java.lang.String)	true
+S	45	29	javax.servlet.http.HttpServletRequest	getHeader(java.lang.String)	true
+
+[STDERR]

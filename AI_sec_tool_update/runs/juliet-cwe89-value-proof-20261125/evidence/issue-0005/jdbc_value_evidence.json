@@ -1,0 +1,52 @@
+{
+  "version": "jdbc-value-evidence-v5",
+  "scope": "modeled_java_execution_up_to_the_reported_call",
+  "status": "evaluated",
+  "arguments": [
+    {
+      "call": {
+        "file_id": "F0",
+        "line": 96,
+        "column": 41
+      },
+      "sql_argument": {
+        "file_id": "F0",
+        "line": 96
+      },
+      "status": "constant_sql_text",
+      "reason": "bounded_java_evaluation",
+      "evidence": [
+        {
+          "file_id": "F0",
+          "line": 96,
+          "role": "constant_expression"
+        },
+        {
+          "file_id": "F1",
+          "line": 98,
+          "role": "constant_expression"
+        },
+        {
+          "file_id": "F1",
+          "line": 98,
+          "role": "local_assignment"
+        },
+        {
+          "file_id": "F1",
+          "line": 100,
+          "role": "caller_argument"
+        },
+        {
+          "file_id": "F0",
+          "line": 86,
+          "role": "callee_parameter"
+        },
+        {
+          "file_id": "F0",
+          "line": 96,
+          "role": "string_concatenation"
+        }
+      ]
+    }
+  ]
+}

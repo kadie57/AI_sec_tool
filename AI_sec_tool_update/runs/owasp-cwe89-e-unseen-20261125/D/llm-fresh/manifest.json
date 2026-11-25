@@ -1,0 +1,58 @@
+{
+  "model": "qwen2.5-coder:14b-instruct-q4_K_M",
+  "prompt_sha256": "26e84205a559fb429adba9c87a3a28fdf6a4c6135f4d301f784acee12637a442",
+  "schema_sha256": "2fb9849c6f59240d72ac291beed80f95a0385c5fcfa56376fa905a3efdecc725",
+  "options": {
+    "temperature": 0,
+    "seed": 42,
+    "num_ctx": 8192,
+    "num_predict": 1024
+  },
+  "request_version": 3,
+  "validation_version": 2,
+  "prompt_profile": "iris-contextual",
+  "warning_citation_binding": "sonarqube_alert_start_line",
+  "cases": [
+    {
+      "issue_id": "87b5243c-6038-48a0-a021-36ecbdc205a3",
+      "alert": {
+        "issue_id": "87b5243c-6038-48a0-a021-36ecbdc205a3",
+        "component": "thesis_owasp_cwe89_e_unseen_20261125_v1:src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00509.java",
+        "rule": "findsecbugs:SQL_INJECTION_JDBC",
+        "cwe": "CWE-89",
+        "start_line": 64,
+        "end_line": 64
+      },
+      "source": "fa6978640df8386dab20bbe3c7ff9631eaf12f72b1b569e8aa2f3e74ce041e55",
+      "request_sha256": "c1dfda9bf087a6f7dfb1a4bf713189326fe3fb48f19a5ce3751883dc91ef5c39"
+    },
+    {
+      "issue_id": "84dc38e5-895c-4802-954e-6e12c8bb9bbd",
+      "alert": {
+        "issue_id": "84dc38e5-895c-4802-954e-6e12c8bb9bbd",
+        "component": "thesis_owasp_cwe89_e_unseen_20261125_v1:src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02095.java",
+        "rule": "findsecbugs:SQL_INJECTION_JDBC",
+        "cwe": "CWE-89",
+        "start_line": 60,
+        "end_line": 60
+      },
+      "source": "ab0f7308c95004779292e50797d78121a7e3502f222000ae5d4b4062cc4d9fec",
+      "request_sha256": "944111771fa56071c131717b6b86097a8828b9c5890dabb214492798fc71c822"
+    },
+    {
+      "issue_id": "270f2ac7-5240-4672-977e-856184c602df",
+      "alert": {
+        "issue_id": "270f2ac7-5240-4672-977e-856184c602df",
+        "component": "thesis_owasp_cwe89_e_unseen_20261125_v1:src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02185.java",
+        "rule": "findsecbugs:SQL_INJECTION_JDBC",
+        "cwe": "CWE-89",
+        "start_line": 53,
+        "end_line": 53
+      },
+      "source": "e50a50c117d0b4c9be52de4093ad31ff8310dd6961e680883e23cf4762455564",
+      "request_sha256": "127e7fc24953d1f5dc2ec089413d719da35d33f6c488083e28c4e3479ec6738e"
+    }
+  ],
+  "model_digest": "9ec8897f747e246e970bc5cfdda85d22f1123dc2e3d34978a010a75968716849",
+  "mode": "ollama"
+}

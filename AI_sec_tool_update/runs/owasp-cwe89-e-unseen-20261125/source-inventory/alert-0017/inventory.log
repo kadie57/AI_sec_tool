@@ -1,0 +1,14 @@
+STATUS	3
+Q	F0	77	23	java.sql.Statement	execute(java.lang.String,java.lang.String[])	77
+C	F0	43	38	javax.servlet.http.HttpServletRequest	getQueryString()	false
+C	F0	57	29	java.lang.String	substring(int)	true
+C	F0	66	33	java.lang.String	substring(int,int)	true
+C	F0	68	37	java.net.URLDecoder	decode(java.lang.String,java.lang.String)	true
+C	F0	70	22	org.owasp.benchmark.testcode.BenchmarkTest02651	doSomething(javax.servlet.http.HttpServletRequest,java.lang.String)	true	F0	86	102
+V	77	23	unknown	unsupported_or_runtime_value
+E	77	23	F0	47	runtime_if_changes_control_flow
+E	77	23	F0	47	analysis_stopped_before_call
+E	77	23	F0	72	sql_argument_variable_declaration
+S	43	38	javax.servlet.http.HttpServletRequest	getQueryString()	true
+
+[STDERR]

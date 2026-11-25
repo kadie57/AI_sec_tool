@@ -1,0 +1,15 @@
+STATUS	3
+Q	F0	87	23	java.sql.Statement	addBatch(java.lang.String)	87
+C	F0	43	38	javax.servlet.http.HttpServletRequest	getQueryString()	false
+C	F0	57	29	java.lang.String	substring(int)	true
+C	F0	66	33	java.lang.String	substring(int,int)	true
+C	F0	68	37	java.net.URLDecoder	decode(java.lang.String,java.lang.String)	true
+C	F0	77	24	java.util.List	remove(int)	false
+C	F0	79	30	java.util.List	get(int)	false
+V	87	23	unknown	unsupported_or_runtime_value
+E	87	23	F0	47	runtime_if_changes_control_flow
+E	87	23	F0	47	analysis_stopped_before_call
+E	87	23	F0	82	sql_argument_variable_declaration
+S	43	38	javax.servlet.http.HttpServletRequest	getQueryString()	true
+
+[STDERR]

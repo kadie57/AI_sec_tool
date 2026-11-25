@@ -12,7 +12,7 @@ from ..run_io import run_command
 VERSION = "sql-endpoint-specifications-v1"
 PROBE = Path(__file__).with_name("SqlEndpointProbe.java")
 VALUE_PROBE = Path(__file__).with_name("SqlValueEvidence.java")
-VALUE_VERSION = "jdbc-value-evidence-v4"
+VALUE_VERSION = "jdbc-value-evidence-v5"
 MAX_SOURCES = 8
 
 

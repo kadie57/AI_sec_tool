@@ -1,0 +1,21 @@
+STATUS	3
+Q	F0	58	23	java.sql.Statement	addBatch(java.lang.String)	58
+C	F0	44	21	javax.servlet.http.HttpServletRequest	getHeader(java.lang.String)	false
+C	F0	45	29	javax.servlet.http.HttpServletRequest	getHeader(java.lang.String)	false
+C	F0	49	37	java.net.URLDecoder	decode(java.lang.String,java.lang.String)	true
+C	F0	51	22	org.owasp.benchmark.testcode.BenchmarkTest01970	doSomething(javax.servlet.http.HttpServletRequest,java.lang.String)	true	F0	68	93
+V	58	23	unknown	unsupported_or_runtime_value
+E	58	23	F0	85	local_assignment
+E	58	23	F0	92	value_at_reference_unresolved
+E	58	23	F0	92	helper_return
+E	58	23	F0	51	helper_call
+E	58	23	F0	51	local_definition
+E	58	23	F0	53	value_at_reference_unresolved
+E	58	23	F0	53	string_concatenation_with_unresolved_operand
+E	58	23	F0	53	local_definition
+E	58	23	F0	58	value_at_reference_unresolved
+E	58	23	F0	53	sql_argument_variable_declaration
+S	44	21	javax.servlet.http.HttpServletRequest	getHeader(java.lang.String)	true
+S	45	29	javax.servlet.http.HttpServletRequest	getHeader(java.lang.String)	true
+
+[STDERR]

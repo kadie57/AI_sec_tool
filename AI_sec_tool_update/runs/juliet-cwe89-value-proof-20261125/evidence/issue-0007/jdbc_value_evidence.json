@@ -1,0 +1,72 @@
+{
+  "version": "jdbc-value-evidence-v5",
+  "scope": "modeled_java_execution_up_to_the_reported_call",
+  "status": "evaluated",
+  "arguments": [
+    {
+      "call": {
+        "file_id": "F0",
+        "line": 197,
+        "column": 45
+      },
+      "sql_argument": {
+        "file_id": "F0",
+        "line": 197
+      },
+      "status": "constant_sql_text",
+      "reason": "bounded_java_evaluation",
+      "evidence": [
+        {
+          "file_id": "F0",
+          "line": 197,
+          "role": "constant_expression"
+        },
+        {
+          "file_id": "F0",
+          "line": 184,
+          "role": "constant_expression"
+        },
+        {
+          "file_id": "F0",
+          "line": 175,
+          "role": "constant_expression"
+        },
+        {
+          "file_id": "F0",
+          "line": 175,
+          "role": "switch_selector"
+        },
+        {
+          "file_id": "F0",
+          "line": 182,
+          "role": "switch_case_selected"
+        },
+        {
+          "file_id": "F0",
+          "line": 184,
+          "role": "local_assignment"
+        },
+        {
+          "file_id": "F0",
+          "line": 197,
+          "role": "string_concatenation"
+        },
+        {
+          "file_id": "F0",
+          "line": 188,
+          "role": "constant_expression"
+        },
+        {
+          "file_id": "F0",
+          "line": 188,
+          "role": "switch_selector"
+        },
+        {
+          "file_id": "F0",
+          "line": 190,
+          "role": "switch_case_selected"
+        }
+      ]
+    }
+  ]
+}
