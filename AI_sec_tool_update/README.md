@@ -144,6 +144,21 @@ Dùng `sql_source_spec_experiment.py` sau bước chuẩn bị bằng chứng đ
 
 Ở lượt thử này, nguồn do model đề xuất được đánh dấu riêng trong đường đi Joern. Chữ ký Java xác nhận điểm gọi. Khả năng người dùng kiểm soát giá trị cần được đánh giá theo ngữ cảnh.
 
+## CPG dùng chung cho snapshot Java
+
+`sql_project_flow_experiment.py` dựng một CPG từ các tệp Java có hash khớp manifest SonarQube rồi truy vấn theo lô. JDK áp dụng chính sách chữ ký Servlet hiện có trên toàn snapshot. Nếu cung cấp `--inventory` và `--labels`, bước này dùng lại các đề xuất đã lưu từ lượt C. Mỗi truy vấn vẫn nhắm vào đối số văn bản SQL đã được JDK xác định.
+
+```bash
+python3 sql_project_flow_experiment.py "$BASE_EVIDENCE" \
+  --collection "$COLLECTION_DIR" --source-root "$JAVA_SNAPSHOT_ROOT" \
+  --comparison "$C_EVIDENCE" --inventory "$SOURCE_INVENTORY" --labels "$SOURCE_LABELS_DIR" \
+  --out runs/project-graph/evidence
+```
+
+`BASE_EVIDENCE` là `sql_evidence.jsonl` trước khi áp dụng đặc tả Qwen. Để kiểm tra chỉ với đặc tả Servlet sẵn có, bỏ ba tùy chọn `--comparison`, `--inventory` và `--labels`. Lượt này dùng một classpath theo thứ tự JAR của manifest baseline. Nếu đã chuyển JAR sang thư mục khác, truyền lại từng `--java-classpath` theo thứ tự cũ với cùng hash.
+
+Mở `graph/snapshot.bin` trong Joern để truy vấn CPG và xem `project_paths.json` để đọc trạng thái từng cảnh báo. Chạy `sql_llm_experiment.py run` với `--path-snippets` khi thẩm định gói mới. Các tệp được bổ sung từ đồ thị chỉ đóng góp trích đoạn có tọa độ. Đường đi có cùng bằng chứng hiển thị sẽ giữ nguyên gói gửi model để tiện đối chiếu. Bộ đối chứng ba tệp và nhãn nguồn, đích nằm trong `fixtures/project_sql3/`.
+
 ## Kiểm tra lại lượt quét đã lưu
 
 Chạy từ `AI_sec_tool_update/`. Đặt `LEGACY_PROJECT_ROOT` thành đường dẫn đến bản lưu trữ của dự án gốc, nơi còn `runs/` và `Clean_Code/` của lượt quét.

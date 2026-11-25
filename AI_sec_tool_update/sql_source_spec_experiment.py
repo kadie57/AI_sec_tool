@@ -216,6 +216,24 @@ def score_sources(inventory_path, label_folder, reference, output):
     return result["total"]
 
 
+def proposed_sources(row, baseline_sources, inventory, labels):
+    locations = {(item["file_id"], item["line"], item["name"]) for item in baseline_sources}
+    proposals = {}
+    for key, candidate in inventory["by_alert"][row["issue_id"]].items():
+        label = labels[key]
+        if label["label"] != "external_read" or ("definition" in candidate and not candidate["fixed_dispatch"]):
+            continue
+        if candidate_record(candidate, row["source_context"]["files"])[0] != key:
+            raise ValueError("Source proposal does not match a typed source site")
+        loc = (candidate["file_id"], candidate["line"], candidate["signature"].partition("(")[0])
+        if loc not in locations:
+            locations.add(loc)
+            proposals[key] = {name: candidate[name] for name in ("file_id", "line", "column", "owner", "signature")} | {
+                "semantic_status": "qwen_candidate", "input_kind": label["kind"] or "unspecified",
+            }
+    return proposals
+
+
 def apply_sources(path, inventory_path, label_folder, output):
     path, output = path.resolve(), output.resolve()
     evidence_sha, rows = read_evidence(path)
@@ -245,23 +263,11 @@ def apply_sources(path, inventory_path, label_folder, output):
         if len(args) == 1 and args[0]["status"] == "constant_sql_text":
             summary["status"] = "modeled_constant_sql"
             continue
-        source_locations = {(item["file_id"], item["line"], item["name"]) for item in baseline_sources}
-        proposals = []
-        for key, candidate in inputs["by_alert"][row["issue_id"]].items():
-            label = labels[key]
-            if label["label"] != "external_read" or ("definition" in candidate and not candidate["fixed_dispatch"]):
-                continue
-            if candidate_record(candidate, row["source_context"]["files"])[0] != key:
-                raise ValueError("Source proposal does not match a typed source site")
-            loc = (candidate["file_id"], candidate["line"], candidate["signature"].partition("(")[0])
-            if loc not in source_locations:
-                source_locations.add(loc)
-                proposals.append({name: candidate[name] for name in ("file_id", "line", "column", "owner", "signature")}
-                                 | {"semantic_status": "qwen_candidate", "input_kind": label["kind"] or "unspecified"})
-                summary["proposals"].append(key)
+        proposals = proposed_sources(row, baseline_sources, inputs, labels)
         if not proposals:
             continue
-        specifications["source_proposals"] = proposals
+        summary["proposals"] = list(proposals)
+        specifications["source_proposals"] = list(proposals.values())
         artifact = output / f"issue-{n:04d}"
         artifact.mkdir()
         print(f"Joern checks proposed sources for warning {n}/{len(rows)}", flush=True)

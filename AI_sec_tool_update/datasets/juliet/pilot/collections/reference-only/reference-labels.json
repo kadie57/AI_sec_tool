@@ -1,0 +1,36 @@
+{
+  "labels": [
+    {
+      "issue_id": "juliet-ref-01",
+      "sample": "CWE89_SQL_Injection__getParameter_Servlet_executeQuery_01.java",
+      "line": 47,
+      "reference_vulnerability": true,
+      "label_basis": "NIST annotated CWE-89 sink"
+    },
+    {
+      "issue_id": "juliet-ref-02",
+      "sample": "CWE89_SQL_Injection__getParameter_Servlet_executeQuery_01.java",
+      "line": 120,
+      "reference_vulnerability": false,
+      "label_basis": "Juliet goodG2B matching JDBC sink"
+    },
+    {
+      "issue_id": "juliet-ref-03",
+      "sample": "CWE89_SQL_Injection__Environment_executeQuery_42.java",
+      "line": 54,
+      "reference_vulnerability": true,
+      "label_basis": "NIST annotated CWE-89 sink"
+    },
+    {
+      "issue_id": "juliet-ref-04",
+      "sample": "CWE89_SQL_Injection__Environment_executeQuery_42.java",
+      "line": 128,
+      "reference_vulnerability": false,
+      "label_basis": "Juliet goodG2B matching JDBC sink"
+    }
+  ],
+  "limitations": [
+    "Original good/bad method names may reveal the dataset label.",
+    "These locations are not SonarQube findings."
+  ]
+}

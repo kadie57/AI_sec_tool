@@ -1,0 +1,43 @@
+{
+  "model": "qwen2.5-coder:14b-instruct-q4_K_M",
+  "prompt_sha256": "26e84205a559fb429adba9c87a3a28fdf6a4c6135f4d301f784acee12637a442",
+  "schema_sha256": "2fb9849c6f59240d72ac291beed80f95a0385c5fcfa56376fa905a3efdecc725",
+  "options": {
+    "temperature": 0,
+    "seed": 42,
+    "num_ctx": 8192,
+    "num_predict": 1024
+  },
+  "request_version": 3,
+  "validation_version": 1,
+  "prompt_profile": "iris-contextual",
+  "cases": [
+    {
+      "issue_id": "fixture-sql-text",
+      "alert": {
+        "issue_id": "fixture-sql-text",
+        "component": "project_sql3_control:src/main/java/demo/CustomerRepository.java",
+        "rule": "findsecbugs:SQL_INJECTION_JDBC",
+        "cwe": "CWE-89",
+        "start_line": 10,
+        "end_line": 10
+      },
+      "source": "2cc8aaf9baeac7f28dbd17d8f08e6cee502eef4f65cd3ef484ca346c0ebe5536",
+      "request_sha256": "c0d18dffd465c58207854430b0e537770b62fe91dfb9550ef8452705f308939d"
+    },
+    {
+      "issue_id": "fixture-bound-value",
+      "alert": {
+        "issue_id": "fixture-bound-value",
+        "component": "project_sql3_control:src/main/java/demo/CustomerRepository.java",
+        "rule": "findsecbugs:SQL_INJECTION_JDBC",
+        "cwe": "CWE-89",
+        "start_line": 15,
+        "end_line": 15
+      },
+      "source": "2cc8aaf9baeac7f28dbd17d8f08e6cee502eef4f65cd3ef484ca346c0ebe5536",
+      "request_sha256": "039ce1606cc3b4b9453ba6dbdf0d91f92f731d8f43676276008e0be0b0568e38"
+    }
+  ],
+  "mode": "dry-run"
+}

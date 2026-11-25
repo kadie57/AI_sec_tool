@@ -132,13 +132,14 @@ def verified_display(argument, visible, files, *, structured=False):
     return statement + (f" Relevant lines include {', '.join(details)}." if details else "")
 
 
-def render_path_snippets(evidence, *, verified_sink_note=False, structured_sink_evidence=False):
+def render_path_snippets(evidence, *, verified_sink_note=False, structured_sink_evidence=False, helper_visibility=None):
     """Return the display payload and the main-file lines visible for citation."""
     main_file = next((file for file in evidence["files"] if file["file_id"] == "F0"), None)
     if main_file is None:
         raise ValueError("Path snippets require the main source file F0")
     lines = main_file["lines"]
     files = {file["file_id"]: file["lines"] for file in evidence["files"]}
+    clipped = {file["file_id"]: set() for file in evidence["files"] if file.get("path_context_only")}
     alert = evidence["alert"]
     selected = evidence.get("selected_evidence") or {}
     anchored = selected.get("anchored_paths") or {}
@@ -158,6 +159,8 @@ def render_path_snippets(evidence, *, verified_sink_note=False, structured_sink_
                 output.append(f"{file_id}:{line} {code}")
                 if file_id == "F0":
                     visible.add(line)
+                if file_id in clipped:
+                    clipped[file_id].add(line)
         return output
 
     def endpoint(line):
@@ -210,6 +213,11 @@ def render_path_snippets(evidence, *, verified_sink_note=False, structured_sink_
     start, end = alert["start_line"], alert["end_line"]
     alert_excerpt = excerpt(start - ENDPOINT_RADIUS, end + ENDPOINT_RADIUS, repeat=range(start, end + 1))
     related = []
+    for path in anchored_paths:
+        for edge in path["dispatch"]:
+            for ref in (edge, *edge["possible_targets"]):
+                if ref["file_id"] in clipped:
+                    related.extend(excerpt(ref["line"], ref["line"], file_id=ref["file_id"]))
     for entry in selected.get("nearby_syntax", []):
         related.extend(excerpt(*entry["context"]))
     anchors = set(positions(selected.get("endpoint_specifications"), "F0"))
@@ -248,13 +256,18 @@ def render_path_snippets(evidence, *, verified_sink_note=False, structured_sink_
                 sink["verified_value"] = observation
             if anchored_paths:
                 summary["anchored_dataflow"]["modeled_sql_value"] = value_argument["status"]
+    if helper_visibility is not None:
+        helper_visibility.update(clipped)
+    hidden_lines = {"F0", *clipped}
+    display_files = [main_file, *(file for file in evidence["files"] if file["file_id"] != "F0")]
     display = {
         "alert": alert,
         "source_line_notation": ("F<id>:<original line number> <code>" if anchored_paths or has_resolved_caller
                                  else "F0:<original line number> <code>"),
         "selected_evidence": {**presented, **summary},
-        "files": [{key: value for key, value in main_file.items() if key != "lines"},
-                  *(file for file in evidence["files"] if file["file_id"] != "F0")],
+        "files": [{key: value for key, value in file.items()
+                   if key != "path_context_only" and (key != "lines" or file["file_id"] not in hidden_lines)}
+                  for file in display_files],
         "joern_summary": evidence["joern_summary"],
         "missing_context": evidence["missing_context"],
     }

@@ -1,5 +1,6 @@
 import com.sun.source.tree.*;
 import com.sun.source.util.*;
+import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.*;
 import java.util.function.BiConsumer;
@@ -170,7 +171,15 @@ class SqlEndpointProbe {
         var compiler = ToolProvider.getSystemJavaCompiler();
         var diagnostics = new DiagnosticCollector<JavaFileObject>();
         var files = new LinkedHashMap<Path, String>();
-        for (int i = 4; i < args.length; i += 2) files.put(Path.of(args[i + 1]), args[i]);
+        boolean projectSources = Boolean.getBoolean("sql.evidence.projectServletSources");
+        if (projectSources) {
+            for (String line : Files.readAllLines(Path.of(args[4]))) {
+                var entry = line.split("\t", 2);
+                files.put(Path.of(entry[1]), entry[0]);
+            }
+        } else {
+            for (int i = 4; i < args.length; i += 2) files.put(Path.of(args[i + 1]), args[i]);
+        }
         try (var manager = compiler.getStandardFileManager(diagnostics, Locale.ROOT, java.nio.charset.StandardCharsets.UTF_8)) {
             var task = (JavacTask) compiler.getTask(null, manager, diagnostics,
                 List.of("-proc:none", "-classpath", args[2], "-sourcepath", args[3], "-implicit:none"),
@@ -183,7 +192,15 @@ class SqlEndpointProbe {
             for (var unit : units.keySet()) scanner.scan(unit, null);
             long errors = diagnostics.getDiagnostics().stream().filter(d -> d.getKind() == Diagnostic.Kind.ERROR).count();
             emit("STATUS", errors);
-            probe.report(Long.parseLong(args[0]), Long.parseLong(args[1]), inspectValue);
+            if (projectSources) {
+                for (var call : probe.calls) {
+                    if (call.readsRequest() && probe.trees.getPath(call.target()) == null) {
+                        emit("P", call.file(), call.line(), call.column(), call.owner(), call.signature());
+                    }
+                }
+            } else {
+                probe.report(Long.parseLong(args[0]), Long.parseLong(args[1]), inspectValue);
+            }
         }
     }
 }

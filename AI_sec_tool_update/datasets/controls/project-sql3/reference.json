@@ -1,0 +1,9 @@
+{
+  "scope": "Synthetic Java fixture with frozen endpoint labels. No SonarQube scan.",
+  "source": {"path": "src/main/java/demo/CustomerController.java", "line": 9},
+  "warnings": [
+    {"id": "fixture-sql-text", "path": "src/main/java/demo/CustomerRepository.java", "line": 10, "reaches_sql_text": true},
+    {"id": "fixture-bound-value", "path": "src/main/java/demo/CustomerRepository.java", "line": 15, "reaches_sql_text": false, "binding_line": 16}
+  ],
+  "intermediate_file": "src/main/java/demo/CustomerService.java"
+}

@@ -1,0 +1,40 @@
+Parsing code at: /project - language: `JAVASRC`
+[+] Running language frontend
+=======================================================================================================
+Invoking CPG generator in a separate process. Note that the new process will consume additional memory.
+If you are importing a large codebase (and/or running into memory issues), please try the following:
+1) exit joern
+2) invoke the frontend: /opt/joern/joern-cli/javasrc2cpg -J-Xmx7956m --delombok-mode no-delombok --inference-jar-paths /work/type-jars/0001.jar /project --output /work/snapshot.bin
+3) start joern, import the cpg: `importCpg("path/to/cpg")`
+=======================================================================================================
+
+[+] Applying default overlays
+Successfully wrote graph to: /work/snapshot.bin
+To load the graph, type `joern /work/snapshot.bin`
+[INFO ] initialising from existing storage (/work/workspace/snapshot/cpg.bin.tmp)
+SQL_CASE	1
+SQL_PATH	SINK	1	1
+SQL_PATH	SOURCE	0	1
+SQL_PATH	COUNT	0	1
+SQL_PATH	NODE	0	0	Call	src/main/java/demo/CustomerController.java	9	list	8	15
+SQL_PATH	NODE	0	0	Identifier	src/main/java/demo/CustomerController.java	9	list	8	15
+SQL_PATH	NODE	0	0	Identifier	src/main/java/demo/CustomerController.java	13	list	8	15
+SQL_PATH	NODE	0	0	MethodParameterIn	src/main/java/demo/CustomerService.java	7	listInterpolated	7	9
+SQL_PATH	NODE	0	0	Identifier	src/main/java/demo/CustomerService.java	8	listInterpolated	7	9
+SQL_PATH	NODE	0	0	MethodParameterIn	src/main/java/demo/CustomerRepository.java	8	listInterpolated	8	12
+SQL_PATH	NODE	0	0	Call	src/main/java/demo/CustomerRepository.java	9	listInterpolated	8	12
+SQL_PATH	NODE	0	0	Identifier	src/main/java/demo/CustomerRepository.java	9	listInterpolated	8	12
+SQL_PATH	NODE	0	0	Identifier	src/main/java/demo/CustomerRepository.java	10	listInterpolated	8	12
+SQL_CASE	2
+SQL_PATH	SINK	1	1
+SQL_PATH	SOURCE	0	1
+SQL_PATH	COUNT	0	0
+
+[STDERR]
+executing /work/slice.sc
+Creating project `snapshot` for CPG at `/work/snapshot.bin`
+Creating working copy of CPG to be safe
+Loading base CPG from: /work/workspace/snapshot/cpg.bin.tmp
+Overlay dataflowOss already exists - skipping
+The graph has been modified. You may want to use the `save` command to persist changes to disk.  All changes will also be saved collectively on exit
+closing/saving project `snapshot`

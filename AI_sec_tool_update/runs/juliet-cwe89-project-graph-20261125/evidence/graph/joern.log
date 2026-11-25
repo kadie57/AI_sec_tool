@@ -1,0 +1,325 @@
+Parsing code at: /project - language: `JAVASRC`
+[+] Running language frontend
+=======================================================================================================
+Invoking CPG generator in a separate process. Note that the new process will consume additional memory.
+If you are importing a large codebase (and/or running into memory issues), please try the following:
+1) exit joern
+2) invoke the frontend: /opt/joern/joern-cli/javasrc2cpg -J-Xmx7956m --delombok-mode no-delombok --inference-jar-paths /work/type-jars/0001.jar,/work/type-jars/0002.jar /project --output /work/snapshot.bin
+3) start joern, import the cpg: `importCpg("path/to/cpg")`
+=======================================================================================================
+
+[+] Applying default overlays
+Successfully wrote graph to: /work/snapshot.bin
+To load the graph, type `joern /work/snapshot.bin`
+[INFO ] initialising from existing storage (/work/workspace/snapshot/cpg.bin.tmp)
+SQL_CASE	1
+SQL_PATH	SINK	1	1
+SQL_PATH	SOURCE	0	1
+SQL_PATH	COUNT	0	1
+SQL_PATH	NODE	0	0	Call	Clean_Code/testcases/CWE89_SQL_Injection/s01/CWE89_SQL_Injection__console_readLine_prepareStatement_15.java	51	bad	34	149
+SQL_PATH	NODE	0	0	Identifier	Clean_Code/testcases/CWE89_SQL_Injection/s01/CWE89_SQL_Injection__console_readLine_prepareStatement_15.java	51	bad	34	149
+SQL_PATH	NODE	0	0	Call	Clean_Code/testcases/CWE89_SQL_Injection/s01/CWE89_SQL_Injection__console_readLine_prepareStatement_15.java	102	bad	34	149
+SQL_PATH	SOURCE	1	1
+SQL_PATH	COUNT	1	0
+SQL_PATH	SOURCE	2	1
+SQL_PATH	COUNT	2	0
+SQL_PATH	SOURCE	3	1
+SQL_PATH	COUNT	3	0
+SQL_PATH	SOURCE	4	1
+SQL_PATH	COUNT	4	0
+SQL_PATH	SOURCE	5	1
+SQL_PATH	COUNT	5	0
+SQL_CASE	2
+SQL_PATH	SINK	1	1
+SQL_PATH	SOURCE	0	1
+SQL_PATH	COUNT	0	0
+SQL_PATH	SOURCE	1	1
+SQL_PATH	COUNT	1	0
+SQL_PATH	SOURCE	2	1
+SQL_PATH	COUNT	2	0
+SQL_PATH	SOURCE	3	1
+SQL_PATH	COUNT	3	0
+SQL_PATH	SOURCE	4	1
+SQL_PATH	COUNT	4	0
+SQL_CASE	3
+SQL_PATH	SINK	1	1
+SQL_PATH	SOURCE	0	1
+SQL_PATH	COUNT	0	0
+SQL_PATH	SOURCE	1	1
+SQL_PATH	COUNT	1	0
+SQL_PATH	SOURCE	2	1
+SQL_PATH	COUNT	2	0
+SQL_PATH	SOURCE	3	1
+SQL_PATH	COUNT	3	0
+SQL_PATH	SOURCE	4	1
+SQL_PATH	COUNT	4	0
+SQL_CASE	4
+SQL_PATH	SINK	1	1
+SQL_PATH	SOURCE	0	1
+SQL_PATH	COUNT	0	1
+SQL_PATH	NODE	0	0	Call	Clean_Code/testcases/CWE89_SQL_Injection/s01/CWE89_SQL_Injection__console_readLine_prepareStatement_51a.java	48	bad	31	84
+SQL_PATH	NODE	0	0	Identifier	Clean_Code/testcases/CWE89_SQL_Injection/s01/CWE89_SQL_Injection__console_readLine_prepareStatement_51a.java	48	bad	31	84
+SQL_PATH	NODE	0	0	Identifier	Clean_Code/testcases/CWE89_SQL_Injection/s01/CWE89_SQL_Injection__console_readLine_prepareStatement_51a.java	83	bad	31	84
+SQL_PATH	NODE	0	0	MethodParameterIn	Clean_Code/testcases/CWE89_SQL_Injection/s01/CWE89_SQL_Injection__console_readLine_prepareStatement_51b.java	29	badSink	29	83
+SQL_PATH	NODE	0	0	Call	Clean_Code/testcases/CWE89_SQL_Injection/s01/CWE89_SQL_Injection__console_readLine_prepareStatement_51b.java	39	badSink	29	83
+SQL_PATH	SOURCE	1	1
+SQL_PATH	COUNT	1	0
+SQL_PATH	SOURCE	2	1
+SQL_PATH	COUNT	2	0
+SQL_PATH	SOURCE	3	1
+SQL_PATH	COUNT	3	0
+SQL_PATH	SOURCE	4	1
+SQL_PATH	COUNT	4	0
+SQL_PATH	SOURCE	5	1
+SQL_PATH	COUNT	5	0
+SQL_CASE	5
+SQL_PATH	SINK	1	1
+SQL_PATH	SOURCE	0	1
+SQL_PATH	COUNT	0	0
+SQL_PATH	SOURCE	1	1
+SQL_PATH	COUNT	1	0
+SQL_PATH	SOURCE	2	1
+SQL_PATH	COUNT	2	0
+SQL_PATH	SOURCE	3	1
+SQL_PATH	COUNT	3	0
+SQL_PATH	SOURCE	4	1
+SQL_PATH	COUNT	4	0
+SQL_CASE	6
+SQL_PATH	SINK	1	1
+SQL_PATH	SOURCE	0	1
+SQL_PATH	COUNT	0	1
+SQL_PATH	NODE	0	0	Call	Clean_Code/testcases/CWE89_SQL_Injection/s02/CWE89_SQL_Injection__File_prepareStatement_15.java	58	bad	36	168
+SQL_PATH	NODE	0	0	Identifier	Clean_Code/testcases/CWE89_SQL_Injection/s02/CWE89_SQL_Injection__File_prepareStatement_15.java	58	bad	36	168
+SQL_PATH	NODE	0	0	Call	Clean_Code/testcases/CWE89_SQL_Injection/s02/CWE89_SQL_Injection__File_prepareStatement_15.java	121	bad	36	168
+SQL_PATH	SOURCE	1	1
+SQL_PATH	COUNT	1	0
+SQL_PATH	SOURCE	2	1
+SQL_PATH	COUNT	2	0
+SQL_PATH	SOURCE	3	1
+SQL_PATH	COUNT	3	0
+SQL_PATH	SOURCE	4	1
+SQL_PATH	COUNT	4	0
+SQL_PATH	SOURCE	5	1
+SQL_PATH	COUNT	5	0
+SQL_CASE	7
+SQL_PATH	SINK	1	1
+SQL_PATH	SOURCE	0	1
+SQL_PATH	COUNT	0	0
+SQL_PATH	SOURCE	1	1
+SQL_PATH	COUNT	1	0
+SQL_PATH	SOURCE	2	1
+SQL_PATH	COUNT	2	0
+SQL_PATH	SOURCE	3	1
+SQL_PATH	COUNT	3	0
+SQL_PATH	SOURCE	4	1
+SQL_PATH	COUNT	4	0
+SQL_CASE	8
+SQL_PATH	SINK	1	1
+SQL_PATH	SOURCE	0	1
+SQL_PATH	COUNT	0	0
+SQL_PATH	SOURCE	1	1
+SQL_PATH	COUNT	1	0
+SQL_PATH	SOURCE	2	1
+SQL_PATH	COUNT	2	0
+SQL_PATH	SOURCE	3	1
+SQL_PATH	COUNT	3	0
+SQL_PATH	SOURCE	4	1
+SQL_PATH	COUNT	4	0
+SQL_CASE	9
+SQL_PATH	SINK	1	1
+SQL_PATH	SOURCE	0	1
+SQL_PATH	COUNT	0	1
+SQL_PATH	NODE	0	0	Call	Clean_Code/testcases/CWE89_SQL_Injection/s02/CWE89_SQL_Injection__File_prepareStatement_51a.java	54	bad	33	102
+SQL_PATH	NODE	0	0	Identifier	Clean_Code/testcases/CWE89_SQL_Injection/s02/CWE89_SQL_Injection__File_prepareStatement_51a.java	54	bad	33	102
+SQL_PATH	NODE	0	0	Identifier	Clean_Code/testcases/CWE89_SQL_Injection/s02/CWE89_SQL_Injection__File_prepareStatement_51a.java	101	bad	33	102
+SQL_PATH	NODE	0	0	MethodParameterIn	Clean_Code/testcases/CWE89_SQL_Injection/s02/CWE89_SQL_Injection__File_prepareStatement_51b.java	29	badSink	29	83
+SQL_PATH	NODE	0	0	Call	Clean_Code/testcases/CWE89_SQL_Injection/s02/CWE89_SQL_Injection__File_prepareStatement_51b.java	39	badSink	29	83
+SQL_PATH	SOURCE	1	1
+SQL_PATH	COUNT	1	0
+SQL_PATH	SOURCE	2	1
+SQL_PATH	COUNT	2	0
+SQL_PATH	SOURCE	3	1
+SQL_PATH	COUNT	3	0
+SQL_PATH	SOURCE	4	1
+SQL_PATH	COUNT	4	0
+SQL_PATH	SOURCE	5	1
+SQL_PATH	COUNT	5	0
+SQL_CASE	10
+SQL_PATH	SINK	1	1
+SQL_PATH	SOURCE	0	1
+SQL_PATH	COUNT	0	0
+SQL_PATH	SOURCE	1	1
+SQL_PATH	COUNT	1	0
+SQL_PATH	SOURCE	2	1
+SQL_PATH	COUNT	2	0
+SQL_PATH	SOURCE	3	1
+SQL_PATH	COUNT	3	0
+SQL_PATH	SOURCE	4	1
+SQL_PATH	COUNT	4	0
+SQL_CASE	11
+SQL_PATH	SINK	1	1
+SQL_PATH	SOURCE	0	1
+SQL_PATH	COUNT	0	1
+SQL_PATH	NODE	0	0	Call	Clean_Code/testcases/CWE89_SQL_Injection/s03/CWE89_SQL_Injection__PropertiesFile_executeQuery_15.java	52	bad	35	144
+SQL_PATH	NODE	0	0	Identifier	Clean_Code/testcases/CWE89_SQL_Injection/s03/CWE89_SQL_Injection__PropertiesFile_executeQuery_15.java	52	bad	35	144
+SQL_PATH	NODE	0	0	Call	Clean_Code/testcases/CWE89_SQL_Injection/s03/CWE89_SQL_Injection__PropertiesFile_executeQuery_15.java	93	bad	35	144
+SQL_PATH	SOURCE	1	1
+SQL_PATH	COUNT	1	0
+SQL_PATH	SOURCE	2	1
+SQL_PATH	COUNT	2	0
+SQL_PATH	SOURCE	3	1
+SQL_PATH	COUNT	3	0
+SQL_PATH	SOURCE	4	1
+SQL_PATH	COUNT	4	0
+SQL_PATH	SOURCE	5	1
+SQL_PATH	COUNT	5	0
+SQL_CASE	12
+SQL_PATH	SINK	1	1
+SQL_PATH	SOURCE	0	1
+SQL_PATH	COUNT	0	0
+SQL_PATH	SOURCE	1	1
+SQL_PATH	COUNT	1	0
+SQL_PATH	SOURCE	2	1
+SQL_PATH	COUNT	2	0
+SQL_PATH	SOURCE	3	1
+SQL_PATH	COUNT	3	0
+SQL_PATH	SOURCE	4	1
+SQL_PATH	COUNT	4	0
+SQL_CASE	13
+SQL_PATH	SINK	1	1
+SQL_PATH	SOURCE	0	1
+SQL_PATH	COUNT	0	0
+SQL_PATH	SOURCE	1	1
+SQL_PATH	COUNT	1	0
+SQL_PATH	SOURCE	2	1
+SQL_PATH	COUNT	2	0
+SQL_PATH	SOURCE	3	1
+SQL_PATH	COUNT	3	0
+SQL_PATH	SOURCE	4	1
+SQL_PATH	COUNT	4	0
+SQL_CASE	14
+SQL_PATH	SINK	1	1
+SQL_PATH	SOURCE	0	1
+SQL_PATH	COUNT	0	1
+SQL_PATH	NODE	0	0	Call	Clean_Code/testcases/CWE89_SQL_Injection/s03/CWE89_SQL_Injection__PropertiesFile_executeQuery_51a.java	49	bad	32	73
+SQL_PATH	NODE	0	0	Identifier	Clean_Code/testcases/CWE89_SQL_Injection/s03/CWE89_SQL_Injection__PropertiesFile_executeQuery_51a.java	49	bad	32	73
+SQL_PATH	NODE	0	0	Identifier	Clean_Code/testcases/CWE89_SQL_Injection/s03/CWE89_SQL_Injection__PropertiesFile_executeQuery_51a.java	72	bad	32	73
+SQL_PATH	NODE	0	0	MethodParameterIn	Clean_Code/testcases/CWE89_SQL_Injection/s03/CWE89_SQL_Injection__PropertiesFile_executeQuery_51b.java	29	badSink	29	89
+SQL_PATH	NODE	0	0	Call	Clean_Code/testcases/CWE89_SQL_Injection/s03/CWE89_SQL_Injection__PropertiesFile_executeQuery_51b.java	42	badSink	29	89
+SQL_PATH	SOURCE	1	1
+SQL_PATH	COUNT	1	0
+SQL_PATH	SOURCE	2	1
+SQL_PATH	COUNT	2	0
+SQL_PATH	SOURCE	3	1
+SQL_PATH	COUNT	3	0
+SQL_PATH	SOURCE	4	1
+SQL_PATH	COUNT	4	0
+SQL_PATH	SOURCE	5	1
+SQL_PATH	COUNT	5	0
+SQL_CASE	15
+SQL_PATH	SINK	1	1
+SQL_PATH	SOURCE	0	1
+SQL_PATH	COUNT	0	0
+SQL_PATH	SOURCE	1	1
+SQL_PATH	COUNT	1	0
+SQL_PATH	SOURCE	2	1
+SQL_PATH	COUNT	2	0
+SQL_PATH	SOURCE	3	1
+SQL_PATH	COUNT	3	0
+SQL_PATH	SOURCE	4	1
+SQL_PATH	COUNT	4	0
+SQL_CASE	16
+SQL_PATH	SINK	1	1
+SQL_PATH	SOURCE	0	1
+SQL_PATH	COUNT	0	1
+SQL_PATH	NODE	0	0	Call	Clean_Code/testcases/CWE89_SQL_Injection/s03/CWE89_SQL_Injection__getQueryString_Servlet_executeQuery_15.java	41	bad	31	122
+SQL_PATH	NODE	0	0	Identifier	Clean_Code/testcases/CWE89_SQL_Injection/s03/CWE89_SQL_Injection__getQueryString_Servlet_executeQuery_15.java	41	bad	31	122
+SQL_PATH	NODE	0	0	Identifier	Clean_Code/testcases/CWE89_SQL_Injection/s03/CWE89_SQL_Injection__getQueryString_Servlet_executeQuery_15.java	42	bad	31	122
+SQL_PATH	NODE	0	0	Identifier	Clean_Code/testcases/CWE89_SQL_Injection/s03/CWE89_SQL_Injection__getQueryString_Servlet_executeQuery_15.java	44	bad	31	122
+SQL_PATH	NODE	0	0	Call	Clean_Code/testcases/CWE89_SQL_Injection/s03/CWE89_SQL_Injection__getQueryString_Servlet_executeQuery_15.java	44	bad	31	122
+SQL_PATH	NODE	0	0	Identifier	Clean_Code/testcases/CWE89_SQL_Injection/s03/CWE89_SQL_Injection__getQueryString_Servlet_executeQuery_15.java	44	bad	31	122
+SQL_PATH	NODE	0	0	Identifier	Clean_Code/testcases/CWE89_SQL_Injection/s03/CWE89_SQL_Injection__getQueryString_Servlet_executeQuery_15.java	45	bad	31	122
+SQL_PATH	NODE	0	0	Identifier	Clean_Code/testcases/CWE89_SQL_Injection/s03/CWE89_SQL_Injection__getQueryString_Servlet_executeQuery_15.java	47	bad	31	122
+SQL_PATH	NODE	0	0	Call	Clean_Code/testcases/CWE89_SQL_Injection/s03/CWE89_SQL_Injection__getQueryString_Servlet_executeQuery_15.java	47	bad	31	122
+SQL_PATH	NODE	0	0	Identifier	Clean_Code/testcases/CWE89_SQL_Injection/s03/CWE89_SQL_Injection__getQueryString_Servlet_executeQuery_15.java	47	bad	31	122
+SQL_PATH	NODE	0	0	Call	Clean_Code/testcases/CWE89_SQL_Injection/s03/CWE89_SQL_Injection__getQueryString_Servlet_executeQuery_15.java	71	bad	31	122
+SQL_PATH	SOURCE	1	1
+SQL_PATH	COUNT	1	0
+SQL_PATH	SOURCE	2	1
+SQL_PATH	COUNT	2	0
+SQL_PATH	SOURCE	3	1
+SQL_PATH	COUNT	3	0
+SQL_PATH	SOURCE	4	1
+SQL_PATH	COUNT	4	0
+SQL_CASE	17
+SQL_PATH	SINK	1	1
+SQL_PATH	SOURCE	0	1
+SQL_PATH	COUNT	0	0
+SQL_PATH	SOURCE	1	1
+SQL_PATH	COUNT	1	0
+SQL_PATH	SOURCE	2	1
+SQL_PATH	COUNT	2	0
+SQL_PATH	SOURCE	3	1
+SQL_PATH	COUNT	3	0
+SQL_PATH	SOURCE	4	1
+SQL_PATH	COUNT	4	0
+SQL_CASE	18
+SQL_PATH	SINK	1	1
+SQL_PATH	SOURCE	0	1
+SQL_PATH	COUNT	0	0
+SQL_PATH	SOURCE	1	1
+SQL_PATH	COUNT	1	0
+SQL_PATH	SOURCE	2	1
+SQL_PATH	COUNT	2	0
+SQL_PATH	SOURCE	3	1
+SQL_PATH	COUNT	3	0
+SQL_PATH	SOURCE	4	1
+SQL_PATH	COUNT	4	0
+SQL_CASE	19
+SQL_PATH	SINK	1	1
+SQL_PATH	SOURCE	0	1
+SQL_PATH	COUNT	0	1
+SQL_PATH	NODE	0	0	Call	Clean_Code/testcases/CWE89_SQL_Injection/s03/CWE89_SQL_Injection__getQueryString_Servlet_executeQuery_51a.java	35	bad	27	48
+SQL_PATH	NODE	0	0	Identifier	Clean_Code/testcases/CWE89_SQL_Injection/s03/CWE89_SQL_Injection__getQueryString_Servlet_executeQuery_51a.java	35	bad	27	48
+SQL_PATH	NODE	0	0	Identifier	Clean_Code/testcases/CWE89_SQL_Injection/s03/CWE89_SQL_Injection__getQueryString_Servlet_executeQuery_51a.java	36	bad	27	48
+SQL_PATH	NODE	0	0	Identifier	Clean_Code/testcases/CWE89_SQL_Injection/s03/CWE89_SQL_Injection__getQueryString_Servlet_executeQuery_51a.java	38	bad	27	48
+SQL_PATH	NODE	0	0	Call	Clean_Code/testcases/CWE89_SQL_Injection/s03/CWE89_SQL_Injection__getQueryString_Servlet_executeQuery_51a.java	38	bad	27	48
+SQL_PATH	NODE	0	0	Identifier	Clean_Code/testcases/CWE89_SQL_Injection/s03/CWE89_SQL_Injection__getQueryString_Servlet_executeQuery_51a.java	38	bad	27	48
+SQL_PATH	NODE	0	0	Identifier	Clean_Code/testcases/CWE89_SQL_Injection/s03/CWE89_SQL_Injection__getQueryString_Servlet_executeQuery_51a.java	39	bad	27	48
+SQL_PATH	NODE	0	0	Identifier	Clean_Code/testcases/CWE89_SQL_Injection/s03/CWE89_SQL_Injection__getQueryString_Servlet_executeQuery_51a.java	41	bad	27	48
+SQL_PATH	NODE	0	0	Call	Clean_Code/testcases/CWE89_SQL_Injection/s03/CWE89_SQL_Injection__getQueryString_Servlet_executeQuery_51a.java	41	bad	27	48
+SQL_PATH	NODE	0	0	Identifier	Clean_Code/testcases/CWE89_SQL_Injection/s03/CWE89_SQL_Injection__getQueryString_Servlet_executeQuery_51a.java	41	bad	27	48
+SQL_PATH	NODE	0	0	Identifier	Clean_Code/testcases/CWE89_SQL_Injection/s03/CWE89_SQL_Injection__getQueryString_Servlet_executeQuery_51a.java	47	bad	27	48
+SQL_PATH	NODE	0	0	MethodParameterIn	Clean_Code/testcases/CWE89_SQL_Injection/s03/CWE89_SQL_Injection__getQueryString_Servlet_executeQuery_51b.java	29	badSink	29	89
+SQL_PATH	NODE	0	0	Call	Clean_Code/testcases/CWE89_SQL_Injection/s03/CWE89_SQL_Injection__getQueryString_Servlet_executeQuery_51b.java	42	badSink	29	89
+SQL_PATH	SOURCE	1	1
+SQL_PATH	COUNT	1	0
+SQL_PATH	SOURCE	2	1
+SQL_PATH	COUNT	2	0
+SQL_PATH	SOURCE	3	1
+SQL_PATH	COUNT	3	0
+SQL_PATH	SOURCE	4	1
+SQL_PATH	COUNT	4	0
+SQL_CASE	20
+SQL_PATH	SINK	1	1
+SQL_PATH	SOURCE	0	1
+SQL_PATH	COUNT	0	0
+SQL_PATH	SOURCE	1	1
+SQL_PATH	COUNT	1	0
+SQL_PATH	SOURCE	2	1
+SQL_PATH	COUNT	2	0
+SQL_PATH	SOURCE	3	1
+SQL_PATH	COUNT	3	0
+SQL_PATH	SOURCE	4	1
+SQL_PATH	COUNT	4	0
+
+[STDERR]
+executing /work/slice.sc
+2026-11-25 06:10:14.767 WARN  CfgCreator$               Using order fallback for break statement jump argument
+2026-11-25 06:10:14.771 WARN  CfgCreator$               Using order fallback for try statement finally body
+Creating project `snapshot` for CPG at `/work/snapshot.bin`
+Creating working copy of CPG to be safe
+Loading base CPG from: /work/workspace/snapshot/cpg.bin.tmp
+Overlay dataflowOss already exists - skipping
+The graph has been modified. You may want to use the `save` command to persist changes to disk.  All changes will also be saved collectively on exit
+closing/saving project `snapshot`

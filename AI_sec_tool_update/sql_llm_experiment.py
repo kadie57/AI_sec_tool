@@ -105,6 +105,8 @@ def normalize_row(row):
             "file_id": file_id, "path": file["path"], "kind": file["kind"],
             "sha256": file["sha256"], "lines": file["masked_source"].splitlines(),
         }
+        if file.get("path_context_only"):
+            files[file_id]["path_context_only"] = True
     source = files.pop("F0")
     if source["sha256"] != row["source_sha256"]:
         raise ValueError("Main source hash differs from the evidence record")
@@ -132,7 +134,7 @@ def request_for(row, *, confirmed_jdbc_values_only=False, prompt_profile="baseli
     files = [row["source"], *row["helpers"]]
     evidence = {
         "alert": row["alert"],
-        "files": [{k: f[k] for k in ("file_id", "path", "kind", "lines") if k in f} for f in files],
+        "files": [{k: f[k] for k in ("file_id", "path", "kind", "lines", "path_context_only") if k in f} for f in files],
         "joern_summary": row["joern_summary"],
         "missing_context": row["missing_context"],
     }
@@ -197,15 +199,25 @@ def plan(path, *, confirmed_jdbc_values_only=False, path_snippets=False,
         key = a["issue_id"]
         if key in items or a["cwe"] != "CWE-89":
             raise ValueError("Duplicate issue ID or non-SQL issue")
+        if not path_snippets and any(file.get("path_context_only") for file in row["helpers"]):
+            raise ValueError("Project path evidence requires --path-snippets")
         request = request_for(row, confirmed_jdbc_values_only=confirmed_jdbc_values_only,
                               prompt_profile=prompt_profile)
         if path_snippets:
+            helper_visibility = {}
             display, visible = render_path_snippets(json.loads(request["prompt"]),
                                                     verified_sink_note=verified_sink_note,
-                                                    structured_sink_evidence=structured_sink_evidence)
+                                                    structured_sink_evidence=structured_sink_evidence,
+                                                    helper_visibility=helper_visibility)
             request["prompt"] = json.dumps(display, ensure_ascii=False, separators=(",", ":"))
             # Validate citations against the shown code while preserving original line numbers.
             row = {**row, "source": {**row["source"], "lines": visible}}
+            if helper_visibility:
+                row["helpers"] = [
+                    {**file, "lines": [text if n in helper_visibility[file["file_id"]] else ""
+                                       for n, text in enumerate(file["lines"], 1)]}
+                    if file.get("path_context_only") else file for file in row["helpers"]
+                ]
         items[key] = (row, request)
     if not items:
         raise ValueError("Empty evidence dataset")

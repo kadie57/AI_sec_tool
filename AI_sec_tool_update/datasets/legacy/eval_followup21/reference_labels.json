@@ -1,0 +1,94 @@
+{
+  "status": "AUTHOR_PROPOSED_REVIEW_REQUIRED",
+  "scope": "Synthetic follow-up; no claim of independent benchmark or general accuracy. UNKNOWN denotes insufficient context, not safe code.",
+  "references": [
+    {
+      "sample": "Sample101",
+      "reference_verdict": "LIKELY_TP",
+      "reason": "Kiểm tra args[0] rồi ghi đè value bằng args[1] chưa kiểm tra; giá trị mới tới SQL.",
+      "evaluation_group": "core",
+      "notes": ""
+    },
+    {
+      "sample": "Sample102",
+      "reference_verdict": "LIKELY_FP",
+      "reason": "SQL ghép kết quả số nguyên sau parse và giới hạn; chuỗi người nhập không còn nguyên văn.",
+      "evaluation_group": "core",
+      "notes": "Biến thể chuyển kiểu của mẫu phát triển, không phải cơ chế hoàn toàn mới."
+    },
+    {
+      "sample": "Sample103",
+      "reference_verdict": "UNKNOWN",
+      "reason": "trim không chặn SQL injection nhưng chỉ thấy tham số query, chưa thấy caller/nguồn bên ngoài.",
+      "evaluation_group": "core",
+      "notes": ""
+    },
+    {
+      "sample": "Sample104",
+      "reference_verdict": "LIKELY_FP",
+      "reason": "Giá trị được bind vào placeholder; nếu scanner không cảnh báo thì ghi NO_ALERT, không tính AI đúng.",
+      "evaluation_group": "scanner_control",
+      "notes": "Cùng nguyên lý bind với mẫu cũ; chỉ là đối chứng scanner."
+    },
+    {
+      "sample": "Sample201",
+      "reference_verdict": "LIKELY_TP",
+      "reason": "Guard ném lỗi nhưng catch tiếp tục; đầu vào ../ vẫn đi tới thao tác đọc. Quyền OS quyết định file nào đọc được.",
+      "evaluation_group": "core",
+      "notes": ""
+    },
+    {
+      "sample": "Sample202",
+      "reference_verdict": "LIKELY_FP",
+      "reason": "Chuyển thành long rồi lại chuỗi số loại ký tự phân cách và ..; chặn traversal qua thành phần tên.",
+      "evaluation_group": "core",
+      "notes": "Phạm vi nhãn là traversal qua chuỗi đầu vào; không chứng minh quyền truy cập hoặc không có symlink/race. Đây là giả định/phạm vi phải ghi trong báo cáo."
+    },
+    {
+      "sample": "Sample203",
+      "reference_verdict": "UNKNOWN",
+      "reason": "trim vẫn cho phép traversal, nhưng thiếu caller/nguồn của tham số read.",
+      "evaluation_group": "core",
+      "notes": ""
+    },
+    {
+      "sample": "Sample204",
+      "reference_verdict": "LIKELY_TP",
+      "reason": "Giá trị ../ trong child có thể thoát base; constructor File(String,String) ngoài phạm vi công bố File(String).",
+      "evaluation_group": "boundary",
+      "notes": "Tách nhãn ngữ nghĩa khỏi khả năng hỗ trợ. Không tính UNKNOWN do ngoài phạm vi vào độ chính xác core; ghi hành vi gate thực tế."
+    },
+    {
+      "sample": "Sample301",
+      "reference_verdict": "LIKELY_TP",
+      "reason": "Runtime.exec(String) tách đối số; đầu vào chứa khoảng trắng có thể thêm biểu thức/action của GNU find như -exec. Không cần shell ngầm.",
+      "evaluation_group": "core",
+      "notes": "Giả định Ubuntu có /usr/bin/find chuẩn GNU. Chỉ biên dịch/phân tích, không chạy mẫu."
+    },
+    {
+      "sample": "Sample302",
+      "reference_verdict": "LIKELY_FP",
+      "reason": "Guard toàn chuỗi chỉ cho một token chữ/số/_; không thể thêm đối số hoặc action vào find.",
+      "evaluation_group": "core",
+      "notes": "Phạm vi argument injection; không khẳng định quyền đọc file, executable hay môi trường an toàn. Không khớp luật tĩnh chỉ dành cho ping."
+    },
+    {
+      "sample": "Sample303",
+      "reference_verdict": "UNKNOWN",
+      "reason": "find có nguy cơ nhận thêm đối số, nhưng thiếu caller/nguồn của tham số search.",
+      "evaluation_group": "core",
+      "notes": ""
+    },
+    {
+      "sample": "Sample304",
+      "reference_verdict": "LIKELY_TP",
+      "reason": "Chủ thể kiểm soát args[0] có thể chọn nội dung shell -c thực thi.",
+      "evaluation_group": "boundary",
+      "notes": "Nhánh hiện tại từ chối shell/wrapper: kỳ vọng ABSTAINED/UNSUPPORTED_EXECUTION_FORM nếu Sonar sinh đúng cảnh báo. Không tính vào core."
+    }
+  ],
+  "sources": [
+    "https://www.gnu.org/software/findutils/manual/html_node/find_html/Single-File.html",
+    "https://www.gnu.org/software/findutils/manual/html_node/find_html/find-Expressions.html"
+  ]
+}

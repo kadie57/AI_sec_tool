@@ -1,0 +1,24 @@
+{
+  "sources": {
+    "src/main/java/demo/CustomerController.java": "b3189085cfe445af6840af821fe8306b868142e001d25ee16cac54a415c350df",
+    "src/main/java/demo/CustomerRepository.java": "2cc8aaf9baeac7f28dbd17d8f08e6cee502eef4f65cd3ef484ca346c0ebe5536",
+    "src/main/java/demo/CustomerService.java": "e08cb82b3eb5f44848807b9955d8e699a0b5d687a2a07cb0211ea262ce885f38"
+  },
+  "classpath": [
+    {
+      "path": "/home/khanh/AI_sec_tool/AI_sec_tool_update/runs/juliet-cwe89-holdout-20261124/project/lib/servlet-api.jar",
+      "sha256": "4b4f665c8daed0cd2c7a78175cd9590f73cd6d587c6a681e99b3574ae4a97c99"
+    }
+  ],
+  "servlet_sites": [
+    {
+      "path": "src/main/java/demo/CustomerController.java",
+      "line": 9,
+      "column": 34,
+      "owner": "javax.servlet.ServletRequest",
+      "signature": "getParameter(java.lang.String)",
+      "name": "getParameter"
+    }
+  ],
+  "jdk_symbol_errors": 0
+}

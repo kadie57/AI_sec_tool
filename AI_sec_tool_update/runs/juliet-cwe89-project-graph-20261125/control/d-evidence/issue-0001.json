@@ -1,0 +1,78 @@
+{
+  "status": "candidate_paths",
+  "matched_sources": 1,
+  "source_count": 1,
+  "candidate_paths_found": 1,
+  "search_limit_hit": false,
+  "paths": [
+    {
+      "source": {
+        "file_id": "F2",
+        "line": 9,
+        "method": "list",
+        "method_start": 8,
+        "method_end": 15,
+        "node_type": "Call",
+        "api_owner": "javax.servlet.ServletRequest",
+        "api_signature": "getParameter(java.lang.String)"
+      },
+      "steps": [
+        {
+          "file_id": "F2",
+          "line": 13,
+          "method": "list",
+          "method_start": 8,
+          "method_end": 15,
+          "node_type": "Identifier"
+        },
+        {
+          "file_id": "F1",
+          "line": 7,
+          "method": "listInterpolated",
+          "method_start": 7,
+          "method_end": 9,
+          "node_type": "MethodParameterIn"
+        },
+        {
+          "file_id": "F1",
+          "line": 8,
+          "method": "listInterpolated",
+          "method_start": 7,
+          "method_end": 9,
+          "node_type": "Identifier"
+        },
+        {
+          "file_id": "F0",
+          "line": 8,
+          "method": "listInterpolated",
+          "method_start": 8,
+          "method_end": 12,
+          "node_type": "MethodParameterIn"
+        },
+        {
+          "file_id": "F0",
+          "line": 9,
+          "method": "listInterpolated",
+          "method_start": 8,
+          "method_end": 12,
+          "node_type": "Call"
+        }
+      ],
+      "sink": {
+        "file_id": "F0",
+        "line": 10,
+        "name": "prepareStatement",
+        "method": "listInterpolated",
+        "method_start": 8,
+        "method_end": 12
+      },
+      "omitted_steps": 0,
+      "unlocated_nodes": 0,
+      "dispatch": []
+    }
+  ],
+  "paths_not_shown": 0,
+  "version": "sql-project-paths-v1",
+  "scope": "verified_java_snapshot",
+  "interpretation": "Candidate dataflow. Runtime branch and dispatch feasibility require separate evidence."
+}

@@ -1,0 +1,56 @@
+{
+  "status": "candidate_paths",
+  "matched_sources": 6,
+  "source_count": 6,
+  "candidate_paths_found": 1,
+  "search_limit_hit": false,
+  "paths": [
+    {
+      "source": {
+        "file_id": "F1",
+        "line": 54,
+        "method": "bad",
+        "method_start": 33,
+        "method_end": 102,
+        "node_type": "Call",
+        "api_owner": "java.io.BufferedReader",
+        "api_signature": "readLine()",
+        "semantic_status": "qwen_candidate",
+        "input_kind": "file"
+      },
+      "steps": [
+        {
+          "file_id": "F1",
+          "line": 101,
+          "method": "bad",
+          "method_start": 33,
+          "method_end": 102,
+          "node_type": "Identifier"
+        },
+        {
+          "file_id": "F0",
+          "line": 29,
+          "method": "badSink",
+          "method_start": 29,
+          "method_end": 83,
+          "node_type": "MethodParameterIn"
+        }
+      ],
+      "sink": {
+        "file_id": "F0",
+        "line": 39,
+        "name": "prepareStatement",
+        "method": "badSink",
+        "method_start": 29,
+        "method_end": 83
+      },
+      "omitted_steps": 0,
+      "unlocated_nodes": 0,
+      "dispatch": []
+    }
+  ],
+  "paths_not_shown": 0,
+  "version": "sql-project-paths-v1",
+  "scope": "verified_java_snapshot",
+  "interpretation": "Candidate dataflow. Runtime branch and dispatch feasibility require separate evidence."
+}

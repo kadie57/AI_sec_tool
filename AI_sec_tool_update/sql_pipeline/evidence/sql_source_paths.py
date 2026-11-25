@@ -42,21 +42,30 @@ def query(files, sources, sink):
 
     origins = ", ".join(tuple_for(s["file_id"], s["line"], s["name"]) for s in sources)
     target = tuple_for(sink["file_id"], sink["line"], sink["signature"].partition("(")[0])
+    return path_script('importCode("/project")', f"  trace(List({origins}), {target})")
+
+
+def path_script(import_graph, run_queries, *, indexed=False):
+    index = '''  val callsByLocation = cpg.call.l.groupBy(c => (fileName(c), c.lineNumber.getOrElse(0), c.name))
+  def matching(ref: (String, Int, String)) = callsByLocation.getOrElse(ref, List.empty)
+''' if indexed else '''  def matching(ref: (String, Int, String)) = {
+    val (file, line, name) = ref
+    cpg.call.filter(c => c.name == name && c.lineNumber.contains(line) && fileName(c) == file).l
+  }
+'''
     return f'''import io.shiftleft.codepropertygraph.generated.nodes.{{AstNode, Call, CfgNode}}
 
 @main def exec() = {{
-  importCode("/project")
+  {import_graph}
   def emit(fields: Any*): Unit = println(("SQL_PATH" +: fields).mkString("\\t"))
   def fileName(n: AstNode): String =
     n.file.name.headOption.getOrElse("").stripPrefix("/project/")
-  def matching(ref: (String, Int, String)) = {{
-    val (file, line, name) = ref
-    cpg.call.filter(c => c.name == name && c.lineNumber.contains(line) && fileName(c) == file).l
-  }}
-  val sinkCalls = matching({target})
+{index}
+  def trace(origins: List[(String, Int, String)], target: (String, Int, String)): Unit = {{
+  val sinkCalls = matching(target)
   val sinkArgs = sinkCalls.iterator.argument(1).l
   emit("SINK", sinkCalls.size, sinkArgs.size)
-  List({origins}).zipWithIndex.foreach {{ (ref, i) =>
+  origins.zipWithIndex.foreach {{ (ref, i) =>
     val reads = matching(ref)
     emit("SOURCE", i, reads.size)
     if (reads.size == 1 && sinkCalls.size == 1 && sinkArgs.size == 1) {{
@@ -84,17 +93,23 @@ def query(files, sources, sink):
       }}
     }}
   }}
+  }}
+{run_queries}
 }}
 '''
 
 
 def select_paths(stdout, files, sources, sink):
     by_path = {f["path"]: file_id for file_id, f in files.items() if f["kind"] == "JAVA"}
-    code = {key: files[key]["masked_source"].splitlines() for key in by_path.values()}
+    code = {}
 
     def coordinate(path, line):
         file_id, line = by_path.get(path), int(line)
-        lines = code.get(file_id, ())
+        if file_id is None:
+            return None
+        if file_id not in code:
+            code[file_id] = files[file_id]["masked_source"].splitlines()
+        lines = code[file_id]
         if 1 <= line <= len(lines) and lines[line - 1].strip():
             return {"file_id": file_id, "line": line}
         return None

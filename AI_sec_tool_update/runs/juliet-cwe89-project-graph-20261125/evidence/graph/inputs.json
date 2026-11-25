@@ -1,0 +1,79 @@
+{
+  "sources": {
+    "Clean_Code/testcases/CWE89_SQL_Injection/s01/CWE89_SQL_Injection__console_readLine_prepareStatement_15.java": "8cdd2679788c4e97cfadfaca513fc9368f590c5f3e3227ecf39d6d6126b228ff",
+    "Clean_Code/testcases/CWE89_SQL_Injection/s01/CWE89_SQL_Injection__console_readLine_prepareStatement_51a.java": "aefc3511b2cf81e904e01b07ed2404744cfaea2a1a0c8e1189c5bd495e52fec4",
+    "Clean_Code/testcases/CWE89_SQL_Injection/s01/CWE89_SQL_Injection__console_readLine_prepareStatement_51b.java": "3aa83fb3cfea509c26017ca2c9be491e65164c11c3fd72b6b789c6cab7010fbd",
+    "Clean_Code/testcases/CWE89_SQL_Injection/s02/CWE89_SQL_Injection__File_prepareStatement_15.java": "daa1e503440774b0e300e91331218e8fd1a5e34d663b1f6456ff3846007adab3",
+    "Clean_Code/testcases/CWE89_SQL_Injection/s02/CWE89_SQL_Injection__File_prepareStatement_51a.java": "e332baf77f5636eee9393b58fe32c3836157d3df351addc57e324be8f2a73fcf",
+    "Clean_Code/testcases/CWE89_SQL_Injection/s02/CWE89_SQL_Injection__File_prepareStatement_51b.java": "372048bb6b52d128196a141930d92112940f8596b47ab48019fc22cd54c2cb75",
+    "Clean_Code/testcases/CWE89_SQL_Injection/s03/CWE89_SQL_Injection__PropertiesFile_executeQuery_15.java": "aac814018f51d39db1fa6011c1c3cad42a9e73192188488a19a1a6a1139af165",
+    "Clean_Code/testcases/CWE89_SQL_Injection/s03/CWE89_SQL_Injection__PropertiesFile_executeQuery_51a.java": "906a2c5fe6e0e1d24d5a40e380fc352dd128f3ba62b49d37e22d7c4e3041ac58",
+    "Clean_Code/testcases/CWE89_SQL_Injection/s03/CWE89_SQL_Injection__PropertiesFile_executeQuery_51b.java": "3946b5526e0e7a7ffc1a062fe54e3e2d6f8bfb4a76679208f6026f784795a5c2",
+    "Clean_Code/testcases/CWE89_SQL_Injection/s03/CWE89_SQL_Injection__getQueryString_Servlet_executeQuery_15.java": "cae4421ec5981ad3e86a69f980aaf54e9ecbd55fb03a364e5964aef3f9de58ce",
+    "Clean_Code/testcases/CWE89_SQL_Injection/s03/CWE89_SQL_Injection__getQueryString_Servlet_executeQuery_51a.java": "152c0d1b5fef4f3bd876e0fb39f922d3d5f90d497d207531f76169ab1fe7e5e0",
+    "Clean_Code/testcases/CWE89_SQL_Injection/s03/CWE89_SQL_Injection__getQueryString_Servlet_executeQuery_51b.java": "72bdddb4fb7501506ddaae02db60283e522e58ea6cab34fd018537999d9dcd99",
+    "Clean_Code/testcasesupport/AbstractTestCase.java": "616137a0621c48756059637921de49397f6e1f70d6ef7ace5746e520ad27831c",
+    "Clean_Code/testcasesupport/AbstractTestCaseBadOnly.java": "62c6f86da74a9d4c420d1ee74b16a964fe9427108a63c87dd8bd8532fa0e2c23",
+    "Clean_Code/testcasesupport/AbstractTestCaseBase.java": "f3cbe283878e2c24d0580eac4370fa244c7aaaef0fa582d78bdb06d4048e7e62",
+    "Clean_Code/testcasesupport/AbstractTestCaseClassIssue.java": "399e7193a566a8d7e1a8db0a80b1b373c08eac7acb775f2bb0a1e110175e1fcd",
+    "Clean_Code/testcasesupport/AbstractTestCaseClassIssueBad.java": "c01cb549c75dc4191f6a6579dc2c7630e3ab89784223f495d5e7432c625c9222",
+    "Clean_Code/testcasesupport/AbstractTestCaseClassIssueGood.java": "ca7b99413a908d723d54ac0dfd4e8db9f2e6f916fa702d90fe5c0b77e74ce16a",
+    "Clean_Code/testcasesupport/AbstractTestCaseServlet.java": "7ff90f6c1a00b703a70ada485f76058c04143073ae5ccf70051d88b2bbeaadd0",
+    "Clean_Code/testcasesupport/AbstractTestCaseServletBadOnly.java": "63b0afdfc46668746b40aa01010758aa1b883ad8c9f44304b29ec060f1eecde0",
+    "Clean_Code/testcasesupport/AbstractTestCaseServletBase.java": "5e0a00b7282e856cd3587ec6de93d49302f9e874d43f2c6dede40f86cecb9956",
+    "Clean_Code/testcasesupport/IO.java": "13fbf67d65544fad1817458b4ee283e3115d2ea299b5c270137e797d8edebe36"
+  },
+  "classpath": [
+    {
+      "path": "/home/khanh/AI_sec_tool/AI_sec_tool_update/runs/juliet-cwe89-holdout-20261124/project/lib/servlet-api.jar",
+      "sha256": "4b4f665c8daed0cd2c7a78175cd9590f73cd6d587c6a681e99b3574ae4a97c99"
+    },
+    {
+      "path": "/home/khanh/AI_sec_tool/AI_sec_tool_update/runs/juliet-cwe89-holdout-20261124/testcasesupport.jar",
+      "sha256": "67fa848604b6eef011287fd4a55aef90b7b0405a7dd78d27227331abe01ad5d3"
+    }
+  ],
+  "servlet_sites": [
+    {
+      "path": "Clean_Code/testcases/CWE89_SQL_Injection/s03/CWE89_SQL_Injection__getQueryString_Servlet_executeQuery_15.java",
+      "line": 41,
+      "column": 73,
+      "owner": "javax.servlet.http.HttpServletRequest",
+      "signature": "getQueryString()",
+      "name": "getQueryString"
+    },
+    {
+      "path": "Clean_Code/testcases/CWE89_SQL_Injection/s03/CWE89_SQL_Injection__getQueryString_Servlet_executeQuery_15.java",
+      "line": 299,
+      "column": 73,
+      "owner": "javax.servlet.http.HttpServletRequest",
+      "signature": "getQueryString()",
+      "name": "getQueryString"
+    },
+    {
+      "path": "Clean_Code/testcases/CWE89_SQL_Injection/s03/CWE89_SQL_Injection__getQueryString_Servlet_executeQuery_15.java",
+      "line": 394,
+      "column": 73,
+      "owner": "javax.servlet.http.HttpServletRequest",
+      "signature": "getQueryString()",
+      "name": "getQueryString"
+    },
+    {
+      "path": "Clean_Code/testcases/CWE89_SQL_Injection/s03/CWE89_SQL_Injection__getQueryString_Servlet_executeQuery_51a.java",
+      "line": 35,
+      "column": 69,
+      "owner": "javax.servlet.http.HttpServletRequest",
+      "signature": "getQueryString()",
+      "name": "getQueryString"
+    },
+    {
+      "path": "Clean_Code/testcases/CWE89_SQL_Injection/s03/CWE89_SQL_Injection__getQueryString_Servlet_executeQuery_51a.java",
+      "line": 76,
+      "column": 69,
+      "owner": "javax.servlet.http.HttpServletRequest",
+      "signature": "getQueryString()",
+      "name": "getQueryString"
+    }
+  ],
+  "jdk_symbol_errors": 0
+}

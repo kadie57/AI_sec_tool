@@ -1,0 +1,39 @@
+{
+  "pipeline_version": "sql-evidence-collection-v1",
+  "mapping_version": "sql89-v2",
+  "collect_only": true,
+  "state": "COLLECTED",
+  "started_at": "2026-11-24T16:08:10.944502+00:00",
+  "limitations": [
+    "Single-file CPG; JDBC sinks at issue line only.",
+    "No Security Hotspots API in this version.",
+    "No concurrent scans of the same SonarQube project."
+  ],
+  "project": "thesis_juliet_cwe89_pilot_v1",
+  "sonar_url": "http://127.0.0.1:9000",
+  "source_hashes": {
+    "Clean_Code/testcases/CWE89_SQL_Injection/s02/CWE89_SQL_Injection__Environment_executeQuery_01.java": "1134246004f718833d8c8ca4e104eb20cd7dda5535f0c6d0884fe4283a25fec4",
+    "Clean_Code/testcases/CWE89_SQL_Injection/s02/CWE89_SQL_Injection__Environment_executeQuery_42.java": "bbe71a9d3e5d5cd74d9c16f79cc1867e546c37e311e07872e173602e22d1efe2",
+    "Clean_Code/testcases/CWE89_SQL_Injection/s02/CWE89_SQL_Injection__File_prepareStatement_01.java": "fffeaf3a15faad924bb991dfa5579a121629bf23efed3a55b31d33ac6d6d9d52",
+    "Clean_Code/testcases/CWE89_SQL_Injection/s02/CWE89_SQL_Injection__File_prepareStatement_42.java": "4e5448ea25bc873fd48a34f3ea3bd609ff1b01697ffd82c8d237500f0ee43707",
+    "Clean_Code/testcases/CWE89_SQL_Injection/s02/CWE89_SQL_Injection__getCookies_Servlet_prepareStatement_01.java": "7133d690c6cd10fc5e05657ebf6eec9691f5fd9a7655832ffbb86691248e7733",
+    "Clean_Code/testcases/CWE89_SQL_Injection/s02/CWE89_SQL_Injection__getCookies_Servlet_prepareStatement_42.java": "91c376777051c4ba08b469ee9553272075ca196c29f29996762a6f3e6b9518d8",
+    "Clean_Code/testcases/CWE89_SQL_Injection/s02/CWE89_SQL_Injection__getParameter_Servlet_executeQuery_01.java": "b6a7c2934b17ea68c38f26ad2d7bbe49ec76d654e9ed904a9152271d413a4b74",
+    "Clean_Code/testcases/CWE89_SQL_Injection/s02/CWE89_SQL_Injection__getParameter_Servlet_executeQuery_42.java": "9064bde6f7572f9e891319f43805e3d8bc38a1689f55becb527bdc9782217f0b",
+    "Clean_Code/testcasesupport/AbstractTestCase.java": "616137a0621c48756059637921de49397f6e1f70d6ef7ace5746e520ad27831c",
+    "Clean_Code/testcasesupport/AbstractTestCaseBadOnly.java": "62c6f86da74a9d4c420d1ee74b16a964fe9427108a63c87dd8bd8532fa0e2c23",
+    "Clean_Code/testcasesupport/AbstractTestCaseBase.java": "f3cbe283878e2c24d0580eac4370fa244c7aaaef0fa582d78bdb06d4048e7e62",
+    "Clean_Code/testcasesupport/AbstractTestCaseClassIssue.java": "399e7193a566a8d7e1a8db0a80b1b373c08eac7acb775f2bb0a1e110175e1fcd",
+    "Clean_Code/testcasesupport/AbstractTestCaseClassIssueBad.java": "c01cb549c75dc4191f6a6579dc2c7630e3ab89784223f495d5e7432c625c9222",
+    "Clean_Code/testcasesupport/AbstractTestCaseClassIssueGood.java": "ca7b99413a908d723d54ac0dfd4e8db9f2e6f916fa702d90fe5c0b77e74ce16a",
+    "Clean_Code/testcasesupport/AbstractTestCaseServlet.java": "7ff90f6c1a00b703a70ada485f76058c04143073ae5ccf70051d88b2bbeaadd0",
+    "Clean_Code/testcasesupport/AbstractTestCaseServletBadOnly.java": "63b0afdfc46668746b40aa01010758aa1b883ad8c9f44304b29ec060f1eecde0",
+    "Clean_Code/testcasesupport/AbstractTestCaseServletBase.java": "5e0a00b7282e856cd3587ec6de93d49302f9e874d43f2c6dede40f86cecb9956",
+    "Clean_Code/testcasesupport/IO.java": "13fbf67d65544fad1817458b4ee283e3115d2ea299b5c270137e797d8edebe36"
+  },
+  "analysis_id": "88d90f81-5dca-4ec6-b76a-5226ff8d1b55",
+  "issue_count": 199,
+  "supported_issue_count": 16,
+  "result_count": 0,
+  "finished_at": "2026-11-24T16:08:35.003396+00:00"
+}

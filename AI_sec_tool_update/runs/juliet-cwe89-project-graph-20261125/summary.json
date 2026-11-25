@@ -1,0 +1,466 @@
+{
+  "collection": {
+    "source": "authenticated SonarQube Web API after a new SonarScanner run",
+    "project": "thesis_juliet_cwe89_holdout_v1",
+    "source_root": "/home/khanh/AI_sec_tool/AI_sec_tool_update/runs/juliet-cwe89-holdout-20261124/project",
+    "collection_dir": "/home/khanh/AI_sec_tool/AI_sec_tool_update/runs/juliet-cwe89-holdout-20261124/project/runs/20261124T165717Z-b96d02",
+    "analysis_id": "cba95a3c-6ea8-427a-a3c4-d6fbaa3f5760",
+    "all_warnings": 340,
+    "cwe89_warnings": 20,
+    "cwe89_rule_counts": {
+      "findsecbugs:SQL_INJECTION_JDBC": 20
+    }
+  },
+  "baseline": "runs/juliet-cwe89-iris-ablation-20261125/c-source-specs",
+  "evidence_file": "runs/juliet-cwe89-project-graph-20261125/evidence/sql_evidence.jsonl",
+  "reference_labels": "runs/juliet-cwe89-holdout-20261124/warning-labels.json",
+  "model": "qwen2.5-coder:14b-instruct-q4_K_M",
+  "model_digest": "9ec8897f747e246e970bc5cfdda85d22f1123dc2e3d34978a010a75968716849",
+  "prompt_profile": "iris-contextual",
+  "prompt_sha256": "26e84205a559fb429adba9c87a3a28fdf6a4c6135f4d301f784acee12637a442",
+  "validation_version": 2,
+  "fresh_ollama_calls": 0,
+  "identical_request_responses_reused": 20,
+  "evidence": {
+    "resolved_cross_file_caller_sites": 8,
+    "jdbc_value_status_counts": {
+      "unknown": 8,
+      "constant_sql_text": 12
+    },
+    "warnings_with_anchored_joern_paths": 8
+  },
+  "baseline_triage": {
+    "true_positive": 8,
+    "true_negative": 12,
+    "false_positive": 0,
+    "false_negative": 0,
+    "unknown": 0,
+    "error": 0,
+    "correct": 20
+  },
+  "new_triage": {
+    "true_positive": 8,
+    "true_negative": 12,
+    "false_positive": 0,
+    "false_negative": 0,
+    "unknown": 0,
+    "error": 0,
+    "correct": 20
+  },
+  "by_flow_variant": {
+    "15": {
+      "before": {
+        "true_positive": 4,
+        "true_negative": 8,
+        "false_positive": 0,
+        "false_negative": 0,
+        "unknown": 0,
+        "error": 0,
+        "correct": 12
+      },
+      "after": {
+        "true_positive": 4,
+        "true_negative": 8,
+        "false_positive": 0,
+        "false_negative": 0,
+        "unknown": 0,
+        "error": 0,
+        "correct": 12
+      }
+    },
+    "51": {
+      "before": {
+        "true_positive": 4,
+        "true_negative": 4,
+        "false_positive": 0,
+        "false_negative": 0,
+        "unknown": 0,
+        "error": 0,
+        "correct": 8
+      },
+      "after": {
+        "true_positive": 4,
+        "true_negative": 4,
+        "false_positive": 0,
+        "false_negative": 0,
+        "unknown": 0,
+        "error": 0,
+        "correct": 8
+      }
+    }
+  },
+  "cases": [
+    {
+      "issue_id": "378ca037-f43b-4634-a211-0fcf9095521b",
+      "component": "thesis_juliet_cwe89_holdout_v1:Clean_Code/testcases/CWE89_SQL_Injection/s01/CWE89_SQL_Injection__console_readLine_prepareStatement_15.java",
+      "evidence_changed": false,
+      "before": "LIKELY_TP",
+      "after": "LIKELY_TP",
+      "reference_vulnerability": true,
+      "start_line": 102,
+      "flow_variant": "15",
+      "family": "console_readLine_prepareStatement",
+      "jdbc_value_status": [
+        "unknown"
+      ],
+      "resolved_caller": false,
+      "anchored_path_count": 1,
+      "model_response_origin": "identical_request_from_baseline"
+    },
+    {
+      "issue_id": "b04c4dbe-c038-49e6-8766-d4369af69258",
+      "component": "thesis_juliet_cwe89_holdout_v1:Clean_Code/testcases/CWE89_SQL_Injection/s01/CWE89_SQL_Injection__console_readLine_prepareStatement_15.java",
+      "evidence_changed": false,
+      "before": "LIKELY_FP",
+      "after": "LIKELY_FP",
+      "reference_vulnerability": false,
+      "start_line": 178,
+      "flow_variant": "15",
+      "family": "console_readLine_prepareStatement",
+      "jdbc_value_status": [
+        "constant_sql_text"
+      ],
+      "resolved_caller": false,
+      "anchored_path_count": 0,
+      "model_response_origin": "identical_request_from_baseline"
+    },
+    {
+      "issue_id": "6242a6c3-37da-47cf-b852-fdf88f2b365d",
+      "component": "thesis_juliet_cwe89_holdout_v1:Clean_Code/testcases/CWE89_SQL_Injection/s01/CWE89_SQL_Injection__console_readLine_prepareStatement_15.java",
+      "evidence_changed": false,
+      "before": "LIKELY_FP",
+      "after": "LIKELY_FP",
+      "reference_vulnerability": false,
+      "start_line": 254,
+      "flow_variant": "15",
+      "family": "console_readLine_prepareStatement",
+      "jdbc_value_status": [
+        "constant_sql_text"
+      ],
+      "resolved_caller": false,
+      "anchored_path_count": 0,
+      "model_response_origin": "identical_request_from_baseline"
+    },
+    {
+      "issue_id": "cb0ef271-0908-48cc-a629-ebcd55dffdbe",
+      "component": "thesis_juliet_cwe89_holdout_v1:Clean_Code/testcases/CWE89_SQL_Injection/s01/CWE89_SQL_Injection__console_readLine_prepareStatement_51b.java",
+      "evidence_changed": false,
+      "before": "LIKELY_TP",
+      "after": "LIKELY_TP",
+      "reference_vulnerability": true,
+      "start_line": 39,
+      "flow_variant": "51",
+      "family": "console_readLine_prepareStatement",
+      "jdbc_value_status": [
+        "unknown"
+      ],
+      "resolved_caller": true,
+      "anchored_path_count": 1,
+      "model_response_origin": "identical_request_from_baseline"
+    },
+    {
+      "issue_id": "5fe3836a-002b-4c02-a370-25b179ce0166",
+      "component": "thesis_juliet_cwe89_holdout_v1:Clean_Code/testcases/CWE89_SQL_Injection/s01/CWE89_SQL_Injection__console_readLine_prepareStatement_51b.java",
+      "evidence_changed": false,
+      "before": "LIKELY_FP",
+      "after": "LIKELY_FP",
+      "reference_vulnerability": false,
+      "start_line": 96,
+      "flow_variant": "51",
+      "family": "console_readLine_prepareStatement",
+      "jdbc_value_status": [
+        "constant_sql_text"
+      ],
+      "resolved_caller": true,
+      "anchored_path_count": 0,
+      "model_response_origin": "identical_request_from_baseline"
+    },
+    {
+      "issue_id": "01f367b4-e33d-4943-9704-b1276f21670f",
+      "component": "thesis_juliet_cwe89_holdout_v1:Clean_Code/testcases/CWE89_SQL_Injection/s02/CWE89_SQL_Injection__File_prepareStatement_15.java",
+      "evidence_changed": false,
+      "before": "LIKELY_TP",
+      "after": "LIKELY_TP",
+      "reference_vulnerability": true,
+      "start_line": 121,
+      "flow_variant": "15",
+      "family": "File_prepareStatement",
+      "jdbc_value_status": [
+        "unknown"
+      ],
+      "resolved_caller": false,
+      "anchored_path_count": 1,
+      "model_response_origin": "identical_request_from_baseline"
+    },
+    {
+      "issue_id": "eca9e33f-c1b4-4f40-b228-ffca9bbf352c",
+      "component": "thesis_juliet_cwe89_holdout_v1:Clean_Code/testcases/CWE89_SQL_Injection/s02/CWE89_SQL_Injection__File_prepareStatement_15.java",
+      "evidence_changed": false,
+      "before": "LIKELY_FP",
+      "after": "LIKELY_FP",
+      "reference_vulnerability": false,
+      "start_line": 197,
+      "flow_variant": "15",
+      "family": "File_prepareStatement",
+      "jdbc_value_status": [
+        "constant_sql_text"
+      ],
+      "resolved_caller": false,
+      "anchored_path_count": 0,
+      "model_response_origin": "identical_request_from_baseline"
+    },
+    {
+      "issue_id": "41c2e331-09a4-4fea-a12d-fb2f4e973c5c",
+      "component": "thesis_juliet_cwe89_holdout_v1:Clean_Code/testcases/CWE89_SQL_Injection/s02/CWE89_SQL_Injection__File_prepareStatement_15.java",
+      "evidence_changed": false,
+      "before": "LIKELY_FP",
+      "after": "LIKELY_FP",
+      "reference_vulnerability": false,
+      "start_line": 273,
+      "flow_variant": "15",
+      "family": "File_prepareStatement",
+      "jdbc_value_status": [
+        "constant_sql_text"
+      ],
+      "resolved_caller": false,
+      "anchored_path_count": 0,
+      "model_response_origin": "identical_request_from_baseline"
+    },
+    {
+      "issue_id": "c5ff1b8c-06b9-479d-a6d9-2db18c0e0907",
+      "component": "thesis_juliet_cwe89_holdout_v1:Clean_Code/testcases/CWE89_SQL_Injection/s02/CWE89_SQL_Injection__File_prepareStatement_51b.java",
+      "evidence_changed": false,
+      "before": "LIKELY_TP",
+      "after": "LIKELY_TP",
+      "reference_vulnerability": true,
+      "start_line": 39,
+      "flow_variant": "51",
+      "family": "File_prepareStatement",
+      "jdbc_value_status": [
+        "unknown"
+      ],
+      "resolved_caller": true,
+      "anchored_path_count": 1,
+      "model_response_origin": "identical_request_from_baseline"
+    },
+    {
+      "issue_id": "583d1694-00fe-4207-b183-fc6e41270c61",
+      "component": "thesis_juliet_cwe89_holdout_v1:Clean_Code/testcases/CWE89_SQL_Injection/s02/CWE89_SQL_Injection__File_prepareStatement_51b.java",
+      "evidence_changed": false,
+      "before": "LIKELY_FP",
+      "after": "LIKELY_FP",
+      "reference_vulnerability": false,
+      "start_line": 96,
+      "flow_variant": "51",
+      "family": "File_prepareStatement",
+      "jdbc_value_status": [
+        "constant_sql_text"
+      ],
+      "resolved_caller": true,
+      "anchored_path_count": 0,
+      "model_response_origin": "identical_request_from_baseline"
+    },
+    {
+      "issue_id": "21ead17d-6124-4cb2-a7e3-d14eb8861f09",
+      "component": "thesis_juliet_cwe89_holdout_v1:Clean_Code/testcases/CWE89_SQL_Injection/s03/CWE89_SQL_Injection__PropertiesFile_executeQuery_15.java",
+      "evidence_changed": false,
+      "before": "LIKELY_TP",
+      "after": "LIKELY_TP",
+      "reference_vulnerability": true,
+      "start_line": 93,
+      "flow_variant": "15",
+      "family": "PropertiesFile_executeQuery",
+      "jdbc_value_status": [
+        "unknown"
+      ],
+      "resolved_caller": false,
+      "anchored_path_count": 1,
+      "model_response_origin": "identical_request_from_baseline"
+    },
+    {
+      "issue_id": "3a8b18cd-647c-4576-b0b8-57f4ddf607f9",
+      "component": "thesis_juliet_cwe89_holdout_v1:Clean_Code/testcases/CWE89_SQL_Injection/s03/CWE89_SQL_Injection__PropertiesFile_executeQuery_15.java",
+      "evidence_changed": false,
+      "before": "LIKELY_FP",
+      "after": "LIKELY_FP",
+      "reference_vulnerability": false,
+      "start_line": 175,
+      "flow_variant": "15",
+      "family": "PropertiesFile_executeQuery",
+      "jdbc_value_status": [
+        "constant_sql_text"
+      ],
+      "resolved_caller": false,
+      "anchored_path_count": 0,
+      "model_response_origin": "identical_request_from_baseline"
+    },
+    {
+      "issue_id": "8a920075-b83f-4495-b866-d6013b45b0b3",
+      "component": "thesis_juliet_cwe89_holdout_v1:Clean_Code/testcases/CWE89_SQL_Injection/s03/CWE89_SQL_Injection__PropertiesFile_executeQuery_15.java",
+      "evidence_changed": false,
+      "before": "LIKELY_FP",
+      "after": "LIKELY_FP",
+      "reference_vulnerability": false,
+      "start_line": 257,
+      "flow_variant": "15",
+      "family": "PropertiesFile_executeQuery",
+      "jdbc_value_status": [
+        "constant_sql_text"
+      ],
+      "resolved_caller": false,
+      "anchored_path_count": 0,
+      "model_response_origin": "identical_request_from_baseline"
+    },
+    {
+      "issue_id": "a194dd88-d2fe-418a-bb15-f6cf613ec7f4",
+      "component": "thesis_juliet_cwe89_holdout_v1:Clean_Code/testcases/CWE89_SQL_Injection/s03/CWE89_SQL_Injection__PropertiesFile_executeQuery_51b.java",
+      "evidence_changed": false,
+      "before": "LIKELY_TP",
+      "after": "LIKELY_TP",
+      "reference_vulnerability": true,
+      "start_line": 42,
+      "flow_variant": "51",
+      "family": "PropertiesFile_executeQuery",
+      "jdbc_value_status": [
+        "unknown"
+      ],
+      "resolved_caller": true,
+      "anchored_path_count": 1,
+      "model_response_origin": "identical_request_from_baseline"
+    },
+    {
+      "issue_id": "feb7fe7b-4f4f-4942-b05a-186d84ca8c14",
+      "component": "thesis_juliet_cwe89_holdout_v1:Clean_Code/testcases/CWE89_SQL_Injection/s03/CWE89_SQL_Injection__PropertiesFile_executeQuery_51b.java",
+      "evidence_changed": false,
+      "before": "LIKELY_FP",
+      "after": "LIKELY_FP",
+      "reference_vulnerability": false,
+      "start_line": 105,
+      "flow_variant": "51",
+      "family": "PropertiesFile_executeQuery",
+      "jdbc_value_status": [
+        "constant_sql_text"
+      ],
+      "resolved_caller": true,
+      "anchored_path_count": 0,
+      "model_response_origin": "identical_request_from_baseline"
+    },
+    {
+      "issue_id": "70b72c6c-9b7c-43c1-97e2-0bc6ad003552",
+      "component": "thesis_juliet_cwe89_holdout_v1:Clean_Code/testcases/CWE89_SQL_Injection/s03/CWE89_SQL_Injection__getQueryString_Servlet_executeQuery_15.java",
+      "evidence_changed": false,
+      "before": "LIKELY_TP",
+      "after": "LIKELY_TP",
+      "reference_vulnerability": true,
+      "start_line": 71,
+      "flow_variant": "15",
+      "family": "getQueryString_Servlet_executeQuery",
+      "jdbc_value_status": [
+        "unknown"
+      ],
+      "resolved_caller": false,
+      "anchored_path_count": 1,
+      "model_response_origin": "identical_request_from_baseline"
+    },
+    {
+      "issue_id": "da88f899-be06-46ed-965c-3e8c31ffb411",
+      "component": "thesis_juliet_cwe89_holdout_v1:Clean_Code/testcases/CWE89_SQL_Injection/s03/CWE89_SQL_Injection__getQueryString_Servlet_executeQuery_15.java",
+      "evidence_changed": false,
+      "before": "LIKELY_FP",
+      "after": "LIKELY_FP",
+      "reference_vulnerability": false,
+      "start_line": 153,
+      "flow_variant": "15",
+      "family": "getQueryString_Servlet_executeQuery",
+      "jdbc_value_status": [
+        "constant_sql_text"
+      ],
+      "resolved_caller": false,
+      "anchored_path_count": 0,
+      "model_response_origin": "identical_request_from_baseline"
+    },
+    {
+      "issue_id": "c1e33d65-db6a-4cfd-a95f-7813efb1b397",
+      "component": "thesis_juliet_cwe89_holdout_v1:Clean_Code/testcases/CWE89_SQL_Injection/s03/CWE89_SQL_Injection__getQueryString_Servlet_executeQuery_15.java",
+      "evidence_changed": false,
+      "before": "LIKELY_FP",
+      "after": "LIKELY_FP",
+      "reference_vulnerability": false,
+      "start_line": 235,
+      "flow_variant": "15",
+      "family": "getQueryString_Servlet_executeQuery",
+      "jdbc_value_status": [
+        "constant_sql_text"
+      ],
+      "resolved_caller": false,
+      "anchored_path_count": 0,
+      "model_response_origin": "identical_request_from_baseline"
+    },
+    {
+      "issue_id": "fd8e298a-9b39-4ddf-a7df-84a2099dc040",
+      "component": "thesis_juliet_cwe89_holdout_v1:Clean_Code/testcases/CWE89_SQL_Injection/s03/CWE89_SQL_Injection__getQueryString_Servlet_executeQuery_51b.java",
+      "evidence_changed": false,
+      "before": "LIKELY_TP",
+      "after": "LIKELY_TP",
+      "reference_vulnerability": true,
+      "start_line": 42,
+      "flow_variant": "51",
+      "family": "getQueryString_Servlet_executeQuery",
+      "jdbc_value_status": [
+        "unknown"
+      ],
+      "resolved_caller": true,
+      "anchored_path_count": 1,
+      "model_response_origin": "identical_request_from_baseline"
+    },
+    {
+      "issue_id": "c161bf7c-0b64-4648-bb57-f169bad62223",
+      "component": "thesis_juliet_cwe89_holdout_v1:Clean_Code/testcases/CWE89_SQL_Injection/s03/CWE89_SQL_Injection__getQueryString_Servlet_executeQuery_51b.java",
+      "evidence_changed": false,
+      "before": "LIKELY_FP",
+      "after": "LIKELY_FP",
+      "reference_vulnerability": false,
+      "start_line": 105,
+      "flow_variant": "51",
+      "family": "getQueryString_Servlet_executeQuery",
+      "jdbc_value_status": [
+        "constant_sql_text"
+      ],
+      "resolved_caller": true,
+      "anchored_path_count": 0,
+      "model_response_origin": "identical_request_from_baseline"
+    }
+  ],
+  "project_graph": {
+    "java_files": 22,
+    "jdk_symbol_errors": 0,
+    "build_and_query_elapsed_seconds": 25.017,
+    "cpg_artifact": "runs/juliet-cwe89-project-graph-20261125/evidence/graph/snapshot.bin",
+    "warning_requests_unchanged": 20
+  },
+  "three_file_control": {
+    "scope": "Synthetic Java fixture with frozen endpoint labels. No SonarQube scan.",
+    "cases": [
+      {
+        "issue_id": "fixture-sql-text",
+        "reference_reaches_sql_text": true,
+        "c_paths": 0,
+        "d_paths": 1,
+        "d_matched_sources": 1,
+        "ordered_files": [
+          "src/main/java/demo/CustomerController.java",
+          "src/main/java/demo/CustomerService.java",
+          "src/main/java/demo/CustomerRepository.java"
+        ]
+      },
+      {
+        "issue_id": "fixture-bound-value",
+        "reference_reaches_sql_text": false,
+        "c_paths": 0,
+        "d_paths": 0,
+        "d_matched_sources": 1,
+        "binding_line": 16
+      }
+    ]
+  }
+}

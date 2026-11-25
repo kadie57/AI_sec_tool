@@ -1,0 +1,36 @@
+{
+  "method": "All OWASP CWE-89 positive samples outside SQL8 matched to archived supported Sonar alerts in the compatibility and holdout collections.",
+  "benchmark_commit": "a452b3aafd232245d0753e54eb243d6651f8ef96",
+  "label_file": "/home/khanh/AI_sec_benchmarks/BenchmarkJava/expectedresults-1.2.csv",
+  "label_sha256": "1809f6a690c6cf7dd6685df6ebe2eef8fe3ca93d19a7ca0ce45987ca4f5d78e1",
+  "java_samples_positive": 272,
+  "selected": [
+    {
+      "sample": "BenchmarkTest00008",
+      "issue_id": "a1e3c378-0145-459e-9575-eb10632c612f",
+      "component": "thesis_owasp_compat_v1:experiments/owasp_compat_v1/inputs/a452b3aafd232245d0753e54eb243d6651f8ef96/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00008.java",
+      "rule": "findsecbugs:SQL_INJECTION_JDBC",
+      "reference_vulnerability": true,
+      "collection": "/home/khanh/AI_sec_tool/runs/owasp-compat-20261114T045846Z-8508c7",
+      "evidence_origin": "prepare_from_archived_alert"
+    },
+    {
+      "sample": "BenchmarkTest00438",
+      "issue_id": "47a9f2cb-a6ca-442d-9e56-79839ba05ff2",
+      "component": "thesis_owasp_holdout_v1:experiments/owasp_holdout_v1/inputs/a452b3aafd232245d0753e54eb243d6651f8ef96/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00438.java",
+      "rule": "findsecbugs:SQL_INJECTION_JDBC",
+      "reference_vulnerability": true,
+      "collection": "/home/khanh/AI_sec_tool/runs/owasp-holdout-20261115T151839Z-b04660",
+      "evidence_origin": "existing"
+    },
+    {
+      "sample": "BenchmarkTest00439",
+      "issue_id": "b540bb38-9153-4ccf-abe4-cdc606763d95",
+      "component": "thesis_owasp_holdout_v1:experiments/owasp_holdout_v1/inputs/a452b3aafd232245d0753e54eb243d6651f8ef96/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00439.java",
+      "rule": "findsecbugs:SQL_INJECTION_JDBC",
+      "reference_vulnerability": true,
+      "collection": "/home/khanh/AI_sec_tool/runs/owasp-holdout-20261115T151839Z-b04660",
+      "evidence_origin": "existing"
+    }
+  ]
+}

@@ -1,0 +1,39 @@
+{
+  "status": "candidate_paths",
+  "matched_sources": 6,
+  "source_count": 6,
+  "candidate_paths_found": 1,
+  "search_limit_hit": false,
+  "paths": [
+    {
+      "source": {
+        "file_id": "F0",
+        "line": 51,
+        "method": "bad",
+        "method_start": 34,
+        "method_end": 149,
+        "node_type": "Call",
+        "api_owner": "java.io.BufferedReader",
+        "api_signature": "readLine()",
+        "semantic_status": "qwen_candidate",
+        "input_kind": "console"
+      },
+      "steps": [],
+      "sink": {
+        "file_id": "F0",
+        "line": 102,
+        "name": "prepareStatement",
+        "method": "bad",
+        "method_start": 34,
+        "method_end": 149
+      },
+      "omitted_steps": 0,
+      "unlocated_nodes": 0,
+      "dispatch": []
+    }
+  ],
+  "paths_not_shown": 0,
+  "version": "sql-project-paths-v1",
+  "scope": "verified_java_snapshot",
+  "interpretation": "Candidate dataflow. Runtime branch and dispatch feasibility require separate evidence."
+}

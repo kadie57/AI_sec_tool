@@ -1,0 +1,1423 @@
+{
+  "sample_count": 60,
+  "samples_with_target_warning": 48,
+  "rule_counts": {
+    "java:S1874": 12,
+    "java:S1989": 248,
+    "java:S2093": 7,
+    "java:S106": 31,
+    "java:S125": 8,
+    "java:S2293": 20,
+    "findsecbugs:COMMAND_INJECTION": 20,
+    "findsecbugs:PATH_TRAVERSAL_IN": 17,
+    "java:S1854": 12,
+    "java:S1481": 7,
+    "java:S3626": 15,
+    "findsecbugs:SQL_INJECTION_JDBC": 12,
+    "java:S5261": 3,
+    "java:S1905": 7,
+    "java:S1075": 1,
+    "java:S3776": 3,
+    "java:S2095": 4,
+    "java:S2259": 6,
+    "java:S1172": 39,
+    "java:S1130": 78,
+    "java:S1488": 10,
+    "java:S1153": 1
+  },
+  "route_counts": {
+    "unsupported": 512,
+    "command": 20,
+    "path": 17,
+    "sql": 12
+  },
+  "samples": [
+    {
+      "sample": "BenchmarkTest00002",
+      "category": "pathtraver",
+      "cwe": "22",
+      "repository_path": "src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00002.java",
+      "project_path": "experiments/owasp_holdout_v1/inputs/a452b3aafd232245d0753e54eb243d6651f8ef96/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00002.java",
+      "source_sha256": "34ffca044de7a7c3d47e5b1a48d5b35c42fff120e82df6969c5719e25259f2ac",
+      "component": "thesis_owasp_holdout_v1:experiments/owasp_holdout_v1/inputs/a452b3aafd232245d0753e54eb243d6651f8ef96/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00002.java",
+      "issue_count": 6,
+      "supported_issue_count": 0,
+      "target_issue_count": 0,
+      "target_issue_ids": [],
+      "rule_counts": {
+        "java:S1874": 1,
+        "java:S1989": 2,
+        "java:S2093": 1,
+        "java:S106": 1,
+        "java:S125": 1
+      },
+      "collection_status": "NO_SUPPORTED_TARGET_WARNING"
+    },
+    {
+      "sample": "BenchmarkTest00015",
+      "category": "cmdi",
+      "cwe": "78",
+      "repository_path": "src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00015.java",
+      "project_path": "experiments/owasp_holdout_v1/inputs/a452b3aafd232245d0753e54eb243d6651f8ef96/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00015.java",
+      "source_sha256": "24286877c4ae1934baef0f29b092d49f79d2e111b9447373d52bf48a0ec504b6",
+      "component": "thesis_owasp_holdout_v1:experiments/owasp_holdout_v1/inputs/a452b3aafd232245d0753e54eb243d6651f8ef96/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00015.java",
+      "issue_count": 6,
+      "supported_issue_count": 1,
+      "target_issue_count": 1,
+      "target_issue_ids": [
+        "ad977d0b-c626-4f6c-b124-e1cbcd496bd2"
+      ],
+      "rule_counts": {
+        "java:S1989": 3,
+        "java:S2293": 1,
+        "findsecbugs:COMMAND_INJECTION": 1,
+        "java:S106": 1
+      },
+      "collection_status": "TARGET_WARNING"
+    },
+    {
+      "sample": "BenchmarkTest00132",
+      "category": "pathtraver",
+      "cwe": "22",
+      "repository_path": "src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00132.java",
+      "project_path": "experiments/owasp_holdout_v1/inputs/a452b3aafd232245d0753e54eb243d6651f8ef96/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00132.java",
+      "source_sha256": "0b7b0d2ccc2cfd09114c7eb2048d9a2d3cbac6b3aa54ae23643dfc495fff2a6d",
+      "component": "thesis_owasp_holdout_v1:experiments/owasp_holdout_v1/inputs/a452b3aafd232245d0753e54eb243d6651f8ef96/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00132.java",
+      "issue_count": 6,
+      "supported_issue_count": 1,
+      "target_issue_count": 1,
+      "target_issue_ids": [
+        "a3f8c93c-e2e8-419f-b4d7-d29fff624a3b"
+      ],
+      "rule_counts": {
+        "java:S1989": 3,
+        "java:S2093": 1,
+        "findsecbugs:PATH_TRAVERSAL_IN": 1,
+        "java:S106": 1
+      },
+      "collection_status": "TARGET_WARNING"
+    },
+    {
+      "sample": "BenchmarkTest00201",
+      "category": "sqli",
+      "cwe": "89",
+      "repository_path": "src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00201.java",
+      "project_path": "experiments/owasp_holdout_v1/inputs/a452b3aafd232245d0753e54eb243d6651f8ef96/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00201.java",
+      "source_sha256": "fcca8c166d49c7d202aeaa6a2cbdffa325e90aaa1a1eac8c882814a736064b45",
+      "component": "thesis_owasp_holdout_v1:experiments/owasp_holdout_v1/inputs/a452b3aafd232245d0753e54eb243d6651f8ef96/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00201.java",
+      "issue_count": 8,
+      "supported_issue_count": 0,
+      "target_issue_count": 0,
+      "target_issue_ids": [],
+      "rule_counts": {
+        "java:S1989": 5,
+        "java:S2293": 1,
+        "java:S1854": 1,
+        "java:S1481": 1
+      },
+      "collection_status": "NO_SUPPORTED_TARGET_WARNING"
+    },
+    {
+      "sample": "BenchmarkTest00406",
+      "category": "cmdi",
+      "cwe": "78",
+      "repository_path": "src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00406.java",
+      "project_path": "experiments/owasp_holdout_v1/inputs/a452b3aafd232245d0753e54eb243d6651f8ef96/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00406.java",
+      "source_sha256": "40f53c46b5a118106ef0138902b4f266eade669f1beb9dfb461ebf172baf6371",
+      "component": "thesis_owasp_holdout_v1:experiments/owasp_holdout_v1/inputs/a452b3aafd232245d0753e54eb243d6651f8ef96/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00406.java",
+      "issue_count": 5,
+      "supported_issue_count": 1,
+      "target_issue_count": 1,
+      "target_issue_ids": [
+        "19a19d05-2fc4-4a74-97eb-6173af049766"
+      ],
+      "rule_counts": {
+        "java:S1989": 2,
+        "findsecbugs:COMMAND_INJECTION": 1,
+        "java:S106": 1,
+        "java:S3626": 1
+      },
+      "collection_status": "TARGET_WARNING"
+    },
+    {
+      "sample": "BenchmarkTest00408",
+      "category": "cmdi",
+      "cwe": "78",
+      "repository_path": "src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00408.java",
+      "project_path": "experiments/owasp_holdout_v1/inputs/a452b3aafd232245d0753e54eb243d6651f8ef96/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00408.java",
+      "source_sha256": "b23995c246c4f6ba6b1b873c13b81a9eb25fad9d55a9685d44abb02036195372",
+      "component": "thesis_owasp_holdout_v1:experiments/owasp_holdout_v1/inputs/a452b3aafd232245d0753e54eb243d6651f8ef96/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00408.java",
+      "issue_count": 5,
+      "supported_issue_count": 1,
+      "target_issue_count": 1,
+      "target_issue_ids": [
+        "390e5e4a-9b7a-4f54-b90f-508dbb11be16"
+      ],
+      "rule_counts": {
+        "java:S1989": 2,
+        "findsecbugs:COMMAND_INJECTION": 1,
+        "java:S106": 1,
+        "java:S3626": 1
+      },
+      "collection_status": "TARGET_WARNING"
+    },
+    {
+      "sample": "BenchmarkTest00438",
+      "category": "sqli",
+      "cwe": "89",
+      "repository_path": "src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00438.java",
+      "project_path": "experiments/owasp_holdout_v1/inputs/a452b3aafd232245d0753e54eb243d6651f8ef96/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00438.java",
+      "source_sha256": "126e867e7e1132f8c0dc9cb00c04b7de2a80c0c21179fd5e150e05aeab801184",
+      "component": "thesis_owasp_holdout_v1:experiments/owasp_holdout_v1/inputs/a452b3aafd232245d0753e54eb243d6651f8ef96/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00438.java",
+      "issue_count": 5,
+      "supported_issue_count": 1,
+      "target_issue_count": 1,
+      "target_issue_ids": [
+        "47a9f2cb-a6ca-442d-9e56-79839ba05ff2"
+      ],
+      "rule_counts": {
+        "java:S1989": 4,
+        "findsecbugs:SQL_INJECTION_JDBC": 1
+      },
+      "collection_status": "TARGET_WARNING"
+    },
+    {
+      "sample": "BenchmarkTest00439",
+      "category": "sqli",
+      "cwe": "89",
+      "repository_path": "src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00439.java",
+      "project_path": "experiments/owasp_holdout_v1/inputs/a452b3aafd232245d0753e54eb243d6651f8ef96/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00439.java",
+      "source_sha256": "18fa2c2396a747d91642f413ed38fbf1f2fc210c17c0f5f1cf87cc7614cc40bb",
+      "component": "thesis_owasp_holdout_v1:experiments/owasp_holdout_v1/inputs/a452b3aafd232245d0753e54eb243d6651f8ef96/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00439.java",
+      "issue_count": 5,
+      "supported_issue_count": 1,
+      "target_issue_count": 1,
+      "target_issue_ids": [
+        "b540bb38-9153-4ccf-abe4-cdc606763d95"
+      ],
+      "rule_counts": {
+        "java:S1989": 4,
+        "findsecbugs:SQL_INJECTION_JDBC": 1
+      },
+      "collection_status": "TARGET_WARNING"
+    },
+    {
+      "sample": "BenchmarkTest00453",
+      "category": "pathtraver",
+      "cwe": "22",
+      "repository_path": "src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00453.java",
+      "project_path": "experiments/owasp_holdout_v1/inputs/a452b3aafd232245d0753e54eb243d6651f8ef96/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00453.java",
+      "source_sha256": "c57d96122f5cb7fe99542e26bb65c027b5ac13371f586920acfd82f8c88ed829",
+      "component": "thesis_owasp_holdout_v1:experiments/owasp_holdout_v1/inputs/a452b3aafd232245d0753e54eb243d6651f8ef96/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00453.java",
+      "issue_count": 7,
+      "supported_issue_count": 1,
+      "target_issue_count": 1,
+      "target_issue_ids": [
+        "ba297d1d-80a6-4078-a330-cd1ae069104c"
+      ],
+      "rule_counts": {
+        "java:S1989": 5,
+        "java:S5261": 1,
+        "findsecbugs:PATH_TRAVERSAL_IN": 1
+      },
+      "collection_status": "TARGET_WARNING"
+    },
+    {
+      "sample": "BenchmarkTest00454",
+      "category": "pathtraver",
+      "cwe": "22",
+      "repository_path": "src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00454.java",
+      "project_path": "experiments/owasp_holdout_v1/inputs/a452b3aafd232245d0753e54eb243d6651f8ef96/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00454.java",
+      "source_sha256": "faa9ef56a8380a4b7a65525623158889bd1a90e37b81225f142d294b3dc12956",
+      "component": "thesis_owasp_holdout_v1:experiments/owasp_holdout_v1/inputs/a452b3aafd232245d0753e54eb243d6651f8ef96/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00454.java",
+      "issue_count": 5,
+      "supported_issue_count": 1,
+      "target_issue_count": 1,
+      "target_issue_ids": [
+        "63c53869-19aa-470f-a66d-82a9f6171895"
+      ],
+      "rule_counts": {
+        "java:S1989": 2,
+        "java:S2093": 1,
+        "findsecbugs:PATH_TRAVERSAL_IN": 1,
+        "java:S106": 1
+      },
+      "collection_status": "TARGET_WARNING"
+    },
+    {
+      "sample": "BenchmarkTest00497",
+      "category": "cmdi",
+      "cwe": "78",
+      "repository_path": "src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00497.java",
+      "project_path": "experiments/owasp_holdout_v1/inputs/a452b3aafd232245d0753e54eb243d6651f8ef96/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00497.java",
+      "source_sha256": "883bc8f42d0eb50900756557a2120d26333477d9db1852f59e962fc4d04011d8",
+      "component": "thesis_owasp_holdout_v1:experiments/owasp_holdout_v1/inputs/a452b3aafd232245d0753e54eb243d6651f8ef96/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00497.java",
+      "issue_count": 5,
+      "supported_issue_count": 1,
+      "target_issue_count": 1,
+      "target_issue_ids": [
+        "60bec094-ec8c-4a30-8936-3f8e4fadcbf3"
+      ],
+      "rule_counts": {
+        "java:S1989": 2,
+        "findsecbugs:COMMAND_INJECTION": 1,
+        "java:S106": 1,
+        "java:S3626": 1
+      },
+      "collection_status": "TARGET_WARNING"
+    },
+    {
+      "sample": "BenchmarkTest00517",
+      "category": "sqli",
+      "cwe": "89",
+      "repository_path": "src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00517.java",
+      "project_path": "experiments/owasp_holdout_v1/inputs/a452b3aafd232245d0753e54eb243d6651f8ef96/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00517.java",
+      "source_sha256": "3b9a5c479b25c60cc66f01cb7633cf513033f630ece04237cb5c9535cd4350d2",
+      "component": "thesis_owasp_holdout_v1:experiments/owasp_holdout_v1/inputs/a452b3aafd232245d0753e54eb243d6651f8ef96/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00517.java",
+      "issue_count": 5,
+      "supported_issue_count": 1,
+      "target_issue_count": 1,
+      "target_issue_ids": [
+        "75bd39b8-848e-4ac4-ae84-35e78cbd540e"
+      ],
+      "rule_counts": {
+        "java:S1989": 4,
+        "findsecbugs:SQL_INJECTION_JDBC": 1
+      },
+      "collection_status": "TARGET_WARNING"
+    },
+    {
+      "sample": "BenchmarkTest00526",
+      "category": "pathtraver",
+      "cwe": "22",
+      "repository_path": "src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00526.java",
+      "project_path": "experiments/owasp_holdout_v1/inputs/a452b3aafd232245d0753e54eb243d6651f8ef96/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00526.java",
+      "source_sha256": "114c42a520fbc6c329fed8a1f0a58b2f39c839cd6a4c7b2259836af86a855c86",
+      "component": "thesis_owasp_holdout_v1:experiments/owasp_holdout_v1/inputs/a452b3aafd232245d0753e54eb243d6651f8ef96/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00526.java",
+      "issue_count": 7,
+      "supported_issue_count": 1,
+      "target_issue_count": 1,
+      "target_issue_ids": [
+        "067e01b0-fd0c-4db3-aec5-e849f1ee50f9"
+      ],
+      "rule_counts": {
+        "java:S1989": 4,
+        "java:S1905": 1,
+        "findsecbugs:PATH_TRAVERSAL_IN": 1,
+        "java:S1075": 1
+      },
+      "collection_status": "TARGET_WARNING"
+    },
+    {
+      "sample": "BenchmarkTest00576",
+      "category": "cmdi",
+      "cwe": "78",
+      "repository_path": "src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00576.java",
+      "project_path": "experiments/owasp_holdout_v1/inputs/a452b3aafd232245d0753e54eb243d6651f8ef96/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00576.java",
+      "source_sha256": "af8aad2e06fce16f7cd4ec62ed05f6c79a652903d6818129e53365e2bc3f0056",
+      "component": "thesis_owasp_holdout_v1:experiments/owasp_holdout_v1/inputs/a452b3aafd232245d0753e54eb243d6651f8ef96/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00576.java",
+      "issue_count": 7,
+      "supported_issue_count": 1,
+      "target_issue_count": 1,
+      "target_issue_ids": [
+        "1cfe617f-dae5-4c7f-a428-9af297511290"
+      ],
+      "rule_counts": {
+        "java:S1989": 2,
+        "java:S1905": 1,
+        "findsecbugs:COMMAND_INJECTION": 1,
+        "java:S1874": 1,
+        "java:S106": 1,
+        "java:S3626": 1
+      },
+      "collection_status": "TARGET_WARNING"
+    },
+    {
+      "sample": "BenchmarkTest00592",
+      "category": "sqli",
+      "cwe": "89",
+      "repository_path": "src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00592.java",
+      "project_path": "experiments/owasp_holdout_v1/inputs/a452b3aafd232245d0753e54eb243d6651f8ef96/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00592.java",
+      "source_sha256": "ae19fdfdfb37cf955d785a3685d57b1f02e7a82e3cf5491cbd84b35b0af60ab6",
+      "component": "thesis_owasp_holdout_v1:experiments/owasp_holdout_v1/inputs/a452b3aafd232245d0753e54eb243d6651f8ef96/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00592.java",
+      "issue_count": 11,
+      "supported_issue_count": 1,
+      "target_issue_count": 1,
+      "target_issue_ids": [
+        "823079bc-568b-4dd4-95c4-3f9c8cbeed33"
+      ],
+      "rule_counts": {
+        "java:S1989": 4,
+        "java:S3776": 1,
+        "java:S1905": 1,
+        "java:S2293": 1,
+        "java:S1854": 1,
+        "java:S1481": 1,
+        "java:S2095": 1,
+        "findsecbugs:SQL_INJECTION_JDBC": 1
+      },
+      "collection_status": "TARGET_WARNING"
+    },
+    {
+      "sample": "BenchmarkTest00599",
+      "category": "sqli",
+      "cwe": "89",
+      "repository_path": "src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00599.java",
+      "project_path": "experiments/owasp_holdout_v1/inputs/a452b3aafd232245d0753e54eb243d6651f8ef96/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00599.java",
+      "source_sha256": "6be13d1e4c1bfc6513d399374fd4a51213c08642d6cfd721fef4714db8e4fe0d",
+      "component": "thesis_owasp_holdout_v1:experiments/owasp_holdout_v1/inputs/a452b3aafd232245d0753e54eb243d6651f8ef96/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00599.java",
+      "issue_count": 9,
+      "supported_issue_count": 0,
+      "target_issue_count": 0,
+      "target_issue_ids": [],
+      "rule_counts": {
+        "java:S1989": 4,
+        "java:S3776": 1,
+        "java:S1905": 1,
+        "java:S2293": 1,
+        "java:S1854": 1,
+        "java:S1481": 1
+      },
+      "collection_status": "NO_SUPPORTED_TARGET_WARNING"
+    },
+    {
+      "sample": "BenchmarkTest00621",
+      "category": "pathtraver",
+      "cwe": "22",
+      "repository_path": "src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00621.java",
+      "project_path": "experiments/owasp_holdout_v1/inputs/a452b3aafd232245d0753e54eb243d6651f8ef96/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00621.java",
+      "source_sha256": "7d9ee295d0007e3fecee15de44902c467677f9a122ea91f895510fbf6dedbc9e",
+      "component": "thesis_owasp_holdout_v1:experiments/owasp_holdout_v1/inputs/a452b3aafd232245d0753e54eb243d6651f8ef96/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00621.java",
+      "issue_count": 9,
+      "supported_issue_count": 2,
+      "target_issue_count": 2,
+      "target_issue_ids": [
+        "4753f3c4-d179-49e6-a3aa-4fc469074590",
+        "644882dc-911a-45b0-ab92-c9efe9e76b21"
+      ],
+      "rule_counts": {
+        "java:S1989": 4,
+        "java:S2293": 1,
+        "java:S1854": 1,
+        "java:S1481": 1,
+        "findsecbugs:PATH_TRAVERSAL_IN": 2
+      },
+      "collection_status": "TARGET_WARNING"
+    },
+    {
+      "sample": "BenchmarkTest00628",
+      "category": "pathtraver",
+      "cwe": "22",
+      "repository_path": "src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00628.java",
+      "project_path": "experiments/owasp_holdout_v1/inputs/a452b3aafd232245d0753e54eb243d6651f8ef96/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00628.java",
+      "source_sha256": "64b41f761c64e4ca7fe634c4dc0854e2705d414db46d948c5d0b2fe6cd66bf02",
+      "component": "thesis_owasp_holdout_v1:experiments/owasp_holdout_v1/inputs/a452b3aafd232245d0753e54eb243d6651f8ef96/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00628.java",
+      "issue_count": 6,
+      "supported_issue_count": 0,
+      "target_issue_count": 0,
+      "target_issue_ids": [],
+      "rule_counts": {
+        "java:S1989": 1,
+        "java:S2293": 1,
+        "java:S1481": 1,
+        "java:S2093": 1,
+        "java:S106": 1,
+        "java:S125": 1
+      },
+      "collection_status": "NO_SUPPORTED_TARGET_WARNING"
+    },
+    {
+      "sample": "BenchmarkTest00629",
+      "category": "pathtraver",
+      "cwe": "22",
+      "repository_path": "src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00629.java",
+      "project_path": "experiments/owasp_holdout_v1/inputs/a452b3aafd232245d0753e54eb243d6651f8ef96/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00629.java",
+      "source_sha256": "95961d2d6f508799b3dc0a5abedb3d0b3fbbf877399bb6de5fc5fad4bc83dbbe",
+      "component": "thesis_owasp_holdout_v1:experiments/owasp_holdout_v1/inputs/a452b3aafd232245d0753e54eb243d6651f8ef96/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00629.java",
+      "issue_count": 4,
+      "supported_issue_count": 1,
+      "target_issue_count": 1,
+      "target_issue_ids": [
+        "65d34896-56a2-43da-a7cb-ce3c05c56fe1"
+      ],
+      "rule_counts": {
+        "java:S1989": 2,
+        "findsecbugs:PATH_TRAVERSAL_IN": 1,
+        "java:S106": 1
+      },
+      "collection_status": "TARGET_WARNING"
+    },
+    {
+      "sample": "BenchmarkTest00816",
+      "category": "cmdi",
+      "cwe": "78",
+      "repository_path": "src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00816.java",
+      "project_path": "experiments/owasp_holdout_v1/inputs/a452b3aafd232245d0753e54eb243d6651f8ef96/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00816.java",
+      "source_sha256": "d11d46d32123630f99ab02efac4494dd3eba8f09eec2b147ded7f2a1fad582ff",
+      "component": "thesis_owasp_holdout_v1:experiments/owasp_holdout_v1/inputs/a452b3aafd232245d0753e54eb243d6651f8ef96/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00816.java",
+      "issue_count": 9,
+      "supported_issue_count": 1,
+      "target_issue_count": 1,
+      "target_issue_ids": [
+        "fcdad54b-6f61-466b-9881-ef332352e03e"
+      ],
+      "rule_counts": {
+        "java:S1989": 4,
+        "java:S2259": 1,
+        "java:S1854": 1,
+        "java:S2293": 1,
+        "findsecbugs:COMMAND_INJECTION": 1,
+        "java:S106": 1
+      },
+      "collection_status": "TARGET_WARNING"
+    },
+    {
+      "sample": "BenchmarkTest00895",
+      "category": "cmdi",
+      "cwe": "78",
+      "repository_path": "src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00895.java",
+      "project_path": "experiments/owasp_holdout_v1/inputs/a452b3aafd232245d0753e54eb243d6651f8ef96/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00895.java",
+      "source_sha256": "d34038e8e5ad4275f376bf18b03788e88a4272323650ab8679be10ee88b17281",
+      "component": "thesis_owasp_holdout_v1:experiments/owasp_holdout_v1/inputs/a452b3aafd232245d0753e54eb243d6651f8ef96/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00895.java",
+      "issue_count": 6,
+      "supported_issue_count": 1,
+      "target_issue_count": 1,
+      "target_issue_ids": [
+        "b93ad3eb-7ad3-407c-91f4-4289cc4fa871"
+      ],
+      "rule_counts": {
+        "java:S1989": 2,
+        "java:S2293": 2,
+        "findsecbugs:COMMAND_INJECTION": 1,
+        "java:S106": 1
+      },
+      "collection_status": "TARGET_WARNING"
+    },
+    {
+      "sample": "BenchmarkTest00949",
+      "category": "pathtraver",
+      "cwe": "22",
+      "repository_path": "src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00949.java",
+      "project_path": "experiments/owasp_holdout_v1/inputs/a452b3aafd232245d0753e54eb243d6651f8ef96/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00949.java",
+      "source_sha256": "8f8b95414642bc4fcf31609acead6a64884fc3647510b0727316894daa60694a",
+      "component": "thesis_owasp_holdout_v1:experiments/owasp_holdout_v1/inputs/a452b3aafd232245d0753e54eb243d6651f8ef96/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00949.java",
+      "issue_count": 12,
+      "supported_issue_count": 1,
+      "target_issue_count": 1,
+      "target_issue_ids": [
+        "9a24ddd2-e8d2-47ef-8c2d-fb89d7fde572"
+      ],
+      "rule_counts": {
+        "java:S1874": 1,
+        "java:S1989": 6,
+        "findsecbugs:PATH_TRAVERSAL_IN": 1,
+        "java:S1172": 1,
+        "java:S1130": 2,
+        "java:S1488": 1
+      },
+      "collection_status": "TARGET_WARNING"
+    },
+    {
+      "sample": "BenchmarkTest00956",
+      "category": "pathtraver",
+      "cwe": "22",
+      "repository_path": "src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00956.java",
+      "project_path": "experiments/owasp_holdout_v1/inputs/a452b3aafd232245d0753e54eb243d6651f8ef96/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00956.java",
+      "source_sha256": "e129ef03fbfb10f7a5e524a43dbe19860eb98f1a9cb86426af38f7678a3a2290",
+      "component": "thesis_owasp_holdout_v1:experiments/owasp_holdout_v1/inputs/a452b3aafd232245d0753e54eb243d6651f8ef96/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00956.java",
+      "issue_count": 10,
+      "supported_issue_count": 1,
+      "target_issue_count": 1,
+      "target_issue_ids": [
+        "a85af5ea-d615-4df1-97f1-bcad8d8e728d"
+      ],
+      "rule_counts": {
+        "java:S1874": 1,
+        "java:S1989": 3,
+        "java:S125": 1,
+        "findsecbugs:PATH_TRAVERSAL_IN": 1,
+        "java:S106": 1,
+        "java:S1172": 1,
+        "java:S1130": 2
+      },
+      "collection_status": "TARGET_WARNING"
+    },
+    {
+      "sample": "BenchmarkTest00999",
+      "category": "sqli",
+      "cwe": "89",
+      "repository_path": "src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00999.java",
+      "project_path": "experiments/owasp_holdout_v1/inputs/a452b3aafd232245d0753e54eb243d6651f8ef96/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00999.java",
+      "source_sha256": "0949425071b41e3e5c7aef480da8ddf838c235738b2f65da3bd0b11083e93a01",
+      "component": "thesis_owasp_holdout_v1:experiments/owasp_holdout_v1/inputs/a452b3aafd232245d0753e54eb243d6651f8ef96/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00999.java",
+      "issue_count": 12,
+      "supported_issue_count": 1,
+      "target_issue_count": 1,
+      "target_issue_ids": [
+        "cdeb1d77-373a-4bf5-9b38-7117ab0d4d7d"
+      ],
+      "rule_counts": {
+        "java:S1874": 1,
+        "java:S1989": 6,
+        "java:S2095": 1,
+        "findsecbugs:SQL_INJECTION_JDBC": 1,
+        "java:S1172": 1,
+        "java:S1130": 2
+      },
+      "collection_status": "TARGET_WARNING"
+    },
+    {
+      "sample": "BenchmarkTest01093",
+      "category": "sqli",
+      "cwe": "89",
+      "repository_path": "src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01093.java",
+      "project_path": "experiments/owasp_holdout_v1/inputs/a452b3aafd232245d0753e54eb243d6651f8ef96/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01093.java",
+      "source_sha256": "647e261e7ea672836bcd1375476637827e2dc537e3582a2e0f968c06cfd505d0",
+      "component": "thesis_owasp_holdout_v1:experiments/owasp_holdout_v1/inputs/a452b3aafd232245d0753e54eb243d6651f8ef96/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01093.java",
+      "issue_count": 12,
+      "supported_issue_count": 1,
+      "target_issue_count": 1,
+      "target_issue_ids": [
+        "42fe8b5f-5d89-4d3b-815b-12adc58a2461"
+      ],
+      "rule_counts": {
+        "java:S1989": 6,
+        "findsecbugs:SQL_INJECTION_JDBC": 1,
+        "java:S1172": 1,
+        "java:S1130": 2,
+        "java:S1854": 1,
+        "java:S2293": 1
+      },
+      "collection_status": "TARGET_WARNING"
+    },
+    {
+      "sample": "BenchmarkTest01157",
+      "category": "pathtraver",
+      "cwe": "22",
+      "repository_path": "src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01157.java",
+      "project_path": "experiments/owasp_holdout_v1/inputs/a452b3aafd232245d0753e54eb243d6651f8ef96/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01157.java",
+      "source_sha256": "94b1b1374be830cfa0994db89dd40e1f75b2fff7b104776e210252b8006386e6",
+      "component": "thesis_owasp_holdout_v1:experiments/owasp_holdout_v1/inputs/a452b3aafd232245d0753e54eb243d6651f8ef96/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01157.java",
+      "issue_count": 12,
+      "supported_issue_count": 1,
+      "target_issue_count": 1,
+      "target_issue_ids": [
+        "8801e2e6-265d-4c7a-a0a4-3022abecd9f7"
+      ],
+      "rule_counts": {
+        "java:S1989": 7,
+        "java:S5261": 1,
+        "findsecbugs:PATH_TRAVERSAL_IN": 1,
+        "java:S1172": 1,
+        "java:S1130": 2
+      },
+      "collection_status": "TARGET_WARNING"
+    },
+    {
+      "sample": "BenchmarkTest01193",
+      "category": "cmdi",
+      "cwe": "78",
+      "repository_path": "src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01193.java",
+      "project_path": "experiments/owasp_holdout_v1/inputs/a452b3aafd232245d0753e54eb243d6651f8ef96/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01193.java",
+      "source_sha256": "7361fb4f8e5699f4fd8027181770e36beb64e54a12351b87d3858e03ac49205a",
+      "component": "thesis_owasp_holdout_v1:experiments/owasp_holdout_v1/inputs/a452b3aafd232245d0753e54eb243d6651f8ef96/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01193.java",
+      "issue_count": 10,
+      "supported_issue_count": 1,
+      "target_issue_count": 1,
+      "target_issue_ids": [
+        "8512798c-e431-4f51-b41d-c6eaad3665ba"
+      ],
+      "rule_counts": {
+        "java:S1989": 4,
+        "findsecbugs:COMMAND_INJECTION": 1,
+        "java:S106": 1,
+        "java:S3626": 1,
+        "java:S1172": 1,
+        "java:S1130": 2
+      },
+      "collection_status": "TARGET_WARNING"
+    },
+    {
+      "sample": "BenchmarkTest01240",
+      "category": "pathtraver",
+      "cwe": "22",
+      "repository_path": "src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01240.java",
+      "project_path": "experiments/owasp_holdout_v1/inputs/a452b3aafd232245d0753e54eb243d6651f8ef96/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01240.java",
+      "source_sha256": "9df8b898ef6a2b32cca5688692a32f4449473f4889c27ffe3248a4ab52943569",
+      "component": "thesis_owasp_holdout_v1:experiments/owasp_holdout_v1/inputs/a452b3aafd232245d0753e54eb243d6651f8ef96/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01240.java",
+      "issue_count": 9,
+      "supported_issue_count": 0,
+      "target_issue_count": 0,
+      "target_issue_ids": [],
+      "rule_counts": {
+        "java:S1989": 2,
+        "java:S2093": 1,
+        "java:S106": 1,
+        "java:S125": 1,
+        "java:S1172": 1,
+        "java:S1130": 2,
+        "java:S2293": 1
+      },
+      "collection_status": "NO_SUPPORTED_TARGET_WARNING"
+    },
+    {
+      "sample": "BenchmarkTest01286",
+      "category": "cmdi",
+      "cwe": "78",
+      "repository_path": "src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01286.java",
+      "project_path": "experiments/owasp_holdout_v1/inputs/a452b3aafd232245d0753e54eb243d6651f8ef96/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01286.java",
+      "source_sha256": "8bd233f7bc43f97ba65dc672ed85b25bf15ac7bf16ed047ad5a1f62004f2e1a6",
+      "component": "thesis_owasp_holdout_v1:experiments/owasp_holdout_v1/inputs/a452b3aafd232245d0753e54eb243d6651f8ef96/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01286.java",
+      "issue_count": 10,
+      "supported_issue_count": 1,
+      "target_issue_count": 1,
+      "target_issue_ids": [
+        "7dca6de7-75cf-4517-8aea-522b3f05a23e"
+      ],
+      "rule_counts": {
+        "java:S1989": 3,
+        "findsecbugs:COMMAND_INJECTION": 1,
+        "java:S106": 1,
+        "java:S3626": 1,
+        "java:S1172": 1,
+        "java:S1130": 2,
+        "java:S2293": 1
+      },
+      "collection_status": "TARGET_WARNING"
+    },
+    {
+      "sample": "BenchmarkTest01287",
+      "category": "cmdi",
+      "cwe": "78",
+      "repository_path": "src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01287.java",
+      "project_path": "experiments/owasp_holdout_v1/inputs/a452b3aafd232245d0753e54eb243d6651f8ef96/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01287.java",
+      "source_sha256": "cda12c7686be16a58a267eb0bce42dc3489dff6cadb4fd5c788fd29597eee84f",
+      "component": "thesis_owasp_holdout_v1:experiments/owasp_holdout_v1/inputs/a452b3aafd232245d0753e54eb243d6651f8ef96/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01287.java",
+      "issue_count": 9,
+      "supported_issue_count": 1,
+      "target_issue_count": 1,
+      "target_issue_ids": [
+        "b3741e52-3b89-48d3-8ce5-023e4abe62bc"
+      ],
+      "rule_counts": {
+        "java:S1989": 3,
+        "findsecbugs:COMMAND_INJECTION": 1,
+        "java:S106": 1,
+        "java:S3626": 1,
+        "java:S1172": 1,
+        "java:S1130": 2
+      },
+      "collection_status": "TARGET_WARNING"
+    },
+    {
+      "sample": "BenchmarkTest01311",
+      "category": "sqli",
+      "cwe": "89",
+      "repository_path": "src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01311.java",
+      "project_path": "experiments/owasp_holdout_v1/inputs/a452b3aafd232245d0753e54eb243d6651f8ef96/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01311.java",
+      "source_sha256": "a994ead8fea2618bc3916f9ab3b0fa6c57d8ee53bb27b8946babe8adf044c870",
+      "component": "thesis_owasp_holdout_v1:experiments/owasp_holdout_v1/inputs/a452b3aafd232245d0753e54eb243d6651f8ef96/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01311.java",
+      "issue_count": 9,
+      "supported_issue_count": 1,
+      "target_issue_count": 1,
+      "target_issue_ids": [
+        "07951150-c656-48e8-a94d-c3d8bcd0a08a"
+      ],
+      "rule_counts": {
+        "java:S1989": 5,
+        "findsecbugs:SQL_INJECTION_JDBC": 1,
+        "java:S1172": 1,
+        "java:S1130": 2
+      },
+      "collection_status": "TARGET_WARNING"
+    },
+    {
+      "sample": "BenchmarkTest01440",
+      "category": "cmdi",
+      "cwe": "78",
+      "repository_path": "src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01440.java",
+      "project_path": "experiments/owasp_holdout_v1/inputs/a452b3aafd232245d0753e54eb243d6651f8ef96/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01440.java",
+      "source_sha256": "e8420ef2eaff99c47eed324ee1d610adfc623cc4feaa88e85801968d6676b647",
+      "component": "thesis_owasp_holdout_v1:experiments/owasp_holdout_v1/inputs/a452b3aafd232245d0753e54eb243d6651f8ef96/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01440.java",
+      "issue_count": 11,
+      "supported_issue_count": 1,
+      "target_issue_count": 1,
+      "target_issue_ids": [
+        "b9b19f86-bee3-47fb-a8aa-f0529e84b30f"
+      ],
+      "rule_counts": {
+        "java:S1989": 3,
+        "java:S1905": 1,
+        "java:S1874": 1,
+        "findsecbugs:COMMAND_INJECTION": 1,
+        "java:S106": 1,
+        "java:S3626": 1,
+        "java:S1172": 1,
+        "java:S1130": 2
+      },
+      "collection_status": "TARGET_WARNING"
+    },
+    {
+      "sample": "BenchmarkTest01494",
+      "category": "pathtraver",
+      "cwe": "22",
+      "repository_path": "src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01494.java",
+      "project_path": "experiments/owasp_holdout_v1/inputs/a452b3aafd232245d0753e54eb243d6651f8ef96/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01494.java",
+      "source_sha256": "e93bbb724ec57f4a2af0a6c261633932502f8cc86f3f1d3eb7e96ecc679b092e",
+      "component": "thesis_owasp_holdout_v1:experiments/owasp_holdout_v1/inputs/a452b3aafd232245d0753e54eb243d6651f8ef96/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01494.java",
+      "issue_count": 9,
+      "supported_issue_count": 1,
+      "target_issue_count": 1,
+      "target_issue_ids": [
+        "92f33f74-f3da-4d43-ae39-f58512fc4a6f"
+      ],
+      "rule_counts": {
+        "java:S1989": 5,
+        "findsecbugs:PATH_TRAVERSAL_IN": 1,
+        "java:S1172": 1,
+        "java:S1130": 2
+      },
+      "collection_status": "TARGET_WARNING"
+    },
+    {
+      "sample": "BenchmarkTest01558",
+      "category": "sqli",
+      "cwe": "89",
+      "repository_path": "src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01558.java",
+      "project_path": "experiments/owasp_holdout_v1/inputs/a452b3aafd232245d0753e54eb243d6651f8ef96/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01558.java",
+      "source_sha256": "1d363629c834eb8e1a05824364ec2af04e92bbbf3cb7e71982c79935764e2dca",
+      "component": "thesis_owasp_holdout_v1:experiments/owasp_holdout_v1/inputs/a452b3aafd232245d0753e54eb243d6651f8ef96/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01558.java",
+      "issue_count": 9,
+      "supported_issue_count": 1,
+      "target_issue_count": 1,
+      "target_issue_ids": [
+        "a0b83a09-38be-4ab0-9be5-56c43a811134"
+      ],
+      "rule_counts": {
+        "java:S1989": 5,
+        "findsecbugs:SQL_INJECTION_JDBC": 1,
+        "java:S1172": 1,
+        "java:S1130": 2
+      },
+      "collection_status": "TARGET_WARNING"
+    },
+    {
+      "sample": "BenchmarkTest01608",
+      "category": "cmdi",
+      "cwe": "78",
+      "repository_path": "src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01608.java",
+      "project_path": "experiments/owasp_holdout_v1/inputs/a452b3aafd232245d0753e54eb243d6651f8ef96/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01608.java",
+      "source_sha256": "aa12a046fffe1432c96deb566980875cd3ed6aee52e14ea0297860dec3f21698",
+      "component": "thesis_owasp_holdout_v1:experiments/owasp_holdout_v1/inputs/a452b3aafd232245d0753e54eb243d6651f8ef96/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01608.java",
+      "issue_count": 12,
+      "supported_issue_count": 1,
+      "target_issue_count": 1,
+      "target_issue_ids": [
+        "916cd285-b734-43ff-b849-bf7e9a129b6c"
+      ],
+      "rule_counts": {
+        "java:S1989": 3,
+        "findsecbugs:COMMAND_INJECTION": 1,
+        "java:S106": 1,
+        "java:S3626": 1,
+        "java:S1172": 1,
+        "java:S1130": 2,
+        "java:S1854": 2,
+        "java:S2293": 1
+      },
+      "collection_status": "TARGET_WARNING"
+    },
+    {
+      "sample": "BenchmarkTest01644",
+      "category": "pathtraver",
+      "cwe": "22",
+      "repository_path": "src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01644.java",
+      "project_path": "experiments/owasp_holdout_v1/inputs/a452b3aafd232245d0753e54eb243d6651f8ef96/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01644.java",
+      "source_sha256": "daf6c5a9163698541364a64299f2bf18a30050bd1a3961ce2889f263f51826e2",
+      "component": "thesis_owasp_holdout_v1:experiments/owasp_holdout_v1/inputs/a452b3aafd232245d0753e54eb243d6651f8ef96/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01644.java",
+      "issue_count": 12,
+      "supported_issue_count": 1,
+      "target_issue_count": 1,
+      "target_issue_ids": [
+        "3176fe36-dfca-40d4-b591-b1293248fac2"
+      ],
+      "rule_counts": {
+        "java:S1989": 5,
+        "java:S2259": 1,
+        "java:S2093": 1,
+        "findsecbugs:PATH_TRAVERSAL_IN": 1,
+        "java:S106": 1,
+        "java:S1172": 1,
+        "java:S1130": 2
+      },
+      "collection_status": "TARGET_WARNING"
+    },
+    {
+      "sample": "BenchmarkTest01792",
+      "category": "cmdi",
+      "cwe": "78",
+      "repository_path": "src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01792.java",
+      "project_path": "experiments/owasp_holdout_v1/inputs/a452b3aafd232245d0753e54eb243d6651f8ef96/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01792.java",
+      "source_sha256": "954a3460402881a15885103e75c34459f9c20152a2d14b7777850fdb54470e34",
+      "component": "thesis_owasp_holdout_v1:experiments/owasp_holdout_v1/inputs/a452b3aafd232245d0753e54eb243d6651f8ef96/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01792.java",
+      "issue_count": 10,
+      "supported_issue_count": 1,
+      "target_issue_count": 1,
+      "target_issue_ids": [
+        "8a2d3a95-f5e2-4a72-8331-5a7440cc61d4"
+      ],
+      "rule_counts": {
+        "java:S1989": 3,
+        "findsecbugs:COMMAND_INJECTION": 1,
+        "java:S106": 1,
+        "java:S3626": 1,
+        "java:S1172": 1,
+        "java:S1130": 2,
+        "java:S1488": 1
+      },
+      "collection_status": "TARGET_WARNING"
+    },
+    {
+      "sample": "BenchmarkTest01936",
+      "category": "cmdi",
+      "cwe": "78",
+      "repository_path": "src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01936.java",
+      "project_path": "experiments/owasp_holdout_v1/inputs/a452b3aafd232245d0753e54eb243d6651f8ef96/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01936.java",
+      "source_sha256": "ab9edda4c2257c6e5310271218bc040e9d5668f9e19c17e576725d2f6ff80fa2",
+      "component": "thesis_owasp_holdout_v1:experiments/owasp_holdout_v1/inputs/a452b3aafd232245d0753e54eb243d6651f8ef96/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01936.java",
+      "issue_count": 12,
+      "supported_issue_count": 1,
+      "target_issue_count": 1,
+      "target_issue_ids": [
+        "29b2923f-8d6e-482f-81bd-4620b14562f1"
+      ],
+      "rule_counts": {
+        "java:S1989": 4,
+        "findsecbugs:COMMAND_INJECTION": 1,
+        "java:S1874": 1,
+        "java:S106": 1,
+        "java:S3626": 1,
+        "java:S1172": 1,
+        "java:S1130": 2,
+        "java:S2293": 1
+      },
+      "collection_status": "TARGET_WARNING"
+    },
+    {
+      "sample": "BenchmarkTest01942",
+      "category": "cmdi",
+      "cwe": "78",
+      "repository_path": "src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01942.java",
+      "project_path": "experiments/owasp_holdout_v1/inputs/a452b3aafd232245d0753e54eb243d6651f8ef96/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01942.java",
+      "source_sha256": "dd9a7fac34d6c4c6b761ee09807d325ea3d24cb39d8a1a2d27ceeb3b44d201fa",
+      "component": "thesis_owasp_holdout_v1:experiments/owasp_holdout_v1/inputs/a452b3aafd232245d0753e54eb243d6651f8ef96/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01942.java",
+      "issue_count": 12,
+      "supported_issue_count": 1,
+      "target_issue_count": 1,
+      "target_issue_ids": [
+        "4dc3dafd-31e3-424a-899e-3c5797f7c102"
+      ],
+      "rule_counts": {
+        "java:S1989": 4,
+        "findsecbugs:COMMAND_INJECTION": 1,
+        "java:S1874": 1,
+        "java:S106": 1,
+        "java:S3626": 1,
+        "java:S1172": 1,
+        "java:S1130": 2,
+        "java:S1488": 1
+      },
+      "collection_status": "TARGET_WARNING"
+    },
+    {
+      "sample": "BenchmarkTest01967",
+      "category": "sqli",
+      "cwe": "89",
+      "repository_path": "src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01967.java",
+      "project_path": "experiments/owasp_holdout_v1/inputs/a452b3aafd232245d0753e54eb243d6651f8ef96/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01967.java",
+      "source_sha256": "9ceebec83c5e58a8d75ad86c74b54e9503604c2f1414d365c0d251e7cbbf62d1",
+      "component": "thesis_owasp_holdout_v1:experiments/owasp_holdout_v1/inputs/a452b3aafd232245d0753e54eb243d6651f8ef96/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01967.java",
+      "issue_count": 13,
+      "supported_issue_count": 0,
+      "target_issue_count": 0,
+      "target_issue_ids": [],
+      "rule_counts": {
+        "java:S1989": 8,
+        "java:S1874": 1,
+        "java:S2259": 1,
+        "java:S1172": 1,
+        "java:S1130": 2
+      },
+      "collection_status": "NO_SUPPORTED_TARGET_WARNING"
+    },
+    {
+      "sample": "BenchmarkTest02027",
+      "category": "pathtraver",
+      "cwe": "22",
+      "repository_path": "src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02027.java",
+      "project_path": "experiments/owasp_holdout_v1/inputs/a452b3aafd232245d0753e54eb243d6651f8ef96/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02027.java",
+      "source_sha256": "17cb1bc5d17195f7c0cd6477e4e1bc6194dcd2bbbcf044ed551efe9129ef5a37",
+      "component": "thesis_owasp_holdout_v1:experiments/owasp_holdout_v1/inputs/a452b3aafd232245d0753e54eb243d6651f8ef96/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02027.java",
+      "issue_count": 10,
+      "supported_issue_count": 1,
+      "target_issue_count": 1,
+      "target_issue_ids": [
+        "ace4cb95-01bc-47dd-ba92-a55ba1195209"
+      ],
+      "rule_counts": {
+        "java:S1989": 6,
+        "findsecbugs:PATH_TRAVERSAL_IN": 1,
+        "java:S1172": 1,
+        "java:S1130": 2
+      },
+      "collection_status": "TARGET_WARNING"
+    },
+    {
+      "sample": "BenchmarkTest02030",
+      "category": "pathtraver",
+      "cwe": "22",
+      "repository_path": "src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02030.java",
+      "project_path": "experiments/owasp_holdout_v1/inputs/a452b3aafd232245d0753e54eb243d6651f8ef96/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02030.java",
+      "source_sha256": "b3258676f1c7fa85c377a2159a43a4efbd99eba34cde725b8cdfcc0dddce2c84",
+      "component": "thesis_owasp_holdout_v1:experiments/owasp_holdout_v1/inputs/a452b3aafd232245d0753e54eb243d6651f8ef96/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02030.java",
+      "issue_count": 16,
+      "supported_issue_count": 1,
+      "target_issue_count": 1,
+      "target_issue_ids": [
+        "6619d0bb-24c9-4126-b728-2199e33d8502"
+      ],
+      "rule_counts": {
+        "java:S1989": 7,
+        "java:S5261": 1,
+        "findsecbugs:PATH_TRAVERSAL_IN": 1,
+        "java:S1172": 1,
+        "java:S1130": 2,
+        "java:S2293": 1,
+        "java:S1854": 1,
+        "java:S1481": 1,
+        "java:S1488": 1
+      },
+      "collection_status": "TARGET_WARNING"
+    },
+    {
+      "sample": "BenchmarkTest02058",
+      "category": "cmdi",
+      "cwe": "78",
+      "repository_path": "src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02058.java",
+      "project_path": "experiments/owasp_holdout_v1/inputs/a452b3aafd232245d0753e54eb243d6651f8ef96/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02058.java",
+      "source_sha256": "3df9a26e584f904688eb415b43626135db67dd4fee3e91239f2d886371b89af9",
+      "component": "thesis_owasp_holdout_v1:experiments/owasp_holdout_v1/inputs/a452b3aafd232245d0753e54eb243d6651f8ef96/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02058.java",
+      "issue_count": 11,
+      "supported_issue_count": 1,
+      "target_issue_count": 1,
+      "target_issue_ids": [
+        "8df1e088-a556-4652-bff4-3086b88b189c"
+      ],
+      "rule_counts": {
+        "java:S1989": 4,
+        "java:S2293": 2,
+        "findsecbugs:COMMAND_INJECTION": 1,
+        "java:S106": 1,
+        "java:S1172": 1,
+        "java:S1130": 2
+      },
+      "collection_status": "TARGET_WARNING"
+    },
+    {
+      "sample": "BenchmarkTest02088",
+      "category": "sqli",
+      "cwe": "89",
+      "repository_path": "src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02088.java",
+      "project_path": "experiments/owasp_holdout_v1/inputs/a452b3aafd232245d0753e54eb243d6651f8ef96/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02088.java",
+      "source_sha256": "e3525d174198bbd0c6ca2600ddb57b5042674c4b4e7ba254129eb121828fa203",
+      "component": "thesis_owasp_holdout_v1:experiments/owasp_holdout_v1/inputs/a452b3aafd232245d0753e54eb243d6651f8ef96/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02088.java",
+      "issue_count": 12,
+      "supported_issue_count": 1,
+      "target_issue_count": 1,
+      "target_issue_ids": [
+        "8040d43a-6c70-4928-b324-f6c4abda92d2"
+      ],
+      "rule_counts": {
+        "java:S1989": 6,
+        "java:S2095": 1,
+        "findsecbugs:SQL_INJECTION_JDBC": 1,
+        "java:S1172": 1,
+        "java:S1130": 2,
+        "java:S1488": 1
+      },
+      "collection_status": "TARGET_WARNING"
+    },
+    {
+      "sample": "BenchmarkTest02093",
+      "category": "sqli",
+      "cwe": "89",
+      "repository_path": "src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02093.java",
+      "project_path": "experiments/owasp_holdout_v1/inputs/a452b3aafd232245d0753e54eb243d6651f8ef96/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02093.java",
+      "source_sha256": "b89538163bb013758c3dff3fc4d89935379f5f85ff876b6fd3d50dbb309ccb2f",
+      "component": "thesis_owasp_holdout_v1:experiments/owasp_holdout_v1/inputs/a452b3aafd232245d0753e54eb243d6651f8ef96/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02093.java",
+      "issue_count": 10,
+      "supported_issue_count": 1,
+      "target_issue_count": 1,
+      "target_issue_ids": [
+        "a59329b9-c85d-488c-9cb3-cef8e94aad66"
+      ],
+      "rule_counts": {
+        "java:S1989": 6,
+        "findsecbugs:SQL_INJECTION_JDBC": 1,
+        "java:S1172": 1,
+        "java:S1130": 2
+      },
+      "collection_status": "TARGET_WARNING"
+    },
+    {
+      "sample": "BenchmarkTest02107",
+      "category": "pathtraver",
+      "cwe": "22",
+      "repository_path": "src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02107.java",
+      "project_path": "experiments/owasp_holdout_v1/inputs/a452b3aafd232245d0753e54eb243d6651f8ef96/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02107.java",
+      "source_sha256": "25c18a40194a98de96cc628a26401fcebe44ccb4c62eeb7f13e91ce4a9bff3a1",
+      "component": "thesis_owasp_holdout_v1:experiments/owasp_holdout_v1/inputs/a452b3aafd232245d0753e54eb243d6651f8ef96/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02107.java",
+      "issue_count": 9,
+      "supported_issue_count": 1,
+      "target_issue_count": 1,
+      "target_issue_ids": [
+        "8be6432b-b155-40df-879e-3c3eb36398cf"
+      ],
+      "rule_counts": {
+        "java:S1989": 5,
+        "findsecbugs:PATH_TRAVERSAL_IN": 1,
+        "java:S1172": 1,
+        "java:S1130": 2
+      },
+      "collection_status": "TARGET_WARNING"
+    },
+    {
+      "sample": "BenchmarkTest02156",
+      "category": "cmdi",
+      "cwe": "78",
+      "repository_path": "src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02156.java",
+      "project_path": "experiments/owasp_holdout_v1/inputs/a452b3aafd232245d0753e54eb243d6651f8ef96/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02156.java",
+      "source_sha256": "ff6c4f5f8ef05efe121e1bba3fd85463f3dbbd6ab3a4c0aa4d7ec2e1ae01561f",
+      "component": "thesis_owasp_holdout_v1:experiments/owasp_holdout_v1/inputs/a452b3aafd232245d0753e54eb243d6651f8ef96/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02156.java",
+      "issue_count": 10,
+      "supported_issue_count": 1,
+      "target_issue_count": 1,
+      "target_issue_ids": [
+        "8da0e6f2-ca3a-44d1-b4a0-7c7fa2b7041c"
+      ],
+      "rule_counts": {
+        "java:S1989": 3,
+        "java:S1874": 1,
+        "findsecbugs:COMMAND_INJECTION": 1,
+        "java:S106": 1,
+        "java:S3626": 1,
+        "java:S1172": 1,
+        "java:S1130": 2
+      },
+      "collection_status": "TARGET_WARNING"
+    },
+    {
+      "sample": "BenchmarkTest02171",
+      "category": "sqli",
+      "cwe": "89",
+      "repository_path": "src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02171.java",
+      "project_path": "experiments/owasp_holdout_v1/inputs/a452b3aafd232245d0753e54eb243d6651f8ef96/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02171.java",
+      "source_sha256": "53aeb1daa5eccc7668c855f9b888311d9d5ae6520eb3f0b2f851466dee146fac",
+      "component": "thesis_owasp_holdout_v1:experiments/owasp_holdout_v1/inputs/a452b3aafd232245d0753e54eb243d6651f8ef96/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02171.java",
+      "issue_count": 10,
+      "supported_issue_count": 1,
+      "target_issue_count": 1,
+      "target_issue_ids": [
+        "eb1d6188-8f9d-406f-b766-9abc0851368f"
+      ],
+      "rule_counts": {
+        "java:S1989": 5,
+        "java:S2095": 1,
+        "findsecbugs:SQL_INJECTION_JDBC": 1,
+        "java:S1172": 1,
+        "java:S1130": 2
+      },
+      "collection_status": "TARGET_WARNING"
+    },
+    {
+      "sample": "BenchmarkTest02179",
+      "category": "sqli",
+      "cwe": "89",
+      "repository_path": "src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02179.java",
+      "project_path": "experiments/owasp_holdout_v1/inputs/a452b3aafd232245d0753e54eb243d6651f8ef96/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02179.java",
+      "source_sha256": "715acba3d4c0ed3b84103a2442916821a5afa4ffb66f7e621ee71138cfb2e4ec",
+      "component": "thesis_owasp_holdout_v1:experiments/owasp_holdout_v1/inputs/a452b3aafd232245d0753e54eb243d6651f8ef96/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02179.java",
+      "issue_count": 12,
+      "supported_issue_count": 0,
+      "target_issue_count": 0,
+      "target_issue_ids": [],
+      "rule_counts": {
+        "java:S1989": 6,
+        "java:S125": 1,
+        "java:S1153": 1,
+        "java:S1172": 1,
+        "java:S1130": 2,
+        "java:S1488": 1
+      },
+      "collection_status": "NO_SUPPORTED_TARGET_WARNING"
+    },
+    {
+      "sample": "BenchmarkTest02182",
+      "category": "sqli",
+      "cwe": "89",
+      "repository_path": "src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02182.java",
+      "project_path": "experiments/owasp_holdout_v1/inputs/a452b3aafd232245d0753e54eb243d6651f8ef96/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02182.java",
+      "source_sha256": "ed1eaaebf7e198450db73ada478ad5b3961a160f7358ac995c2684603510cfc5",
+      "component": "thesis_owasp_holdout_v1:experiments/owasp_holdout_v1/inputs/a452b3aafd232245d0753e54eb243d6651f8ef96/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02182.java",
+      "issue_count": 10,
+      "supported_issue_count": 0,
+      "target_issue_count": 0,
+      "target_issue_ids": [],
+      "rule_counts": {
+        "java:S1989": 7,
+        "java:S1172": 1,
+        "java:S1130": 2
+      },
+      "collection_status": "NO_SUPPORTED_TARGET_WARNING"
+    },
+    {
+      "sample": "BenchmarkTest02183",
+      "category": "sqli",
+      "cwe": "89",
+      "repository_path": "src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02183.java",
+      "project_path": "experiments/owasp_holdout_v1/inputs/a452b3aafd232245d0753e54eb243d6651f8ef96/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02183.java",
+      "source_sha256": "a3066278ce63223990e73ee109bf47b8acf388596e032aa23dcbf574a56ac86e",
+      "component": "thesis_owasp_holdout_v1:experiments/owasp_holdout_v1/inputs/a452b3aafd232245d0753e54eb243d6651f8ef96/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02183.java",
+      "issue_count": 16,
+      "supported_issue_count": 0,
+      "target_issue_count": 0,
+      "target_issue_ids": [],
+      "rule_counts": {
+        "java:S1989": 7,
+        "java:S1874": 1,
+        "java:S2259": 1,
+        "java:S1172": 1,
+        "java:S1130": 2,
+        "java:S2293": 1,
+        "java:S1854": 1,
+        "java:S1481": 1,
+        "java:S1488": 1
+      },
+      "collection_status": "NO_SUPPORTED_TARGET_WARNING"
+    },
+    {
+      "sample": "BenchmarkTest02186",
+      "category": "sqli",
+      "cwe": "89",
+      "repository_path": "src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02186.java",
+      "project_path": "experiments/owasp_holdout_v1/inputs/a452b3aafd232245d0753e54eb243d6651f8ef96/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02186.java",
+      "source_sha256": "18f6c9fdd5a391894ae09fdab9414cf3dfefbb029062625f8137ff2eb4bc7690",
+      "component": "thesis_owasp_holdout_v1:experiments/owasp_holdout_v1/inputs/a452b3aafd232245d0753e54eb243d6651f8ef96/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02186.java",
+      "issue_count": 10,
+      "supported_issue_count": 1,
+      "target_issue_count": 1,
+      "target_issue_ids": [
+        "d2d8166a-90af-4679-8c1d-7b87d662292a"
+      ],
+      "rule_counts": {
+        "java:S1989": 5,
+        "findsecbugs:SQL_INJECTION_JDBC": 1,
+        "java:S1172": 1,
+        "java:S1130": 2,
+        "java:S1488": 1
+      },
+      "collection_status": "TARGET_WARNING"
+    },
+    {
+      "sample": "BenchmarkTest02274",
+      "category": "sqli",
+      "cwe": "89",
+      "repository_path": "src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02274.java",
+      "project_path": "experiments/owasp_holdout_v1/inputs/a452b3aafd232245d0753e54eb243d6651f8ef96/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02274.java",
+      "source_sha256": "7042715cd6b2b06d49c607122de97657706fdd976957c7e553e4c9bb5756652d",
+      "component": "thesis_owasp_holdout_v1:experiments/owasp_holdout_v1/inputs/a452b3aafd232245d0753e54eb243d6651f8ef96/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02274.java",
+      "issue_count": 10,
+      "supported_issue_count": 0,
+      "target_issue_count": 0,
+      "target_issue_ids": [],
+      "rule_counts": {
+        "java:S1989": 7,
+        "java:S1172": 1,
+        "java:S1130": 2
+      },
+      "collection_status": "NO_SUPPORTED_TARGET_WARNING"
+    },
+    {
+      "sample": "BenchmarkTest02333",
+      "category": "cmdi",
+      "cwe": "78",
+      "repository_path": "src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02333.java",
+      "project_path": "experiments/owasp_holdout_v1/inputs/a452b3aafd232245d0753e54eb243d6651f8ef96/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02333.java",
+      "source_sha256": "936cfdd1178e666b57347d202e18a61695734e6f96b7145602962a6a27cfced5",
+      "component": "thesis_owasp_holdout_v1:experiments/owasp_holdout_v1/inputs/a452b3aafd232245d0753e54eb243d6651f8ef96/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02333.java",
+      "issue_count": 11,
+      "supported_issue_count": 1,
+      "target_issue_count": 1,
+      "target_issue_ids": [
+        "95826d85-7d3f-4dc2-93f7-4caa3ab5cbe9"
+      ],
+      "rule_counts": {
+        "java:S1989": 3,
+        "java:S1905": 1,
+        "java:S2293": 1,
+        "findsecbugs:COMMAND_INJECTION": 1,
+        "java:S106": 1,
+        "java:S1172": 1,
+        "java:S1130": 2,
+        "java:S1488": 1
+      },
+      "collection_status": "TARGET_WARNING"
+    },
+    {
+      "sample": "BenchmarkTest02361",
+      "category": "sqli",
+      "cwe": "89",
+      "repository_path": "src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02361.java",
+      "project_path": "experiments/owasp_holdout_v1/inputs/a452b3aafd232245d0753e54eb243d6651f8ef96/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02361.java",
+      "source_sha256": "4e81dadac0a4a05399b8fa254431d899434f556edd66d56381f7966e1a342803",
+      "component": "thesis_owasp_holdout_v1:experiments/owasp_holdout_v1/inputs/a452b3aafd232245d0753e54eb243d6651f8ef96/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02361.java",
+      "issue_count": 14,
+      "supported_issue_count": 0,
+      "target_issue_count": 0,
+      "target_issue_ids": [],
+      "rule_counts": {
+        "java:S1989": 7,
+        "java:S3776": 1,
+        "java:S1905": 1,
+        "java:S1874": 1,
+        "java:S2259": 1,
+        "java:S1172": 1,
+        "java:S1130": 2
+      },
+      "collection_status": "NO_SUPPORTED_TARGET_WARNING"
+    },
+    {
+      "sample": "BenchmarkTest02381",
+      "category": "pathtraver",
+      "cwe": "22",
+      "repository_path": "src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02381.java",
+      "project_path": "experiments/owasp_holdout_v1/inputs/a452b3aafd232245d0753e54eb243d6651f8ef96/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02381.java",
+      "source_sha256": "990d8f70af63e30723cfa257c1fde12719dd65967951160b59bf40ea2bf9cb24",
+      "component": "thesis_owasp_holdout_v1:experiments/owasp_holdout_v1/inputs/a452b3aafd232245d0753e54eb243d6651f8ef96/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02381.java",
+      "issue_count": 11,
+      "supported_issue_count": 1,
+      "target_issue_count": 1,
+      "target_issue_ids": [
+        "2b224aa8-63e1-4b44-b7e9-659bd4a5572c"
+      ],
+      "rule_counts": {
+        "java:S1989": 2,
+        "java:S125": 1,
+        "findsecbugs:PATH_TRAVERSAL_IN": 1,
+        "java:S106": 1,
+        "java:S1172": 1,
+        "java:S1130": 2,
+        "java:S1854": 2,
+        "java:S2293": 1
+      },
+      "collection_status": "TARGET_WARNING"
+    },
+    {
+      "sample": "BenchmarkTest02433",
+      "category": "cmdi",
+      "cwe": "78",
+      "repository_path": "src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02433.java",
+      "project_path": "experiments/owasp_holdout_v1/inputs/a452b3aafd232245d0753e54eb243d6651f8ef96/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02433.java",
+      "source_sha256": "5f19d72e1dddc7956d317b7ca8d8f814b17f9fdc99a424478dee27f0b083a418",
+      "component": "thesis_owasp_holdout_v1:experiments/owasp_holdout_v1/inputs/a452b3aafd232245d0753e54eb243d6651f8ef96/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02433.java",
+      "issue_count": 10,
+      "supported_issue_count": 1,
+      "target_issue_count": 1,
+      "target_issue_ids": [
+        "ed3d458f-b26b-428b-bc1b-ff8ab0c773fe"
+      ],
+      "rule_counts": {
+        "java:S1989": 3,
+        "findsecbugs:COMMAND_INJECTION": 1,
+        "java:S106": 1,
+        "java:S3626": 1,
+        "java:S1172": 1,
+        "java:S1130": 2,
+        "java:S1488": 1
+      },
+      "collection_status": "TARGET_WARNING"
+    },
+    {
+      "sample": "BenchmarkTest02469",
+      "category": "pathtraver",
+      "cwe": "22",
+      "repository_path": "src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02469.java",
+      "project_path": "experiments/owasp_holdout_v1/inputs/a452b3aafd232245d0753e54eb243d6651f8ef96/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02469.java",
+      "source_sha256": "9ba1fa12be4a232109223e63236fc0ad1feb91eb50e49562093178a3f411c77b",
+      "component": "thesis_owasp_holdout_v1:experiments/owasp_holdout_v1/inputs/a452b3aafd232245d0753e54eb243d6651f8ef96/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02469.java",
+      "issue_count": 8,
+      "supported_issue_count": 0,
+      "target_issue_count": 0,
+      "target_issue_ids": [],
+      "rule_counts": {
+        "java:S1989": 2,
+        "java:S2093": 1,
+        "java:S106": 1,
+        "java:S125": 1,
+        "java:S1172": 1,
+        "java:S1130": 2
+      },
+      "collection_status": "NO_SUPPORTED_TARGET_WARNING"
+    },
+    {
+      "sample": "BenchmarkTest02513",
+      "category": "cmdi",
+      "cwe": "78",
+      "repository_path": "src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02513.java",
+      "project_path": "experiments/owasp_holdout_v1/inputs/a452b3aafd232245d0753e54eb243d6651f8ef96/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02513.java",
+      "source_sha256": "b3be5f9202f2177bd54455be8f9b930be0ce8fcde79f1254c1620f716ee1d665",
+      "component": "thesis_owasp_holdout_v1:experiments/owasp_holdout_v1/inputs/a452b3aafd232245d0753e54eb243d6651f8ef96/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02513.java",
+      "issue_count": 9,
+      "supported_issue_count": 1,
+      "target_issue_count": 1,
+      "target_issue_ids": [
+        "de240514-05db-4a80-910c-86edebd45e87"
+      ],
+      "rule_counts": {
+        "java:S1989": 3,
+        "findsecbugs:COMMAND_INJECTION": 1,
+        "java:S106": 1,
+        "java:S3626": 1,
+        "java:S1172": 1,
+        "java:S1130": 2
+      },
+      "collection_status": "TARGET_WARNING"
+    },
+    {
+      "sample": "BenchmarkTest02566",
+      "category": "pathtraver",
+      "cwe": "22",
+      "repository_path": "src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02566.java",
+      "project_path": "experiments/owasp_holdout_v1/inputs/a452b3aafd232245d0753e54eb243d6651f8ef96/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02566.java",
+      "source_sha256": "0ea350eb5319c0e6ae82a68f809d076cb294291aa037b505061d00fb7b65587a",
+      "component": "thesis_owasp_holdout_v1:experiments/owasp_holdout_v1/inputs/a452b3aafd232245d0753e54eb243d6651f8ef96/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02566.java",
+      "issue_count": 11,
+      "supported_issue_count": 1,
+      "target_issue_count": 1,
+      "target_issue_ids": [
+        "05bc3f6a-8143-48d3-9453-0c0cae345b2f"
+      ],
+      "rule_counts": {
+        "java:S1989": 4,
+        "java:S2259": 1,
+        "java:S125": 1,
+        "findsecbugs:PATH_TRAVERSAL_IN": 1,
+        "java:S106": 1,
+        "java:S1172": 1,
+        "java:S1130": 2
+      },
+      "collection_status": "TARGET_WARNING"
+    }
+  ],
+  "note": "No AI called. No warning/unsupported rule is not a safe-code verdict."
+}

@@ -1,0 +1,30 @@
+[
+  {
+    "issue_id": "fixture-sql-text",
+    "rule": "findsecbugs:SQL_INJECTION_JDBC",
+    "cwe_id": "CWE-89",
+    "component": "project_sql3_control:src/main/java/demo/CustomerRepository.java",
+    "start_line": 10,
+    "end_line": 10,
+    "source_path": "sources/src/main/java/demo/CustomerRepository.java",
+    "source_sha256": "2cc8aaf9baeac7f28dbd17d8f08e6cee502eef4f65cd3ef484ca346c0ebe5536",
+    "cpg_artifact": "issue-0001/cpg_evidence.json",
+    "flow_count": 2,
+    "sink_call_count": 1,
+    "sink_argument_count": 1
+  },
+  {
+    "issue_id": "fixture-bound-value",
+    "rule": "findsecbugs:SQL_INJECTION_JDBC",
+    "cwe_id": "CWE-89",
+    "component": "project_sql3_control:src/main/java/demo/CustomerRepository.java",
+    "start_line": 15,
+    "end_line": 15,
+    "source_path": "sources/src/main/java/demo/CustomerRepository.java",
+    "source_sha256": "2cc8aaf9baeac7f28dbd17d8f08e6cee502eef4f65cd3ef484ca346c0ebe5536",
+    "cpg_artifact": "issue-0002/cpg_evidence.json",
+    "flow_count": 0,
+    "sink_call_count": 1,
+    "sink_argument_count": 1
+  }
+]

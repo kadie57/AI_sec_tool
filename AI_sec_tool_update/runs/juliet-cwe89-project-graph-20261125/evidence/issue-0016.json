@@ -1,0 +1,70 @@
+{
+  "status": "candidate_paths",
+  "matched_sources": 5,
+  "source_count": 5,
+  "candidate_paths_found": 1,
+  "search_limit_hit": false,
+  "paths": [
+    {
+      "source": {
+        "file_id": "F0",
+        "line": 41,
+        "method": "bad",
+        "method_start": 31,
+        "method_end": 122,
+        "node_type": "Call",
+        "api_owner": "javax.servlet.http.HttpServletRequest",
+        "api_signature": "getQueryString()"
+      },
+      "steps": [
+        {
+          "file_id": "F0",
+          "line": 42,
+          "method": "bad",
+          "method_start": 31,
+          "method_end": 122,
+          "node_type": "Identifier"
+        },
+        {
+          "file_id": "F0",
+          "line": 44,
+          "method": "bad",
+          "method_start": 31,
+          "method_end": 122,
+          "node_type": "Identifier"
+        },
+        {
+          "file_id": "F0",
+          "line": 45,
+          "method": "bad",
+          "method_start": 31,
+          "method_end": 122,
+          "node_type": "Identifier"
+        },
+        {
+          "file_id": "F0",
+          "line": 47,
+          "method": "bad",
+          "method_start": 31,
+          "method_end": 122,
+          "node_type": "Identifier"
+        }
+      ],
+      "sink": {
+        "file_id": "F0",
+        "line": 71,
+        "name": "executeQuery",
+        "method": "bad",
+        "method_start": 31,
+        "method_end": 122
+      },
+      "omitted_steps": 0,
+      "unlocated_nodes": 0,
+      "dispatch": []
+    }
+  ],
+  "paths_not_shown": 0,
+  "version": "sql-project-paths-v1",
+  "scope": "verified_java_snapshot",
+  "interpretation": "Candidate dataflow. Runtime branch and dispatch feasibility require separate evidence."
+}
