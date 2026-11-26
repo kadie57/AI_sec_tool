@@ -1,0 +1,18 @@
+STATUS	0
+Q	F0	70	32	java.sql.Connection	prepareStatement(java.lang.String,int)	70
+V	70	32	unknown	unsupported_or_runtime_value
+E	70	32	F0	64	constant_expression
+E	70	32	F0	62	call_result_not_modeled
+E	70	32	F0	46	loop_local_values_invalidated
+E	70	32	F0	62	local_definition
+E	70	32	F0	64	value_at_reference_unresolved
+E	70	32	F0	64	string_concatenation_with_unresolved_operand
+E	70	32	F0	64	local_definition
+E	70	32	F0	70	value_at_reference_unresolved
+E	70	32	F0	64	sql_argument_variable_declaration
+B	70	32	71	java.sql.PreparedStatement	setString(int,java.lang.String)	71
+S	45	55	javax.servlet.ServletRequest	getParameterNames()	true
+S	48	39	javax.servlet.ServletRequest	getParameterValues(java.lang.String)	true
+
+[STDERR]
+Picked up JAVA_TOOL_OPTIONS: -XX:-UsePerfData

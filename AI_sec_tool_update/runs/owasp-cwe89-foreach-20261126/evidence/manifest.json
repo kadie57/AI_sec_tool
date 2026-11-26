@@ -1,0 +1,52 @@
+{
+  "state": "COMPLETED",
+  "scope": "Paired JDBC value replay with enhanced for loop handling; SonarQube findings, snapshots and Joern paths are reused.",
+  "baseline_evidence": "/home/khanh/AI_sec_tool/AI_sec_tool_update/runs/owasp-cwe89-step3-holdout40-20261126/evidence/sql_evidence.jsonl",
+  "baseline_sha256": "f77f23ec12305f36175eeb34ce1d19c86442cd465136310417a63ad7517907aa",
+  "value_version": "jdbc-value-evidence-v10",
+  "implementation_sha256": {
+    "sql_pipeline/evidence/SqlValueEvidence.java": "88a10a54b67cd0b7b99d4bbcbbfb31c512af50f2924ba25822c2e954b6d9d504",
+    "sql_pipeline/evidence/sql_endpoint_specifications.py": "2f2531eec361b76b8754bdad830868f032d474eb08aa4278f318f24027b2005e"
+  },
+  "result_count": 36,
+  "value_status_counts": {
+    "unknown": 22,
+    "constant_sql_text": 10,
+    "fixed_sql_alternatives": 4
+  },
+  "value_changes": [
+    {
+      "issue_id": "6acdcc4f-16a8-4d1f-9f7e-ca9e41325dfd",
+      "component": "thesis_owasp_cwe89_step3_holdout40_20261126_v1:src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01010.java",
+      "line": 71,
+      "before": [
+        "unknown"
+      ],
+      "after": [
+        "fixed_sql_alternatives"
+      ]
+    },
+    {
+      "issue_id": "e80a06d7-7958-4d8f-9419-af8181895a1b",
+      "component": "thesis_owasp_cwe89_step3_holdout40_20261126_v1:src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01880.java",
+      "line": 74,
+      "before": [
+        "unknown"
+      ],
+      "after": [
+        "constant_sql_text"
+      ]
+    },
+    {
+      "issue_id": "214b8469-efe4-47f3-97ab-af71237f8f76",
+      "component": "thesis_owasp_cwe89_step3_holdout40_20261126_v1:src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01884.java",
+      "line": 71,
+      "before": [
+        "unknown"
+      ],
+      "after": [
+        "constant_sql_text"
+      ]
+    }
+  ]
+}

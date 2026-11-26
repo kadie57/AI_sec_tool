@@ -1,0 +1,24 @@
+STATUS	0
+Q	F0	74	32	java.sql.Connection	prepareStatement(java.lang.String,int,int,int)	75
+V	74	32	constant_sql_text	bounded_java_evaluation
+E	74	32	F0	68	constant_expression
+E	74	32	F0	94	constant_expression
+E	74	32	F0	93	collection_initialization
+E	74	32	F0	93	local_definition
+E	74	32	F0	94	collection_put
+E	74	32	F0	95	collection_put
+E	74	32	F0	96	collection_put
+E	74	32	F0	98	constant_expression
+E	74	32	F0	98	collection_read
+E	74	32	F0	98	local_assignment
+E	74	32	F0	100	helper_return
+E	74	32	F0	66	helper_call
+E	74	32	F0	66	local_definition
+E	74	32	F0	68	string_concatenation
+E	74	32	F0	68	local_definition
+B	74	32	79	java.sql.PreparedStatement	setString(int,java.lang.String)	79
+S	41	36	javax.servlet.http.HttpServletRequest	getRequestURI()	false
+S	54	58	javax.servlet.http.HttpServletRequest	getCookies()	true
+
+[STDERR]
+Picked up JAVA_TOOL_OPTIONS: -XX:-UsePerfData

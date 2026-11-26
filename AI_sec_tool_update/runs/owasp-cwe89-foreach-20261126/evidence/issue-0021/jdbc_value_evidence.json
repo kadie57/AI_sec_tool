@@ -1,0 +1,117 @@
+{
+  "version": "jdbc-value-evidence-v10",
+  "scope": "modeled_java_execution_up_to_the_reported_call",
+  "status": "evaluated",
+  "arguments": [
+    {
+      "call": {
+        "file_id": "F0",
+        "line": 56,
+        "column": 32
+      },
+      "sql_argument": {
+        "file_id": "F0",
+        "line": 57
+      },
+      "status": "fixed_sql_alternatives",
+      "reason": "bounded_java_evaluation",
+      "evidence": [
+        {
+          "file_id": "F0",
+          "line": 50,
+          "role": "constant_expression"
+        },
+        {
+          "file_id": "F0",
+          "line": 80,
+          "role": "constant_expression"
+        },
+        {
+          "file_id": "F0",
+          "line": 77,
+          "role": "collection_initialization"
+        },
+        {
+          "file_id": "F0",
+          "line": 77,
+          "role": "local_definition"
+        },
+        {
+          "file_id": "F0",
+          "line": 78,
+          "role": "collection_append"
+        },
+        {
+          "file_id": "F0",
+          "line": 79,
+          "role": "collection_append"
+        },
+        {
+          "file_id": "F0",
+          "line": 80,
+          "role": "collection_append"
+        },
+        {
+          "file_id": "F0",
+          "line": 82,
+          "role": "collection_remove"
+        },
+        {
+          "file_id": "F0",
+          "line": 84,
+          "role": "constant_expression"
+        },
+        {
+          "file_id": "F0",
+          "line": 84,
+          "role": "collection_read"
+        },
+        {
+          "file_id": "F0",
+          "line": 84,
+          "role": "local_assignment"
+        },
+        {
+          "file_id": "F0",
+          "line": 75,
+          "role": "constant_expression"
+        },
+        {
+          "file_id": "F0",
+          "line": 75,
+          "role": "local_definition"
+        },
+        {
+          "file_id": "F0",
+          "line": 76,
+          "role": "fixed_values_from_branches"
+        },
+        {
+          "file_id": "F0",
+          "line": 87,
+          "role": "helper_return"
+        },
+        {
+          "file_id": "F0",
+          "line": 48,
+          "role": "helper_call"
+        },
+        {
+          "file_id": "F0",
+          "line": 48,
+          "role": "local_definition"
+        },
+        {
+          "file_id": "F0",
+          "line": 50,
+          "role": "string_concatenation"
+        },
+        {
+          "file_id": "F0",
+          "line": 50,
+          "role": "local_definition"
+        }
+      ]
+    }
+  ]
+}

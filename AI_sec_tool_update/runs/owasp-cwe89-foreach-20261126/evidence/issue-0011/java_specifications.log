@@ -1,0 +1,18 @@
+STATUS	0
+Q	F0	71	77	org.springframework.jdbc.core.JdbcTemplate	queryForRowSet(java.lang.String)	71
+V	71	77	unknown	unsupported_or_runtime_value
+E	71	77	F0	102	runtime_if_merges_assignments
+E	71	77	F0	110	value_at_reference_unresolved
+E	71	77	F0	110	helper_return
+E	71	77	F0	66	helper_call
+E	71	77	F0	66	local_definition
+E	71	77	F0	68	value_at_reference_unresolved
+E	71	77	F0	68	string_concatenation_with_unresolved_operand
+E	71	77	F0	68	local_definition
+E	71	77	F0	71	value_at_reference_unresolved
+E	71	77	F0	68	sql_argument_variable_declaration
+S	41	36	javax.servlet.http.HttpServletRequest	getRequestURI()	false
+S	54	58	javax.servlet.http.HttpServletRequest	getCookies()	true
+
+[STDERR]
+Picked up JAVA_TOOL_OPTIONS: -XX:-UsePerfData

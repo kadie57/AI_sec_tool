@@ -1,0 +1,23 @@
+STATUS	0
+Q	F0	54	32	java.sql.Connection	prepareStatement(java.lang.String,int,int)	55
+V	54	32	constant_sql_text	bounded_java_evaluation
+E	54	32	F0	48	constant_expression
+E	54	32	F0	81	constant_expression
+E	54	32	F0	72	constant_expression
+E	54	32	F0	72	local_definition
+E	54	32	F0	73	constant_expression
+E	54	32	F0	73	constant_string_index
+E	54	32	F0	73	local_definition
+E	54	32	F0	76	switch_selector
+E	54	32	F0	80	switch_case_selected
+E	54	32	F0	81	local_assignment
+E	54	32	F0	92	helper_return
+E	54	32	F0	46	helper_call
+E	54	32	F0	46	local_definition
+E	54	32	F0	48	string_concatenation
+E	54	32	F0	48	local_definition
+B	54	32	58	java.sql.PreparedStatement	setString(int,java.lang.String)	58
+S	43	32	javax.servlet.ServletRequest	getParameter(java.lang.String)	true
+
+[STDERR]
+Picked up JAVA_TOOL_OPTIONS: -XX:-UsePerfData

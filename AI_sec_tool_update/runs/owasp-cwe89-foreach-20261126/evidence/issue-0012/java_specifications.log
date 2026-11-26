@@ -1,0 +1,27 @@
+STATUS	0
+Q	F0	71	69	org.springframework.jdbc.core.JdbcTemplate	batchUpdate(java.lang.String...)	71
+V	71	69	fixed_sql_alternatives	bounded_java_evaluation
+E	71	69	F0	69	constant_expression
+E	71	69	F0	95	constant_expression
+E	71	69	F0	92	collection_initialization
+E	71	69	F0	92	local_definition
+E	71	69	F0	93	collection_append
+E	71	69	F0	94	collection_append
+E	71	69	F0	95	collection_append
+E	71	69	F0	97	collection_remove
+E	71	69	F0	99	constant_expression
+E	71	69	F0	99	collection_read
+E	71	69	F0	99	local_assignment
+E	71	69	F0	90	constant_expression
+E	71	69	F0	90	local_definition
+E	71	69	F0	91	fixed_values_from_branches
+E	71	69	F0	102	helper_return
+E	71	69	F0	66	helper_call
+E	71	69	F0	66	local_definition
+E	71	69	F0	69	string_concatenation
+E	71	69	F0	69	local_definition
+S	41	36	javax.servlet.http.HttpServletRequest	getRequestURI()	false
+S	54	58	javax.servlet.http.HttpServletRequest	getCookies()	true
+
+[STDERR]
+Picked up JAVA_TOOL_OPTIONS: -XX:-UsePerfData

@@ -13,15 +13,29 @@ Hai lượt Juliet pilot dùng cùng một snapshot Java. Các collection `refer
 
 [`owasp/used-samples.json`](owasp/used-samples.json) liệt kê mã mẫu trong hai collection OWASP đã lưu. [`owasp/expectedresults-used.csv`](owasp/expectedresults-used.csv) trích nhãn chính thức cho các mã đó. Khi lập tập OWASP mới, có thể dùng danh sách mã để loại các ca đã xuất hiện trong hai collection này. Nhãn tham chiếu dùng để chấm kết quả sau khi chạy.
 
-Chạy từ `AI_sec_tool_update/` để kiểm tra bản sao SQL8 và Juliet holdout.
+## Lệnh chạy từ cấu trúc hiện tại
+
+Chạy các lệnh phân tích theo module từ `AI_sec_tool_update/`. Collector nằm trong `common/`. Phần phân tích Java, Joern và thẩm định SQL nằm trong `analyzers/sql_injection/`.
+
+| Công việc | Điểm vào |
+|---|---|
+| Thu thập cảnh báo SonarQube | `python3 -m common.sonar_collection` |
+| Chuẩn bị bằng chứng SQL | `python3 -m analyzers.sql_injection.prepare_sql_evidence` |
+| Suy luận đặc tả nguồn SQL | `python3 -m analyzers.sql_injection.sql_source_spec_experiment` |
+| Phân tích luồng SQL cấp dự án | `python3 -m analyzers.sql_injection.sql_project_flow_experiment` |
+| Chấm, so sánh hoặc kiểm tra lại phản hồi Qwen | `python3 -m analyzers.sql_injection.sql_llm_experiment` |
+
+Collector quét `Clean_Code/` trong thư mục đang đứng. Nếu mã cần quét ở ngoài `AI_sec_tool_update/`, chạy từ thư mục chứa `Clean_Code/` và trỏ `PYTHONPATH` tới thư mục `AI_sec_tool_update/` bằng đường dẫn tuyệt đối.
+
+Kiểm tra bản sao SQL8 và Juliet holdout bằng lệnh chuẩn bị bằng chứng.
 
 ```bash
-python3 prepare_sql_evidence.py \
+python3 -m analyzers.sql_injection.prepare_sql_evidence \
   --from-run datasets/owasp/splits/sql8 \
   --source-root datasets/owasp/sources \
   --recorded-joern datasets/owasp/splits/sql8/joern --check
 
-python3 prepare_sql_evidence.py \
+python3 -m analyzers.sql_injection.prepare_sql_evidence \
   --from-run datasets/juliet/holdout/collections/sonarqube \
   --source-root datasets/juliet/sources --check
 ```
