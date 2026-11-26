@@ -1,0 +1,19 @@
+STATUS	0
+Q	F0	61	32	java.sql.Connection	prepareStatement(java.lang.String,int[])	61
+C	F0	45	28	org.owasp.benchmark.helpers.SeparateClassRequest	getTheParameter(java.lang.String)	true	F1	30	32
+V	61	32	constant_sql_text	bounded_java_evaluation
+E	61	32	F0	55	constant_expression
+E	61	32	F0	52	constant_expression
+E	61	32	F0	52	integer_arithmetic
+E	61	32	F0	51	constant_expression
+E	61	32	F0	51	local_definition
+E	61	32	F0	52	integer_comparison
+E	61	32	F0	52	if_true
+E	61	32	F0	52	local_assignment
+E	61	32	F0	55	string_concatenation
+E	61	32	F0	55	local_definition
+B	61	32	62	java.sql.PreparedStatement	setString(int,java.lang.String)	62
+H	45	28	org.owasp.benchmark.helpers.SeparateClassRequest	getTheParameter(java.lang.String)	true	F1	31	javax.servlet.ServletRequest	getParameter(java.lang.String)	exact_local_constructor
+
+[STDERR]
+Picked up JAVA_TOOL_OPTIONS: -XX:-UsePerfData

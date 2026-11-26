@@ -1,0 +1,408 @@
+=======================================================================================================
+Invoking CPG generator in a separate process. Note that the new process will consume additional memory.
+If you are importing a large codebase (and/or running into memory issues), please try the following:
+1) exit joern
+2) invoke the frontend: /opt/joern/joern-cli/javasrc2cpg -J-Xmx7956m /project/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01721.java --output /work/workspace/BenchmarkTest01721.java/cpg.bin.zip
+3) start joern, import the cpg: `importCpg("path/to/cpg")`
+=======================================================================================================
+
+[INFO ] initialising from existing storage (/work/workspace/BenchmarkTest01721.java/cpg.bin.tmp)
+[INFO ] Start of pass: io.joern.x2cpg.passes.base.FileCreationPass
+[INFO ] Pass io.joern.x2cpg.passes.base.FileCreationPass completed in 35 ms (74% on mutations). 13 + 0 changes committed from 1 parts.
+[INFO ] Start of pass: io.joern.x2cpg.passes.base.NamespaceCreator
+[INFO ] Pass io.joern.x2cpg.passes.base.NamespaceCreator completed in 5 ms (46% on mutations). 4 + 0 changes committed from 1 parts.
+[INFO ] Start of pass: io.joern.x2cpg.passes.base.TypeDeclStubCreator
+[INFO ] Pass io.joern.x2cpg.passes.base.TypeDeclStubCreator completed in 6 ms (32% on mutations). 16 + 0 changes committed from 1 parts.
+[INFO ] Start of pass: io.joern.x2cpg.passes.base.MethodStubCreator
+[INFO ] Inconsistent/erroneous callInfo on calls to method fullname <operator>.alloc (we have 1 many variants)
+[INFO ] Pass io.joern.x2cpg.passes.base.MethodStubCreator completed in 28 ms (19% on mutations). 238 + 0 changes committed from 1 parts.
+[INFO ] Start of pass: io.joern.x2cpg.passes.base.ParameterIndexCompatPass
+[INFO ] Pass io.joern.x2cpg.passes.base.ParameterIndexCompatPass completed in 3 ms (38% on mutations). 0 + 0 changes committed from 1 parts.
+[INFO ] Start of pass: io.joern.x2cpg.passes.base.MethodDecoratorPass
+[INFO ] Pass io.joern.x2cpg.passes.base.MethodDecoratorPass completed in 10 ms (27% on mutations). 198 + 0 changes committed from 1 parts.
+[INFO ] Start of pass: io.joern.x2cpg.passes.base.AstLinkerPass
+[INFO ] Pass io.joern.x2cpg.passes.base.AstLinkerPass completed in 7 ms (14% on mutations). 44 + 0 changes committed from 1 parts.
+[INFO ] Start of pass: io.joern.x2cpg.passes.base.ContainsEdgePass
+[INFO ] Pass io.joern.x2cpg.passes.base.ContainsEdgePass completed in 7 ms (24% on mutations). 313 + 0 changes committed from 57 parts.
+[INFO ] Start of pass: io.joern.x2cpg.passes.base.TypeRefPass
+[INFO ] Pass io.joern.x2cpg.passes.base.TypeRefPass completed in 3 ms (25% on mutations). 19 + 0 changes committed from 1 parts.
+[INFO ] Start of pass: io.joern.x2cpg.passes.base.TypeEvalPass
+[INFO ] Could not create edge. Destination lookup failed. edgeType=EVAL_TYPE, srcNodeType=LOCAL, srcNodeId=94489280522, dstNodeType=TYPE, dstFullName=java.util.Iterator
+[INFO ] Could not create edge. Destination lookup failed. edgeType=EVAL_TYPE, srcNodeType=CALL, srcNodeId=30064771125, dstNodeType=TYPE, dstFullName=java.util.Iterator
+[INFO ] Could not create edge. Destination lookup failed. edgeType=EVAL_TYPE, srcNodeType=CALL, srcNodeId=30064771126, dstNodeType=TYPE, dstFullName=java.util.Iterator
+[INFO ] Could not create edge. Destination lookup failed. edgeType=EVAL_TYPE, srcNodeType=IDENTIFIER, srcNodeId=68719476786, dstNodeType=TYPE, dstFullName=java.util.Iterator
+[INFO ] Could not create edge. Destination lookup failed. edgeType=EVAL_TYPE, srcNodeType=IDENTIFIER, srcNodeId=68719476788, dstNodeType=TYPE, dstFullName=java.util.Iterator
+[INFO ] Could not create edge. Destination lookup failed. edgeType=EVAL_TYPE, srcNodeType=IDENTIFIER, srcNodeId=68719476790, dstNodeType=TYPE, dstFullName=java.util.Iterator
+[INFO ] Pass io.joern.x2cpg.passes.base.TypeEvalPass completed in 6 ms (25% on mutations). 420 + 0 changes committed from 5 parts.
+[INFO ] Start of pass: io.shiftleft.semanticcpg.Overlays$$anon$1
+[INFO ] Pass io.shiftleft.semanticcpg.Overlays$$anon$1 completed in 4 ms (35% on mutations). 1 + 0 changes committed from 1 parts.
+[INFO ] Start of pass: io.joern.x2cpg.passes.controlflow.CfgCreationPass
+[WARN ] Using order fallback for try statement finally body
+[INFO ] Pass io.joern.x2cpg.passes.controlflow.CfgCreationPass completed in 39 ms (5% on mutations). 287 + 0 changes committed from 36 parts.
+[INFO ] Start of pass: io.joern.x2cpg.passes.controlflow.cfgdominator.CfgDominatorPass
+[INFO ] Pass io.joern.x2cpg.passes.controlflow.cfgdominator.CfgDominatorPass completed in 21 ms (10% on mutations). 554 + 0 changes committed from 36 parts.
+[INFO ] Start of pass: io.joern.x2cpg.passes.controlflow.codepencegraph.CdgPass
+[INFO ] Pass io.joern.x2cpg.passes.controlflow.codepencegraph.CdgPass completed in 8 ms (10% on mutations). 179 + 0 changes committed from 36 parts.
+[INFO ] Start of pass: io.shiftleft.semanticcpg.Overlays$$anon$1
+[INFO ] Pass io.shiftleft.semanticcpg.Overlays$$anon$1 completed in 1 ms (73% on mutations). 1 + 0 changes committed from 1 parts.
+[INFO ] Start of pass: io.joern.x2cpg.passes.typerelations.TypeHierarchyPass
+[INFO ] Pass io.joern.x2cpg.passes.typerelations.TypeHierarchyPass completed in 3 ms (17% on mutations). 3 + 0 changes committed from 1 parts.
+[INFO ] Start of pass: io.joern.x2cpg.passes.typerelations.AliasLinkerPass
+[INFO ] Pass io.joern.x2cpg.passes.typerelations.AliasLinkerPass completed in 1 ms (27% on mutations). 0 + 0 changes committed from 1 parts.
+[INFO ] Start of pass: io.joern.x2cpg.passes.typerelations.FieldAccessLinkerPass
+[INFO ] Could not create edge. Destination lookup failed. edgeType=REF, srcNodeType=CALL, srcNodeId=30064771104, dstNodeType=MEMBER, dstFullName=ANY.URLDecoder
+[INFO ] Could not create edge. Destination lookup failed. edgeType=REF, srcNodeType=CALL, srcNodeId=30064771105, dstNodeType=MEMBER, dstFullName=ANY.net
+[INFO ] Could not create edge. Destination lookup failed. edgeType=REF, srcNodeType=CALL, srcNodeId=30064771116, dstNodeType=MEMBER, dstFullName=ANY.JDBCtemplate
+[INFO ] Could not create edge. Destination lookup failed. edgeType=REF, srcNodeType=CALL, srcNodeId=30064771117, dstNodeType=MEMBER, dstFullName=ANY.DatabaseHelper
+[INFO ] Could not create edge. Destination lookup failed. edgeType=REF, srcNodeType=CALL, srcNodeId=30064771118, dstNodeType=MEMBER, dstFullName=ANY.helpers
+[INFO ] Could not create edge. Destination lookup failed. edgeType=REF, srcNodeType=CALL, srcNodeId=30064771119, dstNodeType=MEMBER, dstFullName=ANY.benchmark
+[INFO ] Could not create edge. Destination lookup failed. edgeType=REF, srcNodeType=CALL, srcNodeId=30064771120, dstNodeType=MEMBER, dstFullName=ANY.owasp
+[INFO ] Could not create edge. Destination lookup failed. edgeType=REF, srcNodeType=CALL, srcNodeId=30064771135, dstNodeType=MEMBER, dstFullName=ANY.ESAPI
+[INFO ] Could not create edge. Destination lookup failed. edgeType=REF, srcNodeType=CALL, srcNodeId=30064771136, dstNodeType=MEMBER, dstFullName=ANY.esapi
+[INFO ] Could not create edge. Destination lookup failed. edgeType=REF, srcNodeType=CALL, srcNodeId=30064771137, dstNodeType=MEMBER, dstFullName=ANY.owasp
+[INFO ] Could not create edge. Destination lookup failed. edgeType=REF, srcNodeType=CALL, srcNodeId=30064771143, dstNodeType=MEMBER, dstFullName=ANY.ESAPI
+[INFO ] Could not create edge. Destination lookup failed. edgeType=REF, srcNodeType=CALL, srcNodeId=30064771144, dstNodeType=MEMBER, dstFullName=ANY.esapi
+[INFO ] Could not create edge. Destination lookup failed. edgeType=REF, srcNodeType=CALL, srcNodeId=30064771145, dstNodeType=MEMBER, dstFullName=ANY.owasp
+[INFO ] Could not create edge. Destination lookup failed. edgeType=REF, srcNodeType=CALL, srcNodeId=30064771146, dstNodeType=MEMBER, dstFullName=ANY.hideSQLErrors
+[INFO ] Could not create edge. Destination lookup failed. edgeType=REF, srcNodeType=CALL, srcNodeId=30064771147, dstNodeType=MEMBER, dstFullName=ANY.DatabaseHelper
+[INFO ] Could not create edge. Destination lookup failed. edgeType=REF, srcNodeType=CALL, srcNodeId=30064771148, dstNodeType=MEMBER, dstFullName=ANY.helpers
+[INFO ] Could not create edge. Destination lookup failed. edgeType=REF, srcNodeType=CALL, srcNodeId=30064771149, dstNodeType=MEMBER, dstFullName=ANY.benchmark
+[INFO ] Could not create edge. Destination lookup failed. edgeType=REF, srcNodeType=CALL, srcNodeId=30064771150, dstNodeType=MEMBER, dstFullName=ANY.owasp
+[INFO ] Could not create edge. Destination lookup failed. edgeType=REF, srcNodeType=CALL, srcNodeId=30064771159, dstNodeType=MEMBER, dstFullName=ANY.ThingFactory
+[INFO ] Could not create edge. Destination lookup failed. edgeType=REF, srcNodeType=CALL, srcNodeId=30064771160, dstNodeType=MEMBER, dstFullName=ANY.helpers
+[INFO ] Could not create edge. Destination lookup failed. edgeType=REF, srcNodeType=CALL, srcNodeId=30064771161, dstNodeType=MEMBER, dstFullName=ANY.benchmark
+[INFO ] Could not create edge. Destination lookup failed. edgeType=REF, srcNodeType=CALL, srcNodeId=30064771162, dstNodeType=MEMBER, dstFullName=ANY.owasp
+[INFO ] Could not create edge. Destination lookup failed. edgeType=REF, srcNodeType=CALL, srcNodeId=30064771170, dstNodeType=MEMBER, dstFullName=ANY.hideSQLErrors
+[INFO ] Could not create edge. Destination lookup failed. edgeType=REF, srcNodeType=CALL, srcNodeId=30064771171, dstNodeType=MEMBER, dstFullName=ANY.DatabaseHelper
+[INFO ] Could not create edge. Destination lookup failed. edgeType=REF, srcNodeType=CALL, srcNodeId=30064771172, dstNodeType=MEMBER, dstFullName=ANY.helpers
+[INFO ] Could not create edge. Destination lookup failed. edgeType=REF, srcNodeType=CALL, srcNodeId=30064771173, dstNodeType=MEMBER, dstFullName=ANY.benchmark
+[INFO ] Could not create edge. Destination lookup failed. edgeType=REF, srcNodeType=CALL, srcNodeId=30064771174, dstNodeType=MEMBER, dstFullName=ANY.owasp
+[INFO ] Pass io.joern.x2cpg.passes.typerelations.FieldAccessLinkerPass completed in 18 ms (4% on mutations). 3 + 0 changes committed from 1 parts.
+[INFO ] Start of pass: io.shiftleft.semanticcpg.Overlays$$anon$1
+[INFO ] Pass io.shiftleft.semanticcpg.Overlays$$anon$1 completed in 1 ms (65% on mutations). 1 + 0 changes committed from 1 parts.
+[INFO ] Start of pass: io.joern.x2cpg.passes.callgraph.MethodRefLinker
+[INFO ] Pass io.joern.x2cpg.passes.callgraph.MethodRefLinker completed in 1 ms (42% on mutations). 0 + 0 changes committed from 1 parts.
+[INFO ] Start of pass: io.joern.x2cpg.passes.callgraph.StaticCallLinker
+[INFO ] Pass io.joern.x2cpg.passes.callgraph.StaticCallLinker completed in 2 ms (27% on mutations). 74 + 0 changes committed from 2 parts.
+[INFO ] Start of pass: io.joern.x2cpg.passes.callgraph.DynamicCallLinker
+[INFO ] Pass io.joern.x2cpg.passes.callgraph.DynamicCallLinker completed in 13 ms (5% on mutations). 32 + 0 changes committed from 1 parts.
+[INFO ] Start of pass: io.shiftleft.semanticcpg.Overlays$$anon$1
+[INFO ] Pass io.shiftleft.semanticcpg.Overlays$$anon$1 completed in 1 ms (73% on mutations). 1 + 0 changes committed from 1 parts.
+[INFO ] Start of pass: io.joern.dataflowengineoss.passes.reachingdef.ReachingDefPass
+[INFO ] Calculating reaching definitions for: <operator>.alloc in <empty>
+[INFO ] Calculating reaching definitions for: <unresolvedNamespace>.decode:<unresolvedSignature>(2) in <empty>
+[INFO ] Calculating reaching definitions for: javax.servlet.http.HttpServletResponse.getWriter:<unresolvedSignature>(0) in <empty>
+[INFO ] Calculating reaching definitions for: <operator>.equals in <empty>
+[INFO ] Calculating reaching definitions for: ANY.iterator:java.util.Iterator() in <empty>
+[INFO ] Calculating reaching definitions for: <operator>.fieldAccess in <empty>
+[INFO ] Calculating reaching definitions for: <operator>.notEquals in <empty>
+[INFO ] Calculating reaching definitions for: <operator>.assignment in <empty>
+[INFO ] Number of definitions for javax.servlet.http.HttpServletResponse.getWriter:<unresolvedSignature>(0): 1
+[INFO ] Number of definitions for ANY.iterator:java.util.Iterator(): 1
+[INFO ] Number of definitions for <operator>.fieldAccess: 2
+[INFO ] Number of definitions for <operator>.assignment: 2
+[INFO ] Number of definitions for <operator>.notEquals: 2
+[INFO ] Number of definitions for <operator>.equals: 2
+[INFO ] Number of definitions for <operator>.alloc: 1
+[INFO ] Number of definitions for <unresolvedNamespace>.decode:<unresolvedSignature>(2): 3
+[INFO ] Calculating reaching definitions for: <operator>.minus in <empty>
+[INFO ] Calculating reaching definitions for: javax.servlet.http.HttpServletRequest.getQueryString:<unresolvedSignature>(0) in <empty>
+[INFO ] Calculating reaching definitions for: <unresolvedNamespace>.substring:<unresolvedSignature>(2) in <empty>
+[INFO ] Calculating reaching definitions for: <unresolvedNamespace>.java.sql.ResultSet.getString:<unresolvedSignature>(1) in <empty>
+[INFO ] Calculating reaching definitions for: java.util.Iterator.next:java.lang.Object() in <empty>
+[INFO ] Calculating reaching definitions for: javax.servlet.ServletException.<init>:<unresolvedSignature>(1) in <empty>
+[INFO ] Number of definitions for <operator>.minus: 1
+[INFO ] Number of definitions for <unresolvedNamespace>.substring:<unresolvedSignature>(2): 3
+[INFO ] Number of definitions for java.util.Iterator.next:java.lang.Object(): 1
+[INFO ] Number of definitions for javax.servlet.ServletException.<init>:<unresolvedSignature>(1): 2
+[INFO ] Calculating reaching definitions for: <unresolvedNamespace>.substring:<unresolvedSignature>(1) in <empty>
+[INFO ] Calculating reaching definitions for: org.owasp.benchmark.testcode.BenchmarkTest01721.<clinit>:void() in <empty>
+[INFO ] Calculating reaching definitions for: <unresolvedNamespace>.length:<unresolvedSignature>(0) in <empty>
+[INFO ] Calculating reaching definitions for: <unresolvedNamespace>.indexOf:<unresolvedSignature>(1) in <empty>
+[INFO ] Calculating reaching definitions for: <operator>.throw in <empty>
+[INFO ] Number of definitions for <unresolvedNamespace>.substring:<unresolvedSignature>(1): 2
+[INFO ] Number of definitions for <unresolvedNamespace>.length:<unresolvedSignature>(0): 1
+[INFO ] Number of definitions for <operator>.throw: 1
+[INFO ] Number of definitions for <unresolvedNamespace>.java.sql.ResultSet.getString:<unresolvedSignature>(1): 2
+[INFO ] Number of definitions for javax.servlet.http.HttpServletRequest.getQueryString:<unresolvedSignature>(0): 1
+[INFO ] Calculating reaching definitions for: <unresolvedNamespace>.encodeForHTML:<unresolvedSignature>(1) in <empty>
+[INFO ] Calculating reaching definitions for: <unresolvedNamespace>.indexOf:<unresolvedSignature>(2) in <empty>
+[INFO ] Number of definitions for <unresolvedNamespace>.indexOf:<unresolvedSignature>(1): 2
+[INFO ] Calculating reaching definitions for: java.util.Iterator.hasNext:boolean() in <empty>
+[INFO ] Calculating reaching definitions for: org.owasp.benchmark.testcode.BenchmarkTest01721$Test.doSomething:<unresolvedSignature>(2) in 
+[INFO ] Number of definitions for java.util.Iterator.hasNext:boolean(): 1
+[INFO ] Calculating reaching definitions for: org.owasp.benchmark.testcode.BenchmarkTest01721.doPost:void(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse) in 
+[INFO ] Calculating reaching definitions for: org.owasp.benchmark.testcode.BenchmarkTest01721$Test.<init>:void() in 
+[INFO ] Calculating reaching definitions for: org.owasp.benchmark.testcode.BenchmarkTest01721.doGet:void(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse) in 
+[INFO ] Number of definitions for <unresolvedNamespace>.indexOf:<unresolvedSignature>(2): 3
+[INFO ] Number of definitions for <unresolvedNamespace>.encodeForHTML:<unresolvedSignature>(1): 2
+[INFO ] Calculating reaching definitions for: <unresolvedNamespace>.query:<unresolvedSignature>(2) in <empty>
+[INFO ] Calculating reaching definitions for: <unresolvedNamespace>.encoder:<unresolvedSignature>(0) in <empty>
+[INFO ] Number of definitions for <unresolvedNamespace>.query:<unresolvedSignature>(2): 3
+[INFO ] Number of definitions for <unresolvedNamespace>.encoder:<unresolvedSignature>(0): 1
+[INFO ] Calculating reaching definitions for: <operator>.addition in <empty>
+[INFO ] Number of definitions for org.owasp.benchmark.testcode.BenchmarkTest01721$Test.<init>:void(): 5
+[INFO ] Calculating reaching definitions for: org.owasp.benchmark.testcode.BenchmarkTest01721.doPost.org.springframework.jdbc.core.RowMapper$0.<init>:void() in 
+[INFO ] Number of definitions for org.owasp.benchmark.testcode.BenchmarkTest01721.doGet:void(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse): 7
+[INFO ] Number of definitions for org.owasp.benchmark.testcode.BenchmarkTest01721.<clinit>:void(): 2
+[INFO ] Number of definitions for <operator>.addition: 2
+[INFO ] Calculating reaching definitions for: <unresolvedNamespace>.doSomething:<unresolvedSignature>(1) in <empty>
+[INFO ] Calculating reaching definitions for: <unresolvedNamespace>.createThing:<unresolvedSignature>(0) in <empty>
+[INFO ] Number of definitions for org.owasp.benchmark.testcode.BenchmarkTest01721.doPost.org.springframework.jdbc.core.RowMapper$0.<init>:void(): 5
+[INFO ] Number of definitions for <unresolvedNamespace>.doSomething:<unresolvedSignature>(1): 2
+[INFO ] Number of definitions for org.owasp.benchmark.testcode.BenchmarkTest01721$Test.doSomething:<unresolvedSignature>(2): 14
+[INFO ] Number of definitions for <unresolvedNamespace>.createThing:<unresolvedSignature>(0): 1
+[INFO ] Calculating reaching definitions for: <unresolvedNamespace>.println:<unresolvedSignature>(1) in <empty>
+[INFO ] Calculating reaching definitions for: org.owasp.benchmark.testcode.BenchmarkTest01721.doPost.org.springframework.jdbc.core.RowMapper$0.mapRow:<unresolvedSignature>(2) in 
+[INFO ] Number of definitions for org.owasp.benchmark.testcode.BenchmarkTest01721.doPost.org.springframework.jdbc.core.RowMapper$0.mapRow:<unresolvedSignature>(2): 6
+[INFO ] Number of definitions for <unresolvedNamespace>.println:<unresolvedSignature>(1): 2
+[INFO ] Calculating reaching definitions for: javax.servlet.http.HttpServletResponse.setContentType:<unresolvedSignature>(1) in <empty>
+[INFO ] Number of definitions for javax.servlet.http.HttpServletResponse.setContentType:<unresolvedSignature>(1): 2
+[INFO ] Calculating reaching definitions for: org.owasp.benchmark.testcode.BenchmarkTest01721.<init>:void() in 
+[INFO ] Number of definitions for org.owasp.benchmark.testcode.BenchmarkTest01721.<init>:void(): 1
+[INFO ] Number of definitions for org.owasp.benchmark.testcode.BenchmarkTest01721.doPost:void(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse): 160
+[INFO ] Pass io.joern.dataflowengineoss.passes.reachingdef.ReachingDefPass completed in 188 ms (1% on mutations). 613 + 0 changes committed from 36 parts.
+[INFO ] Start of pass: io.shiftleft.semanticcpg.Overlays$$anon$1
+[INFO ] Pass io.shiftleft.semanticcpg.Overlays$$anon$1 completed in 1 ms (75% on mutations). 1 + 0 changes committed from 1 parts.
+CPG_GATE_BEGIN
+SINK_CALL_COUNT=1
+SINK_ARGUMENT_COUNT=1
+CPG_GATE_END
+CPG_RESULT_BEGIN
+FLOW_COUNT=4
+
+┌─────────────────┬──────────────────────────────────────────────────────────────────────────────┬────┬───────────┬────┐
+│nodeType         │tracked                                                                       │line│method     │file│
+├─────────────────┼──────────────────────────────────────────────────────────────────────────────┼────┼───────────┼────┤
+│MethodParameterIn│doPost(this, HttpServletRequest request, HttpServletResponse response)        │39  │doPost     │    │
+│Identifier       │getQueryString()                                                              │43  │doPost     │    │
+│Call             │getQueryString()                                                              │43  │doPost     │    │
+│Identifier       │String queryString = request.getQueryString()                                 │43  │doPost     │    │
+│Identifier       │queryString != null                                                           │46  │doPost     │    │
+│Identifier       │indexOf(paramval)                                                             │46  │doPost     │    │
+│Call             │indexOf(paramval)                                                             │46  │doPost     │    │
+│Identifier       │paramLoc = queryString.indexOf(paramval)                                      │46  │doPost     │    │
+│Identifier       │paramLoc == -1                                                                │47  │doPost     │    │
+│Call             │paramLoc + paramval.length()                                                  │58  │doPost     │    │
+│Identifier       │substring(paramLoc + paramval.length())                                       │57  │doPost     │    │
+│Identifier       │indexOf("&", paramLoc)                                                        │64  │doPost     │    │
+│Call             │indexOf("&", paramLoc)                                                        │64  │doPost     │    │
+│Identifier       │int ampersandLoc = queryString.indexOf("&", paramLoc)                         │64  │doPost     │    │
+│Identifier       │ampersandLoc != -1                                                            │65  │doPost     │    │
+│Identifier       │substring(paramLoc + paramval.length(), ampersandLoc)                         │66  │doPost     │    │
+│Call             │paramLoc + paramval.length()                                                  │66  │doPost     │    │
+│Identifier       │substring(paramLoc + paramval.length(), ampersandLoc)                         │66  │doPost     │    │
+│Call             │substring(paramLoc + paramval.length(), ampersandLoc)                         │66  │doPost     │    │
+│Identifier       │param = queryString.substring(paramLoc + paramval.length(), ampersandLoc)     │66  │doPost     │    │
+│Identifier       │java.net.URLDecoder.decode(param, "UTF-8")                                    │68  │doPost     │    │
+│Call             │java.net.URLDecoder.decode(param, "UTF-8")                                    │68  │doPost     │    │
+│Call             │java.net.URLDecoder.decode(param, "UTF-8")                                    │68  │doPost     │    │
+│Identifier       │param = java.net.URLDecoder.decode(param, "UTF-8")                            │68  │doPost     │    │
+│Identifier       │doSomething(request, param)                                                   │70  │doPost     │    │
+│MethodParameterIn│doSomething(this, HttpServletRequest request, String param)                   │111 │doSomething│    │
+│Identifier       │doSomething(param)                                                            │116 │doSomething│    │
+│Identifier       │doSomething(param)                                                            │116 │doSomething│    │
+│Call             │doSomething(param)                                                            │116 │doSomething│    │
+│Identifier       │String bar = thing.doSomething(param)                                         │116 │doSomething│    │
+│Identifier       │return bar;                                                                   │118 │doSomething│    │
+│Return           │return bar;                                                                   │118 │doSomething│    │
+│MethodReturn     │RET                                                                           │111 │doSomething│    │
+│Call             │doSomething(request, param)                                                   │70  │doPost     │    │
+│Identifier       │String bar = new Test().doSomething(request, param)                           │70  │doPost     │    │
+│Call             │"SELECT * from USERS where USERNAME='foo' and PASSWORD='" + bar + "'"         │72  │doPost     │    │
+│Identifier       │String sql = "SELECT * from USERS where USERNAME='foo' and PASSWORD='" + bar +│72  │doPost     │    │
+│                 │"'"                                                                           │    │           │    │
+│Identifier       │org.owasp.benchmark.helpers.DatabaseHelper.JDBCtemplate.query(sql, new        │76  │doPost     │    │
+│                 │org.springframework.jdbc.core.RowMapper<String>() {                           │    │           │    │
+│                 │                                                                              │    │           │    │
+│                 │    @Override                                                                 │    │           │    │
+│                 │public String mapRow(java.sql.ResultSet rs, int rowNum) throws                │    │           │    │
+│                 │java.sql.SQLException {                                                       │    │           │    │
+│                 │        try {                                                                 │    │           │    │
+│                 │            return rs.getString("USERNAME");                                  │    │           │    │
+│                 │        } catch (java.sql.SQLException e) {                                   │    │           │    │
+│                 │            if (org.owasp.benchmark.helpers.DatabaseHelper.hideSQLErrors) {   │    │           │    │
+│                 │                return "Error processing query.";                             │    │           │    │
+│                 │            } else                                                            │    │           │    │
+│                 │                throw e;                                                      │    │           │    │
+│                 │        }                                                                     │    │           │    │
+│                 │    }                                                                         │    │           │    │
+│                 │})                                                                            │    │           │    │
+└─────────────────┴──────────────────────────────────────────────────────────────────────────────┴────┴───────────┴────┘
+
+┌─────────────────┬──────────────────────────────────────────────────────────────────────────────┬────┬───────────┬────┐
+│nodeType         │tracked                                                                       │line│method     │file│
+├─────────────────┼──────────────────────────────────────────────────────────────────────────────┼────┼───────────┼────┤
+│MethodParameterIn│doGet(this, HttpServletRequest request, HttpServletResponse response)         │33  │doGet      │    │
+│Identifier       │doPost(request, response)                                                     │35  │doGet      │    │
+│MethodParameterIn│doPost(this, HttpServletRequest request, HttpServletResponse response)        │39  │doPost     │    │
+│Identifier       │getQueryString()                                                              │43  │doPost     │    │
+│Call             │getQueryString()                                                              │43  │doPost     │    │
+│Identifier       │String queryString = request.getQueryString()                                 │43  │doPost     │    │
+│Identifier       │queryString != null                                                           │46  │doPost     │    │
+│Identifier       │indexOf(paramval)                                                             │46  │doPost     │    │
+│Call             │indexOf(paramval)                                                             │46  │doPost     │    │
+│Identifier       │paramLoc = queryString.indexOf(paramval)                                      │46  │doPost     │    │
+│Identifier       │paramLoc == -1                                                                │47  │doPost     │    │
+│Call             │paramLoc + paramval.length()                                                  │58  │doPost     │    │
+│Identifier       │substring(paramLoc + paramval.length())                                       │57  │doPost     │    │
+│Identifier       │indexOf("&", paramLoc)                                                        │64  │doPost     │    │
+│Call             │indexOf("&", paramLoc)                                                        │64  │doPost     │    │
+│Identifier       │int ampersandLoc = queryString.indexOf("&", paramLoc)                         │64  │doPost     │    │
+│Identifier       │ampersandLoc != -1                                                            │65  │doPost     │    │
+│Identifier       │substring(paramLoc + paramval.length(), ampersandLoc)                         │66  │doPost     │    │
+│Call             │paramLoc + paramval.length()                                                  │66  │doPost     │    │
+│Identifier       │substring(paramLoc + paramval.length(), ampersandLoc)                         │66  │doPost     │    │
+│Call             │substring(paramLoc + paramval.length(), ampersandLoc)                         │66  │doPost     │    │
+│Identifier       │param = queryString.substring(paramLoc + paramval.length(), ampersandLoc)     │66  │doPost     │    │
+│Identifier       │java.net.URLDecoder.decode(param, "UTF-8")                                    │68  │doPost     │    │
+│Call             │java.net.URLDecoder.decode(param, "UTF-8")                                    │68  │doPost     │    │
+│Call             │java.net.URLDecoder.decode(param, "UTF-8")                                    │68  │doPost     │    │
+│Identifier       │param = java.net.URLDecoder.decode(param, "UTF-8")                            │68  │doPost     │    │
+│Identifier       │doSomething(request, param)                                                   │70  │doPost     │    │
+│MethodParameterIn│doSomething(this, HttpServletRequest request, String param)                   │111 │doSomething│    │
+│Identifier       │doSomething(param)                                                            │116 │doSomething│    │
+│Identifier       │doSomething(param)                                                            │116 │doSomething│    │
+│Call             │doSomething(param)                                                            │116 │doSomething│    │
+│Identifier       │String bar = thing.doSomething(param)                                         │116 │doSomething│    │
+│Identifier       │return bar;                                                                   │118 │doSomething│    │
+│Return           │return bar;                                                                   │118 │doSomething│    │
+│MethodReturn     │RET                                                                           │111 │doSomething│    │
+│Call             │doSomething(request, param)                                                   │70  │doPost     │    │
+│Identifier       │String bar = new Test().doSomething(request, param)                           │70  │doPost     │    │
+│Call             │"SELECT * from USERS where USERNAME='foo' and PASSWORD='" + bar + "'"         │72  │doPost     │    │
+│Identifier       │String sql = "SELECT * from USERS where USERNAME='foo' and PASSWORD='" + bar +│72  │doPost     │    │
+│                 │"'"                                                                           │    │           │    │
+│Identifier       │org.owasp.benchmark.helpers.DatabaseHelper.JDBCtemplate.query(sql, new        │76  │doPost     │    │
+│                 │org.springframework.jdbc.core.RowMapper<String>() {                           │    │           │    │
+│                 │                                                                              │    │           │    │
+│                 │    @Override                                                                 │    │           │    │
+│                 │public String mapRow(java.sql.ResultSet rs, int rowNum) throws                │    │           │    │
+│                 │java.sql.SQLException {                                                       │    │           │    │
+│                 │        try {                                                                 │    │           │    │
+│                 │            return rs.getString("USERNAME");                                  │    │           │    │
+│                 │        } catch (java.sql.SQLException e) {                                   │    │           │    │
+│                 │            if (org.owasp.benchmark.helpers.DatabaseHelper.hideSQLErrors) {   │    │           │    │
+│                 │                return "Error processing query.";                             │    │           │    │
+│                 │            } else                                                            │    │           │    │
+│                 │                throw e;                                                      │    │           │    │
+│                 │        }                                                                     │    │           │    │
+│                 │    }                                                                         │    │           │    │
+│                 │})                                                                            │    │           │    │
+└─────────────────┴──────────────────────────────────────────────────────────────────────────────┴────┴───────────┴────┘
+
+┌─────────────────┬──────────────────────────────────────────────────────────────────────────────┬────┬───────────┬────┐
+│nodeType         │tracked                                                                       │line│method     │file│
+├─────────────────┼──────────────────────────────────────────────────────────────────────────────┼────┼───────────┼────┤
+│MethodParameterIn│doSomething(this, HttpServletRequest request, String param)                   │111 │doSomething│    │
+│Identifier       │doSomething(param)                                                            │116 │doSomething│    │
+│Identifier       │doSomething(param)                                                            │116 │doSomething│    │
+│Call             │doSomething(param)                                                            │116 │doSomething│    │
+│Identifier       │String bar = thing.doSomething(param)                                         │116 │doSomething│    │
+│Identifier       │return bar;                                                                   │118 │doSomething│    │
+│Return           │return bar;                                                                   │118 │doSomething│    │
+│MethodReturn     │RET                                                                           │111 │doSomething│    │
+│Call             │doSomething(request, param)                                                   │70  │doPost     │    │
+│Identifier       │String bar = new Test().doSomething(request, param)                           │70  │doPost     │    │
+│Call             │"SELECT * from USERS where USERNAME='foo' and PASSWORD='" + bar + "'"         │72  │doPost     │    │
+│Identifier       │String sql = "SELECT * from USERS where USERNAME='foo' and PASSWORD='" + bar +│72  │doPost     │    │
+│                 │"'"                                                                           │    │           │    │
+│Identifier       │org.owasp.benchmark.helpers.DatabaseHelper.JDBCtemplate.query(sql, new        │76  │doPost     │    │
+│                 │org.springframework.jdbc.core.RowMapper<String>() {                           │    │           │    │
+│                 │                                                                              │    │           │    │
+│                 │    @Override                                                                 │    │           │    │
+│                 │public String mapRow(java.sql.ResultSet rs, int rowNum) throws                │    │           │    │
+│                 │java.sql.SQLException {                                                       │    │           │    │
+│                 │        try {                                                                 │    │           │    │
+│                 │            return rs.getString("USERNAME");                                  │    │           │    │
+│                 │        } catch (java.sql.SQLException e) {                                   │    │           │    │
+│                 │            if (org.owasp.benchmark.helpers.DatabaseHelper.hideSQLErrors) {   │    │           │    │
+│                 │                return "Error processing query.";                             │    │           │    │
+│                 │            } else                                                            │    │           │    │
+│                 │                throw e;                                                      │    │           │    │
+│                 │        }                                                                     │    │           │    │
+│                 │    }                                                                         │    │           │    │
+│                 │})                                                                            │    │           │    │
+└─────────────────┴──────────────────────────────────────────────────────────────────────────────┴────┴───────────┴────┘
+
+┌──────────────────┬──────────────────────────────────────────────────────────────────────────────────┬────┬──────┬────┐
+│nodeType          │tracked                                                                           │line│method│file│
+├──────────────────┼──────────────────────────────────────────────────────────────────────────────────┼────┼──────┼────┤
+│MethodParameterIn │<init>(this, outerClass)                                                          │77  │<init>│    │
+│Identifier        │this.outerClass = outerClass                                                      │77  │<init>│    │
+│Call              │this.outerClass = outerClass                                                      │77  │<init>│    │
+│MethodParameterOut│RET                                                                               │77  │<init>│    │
+│Identifier        │new org.springframework.jdbc.core.RowMapper<String>() {                           │77  │doPost│    │
+│                  │                                                                                  │    │      │    │
+│                  │    @Override                                                                     │    │      │    │
+│                  │public String mapRow(java.sql.ResultSet rs, int rowNum) throws                    │    │      │    │
+│                  │java.sql.SQLException {                                                           │    │      │    │
+│                  │        try {                                                                     │    │      │    │
+│                  │            return rs.getString("USERNAME");                                      │    │      │    │
+│                  │        } catch (java.sql.SQLException e) {                                       │    │      │    │
+│                  │            if (org.owasp.benchmark.helpers.DatabaseHelper.hideSQLErrors) {       │    │      │    │
+│                  │                return "Error processing query.";                                 │    │      │    │
+│                  │            } else                                                                │    │      │    │
+│                  │                throw e;                                                          │    │      │    │
+│                  │        }                                                                         │    │      │    │
+│                  │    }                                                                             │    │      │    │
+│                  │}                                                                                 │    │      │    │
+│Block             │$obj1                                                                             │77  │doPost│    │
+│Call              │org.owasp.benchmark.helpers.DatabaseHelper.JDBCtemplate.query(sql, new            │75  │doPost│    │
+│                  │org.springframework.jdbc.core.RowMapper<String>() {                               │    │      │    │
+│                  │                                                                                  │    │      │    │
+│                  │    @Override                                                                     │    │      │    │
+│                  │public String mapRow(java.sql.ResultSet rs, int rowNum) throws                    │    │      │    │
+│                  │java.sql.SQLException {                                                           │    │      │    │
+│                  │        try {                                                                     │    │      │    │
+│                  │            return rs.getString("USERNAME");                                      │    │      │    │
+│                  │        } catch (java.sql.SQLException e) {                                       │    │      │    │
+│                  │            if (org.owasp.benchmark.helpers.DatabaseHelper.hideSQLErrors) {       │    │      │    │
+│                  │                return "Error processing query.";                                 │    │      │    │
+│                  │            } else                                                                │    │      │    │
+│                  │                throw e;                                                          │    │      │    │
+│                  │        }                                                                         │    │      │    │
+│                  │    }                                                                             │    │      │    │
+│                  │})                                                                                │    │      │    │
+│Identifier        │org.owasp.benchmark.helpers.DatabaseHelper.JDBCtemplate.query(sql, new            │76  │doPost│    │
+│                  │org.springframework.jdbc.core.RowMapper<String>() {                               │    │      │    │
+│                  │                                                                                  │    │      │    │
+│                  │    @Override                                                                     │    │      │    │
+│                  │public String mapRow(java.sql.ResultSet rs, int rowNum) throws                    │    │      │    │
+│                  │java.sql.SQLException {                                                           │    │      │    │
+│                  │        try {                                                                     │    │      │    │
+│                  │            return rs.getString("USERNAME");                                      │    │      │    │
+│                  │        } catch (java.sql.SQLException e) {                                       │    │      │    │
+│                  │            if (org.owasp.benchmark.helpers.DatabaseHelper.hideSQLErrors) {       │    │      │    │
+│                  │                return "Error processing query.";                                 │    │      │    │
+│                  │            } else                                                                │    │      │    │
+│                  │                throw e;                                                          │    │      │    │
+│                  │        }                                                                         │    │      │    │
+│                  │    }                                                                             │    │      │    │
+│                  │})                                                                                │    │      │    │
+└──────────────────┴──────────────────────────────────────────────────────────────────────────────────┴────┴──────┴────┘
+CPG_RESULT_END
+[INFO ] writing to storage at `/work/workspace/BenchmarkTest01721.java/cpg.bin.tmp`
+[INFO ] closed graph at /work/workspace/BenchmarkTest01721.java/cpg.bin.tmp
+
+[STDERR]
+executing /work/slice.sc
+Using generator for language: JAVASRC: JavaSrcCpgGenerator
+Creating project `BenchmarkTest01721.java` for code at `/project/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01721.java`
+moving cpg.bin.zip to cpg.bin because it is already a database file
+Creating working copy of CPG to be safe
+Loading base CPG from: /work/workspace/BenchmarkTest01721.java/cpg.bin.tmp
+Code successfully imported. You can now query it using `cpg`.
+For an overview of all imported code, type `workspace`.
+Adding default overlays to base CPG
+The graph has been modified. You may want to use the `save` command to persist changes to disk.  All changes will also be saved collectively on exit
+The graph has been modified. You may want to use the `save` command to persist changes to disk.  All changes will also be saved collectively on exit
+Nov 25, 2026 7:47:26 PM org.jline.utils.Log logr
+WARNING: Unable to create a system terminal, creating a dumb terminal (enable debug logging for more information)
+Nov 25, 2026 7:47:27 PM org.jline.utils.Log logr
+WARNING: Unable to create a system terminal, creating a dumb terminal (enable debug logging for more information)
+Nov 25, 2026 7:47:27 PM org.jline.utils.Log logr
+WARNING: Unable to create a system terminal, creating a dumb terminal (enable debug logging for more information)
+Nov 25, 2026 7:47:27 PM org.jline.utils.Log logr
+WARNING: Unable to create a system terminal, creating a dumb terminal (enable debug logging for more information)
+closing/saving project `BenchmarkTest01721.java`

@@ -1,0 +1,30 @@
+STATUS	0
+Q	F0	67	63	java.sql.Connection	prepareCall(java.lang.String)	67
+C	F0	47	42	java.util.Enumeration	nextElement()	false
+C	F0	60	33	org.owasp.benchmark.testcode.BenchmarkTest01459.Test	doSomething(javax.servlet.http.HttpServletRequest,java.lang.String)	true	F0	80	96
+V	67	63	fixed_sql_alternatives	bounded_java_evaluation
+E	67	63	F0	62	constant_expression
+E	67	63	F0	88	constant_expression
+E	67	63	F0	85	collection_initialization
+E	67	63	F0	85	local_definition
+E	67	63	F0	86	collection_append
+E	67	63	F0	87	collection_append
+E	67	63	F0	88	collection_append
+E	67	63	F0	90	collection_remove
+E	67	63	F0	92	constant_expression
+E	67	63	F0	92	collection_read
+E	67	63	F0	92	local_assignment
+E	67	63	F0	83	constant_expression
+E	67	63	F0	83	local_definition
+E	67	63	F0	84	fixed_values_from_branches
+E	67	63	F0	95	helper_return
+E	67	63	F0	60	helper_call
+E	67	63	F0	46	loop_local_values_invalidated
+E	67	63	F0	60	local_definition
+E	67	63	F0	62	string_concatenation
+E	67	63	F0	62	local_definition
+S	45	55	javax.servlet.ServletRequest	getParameterNames()	true
+S	48	39	javax.servlet.ServletRequest	getParameterValues(java.lang.String)	true
+
+[STDERR]
+Picked up JAVA_TOOL_OPTIONS: -XX:-UsePerfData

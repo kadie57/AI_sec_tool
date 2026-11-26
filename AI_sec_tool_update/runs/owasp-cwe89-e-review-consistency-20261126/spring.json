@@ -1,0 +1,120 @@
+{
+  "version": "sql-review-consistency-v1",
+  "evidence": "runs/owasp-cwe89-e-string-provenance-20261126/spring/evidence/sql_evidence.jsonl",
+  "source_review": "runs/owasp-cwe89-e-string-provenance-20261126/spring/llm",
+  "counts": {
+    "NO_CONFLICT_FLAGGED": 11
+  },
+  "cases": [
+    {
+      "issue_id": "89d39a42-5072-4012-b4ee-bee89efe3bb1",
+      "component": "thesis_owasp_cwe89_e_spring_20261125_v1:src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00195.java",
+      "request_sha256": "24b5885de0c4ca5856b8c80692cf49bbbe25755b97283c0088598f0ae2d074f4",
+      "model_verdict": "LIKELY_TP",
+      "review_consistency": {
+        "version": "sql-review-consistency-v1",
+        "status": "NO_CONFLICT_FLAGGED"
+      }
+    },
+    {
+      "issue_id": "b0c1f1f6-8a01-4ec4-b7df-a0d392318441",
+      "component": "thesis_owasp_cwe89_e_spring_20261125_v1:src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00431.java",
+      "request_sha256": "0ee312ffe70be4f7dcc81e0dd82b60446c8e0d3d036ff034d96e62ea5ce09a56",
+      "model_verdict": "LIKELY_TP",
+      "review_consistency": {
+        "version": "sql-review-consistency-v1",
+        "status": "NO_CONFLICT_FLAGGED"
+      }
+    },
+    {
+      "issue_id": "5907927a-c5c1-4d37-9c5e-3b84fc549c99",
+      "component": "thesis_owasp_cwe89_e_spring_20261125_v1:src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00432.java",
+      "request_sha256": "c52dc64d363ff805b8803e2280336df67d4705b9dc94cef457e32a63ac036896",
+      "model_verdict": "LIKELY_FP",
+      "review_consistency": {
+        "version": "sql-review-consistency-v1",
+        "status": "NO_CONFLICT_FLAGGED"
+      }
+    },
+    {
+      "issue_id": "8709eeb4-ade3-4d4f-808c-5c89455ef7a5",
+      "component": "thesis_owasp_cwe89_e_spring_20261125_v1:src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00511.java",
+      "request_sha256": "d0980620a8068274ee03710f8b6f0aac10e1ebc72af572f7434fb9b2326463a2",
+      "model_verdict": "LIKELY_FP",
+      "review_consistency": {
+        "version": "sql-review-consistency-v1",
+        "status": "NO_CONFLICT_FLAGGED"
+      }
+    },
+    {
+      "issue_id": "395d2fa4-c4a3-468b-b72e-1a54df0f2eff",
+      "component": "thesis_owasp_cwe89_e_spring_20261125_v1:src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00597.java",
+      "request_sha256": "bde1fadf05c215d455038e851f62e456610702f5b3e23256ff128f3f83ba9af6",
+      "model_verdict": "LIKELY_TP",
+      "review_consistency": {
+        "version": "sql-review-consistency-v1",
+        "status": "NO_CONFLICT_FLAGGED"
+      }
+    },
+    {
+      "issue_id": "7b722367-6ec2-47b1-b8aa-537245ecaa8a",
+      "component": "thesis_owasp_cwe89_e_spring_20261125_v1:src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00842.java",
+      "request_sha256": "422771c4914dd205241660e5c238b9bac831b655e0fc8c402e492061f011cb72",
+      "model_verdict": "LIKELY_TP",
+      "review_consistency": {
+        "version": "sql-review-consistency-v1",
+        "status": "NO_CONFLICT_FLAGGED"
+      }
+    },
+    {
+      "issue_id": "bb08990d-8d4d-4854-aec2-e93221c1aacb",
+      "component": "thesis_owasp_cwe89_e_spring_20261125_v1:src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00930.java",
+      "request_sha256": "121ffd11ea55c1ceb093fedd940bd2c3f6d17c3d3896be1cfaf3017f067d7904",
+      "model_verdict": "LIKELY_FP",
+      "review_consistency": {
+        "version": "sql-review-consistency-v1",
+        "status": "NO_CONFLICT_FLAGGED"
+      }
+    },
+    {
+      "issue_id": "f8ee910d-26bb-4a08-9c9c-9d7620b408f5",
+      "component": "thesis_owasp_cwe89_e_spring_20261125_v1:src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01085.java",
+      "request_sha256": "66f703361dd3abafb4ec15def85d75552d31826c99c261d03a05d7572f037316",
+      "model_verdict": "LIKELY_FP",
+      "review_consistency": {
+        "version": "sql-review-consistency-v1",
+        "status": "NO_CONFLICT_FLAGGED"
+      }
+    },
+    {
+      "issue_id": "5d50d4d7-1b4c-4102-8fd8-26a08a44163f",
+      "component": "thesis_owasp_cwe89_e_spring_20261125_v1:src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01086.java",
+      "request_sha256": "c85b6403090011469f94275992eec1407cd1da3ad411f378545acb26eddfdff8",
+      "model_verdict": "LIKELY_FP",
+      "review_consistency": {
+        "version": "sql-review-consistency-v1",
+        "status": "NO_CONFLICT_FLAGGED"
+      }
+    },
+    {
+      "issue_id": "bd6d044c-0a69-4cae-a101-364368511867",
+      "component": "thesis_owasp_cwe89_e_spring_20261125_v1:src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01725.java",
+      "request_sha256": "a2038a8dde4062696f6835b0c7e88a00e763f7a3d3af6295a76895516a3f8d80",
+      "model_verdict": "UNKNOWN",
+      "review_consistency": {
+        "version": "sql-review-consistency-v1",
+        "status": "NO_CONFLICT_FLAGGED"
+      }
+    },
+    {
+      "issue_id": "597d0708-60f2-48d3-9e5a-d513bbf84681",
+      "component": "thesis_owasp_cwe89_e_spring_20261125_v1:src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02362.java",
+      "request_sha256": "5bb2232bcb85a59d2ccc53c56b32f6eb14ad2241834c8a37bb981cacf589524d",
+      "model_verdict": "LIKELY_TP",
+      "review_consistency": {
+        "version": "sql-review-consistency-v1",
+        "status": "NO_CONFLICT_FLAGGED"
+      }
+    }
+  ]
+}

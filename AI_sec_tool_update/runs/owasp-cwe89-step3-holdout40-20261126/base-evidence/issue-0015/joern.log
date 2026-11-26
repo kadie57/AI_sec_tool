@@ -1,0 +1,248 @@
+=======================================================================================================
+Invoking CPG generator in a separate process. Note that the new process will consume additional memory.
+If you are importing a large codebase (and/or running into memory issues), please try the following:
+1) exit joern
+2) invoke the frontend: /opt/joern/joern-cli/javasrc2cpg -J-Xmx7956m /project/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01389.java --output /work/workspace/BenchmarkTest01389.java/cpg.bin.zip
+3) start joern, import the cpg: `importCpg("path/to/cpg")`
+=======================================================================================================
+
+[INFO ] initialising from existing storage (/work/workspace/BenchmarkTest01389.java/cpg.bin.tmp)
+[INFO ] Start of pass: io.joern.x2cpg.passes.base.FileCreationPass
+[INFO ] Pass io.joern.x2cpg.passes.base.FileCreationPass completed in 27 ms (73% on mutations). 10 + 0 changes committed from 1 parts.
+[INFO ] Start of pass: io.joern.x2cpg.passes.base.NamespaceCreator
+[INFO ] Pass io.joern.x2cpg.passes.base.NamespaceCreator completed in 5 ms (42% on mutations). 4 + 0 changes committed from 1 parts.
+[INFO ] Start of pass: io.joern.x2cpg.passes.base.TypeDeclStubCreator
+[INFO ] Pass io.joern.x2cpg.passes.base.TypeDeclStubCreator completed in 6 ms (32% on mutations). 16 + 0 changes committed from 1 parts.
+[INFO ] Start of pass: io.joern.x2cpg.passes.base.MethodStubCreator
+[INFO ] Inconsistent/erroneous callInfo on calls to method fullname <operator>.alloc (we have 1 many variants)
+[INFO ] Pass io.joern.x2cpg.passes.base.MethodStubCreator completed in 23 ms (15% on mutations). 185 + 0 changes committed from 1 parts.
+[INFO ] Start of pass: io.joern.x2cpg.passes.base.ParameterIndexCompatPass
+[INFO ] Pass io.joern.x2cpg.passes.base.ParameterIndexCompatPass completed in 2 ms (44% on mutations). 0 + 0 changes committed from 1 parts.
+[INFO ] Start of pass: io.joern.x2cpg.passes.base.MethodDecoratorPass
+[INFO ] Pass io.joern.x2cpg.passes.base.MethodDecoratorPass completed in 6 ms (34% on mutations). 141 + 0 changes committed from 1 parts.
+[INFO ] Start of pass: io.joern.x2cpg.passes.base.AstLinkerPass
+[INFO ] Pass io.joern.x2cpg.passes.base.AstLinkerPass completed in 7 ms (26% on mutations). 39 + 0 changes committed from 1 parts.
+[INFO ] Start of pass: io.joern.x2cpg.passes.base.ContainsEdgePass
+[INFO ] Pass io.joern.x2cpg.passes.base.ContainsEdgePass completed in 7 ms (19% on mutations). 237 + 0 changes committed from 49 parts.
+[INFO ] Start of pass: io.joern.x2cpg.passes.base.TypeRefPass
+[INFO ] Pass io.joern.x2cpg.passes.base.TypeRefPass completed in 3 ms (25% on mutations). 18 + 0 changes committed from 1 parts.
+[INFO ] Start of pass: io.joern.x2cpg.passes.base.TypeEvalPass
+[INFO ] Could not create edge. Destination lookup failed. edgeType=EVAL_TYPE, srcNodeType=LOCAL, srcNodeId=94489280519, dstNodeType=TYPE, dstFullName=java.util.Iterator
+[INFO ] Could not create edge. Destination lookup failed. edgeType=EVAL_TYPE, srcNodeType=IDENTIFIER, srcNodeId=68719476763, dstNodeType=TYPE, dstFullName=java.util.Iterator
+[INFO ] Could not create edge. Destination lookup failed. edgeType=EVAL_TYPE, srcNodeType=IDENTIFIER, srcNodeId=68719476765, dstNodeType=TYPE, dstFullName=java.util.Iterator
+[INFO ] Could not create edge. Destination lookup failed. edgeType=EVAL_TYPE, srcNodeType=IDENTIFIER, srcNodeId=68719476767, dstNodeType=TYPE, dstFullName=java.util.Iterator
+[INFO ] Could not create edge. Destination lookup failed. edgeType=EVAL_TYPE, srcNodeType=CALL, srcNodeId=30064771101, dstNodeType=TYPE, dstFullName=java.util.Iterator
+[INFO ] Could not create edge. Destination lookup failed. edgeType=EVAL_TYPE, srcNodeType=CALL, srcNodeId=30064771102, dstNodeType=TYPE, dstFullName=java.util.Iterator
+[INFO ] Pass io.joern.x2cpg.passes.base.TypeEvalPass completed in 8 ms (23% on mutations). 315 + 0 changes committed from 4 parts.
+[INFO ] Start of pass: io.shiftleft.semanticcpg.Overlays$$anon$1
+[INFO ] Pass io.shiftleft.semanticcpg.Overlays$$anon$1 completed in 4 ms (35% on mutations). 1 + 0 changes committed from 1 parts.
+[INFO ] Start of pass: io.joern.x2cpg.passes.controlflow.CfgCreationPass
+[WARN ] Using order fallback for break statement jump argument
+[WARN ] Using order fallback for try statement finally body
+[INFO ] Pass io.joern.x2cpg.passes.controlflow.CfgCreationPass completed in 46 ms (3% on mutations). 222 + 0 changes committed from 29 parts.
+[INFO ] Start of pass: io.joern.x2cpg.passes.controlflow.cfgdominator.CfgDominatorPass
+[INFO ] Pass io.joern.x2cpg.passes.controlflow.cfgdominator.CfgDominatorPass completed in 18 ms (11% on mutations). 420 + 0 changes committed from 29 parts.
+[INFO ] Start of pass: io.joern.x2cpg.passes.controlflow.codepencegraph.CdgPass
+[INFO ] Pass io.joern.x2cpg.passes.controlflow.codepencegraph.CdgPass completed in 7 ms (12% on mutations). 99 + 0 changes committed from 29 parts.
+[INFO ] Start of pass: io.shiftleft.semanticcpg.Overlays$$anon$1
+[INFO ] Pass io.shiftleft.semanticcpg.Overlays$$anon$1 completed in 1 ms (73% on mutations). 1 + 0 changes committed from 1 parts.
+[INFO ] Start of pass: io.joern.x2cpg.passes.typerelations.TypeHierarchyPass
+[INFO ] Pass io.joern.x2cpg.passes.typerelations.TypeHierarchyPass completed in 4 ms (19% on mutations). 2 + 0 changes committed from 1 parts.
+[INFO ] Start of pass: io.joern.x2cpg.passes.typerelations.AliasLinkerPass
+[INFO ] Pass io.joern.x2cpg.passes.typerelations.AliasLinkerPass completed in 2 ms (30% on mutations). 0 + 0 changes committed from 1 parts.
+[INFO ] Start of pass: io.joern.x2cpg.passes.typerelations.FieldAccessLinkerPass
+[INFO ] Could not create edge. Destination lookup failed. edgeType=REF, srcNodeType=CALL, srcNodeId=30064771094, dstNodeType=MEMBER, dstFullName=ANY.JDBCtemplate
+[INFO ] Could not create edge. Destination lookup failed. edgeType=REF, srcNodeType=CALL, srcNodeId=30064771095, dstNodeType=MEMBER, dstFullName=ANY.DatabaseHelper
+[INFO ] Could not create edge. Destination lookup failed. edgeType=REF, srcNodeType=CALL, srcNodeId=30064771096, dstNodeType=MEMBER, dstFullName=ANY.helpers
+[INFO ] Could not create edge. Destination lookup failed. edgeType=REF, srcNodeType=CALL, srcNodeId=30064771097, dstNodeType=MEMBER, dstFullName=ANY.benchmark
+[INFO ] Could not create edge. Destination lookup failed. edgeType=REF, srcNodeType=CALL, srcNodeId=30064771098, dstNodeType=MEMBER, dstFullName=ANY.owasp
+[INFO ] Could not create edge. Destination lookup failed. edgeType=REF, srcNodeType=CALL, srcNodeId=30064771111, dstNodeType=MEMBER, dstFullName=ANY.ESAPI
+[INFO ] Could not create edge. Destination lookup failed. edgeType=REF, srcNodeType=CALL, srcNodeId=30064771112, dstNodeType=MEMBER, dstFullName=ANY.esapi
+[INFO ] Could not create edge. Destination lookup failed. edgeType=REF, srcNodeType=CALL, srcNodeId=30064771113, dstNodeType=MEMBER, dstFullName=ANY.owasp
+[INFO ] Could not create edge. Destination lookup failed. edgeType=REF, srcNodeType=CALL, srcNodeId=30064771120, dstNodeType=MEMBER, dstFullName=ANY.ESAPI
+[INFO ] Could not create edge. Destination lookup failed. edgeType=REF, srcNodeType=CALL, srcNodeId=30064771121, dstNodeType=MEMBER, dstFullName=ANY.esapi
+[INFO ] Could not create edge. Destination lookup failed. edgeType=REF, srcNodeType=CALL, srcNodeId=30064771122, dstNodeType=MEMBER, dstFullName=ANY.owasp
+[INFO ] Could not create edge. Destination lookup failed. edgeType=REF, srcNodeType=CALL, srcNodeId=30064771123, dstNodeType=MEMBER, dstFullName=ANY.hideSQLErrors
+[INFO ] Could not create edge. Destination lookup failed. edgeType=REF, srcNodeType=CALL, srcNodeId=30064771124, dstNodeType=MEMBER, dstFullName=ANY.DatabaseHelper
+[INFO ] Could not create edge. Destination lookup failed. edgeType=REF, srcNodeType=CALL, srcNodeId=30064771125, dstNodeType=MEMBER, dstFullName=ANY.helpers
+[INFO ] Could not create edge. Destination lookup failed. edgeType=REF, srcNodeType=CALL, srcNodeId=30064771126, dstNodeType=MEMBER, dstFullName=ANY.benchmark
+[INFO ] Could not create edge. Destination lookup failed. edgeType=REF, srcNodeType=CALL, srcNodeId=30064771127, dstNodeType=MEMBER, dstFullName=ANY.owasp
+[INFO ] Pass io.joern.x2cpg.passes.typerelations.FieldAccessLinkerPass completed in 18 ms (4% on mutations). 2 + 0 changes committed from 1 parts.
+[INFO ] Start of pass: io.shiftleft.semanticcpg.Overlays$$anon$1
+[INFO ] Pass io.shiftleft.semanticcpg.Overlays$$anon$1 completed in 1 ms (72% on mutations). 1 + 0 changes committed from 1 parts.
+[INFO ] Start of pass: io.joern.x2cpg.passes.callgraph.MethodRefLinker
+[INFO ] Pass io.joern.x2cpg.passes.callgraph.MethodRefLinker completed in 1 ms (39% on mutations). 0 + 0 changes committed from 1 parts.
+[INFO ] Start of pass: io.joern.x2cpg.passes.callgraph.StaticCallLinker
+[INFO ] Pass io.joern.x2cpg.passes.callgraph.StaticCallLinker completed in 2 ms (26% on mutations). 49 + 0 changes committed from 1 parts.
+[INFO ] Start of pass: io.joern.x2cpg.passes.callgraph.DynamicCallLinker
+[INFO ] Pass io.joern.x2cpg.passes.callgraph.DynamicCallLinker completed in 11 ms (6% on mutations). 24 + 0 changes committed from 1 parts.
+[INFO ] Start of pass: io.shiftleft.semanticcpg.Overlays$$anon$1
+[INFO ] Pass io.shiftleft.semanticcpg.Overlays$$anon$1 completed in 1 ms (71% on mutations). 1 + 0 changes committed from 1 parts.
+[INFO ] Start of pass: io.joern.dataflowengineoss.passes.reachingdef.ReachingDefPass
+[INFO ] Calculating reaching definitions for: <operator>.addition in <empty>
+[INFO ] Calculating reaching definitions for: <unresolvedNamespace>.get:<unresolvedSignature>(1) in <empty>
+[INFO ] Calculating reaching definitions for: <unresolvedNamespace>.toString:<unresolvedSignature>(0) in <empty>
+[INFO ] Calculating reaching definitions for: <unresolvedNamespace>.println:<unresolvedSignature>(1) in <empty>
+[INFO ] Calculating reaching definitions for: javax.servlet.http.HttpServletResponse.setContentType:<unresolvedSignature>(1) in <empty>
+[INFO ] Calculating reaching definitions for: ANY.iterator:java.util.Iterator() in <empty>
+[INFO ] Calculating reaching definitions for: <unresolvedNamespace>.charAt:<unresolvedSignature>(1) in <empty>
+[INFO ] Calculating reaching definitions for: org.owasp.benchmark.testcode.BenchmarkTest01389.<init>:void() in 
+[INFO ] Number of definitions for org.owasp.benchmark.testcode.BenchmarkTest01389.<init>:void(): 1
+[INFO ] Number of definitions for ANY.iterator:java.util.Iterator(): 1
+[INFO ] Number of definitions for javax.servlet.http.HttpServletResponse.setContentType:<unresolvedSignature>(1): 2
+[INFO ] Number of definitions for <unresolvedNamespace>.get:<unresolvedSignature>(1): 2
+[INFO ] Number of definitions for <unresolvedNamespace>.toString:<unresolvedSignature>(0): 1
+[INFO ] Number of definitions for <unresolvedNamespace>.charAt:<unresolvedSignature>(1): 2
+[INFO ] Number of definitions for <operator>.addition: 2
+[INFO ] Number of definitions for <unresolvedNamespace>.println:<unresolvedSignature>(1): 2
+[INFO ] Calculating reaching definitions for: java.util.Iterator.next:java.lang.Object() in <empty>
+[INFO ] Calculating reaching definitions for: <unresolvedNamespace>.encodeForHTML:<unresolvedSignature>(1) in <empty>
+[INFO ] Calculating reaching definitions for: <operator>.fieldAccess in <empty>
+[INFO ] Calculating reaching definitions for: <operator>.assignment in <empty>
+[INFO ] Calculating reaching definitions for: <operator>.alloc in <empty>
+[INFO ] Number of definitions for <operator>.assignment: 2
+[INFO ] Number of definitions for <operator>.alloc: 1
+[INFO ] Number of definitions for java.util.Iterator.next:java.lang.Object(): 1
+[INFO ] Calculating reaching definitions for: <unresolvedNamespace>.encoder:<unresolvedSignature>(0) in <empty>
+[INFO ] Calculating reaching definitions for: org.owasp.benchmark.testcode.BenchmarkTest01389.doPost:void(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse) in 
+[INFO ] Calculating reaching definitions for: <unresolvedNamespace>.isEmpty:<unresolvedSignature>(0) in <empty>
+[INFO ] Number of definitions for <unresolvedNamespace>.encoder:<unresolvedSignature>(0): 1
+[INFO ] Calculating reaching definitions for: <operator>.notEquals in <empty>
+[INFO ] Calculating reaching definitions for: <operator>.throw in <empty>
+[INFO ] Number of definitions for <unresolvedNamespace>.isEmpty:<unresolvedSignature>(0): 1
+[INFO ] Number of definitions for <unresolvedNamespace>.encodeForHTML:<unresolvedSignature>(1): 2
+[INFO ] Calculating reaching definitions for: javax.servlet.http.HttpServletRequest.getParameterMap:<unresolvedSignature>(0) in <empty>
+[INFO ] Calculating reaching definitions for: <unresolvedNamespace>.queryForList:<unresolvedSignature>(1) in <empty>
+[INFO ] Number of definitions for javax.servlet.http.HttpServletRequest.getParameterMap:<unresolvedSignature>(0): 1
+[INFO ] Number of definitions for <unresolvedNamespace>.queryForList:<unresolvedSignature>(1): 2
+[INFO ] Calculating reaching definitions for: <operator>.logicalNot in <empty>
+[INFO ] Calculating reaching definitions for: <operator>.indexAccess in <empty>
+[INFO ] Number of definitions for <operator>.logicalNot: 1
+[INFO ] Calculating reaching definitions for: java.util.Iterator.hasNext:boolean() in <empty>
+[INFO ] Number of definitions for <operator>.indexAccess: 2
+[INFO ] Calculating reaching definitions for: javax.servlet.http.HttpServletResponse.getWriter:<unresolvedSignature>(0) in <empty>
+[INFO ] Number of definitions for java.util.Iterator.hasNext:boolean(): 1
+[INFO ] Number of definitions for javax.servlet.http.HttpServletResponse.getWriter:<unresolvedSignature>(0): 1
+[INFO ] Calculating reaching definitions for: org.owasp.benchmark.testcode.BenchmarkTest01389.<clinit>:void() in <empty>
+[INFO ] Number of definitions for <operator>.fieldAccess: 2
+[INFO ] Calculating reaching definitions for: org.owasp.benchmark.testcode.BenchmarkTest01389$Test.<init>:void() in 
+[INFO ] Calculating reaching definitions for: javax.servlet.ServletException.<init>:<unresolvedSignature>(1) in <empty>
+[INFO ] Number of definitions for <operator>.throw: 1
+[INFO ] Calculating reaching definitions for: org.owasp.benchmark.testcode.BenchmarkTest01389.doGet:void(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse) in 
+[INFO ] Number of definitions for javax.servlet.ServletException.<init>:<unresolvedSignature>(1): 2
+[INFO ] Number of definitions for org.owasp.benchmark.testcode.BenchmarkTest01389.<clinit>:void(): 2
+[INFO ] Calculating reaching definitions for: org.owasp.benchmark.testcode.BenchmarkTest01389$Test.doSomething:<unresolvedSignature>(2) in 
+[INFO ] Number of definitions for <operator>.notEquals: 2
+[INFO ] Number of definitions for org.owasp.benchmark.testcode.BenchmarkTest01389$Test.<init>:void(): 5
+[INFO ] Number of definitions for org.owasp.benchmark.testcode.BenchmarkTest01389.doGet:void(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse): 7
+[INFO ] Number of definitions for org.owasp.benchmark.testcode.BenchmarkTest01389$Test.doSomething:<unresolvedSignature>(2): 20
+[INFO ] Number of definitions for org.owasp.benchmark.testcode.BenchmarkTest01389.doPost:void(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse): 104
+[INFO ] Pass io.joern.dataflowengineoss.passes.reachingdef.ReachingDefPass completed in 156 ms (1% on mutations). 461 + 0 changes committed from 29 parts.
+[INFO ] Start of pass: io.shiftleft.semanticcpg.Overlays$$anon$1
+[INFO ] Pass io.shiftleft.semanticcpg.Overlays$$anon$1 completed in 8 ms (97% on mutations). 1 + 0 changes committed from 1 parts.
+CPG_GATE_BEGIN
+SINK_CALL_COUNT=1
+SINK_ARGUMENT_COUNT=1
+CPG_GATE_END
+CPG_RESULT_BEGIN
+FLOW_COUNT=3
+
+┌─────────────────┬──────────────────────────────────────────────────────────────────────────────┬────┬───────────┬────┐
+│nodeType         │tracked                                                                       │line│method     │file│
+├─────────────────┼──────────────────────────────────────────────────────────────────────────────┼────┼───────────┼────┤
+│MethodParameterIn│doSomething(this, HttpServletRequest request, String param)                   │79  │doSomething│    │
+│Identifier       │bar = param                                                                   │89  │doSomething│    │
+│Identifier       │bar = param                                                                   │89  │doSomething│    │
+│Identifier       │return bar;                                                                   │103 │doSomething│    │
+│Return           │return bar;                                                                   │103 │doSomething│    │
+│MethodReturn     │RET                                                                           │79  │doSomething│    │
+│Call             │doSomething(request, param)                                                   │50  │doPost     │    │
+│Identifier       │String bar = new Test().doSomething(request, param)                           │50  │doPost     │    │
+│Call             │"SELECT * from USERS where USERNAME='foo' and PASSWORD='" + bar + "'"         │52  │doPost     │    │
+│Identifier       │String sql = "SELECT * from USERS where USERNAME='foo' and PASSWORD='" + bar +│52  │doPost     │    │
+│                 │"'"                                                                           │    │           │    │
+│Identifier       │org.owasp.benchmark.helpers.DatabaseHelper.JDBCtemplate.queryForList(sql)     │56  │doPost     │    │
+└─────────────────┴──────────────────────────────────────────────────────────────────────────────┴────┴───────────┴────┘
+
+┌─────────────────┬──────────────────────────────────────────────────────────────────────────────┬────┬───────────┬────┐
+│nodeType         │tracked                                                                       │line│method     │file│
+├─────────────────┼──────────────────────────────────────────────────────────────────────────────┼────┼───────────┼────┤
+│MethodParameterIn│doPost(this, HttpServletRequest request, HttpServletResponse response)        │39  │doPost     │    │
+│Identifier       │getParameterMap()                                                             │43  │doPost     │    │
+│Call             │getParameterMap()                                                             │43  │doPost     │    │
+│Identifier       │java.util.Map map = request.getParameterMap()                                 │43  │doPost     │    │
+│Identifier       │isEmpty()                                                                     │45  │doPost     │    │
+│Identifier       │get("BenchmarkTest01389")                                                     │46  │doPost     │    │
+│Call             │get("BenchmarkTest01389")                                                     │46  │doPost     │    │
+│Identifier       │String[] values = map.get("BenchmarkTest01389")                               │46  │doPost     │    │
+│Identifier       │values != null                                                                │47  │doPost     │    │
+│Call             │param = values[0]                                                             │47  │doPost     │    │
+│Identifier       │param = values[0]                                                             │47  │doPost     │    │
+│Identifier       │doSomething(request, param)                                                   │50  │doPost     │    │
+│MethodParameterIn│doSomething(this, HttpServletRequest request, String param)                   │79  │doSomething│    │
+│Identifier       │bar = param                                                                   │89  │doSomething│    │
+│Identifier       │bar = param                                                                   │89  │doSomething│    │
+│Identifier       │return bar;                                                                   │103 │doSomething│    │
+│Return           │return bar;                                                                   │103 │doSomething│    │
+│MethodReturn     │RET                                                                           │79  │doSomething│    │
+│Call             │doSomething(request, param)                                                   │50  │doPost     │    │
+│Identifier       │String bar = new Test().doSomething(request, param)                           │50  │doPost     │    │
+│Call             │"SELECT * from USERS where USERNAME='foo' and PASSWORD='" + bar + "'"         │52  │doPost     │    │
+│Identifier       │String sql = "SELECT * from USERS where USERNAME='foo' and PASSWORD='" + bar +│52  │doPost     │    │
+│                 │"'"                                                                           │    │           │    │
+│Identifier       │org.owasp.benchmark.helpers.DatabaseHelper.JDBCtemplate.queryForList(sql)     │56  │doPost     │    │
+└─────────────────┴──────────────────────────────────────────────────────────────────────────────┴────┴───────────┴────┘
+
+┌─────────────────┬──────────────────────────────────────────────────────────────────────────────┬────┬───────────┬────┐
+│nodeType         │tracked                                                                       │line│method     │file│
+├─────────────────┼──────────────────────────────────────────────────────────────────────────────┼────┼───────────┼────┤
+│MethodParameterIn│doGet(this, HttpServletRequest request, HttpServletResponse response)         │33  │doGet      │    │
+│Identifier       │doPost(request, response)                                                     │35  │doGet      │    │
+│MethodParameterIn│doPost(this, HttpServletRequest request, HttpServletResponse response)        │39  │doPost     │    │
+│Identifier       │getParameterMap()                                                             │43  │doPost     │    │
+│Call             │getParameterMap()                                                             │43  │doPost     │    │
+│Identifier       │java.util.Map map = request.getParameterMap()                                 │43  │doPost     │    │
+│Identifier       │isEmpty()                                                                     │45  │doPost     │    │
+│Identifier       │get("BenchmarkTest01389")                                                     │46  │doPost     │    │
+│Call             │get("BenchmarkTest01389")                                                     │46  │doPost     │    │
+│Identifier       │String[] values = map.get("BenchmarkTest01389")                               │46  │doPost     │    │
+│Identifier       │values != null                                                                │47  │doPost     │    │
+│Call             │param = values[0]                                                             │47  │doPost     │    │
+│Identifier       │param = values[0]                                                             │47  │doPost     │    │
+│Identifier       │doSomething(request, param)                                                   │50  │doPost     │    │
+│MethodParameterIn│doSomething(this, HttpServletRequest request, String param)                   │79  │doSomething│    │
+│Identifier       │bar = param                                                                   │89  │doSomething│    │
+│Identifier       │bar = param                                                                   │89  │doSomething│    │
+│Identifier       │return bar;                                                                   │103 │doSomething│    │
+│Return           │return bar;                                                                   │103 │doSomething│    │
+│MethodReturn     │RET                                                                           │79  │doSomething│    │
+│Call             │doSomething(request, param)                                                   │50  │doPost     │    │
+│Identifier       │String bar = new Test().doSomething(request, param)                           │50  │doPost     │    │
+│Call             │"SELECT * from USERS where USERNAME='foo' and PASSWORD='" + bar + "'"         │52  │doPost     │    │
+│Identifier       │String sql = "SELECT * from USERS where USERNAME='foo' and PASSWORD='" + bar +│52  │doPost     │    │
+│                 │"'"                                                                           │    │           │    │
+│Identifier       │org.owasp.benchmark.helpers.DatabaseHelper.JDBCtemplate.queryForList(sql)     │56  │doPost     │    │
+└─────────────────┴──────────────────────────────────────────────────────────────────────────────┴────┴───────────┴────┘
+CPG_RESULT_END
+[INFO ] writing to storage at `/work/workspace/BenchmarkTest01389.java/cpg.bin.tmp`
+[INFO ] closed graph at /work/workspace/BenchmarkTest01389.java/cpg.bin.tmp
+
+[STDERR]
+executing /work/slice.sc
+Using generator for language: JAVASRC: JavaSrcCpgGenerator
+Creating project `BenchmarkTest01389.java` for code at `/project/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01389.java`
+moving cpg.bin.zip to cpg.bin because it is already a database file
+Creating working copy of CPG to be safe
+Loading base CPG from: /work/workspace/BenchmarkTest01389.java/cpg.bin.tmp
+Code successfully imported. You can now query it using `cpg`.
+For an overview of all imported code, type `workspace`.
+Adding default overlays to base CPG
+The graph has been modified. You may want to use the `save` command to persist changes to disk.  All changes will also be saved collectively on exit
+The graph has been modified. You may want to use the `save` command to persist changes to disk.  All changes will also be saved collectively on exit
+Nov 25, 2026 7:44:56 PM org.jline.utils.Log logr
+WARNING: Unable to create a system terminal, creating a dumb terminal (enable debug logging for more information)
+Nov 25, 2026 7:44:56 PM org.jline.utils.Log logr
+WARNING: Unable to create a system terminal, creating a dumb terminal (enable debug logging for more information)
+Nov 25, 2026 7:44:56 PM org.jline.utils.Log logr
+WARNING: Unable to create a system terminal, creating a dumb terminal (enable debug logging for more information)
+closing/saving project `BenchmarkTest01389.java`

@@ -1,0 +1,101 @@
+{
+  "state": "COMPLETED",
+  "policy": "sql-review-consistency-v1",
+  "method": "Replay the original responses and verify request hashes, without new model calls. Join reference labels after flagging.",
+  "model_calls": 0,
+  "changed_model_verdicts": 0,
+  "owasp_step_1_replay": {
+    "warnings": 29,
+    "raw_counts": {
+      "TP": 13,
+      "UNKNOWN_NEG": 2,
+      "TN": 11,
+      "UNKNOWN_POS": 2,
+      "FP": 1
+    },
+    "raw_model_correct": 24,
+    "flagged": 1,
+    "flagged_reference_negative": 1,
+    "flagged_reference_positive": 0,
+    "raw_false_positives_flagged": 1,
+    "flagged_cases": [
+      {
+        "issue_id": "270f2ac7-5240-4672-977e-856184c602df",
+        "component": "thesis_owasp_cwe89_e_unseen_20261125_v1:src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02185.java",
+        "request_sha256": "3533324ce0b0c3d0f9e7a2c82012912ae528e456163b583d11cea3600abdbcd6",
+        "model_verdict": "LIKELY_TP",
+        "review_consistency": {
+          "version": "sql-review-consistency-v1",
+          "status": "REVIEW_REQUIRED",
+          "reason": "likely_tp_conflicts_with_request_independent_sql_text",
+          "model_verdict": "LIKELY_TP",
+          "java_evidence": {
+            "status": "fixed_sql_alternatives",
+            "scope": "modeled_java_execution_up_to_the_reported_call",
+            "call": {
+              "file_id": "F0",
+              "line": 53,
+              "column": 23
+            },
+            "sql_argument": {
+              "file_id": "F0",
+              "line": 53
+            },
+            "references": [
+              {
+                "file_id": "F0",
+                "line": 67,
+                "role": "fixed_values_from_branches"
+              }
+            ]
+          }
+        },
+        "reference_vulnerability": false,
+        "raw_outcome": "FP"
+      }
+    ],
+    "baseline_summary": "runs/owasp-cwe89-e-string-provenance-20261126/summary.json",
+    "labels_file": "runs/owasp-cwe89-e-spring-20261125/reference-labels.json",
+    "audit_files": [
+      "jdbc.json",
+      "spring.json"
+    ]
+  },
+  "juliet_archived_regression": {
+    "warnings": 20,
+    "raw_counts": {
+      "TP": 8,
+      "TN": 12
+    },
+    "raw_model_correct": 20,
+    "flagged": 0,
+    "flagged_reference_negative": 0,
+    "flagged_reference_positive": 0,
+    "raw_false_positives_flagged": 0,
+    "flagged_cases": [],
+    "labels_file": "runs/juliet-cwe89-holdout-20261124/warning-labels.json",
+    "audit_file": "juliet-regression.json"
+  },
+  "experimental_dispatch": {
+    "default": "disabled",
+    "spring_warnings_verified": 11,
+    "request_changes_when_explicitly_enabled": 2,
+    "audit_files": [
+      "dispatch-disabled-check.json",
+      "dispatch-enabled-check.json"
+    ]
+  },
+  "inputs_sha256": {
+    "runs/owasp-cwe89-e-string-provenance-20261126/summary.json": "a7d6088142cdeb7ebd0f6ef926aeeb2943a273bba0f39b4705f7b0cf46bea00a",
+    "runs/owasp-cwe89-e-spring-20261125/reference-labels.json": "86b394ec5946d3728158fc39385e7d08e8c6c46e79bab6984cde57bd03246252",
+    "runs/juliet-cwe89-holdout-20261124/warning-labels.json": "4409a04c05d438e08942b9397bc919050254ecadc8314d83d988c2f92e3c431d",
+    "runs/owasp-cwe89-e-string-provenance-20261126/jdbc/evidence/sql_evidence.jsonl": "ce63bf49e0c2dd0efeb962a5f29091a24ca90c4a341f73fc5c8394cedb3dbf55",
+    "runs/owasp-cwe89-e-string-provenance-20261126/spring/evidence/sql_evidence.jsonl": "ead4f6c9bcabb7bb1666e8ebc47bc3f1e905cc8374787745a7c819883e23e8b8",
+    "runs/juliet-cwe89-value-proof-20261125/evidence/sql_evidence.jsonl": "c4adb21dbd28cc377cd01bc984458cd9f5ac19f2b55aa6d9e38beb7345e7742d",
+    "runs/owasp-cwe89-e-dispatch-factory-20261126/spring/evidence/sql_evidence.jsonl": "c7ed5055be0d76d5b18d19dc248e4a734f605fcf4421ad854cc68229b8665eb4",
+    "runs/owasp-cwe89-e-string-provenance-20261126/jdbc/llm/manifest.json": "23ff6c2b6d0e88d99cda685fd536ab8a6cb8dfd34b8eaa5b9c580f9e45862158",
+    "runs/owasp-cwe89-e-string-provenance-20261126/spring/llm/manifest.json": "10ed4b6b042c46dac435ae412d60e5d6b9bcdb5132bad2cbf3097877c9fba1dc",
+    "runs/juliet-cwe89-value-proof-20261125/llm/manifest.json": "3cd32ddb834e57e2f6d0d31ecf355ce3e4ee77ab8772d2631a0393b0a0ae32a4",
+    "runs/owasp-cwe89-e-dispatch-factory-20261126/spring/llm/manifest.json": "a7ff4cc78bcd6979afd9d311308926da275a61f335e227311bbdb7bd72571d58"
+  }
+}

@@ -1,0 +1,168 @@
+{
+  "status": "candidate_paths",
+  "matched_sources": 1,
+  "source_count": 1,
+  "candidate_paths_found": 1,
+  "search_limit_hit": false,
+  "paths": [
+    {
+      "source": {
+        "file_id": "F0",
+        "line": 43,
+        "method": "doPost",
+        "method_start": 38,
+        "method_end": 107,
+        "node_type": "Call",
+        "api_owner": "javax.servlet.http.HttpServletRequest",
+        "api_signature": "getQueryString()"
+      },
+      "steps": [
+        {
+          "file_id": "F0",
+          "line": 46,
+          "method": "doPost",
+          "method_start": 38,
+          "method_end": 107,
+          "node_type": "Identifier"
+        },
+        {
+          "file_id": "F0",
+          "line": 58,
+          "method": "doPost",
+          "method_start": 38,
+          "method_end": 107,
+          "node_type": "Call"
+        },
+        {
+          "file_id": "F0",
+          "line": 64,
+          "method": "doPost",
+          "method_start": 38,
+          "method_end": 107,
+          "node_type": "Identifier"
+        },
+        {
+          "file_id": "F0",
+          "line": 66,
+          "method": "doPost",
+          "method_start": 38,
+          "method_end": 107,
+          "node_type": "Identifier"
+        },
+        {
+          "file_id": "F0",
+          "line": 70,
+          "method": "doPost",
+          "method_start": 38,
+          "method_end": 107,
+          "node_type": "Identifier"
+        },
+        {
+          "file_id": "F0",
+          "line": 116,
+          "method": "doSomething",
+          "method_start": 111,
+          "method_end": 119,
+          "node_type": "Identifier"
+        },
+        {
+          "file_id": "F2",
+          "line": 24,
+          "method": "doSomething",
+          "method_start": 22,
+          "method_end": 27,
+          "node_type": "Identifier"
+        },
+        {
+          "file_id": "F2",
+          "line": 26,
+          "method": "doSomething",
+          "method_start": 22,
+          "method_end": 27,
+          "node_type": "Identifier"
+        },
+        {
+          "file_id": "F0",
+          "line": 116,
+          "method": "doSomething",
+          "method_start": 111,
+          "method_end": 119,
+          "node_type": "Call"
+        },
+        {
+          "file_id": "F0",
+          "line": 70,
+          "method": "doPost",
+          "method_start": 38,
+          "method_end": 107,
+          "node_type": "Call"
+        }
+      ],
+      "sink": {
+        "file_id": "F0",
+        "line": 76,
+        "name": "query",
+        "method": "doPost",
+        "method_start": 38,
+        "method_end": 107
+      },
+      "omitted_steps": 11,
+      "unlocated_nodes": 0,
+      "dispatch": [
+        {
+          "file_id": "F0",
+          "line": 116,
+          "name": "doSomething",
+          "possible_targets": [
+            {
+              "file_id": "F1",
+              "line": 22,
+              "method": "org.owasp.benchmark.helpers.Thing1.doSomething:<unresolvedSignature>(1)"
+            },
+            {
+              "file_id": "F2",
+              "line": 22,
+              "method": "org.owasp.benchmark.helpers.Thing2.doSomething:<unresolvedSignature>(1)"
+            },
+            {
+              "file_id": "F4",
+              "line": 21,
+              "method": "org.owasp.benchmark.helpers.ThingInterface.doSomething:<unresolvedSignature>(1)"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "paths_not_shown": 0,
+  "version": "sql-anchored-paths-v2",
+  "scope": "verified_java_bundle",
+  "inputs": {
+    "F0": {
+      "path": "src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01721.java",
+      "source_sha256": "e5e9483511cd72473de8c44d6ff0e5d6790f93495fb611bd870d991280f8d1e6",
+      "staged_sha256": "02c358b9d54c13bd6dcdc8ad9193b2dec7e3a02e09aabb26fd3ba8d8b3d9df81"
+    },
+    "F1": {
+      "path": "src/main/java/org/owasp/benchmark/helpers/Thing1.java",
+      "source_sha256": "eaedefdac70f0edcdea3e4852271e1300b88cff6831c64ef6cbbffbbf177ad1d",
+      "staged_sha256": "86ceeb55fa51a0d7537cb6195933917666603eb843211fcf5440be0bd1472506"
+    },
+    "F2": {
+      "path": "src/main/java/org/owasp/benchmark/helpers/Thing2.java",
+      "source_sha256": "843485443164526e04e2d45c60721a44971e00f334408ce00b4e2bf8cd63bc7b",
+      "staged_sha256": "fae0cb6fc61dace346b88386ca92f7bc6e4ebf4cbc1f9209e361c9603f53884b"
+    },
+    "F3": {
+      "path": "src/main/java/org/owasp/benchmark/helpers/ThingFactory.java",
+      "source_sha256": "7aee4ac57445114eeab59bff764d2ec3798f92da89ddc6e206130f52cf472f49",
+      "staged_sha256": "47eaa3ad644d24b1ca2d376c9216c788a88f53d8c319a0f0c4a454077054fa57"
+    },
+    "F4": {
+      "path": "src/main/java/org/owasp/benchmark/helpers/ThingInterface.java",
+      "source_sha256": "7964f2910f892d646c855e1030de91b9a36dcfa4b14dee25a082fa8680d93ff8",
+      "staged_sha256": "2b1d9437d200b0fa607ad5bafe4bd4515702f9fbef307c617fb53df422b55da0"
+    }
+  },
+  "interpretation": "Candidate dataflow. Runtime branch and dispatch feasibility require separate evidence."
+}

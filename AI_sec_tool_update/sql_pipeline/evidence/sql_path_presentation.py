@@ -24,6 +24,10 @@ VALUE_EVIDENCE_ROLES = {
     "fixed_values_from_branches": "fixed values on continuing branches",
     "return_branch_excluded": "branch returns before the target",
     "loop_local_values_invalidated": "loop-written local values left unknown",
+    "string_to_bytes": "text encoded as bytes",
+    "base64_encode": "Base64 encoding",
+    "base64_decode": "Base64 decoding",
+    "bytes_to_string": "text reconstructed from bytes",
 }
 BRANCH_ROLES = {
     "switch_selector", "switch_case_selected", "switch_fallthrough",
@@ -32,10 +36,11 @@ BRANCH_ROLES = {
 }
 CALLER_ROLES = {"caller_argument", "callee_parameter"}
 COLLECTION_ROLES = {"collection_initialization", "collection_append", "collection_remove", "collection_put", "collection_read"}
-VALUE_CHAIN_ROLES = CALLER_ROLES | COLLECTION_ROLES | {"local_assignment", "helper_return", "helper_call",
+TRANSFORMATION_ROLES = {"string_to_bytes", "base64_encode", "base64_decode", "bytes_to_string"}
+VALUE_CHAIN_ROLES = CALLER_ROLES | COLLECTION_ROLES | TRANSFORMATION_ROLES | {"local_assignment", "helper_return", "helper_call",
                                                       "servlet_request_read", "string_concatenation"}
 VALUE_PROOF_ROLES = (BRANCH_ROLES - {"switch_selector"}) | CALLER_ROLES | {
-    "local_assignment", "helper_return", "servlet_request_read", "collection_remove", "collection_read",
+    "local_assignment", "helper_return", "servlet_request_read", "collection_remove", "collection_read", "bytes_to_string",
 }
 INTEGER_EVIDENCE_ROLES = {"integer_arithmetic", "integer_comparison"}
 CONSTANT_CONTEXT_ROLES = {"constant_expression", "constant_string_index"} | INTEGER_EVIDENCE_ROLES
@@ -66,7 +71,8 @@ def verified_argument(selected, values, alert):
     call_line = sink.get("line")
     sql_argument = sink.get("argument")
     if (argument.get("reason") != "bounded_java_evaluation"
-            or argument.get("status") not in {"constant_sql_text", "fixed_sql_alternatives", "external_input_contributes"}
+            or argument.get("status") not in {"constant_sql_text", "fixed_sql_alternatives",
+                                               "request_independent_sql_text", "external_input_contributes"}
             or sink.get("role") != "sql_text" or sink.get("argument_index") != 1 or sink.get("file_id") != "F0"
             or type(call_line) is not int or not alert["start_line"] <= call_line <= alert["end_line"]
             or not isinstance(sql_argument, dict) or sql_argument.get("file_id") != "F0"
@@ -107,6 +113,10 @@ def verified_display(argument, visible, files, *, structured=False):
         statement = (f"Static Java evaluation verified that the SQL text argument at {location} has only fixed "
                      "string alternatives on the modeled paths that reach this call. "
                      "Input can influence branch selection, but its text is not inserted into any alternative.")
+    elif argument["status"] == "request_independent_sql_text" and "bytes_to_string" in refs:
+        statement = (f"Static Java evaluation verified that the SQL text argument at {location} is independent of "
+                     "request data on the modeled execution. The Base64 round trip starts from fixed text. "
+                     "The exact reconstructed characters may depend on the JVM's default charset.")
     elif argument["status"] == "external_input_contributes" and "servlet_request_read" in refs:
         statement = (f"Static Java evaluation verified that request data read at {refs['servlet_request_read']} "
                      f"contributes to the SQL text argument at {location} on the evaluated execution.")
@@ -159,9 +169,13 @@ def render_path_snippets(evidence, *, verified_sink_note=False, structured_sink_
     anchored = selected.get("anchored_paths") or {}
     anchored_paths = anchored.get("paths", [])
     value_argument = None
+    dispatch_evidence = []
     if verified_sink_note or structured_sink_evidence:
         selected = selected.copy()
-        value_argument = verified_argument(selected, selected.pop("jdbc_value_evidence", None), alert)
+        values = selected.pop("jdbc_value_evidence", None)
+        value_argument = verified_argument(selected, values, alert)
+        dispatch_evidence = [group for argument in (values or {}).get("arguments", [])
+                             for group in argument.get("dispatch_evidence", [])]
     visible = set()
 
     def excerpt(start, end, *, repeat=(), file_id="F0"):
@@ -232,6 +246,18 @@ def render_path_snippets(evidence, *, verified_sink_note=False, structured_sink_
             for ref in (edge, *edge["possible_targets"]):
                 if ref["file_id"] in clipped:
                     related.extend(excerpt(ref["line"], ref["line"], file_id=ref["file_id"]))
+    for group in dispatch_evidence:
+        for target in group["targets"]:
+            ref = target["return"]
+            if ref["file_id"] in clipped:
+                related.extend(excerpt(ref["line"] - SUPPORT_RADIUS, ref["line"] + SUPPORT_RADIUS,
+                                       file_id=ref["file_id"]))
+        if factory := group.get("receiver_factory"):
+            for ref in (factory["initializer"], factory["declaration"], *factory["direct_returns"],
+                        *(resource["read"] for resource in factory["packaged_resources"])):
+                if ref["file_id"] == "F0" or ref["file_id"] in clipped:
+                    related.extend(excerpt(ref["line"] - SUPPORT_RADIUS, ref["line"] + SUPPORT_RADIUS,
+                                           file_id=ref["file_id"]))
     for entry in selected.get("nearby_syntax", []):
         related.extend(excerpt(*entry["context"]))
     anchors = set(positions(selected.get("endpoint_specifications"), "F0"))
@@ -259,6 +285,15 @@ def render_path_snippets(evidence, *, verified_sink_note=False, structured_sink_
                            "search_limit_hit", "interpretation",
                        )})
     presented = {"paths": paths, "alert_excerpt": alert_excerpt, "supporting_excerpts": related}
+    if dispatch_evidence:
+        presented["verified_dispatch_behavior"] = {
+            "fact": "Each listed Java implementation returns its non-null String argument unchanged. "
+                    "The listed implementations therefore agree about whether that argument contributes to the returned text. "
+                    "Receiver factory facts identify the initializer, visible direct returns, and resources in the packaged snapshot.",
+            "scope": "listed_candidates_only covers the listed Java implementations; other runtime targets remain unresolved. "
+                     "sealed_final_targets covers the permitted final Java implementations.",
+            "groups": dispatch_evidence,
+        }
     if value_argument:
         if observation := verified_display(value_argument, visible, files, structured=structured_sink_evidence):
             argument = value_argument["sql_argument"]

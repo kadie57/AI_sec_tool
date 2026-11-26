@@ -1,0 +1,23 @@
+STATUS	0
+Q	F0	68	77	org.springframework.jdbc.core.JdbcTemplate	queryForList(java.lang.String)	68
+V	68	77	unknown	unsupported_or_runtime_value
+E	68	77	F0	64	constant_expression
+E	68	77	F0	62	call_result_not_modeled
+E	68	77	F0	46	loop_local_values_invalidated
+E	68	77	F0	62	local_definition
+E	68	77	F0	64	value_at_reference_unresolved
+E	68	77	F0	64	string_concatenation_with_unresolved_operand
+E	68	77	F0	64	local_definition
+E	68	77	F0	68	value_at_reference_unresolved
+E	68	77	F0	64	sql_argument_variable_declaration
+D	68	77	F0	62	doSomething	listed_candidates_only	F1	22	org.owasp.benchmark.helpers.Thing1	26
+D	68	77	F0	62	doSomething	listed_candidates_only	F2	22	org.owasp.benchmark.helpers.Thing2	26
+F	68	77	F0	62	doSomething	F0	61	F3	26	org.owasp.benchmark.helpers.ThingFactory	createThing()
+R	68	77	F0	62	doSomething	F3	32	thing.properties
+N	68	77	F0	62	doSomething	F3	35	org.owasp.benchmark.helpers.Thing2
+N	68	77	F0	62	doSomething	F3	49	org.owasp.benchmark.helpers.Thing1
+S	45	55	javax.servlet.ServletRequest	getParameterNames()	true
+S	48	39	javax.servlet.ServletRequest	getParameterValues(java.lang.String)	true
+
+[STDERR]
+Picked up JAVA_TOOL_OPTIONS: -XX:-UsePerfData

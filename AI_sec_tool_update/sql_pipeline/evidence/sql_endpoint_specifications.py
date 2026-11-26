@@ -3,16 +3,18 @@
 from hashlib import sha256
 import os
 from pathlib import Path
+import re
 import shutil
 from tempfile import TemporaryDirectory
+from types import SimpleNamespace
 
 from ..run_io import run_command
 
 
-VERSION = "sql-endpoint-specifications-v1"
+VERSION = "sql-endpoint-specifications-v2"
 PROBE = Path(__file__).with_name("SqlEndpointProbe.java")
 VALUE_PROBE = Path(__file__).with_name("SqlValueEvidence.java")
-VALUE_VERSION = "jdbc-value-evidence-v5"
+VALUE_VERSION = "jdbc-value-evidence-v9"
 MAX_SOURCES = 8
 
 
@@ -48,6 +50,7 @@ def parse_probe(stdout, bundle, selected, value_evidence=False, *, source_candid
         result["source_candidates"] = []
     query_by_position = {}
     values_by_position = {}
+    dispatch_by_site = {}
     for text in stdout.splitlines():
         record, *fields = text.split("\t")
         if record == "STATUS":
@@ -64,6 +67,15 @@ def parse_probe(stdout, bundle, selected, value_evidence=False, *, source_candid
                 **ref("F0", binding), "owner": owner, "signature": signature,
                 "role": "bound_parameter_value", "argument_index": 2, "argument": ref("F0", argument),
                 "association": "same_unreassigned_local_statement",
+            })
+        elif record == "T":
+            position, column, index, argument = fields
+            sink = query_by_position[position, column]
+            file_id = sink["file_id"]
+            sink["bindings"].append({
+                **ref(file_id, position), "owner": sink["owner"], "signature": sink["signature"],
+                "role": "bound_parameter_value", "argument_index": int(index), "argument": ref(file_id, argument),
+                "association": "spring_jdbc_binding_argument",
             })
         elif record == "A" and value_evidence:
             position, column, file_id, call, call_column, owner, signature, index, argument, param = fields
@@ -84,6 +96,34 @@ def parse_probe(stdout, bundle, selected, value_evidence=False, *, source_candid
         elif record == "E" and value_evidence:
             position, column, file_id, line, role = fields
             values_by_position[position, column]["evidence"].append({**ref(file_id, line), "role": role})
+        elif record == "D" and value_evidence:
+            position, column, file_id, line, name, scope, impl_file, impl_line, owner, returned = fields
+            value = values_by_position[position, column]
+            key = position, column, file_id, line, name
+            if key not in dispatch_by_site:
+                group = {**ref(file_id, line), "name": name, "argument_index": 1, "scope": scope,
+                         "condition": "non_null_string_argument", "behavior": "returns_argument_unchanged", "targets": []}
+                value.setdefault("dispatch_evidence", []).append(group)
+                dispatch_by_site[key] = group
+            dispatch_by_site[key]["targets"].append({**ref(impl_file, impl_line), "owner": owner,
+                                                     "return": ref(impl_file, returned)})
+        elif record == "F" and value_evidence:
+            position, column, file_id, line, name, init_file, init_line, factory_file, factory_line, owner, signature = fields
+            dispatch_by_site[position, column, file_id, line, name]["receiver_factory"] = {
+                "initializer": ref(init_file, init_line), "declaration": ref(factory_file, factory_line),
+                "owner": owner, "signature": signature, "packaged_resources": [], "direct_returns": [],
+            }
+        elif record == "R" and value_evidence:
+            position, column, file_id, line, name, read_file, read_line, resource = fields
+            factory = dispatch_by_site[position, column, file_id, line, name]["receiver_factory"]
+            for key, item in files.items():
+                if item["kind"] == "PROPERTIES" and item["path"] == f"src/main/resources/{resource}":
+                    factory["packaged_resources"].append({"read": ref(read_file, read_line), "resource_file_id": key,
+                                                          "scope": "packaged_snapshot"})
+        elif record == "N" and value_evidence:
+            position, column, file_id, line, name, return_file, return_line, owner = fields
+            factory = dispatch_by_site[position, column, file_id, line, name]["receiver_factory"]
+            factory["direct_returns"].append({**ref(return_file, return_line), "allocated_type": owner})
         elif record == "C" and source_candidates:
             file_id, position, column, owner, signature, fixed, *definition = fields
             candidate = {**ref(file_id, position), "column": int(column), "owner": owner, "signature": signature,
@@ -136,7 +176,45 @@ def parse_probe(stdout, bundle, selected, value_evidence=False, *, source_candid
     return result
 
 
-def infer_specifications(item, bundle, selected, dependencies, log, *, value_evidence=False, source_candidates=False):
+def dispatch_sites(bundle, selected):
+    def location(ref):
+        file_id, line = ref.get("file_id"), ref.get("line")
+        return (file_id, line) if (isinstance(file_id, str) and file_id in bundle["files"] and re.fullmatch(r"F[0-9]+", file_id)
+                                    and type(line) is int and line > 0) else None
+
+    groups = {}
+    for path in selected.get("anchored_paths", {}).get("paths", []):
+        for edge in path["dispatch"]:
+            call, name = location(edge), edge.get("name", "")
+            if not call or not isinstance(name, str) or not re.fullmatch(r"[A-Za-z_$][\w$]*", name):
+                continue
+            targets = {location(ref) for ref in edge["possible_targets"]}
+            groups.setdefault((*call, name), set()).update(targets)
+    return [(*call, *target) for call, targets in sorted(groups.items())[:8]
+            if None not in targets and 2 <= len(targets) <= 4 for target in sorted(targets)]
+
+
+def refresh_dispatch_evidence(row, dependencies, log):
+    """Add conditional dispatch facts for existing unknown values after the project CPG stage."""
+    selected, bundle = row["selected_evidence"], row["source_context"]
+    arguments = selected.get("jdbc_value_evidence", {}).get("arguments", [])
+    before = [item.pop("dispatch_evidence", []) for item in arguments]
+    if not any(item["status"] == "unknown" for item in arguments) or not dispatch_sites(bundle, selected):
+        return any(before)
+    alert = SimpleNamespace(start=row["start_line"], end=row["end_line"])
+    analyzed = infer_specifications(alert, bundle, selected, dependencies, log, value_evidence=True,
+                                   experimental_dispatch_evidence=True)
+    proven = {(item["call"]["line"], item["call"]["column"]): item
+              for item in analyzed["jdbc_value_evidence"]["arguments"] if item.get("dispatch_evidence")}
+    for argument in arguments:
+        site = argument["call"]
+        if (result := proven.get((site["line"], site["column"]))) and result["sql_argument"] == argument["sql_argument"]:
+            argument["dispatch_evidence"] = result["dispatch_evidence"]
+    return before != [item.get("dispatch_evidence", []) for item in arguments]
+
+
+def infer_specifications(item, bundle, selected, dependencies, log, *, value_evidence=False, source_candidates=False,
+                         experimental_dispatch_evidence=False):
     """Use only the verified source bundle and explicitly provided local classpath."""
     with TemporaryDirectory(prefix="sql-specifications-") as directory:
         staging = Path(directory)
@@ -151,6 +229,10 @@ def infer_specifications(item, bundle, selected, dependencies, log, *, value_evi
                 command.append("-Dsql.evidence.snapshotCallers=" + ",".join(caller_ids))
             if source_candidates:
                 command.append("-Dsql.evidence.sourceCandidates=true")
+            if experimental_dispatch_evidence and value_evidence and (sites := dispatch_sites(bundle, selected)):
+                site_path = staging / "dispatch.tsv"
+                site_path.write_text("".join("\t".join(map(str, row)) + "\n" for row in sites), encoding="utf-8")
+                command.append(f"-Dsql.evidence.dispatchSites={site_path}")
             command.extend(["-cp", str(staging), "SqlValueEvidence"])
         command.extend([str(item.start), str(item.end),
                         os.pathsep.join(entry["path"] for entry in dependencies) or str(empty), str(empty)])

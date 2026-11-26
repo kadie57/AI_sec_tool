@@ -1,0 +1,241 @@
+=======================================================================================================
+Invoking CPG generator in a separate process. Note that the new process will consume additional memory.
+If you are importing a large codebase (and/or running into memory issues), please try the following:
+1) exit joern
+2) invoke the frontend: /opt/joern/joern-cli/javasrc2cpg -J-Xmx7956m /project --output /work/workspace/project/cpg.bin.zip
+3) start joern, import the cpg: `importCpg("path/to/cpg")`
+=======================================================================================================
+
+[INFO ] initialising from existing storage (/work/workspace/project/cpg.bin.tmp)
+[INFO ] Start of pass: io.joern.x2cpg.passes.base.FileCreationPass
+[INFO ] Pass io.joern.x2cpg.passes.base.FileCreationPass completed in 30 ms (71% on mutations). 25 + 0 changes committed from 1 parts.
+[INFO ] Start of pass: io.joern.x2cpg.passes.base.NamespaceCreator
+[INFO ] Pass io.joern.x2cpg.passes.base.NamespaceCreator completed in 5 ms (42% on mutations). 9 + 0 changes committed from 1 parts.
+[INFO ] Start of pass: io.joern.x2cpg.passes.base.TypeDeclStubCreator
+[INFO ] Pass io.joern.x2cpg.passes.base.TypeDeclStubCreator completed in 9 ms (38% on mutations). 18 + 0 changes committed from 1 parts.
+[INFO ] Start of pass: io.joern.x2cpg.passes.base.MethodStubCreator
+[INFO ] Inconsistent/erroneous callInfo on calls to method fullname <operator>.alloc (we have 1 many variants)
+[INFO ] Pass io.joern.x2cpg.passes.base.MethodStubCreator completed in 27 ms (17% on mutations). 279 + 0 changes committed from 1 parts.
+[INFO ] Start of pass: io.joern.x2cpg.passes.base.ParameterIndexCompatPass
+[INFO ] Pass io.joern.x2cpg.passes.base.ParameterIndexCompatPass completed in 3 ms (54% on mutations). 0 + 0 changes committed from 1 parts.
+[INFO ] Start of pass: io.joern.x2cpg.passes.base.MethodDecoratorPass
+[INFO ] Pass io.joern.x2cpg.passes.base.MethodDecoratorPass completed in 8 ms (34% on mutations). 234 + 0 changes committed from 1 parts.
+[INFO ] Start of pass: io.joern.x2cpg.passes.base.AstLinkerPass
+[INFO ] Pass io.joern.x2cpg.passes.base.AstLinkerPass completed in 6 ms (15% on mutations). 51 + 0 changes committed from 1 parts.
+[INFO ] Start of pass: io.joern.x2cpg.passes.base.ContainsEdgePass
+[INFO ] Pass io.joern.x2cpg.passes.base.ContainsEdgePass completed in 6 ms (20% on mutations). 326 + 0 changes committed from 76 parts.
+[INFO ] Start of pass: io.joern.x2cpg.passes.base.TypeRefPass
+[INFO ] Pass io.joern.x2cpg.passes.base.TypeRefPass completed in 3 ms (20% on mutations). 24 + 0 changes committed from 1 parts.
+[INFO ] Start of pass: io.joern.x2cpg.passes.base.TypeEvalPass
+[INFO ] Could not create edge. Destination lookup failed. edgeType=EVAL_TYPE, srcNodeType=CALL, srcNodeId=30064771085, dstNodeType=TYPE, dstFullName=java.lang.Class
+[INFO ] Pass io.joern.x2cpg.passes.base.TypeEvalPass completed in 7 ms (27% on mutations). 477 + 0 changes committed from 5 parts.
+[INFO ] Start of pass: io.shiftleft.semanticcpg.Overlays$$anon$1
+[INFO ] Pass io.shiftleft.semanticcpg.Overlays$$anon$1 completed in 4 ms (33% on mutations). 1 + 0 changes committed from 1 parts.
+[INFO ] Start of pass: io.joern.x2cpg.passes.controlflow.CfgCreationPass
+[WARN ] Using order fallback for try statement finally body
+[INFO ] Pass io.joern.x2cpg.passes.controlflow.CfgCreationPass completed in 35 ms (5% on mutations). 300 + 0 changes committed from 46 parts.
+[INFO ] Start of pass: io.joern.x2cpg.passes.controlflow.cfgdominator.CfgDominatorPass
+[INFO ] Pass io.joern.x2cpg.passes.controlflow.cfgdominator.CfgDominatorPass completed in 21 ms (13% on mutations). 584 + 0 changes committed from 46 parts.
+[INFO ] Start of pass: io.joern.x2cpg.passes.controlflow.codepencegraph.CdgPass
+[INFO ] Pass io.joern.x2cpg.passes.controlflow.codepencegraph.CdgPass completed in 7 ms (11% on mutations). 107 + 0 changes committed from 46 parts.
+[INFO ] Start of pass: io.shiftleft.semanticcpg.Overlays$$anon$1
+[INFO ] Pass io.shiftleft.semanticcpg.Overlays$$anon$1 completed in 1 ms (72% on mutations). 1 + 0 changes committed from 1 parts.
+[INFO ] Start of pass: io.joern.x2cpg.passes.typerelations.TypeHierarchyPass
+[INFO ] Pass io.joern.x2cpg.passes.typerelations.TypeHierarchyPass completed in 3 ms (21% on mutations). 8 + 0 changes committed from 1 parts.
+[INFO ] Start of pass: io.joern.x2cpg.passes.typerelations.AliasLinkerPass
+[INFO ] Pass io.joern.x2cpg.passes.typerelations.AliasLinkerPass completed in 2 ms (27% on mutations). 0 + 0 changes committed from 1 parts.
+[INFO ] Start of pass: io.joern.x2cpg.passes.typerelations.FieldAccessLinkerPass
+[INFO ] Could not create edge. Destination lookup failed. edgeType=REF, srcNodeType=CALL, srcNodeId=30064771085, dstNodeType=MEMBER, dstFullName=org.owasp.benchmark.helpers.ThingFactory.class
+[INFO ] Could not create edge. Destination lookup failed. edgeType=REF, srcNodeType=CALL, srcNodeId=30064771088, dstNodeType=MEMBER, dstFullName=ANY.out
+[INFO ] Could not create edge. Destination lookup failed. edgeType=REF, srcNodeType=CALL, srcNodeId=30064771104, dstNodeType=MEMBER, dstFullName=ANY.out
+[INFO ] Could not create edge. Destination lookup failed. edgeType=REF, srcNodeType=CALL, srcNodeId=30064771131, dstNodeType=MEMBER, dstFullName=ANY.DatabaseHelper
+[INFO ] Could not create edge. Destination lookup failed. edgeType=REF, srcNodeType=CALL, srcNodeId=30064771132, dstNodeType=MEMBER, dstFullName=ANY.helpers
+[INFO ] Could not create edge. Destination lookup failed. edgeType=REF, srcNodeType=CALL, srcNodeId=30064771133, dstNodeType=MEMBER, dstFullName=ANY.benchmark
+[INFO ] Could not create edge. Destination lookup failed. edgeType=REF, srcNodeType=CALL, srcNodeId=30064771134, dstNodeType=MEMBER, dstFullName=ANY.owasp
+[INFO ] Could not create edge. Destination lookup failed. edgeType=REF, srcNodeType=CALL, srcNodeId=30064771137, dstNodeType=MEMBER, dstFullName=ANY.TYPE_FORWARD_ONLY
+[INFO ] Could not create edge. Destination lookup failed. edgeType=REF, srcNodeType=CALL, srcNodeId=30064771138, dstNodeType=MEMBER, dstFullName=ANY.ResultSet
+[INFO ] Could not create edge. Destination lookup failed. edgeType=REF, srcNodeType=CALL, srcNodeId=30064771139, dstNodeType=MEMBER, dstFullName=ANY.sql
+[INFO ] Could not create edge. Destination lookup failed. edgeType=REF, srcNodeType=CALL, srcNodeId=30064771140, dstNodeType=MEMBER, dstFullName=ANY.CONCUR_READ_ONLY
+[INFO ] Could not create edge. Destination lookup failed. edgeType=REF, srcNodeType=CALL, srcNodeId=30064771141, dstNodeType=MEMBER, dstFullName=ANY.ResultSet
+[INFO ] Could not create edge. Destination lookup failed. edgeType=REF, srcNodeType=CALL, srcNodeId=30064771142, dstNodeType=MEMBER, dstFullName=ANY.sql
+[INFO ] Could not create edge. Destination lookup failed. edgeType=REF, srcNodeType=CALL, srcNodeId=30064771146, dstNodeType=MEMBER, dstFullName=ANY.DatabaseHelper
+[INFO ] Could not create edge. Destination lookup failed. edgeType=REF, srcNodeType=CALL, srcNodeId=30064771147, dstNodeType=MEMBER, dstFullName=ANY.helpers
+[INFO ] Could not create edge. Destination lookup failed. edgeType=REF, srcNodeType=CALL, srcNodeId=30064771148, dstNodeType=MEMBER, dstFullName=ANY.benchmark
+[INFO ] Could not create edge. Destination lookup failed. edgeType=REF, srcNodeType=CALL, srcNodeId=30064771149, dstNodeType=MEMBER, dstFullName=ANY.owasp
+[INFO ] Could not create edge. Destination lookup failed. edgeType=REF, srcNodeType=CALL, srcNodeId=30064771150, dstNodeType=MEMBER, dstFullName=ANY.hideSQLErrors
+[INFO ] Could not create edge. Destination lookup failed. edgeType=REF, srcNodeType=CALL, srcNodeId=30064771151, dstNodeType=MEMBER, dstFullName=ANY.DatabaseHelper
+[INFO ] Could not create edge. Destination lookup failed. edgeType=REF, srcNodeType=CALL, srcNodeId=30064771152, dstNodeType=MEMBER, dstFullName=ANY.helpers
+[INFO ] Could not create edge. Destination lookup failed. edgeType=REF, srcNodeType=CALL, srcNodeId=30064771153, dstNodeType=MEMBER, dstFullName=ANY.benchmark
+[INFO ] Could not create edge. Destination lookup failed. edgeType=REF, srcNodeType=CALL, srcNodeId=30064771154, dstNodeType=MEMBER, dstFullName=ANY.owasp
+[INFO ] Could not create edge. Destination lookup failed. edgeType=REF, srcNodeType=CALL, srcNodeId=30064771163, dstNodeType=MEMBER, dstFullName=ANY.ThingFactory
+[INFO ] Could not create edge. Destination lookup failed. edgeType=REF, srcNodeType=CALL, srcNodeId=30064771164, dstNodeType=MEMBER, dstFullName=ANY.helpers
+[INFO ] Could not create edge. Destination lookup failed. edgeType=REF, srcNodeType=CALL, srcNodeId=30064771165, dstNodeType=MEMBER, dstFullName=ANY.benchmark
+[INFO ] Could not create edge. Destination lookup failed. edgeType=REF, srcNodeType=CALL, srcNodeId=30064771166, dstNodeType=MEMBER, dstFullName=ANY.owasp
+[INFO ] Pass io.joern.x2cpg.passes.typerelations.FieldAccessLinkerPass completed in 30 ms (48% on mutations). 2 + 0 changes committed from 1 parts.
+[INFO ] Start of pass: io.shiftleft.semanticcpg.Overlays$$anon$1
+[INFO ] Pass io.shiftleft.semanticcpg.Overlays$$anon$1 completed in 1 ms (69% on mutations). 1 + 0 changes committed from 1 parts.
+[INFO ] Start of pass: io.joern.x2cpg.passes.callgraph.MethodRefLinker
+[INFO ] Pass io.joern.x2cpg.passes.callgraph.MethodRefLinker completed in 1 ms (41% on mutations). 0 + 0 changes committed from 1 parts.
+[INFO ] Start of pass: io.joern.x2cpg.passes.callgraph.StaticCallLinker
+[INFO ] Pass io.joern.x2cpg.passes.callgraph.StaticCallLinker completed in 3 ms (30% on mutations). 76 + 0 changes committed from 2 parts.
+[INFO ] Start of pass: io.joern.x2cpg.passes.callgraph.DynamicCallLinker
+[INFO ] Pass io.joern.x2cpg.passes.callgraph.DynamicCallLinker completed in 18 ms (4% on mutations). 27 + 0 changes committed from 1 parts.
+[INFO ] Start of pass: io.shiftleft.semanticcpg.Overlays$$anon$1
+[INFO ] Pass io.shiftleft.semanticcpg.Overlays$$anon$1 completed in 1 ms (74% on mutations). 1 + 0 changes committed from 1 parts.
+[INFO ] Start of pass: io.joern.dataflowengineoss.passes.reachingdef.ReachingDefPass
+[INFO ] Calculating reaching definitions for: javax.servlet.http.HttpServletResponse.setContentType:<unresolvedSignature>(1) in <empty>
+[INFO ] Calculating reaching definitions for: <unresolvedNamespace>.getSqlConnection:<unresolvedSignature>(0) in <empty>
+[INFO ] Calculating reaching definitions for: org.owasp.benchmark.testcode.BenchmarkTest01383.<clinit>:void() in <empty>
+[INFO ] Calculating reaching definitions for: <operator>.indexAccess in <empty>
+[INFO ] Calculating reaching definitions for: <operator>.fieldAccess in <empty>
+[INFO ] Calculating reaching definitions for: org.owasp.benchmark.testcode.BenchmarkTest01383$Test.doSomething:<unresolvedSignature>(2) in src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01383.java
+[INFO ] Calculating reaching definitions for: org.owasp.benchmark.helpers.Thing2.doSomething:<unresolvedSignature>(1) in src/main/java/org/owasp/benchmark/helpers/Thing2.java
+[INFO ] Calculating reaching definitions for: org.owasp.benchmark.helpers.ThingInterface.doSomething:<unresolvedSignature>(1) in src/main/java/org/owasp/benchmark/helpers/ThingInterface.java
+[INFO ] Number of definitions for <operator>.fieldAccess: 2
+[INFO ] Number of definitions for <operator>.indexAccess: 2
+[INFO ] Number of definitions for javax.servlet.http.HttpServletResponse.setContentType:<unresolvedSignature>(1): 2
+[INFO ] Number of definitions for <unresolvedNamespace>.getSqlConnection:<unresolvedSignature>(0): 1
+[INFO ] Number of definitions for org.owasp.benchmark.helpers.ThingInterface.doSomething:<unresolvedSignature>(1): 2
+[INFO ] Number of definitions for org.owasp.benchmark.testcode.BenchmarkTest01383.<clinit>:void(): 2
+[INFO ] Number of definitions for org.owasp.benchmark.helpers.Thing2.doSomething:<unresolvedSignature>(1): 15
+[INFO ] Number of definitions for org.owasp.benchmark.testcode.BenchmarkTest01383$Test.doSomething:<unresolvedSignature>(2): 14
+[INFO ] Calculating reaching definitions for: <operator>.addition in <empty>
+[INFO ] Calculating reaching definitions for: org.owasp.benchmark.testcode.BenchmarkTest01383.doGet:void(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse) in src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01383.java
+[INFO ] Calculating reaching definitions for: <unresolvedNamespace>.get:<unresolvedSignature>(1) in <empty>
+[INFO ] Calculating reaching definitions for: java.util.Properties.load:<unresolvedSignature>(1) in <empty>
+[INFO ] Calculating reaching definitions for: ANY.<init>:<unresolvedSignature>(1) in <empty>
+[INFO ] Number of definitions for java.util.Properties.load:<unresolvedSignature>(1): 2
+[INFO ] Number of definitions for ANY.<init>:<unresolvedSignature>(1): 2
+[INFO ] Calculating reaching definitions for: <operator>.equals in <empty>
+[INFO ] Number of definitions for <operator>.equals: 2
+[INFO ] Number of definitions for org.owasp.benchmark.testcode.BenchmarkTest01383.doGet:void(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse): 7
+[INFO ] Calculating reaching definitions for: <operator>.logicalNot in <empty>
+[INFO ] Number of definitions for <operator>.addition: 2
+[INFO ] Calculating reaching definitions for: java.util.Properties.getProperty:<unresolvedSignature>(1) in <empty>
+[INFO ] Number of definitions for <unresolvedNamespace>.get:<unresolvedSignature>(1): 2
+[INFO ] Number of definitions for <operator>.logicalNot: 1
+[INFO ] Calculating reaching definitions for: java.lang.reflect.Constructor.newInstance:<unresolvedSignature>(0) in <empty>
+[INFO ] Calculating reaching definitions for: <unresolvedNamespace>.getResourceAsStream:<unresolvedSignature>(1) in <empty>
+[INFO ] Number of definitions for java.lang.reflect.Constructor.newInstance:<unresolvedSignature>(0): 1
+[INFO ] Calculating reaching definitions for: <unresolvedNamespace>.toString:<unresolvedSignature>(0) in <empty>
+[INFO ] Calculating reaching definitions for: <operator>.notEquals in <empty>
+[INFO ] Number of definitions for java.util.Properties.getProperty:<unresolvedSignature>(1): 2
+[INFO ] Number of definitions for <unresolvedNamespace>.getResourceAsStream:<unresolvedSignature>(1): 2
+[INFO ] Calculating reaching definitions for: <unresolvedNamespace>.execute:<unresolvedSignature>(0) in <empty>
+[INFO ] Number of definitions for <unresolvedNamespace>.toString:<unresolvedSignature>(0): 1
+[INFO ] Calculating reaching definitions for: <operator>.alloc in <empty>
+[INFO ] Calculating reaching definitions for: <operator>.assignment in <empty>
+[INFO ] Number of definitions for <operator>.notEquals: 2
+[INFO ] Number of definitions for <operator>.alloc: 1
+[INFO ] Calculating reaching definitions for: <unresolvedNamespace>.setString:<unresolvedSignature>(2) in <empty>
+[INFO ] Calculating reaching definitions for: <unresolvedNamespace>.prepareStatement:<unresolvedSignature>(3) in <empty>
+[INFO ] Number of definitions for <operator>.assignment: 2
+[INFO ] Number of definitions for <unresolvedNamespace>.execute:<unresolvedSignature>(0): 1
+[INFO ] Calculating reaching definitions for: java.util.Properties.<init>:void() in <empty>
+[INFO ] Calculating reaching definitions for: <unresolvedNamespace>.printStackTrace:<unresolvedSignature>(0) in <empty>
+[INFO ] Number of definitions for java.util.Properties.<init>:void(): 1
+[INFO ] Number of definitions for <unresolvedNamespace>.printStackTrace:<unresolvedSignature>(0): 1
+[INFO ] Calculating reaching definitions for: <operator>.throw in <empty>
+[INFO ] Number of definitions for <unresolvedNamespace>.setString:<unresolvedSignature>(2): 3
+[INFO ] Number of definitions for <operator>.throw: 1
+[INFO ] Number of definitions for <unresolvedNamespace>.prepareStatement:<unresolvedSignature>(3): 4
+[INFO ] Calculating reaching definitions for: <unresolvedNamespace>.forName:<unresolvedSignature>(1) in <empty>
+[INFO ] Calculating reaching definitions for: <unresolvedNamespace>.isEmpty:<unresolvedSignature>(0) in <empty>
+[INFO ] Calculating reaching definitions for: <unresolvedNamespace>.printResults:<unresolvedSignature>(3) in <empty>
+[INFO ] Calculating reaching definitions for: javax.servlet.ServletException.<init>:<unresolvedSignature>(1) in <empty>
+[INFO ] Number of definitions for <unresolvedNamespace>.forName:<unresolvedSignature>(1): 2
+[INFO ] Number of definitions for <unresolvedNamespace>.isEmpty:<unresolvedSignature>(0): 1
+[INFO ] Number of definitions for <unresolvedNamespace>.printResults:<unresolvedSignature>(3): 4
+[INFO ] Calculating reaching definitions for: javax.servlet.http.HttpServletResponse.getWriter:<unresolvedSignature>(0) in <empty>
+[INFO ] Calculating reaching definitions for: org.owasp.benchmark.helpers.Thing1.<init>:void() in src/main/java/org/owasp/benchmark/helpers/Thing1.java
+[INFO ] Number of definitions for javax.servlet.http.HttpServletResponse.getWriter:<unresolvedSignature>(0): 1
+[INFO ] Number of definitions for javax.servlet.ServletException.<init>:<unresolvedSignature>(1): 2
+[INFO ] Calculating reaching definitions for: <unresolvedNamespace>.println:<unresolvedSignature>(1) in <empty>
+[INFO ] Number of definitions for org.owasp.benchmark.helpers.Thing1.<init>:void(): 1
+[INFO ] Calculating reaching definitions for: <operator>.cast in <empty>
+[INFO ] Number of definitions for <unresolvedNamespace>.println:<unresolvedSignature>(1): 2
+[INFO ] Calculating reaching definitions for: org.owasp.benchmark.helpers.Thing1.doSomething:<unresolvedSignature>(1) in src/main/java/org/owasp/benchmark/helpers/Thing1.java
+[INFO ] Calculating reaching definitions for: javax.servlet.http.HttpServletRequest.getParameterMap:<unresolvedSignature>(0) in <empty>
+[INFO ] Calculating reaching definitions for: org.owasp.benchmark.testcode.BenchmarkTest01383$Test.<init>:void() in src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01383.java
+[INFO ] Number of definitions for javax.servlet.http.HttpServletRequest.getParameterMap:<unresolvedSignature>(0): 1
+[INFO ] Number of definitions for org.owasp.benchmark.helpers.Thing1.doSomething:<unresolvedSignature>(1): 5
+[INFO ] Calculating reaching definitions for: org.owasp.benchmark.testcode.BenchmarkTest01383.<init>:void() in src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01383.java
+[INFO ] Calculating reaching definitions for: org.owasp.benchmark.helpers.ThingFactory.<init>:void() in src/main/java/org/owasp/benchmark/helpers/ThingFactory.java
+[INFO ] Number of definitions for org.owasp.benchmark.testcode.BenchmarkTest01383.<init>:void(): 1
+[INFO ] Number of definitions for org.owasp.benchmark.helpers.ThingFactory.<init>:void(): 1
+[INFO ] Calculating reaching definitions for: java.lang.Class.getClassLoader:<unresolvedSignature>(0) in <empty>
+[INFO ] Calculating reaching definitions for: org.owasp.benchmark.testcode.BenchmarkTest01383.doPost:void(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse) in src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01383.java
+[INFO ] Number of definitions for java.lang.Class.getClassLoader:<unresolvedSignature>(0): 1
+[INFO ] Calculating reaching definitions for: org.owasp.benchmark.helpers.ThingFactory.createThing:org.owasp.benchmark.helpers.ThingInterface() in src/main/java/org/owasp/benchmark/helpers/ThingFactory.java
+[INFO ] Number of definitions for org.owasp.benchmark.testcode.BenchmarkTest01383$Test.<init>:void(): 5
+[INFO ] Number of definitions for <operator>.cast: 2
+[INFO ] Calculating reaching definitions for: <unresolvedNamespace>.getConstructor:<unresolvedSignature>(0) in <empty>
+[INFO ] Calculating reaching definitions for: org.owasp.benchmark.helpers.Thing2.<init>:void() in src/main/java/org/owasp/benchmark/helpers/Thing2.java
+[INFO ] Number of definitions for <unresolvedNamespace>.getConstructor:<unresolvedSignature>(0): 1
+[INFO ] Number of definitions for org.owasp.benchmark.helpers.Thing2.<init>:void(): 1
+[INFO ] Number of definitions for org.owasp.benchmark.helpers.ThingFactory.createThing:org.owasp.benchmark.helpers.ThingInterface(): 59
+[INFO ] Number of definitions for org.owasp.benchmark.testcode.BenchmarkTest01383.doPost:void(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse): 78
+[INFO ] Pass io.joern.dataflowengineoss.passes.reachingdef.ReachingDefPass completed in 169 ms (2% on mutations). 679 + 0 changes committed from 46 parts.
+[INFO ] Start of pass: io.shiftleft.semanticcpg.Overlays$$anon$1
+[INFO ] Pass io.shiftleft.semanticcpg.Overlays$$anon$1 completed in 1 ms (72% on mutations). 1 + 0 changes committed from 1 parts.
+SQL_PATH	SINK	1	1
+SQL_PATH	SOURCE	0	1
+SQL_PATH	COUNT	0	1
+SQL_PATH	NODE	0	0	Call	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01383.java	43	doPost	38	70
+SQL_PATH	NODE	0	0	Identifier	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01383.java	43	doPost	38	70
+SQL_PATH	NODE	0	0	Identifier	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01383.java	45	doPost	38	70
+SQL_PATH	NODE	0	0	Identifier	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01383.java	46	doPost	38	70
+SQL_PATH	NODE	0	0	Call	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01383.java	46	doPost	38	70
+SQL_PATH	NODE	0	0	Identifier	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01383.java	46	doPost	38	70
+SQL_PATH	NODE	0	0	Identifier	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01383.java	47	doPost	38	70
+SQL_PATH	NODE	0	0	Call	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01383.java	47	doPost	38	70
+SQL_PATH	NODE	0	0	Identifier	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01383.java	47	doPost	38	70
+SQL_PATH	NODE	0	0	Identifier	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01383.java	50	doPost	38	70
+SQL_PATH	NODE	0	0	MethodParameterIn	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01383.java	74	doSomething	74	82
+SQL_PATH	NODE	0	0	Identifier	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01383.java	79	doSomething	74	82
+SQL_PATH	NODE	0	0	MethodParameterIn	src/main/java/org/owasp/benchmark/helpers/Thing2.java	23	doSomething	22	27
+SQL_PATH	NODE	0	0	Identifier	src/main/java/org/owasp/benchmark/helpers/Thing2.java	24	doSomething	22	27
+SQL_PATH	NODE	0	0	Identifier	src/main/java/org/owasp/benchmark/helpers/Thing2.java	25	doSomething	22	27
+SQL_PATH	NODE	0	0	Identifier	src/main/java/org/owasp/benchmark/helpers/Thing2.java	25	doSomething	22	27
+SQL_PATH	NODE	0	0	Block	src/main/java/org/owasp/benchmark/helpers/Thing2.java	25	doSomething	22	27
+SQL_PATH	NODE	0	0	Call	src/main/java/org/owasp/benchmark/helpers/Thing2.java	25	doSomething	22	27
+SQL_PATH	NODE	0	0	Identifier	src/main/java/org/owasp/benchmark/helpers/Thing2.java	25	doSomething	22	27
+SQL_PATH	NODE	0	0	Identifier	src/main/java/org/owasp/benchmark/helpers/Thing2.java	26	doSomething	22	27
+SQL_PATH	NODE	0	0	Return	src/main/java/org/owasp/benchmark/helpers/Thing2.java	26	doSomething	22	27
+SQL_PATH	NODE	0	0	MethodReturn	src/main/java/org/owasp/benchmark/helpers/Thing2.java	23	doSomething	22	27
+SQL_PATH	NODE	0	0	Call	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01383.java	79	doSomething	74	82
+SQL_PATH	TARGET	0	0	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01383.java	79	doSomething	src/main/java/org/owasp/benchmark/helpers/Thing1.java	22	org.owasp.benchmark.helpers.Thing1.doSomething:<unresolvedSignature>(1)
+SQL_PATH	TARGET	0	0	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01383.java	79	doSomething	src/main/java/org/owasp/benchmark/helpers/Thing2.java	22	org.owasp.benchmark.helpers.Thing2.doSomething:<unresolvedSignature>(1)
+SQL_PATH	TARGET	0	0	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01383.java	79	doSomething	src/main/java/org/owasp/benchmark/helpers/ThingInterface.java	21	org.owasp.benchmark.helpers.ThingInterface.doSomething:<unresolvedSignature>(1)
+SQL_PATH	NODE	0	0	Identifier	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01383.java	79	doSomething	74	82
+SQL_PATH	NODE	0	0	Identifier	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01383.java	81	doSomething	74	82
+SQL_PATH	NODE	0	0	Return	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01383.java	81	doSomething	74	82
+SQL_PATH	NODE	0	0	MethodReturn	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01383.java	74	doSomething	74	82
+SQL_PATH	NODE	0	0	Call	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01383.java	50	doPost	38	70
+SQL_PATH	NODE	0	0	Identifier	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01383.java	50	doPost	38	70
+SQL_PATH	NODE	0	0	Call	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01383.java	52	doPost	38	70
+SQL_PATH	NODE	0	0	Identifier	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01383.java	52	doPost	38	70
+SQL_PATH	NODE	0	0	Identifier	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01383.java	59	doPost	38	70
+SQL_PATH	SOURCE	1	1
+SQL_PATH	COUNT	1	1
+SQL_PATH	NODE	1	0	Call	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01383.java	50	doPost	38	70
+SQL_PATH	NODE	1	0	Identifier	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01383.java	50	doPost	38	70
+SQL_PATH	NODE	1	0	Call	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01383.java	52	doPost	38	70
+SQL_PATH	NODE	1	0	Identifier	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01383.java	52	doPost	38	70
+SQL_PATH	NODE	1	0	Identifier	src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01383.java	59	doPost	38	70
+[INFO ] writing to storage at `/work/workspace/project/cpg.bin.tmp`
+[INFO ] closed graph at /work/workspace/project/cpg.bin.tmp
+
+[STDERR]
+executing /work/slice.sc
+Using generator for language: JAVASRC: JavaSrcCpgGenerator
+Creating project `project` for code at `/project`
+moving cpg.bin.zip to cpg.bin because it is already a database file
+Creating working copy of CPG to be safe
+Loading base CPG from: /work/workspace/project/cpg.bin.tmp
+Code successfully imported. You can now query it using `cpg`.
+For an overview of all imported code, type `workspace`.
+Adding default overlays to base CPG
+The graph has been modified. You may want to use the `save` command to persist changes to disk.  All changes will also be saved collectively on exit
+The graph has been modified. You may want to use the `save` command to persist changes to disk.  All changes will also be saved collectively on exit
+closing/saving project `project`

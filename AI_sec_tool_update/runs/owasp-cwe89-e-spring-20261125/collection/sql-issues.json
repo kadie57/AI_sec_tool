@@ -1,0 +1,1313 @@
+{
+  "issues": [
+    {
+      "key": "51f3a85f-9d5a-466d-87aa-2e467a84701f",
+      "rule": "findsecbugs:SQL_INJECTION_JDBC",
+      "severity": "CRITICAL",
+      "component": "thesis_owasp_cwe89_e_spring_20261125_v1:src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00101.java",
+      "project": "thesis_owasp_cwe89_e_spring_20261125_v1",
+      "line": 84,
+      "hash": "f20e0defb02d9206e082496f647d0511",
+      "textRange": {
+        "startLine": 84,
+        "endLine": 84,
+        "startOffset": 0,
+        "endOffset": 90
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "This use of java/sql/Connection.prepareStatement(Ljava/lang/String;[Ljava/lang/String;)Ljava/sql/PreparedStatement; can be vulnerable to SQL injection (with JDBC)",
+      "author": "",
+      "tags": [
+        "cwe",
+        "owasp-a1",
+        "injection",
+        "wasc"
+      ],
+      "creationDate": "2026-11-25T16:34:38+0000",
+      "updateDate": "2026-11-25T16:34:38+0000",
+      "type": "VULNERABILITY",
+      "scope": "MAIN",
+      "quickFixAvailable": false,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "CONVENTIONAL",
+      "cleanCodeAttributeCategory": "CONSISTENT",
+      "impacts": [
+        {
+          "softwareQuality": "SECURITY",
+          "severity": "HIGH"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "2dc382ae-4ad8-4f35-b674-9b803aecba24",
+      "rule": "findsecbugs:SQL_INJECTION_JDBC",
+      "severity": "CRITICAL",
+      "component": "thesis_owasp_cwe89_e_spring_20261125_v1:src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00192.java",
+      "project": "thesis_owasp_cwe89_e_spring_20261125_v1",
+      "line": 77,
+      "hash": "fdd47b0d315ef51907f54d657a3104b1",
+      "textRange": {
+        "startLine": 77,
+        "endLine": 77,
+        "startOffset": 0,
+        "endOffset": 84
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "This use of java/sql/Connection.prepareStatement(Ljava/lang/String;)Ljava/sql/PreparedStatement; can be vulnerable to SQL injection (with JDBC)",
+      "author": "",
+      "tags": [
+        "cwe",
+        "owasp-a1",
+        "injection",
+        "wasc"
+      ],
+      "creationDate": "2026-11-25T16:34:38+0000",
+      "updateDate": "2026-11-25T16:34:38+0000",
+      "type": "VULNERABILITY",
+      "scope": "MAIN",
+      "quickFixAvailable": false,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "CONVENTIONAL",
+      "cleanCodeAttributeCategory": "CONSISTENT",
+      "impacts": [
+        {
+          "softwareQuality": "SECURITY",
+          "severity": "HIGH"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "89d39a42-5072-4012-b4ee-bee89efe3bb1",
+      "rule": "findsecbugs:SQL_INJECTION_SPRING_JDBC",
+      "severity": "CRITICAL",
+      "component": "thesis_owasp_cwe89_e_spring_20261125_v1:src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00195.java",
+      "project": "thesis_owasp_cwe89_e_spring_20261125_v1",
+      "line": 61,
+      "hash": "b02b57260afabaf4020202dfdcefcadf",
+      "textRange": {
+        "startLine": 61,
+        "endLine": 61,
+        "startOffset": 0,
+        "endOffset": 81
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "This use of org/springframework/jdbc/core/JdbcTemplate.execute(Ljava/lang/String;)V can be vulnerable to SQL injection (with Spring JDBC)",
+      "author": "",
+      "tags": [
+        "cwe",
+        "owasp-a1",
+        "injection",
+        "wasc"
+      ],
+      "creationDate": "2026-11-25T16:34:38+0000",
+      "updateDate": "2026-11-25T16:34:38+0000",
+      "type": "VULNERABILITY",
+      "scope": "MAIN",
+      "quickFixAvailable": false,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "CONVENTIONAL",
+      "cleanCodeAttributeCategory": "CONSISTENT",
+      "impacts": [
+        {
+          "softwareQuality": "SECURITY",
+          "severity": "HIGH"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "d6b60a64-f542-48e3-a122-5d01ed79e948",
+      "rule": "findsecbugs:SQL_INJECTION_JDBC",
+      "severity": "CRITICAL",
+      "component": "thesis_owasp_cwe89_e_spring_20261125_v1:src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00334.java",
+      "project": "thesis_owasp_cwe89_e_spring_20261125_v1",
+      "line": 82,
+      "hash": "b8c256562753ca687938050f1503f83d",
+      "textRange": {
+        "startLine": 82,
+        "endLine": 82,
+        "startOffset": 0,
+        "endOffset": 48
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "This use of java/sql/Connection.prepareStatement(Ljava/lang/String;II)Ljava/sql/PreparedStatement; can be vulnerable to SQL injection (with JDBC)",
+      "author": "",
+      "tags": [
+        "cwe",
+        "owasp-a1",
+        "injection",
+        "wasc"
+      ],
+      "creationDate": "2026-11-25T16:34:38+0000",
+      "updateDate": "2026-11-25T16:34:38+0000",
+      "type": "VULNERABILITY",
+      "scope": "MAIN",
+      "quickFixAvailable": false,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "CONVENTIONAL",
+      "cleanCodeAttributeCategory": "CONSISTENT",
+      "impacts": [
+        {
+          "softwareQuality": "SECURITY",
+          "severity": "HIGH"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "b0c1f1f6-8a01-4ec4-b7df-a0d392318441",
+      "rule": "findsecbugs:SQL_INJECTION_SPRING_JDBC",
+      "severity": "CRITICAL",
+      "component": "thesis_owasp_cwe89_e_spring_20261125_v1:src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00431.java",
+      "project": "thesis_owasp_cwe89_e_spring_20261125_v1",
+      "line": 56,
+      "hash": "3f2073692a4f9bc93a922a2c8671ba3e",
+      "textRange": {
+        "startLine": 56,
+        "endLine": 56,
+        "startOffset": 0,
+        "endOffset": 82
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "This use of org/springframework/jdbc/core/JdbcTemplate.query(Ljava/lang/String;Lorg/springframework/jdbc/core/RowMapper;)Ljava/util/List; can be vulnerable to SQL injection (with Spring JDBC)",
+      "author": "",
+      "tags": [
+        "cwe",
+        "owasp-a1",
+        "injection",
+        "wasc"
+      ],
+      "creationDate": "2026-11-25T16:34:38+0000",
+      "updateDate": "2026-11-25T16:34:38+0000",
+      "type": "VULNERABILITY",
+      "scope": "MAIN",
+      "quickFixAvailable": false,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "CONVENTIONAL",
+      "cleanCodeAttributeCategory": "CONSISTENT",
+      "impacts": [
+        {
+          "softwareQuality": "SECURITY",
+          "severity": "HIGH"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "5907927a-c5c1-4d37-9c5e-3b84fc549c99",
+      "rule": "findsecbugs:SQL_INJECTION_SPRING_JDBC",
+      "severity": "CRITICAL",
+      "component": "thesis_owasp_cwe89_e_spring_20261125_v1:src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00432.java",
+      "project": "thesis_owasp_cwe89_e_spring_20261125_v1",
+      "line": 62,
+      "hash": "ae3c49d31d5020ed11de317e8106a42f",
+      "textRange": {
+        "startLine": 62,
+        "endLine": 62,
+        "startOffset": 0,
+        "endOffset": 94
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "This use of org/springframework/jdbc/core/JdbcTemplate.queryForList(Ljava/lang/String;)Ljava/util/List; can be vulnerable to SQL injection (with Spring JDBC)",
+      "author": "",
+      "tags": [
+        "cwe",
+        "owasp-a1",
+        "injection",
+        "wasc"
+      ],
+      "creationDate": "2026-11-25T16:34:38+0000",
+      "updateDate": "2026-11-25T16:34:38+0000",
+      "type": "VULNERABILITY",
+      "scope": "MAIN",
+      "quickFixAvailable": false,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "CONVENTIONAL",
+      "cleanCodeAttributeCategory": "CONSISTENT",
+      "impacts": [
+        {
+          "softwareQuality": "SECURITY",
+          "severity": "HIGH"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "04498de0-8ed3-4f9a-8b71-af054e7534bd",
+      "rule": "findsecbugs:SQL_INJECTION_JDBC",
+      "severity": "CRITICAL",
+      "component": "thesis_owasp_cwe89_e_spring_20261125_v1:src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00509.java",
+      "project": "thesis_owasp_cwe89_e_spring_20261125_v1",
+      "line": 64,
+      "hash": "7594990a16c9b24ae73a86d59ab65076",
+      "textRange": {
+        "startLine": 64,
+        "endLine": 64,
+        "startOffset": 0,
+        "endOffset": 43
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "This use of java/sql/Connection.prepareCall(Ljava/lang/String;II)Ljava/sql/CallableStatement; can be vulnerable to SQL injection (with JDBC)",
+      "author": "",
+      "tags": [
+        "cwe",
+        "owasp-a1",
+        "injection",
+        "wasc"
+      ],
+      "creationDate": "2026-11-25T16:34:38+0000",
+      "updateDate": "2026-11-25T16:34:38+0000",
+      "type": "VULNERABILITY",
+      "scope": "MAIN",
+      "quickFixAvailable": false,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "CONVENTIONAL",
+      "cleanCodeAttributeCategory": "CONSISTENT",
+      "impacts": [
+        {
+          "softwareQuality": "SECURITY",
+          "severity": "HIGH"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "8709eeb4-ade3-4d4f-808c-5c89455ef7a5",
+      "rule": "findsecbugs:SQL_INJECTION_SPRING_JDBC",
+      "severity": "CRITICAL",
+      "component": "thesis_owasp_cwe89_e_spring_20261125_v1:src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00511.java",
+      "project": "thesis_owasp_cwe89_e_spring_20261125_v1",
+      "line": 61,
+      "hash": "a78d9643f603d02c2d7dfece16c19fb1",
+      "textRange": {
+        "startLine": 61,
+        "endLine": 61,
+        "startOffset": 0,
+        "endOffset": 85
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "This use of org/springframework/jdbc/core/JdbcTemplate.batchUpdate([Ljava/lang/String;)[I can be vulnerable to SQL injection (with Spring JDBC)",
+      "author": "",
+      "tags": [
+        "cwe",
+        "owasp-a1",
+        "injection",
+        "wasc"
+      ],
+      "creationDate": "2026-11-25T16:34:38+0000",
+      "updateDate": "2026-11-25T16:34:38+0000",
+      "type": "VULNERABILITY",
+      "scope": "MAIN",
+      "quickFixAvailable": false,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "CONVENTIONAL",
+      "cleanCodeAttributeCategory": "CONSISTENT",
+      "impacts": [
+        {
+          "softwareQuality": "SECURITY",
+          "severity": "HIGH"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "395d2fa4-c4a3-468b-b72e-1a54df0f2eff",
+      "rule": "findsecbugs:SQL_INJECTION_SPRING_JDBC",
+      "severity": "CRITICAL",
+      "component": "thesis_owasp_cwe89_e_spring_20261125_v1:src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00597.java",
+      "project": "thesis_owasp_cwe89_e_spring_20261125_v1",
+      "line": 68,
+      "hash": "ae3c49d31d5020ed11de317e8106a42f",
+      "textRange": {
+        "startLine": 68,
+        "endLine": 68,
+        "startOffset": 0,
+        "endOffset": 94
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "This use of org/springframework/jdbc/core/JdbcTemplate.queryForList(Ljava/lang/String;)Ljava/util/List; can be vulnerable to SQL injection (with Spring JDBC)",
+      "author": "",
+      "tags": [
+        "cwe",
+        "owasp-a1",
+        "injection",
+        "wasc"
+      ],
+      "creationDate": "2026-11-25T16:34:38+0000",
+      "updateDate": "2026-11-25T16:34:38+0000",
+      "type": "VULNERABILITY",
+      "scope": "MAIN",
+      "quickFixAvailable": false,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "CONVENTIONAL",
+      "cleanCodeAttributeCategory": "CONSISTENT",
+      "impacts": [
+        {
+          "softwareQuality": "SECURITY",
+          "severity": "HIGH"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "7b722367-6ec2-47b1-b8aa-537245ecaa8a",
+      "rule": "findsecbugs:SQL_INJECTION_SPRING_JDBC",
+      "severity": "CRITICAL",
+      "component": "thesis_owasp_cwe89_e_spring_20261125_v1:src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00842.java",
+      "project": "thesis_owasp_cwe89_e_spring_20261125_v1",
+      "line": 88,
+      "hash": "396ec2f7381fcddd10e687742fbd42cf",
+      "textRange": {
+        "startLine": 88,
+        "endLine": 88,
+        "startOffset": 0,
+        "endOffset": 91
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "This use of org/springframework/jdbc/core/JdbcTemplate.queryForObject(Ljava/lang/String;Ljava/lang/Class;)Ljava/lang/Object; can be vulnerable to SQL injection (with Spring JDBC)",
+      "author": "",
+      "tags": [
+        "cwe",
+        "owasp-a1",
+        "injection",
+        "wasc"
+      ],
+      "creationDate": "2026-11-25T16:34:38+0000",
+      "updateDate": "2026-11-25T16:34:38+0000",
+      "type": "VULNERABILITY",
+      "scope": "MAIN",
+      "quickFixAvailable": false,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "CONVENTIONAL",
+      "cleanCodeAttributeCategory": "CONSISTENT",
+      "impacts": [
+        {
+          "softwareQuality": "SECURITY",
+          "severity": "HIGH"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "ec12148a-2bb2-4663-92c0-fa209602f0aa",
+      "rule": "findsecbugs:SQL_INJECTION_JDBC",
+      "severity": "CRITICAL",
+      "component": "thesis_owasp_cwe89_e_spring_20261125_v1:src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00847.java",
+      "project": "thesis_owasp_cwe89_e_spring_20261125_v1",
+      "line": 87,
+      "hash": "3f4942da062063507f1bff58b882f62e",
+      "textRange": {
+        "startLine": 87,
+        "endLine": 87,
+        "startOffset": 0,
+        "endOffset": 36
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "This use of java/sql/Statement.addBatch(Ljava/lang/String;)V can be vulnerable to SQL injection (with JDBC)",
+      "author": "",
+      "tags": [
+        "cwe",
+        "owasp-a1",
+        "injection",
+        "wasc"
+      ],
+      "creationDate": "2026-11-25T16:34:38+0000",
+      "updateDate": "2026-11-25T16:34:38+0000",
+      "type": "VULNERABILITY",
+      "scope": "MAIN",
+      "quickFixAvailable": false,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "CONVENTIONAL",
+      "cleanCodeAttributeCategory": "CONSISTENT",
+      "impacts": [
+        {
+          "softwareQuality": "SECURITY",
+          "severity": "HIGH"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "bb08990d-8d4d-4854-aec2-e93221c1aacb",
+      "rule": "findsecbugs:SQL_INJECTION_SPRING_JDBC",
+      "severity": "CRITICAL",
+      "component": "thesis_owasp_cwe89_e_spring_20261125_v1:src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00930.java",
+      "project": "thesis_owasp_cwe89_e_spring_20261125_v1",
+      "line": 59,
+      "hash": "a78d9643f603d02c2d7dfece16c19fb1",
+      "textRange": {
+        "startLine": 59,
+        "endLine": 59,
+        "startOffset": 0,
+        "endOffset": 85
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "This use of org/springframework/jdbc/core/JdbcTemplate.batchUpdate([Ljava/lang/String;)[I can be vulnerable to SQL injection (with Spring JDBC)",
+      "author": "",
+      "tags": [
+        "cwe",
+        "owasp-a1",
+        "injection",
+        "wasc"
+      ],
+      "creationDate": "2026-11-25T16:34:38+0000",
+      "updateDate": "2026-11-25T16:34:38+0000",
+      "type": "VULNERABILITY",
+      "scope": "MAIN",
+      "quickFixAvailable": false,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "CONVENTIONAL",
+      "cleanCodeAttributeCategory": "CONSISTENT",
+      "impacts": [
+        {
+          "softwareQuality": "SECURITY",
+          "severity": "HIGH"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "a2e0a8d6-508e-4cd1-b6ef-8534a90c5b44",
+      "rule": "findsecbugs:SQL_INJECTION_JDBC",
+      "severity": "CRITICAL",
+      "component": "thesis_owasp_cwe89_e_spring_20261125_v1:src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01003.java",
+      "project": "thesis_owasp_cwe89_e_spring_20261125_v1",
+      "line": 74,
+      "hash": "f20e0defb02d9206e082496f647d0511",
+      "textRange": {
+        "startLine": 74,
+        "endLine": 74,
+        "startOffset": 0,
+        "endOffset": 90
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "This use of java/sql/Connection.prepareStatement(Ljava/lang/String;[Ljava/lang/String;)Ljava/sql/PreparedStatement; can be vulnerable to SQL injection (with JDBC)",
+      "author": "",
+      "tags": [
+        "cwe",
+        "owasp-a1",
+        "injection",
+        "wasc"
+      ],
+      "creationDate": "2026-11-25T16:34:38+0000",
+      "updateDate": "2026-11-25T16:34:38+0000",
+      "type": "VULNERABILITY",
+      "scope": "MAIN",
+      "quickFixAvailable": false,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "CONVENTIONAL",
+      "cleanCodeAttributeCategory": "CONSISTENT",
+      "impacts": [
+        {
+          "softwareQuality": "SECURITY",
+          "severity": "HIGH"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "f8ee910d-26bb-4a08-9c9c-9d7620b408f5",
+      "rule": "findsecbugs:SQL_INJECTION_SPRING_JDBC",
+      "severity": "CRITICAL",
+      "component": "thesis_owasp_cwe89_e_spring_20261125_v1:src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01085.java",
+      "project": "thesis_owasp_cwe89_e_spring_20261125_v1",
+      "line": 56,
+      "hash": "b02b57260afabaf4020202dfdcefcadf",
+      "textRange": {
+        "startLine": 56,
+        "endLine": 56,
+        "startOffset": 0,
+        "endOffset": 81
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "This use of org/springframework/jdbc/core/JdbcTemplate.execute(Ljava/lang/String;)V can be vulnerable to SQL injection (with Spring JDBC)",
+      "author": "",
+      "tags": [
+        "cwe",
+        "owasp-a1",
+        "injection",
+        "wasc"
+      ],
+      "creationDate": "2026-11-25T16:34:38+0000",
+      "updateDate": "2026-11-25T16:34:38+0000",
+      "type": "VULNERABILITY",
+      "scope": "MAIN",
+      "quickFixAvailable": false,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "CONVENTIONAL",
+      "cleanCodeAttributeCategory": "CONSISTENT",
+      "impacts": [
+        {
+          "softwareQuality": "SECURITY",
+          "severity": "HIGH"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "5d50d4d7-1b4c-4102-8fd8-26a08a44163f",
+      "rule": "findsecbugs:SQL_INJECTION_SPRING_JDBC",
+      "severity": "CRITICAL",
+      "component": "thesis_owasp_cwe89_e_spring_20261125_v1:src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01086.java",
+      "project": "thesis_owasp_cwe89_e_spring_20261125_v1",
+      "line": 56,
+      "hash": "b02b57260afabaf4020202dfdcefcadf",
+      "textRange": {
+        "startLine": 56,
+        "endLine": 56,
+        "startOffset": 0,
+        "endOffset": 81
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "This use of org/springframework/jdbc/core/JdbcTemplate.execute(Ljava/lang/String;)V can be vulnerable to SQL injection (with Spring JDBC)",
+      "author": "",
+      "tags": [
+        "cwe",
+        "owasp-a1",
+        "injection",
+        "wasc"
+      ],
+      "creationDate": "2026-11-25T16:34:38+0000",
+      "updateDate": "2026-11-25T16:34:38+0000",
+      "type": "VULNERABILITY",
+      "scope": "MAIN",
+      "quickFixAvailable": false,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "CONVENTIONAL",
+      "cleanCodeAttributeCategory": "CONSISTENT",
+      "impacts": [
+        {
+          "softwareQuality": "SECURITY",
+          "severity": "HIGH"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "5ad4658c-fbdc-453b-aaf3-2e38edbf3955",
+      "rule": "findsecbugs:SQL_INJECTION_JDBC",
+      "severity": "CRITICAL",
+      "component": "thesis_owasp_cwe89_e_spring_20261125_v1:src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01213.java",
+      "project": "thesis_owasp_cwe89_e_spring_20261125_v1",
+      "line": 61,
+      "hash": "f20e0defb02d9206e082496f647d0511",
+      "textRange": {
+        "startLine": 61,
+        "endLine": 61,
+        "startOffset": 0,
+        "endOffset": 90
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "This use of java/sql/Connection.prepareStatement(Ljava/lang/String;[Ljava/lang/String;)Ljava/sql/PreparedStatement; can be vulnerable to SQL injection (with JDBC)",
+      "author": "",
+      "tags": [
+        "cwe",
+        "owasp-a1",
+        "injection",
+        "wasc"
+      ],
+      "creationDate": "2026-11-25T16:34:38+0000",
+      "updateDate": "2026-11-25T16:34:38+0000",
+      "type": "VULNERABILITY",
+      "scope": "MAIN",
+      "quickFixAvailable": false,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "CONVENTIONAL",
+      "cleanCodeAttributeCategory": "CONSISTENT",
+      "impacts": [
+        {
+          "softwareQuality": "SECURITY",
+          "severity": "HIGH"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "7ddd93dd-5ad5-4676-8fb8-0348ce84af3a",
+      "rule": "findsecbugs:SQL_INJECTION_JDBC",
+      "severity": "CRITICAL",
+      "component": "thesis_owasp_cwe89_e_spring_20261125_v1:src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01302.java",
+      "project": "thesis_owasp_cwe89_e_spring_20261125_v1",
+      "line": 54,
+      "hash": "7594990a16c9b24ae73a86d59ab65076",
+      "textRange": {
+        "startLine": 54,
+        "endLine": 54,
+        "startOffset": 0,
+        "endOffset": 43
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "This use of java/sql/Connection.prepareCall(Ljava/lang/String;III)Ljava/sql/CallableStatement; can be vulnerable to SQL injection (with JDBC)",
+      "author": "",
+      "tags": [
+        "cwe",
+        "owasp-a1",
+        "injection",
+        "wasc"
+      ],
+      "creationDate": "2026-11-25T16:34:38+0000",
+      "updateDate": "2026-11-25T16:34:38+0000",
+      "type": "VULNERABILITY",
+      "scope": "MAIN",
+      "quickFixAvailable": false,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "CONVENTIONAL",
+      "cleanCodeAttributeCategory": "CONSISTENT",
+      "impacts": [
+        {
+          "softwareQuality": "SECURITY",
+          "severity": "HIGH"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "fa36ceae-1d03-4739-bd79-467fba79937f",
+      "rule": "findsecbugs:SQL_INJECTION_JDBC",
+      "severity": "CRITICAL",
+      "component": "thesis_owasp_cwe89_e_spring_20261125_v1:src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01385.java",
+      "project": "thesis_owasp_cwe89_e_spring_20261125_v1",
+      "line": 58,
+      "hash": "f20e0defb02d9206e082496f647d0511",
+      "textRange": {
+        "startLine": 58,
+        "endLine": 58,
+        "startOffset": 0,
+        "endOffset": 90
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "This use of java/sql/Connection.prepareStatement(Ljava/lang/String;[Ljava/lang/String;)Ljava/sql/PreparedStatement; can be vulnerable to SQL injection (with JDBC)",
+      "author": "",
+      "tags": [
+        "cwe",
+        "owasp-a1",
+        "injection",
+        "wasc"
+      ],
+      "creationDate": "2026-11-25T16:34:38+0000",
+      "updateDate": "2026-11-25T16:34:38+0000",
+      "type": "VULNERABILITY",
+      "scope": "MAIN",
+      "quickFixAvailable": false,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "CONVENTIONAL",
+      "cleanCodeAttributeCategory": "CONSISTENT",
+      "impacts": [
+        {
+          "softwareQuality": "SECURITY",
+          "severity": "HIGH"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "bd6d044c-0a69-4cae-a101-364368511867",
+      "rule": "findsecbugs:SQL_INJECTION_SPRING_JDBC",
+      "severity": "CRITICAL",
+      "component": "thesis_owasp_cwe89_e_spring_20261125_v1:src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01725.java",
+      "project": "thesis_owasp_cwe89_e_spring_20261125_v1",
+      "line": 76,
+      "hash": "396ec2f7381fcddd10e687742fbd42cf",
+      "textRange": {
+        "startLine": 76,
+        "endLine": 76,
+        "startOffset": 0,
+        "endOffset": 91
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "This use of org/springframework/jdbc/core/JdbcTemplate.queryForObject(Ljava/lang/String;[Ljava/lang/Object;Ljava/lang/Class;)Ljava/lang/Object; can be vulnerable to SQL injection (with Spring JDBC)",
+      "author": "",
+      "tags": [
+        "cwe",
+        "owasp-a1",
+        "injection",
+        "wasc"
+      ],
+      "creationDate": "2026-11-25T16:34:38+0000",
+      "updateDate": "2026-11-25T16:34:38+0000",
+      "type": "VULNERABILITY",
+      "scope": "MAIN",
+      "quickFixAvailable": false,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "CONVENTIONAL",
+      "cleanCodeAttributeCategory": "CONSISTENT",
+      "impacts": [
+        {
+          "softwareQuality": "SECURITY",
+          "severity": "HIGH"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "6c79f537-e4a0-4e0c-84a5-30fc02e9efb9",
+      "rule": "findsecbugs:SQL_INJECTION_JDBC",
+      "severity": "CRITICAL",
+      "component": "thesis_owasp_cwe89_e_spring_20261125_v1:src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01961.java",
+      "project": "thesis_owasp_cwe89_e_spring_20261125_v1",
+      "line": 59,
+      "hash": "4e1c7917c6e1d8436e10e5063b92d2b9",
+      "textRange": {
+        "startLine": 59,
+        "endLine": 59,
+        "startOffset": 0,
+        "endOffset": 95
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "This use of java/sql/Connection.prepareStatement(Ljava/lang/String;I)Ljava/sql/PreparedStatement; can be vulnerable to SQL injection (with JDBC)",
+      "author": "",
+      "tags": [
+        "cwe",
+        "owasp-a1",
+        "injection",
+        "wasc"
+      ],
+      "creationDate": "2026-11-25T16:34:38+0000",
+      "updateDate": "2026-11-25T16:34:38+0000",
+      "type": "VULNERABILITY",
+      "scope": "MAIN",
+      "quickFixAvailable": false,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "CONVENTIONAL",
+      "cleanCodeAttributeCategory": "CONSISTENT",
+      "impacts": [
+        {
+          "softwareQuality": "SECURITY",
+          "severity": "HIGH"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "c5af8661-dd0d-4bcb-b8bc-6019053f9e7a",
+      "rule": "findsecbugs:SQL_INJECTION_JDBC",
+      "severity": "CRITICAL",
+      "component": "thesis_owasp_cwe89_e_spring_20261125_v1:src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01970.java",
+      "project": "thesis_owasp_cwe89_e_spring_20261125_v1",
+      "line": 58,
+      "hash": "3f4942da062063507f1bff58b882f62e",
+      "textRange": {
+        "startLine": 58,
+        "endLine": 58,
+        "startOffset": 0,
+        "endOffset": 36
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "This use of java/sql/Statement.addBatch(Ljava/lang/String;)V can be vulnerable to SQL injection (with JDBC)",
+      "author": "",
+      "tags": [
+        "cwe",
+        "owasp-a1",
+        "injection",
+        "wasc"
+      ],
+      "creationDate": "2026-11-25T16:34:38+0000",
+      "updateDate": "2026-11-25T16:34:38+0000",
+      "type": "VULNERABILITY",
+      "scope": "MAIN",
+      "quickFixAvailable": false,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "CONVENTIONAL",
+      "cleanCodeAttributeCategory": "CONSISTENT",
+      "impacts": [
+        {
+          "softwareQuality": "SECURITY",
+          "severity": "HIGH"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "e7ed8242-3109-4126-b2cd-cc74baba0852",
+      "rule": "findsecbugs:SQL_INJECTION_JDBC",
+      "severity": "CRITICAL",
+      "component": "thesis_owasp_cwe89_e_spring_20261125_v1:src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01972.java",
+      "project": "thesis_owasp_cwe89_e_spring_20261125_v1",
+      "line": 58,
+      "hash": "520017b045d8aa4ba4d79296a861f075",
+      "textRange": {
+        "startLine": 58,
+        "endLine": 58,
+        "startOffset": 0,
+        "endOffset": 74
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "This use of java/sql/Statement.execute(Ljava/lang/String;[Ljava/lang/String;)Z can be vulnerable to SQL injection (with JDBC)",
+      "author": "",
+      "tags": [
+        "cwe",
+        "owasp-a1",
+        "injection",
+        "wasc"
+      ],
+      "creationDate": "2026-11-25T16:34:38+0000",
+      "updateDate": "2026-11-25T16:34:38+0000",
+      "type": "VULNERABILITY",
+      "scope": "MAIN",
+      "quickFixAvailable": false,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "CONVENTIONAL",
+      "cleanCodeAttributeCategory": "CONSISTENT",
+      "impacts": [
+        {
+          "softwareQuality": "SECURITY",
+          "severity": "HIGH"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "67b9058e-fbe7-40f7-8972-17c6a7ee9602",
+      "rule": "findsecbugs:SQL_INJECTION_JDBC",
+      "severity": "CRITICAL",
+      "component": "thesis_owasp_cwe89_e_spring_20261125_v1:src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02089.java",
+      "project": "thesis_owasp_cwe89_e_spring_20261125_v1",
+      "line": 61,
+      "hash": "b8c256562753ca687938050f1503f83d",
+      "textRange": {
+        "startLine": 61,
+        "endLine": 61,
+        "startOffset": 0,
+        "endOffset": 48
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "This use of java/sql/Connection.prepareStatement(Ljava/lang/String;II)Ljava/sql/PreparedStatement; can be vulnerable to SQL injection (with JDBC)",
+      "author": "",
+      "tags": [
+        "cwe",
+        "owasp-a1",
+        "injection",
+        "wasc"
+      ],
+      "creationDate": "2026-11-25T16:34:38+0000",
+      "updateDate": "2026-11-25T16:34:38+0000",
+      "type": "VULNERABILITY",
+      "scope": "MAIN",
+      "quickFixAvailable": false,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "CONVENTIONAL",
+      "cleanCodeAttributeCategory": "CONSISTENT",
+      "impacts": [
+        {
+          "softwareQuality": "SECURITY",
+          "severity": "HIGH"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "5833a636-ed4d-49df-85a1-e028c1917405",
+      "rule": "findsecbugs:SQL_INJECTION_JDBC",
+      "severity": "CRITICAL",
+      "component": "thesis_owasp_cwe89_e_spring_20261125_v1:src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02095.java",
+      "project": "thesis_owasp_cwe89_e_spring_20261125_v1",
+      "line": 60,
+      "hash": "db7fa2a88c5c056393b97e00ad77baa0",
+      "textRange": {
+        "startLine": 60,
+        "endLine": 60,
+        "startOffset": 0,
+        "endOffset": 77
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "This use of java/sql/Statement.execute(Ljava/lang/String;I)Z can be vulnerable to SQL injection (with JDBC)",
+      "author": "",
+      "tags": [
+        "cwe",
+        "owasp-a1",
+        "injection",
+        "wasc"
+      ],
+      "creationDate": "2026-11-25T16:34:38+0000",
+      "updateDate": "2026-11-25T16:34:38+0000",
+      "type": "VULNERABILITY",
+      "scope": "MAIN",
+      "quickFixAvailable": false,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "CONVENTIONAL",
+      "cleanCodeAttributeCategory": "CONSISTENT",
+      "impacts": [
+        {
+          "softwareQuality": "SECURITY",
+          "severity": "HIGH"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "6969d4b5-d64c-43de-ba8c-c5aaa9305f31",
+      "rule": "findsecbugs:SQL_INJECTION_JDBC",
+      "severity": "CRITICAL",
+      "component": "thesis_owasp_cwe89_e_spring_20261125_v1:src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02185.java",
+      "project": "thesis_owasp_cwe89_e_spring_20261125_v1",
+      "line": 53,
+      "hash": "3f4942da062063507f1bff58b882f62e",
+      "textRange": {
+        "startLine": 53,
+        "endLine": 53,
+        "startOffset": 0,
+        "endOffset": 36
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "This use of java/sql/Statement.addBatch(Ljava/lang/String;)V can be vulnerable to SQL injection (with JDBC)",
+      "author": "",
+      "tags": [
+        "cwe",
+        "owasp-a1",
+        "injection",
+        "wasc"
+      ],
+      "creationDate": "2026-11-25T16:34:38+0000",
+      "updateDate": "2026-11-25T16:34:38+0000",
+      "type": "VULNERABILITY",
+      "scope": "MAIN",
+      "quickFixAvailable": false,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "CONVENTIONAL",
+      "cleanCodeAttributeCategory": "CONSISTENT",
+      "impacts": [
+        {
+          "softwareQuality": "SECURITY",
+          "severity": "HIGH"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "597d0708-60f2-48d3-9e5a-d513bbf84681",
+      "rule": "findsecbugs:SQL_INJECTION_SPRING_JDBC",
+      "severity": "CRITICAL",
+      "component": "thesis_owasp_cwe89_e_spring_20261125_v1:src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02362.java",
+      "project": "thesis_owasp_cwe89_e_spring_20261125_v1",
+      "line": 65,
+      "hash": "d9e2daec4123f4519ac0127303f8071d",
+      "textRange": {
+        "startLine": 65,
+        "endLine": 65,
+        "startOffset": 0,
+        "endOffset": 96
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "This use of org/springframework/jdbc/core/JdbcTemplate.queryForRowSet(Ljava/lang/String;)Lorg/springframework/jdbc/support/rowset/SqlRowSet; can be vulnerable to SQL injection (with Spring JDBC)",
+      "author": "",
+      "tags": [
+        "cwe",
+        "owasp-a1",
+        "injection",
+        "wasc"
+      ],
+      "creationDate": "2026-11-25T16:34:38+0000",
+      "updateDate": "2026-11-25T16:34:38+0000",
+      "type": "VULNERABILITY",
+      "scope": "MAIN",
+      "quickFixAvailable": false,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "CONVENTIONAL",
+      "cleanCodeAttributeCategory": "CONSISTENT",
+      "impacts": [
+        {
+          "softwareQuality": "SECURITY",
+          "severity": "HIGH"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "9c0b5b62-08b5-41ed-a681-ce6455596f73",
+      "rule": "findsecbugs:SQL_INJECTION_JDBC",
+      "severity": "CRITICAL",
+      "component": "thesis_owasp_cwe89_e_spring_20261125_v1:src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02628.java",
+      "project": "thesis_owasp_cwe89_e_spring_20261125_v1",
+      "line": 78,
+      "hash": "7594990a16c9b24ae73a86d59ab65076",
+      "textRange": {
+        "startLine": 78,
+        "endLine": 78,
+        "startOffset": 0,
+        "endOffset": 43
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "This use of java/sql/Connection.prepareCall(Ljava/lang/String;II)Ljava/sql/CallableStatement; can be vulnerable to SQL injection (with JDBC)",
+      "author": "",
+      "tags": [
+        "cwe",
+        "owasp-a1",
+        "injection",
+        "wasc"
+      ],
+      "creationDate": "2026-11-25T16:34:38+0000",
+      "updateDate": "2026-11-25T16:34:38+0000",
+      "type": "VULNERABILITY",
+      "scope": "MAIN",
+      "quickFixAvailable": false,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "CONVENTIONAL",
+      "cleanCodeAttributeCategory": "CONSISTENT",
+      "impacts": [
+        {
+          "softwareQuality": "SECURITY",
+          "severity": "HIGH"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "6d09bee7-a845-4dfc-ac5f-8c20196ac1c9",
+      "rule": "findsecbugs:SQL_INJECTION_JDBC",
+      "severity": "CRITICAL",
+      "component": "thesis_owasp_cwe89_e_spring_20261125_v1:src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02651.java",
+      "project": "thesis_owasp_cwe89_e_spring_20261125_v1",
+      "line": 77,
+      "hash": "520017b045d8aa4ba4d79296a861f075",
+      "textRange": {
+        "startLine": 77,
+        "endLine": 77,
+        "startOffset": 0,
+        "endOffset": 74
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "This use of java/sql/Statement.execute(Ljava/lang/String;[Ljava/lang/String;)Z can be vulnerable to SQL injection (with JDBC)",
+      "author": "",
+      "tags": [
+        "cwe",
+        "owasp-a1",
+        "injection",
+        "wasc"
+      ],
+      "creationDate": "2026-11-25T16:34:38+0000",
+      "updateDate": "2026-11-25T16:34:38+0000",
+      "type": "VULNERABILITY",
+      "scope": "MAIN",
+      "quickFixAvailable": false,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "CONVENTIONAL",
+      "cleanCodeAttributeCategory": "CONSISTENT",
+      "impacts": [
+        {
+          "softwareQuality": "SECURITY",
+          "severity": "HIGH"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "52d50793-a2b8-4e0f-8793-b68bf6191c3e",
+      "rule": "findsecbugs:SQL_INJECTION_JDBC",
+      "severity": "CRITICAL",
+      "component": "thesis_owasp_cwe89_e_spring_20261125_v1:src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02730.java",
+      "project": "thesis_owasp_cwe89_e_spring_20261125_v1",
+      "line": 55,
+      "hash": "f20e0defb02d9206e082496f647d0511",
+      "textRange": {
+        "startLine": 55,
+        "endLine": 55,
+        "startOffset": 0,
+        "endOffset": 90
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "This use of java/sql/Connection.prepareStatement(Ljava/lang/String;[Ljava/lang/String;)Ljava/sql/PreparedStatement; can be vulnerable to SQL injection (with JDBC)",
+      "author": "",
+      "tags": [
+        "cwe",
+        "owasp-a1",
+        "injection",
+        "wasc"
+      ],
+      "creationDate": "2026-11-25T16:34:38+0000",
+      "updateDate": "2026-11-25T16:34:38+0000",
+      "type": "VULNERABILITY",
+      "scope": "MAIN",
+      "quickFixAvailable": false,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "CONVENTIONAL",
+      "cleanCodeAttributeCategory": "CONSISTENT",
+      "impacts": [
+        {
+          "softwareQuality": "SECURITY",
+          "severity": "HIGH"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    }
+  ],
+  "rule_counts": {
+    "findsecbugs:SQL_INJECTION_JDBC": 18,
+    "findsecbugs:SQL_INJECTION_SPRING_JDBC": 11
+  }
+}

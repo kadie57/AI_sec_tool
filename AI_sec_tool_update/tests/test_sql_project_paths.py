@@ -5,7 +5,7 @@ from tempfile import TemporaryDirectory
 import unittest
 
 from sql_llm_experiment import plan, validate
-from sql_pipeline.evidence.sql_project_paths import case_files, split_batch, stage_snapshot
+from sql_pipeline.evidence.sql_project_paths import case_files, split_batch, stage_snapshot, write_batch
 
 
 class SqlProjectPathsTest(unittest.TestCase):
@@ -37,6 +37,14 @@ class SqlProjectPathsTest(unittest.TestCase):
         self.assertEqual(split_batch(output, {2, 3})[3], "SQL_PATH\tSINK\t0\t0")
         with self.assertRaisesRegex(ValueError, "expected alert batch"):
             split_batch(output, {2, 3, 4})
+
+    def test_batch_targets_generic_spring_call_by_name(self):
+        files = {"F0": {"path": "Main.java"}}
+        sink = {"file_id": "F0", "line": 10, "signature": "<T>query(java.lang.String,org.example.RowMapper<T>)"}
+        with TemporaryDirectory() as directory:
+            output = Path(directory)
+            write_batch(output, [(1, files, [], sink)], [])
+            self.assertEqual((output / "queries.tsv").read_text(), "sink\t1\tMain.java\t10\tquery\n")
 
     def test_new_project_files_use_only_visible_code_as_citation_evidence(self):
         main = {"path": "Repo.java", "kind": "JAVA", "masked_source": "execute(sql);", "sha256": "hash"}

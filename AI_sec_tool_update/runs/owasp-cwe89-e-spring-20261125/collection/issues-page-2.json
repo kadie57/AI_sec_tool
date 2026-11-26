@@ -1,0 +1,4949 @@
+{
+  "total": 500,
+  "p": 2,
+  "ps": 100,
+  "paging": {
+    "pageIndex": 2,
+    "pageSize": 100,
+    "total": 500
+  },
+  "effortTotal": 5538,
+  "issues": [
+    {
+      "key": "6a99b494-8066-44a6-a71f-61b7e6104c7d",
+      "rule": "java:S116",
+      "severity": "MINOR",
+      "component": "thesis_owasp_cwe89_e_spring_20261125_v1:src/main/java/org/owasp/benchmark/helpers/LDAPServer.java",
+      "project": "thesis_owasp_cwe89_e_spring_20261125_v1",
+      "line": 62,
+      "hash": "abc0c44013123795a47c89eb10c25fe9",
+      "textRange": {
+        "startLine": 62,
+        "endLine": 62,
+        "startOffset": 26,
+        "endOffset": 40
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "Rename this field \"_basePartition\" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.",
+      "effort": "2min",
+      "debt": "2min",
+      "author": "",
+      "tags": [
+        "convention"
+      ],
+      "creationDate": "2026-11-25T16:34:38+0000",
+      "updateDate": "2026-11-25T16:34:38+0000",
+      "type": "CODE_SMELL",
+      "scope": "MAIN",
+      "quickFixAvailable": false,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "IDENTIFIABLE",
+      "cleanCodeAttributeCategory": "CONSISTENT",
+      "impacts": [
+        {
+          "softwareQuality": "MAINTAINABILITY",
+          "severity": "LOW"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "c0b66707-1bcd-4027-970c-3c0f0e1d5430",
+      "rule": "java:S116",
+      "severity": "MINOR",
+      "component": "thesis_owasp_cwe89_e_spring_20261125_v1:src/main/java/org/owasp/benchmark/helpers/LDAPServer.java",
+      "project": "thesis_owasp_cwe89_e_spring_20261125_v1",
+      "line": 63,
+      "hash": "adc4b7ac2f564d448111cd056535ff0b",
+      "textRange": {
+        "startLine": 63,
+        "endLine": 63,
+        "startOffset": 20,
+        "endOffset": 53
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "Rename this field \"_deleteInstanceDirectoryOnStartup\" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.",
+      "effort": "2min",
+      "debt": "2min",
+      "author": "",
+      "tags": [
+        "convention"
+      ],
+      "creationDate": "2026-11-25T16:34:38+0000",
+      "updateDate": "2026-11-25T16:34:38+0000",
+      "type": "CODE_SMELL",
+      "scope": "MAIN",
+      "quickFixAvailable": false,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "IDENTIFIABLE",
+      "cleanCodeAttributeCategory": "CONSISTENT",
+      "impacts": [
+        {
+          "softwareQuality": "MAINTAINABILITY",
+          "severity": "LOW"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "358c03a6-e7c2-40d0-9288-58a07d875cba",
+      "rule": "java:S116",
+      "severity": "MINOR",
+      "component": "thesis_owasp_cwe89_e_spring_20261125_v1:src/main/java/org/owasp/benchmark/helpers/LDAPServer.java",
+      "project": "thesis_owasp_cwe89_e_spring_20261125_v1",
+      "line": 64,
+      "hash": "40b5a6b8473a4ba1d5254fd3632eb862",
+      "textRange": {
+        "startLine": 64,
+        "endLine": 64,
+        "startOffset": 20,
+        "endOffset": 54
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "Rename this field \"_deleteInstanceDirectoryOnShutdown\" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.",
+      "effort": "2min",
+      "debt": "2min",
+      "author": "",
+      "tags": [
+        "convention"
+      ],
+      "creationDate": "2026-11-25T16:34:38+0000",
+      "updateDate": "2026-11-25T16:34:38+0000",
+      "type": "CODE_SMELL",
+      "scope": "MAIN",
+      "quickFixAvailable": false,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "IDENTIFIABLE",
+      "cleanCodeAttributeCategory": "CONSISTENT",
+      "impacts": [
+        {
+          "softwareQuality": "MAINTAINABILITY",
+          "severity": "LOW"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "77638f13-8bef-49cf-ac90-e24c0b8b204e",
+      "rule": "findsecbugs:PATH_TRAVERSAL_IN",
+      "severity": "MAJOR",
+      "component": "thesis_owasp_cwe89_e_spring_20261125_v1:src/main/java/org/owasp/benchmark/helpers/LDAPServer.java",
+      "project": "thesis_owasp_cwe89_e_spring_20261125_v1",
+      "line": 97,
+      "hash": "b7c7b502f1b5bf15a27180bceb09f77e",
+      "textRange": {
+        "startLine": 97,
+        "endLine": 97,
+        "startOffset": 0,
+        "endOffset": 54
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "This API (java/io/File.<init>(Ljava/lang/String;)V) reads a file whose location might be specified by user input",
+      "author": "",
+      "tags": [
+        "cwe",
+        "owasp-a4",
+        "wasc"
+      ],
+      "creationDate": "2026-11-25T16:34:38+0000",
+      "updateDate": "2026-11-25T16:34:38+0000",
+      "type": "VULNERABILITY",
+      "scope": "MAIN",
+      "quickFixAvailable": false,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "CONVENTIONAL",
+      "cleanCodeAttributeCategory": "CONSISTENT",
+      "impacts": [
+        {
+          "softwareQuality": "SECURITY",
+          "severity": "MEDIUM"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "fd1a6f43-485f-461a-8d48-cb22781f0236",
+      "rule": "java:S106",
+      "severity": "MAJOR",
+      "component": "thesis_owasp_cwe89_e_spring_20261125_v1:src/main/java/org/owasp/benchmark/helpers/LDAPServer.java",
+      "project": "thesis_owasp_cwe89_e_spring_20261125_v1",
+      "line": 103,
+      "hash": "d51ac7f372a488d9d4d21eb55a5fcbae",
+      "textRange": {
+        "startLine": 103,
+        "endLine": 103,
+        "startOffset": 12,
+        "endOffset": 22
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "Replace this use of System.out by a logger.",
+      "effort": "10min",
+      "debt": "10min",
+      "author": "",
+      "tags": [
+        "bad-practice",
+        "cert"
+      ],
+      "creationDate": "2026-11-25T16:34:38+0000",
+      "updateDate": "2026-11-25T16:34:38+0000",
+      "type": "CODE_SMELL",
+      "scope": "MAIN",
+      "quickFixAvailable": false,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "MODULAR",
+      "cleanCodeAttributeCategory": "ADAPTABLE",
+      "impacts": [
+        {
+          "softwareQuality": "MAINTAINABILITY",
+          "severity": "MEDIUM"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "1211b6c7-e499-4ab0-b743-687aa43b9831",
+      "rule": "java:S112",
+      "severity": "MAJOR",
+      "component": "thesis_owasp_cwe89_e_spring_20261125_v1:src/main/java/org/owasp/benchmark/helpers/LDAPServer.java",
+      "project": "thesis_owasp_cwe89_e_spring_20261125_v1",
+      "line": 159,
+      "hash": "4c766a741b4e66a1e08fa0ad1d57eaa9",
+      "textRange": {
+        "startLine": 159,
+        "endLine": 159,
+        "startOffset": 33,
+        "endOffset": 42
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "Replace generic exceptions with specific library exceptions or a custom exception.",
+      "effort": "20min",
+      "debt": "20min",
+      "author": "",
+      "tags": [
+        "cwe",
+        "error-handling",
+        "cert"
+      ],
+      "creationDate": "2026-11-25T16:34:38+0000",
+      "updateDate": "2026-11-25T16:34:38+0000",
+      "type": "CODE_SMELL",
+      "scope": "MAIN",
+      "quickFixAvailable": false,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "COMPLETE",
+      "cleanCodeAttributeCategory": "INTENTIONAL",
+      "impacts": [
+        {
+          "softwareQuality": "MAINTAINABILITY",
+          "severity": "MEDIUM"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "03dd6373-5350-4be3-8c2e-6480c9831efc",
+      "rule": "java:S112",
+      "severity": "MAJOR",
+      "component": "thesis_owasp_cwe89_e_spring_20261125_v1:src/main/java/org/owasp/benchmark/helpers/LDAPServer.java",
+      "project": "thesis_owasp_cwe89_e_spring_20261125_v1",
+      "line": 193,
+      "hash": "36531ebc3953a79cc7826ddff3e8c0bf",
+      "textRange": {
+        "startLine": 193,
+        "endLine": 193,
+        "startOffset": 46,
+        "endOffset": 55
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "Replace generic exceptions with specific library exceptions or a custom exception.",
+      "effort": "20min",
+      "debt": "20min",
+      "author": "",
+      "tags": [
+        "cwe",
+        "error-handling",
+        "cert"
+      ],
+      "creationDate": "2026-11-25T16:34:38+0000",
+      "updateDate": "2026-11-25T16:34:38+0000",
+      "type": "CODE_SMELL",
+      "scope": "MAIN",
+      "quickFixAvailable": false,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "COMPLETE",
+      "cleanCodeAttributeCategory": "INTENTIONAL",
+      "impacts": [
+        {
+          "softwareQuality": "MAINTAINABILITY",
+          "severity": "MEDIUM"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "de4e81d1-24b9-47b9-8a29-294de9170e24",
+      "rule": "java:S1452",
+      "severity": "CRITICAL",
+      "component": "thesis_owasp_cwe89_e_spring_20261125_v1:src/main/java/org/owasp/benchmark/helpers/LDAPServer.java",
+      "project": "thesis_owasp_cwe89_e_spring_20261125_v1",
+      "line": 207,
+      "hash": "152ce47abe89ba8c897d1bc0cae53ef4",
+      "textRange": {
+        "startLine": 207,
+        "endLine": 207,
+        "startOffset": 24,
+        "endOffset": 25
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "Remove usage of generic wildcard type.",
+      "effort": "20min",
+      "debt": "20min",
+      "author": "",
+      "tags": [
+        "pitfall"
+      ],
+      "creationDate": "2026-11-25T16:34:38+0000",
+      "updateDate": "2026-11-25T16:34:38+0000",
+      "type": "CODE_SMELL",
+      "scope": "MAIN",
+      "quickFixAvailable": false,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "CLEAR",
+      "cleanCodeAttributeCategory": "INTENTIONAL",
+      "impacts": [
+        {
+          "softwareQuality": "MAINTAINABILITY",
+          "severity": "HIGH"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "24c04f51-71cd-4d08-868c-ab64c6d1ed69",
+      "rule": "java:S112",
+      "severity": "MAJOR",
+      "component": "thesis_owasp_cwe89_e_spring_20261125_v1:src/main/java/org/owasp/benchmark/helpers/LDAPServer.java",
+      "project": "thesis_owasp_cwe89_e_spring_20261125_v1",
+      "line": 211,
+      "hash": "3ce95dc5619a3a0d56dccf469c811b04",
+      "textRange": {
+        "startLine": 211,
+        "endLine": 211,
+        "startOffset": 22,
+        "endOffset": 38
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "Replace generic exceptions with specific library exceptions or a custom exception.",
+      "effort": "20min",
+      "debt": "20min",
+      "author": "",
+      "tags": [
+        "cwe",
+        "error-handling",
+        "cert"
+      ],
+      "creationDate": "2026-11-25T16:34:38+0000",
+      "updateDate": "2026-11-25T16:34:38+0000",
+      "type": "CODE_SMELL",
+      "scope": "MAIN",
+      "quickFixAvailable": false,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "COMPLETE",
+      "cleanCodeAttributeCategory": "INTENTIONAL",
+      "impacts": [
+        {
+          "softwareQuality": "MAINTAINABILITY",
+          "severity": "MEDIUM"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "7569a87f-e423-442b-a1cc-f3a086a5a063",
+      "rule": "java:S3740",
+      "severity": "MAJOR",
+      "component": "thesis_owasp_cwe89_e_spring_20261125_v1:src/main/java/org/owasp/benchmark/helpers/LDAPServer.java",
+      "project": "thesis_owasp_cwe89_e_spring_20261125_v1",
+      "line": 213,
+      "hash": "e6ad62a8d6427af785be4f8ad59c4d79",
+      "textRange": {
+        "startLine": 213,
+        "endLine": 213,
+        "startOffset": 19,
+        "endOffset": 28
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "Provide the parametrized type for this generic.",
+      "effort": "5min",
+      "debt": "5min",
+      "author": "",
+      "tags": [
+        "pitfall"
+      ],
+      "creationDate": "2026-11-25T16:34:38+0000",
+      "updateDate": "2026-11-25T16:34:38+0000",
+      "type": "CODE_SMELL",
+      "scope": "MAIN",
+      "quickFixAvailable": false,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "COMPLETE",
+      "cleanCodeAttributeCategory": "INTENTIONAL",
+      "impacts": [
+        {
+          "softwareQuality": "MAINTAINABILITY",
+          "severity": "MEDIUM"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "394264ad-f23b-4c49-839e-0eba49c92e0b",
+      "rule": "java:S1452",
+      "severity": "CRITICAL",
+      "component": "thesis_owasp_cwe89_e_spring_20261125_v1:src/main/java/org/owasp/benchmark/helpers/LDAPServer.java",
+      "project": "thesis_owasp_cwe89_e_spring_20261125_v1",
+      "line": 216,
+      "hash": "32d4d491a29dd262bf2ba6483bdfa323",
+      "textRange": {
+        "startLine": 216,
+        "endLine": 216,
+        "startOffset": 24,
+        "endOffset": 25
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "Remove usage of generic wildcard type.",
+      "effort": "20min",
+      "debt": "20min",
+      "author": "",
+      "tags": [
+        "pitfall"
+      ],
+      "creationDate": "2026-11-25T16:34:38+0000",
+      "updateDate": "2026-11-25T16:34:38+0000",
+      "type": "CODE_SMELL",
+      "scope": "MAIN",
+      "quickFixAvailable": false,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "CLEAR",
+      "cleanCodeAttributeCategory": "INTENTIONAL",
+      "impacts": [
+        {
+          "softwareQuality": "MAINTAINABILITY",
+          "severity": "HIGH"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "aa7dcd3c-0c3b-4433-a056-d5cf49bf484e",
+      "rule": "java:S125",
+      "severity": "MAJOR",
+      "component": "thesis_owasp_cwe89_e_spring_20261125_v1:src/main/java/org/owasp/benchmark/helpers/LDAPServer.java",
+      "project": "thesis_owasp_cwe89_e_spring_20261125_v1",
+      "line": 326,
+      "hash": "929aaafff416c4569ea0798bd8f7ef57",
+      "textRange": {
+        "startLine": 326,
+        "endLine": 326,
+        "startOffset": 11,
+        "endOffset": 86
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "This block of commented-out lines of code should be removed.",
+      "effort": "5min",
+      "debt": "5min",
+      "author": "",
+      "tags": [
+        "unused"
+      ],
+      "creationDate": "2026-11-25T16:34:38+0000",
+      "updateDate": "2026-11-25T16:34:38+0000",
+      "type": "CODE_SMELL",
+      "scope": "MAIN",
+      "quickFixAvailable": false,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "CLEAR",
+      "cleanCodeAttributeCategory": "INTENTIONAL",
+      "impacts": [
+        {
+          "softwareQuality": "MAINTAINABILITY",
+          "severity": "MEDIUM"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "75f7743c-a37c-429e-8db9-3150f3ebab4e",
+      "rule": "findsecbugs:PATH_TRAVERSAL_IN",
+      "severity": "MAJOR",
+      "component": "thesis_owasp_cwe89_e_spring_20261125_v1:src/main/java/org/owasp/benchmark/helpers/PropertiesManager.java",
+      "project": "thesis_owasp_cwe89_e_spring_20261125_v1",
+      "line": 42,
+      "hash": "0ffeb4f81eb46869204a07492a4794a5",
+      "textRange": {
+        "startLine": 42,
+        "endLine": 42,
+        "startOffset": 0,
+        "endOffset": 58
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "This API (java/io/File.<init>(Ljava/lang/String;)V) reads a file whose location might be specified by user input",
+      "author": "",
+      "tags": [
+        "cwe",
+        "owasp-a4",
+        "wasc"
+      ],
+      "creationDate": "2026-11-25T16:34:38+0000",
+      "updateDate": "2026-11-25T16:34:38+0000",
+      "type": "VULNERABILITY",
+      "scope": "MAIN",
+      "quickFixAvailable": false,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "CONVENTIONAL",
+      "cleanCodeAttributeCategory": "CONSISTENT",
+      "impacts": [
+        {
+          "softwareQuality": "SECURITY",
+          "severity": "MEDIUM"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "9e84ecdf-8a86-463f-a11e-e37f19f2513d",
+      "rule": "java:S899",
+      "severity": "MINOR",
+      "component": "thesis_owasp_cwe89_e_spring_20261125_v1:src/main/java/org/owasp/benchmark/helpers/PropertiesManager.java",
+      "project": "thesis_owasp_cwe89_e_spring_20261125_v1",
+      "line": 45,
+      "hash": "89c1d7a24babe7f4b4b1fec14bf32744",
+      "textRange": {
+        "startLine": 45,
+        "endLine": 45,
+        "startOffset": 16,
+        "endOffset": 37
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "Do something with the \"boolean\" value returned by \"createNewFile\".",
+      "effort": "15min",
+      "debt": "15min",
+      "author": "",
+      "tags": [
+        "cwe",
+        "error-handling",
+        "cert"
+      ],
+      "creationDate": "2026-11-25T16:34:38+0000",
+      "updateDate": "2026-11-25T16:34:38+0000",
+      "type": "BUG",
+      "scope": "MAIN",
+      "quickFixAvailable": false,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "COMPLETE",
+      "cleanCodeAttributeCategory": "INTENTIONAL",
+      "impacts": [
+        {
+          "softwareQuality": "RELIABILITY",
+          "severity": "LOW"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "0eb981b7-4b33-492c-9dce-526ebc4d19b0",
+      "rule": "java:S106",
+      "severity": "MAJOR",
+      "component": "thesis_owasp_cwe89_e_spring_20261125_v1:src/main/java/org/owasp/benchmark/helpers/PropertiesManager.java",
+      "project": "thesis_owasp_cwe89_e_spring_20261125_v1",
+      "line": 47,
+      "hash": "232847adea2264941418daeb863267ac",
+      "textRange": {
+        "startLine": 47,
+        "endLine": 47,
+        "startOffset": 16,
+        "endOffset": 26
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "Replace this use of System.out by a logger.",
+      "effort": "10min",
+      "debt": "10min",
+      "author": "",
+      "tags": [
+        "bad-practice",
+        "cert"
+      ],
+      "creationDate": "2026-11-25T16:34:38+0000",
+      "updateDate": "2026-11-25T16:34:38+0000",
+      "type": "CODE_SMELL",
+      "scope": "MAIN",
+      "quickFixAvailable": false,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "MODULAR",
+      "cleanCodeAttributeCategory": "ADAPTABLE",
+      "impacts": [
+        {
+          "softwareQuality": "MAINTAINABILITY",
+          "severity": "MEDIUM"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "809f034a-5016-4f67-ab90-c1fcf73b62fd",
+      "rule": "java:S106",
+      "severity": "MAJOR",
+      "component": "thesis_owasp_cwe89_e_spring_20261125_v1:src/main/java/org/owasp/benchmark/helpers/PropertiesManager.java",
+      "project": "thesis_owasp_cwe89_e_spring_20261125_v1",
+      "line": 56,
+      "hash": "7bc24d603a435f1ec372fd9e8d2b642b",
+      "textRange": {
+        "startLine": 56,
+        "endLine": 56,
+        "startOffset": 8,
+        "endOffset": 18
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "Replace this use of System.out by a logger.",
+      "effort": "10min",
+      "debt": "10min",
+      "author": "",
+      "tags": [
+        "bad-practice",
+        "cert"
+      ],
+      "creationDate": "2026-11-25T16:34:38+0000",
+      "updateDate": "2026-11-25T16:34:38+0000",
+      "type": "CODE_SMELL",
+      "scope": "MAIN",
+      "quickFixAvailable": false,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "MODULAR",
+      "cleanCodeAttributeCategory": "ADAPTABLE",
+      "impacts": [
+        {
+          "softwareQuality": "MAINTAINABILITY",
+          "severity": "MEDIUM"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "46e676be-0e86-41cb-8aa2-ae2b6a023b22",
+      "rule": "java:S106",
+      "severity": "MAJOR",
+      "component": "thesis_owasp_cwe89_e_spring_20261125_v1:src/main/java/org/owasp/benchmark/helpers/PropertiesManager.java",
+      "project": "thesis_owasp_cwe89_e_spring_20261125_v1",
+      "line": 57,
+      "hash": "472133aa3c0f8fb712c00de685787696",
+      "textRange": {
+        "startLine": 57,
+        "endLine": 57,
+        "startOffset": 8,
+        "endOffset": 18
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "Replace this use of System.out by a logger.",
+      "effort": "10min",
+      "debt": "10min",
+      "author": "",
+      "tags": [
+        "bad-practice",
+        "cert"
+      ],
+      "creationDate": "2026-11-25T16:34:38+0000",
+      "updateDate": "2026-11-25T16:34:38+0000",
+      "type": "CODE_SMELL",
+      "scope": "MAIN",
+      "quickFixAvailable": false,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "MODULAR",
+      "cleanCodeAttributeCategory": "ADAPTABLE",
+      "impacts": [
+        {
+          "softwareQuality": "MAINTAINABILITY",
+          "severity": "MEDIUM"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "32638276-8ae1-4dae-9b85-0f132b794595",
+      "rule": "java:S106",
+      "severity": "MAJOR",
+      "component": "thesis_owasp_cwe89_e_spring_20261125_v1:src/main/java/org/owasp/benchmark/helpers/PropertiesManager.java",
+      "project": "thesis_owasp_cwe89_e_spring_20261125_v1",
+      "line": 76,
+      "hash": "f4c5c3417c468d9fb12df65556bb613e",
+      "textRange": {
+        "startLine": 76,
+        "endLine": 76,
+        "startOffset": 12,
+        "endOffset": 22
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "Replace this use of System.out by a logger.",
+      "effort": "10min",
+      "debt": "10min",
+      "author": "",
+      "tags": [
+        "bad-practice",
+        "cert"
+      ],
+      "creationDate": "2026-11-25T16:34:38+0000",
+      "updateDate": "2026-11-25T16:34:38+0000",
+      "type": "CODE_SMELL",
+      "scope": "MAIN",
+      "quickFixAvailable": false,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "MODULAR",
+      "cleanCodeAttributeCategory": "ADAPTABLE",
+      "impacts": [
+        {
+          "softwareQuality": "MAINTAINABILITY",
+          "severity": "MEDIUM"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "4b742d5c-be56-4aa0-b5cc-7e3f12e50b40",
+      "rule": "java:S106",
+      "severity": "MAJOR",
+      "component": "thesis_owasp_cwe89_e_spring_20261125_v1:src/main/java/org/owasp/benchmark/helpers/PropertiesManager.java",
+      "project": "thesis_owasp_cwe89_e_spring_20261125_v1",
+      "line": 87,
+      "hash": "55450335a648fa76803de353077fab13",
+      "textRange": {
+        "startLine": 87,
+        "endLine": 87,
+        "startOffset": 12,
+        "endOffset": 22
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "Replace this use of System.out by a logger.",
+      "effort": "10min",
+      "debt": "10min",
+      "author": "",
+      "tags": [
+        "bad-practice",
+        "cert"
+      ],
+      "creationDate": "2026-11-25T16:34:38+0000",
+      "updateDate": "2026-11-25T16:34:38+0000",
+      "type": "CODE_SMELL",
+      "scope": "MAIN",
+      "quickFixAvailable": false,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "MODULAR",
+      "cleanCodeAttributeCategory": "ADAPTABLE",
+      "impacts": [
+        {
+          "softwareQuality": "MAINTAINABILITY",
+          "severity": "MEDIUM"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "9daf2f2f-fbce-40f0-852c-22b3c825889c",
+      "rule": "java:S106",
+      "severity": "MAJOR",
+      "component": "thesis_owasp_cwe89_e_spring_20261125_v1:src/main/java/org/owasp/benchmark/helpers/PropertiesManager.java",
+      "project": "thesis_owasp_cwe89_e_spring_20261125_v1",
+      "line": 97,
+      "hash": "8e527d9b6159ab945f15922388bed7c0",
+      "textRange": {
+        "startLine": 97,
+        "endLine": 97,
+        "startOffset": 12,
+        "endOffset": 22
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "Replace this use of System.out by a logger.",
+      "effort": "10min",
+      "debt": "10min",
+      "author": "",
+      "tags": [
+        "bad-practice",
+        "cert"
+      ],
+      "creationDate": "2026-11-25T16:34:38+0000",
+      "updateDate": "2026-11-25T16:34:38+0000",
+      "type": "CODE_SMELL",
+      "scope": "MAIN",
+      "quickFixAvailable": false,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "MODULAR",
+      "cleanCodeAttributeCategory": "ADAPTABLE",
+      "impacts": [
+        {
+          "softwareQuality": "MAINTAINABILITY",
+          "severity": "MEDIUM"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "9bc5591d-b589-4669-aa44-59cd6f5d4ee8",
+      "rule": "java:S1172",
+      "severity": "MAJOR",
+      "component": "thesis_owasp_cwe89_e_spring_20261125_v1:src/main/java/org/owasp/benchmark/helpers/SeparateClassRequest.java",
+      "project": "thesis_owasp_cwe89_e_spring_20261125_v1",
+      "line": 52,
+      "hash": "a336891bc0253fbc133ce617228877d2",
+      "textRange": {
+        "startLine": 52,
+        "endLine": 52,
+        "startOffset": 37,
+        "endOffset": 38
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "Remove this unused method parameter \"p\".",
+      "effort": "5min",
+      "debt": "5min",
+      "author": "",
+      "tags": [
+        "cert",
+        "unused"
+      ],
+      "creationDate": "2026-11-25T16:34:38+0000",
+      "updateDate": "2026-11-25T16:34:38+0000",
+      "type": "CODE_SMELL",
+      "scope": "MAIN",
+      "quickFixAvailable": true,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "CLEAR",
+      "cleanCodeAttributeCategory": "INTENTIONAL",
+      "impacts": [
+        {
+          "softwareQuality": "MAINTAINABILITY",
+          "severity": "MEDIUM"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "cd83f836-6b0b-42ef-8bdd-d29afbdd110e",
+      "rule": "java:S106",
+      "severity": "MAJOR",
+      "component": "thesis_owasp_cwe89_e_spring_20261125_v1:src/main/java/org/owasp/benchmark/helpers/Startup.java",
+      "project": "thesis_owasp_cwe89_e_spring_20261125_v1",
+      "line": 31,
+      "hash": "00c3c9331f9514e962e79788a799016d",
+      "textRange": {
+        "startLine": 31,
+        "endLine": 31,
+        "startOffset": 8,
+        "endOffset": 18
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "Replace this use of System.out by a logger.",
+      "effort": "10min",
+      "debt": "10min",
+      "author": "",
+      "tags": [
+        "bad-practice",
+        "cert"
+      ],
+      "creationDate": "2026-11-25T16:34:38+0000",
+      "updateDate": "2026-11-25T16:34:38+0000",
+      "type": "CODE_SMELL",
+      "scope": "MAIN",
+      "quickFixAvailable": false,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "MODULAR",
+      "cleanCodeAttributeCategory": "ADAPTABLE",
+      "impacts": [
+        {
+          "softwareQuality": "MAINTAINABILITY",
+          "severity": "MEDIUM"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "bfa1b85c-d777-400f-a474-ed397974301a",
+      "rule": "java:S106",
+      "severity": "MAJOR",
+      "component": "thesis_owasp_cwe89_e_spring_20261125_v1:src/main/java/org/owasp/benchmark/helpers/Startup.java",
+      "project": "thesis_owasp_cwe89_e_spring_20261125_v1",
+      "line": 40,
+      "hash": "5dcad207cd6aa8d215ca69be8af84b22",
+      "textRange": {
+        "startLine": 40,
+        "endLine": 40,
+        "startOffset": 12,
+        "endOffset": 22
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "Replace this use of System.out by a logger.",
+      "effort": "10min",
+      "debt": "10min",
+      "author": "",
+      "tags": [
+        "bad-practice",
+        "cert"
+      ],
+      "creationDate": "2026-11-25T16:34:38+0000",
+      "updateDate": "2026-11-25T16:34:38+0000",
+      "type": "CODE_SMELL",
+      "scope": "MAIN",
+      "quickFixAvailable": false,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "MODULAR",
+      "cleanCodeAttributeCategory": "ADAPTABLE",
+      "impacts": [
+        {
+          "softwareQuality": "MAINTAINABILITY",
+          "severity": "MEDIUM"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "4669caab-6fcb-45db-b500-77277182fb01",
+      "rule": "java:S106",
+      "severity": "MAJOR",
+      "component": "thesis_owasp_cwe89_e_spring_20261125_v1:src/main/java/org/owasp/benchmark/helpers/Startup.java",
+      "project": "thesis_owasp_cwe89_e_spring_20261125_v1",
+      "line": 43,
+      "hash": "1e9b3472aa8bae2d5de19474ed9a9f34",
+      "textRange": {
+        "startLine": 43,
+        "endLine": 43,
+        "startOffset": 12,
+        "endOffset": 22
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "Replace this use of System.out by a logger.",
+      "effort": "10min",
+      "debt": "10min",
+      "author": "",
+      "tags": [
+        "bad-practice",
+        "cert"
+      ],
+      "creationDate": "2026-11-25T16:34:38+0000",
+      "updateDate": "2026-11-25T16:34:38+0000",
+      "type": "CODE_SMELL",
+      "scope": "MAIN",
+      "quickFixAvailable": false,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "MODULAR",
+      "cleanCodeAttributeCategory": "ADAPTABLE",
+      "impacts": [
+        {
+          "softwareQuality": "MAINTAINABILITY",
+          "severity": "MEDIUM"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "4f4b49ab-dec2-4f59-84a1-585c7d0425f3",
+      "rule": "java:S106",
+      "severity": "MAJOR",
+      "component": "thesis_owasp_cwe89_e_spring_20261125_v1:src/main/java/org/owasp/benchmark/helpers/Startup.java",
+      "project": "thesis_owasp_cwe89_e_spring_20261125_v1",
+      "line": 48,
+      "hash": "953878cb92f2c0307d96561632205e34",
+      "textRange": {
+        "startLine": 48,
+        "endLine": 48,
+        "startOffset": 12,
+        "endOffset": 22
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "Replace this use of System.out by a logger.",
+      "effort": "10min",
+      "debt": "10min",
+      "author": "",
+      "tags": [
+        "bad-practice",
+        "cert"
+      ],
+      "creationDate": "2026-11-25T16:34:38+0000",
+      "updateDate": "2026-11-25T16:34:38+0000",
+      "type": "CODE_SMELL",
+      "scope": "MAIN",
+      "quickFixAvailable": false,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "MODULAR",
+      "cleanCodeAttributeCategory": "ADAPTABLE",
+      "impacts": [
+        {
+          "softwareQuality": "MAINTAINABILITY",
+          "severity": "MEDIUM"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "8b134203-a6f7-4af3-a778-e148e54dacdb",
+      "rule": "java:S1186",
+      "severity": "CRITICAL",
+      "component": "thesis_owasp_cwe89_e_spring_20261125_v1:src/main/java/org/owasp/benchmark/helpers/Startup.java",
+      "project": "thesis_owasp_cwe89_e_spring_20261125_v1",
+      "line": 52,
+      "hash": "dce739e3e032eee229308ae9164b8f12",
+      "textRange": {
+        "startLine": 52,
+        "endLine": 52,
+        "startOffset": 16,
+        "endOffset": 32
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.",
+      "effort": "5min",
+      "debt": "5min",
+      "author": "",
+      "tags": [
+        "suspicious"
+      ],
+      "creationDate": "2026-11-25T16:34:38+0000",
+      "updateDate": "2026-11-25T16:34:38+0000",
+      "type": "CODE_SMELL",
+      "scope": "MAIN",
+      "quickFixAvailable": true,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "COMPLETE",
+      "cleanCodeAttributeCategory": "INTENTIONAL",
+      "impacts": [
+        {
+          "softwareQuality": "MAINTAINABILITY",
+          "severity": "HIGH"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "736e8dd4-c6c1-45ad-900f-4f2a9d15c36c",
+      "rule": "java:S1488",
+      "severity": "MINOR",
+      "component": "thesis_owasp_cwe89_e_spring_20261125_v1:src/main/java/org/owasp/benchmark/helpers/Thing1.java",
+      "project": "thesis_owasp_cwe89_e_spring_20261125_v1",
+      "line": 25,
+      "hash": "ff9f95553f85de750fc1f75df66f85f3",
+      "textRange": {
+        "startLine": 25,
+        "endLine": 25,
+        "startOffset": 19,
+        "endOffset": 20
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "Immediately return this expression instead of assigning it to the temporary variable \"r\".",
+      "effort": "2min",
+      "debt": "2min",
+      "author": "",
+      "tags": [
+        "clumsy"
+      ],
+      "creationDate": "2026-11-25T16:34:38+0000",
+      "updateDate": "2026-11-25T16:34:38+0000",
+      "type": "CODE_SMELL",
+      "scope": "MAIN",
+      "quickFixAvailable": true,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "CLEAR",
+      "cleanCodeAttributeCategory": "INTENTIONAL",
+      "impacts": [
+        {
+          "softwareQuality": "MAINTAINABILITY",
+          "severity": "LOW"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "5d136034-15ca-40db-82bd-f3646c201338",
+      "rule": "java:S1488",
+      "severity": "MINOR",
+      "component": "thesis_owasp_cwe89_e_spring_20261125_v1:src/main/java/org/owasp/benchmark/helpers/Thing2.java",
+      "project": "thesis_owasp_cwe89_e_spring_20261125_v1",
+      "line": 25,
+      "hash": "c8e67164aea8f748a180eebae7720e1d",
+      "textRange": {
+        "startLine": 25,
+        "endLine": 25,
+        "startOffset": 19,
+        "endOffset": 50
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "Immediately return this expression instead of assigning it to the temporary variable \"r\".",
+      "effort": "2min",
+      "debt": "2min",
+      "author": "",
+      "tags": [
+        "clumsy"
+      ],
+      "creationDate": "2026-11-25T16:34:38+0000",
+      "updateDate": "2026-11-25T16:34:38+0000",
+      "type": "CODE_SMELL",
+      "scope": "MAIN",
+      "quickFixAvailable": true,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "CLEAR",
+      "cleanCodeAttributeCategory": "INTENTIONAL",
+      "impacts": [
+        {
+          "softwareQuality": "MAINTAINABILITY",
+          "severity": "LOW"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "fa86a492-4c6c-4d64-a267-4c8338dbaaae",
+      "rule": "java:S1118",
+      "severity": "MAJOR",
+      "component": "thesis_owasp_cwe89_e_spring_20261125_v1:src/main/java/org/owasp/benchmark/helpers/ThingFactory.java",
+      "project": "thesis_owasp_cwe89_e_spring_20261125_v1",
+      "line": 24,
+      "hash": "fdb8c685614edc7606db9b86125a017c",
+      "textRange": {
+        "startLine": 24,
+        "endLine": 24,
+        "startOffset": 13,
+        "endOffset": 25
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "Add a private constructor to hide the implicit public one.",
+      "effort": "5min",
+      "debt": "5min",
+      "author": "",
+      "tags": [
+        "design"
+      ],
+      "creationDate": "2026-11-25T16:34:38+0000",
+      "updateDate": "2026-11-25T16:34:38+0000",
+      "type": "CODE_SMELL",
+      "scope": "MAIN",
+      "quickFixAvailable": true,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "CLEAR",
+      "cleanCodeAttributeCategory": "INTENTIONAL",
+      "impacts": [
+        {
+          "softwareQuality": "MAINTAINABILITY",
+          "severity": "MEDIUM"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "e05d7ca9-f2ae-4933-a8cd-b167828d8ad1",
+      "rule": "java:S106",
+      "severity": "MAJOR",
+      "component": "thesis_owasp_cwe89_e_spring_20261125_v1:src/main/java/org/owasp/benchmark/helpers/ThingFactory.java",
+      "project": "thesis_owasp_cwe89_e_spring_20261125_v1",
+      "line": 34,
+      "hash": "a298e083f1e49a9e7e797063ee834148",
+      "textRange": {
+        "startLine": 34,
+        "endLine": 34,
+        "startOffset": 16,
+        "endOffset": 26
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "Replace this use of System.out by a logger.",
+      "effort": "10min",
+      "debt": "10min",
+      "author": "",
+      "tags": [
+        "bad-practice",
+        "cert"
+      ],
+      "creationDate": "2026-11-25T16:34:38+0000",
+      "updateDate": "2026-11-25T16:34:38+0000",
+      "type": "CODE_SMELL",
+      "scope": "MAIN",
+      "quickFixAvailable": false,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "MODULAR",
+      "cleanCodeAttributeCategory": "ADAPTABLE",
+      "impacts": [
+        {
+          "softwareQuality": "MAINTAINABILITY",
+          "severity": "MEDIUM"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "c8d0972a-f58e-407f-a137-8e3f2e218f7b",
+      "rule": "java:S106",
+      "severity": "MAJOR",
+      "component": "thesis_owasp_cwe89_e_spring_20261125_v1:src/main/java/org/owasp/benchmark/helpers/ThingFactory.java",
+      "project": "thesis_owasp_cwe89_e_spring_20261125_v1",
+      "line": 47,
+      "hash": "2c6efb24151d2b43d2f6a19dcbf62e50",
+      "textRange": {
+        "startLine": 47,
+        "endLine": 47,
+        "startOffset": 12,
+        "endOffset": 22
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "Replace this use of System.out by a logger.",
+      "effort": "10min",
+      "debt": "10min",
+      "author": "",
+      "tags": [
+        "bad-practice",
+        "cert"
+      ],
+      "creationDate": "2026-11-25T16:34:38+0000",
+      "updateDate": "2026-11-25T16:34:38+0000",
+      "type": "CODE_SMELL",
+      "scope": "MAIN",
+      "quickFixAvailable": false,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "MODULAR",
+      "cleanCodeAttributeCategory": "ADAPTABLE",
+      "impacts": [
+        {
+          "softwareQuality": "MAINTAINABILITY",
+          "severity": "MEDIUM"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "e83fe0ac-72d4-42a6-9ad1-50fdf1293858",
+      "rule": "java:S1118",
+      "severity": "MAJOR",
+      "component": "thesis_owasp_cwe89_e_spring_20261125_v1:src/main/java/org/owasp/benchmark/helpers/Utils.java",
+      "project": "thesis_owasp_cwe89_e_spring_20261125_v1",
+      "line": 60,
+      "hash": "e8aab3d9c621ed292086fa8386e1e213",
+      "textRange": {
+        "startLine": 60,
+        "endLine": 60,
+        "startOffset": 13,
+        "endOffset": 18
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "Add a private constructor to hide the implicit public one.",
+      "effort": "5min",
+      "debt": "5min",
+      "author": "",
+      "tags": [
+        "design"
+      ],
+      "creationDate": "2026-11-25T16:34:38+0000",
+      "updateDate": "2026-11-25T16:34:38+0000",
+      "type": "CODE_SMELL",
+      "scope": "MAIN",
+      "quickFixAvailable": true,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "CLEAR",
+      "cleanCodeAttributeCategory": "INTENTIONAL",
+      "impacts": [
+        {
+          "softwareQuality": "MAINTAINABILITY",
+          "severity": "MEDIUM"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "997ccd3a-7c49-4b33-9fac-2de5ece323f5",
+      "rule": "java:S2386",
+      "severity": "MINOR",
+      "component": "thesis_owasp_cwe89_e_spring_20261125_v1:src/main/java/org/owasp/benchmark/helpers/Utils.java",
+      "project": "thesis_owasp_cwe89_e_spring_20261125_v1",
+      "line": 72,
+      "hash": "0fc2ac4873d75b7b0e62df2302023d22",
+      "textRange": {
+        "startLine": 72,
+        "endLine": 72,
+        "startOffset": 36,
+        "endOffset": 49
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "Make this member \"protected\".",
+      "effort": "15min",
+      "debt": "15min",
+      "author": "",
+      "tags": [
+        "cwe",
+        "unpredictable",
+        "cert"
+      ],
+      "creationDate": "2026-11-25T16:34:38+0000",
+      "updateDate": "2026-11-25T16:34:38+0000",
+      "type": "CODE_SMELL",
+      "scope": "MAIN",
+      "quickFixAvailable": false,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "CONVENTIONAL",
+      "cleanCodeAttributeCategory": "CONSISTENT",
+      "impacts": [
+        {
+          "softwareQuality": "MAINTAINABILITY",
+          "severity": "LOW"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "1c84cff2-5667-441d-9c56-125fb60c6bfd",
+      "rule": "java:S106",
+      "severity": "MAJOR",
+      "component": "thesis_owasp_cwe89_e_spring_20261125_v1:src/main/java/org/owasp/benchmark/helpers/Utils.java",
+      "project": "thesis_owasp_cwe89_e_spring_20261125_v1",
+      "line": 105,
+      "hash": "232847adea2264941418daeb863267ac",
+      "textRange": {
+        "startLine": 105,
+        "endLine": 105,
+        "startOffset": 12,
+        "endOffset": 22
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "Replace this use of System.out by a logger.",
+      "effort": "10min",
+      "debt": "10min",
+      "author": "",
+      "tags": [
+        "bad-practice",
+        "cert"
+      ],
+      "creationDate": "2026-11-25T16:34:38+0000",
+      "updateDate": "2026-11-25T16:34:38+0000",
+      "type": "CODE_SMELL",
+      "scope": "MAIN",
+      "quickFixAvailable": false,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "MODULAR",
+      "cleanCodeAttributeCategory": "ADAPTABLE",
+      "impacts": [
+        {
+          "softwareQuality": "MAINTAINABILITY",
+          "severity": "MEDIUM"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "8a5f8a5c-1fb3-4d95-87df-f31ef6703b95",
+      "rule": "java:S1192",
+      "severity": "CRITICAL",
+      "component": "thesis_owasp_cwe89_e_spring_20261125_v1:src/main/java/org/owasp/benchmark/helpers/Utils.java",
+      "project": "thesis_owasp_cwe89_e_spring_20261125_v1",
+      "line": 141,
+      "hash": "6a38f922d3d4157527c8b9e6b2d67104",
+      "textRange": {
+        "startLine": 141,
+        "endLine": 141,
+        "startOffset": 32,
+        "endOffset": 41
+      },
+      "flows": [
+        {
+          "locations": [
+            {
+              "component": "thesis_owasp_cwe89_e_spring_20261125_v1:src/main/java/org/owasp/benchmark/helpers/Utils.java",
+              "textRange": {
+                "startLine": 141,
+                "endLine": 141,
+                "startOffset": 32,
+                "endOffset": 41
+              },
+              "msg": "Duplication",
+              "msgFormattings": []
+            }
+          ]
+        },
+        {
+          "locations": [
+            {
+              "component": "thesis_owasp_cwe89_e_spring_20261125_v1:src/main/java/org/owasp/benchmark/helpers/Utils.java",
+              "textRange": {
+                "startLine": 178,
+                "endLine": 178,
+                "startOffset": 43,
+                "endOffset": 52
+              },
+              "msg": "Duplication",
+              "msgFormattings": []
+            }
+          ]
+        },
+        {
+          "locations": [
+            {
+              "component": "thesis_owasp_cwe89_e_spring_20261125_v1:src/main/java/org/owasp/benchmark/helpers/Utils.java",
+              "textRange": {
+                "startLine": 190,
+                "endLine": 190,
+                "startOffset": 43,
+                "endOffset": 52
+              },
+              "msg": "Duplication",
+              "msgFormattings": []
+            }
+          ]
+        },
+        {
+          "locations": [
+            {
+              "component": "thesis_owasp_cwe89_e_spring_20261125_v1:src/main/java/org/owasp/benchmark/helpers/Utils.java",
+              "textRange": {
+                "startLine": 203,
+                "endLine": 203,
+                "startOffset": 43,
+                "endOffset": 52
+              },
+              "msg": "Duplication",
+              "msgFormattings": []
+            }
+          ]
+        }
+      ],
+      "status": "OPEN",
+      "message": "Define a constant instead of duplicating this literal \"os.name\" 4 times.",
+      "effort": "10min",
+      "debt": "10min",
+      "author": "",
+      "tags": [
+        "design"
+      ],
+      "creationDate": "2026-11-25T16:34:38+0000",
+      "updateDate": "2026-11-25T16:34:38+0000",
+      "type": "CODE_SMELL",
+      "scope": "MAIN",
+      "quickFixAvailable": false,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "DISTINCT",
+      "cleanCodeAttributeCategory": "ADAPTABLE",
+      "impacts": [
+        {
+          "softwareQuality": "MAINTAINABILITY",
+          "severity": "HIGH"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "d14eda22-f5fa-45f3-bcef-22904461e90c",
+      "rule": "java:S1192",
+      "severity": "CRITICAL",
+      "component": "thesis_owasp_cwe89_e_spring_20261125_v1:src/main/java/org/owasp/benchmark/helpers/Utils.java",
+      "project": "thesis_owasp_cwe89_e_spring_20261125_v1",
+      "line": 141,
+      "hash": "6a38f922d3d4157527c8b9e6b2d67104",
+      "textRange": {
+        "startLine": 141,
+        "endLine": 141,
+        "startOffset": 52,
+        "endOffset": 61
+      },
+      "flows": [
+        {
+          "locations": [
+            {
+              "component": "thesis_owasp_cwe89_e_spring_20261125_v1:src/main/java/org/owasp/benchmark/helpers/Utils.java",
+              "textRange": {
+                "startLine": 141,
+                "endLine": 141,
+                "startOffset": 52,
+                "endOffset": 61
+              },
+              "msg": "Duplication",
+              "msgFormattings": []
+            }
+          ]
+        },
+        {
+          "locations": [
+            {
+              "component": "thesis_owasp_cwe89_e_spring_20261125_v1:src/main/java/org/owasp/benchmark/helpers/Utils.java",
+              "textRange": {
+                "startLine": 179,
+                "endLine": 179,
+                "startOffset": 27,
+                "endOffset": 36
+              },
+              "msg": "Duplication",
+              "msgFormattings": []
+            }
+          ]
+        },
+        {
+          "locations": [
+            {
+              "component": "thesis_owasp_cwe89_e_spring_20261125_v1:src/main/java/org/owasp/benchmark/helpers/Utils.java",
+              "textRange": {
+                "startLine": 191,
+                "endLine": 191,
+                "startOffset": 27,
+                "endOffset": 36
+              },
+              "msg": "Duplication",
+              "msgFormattings": []
+            }
+          ]
+        },
+        {
+          "locations": [
+            {
+              "component": "thesis_owasp_cwe89_e_spring_20261125_v1:src/main/java/org/owasp/benchmark/helpers/Utils.java",
+              "textRange": {
+                "startLine": 204,
+                "endLine": 204,
+                "startOffset": 27,
+                "endOffset": 36
+              },
+              "msg": "Duplication",
+              "msgFormattings": []
+            }
+          ]
+        }
+      ],
+      "status": "OPEN",
+      "message": "Define a constant instead of duplicating this literal \"Windows\" 4 times.",
+      "effort": "10min",
+      "debt": "10min",
+      "author": "",
+      "tags": [
+        "design"
+      ],
+      "creationDate": "2026-11-25T16:34:38+0000",
+      "updateDate": "2026-11-25T16:34:38+0000",
+      "type": "CODE_SMELL",
+      "scope": "MAIN",
+      "quickFixAvailable": false,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "DISTINCT",
+      "cleanCodeAttributeCategory": "ADAPTABLE",
+      "impacts": [
+        {
+          "softwareQuality": "MAINTAINABILITY",
+          "severity": "HIGH"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "bc20d7af-282c-4ad9-8c94-79bca7799b9d",
+      "rule": "java:S2293",
+      "severity": "MINOR",
+      "component": "thesis_owasp_cwe89_e_spring_20261125_v1:src/main/java/org/owasp/benchmark/helpers/Utils.java",
+      "project": "thesis_owasp_cwe89_e_spring_20261125_v1",
+      "line": 143,
+      "hash": "ef9831614ae2962a196abc3ce193933a",
+      "textRange": {
+        "startLine": 143,
+        "endLine": 143,
+        "startOffset": 56,
+        "endOffset": 77
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "Replace the type specification in this constructor call with the diamond operator (\"<>\"). (sonar.java.source not set. Assuming 7 or greater.)",
+      "effort": "1min",
+      "debt": "1min",
+      "author": "",
+      "tags": [
+        "clumsy"
+      ],
+      "creationDate": "2026-11-25T16:34:38+0000",
+      "updateDate": "2026-11-25T16:34:38+0000",
+      "type": "CODE_SMELL",
+      "scope": "MAIN",
+      "quickFixAvailable": true,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "CLEAR",
+      "cleanCodeAttributeCategory": "INTENTIONAL",
+      "impacts": [
+        {
+          "softwareQuality": "MAINTAINABILITY",
+          "severity": "LOW"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "b9751eaa-87d5-4bbc-9684-f5bd64912512",
+      "rule": "java:S2612",
+      "severity": "MAJOR",
+      "component": "thesis_owasp_cwe89_e_spring_20261125_v1:src/main/java/org/owasp/benchmark/helpers/Utils.java",
+      "project": "thesis_owasp_cwe89_e_spring_20261125_v1",
+      "line": 149,
+      "hash": "609b932c334312a3a3b7fd1583d2b489",
+      "textRange": {
+        "startLine": 149,
+        "endLine": 149,
+        "startOffset": 42,
+        "endOffset": 53
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "Make sure this permission is safe.",
+      "effort": "5min",
+      "debt": "5min",
+      "author": "",
+      "tags": [
+        "cwe",
+        "cert"
+      ],
+      "creationDate": "2026-11-25T16:34:38+0000",
+      "updateDate": "2026-11-25T16:34:38+0000",
+      "type": "VULNERABILITY",
+      "scope": "MAIN",
+      "quickFixAvailable": false,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "CONVENTIONAL",
+      "cleanCodeAttributeCategory": "CONSISTENT",
+      "impacts": [
+        {
+          "softwareQuality": "SECURITY",
+          "severity": "MEDIUM"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "0d09253b-9cff-4bae-883c-bddf70a42a24",
+      "rule": "java:S2612",
+      "severity": "MAJOR",
+      "component": "thesis_owasp_cwe89_e_spring_20261125_v1:src/main/java/org/owasp/benchmark/helpers/Utils.java",
+      "project": "thesis_owasp_cwe89_e_spring_20261125_v1",
+      "line": 150,
+      "hash": "ff7538ba3d081a9271df9d7f8f867c19",
+      "textRange": {
+        "startLine": 150,
+        "endLine": 150,
+        "startOffset": 42,
+        "endOffset": 56
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "Make sure this permission is safe.",
+      "effort": "5min",
+      "debt": "5min",
+      "author": "",
+      "tags": [
+        "cwe",
+        "cert"
+      ],
+      "creationDate": "2026-11-25T16:34:38+0000",
+      "updateDate": "2026-11-25T16:34:38+0000",
+      "type": "VULNERABILITY",
+      "scope": "MAIN",
+      "quickFixAvailable": false,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "CONVENTIONAL",
+      "cleanCodeAttributeCategory": "CONSISTENT",
+      "impacts": [
+        {
+          "softwareQuality": "SECURITY",
+          "severity": "MEDIUM"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "11bcccaf-6441-49cc-9354-3fb7f9b1e516",
+      "rule": "java:S106",
+      "severity": "MAJOR",
+      "component": "thesis_owasp_cwe89_e_spring_20261125_v1:src/main/java/org/owasp/benchmark/helpers/Utils.java",
+      "project": "thesis_owasp_cwe89_e_spring_20261125_v1",
+      "line": 155,
+      "hash": "232847adea2264941418daeb863267ac",
+      "textRange": {
+        "startLine": 155,
+        "endLine": 155,
+        "startOffset": 16,
+        "endOffset": 26
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "Replace this use of System.out by a logger.",
+      "effort": "10min",
+      "debt": "10min",
+      "author": "",
+      "tags": [
+        "bad-practice",
+        "cert"
+      ],
+      "creationDate": "2026-11-25T16:34:38+0000",
+      "updateDate": "2026-11-25T16:34:38+0000",
+      "type": "CODE_SMELL",
+      "scope": "MAIN",
+      "quickFixAvailable": false,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "MODULAR",
+      "cleanCodeAttributeCategory": "ADAPTABLE",
+      "impacts": [
+        {
+          "softwareQuality": "MAINTAINABILITY",
+          "severity": "MEDIUM"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "6e8da005-4d34-466e-bf8b-71fe128e14e9",
+      "rule": "java:S2259",
+      "severity": "MAJOR",
+      "component": "thesis_owasp_cwe89_e_spring_20261125_v1:src/main/java/org/owasp/benchmark/helpers/Utils.java",
+      "project": "thesis_owasp_cwe89_e_spring_20261125_v1",
+      "line": 192,
+      "hash": "12fce05d092f8bc5a0a1df0acef456fc",
+      "textRange": {
+        "startLine": 192,
+        "endLine": 192,
+        "startOffset": 22,
+        "endOffset": 96
+      },
+      "flows": [
+        {
+          "locations": [
+            {
+              "component": "thesis_owasp_cwe89_e_spring_20261125_v1:src/main/java/org/owasp/benchmark/helpers/Utils.java",
+              "textRange": {
+                "startLine": 192,
+                "endLine": 192,
+                "startOffset": 22,
+                "endOffset": 96
+              },
+              "msg": "Result of 'getFileFromClasspath()' is dereferenced.",
+              "msgFormattings": []
+            },
+            {
+              "component": "thesis_owasp_cwe89_e_spring_20261125_v1:src/main/java/org/owasp/benchmark/helpers/Utils.java",
+              "textRange": {
+                "startLine": 192,
+                "endLine": 192,
+                "startOffset": 22,
+                "endOffset": 80
+              },
+              "msg": "'getFileFromClasspath()' can return null.",
+              "msgFormattings": []
+            },
+            {
+              "component": "thesis_owasp_cwe89_e_spring_20261125_v1:src/main/java/org/owasp/benchmark/helpers/Utils.java",
+              "textRange": {
+                "startLine": 294,
+                "endLine": 294,
+                "startOffset": 21,
+                "endOffset": 41
+              },
+              "msg": "'URISyntaxException' is caught.",
+              "msgFormattings": []
+            },
+            {
+              "component": "thesis_owasp_cwe89_e_spring_20261125_v1:src/main/java/org/owasp/benchmark/helpers/Utils.java",
+              "textRange": {
+                "startLine": 293,
+                "endLine": 293,
+                "startOffset": 32,
+                "endOffset": 43
+              },
+              "msg": "'URISyntaxException' is thrown.",
+              "msgFormattings": []
+            }
+          ]
+        }
+      ],
+      "status": "OPEN",
+      "message": "A \"NullPointerException\" could be thrown; \"getFileFromClasspath()\" can return null.",
+      "effort": "10min",
+      "debt": "10min",
+      "author": "",
+      "tags": [
+        "cwe",
+        "symbolic-execution",
+        "cert"
+      ],
+      "creationDate": "2026-11-25T16:34:38+0000",
+      "updateDate": "2026-11-25T16:34:38+0000",
+      "type": "BUG",
+      "scope": "MAIN",
+      "quickFixAvailable": false,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "LOGICAL",
+      "cleanCodeAttributeCategory": "INTENTIONAL",
+      "impacts": [
+        {
+          "softwareQuality": "RELIABILITY",
+          "severity": "MEDIUM"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "adcb8945-89db-4c63-8f32-3652be431580",
+      "rule": "java:S2259",
+      "severity": "MAJOR",
+      "component": "thesis_owasp_cwe89_e_spring_20261125_v1:src/main/java/org/owasp/benchmark/helpers/Utils.java",
+      "project": "thesis_owasp_cwe89_e_spring_20261125_v1",
+      "line": 194,
+      "hash": "64600dc88f624bdd4ddb433e1006fbb6",
+      "textRange": {
+        "startLine": 194,
+        "endLine": 194,
+        "startOffset": 22,
+        "endOffset": 95
+      },
+      "flows": [
+        {
+          "locations": [
+            {
+              "component": "thesis_owasp_cwe89_e_spring_20261125_v1:src/main/java/org/owasp/benchmark/helpers/Utils.java",
+              "textRange": {
+                "startLine": 194,
+                "endLine": 194,
+                "startOffset": 22,
+                "endOffset": 95
+              },
+              "msg": "Result of 'getFileFromClasspath()' is dereferenced.",
+              "msgFormattings": []
+            },
+            {
+              "component": "thesis_owasp_cwe89_e_spring_20261125_v1:src/main/java/org/owasp/benchmark/helpers/Utils.java",
+              "textRange": {
+                "startLine": 194,
+                "endLine": 194,
+                "startOffset": 22,
+                "endOffset": 79
+              },
+              "msg": "'getFileFromClasspath()' can return null.",
+              "msgFormattings": []
+            },
+            {
+              "component": "thesis_owasp_cwe89_e_spring_20261125_v1:src/main/java/org/owasp/benchmark/helpers/Utils.java",
+              "textRange": {
+                "startLine": 294,
+                "endLine": 294,
+                "startOffset": 21,
+                "endOffset": 41
+              },
+              "msg": "'URISyntaxException' is caught.",
+              "msgFormattings": []
+            },
+            {
+              "component": "thesis_owasp_cwe89_e_spring_20261125_v1:src/main/java/org/owasp/benchmark/helpers/Utils.java",
+              "textRange": {
+                "startLine": 293,
+                "endLine": 293,
+                "startOffset": 32,
+                "endOffset": 43
+              },
+              "msg": "'URISyntaxException' is thrown.",
+              "msgFormattings": []
+            }
+          ]
+        }
+      ],
+      "status": "OPEN",
+      "message": "A \"NullPointerException\" could be thrown; \"getFileFromClasspath()\" can return null.",
+      "effort": "10min",
+      "debt": "10min",
+      "author": "",
+      "tags": [
+        "cwe",
+        "symbolic-execution",
+        "cert"
+      ],
+      "creationDate": "2026-11-25T16:34:38+0000",
+      "updateDate": "2026-11-25T16:34:38+0000",
+      "type": "BUG",
+      "scope": "MAIN",
+      "quickFixAvailable": false,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "LOGICAL",
+      "cleanCodeAttributeCategory": "INTENTIONAL",
+      "impacts": [
+        {
+          "softwareQuality": "RELIABILITY",
+          "severity": "MEDIUM"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "a18d3ee7-2a8d-428d-9a99-ba775d490ffa",
+      "rule": "java:S2293",
+      "severity": "MINOR",
+      "component": "thesis_owasp_cwe89_e_spring_20261125_v1:src/main/java/org/owasp/benchmark/helpers/Utils.java",
+      "project": "thesis_owasp_cwe89_e_spring_20261125_v1",
+      "line": 201,
+      "hash": "b910f84d0ded730f8cfcaa1f7ea4d01f",
+      "textRange": {
+        "startLine": 201,
+        "endLine": 201,
+        "startOffset": 46,
+        "endOffset": 54
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "Replace the type specification in this constructor call with the diamond operator (\"<>\"). (sonar.java.source not set. Assuming 7 or greater.)",
+      "effort": "1min",
+      "debt": "1min",
+      "author": "",
+      "tags": [
+        "clumsy"
+      ],
+      "creationDate": "2026-11-25T16:34:38+0000",
+      "updateDate": "2026-11-25T16:34:38+0000",
+      "type": "CODE_SMELL",
+      "scope": "MAIN",
+      "quickFixAvailable": true,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "CLEAR",
+      "cleanCodeAttributeCategory": "INTENTIONAL",
+      "impacts": [
+        {
+          "softwareQuality": "MAINTAINABILITY",
+          "severity": "LOW"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "cfc266a6-cf10-46da-9909-4d6bd87f6bc3",
+      "rule": "java:S106",
+      "severity": "MAJOR",
+      "component": "thesis_owasp_cwe89_e_spring_20261125_v1:src/main/java/org/owasp/benchmark/helpers/Utils.java",
+      "project": "thesis_owasp_cwe89_e_spring_20261125_v1",
+      "line": 253,
+      "hash": "fa88d03572b500fc998b2ea0aa88efac",
+      "textRange": {
+        "startLine": 253,
+        "endLine": 253,
+        "startOffset": 12,
+        "endOffset": 22
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "Replace this use of System.out by a logger.",
+      "effort": "10min",
+      "debt": "10min",
+      "author": "",
+      "tags": [
+        "bad-practice",
+        "cert"
+      ],
+      "creationDate": "2026-11-25T16:34:38+0000",
+      "updateDate": "2026-11-25T16:34:38+0000",
+      "type": "CODE_SMELL",
+      "scope": "MAIN",
+      "quickFixAvailable": false,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "MODULAR",
+      "cleanCodeAttributeCategory": "ADAPTABLE",
+      "impacts": [
+        {
+          "softwareQuality": "MAINTAINABILITY",
+          "severity": "MEDIUM"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "b4a1cd76-5e85-4948-90f5-cf3ab6d622e9",
+      "rule": "java:S1149",
+      "severity": "MAJOR",
+      "component": "thesis_owasp_cwe89_e_spring_20261125_v1:src/main/java/org/owasp/benchmark/helpers/Utils.java",
+      "project": "thesis_owasp_cwe89_e_spring_20261125_v1",
+      "line": 269,
+      "hash": "1297d4f8956eecf45dd831eeabaa2d23",
+      "textRange": {
+        "startLine": 269,
+        "endLine": 269,
+        "startOffset": 12,
+        "endOffset": 24
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "Replace the synchronized class \"StringBuffer\" by an unsynchronized one such as \"StringBuilder\".",
+      "effort": "20min",
+      "debt": "20min",
+      "author": "",
+      "tags": [
+        "performance"
+      ],
+      "creationDate": "2026-11-25T16:34:38+0000",
+      "updateDate": "2026-11-25T16:34:38+0000",
+      "type": "CODE_SMELL",
+      "scope": "MAIN",
+      "quickFixAvailable": false,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "CONVENTIONAL",
+      "cleanCodeAttributeCategory": "CONSISTENT",
+      "impacts": [
+        {
+          "softwareQuality": "MAINTAINABILITY",
+          "severity": "MEDIUM"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "58aff132-ae60-4cda-aceb-3241ce05e8fb",
+      "rule": "java:S1149",
+      "severity": "MAJOR",
+      "component": "thesis_owasp_cwe89_e_spring_20261125_v1:src/main/java/org/owasp/benchmark/helpers/Utils.java",
+      "project": "thesis_owasp_cwe89_e_spring_20261125_v1",
+      "line": 270,
+      "hash": "1f97b2795b9657d29f6ed37dbb5ccdba",
+      "textRange": {
+        "startLine": 270,
+        "endLine": 270,
+        "startOffset": 12,
+        "endOffset": 24
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "Replace the synchronized class \"StringBuffer\" by an unsynchronized one such as \"StringBuilder\".",
+      "effort": "20min",
+      "debt": "20min",
+      "author": "",
+      "tags": [
+        "performance"
+      ],
+      "creationDate": "2026-11-25T16:34:38+0000",
+      "updateDate": "2026-11-25T16:34:38+0000",
+      "type": "CODE_SMELL",
+      "scope": "MAIN",
+      "quickFixAvailable": false,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "CONVENTIONAL",
+      "cleanCodeAttributeCategory": "CONSISTENT",
+      "impacts": [
+        {
+          "softwareQuality": "MAINTAINABILITY",
+          "severity": "MEDIUM"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "b94bb522-c98d-4de6-af60-fbdf37e2cede",
+      "rule": "java:S106",
+      "severity": "MAJOR",
+      "component": "thesis_owasp_cwe89_e_spring_20261125_v1:src/main/java/org/owasp/benchmark/helpers/Utils.java",
+      "project": "thesis_owasp_cwe89_e_spring_20261125_v1",
+      "line": 284,
+      "hash": "fa88d03572b500fc998b2ea0aa88efac",
+      "textRange": {
+        "startLine": 284,
+        "endLine": 284,
+        "startOffset": 12,
+        "endOffset": 22
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "Replace this use of System.out by a logger.",
+      "effort": "10min",
+      "debt": "10min",
+      "author": "",
+      "tags": [
+        "bad-practice",
+        "cert"
+      ],
+      "creationDate": "2026-11-25T16:34:38+0000",
+      "updateDate": "2026-11-25T16:34:38+0000",
+      "type": "CODE_SMELL",
+      "scope": "MAIN",
+      "quickFixAvailable": false,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "MODULAR",
+      "cleanCodeAttributeCategory": "ADAPTABLE",
+      "impacts": [
+        {
+          "softwareQuality": "MAINTAINABILITY",
+          "severity": "MEDIUM"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "cd542c42-e0c8-4ae9-9ea3-70172aa22e2a",
+      "rule": "java:S106",
+      "severity": "MAJOR",
+      "component": "thesis_owasp_cwe89_e_spring_20261125_v1:src/main/java/org/owasp/benchmark/helpers/Utils.java",
+      "project": "thesis_owasp_cwe89_e_spring_20261125_v1",
+      "line": 295,
+      "hash": "232847adea2264941418daeb863267ac",
+      "textRange": {
+        "startLine": 295,
+        "endLine": 295,
+        "startOffset": 16,
+        "endOffset": 26
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "Replace this use of System.out by a logger.",
+      "effort": "10min",
+      "debt": "10min",
+      "author": "",
+      "tags": [
+        "bad-practice",
+        "cert"
+      ],
+      "creationDate": "2026-11-25T16:34:38+0000",
+      "updateDate": "2026-11-25T16:34:38+0000",
+      "type": "CODE_SMELL",
+      "scope": "MAIN",
+      "quickFixAvailable": false,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "MODULAR",
+      "cleanCodeAttributeCategory": "ADAPTABLE",
+      "impacts": [
+        {
+          "softwareQuality": "MAINTAINABILITY",
+          "severity": "MEDIUM"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "720c6e88-fdb2-47c6-9196-e8096ebb6f08",
+      "rule": "java:S106",
+      "severity": "MAJOR",
+      "component": "thesis_owasp_cwe89_e_spring_20261125_v1:src/main/java/org/owasp/benchmark/helpers/Utils.java",
+      "project": "thesis_owasp_cwe89_e_spring_20261125_v1",
+      "line": 299,
+      "hash": "d303d85c6e0d7a9aa18f87895b08dbdc",
+      "textRange": {
+        "startLine": 299,
+        "endLine": 299,
+        "startOffset": 15,
+        "endOffset": 25
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "Replace this use of System.out by a logger.",
+      "effort": "10min",
+      "debt": "10min",
+      "author": "",
+      "tags": [
+        "bad-practice",
+        "cert"
+      ],
+      "creationDate": "2026-11-25T16:34:38+0000",
+      "updateDate": "2026-11-25T16:34:38+0000",
+      "type": "CODE_SMELL",
+      "scope": "MAIN",
+      "quickFixAvailable": false,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "MODULAR",
+      "cleanCodeAttributeCategory": "ADAPTABLE",
+      "impacts": [
+        {
+          "softwareQuality": "MAINTAINABILITY",
+          "severity": "MEDIUM"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "2d2f6c9e-9644-4a7c-9dc3-d1c8868bbf28",
+      "rule": "java:S106",
+      "severity": "MAJOR",
+      "component": "thesis_owasp_cwe89_e_spring_20261125_v1:src/main/java/org/owasp/benchmark/helpers/Utils.java",
+      "project": "thesis_owasp_cwe89_e_spring_20261125_v1",
+      "line": 306,
+      "hash": "bc4103b19a2cd7a3648d400b575c3126",
+      "textRange": {
+        "startLine": 306,
+        "endLine": 306,
+        "startOffset": 16,
+        "endOffset": 26
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "Replace this use of System.out by a logger.",
+      "effort": "10min",
+      "debt": "10min",
+      "author": "",
+      "tags": [
+        "bad-practice",
+        "cert"
+      ],
+      "creationDate": "2026-11-25T16:34:38+0000",
+      "updateDate": "2026-11-25T16:34:38+0000",
+      "type": "CODE_SMELL",
+      "scope": "MAIN",
+      "quickFixAvailable": false,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "MODULAR",
+      "cleanCodeAttributeCategory": "ADAPTABLE",
+      "impacts": [
+        {
+          "softwareQuality": "MAINTAINABILITY",
+          "severity": "MEDIUM"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "1db18c22-3315-49aa-b5f9-a413bfe1dd17",
+      "rule": "java:S106",
+      "severity": "MAJOR",
+      "component": "thesis_owasp_cwe89_e_spring_20261125_v1:src/main/java/org/owasp/benchmark/helpers/Utils.java",
+      "project": "thesis_owasp_cwe89_e_spring_20261125_v1",
+      "line": 308,
+      "hash": "54734729b36a534a5580a1c1aeb3b42b",
+      "textRange": {
+        "startLine": 308,
+        "endLine": 308,
+        "startOffset": 16,
+        "endOffset": 26
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "Replace this use of System.out by a logger.",
+      "effort": "10min",
+      "debt": "10min",
+      "author": "",
+      "tags": [
+        "bad-practice",
+        "cert"
+      ],
+      "creationDate": "2026-11-25T16:34:38+0000",
+      "updateDate": "2026-11-25T16:34:38+0000",
+      "type": "CODE_SMELL",
+      "scope": "MAIN",
+      "quickFixAvailable": false,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "MODULAR",
+      "cleanCodeAttributeCategory": "ADAPTABLE",
+      "impacts": [
+        {
+          "softwareQuality": "MAINTAINABILITY",
+          "severity": "MEDIUM"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "314adeb3-2724-4825-a825-e5e24e2eec64",
+      "rule": "java:S1168",
+      "severity": "MAJOR",
+      "component": "thesis_owasp_cwe89_e_spring_20261125_v1:src/main/java/org/owasp/benchmark/helpers/Utils.java",
+      "project": "thesis_owasp_cwe89_e_spring_20261125_v1",
+      "line": 311,
+      "hash": "540c13e9e156b687226421b24f2df178",
+      "textRange": {
+        "startLine": 311,
+        "endLine": 311,
+        "startOffset": 19,
+        "endOffset": 23
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "Return an empty collection instead of null.",
+      "effort": "30min",
+      "debt": "30min",
+      "author": "",
+      "tags": [
+        "cert"
+      ],
+      "creationDate": "2026-11-25T16:34:38+0000",
+      "updateDate": "2026-11-25T16:34:38+0000",
+      "type": "CODE_SMELL",
+      "scope": "MAIN",
+      "quickFixAvailable": true,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "CLEAR",
+      "cleanCodeAttributeCategory": "INTENTIONAL",
+      "impacts": [
+        {
+          "softwareQuality": "MAINTAINABILITY",
+          "severity": "MEDIUM"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "71dd1a88-2f14-485d-b64d-390e29f6002f",
+      "rule": "java:S2293",
+      "severity": "MINOR",
+      "component": "thesis_owasp_cwe89_e_spring_20261125_v1:src/main/java/org/owasp/benchmark/helpers/Utils.java",
+      "project": "thesis_owasp_cwe89_e_spring_20261125_v1",
+      "line": 314,
+      "hash": "be03344732d5d537c7b58a34e3a177ad",
+      "textRange": {
+        "startLine": 314,
+        "endLine": 314,
+        "startOffset": 48,
+        "endOffset": 56
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "Replace the type specification in this constructor call with the diamond operator (\"<>\"). (sonar.java.source not set. Assuming 7 or greater.)",
+      "effort": "1min",
+      "debt": "1min",
+      "author": "",
+      "tags": [
+        "clumsy"
+      ],
+      "creationDate": "2026-11-25T16:34:38+0000",
+      "updateDate": "2026-11-25T16:34:38+0000",
+      "type": "CODE_SMELL",
+      "scope": "MAIN",
+      "quickFixAvailable": true,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "CLEAR",
+      "cleanCodeAttributeCategory": "INTENTIONAL",
+      "impacts": [
+        {
+          "softwareQuality": "MAINTAINABILITY",
+          "severity": "LOW"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "78dd35d9-9613-4aef-b6f1-d7fd2de37292",
+      "rule": "java:S106",
+      "severity": "MAJOR",
+      "component": "thesis_owasp_cwe89_e_spring_20261125_v1:src/main/java/org/owasp/benchmark/helpers/Utils.java",
+      "project": "thesis_owasp_cwe89_e_spring_20261125_v1",
+      "line": 324,
+      "hash": "588f5db346b600a89640894f3fde3bc0",
+      "textRange": {
+        "startLine": 324,
+        "endLine": 324,
+        "startOffset": 16,
+        "endOffset": 26
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "Replace this use of System.out by a logger.",
+      "effort": "10min",
+      "debt": "10min",
+      "author": "",
+      "tags": [
+        "bad-practice",
+        "cert"
+      ],
+      "creationDate": "2026-11-25T16:34:38+0000",
+      "updateDate": "2026-11-25T16:34:38+0000",
+      "type": "CODE_SMELL",
+      "scope": "MAIN",
+      "quickFixAvailable": false,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "MODULAR",
+      "cleanCodeAttributeCategory": "ADAPTABLE",
+      "impacts": [
+        {
+          "softwareQuality": "MAINTAINABILITY",
+          "severity": "MEDIUM"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "957876bc-72a5-47f2-bfd8-47d12155647d",
+      "rule": "java:S106",
+      "severity": "MAJOR",
+      "component": "thesis_owasp_cwe89_e_spring_20261125_v1:src/main/java/org/owasp/benchmark/helpers/Utils.java",
+      "project": "thesis_owasp_cwe89_e_spring_20261125_v1",
+      "line": 326,
+      "hash": "efd99aa33849025fd6c1d3b0950bc301",
+      "textRange": {
+        "startLine": 326,
+        "endLine": 326,
+        "startOffset": 16,
+        "endOffset": 26
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "Replace this use of System.out by a logger.",
+      "effort": "10min",
+      "debt": "10min",
+      "author": "",
+      "tags": [
+        "bad-practice",
+        "cert"
+      ],
+      "creationDate": "2026-11-25T16:34:38+0000",
+      "updateDate": "2026-11-25T16:34:38+0000",
+      "type": "CODE_SMELL",
+      "scope": "MAIN",
+      "quickFixAvailable": false,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "MODULAR",
+      "cleanCodeAttributeCategory": "ADAPTABLE",
+      "impacts": [
+        {
+          "softwareQuality": "MAINTAINABILITY",
+          "severity": "MEDIUM"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "256dd202-ab20-476e-aba7-83296e463eb5",
+      "rule": "findsecbugs:PATH_TRAVERSAL_IN",
+      "severity": "MAJOR",
+      "component": "thesis_owasp_cwe89_e_spring_20261125_v1:src/main/java/org/owasp/benchmark/helpers/Utils.java",
+      "project": "thesis_owasp_cwe89_e_spring_20261125_v1",
+      "line": 336,
+      "hash": "d1eb57a0900c002d29634d0d9ab3c046",
+      "textRange": {
+        "startLine": 336,
+        "endLine": 336,
+        "startOffset": 0,
+        "endOffset": 52
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "This API (java/io/File.<init>(Ljava/lang/String;)V) reads a file whose location might be specified by user input",
+      "author": "",
+      "tags": [
+        "cwe",
+        "owasp-a4",
+        "wasc"
+      ],
+      "creationDate": "2026-11-25T16:34:38+0000",
+      "updateDate": "2026-11-25T16:34:38+0000",
+      "type": "VULNERABILITY",
+      "scope": "MAIN",
+      "quickFixAvailable": false,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "CONVENTIONAL",
+      "cleanCodeAttributeCategory": "CONSISTENT",
+      "impacts": [
+        {
+          "softwareQuality": "SECURITY",
+          "severity": "MEDIUM"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "0b012fcc-0610-46ec-9189-1f44f6053862",
+      "rule": "java:S2093",
+      "severity": "CRITICAL",
+      "component": "thesis_owasp_cwe89_e_spring_20261125_v1:src/main/java/org/owasp/benchmark/helpers/Utils.java",
+      "project": "thesis_owasp_cwe89_e_spring_20261125_v1",
+      "line": 373,
+      "hash": "80d5b17efc16ace990c07580fc3e85eb",
+      "textRange": {
+        "startLine": 373,
+        "endLine": 373,
+        "startOffset": 8,
+        "endOffset": 11
+      },
+      "flows": [
+        {
+          "locations": [
+            {
+              "component": "thesis_owasp_cwe89_e_spring_20261125_v1:src/main/java/org/owasp/benchmark/helpers/Utils.java",
+              "textRange": {
+                "startLine": 379,
+                "endLine": 379,
+                "startOffset": 35,
+                "endOffset": 64
+              },
+              "msg": "AutoCloseable resource",
+              "msgFormattings": []
+            }
+          ]
+        },
+        {
+          "locations": [
+            {
+              "component": "thesis_owasp_cwe89_e_spring_20261125_v1:src/main/java/org/owasp/benchmark/helpers/Utils.java",
+              "textRange": {
+                "startLine": 380,
+                "endLine": 380,
+                "startOffset": 17,
+                "endOffset": 37
+              },
+              "msg": "AutoCloseable resource",
+              "msgFormattings": []
+            }
+          ]
+        }
+      ],
+      "status": "OPEN",
+      "message": "Change this \"try\" to a try-with-resources. (sonar.java.source not set. Assuming 7 or greater.)",
+      "effort": "15min",
+      "debt": "15min",
+      "author": "",
+      "tags": [
+        "java8",
+        "cert",
+        "pitfall"
+      ],
+      "creationDate": "2026-11-25T16:34:38+0000",
+      "updateDate": "2026-11-25T16:34:38+0000",
+      "type": "CODE_SMELL",
+      "scope": "MAIN",
+      "quickFixAvailable": false,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "CONVENTIONAL",
+      "cleanCodeAttributeCategory": "CONSISTENT",
+      "impacts": [
+        {
+          "softwareQuality": "MAINTAINABILITY",
+          "severity": "HIGH"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "b4632a6d-7765-4af9-b08c-ae6c50166373",
+      "rule": "findsecbugs:PATH_TRAVERSAL_IN",
+      "severity": "MAJOR",
+      "component": "thesis_owasp_cwe89_e_spring_20261125_v1:src/main/java/org/owasp/benchmark/helpers/Utils.java",
+      "project": "thesis_owasp_cwe89_e_spring_20261125_v1",
+      "line": 375,
+      "hash": "1a694efadd4f82013b0cc0f9a8b5b006",
+      "textRange": {
+        "startLine": 375,
+        "endLine": 375,
+        "startOffset": 0,
+        "endOffset": 44
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "This API (java/io/File.<init>(Ljava/lang/String;)V) reads a file whose location might be specified by user input",
+      "author": "",
+      "tags": [
+        "cwe",
+        "owasp-a4",
+        "wasc"
+      ],
+      "creationDate": "2026-11-25T16:34:38+0000",
+      "updateDate": "2026-11-25T16:34:38+0000",
+      "type": "VULNERABILITY",
+      "scope": "MAIN",
+      "quickFixAvailable": false,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "CONVENTIONAL",
+      "cleanCodeAttributeCategory": "CONSISTENT",
+      "impacts": [
+        {
+          "softwareQuality": "SECURITY",
+          "severity": "MEDIUM"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "c743eff0-00f2-47c9-8ed3-4ae7e904bf81",
+      "rule": "java:S899",
+      "severity": "MINOR",
+      "component": "thesis_owasp_cwe89_e_spring_20261125_v1:src/main/java/org/owasp/benchmark/helpers/Utils.java",
+      "project": "thesis_owasp_cwe89_e_spring_20261125_v1",
+      "line": 377,
+      "hash": "af2ca038c67268229ed18cfedbf17def",
+      "textRange": {
+        "startLine": 377,
+        "endLine": 377,
+        "startOffset": 16,
+        "endOffset": 34
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "Do something with the \"boolean\" value returned by \"createNewFile\".",
+      "effort": "15min",
+      "debt": "15min",
+      "author": "",
+      "tags": [
+        "cwe",
+        "error-handling",
+        "cert"
+      ],
+      "creationDate": "2026-11-25T16:34:38+0000",
+      "updateDate": "2026-11-25T16:34:38+0000",
+      "type": "BUG",
+      "scope": "MAIN",
+      "quickFixAvailable": false,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "COMPLETE",
+      "cleanCodeAttributeCategory": "INTENTIONAL",
+      "impacts": [
+        {
+          "softwareQuality": "RELIABILITY",
+          "severity": "LOW"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "0cb6127c-9ca1-4dda-8ec4-5c6d65feaf0e",
+      "rule": "java:S2259",
+      "severity": "MAJOR",
+      "component": "thesis_owasp_cwe89_e_spring_20261125_v1:src/main/java/org/owasp/benchmark/helpers/Utils.java",
+      "project": "thesis_owasp_cwe89_e_spring_20261125_v1",
+      "line": 386,
+      "hash": "2a1ed899ed0887c56c009b5b6706bfdc",
+      "textRange": {
+        "startLine": 386,
+        "endLine": 386,
+        "startOffset": 12,
+        "endOffset": 20
+      },
+      "flows": [
+        {
+          "locations": [
+            {
+              "component": "thesis_owasp_cwe89_e_spring_20261125_v1:src/main/java/org/owasp/benchmark/helpers/Utils.java",
+              "textRange": {
+                "startLine": 386,
+                "endLine": 386,
+                "startOffset": 12,
+                "endOffset": 20
+              },
+              "msg": "'os' is dereferenced.",
+              "msgFormattings": []
+            },
+            {
+              "component": "thesis_owasp_cwe89_e_spring_20261125_v1:src/main/java/org/owasp/benchmark/helpers/Utils.java",
+              "textRange": {
+                "startLine": 372,
+                "endLine": 372,
+                "startOffset": 8,
+                "endOffset": 30
+              },
+              "msg": "Implies 'os' is null.",
+              "msgFormattings": []
+            }
+          ]
+        }
+      ],
+      "status": "OPEN",
+      "message": "A \"NullPointerException\" could be thrown; \"os\" is nullable here.",
+      "effort": "10min",
+      "debt": "10min",
+      "author": "",
+      "tags": [
+        "cwe",
+        "symbolic-execution",
+        "cert"
+      ],
+      "creationDate": "2026-11-25T16:34:38+0000",
+      "updateDate": "2026-11-25T16:34:38+0000",
+      "type": "BUG",
+      "scope": "MAIN",
+      "quickFixAvailable": false,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "LOGICAL",
+      "cleanCodeAttributeCategory": "INTENTIONAL",
+      "impacts": [
+        {
+          "softwareQuality": "RELIABILITY",
+          "severity": "MEDIUM"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "15296b2b-166d-4e1b-b98a-f2ccd6099cdc",
+      "rule": "java:S1874",
+      "severity": "MINOR",
+      "component": "thesis_owasp_cwe89_e_spring_20261125_v1:src/main/java/org/owasp/benchmark/helpers/Utils.java",
+      "project": "thesis_owasp_cwe89_e_spring_20261125_v1",
+      "line": 419,
+      "hash": "380a84d446f44d39d789007b772b89b4",
+      "textRange": {
+        "startLine": 419,
+        "endLine": 419,
+        "startOffset": 18,
+        "endOffset": 44
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "Remove this use of \"SSLConnectionSocketFactory\"; it is deprecated.",
+      "effort": "15min",
+      "debt": "15min",
+      "author": "",
+      "tags": [
+        "cwe",
+        "obsolete",
+        "cert"
+      ],
+      "creationDate": "2026-11-25T16:34:38+0000",
+      "updateDate": "2026-11-25T16:34:38+0000",
+      "type": "CODE_SMELL",
+      "scope": "MAIN",
+      "quickFixAvailable": false,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "CONVENTIONAL",
+      "cleanCodeAttributeCategory": "CONSISTENT",
+      "impacts": [
+        {
+          "softwareQuality": "MAINTAINABILITY",
+          "severity": "LOW"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "affc40b6-be32-4e61-ada0-584bc1ce0b56",
+      "rule": "java:S112",
+      "severity": "MAJOR",
+      "component": "thesis_owasp_cwe89_e_spring_20261125_v1:src/main/java/org/owasp/benchmark/helpers/Utils.java",
+      "project": "thesis_owasp_cwe89_e_spring_20261125_v1",
+      "line": 419,
+      "hash": "380a84d446f44d39d789007b772b89b4",
+      "textRange": {
+        "startLine": 419,
+        "endLine": 419,
+        "startOffset": 68,
+        "endOffset": 77
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "Replace generic exceptions with specific library exceptions or a custom exception.",
+      "effort": "20min",
+      "debt": "20min",
+      "author": "",
+      "tags": [
+        "cwe",
+        "error-handling",
+        "cert"
+      ],
+      "creationDate": "2026-11-25T16:34:38+0000",
+      "updateDate": "2026-11-25T16:34:38+0000",
+      "type": "CODE_SMELL",
+      "scope": "MAIN",
+      "quickFixAvailable": false,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "COMPLETE",
+      "cleanCodeAttributeCategory": "INTENTIONAL",
+      "impacts": [
+        {
+          "softwareQuality": "MAINTAINABILITY",
+          "severity": "MEDIUM"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "04942031-57d5-44a8-81c5-6de1a84147b6",
+      "rule": "java:S1874",
+      "severity": "MINOR",
+      "component": "thesis_owasp_cwe89_e_spring_20261125_v1:src/main/java/org/owasp/benchmark/helpers/Utils.java",
+      "project": "thesis_owasp_cwe89_e_spring_20261125_v1",
+      "line": 421,
+      "hash": "fce51baf1578ec26533a9b715092cd46",
+      "textRange": {
+        "startLine": 421,
+        "endLine": 421,
+        "startOffset": 65,
+        "endOffset": 88
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "Remove this use of \"TrustSelfSignedStrategy\"; it is deprecated.",
+      "effort": "15min",
+      "debt": "15min",
+      "author": "",
+      "tags": [
+        "cwe",
+        "obsolete",
+        "cert"
+      ],
+      "creationDate": "2026-11-25T16:34:38+0000",
+      "updateDate": "2026-11-25T16:34:38+0000",
+      "type": "CODE_SMELL",
+      "scope": "MAIN",
+      "quickFixAvailable": false,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "CONVENTIONAL",
+      "cleanCodeAttributeCategory": "CONSISTENT",
+      "impacts": [
+        {
+          "softwareQuality": "MAINTAINABILITY",
+          "severity": "LOW"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "dafd6b45-e45e-4f9d-98a9-0cc9628d8926",
+      "rule": "java:S1874",
+      "severity": "MINOR",
+      "component": "thesis_owasp_cwe89_e_spring_20261125_v1:src/main/java/org/owasp/benchmark/helpers/Utils.java",
+      "project": "thesis_owasp_cwe89_e_spring_20261125_v1",
+      "line": 423,
+      "hash": "49589494aa8b68767f728110c7766d7e",
+      "textRange": {
+        "startLine": 423,
+        "endLine": 423,
+        "startOffset": 8,
+        "endOffset": 34
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "Remove this use of \"SSLConnectionSocketFactory\"; it is deprecated.",
+      "effort": "15min",
+      "debt": "15min",
+      "author": "",
+      "tags": [
+        "cwe",
+        "obsolete",
+        "cert"
+      ],
+      "creationDate": "2026-11-25T16:34:38+0000",
+      "updateDate": "2026-11-25T16:34:38+0000",
+      "type": "CODE_SMELL",
+      "scope": "MAIN",
+      "quickFixAvailable": false,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "CONVENTIONAL",
+      "cleanCodeAttributeCategory": "CONSISTENT",
+      "impacts": [
+        {
+          "softwareQuality": "MAINTAINABILITY",
+          "severity": "LOW"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "3a4b99f1-64fd-4bb1-b984-27f860be97f4",
+      "rule": "java:S1488",
+      "severity": "MINOR",
+      "component": "thesis_owasp_cwe89_e_spring_20261125_v1:src/main/java/org/owasp/benchmark/helpers/Utils.java",
+      "project": "thesis_owasp_cwe89_e_spring_20261125_v1",
+      "line": 424,
+      "hash": "327ce435fc30d109411a9ed1833b0d3d",
+      "textRange": {
+        "startLine": 424,
+        "endLine": 425,
+        "startOffset": 16,
+        "endOffset": 96
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "Immediately return this expression instead of assigning it to the temporary variable \"sslsf\".",
+      "effort": "2min",
+      "debt": "2min",
+      "author": "",
+      "tags": [
+        "clumsy"
+      ],
+      "creationDate": "2026-11-25T16:34:38+0000",
+      "updateDate": "2026-11-25T16:34:38+0000",
+      "type": "CODE_SMELL",
+      "scope": "MAIN",
+      "quickFixAvailable": true,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "CLEAR",
+      "cleanCodeAttributeCategory": "INTENTIONAL",
+      "impacts": [
+        {
+          "softwareQuality": "MAINTAINABILITY",
+          "severity": "LOW"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "52c476eb-0c47-4171-8a17-059a1312a1dd",
+      "rule": "java:S1874",
+      "severity": "MINOR",
+      "component": "thesis_owasp_cwe89_e_spring_20261125_v1:src/main/java/org/owasp/benchmark/helpers/Utils.java",
+      "project": "thesis_owasp_cwe89_e_spring_20261125_v1",
+      "line": 424,
+      "hash": "327ce435fc30d109411a9ed1833b0d3d",
+      "textRange": {
+        "startLine": 424,
+        "endLine": 424,
+        "startOffset": 20,
+        "endOffset": 46
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "Remove this use of \"SSLConnectionSocketFactory\"; it is deprecated.",
+      "effort": "15min",
+      "debt": "15min",
+      "author": "",
+      "tags": [
+        "cwe",
+        "obsolete",
+        "cert"
+      ],
+      "creationDate": "2026-11-25T16:34:38+0000",
+      "updateDate": "2026-11-25T16:34:38+0000",
+      "type": "CODE_SMELL",
+      "scope": "MAIN",
+      "quickFixAvailable": false,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "CONVENTIONAL",
+      "cleanCodeAttributeCategory": "CONSISTENT",
+      "impacts": [
+        {
+          "softwareQuality": "MAINTAINABILITY",
+          "severity": "LOW"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "ec4082c6-0108-489d-a0d7-bd215e9089a3",
+      "rule": "java:S3740",
+      "severity": "MAJOR",
+      "component": "thesis_owasp_cwe89_e_spring_20261125_v1:src/main/java/org/owasp/benchmark/helpers/Utils.java",
+      "project": "thesis_owasp_cwe89_e_spring_20261125_v1",
+      "line": 440,
+      "hash": "21edb54a9d6cf098a541540835dd038e",
+      "textRange": {
+        "startLine": 440,
+        "endLine": 440,
+        "startOffset": 74,
+        "endOffset": 79
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "Provide the parametrized type for this generic.",
+      "effort": "5min",
+      "debt": "5min",
+      "author": "",
+      "tags": [
+        "pitfall"
+      ],
+      "creationDate": "2026-11-25T16:34:38+0000",
+      "updateDate": "2026-11-25T16:34:38+0000",
+      "type": "CODE_SMELL",
+      "scope": "MAIN",
+      "quickFixAvailable": false,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "COMPLETE",
+      "cleanCodeAttributeCategory": "INTENTIONAL",
+      "impacts": [
+        {
+          "softwareQuality": "MAINTAINABILITY",
+          "severity": "MEDIUM"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "9f8c7f16-6736-499d-9b18-0201487c7078",
+      "rule": "java:S1126",
+      "severity": "MINOR",
+      "component": "thesis_owasp_cwe89_e_spring_20261125_v1:src/main/java/org/owasp/benchmark/helpers/entities/Certificate.java",
+      "project": "thesis_owasp_cwe89_e_spring_20261125_v1",
+      "line": 52,
+      "hash": "6eec7a2ec14f1b935d312199594719cf",
+      "textRange": {
+        "startLine": 52,
+        "endLine": 52,
+        "startOffset": 8,
+        "endOffset": 10
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "Replace this if-then-else statement by a single return statement.",
+      "effort": "2min",
+      "debt": "2min",
+      "author": "",
+      "tags": [
+        "clumsy"
+      ],
+      "creationDate": "2026-11-25T16:34:38+0000",
+      "updateDate": "2026-11-25T16:34:38+0000",
+      "type": "CODE_SMELL",
+      "scope": "MAIN",
+      "quickFixAvailable": false,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "CLEAR",
+      "cleanCodeAttributeCategory": "INTENTIONAL",
+      "impacts": [
+        {
+          "softwareQuality": "MAINTAINABILITY",
+          "severity": "LOW"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "d8b17065-e626-4bb0-b198-6da37cbe4071",
+      "rule": "java:S117",
+      "severity": "MINOR",
+      "component": "thesis_owasp_cwe89_e_spring_20261125_v1:src/main/java/org/owasp/benchmark/helpers/entities/Employee.java",
+      "project": "thesis_owasp_cwe89_e_spring_20261125_v1",
+      "line": 49,
+      "hash": "16ebca549854c502090bba34e8059bb7",
+      "textRange": {
+        "startLine": 49,
+        "endLine": 49,
+        "startOffset": 36,
+        "endOffset": 46
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "Rename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.",
+      "effort": "2min",
+      "debt": "2min",
+      "author": "",
+      "tags": [
+        "convention"
+      ],
+      "creationDate": "2026-11-25T16:34:38+0000",
+      "updateDate": "2026-11-25T16:34:38+0000",
+      "type": "CODE_SMELL",
+      "scope": "MAIN",
+      "quickFixAvailable": false,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "IDENTIFIABLE",
+      "cleanCodeAttributeCategory": "CONSISTENT",
+      "impacts": [
+        {
+          "softwareQuality": "MAINTAINABILITY",
+          "severity": "LOW"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "9402c098-c514-4ef2-8b2e-264e4f3aff84",
+      "rule": "java:S117",
+      "severity": "MINOR",
+      "component": "thesis_owasp_cwe89_e_spring_20261125_v1:src/main/java/org/owasp/benchmark/helpers/entities/Employee.java",
+      "project": "thesis_owasp_cwe89_e_spring_20261125_v1",
+      "line": 57,
+      "hash": "930a15ab9b71b33b51726f5cab42ada7",
+      "textRange": {
+        "startLine": 57,
+        "endLine": 57,
+        "startOffset": 35,
+        "endOffset": 44
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "Rename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.",
+      "effort": "2min",
+      "debt": "2min",
+      "author": "",
+      "tags": [
+        "convention"
+      ],
+      "creationDate": "2026-11-25T16:34:38+0000",
+      "updateDate": "2026-11-25T16:34:38+0000",
+      "type": "CODE_SMELL",
+      "scope": "MAIN",
+      "quickFixAvailable": false,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "IDENTIFIABLE",
+      "cleanCodeAttributeCategory": "CONSISTENT",
+      "impacts": [
+        {
+          "softwareQuality": "MAINTAINABILITY",
+          "severity": "LOW"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "7865e25b-f1f0-42f8-a5b2-6186558aec0b",
+      "rule": "java:S106",
+      "severity": "MAJOR",
+      "component": "thesis_owasp_cwe89_e_spring_20261125_v1:src/main/java/org/owasp/benchmark/helpers/filters/DataBaseFilter.java",
+      "project": "thesis_owasp_cwe89_e_spring_20261125_v1",
+      "line": 47,
+      "hash": "dd09856c3925b08d54bc8ea6daaf35fc",
+      "textRange": {
+        "startLine": 47,
+        "endLine": 47,
+        "startOffset": 16,
+        "endOffset": 26
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "Replace this use of System.out by a logger.",
+      "effort": "10min",
+      "debt": "10min",
+      "author": "",
+      "tags": [
+        "bad-practice",
+        "cert"
+      ],
+      "creationDate": "2026-11-25T16:34:38+0000",
+      "updateDate": "2026-11-25T16:34:38+0000",
+      "type": "CODE_SMELL",
+      "scope": "MAIN",
+      "quickFixAvailable": false,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "MODULAR",
+      "cleanCodeAttributeCategory": "ADAPTABLE",
+      "impacts": [
+        {
+          "softwareQuality": "MAINTAINABILITY",
+          "severity": "MEDIUM"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "ae57cce4-49bf-4b50-b719-4ea333d6d621",
+      "rule": "java:S3626",
+      "severity": "MINOR",
+      "component": "thesis_owasp_cwe89_e_spring_20261125_v1:src/main/java/org/owasp/benchmark/helpers/filters/DataBaseFilter.java",
+      "project": "thesis_owasp_cwe89_e_spring_20261125_v1",
+      "line": 48,
+      "hash": "505b97969baa28c3f607a38ee02f4f2d",
+      "textRange": {
+        "startLine": 48,
+        "endLine": 48,
+        "startOffset": 16,
+        "endOffset": 23
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "Remove this redundant jump.",
+      "effort": "1min",
+      "debt": "1min",
+      "author": "",
+      "tags": [
+        "redundant",
+        "clumsy"
+      ],
+      "creationDate": "2026-11-25T16:34:38+0000",
+      "updateDate": "2026-11-25T16:34:38+0000",
+      "type": "CODE_SMELL",
+      "scope": "MAIN",
+      "quickFixAvailable": false,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "CLEAR",
+      "cleanCodeAttributeCategory": "INTENTIONAL",
+      "impacts": [
+        {
+          "softwareQuality": "MAINTAINABILITY",
+          "severity": "LOW"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "89ebd4aa-9271-4f8b-8e1e-246268c83766",
+      "rule": "java:S1186",
+      "severity": "CRITICAL",
+      "component": "thesis_owasp_cwe89_e_spring_20261125_v1:src/main/java/org/owasp/benchmark/helpers/filters/DataBaseFilter.java",
+      "project": "thesis_owasp_cwe89_e_spring_20261125_v1",
+      "line": 54,
+      "hash": "1fa264c4250124c0fc0a99bbc4e0c9df",
+      "textRange": {
+        "startLine": 54,
+        "endLine": 54,
+        "startOffset": 16,
+        "endOffset": 23
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.",
+      "effort": "5min",
+      "debt": "5min",
+      "author": "",
+      "tags": [
+        "suspicious"
+      ],
+      "creationDate": "2026-11-25T16:34:38+0000",
+      "updateDate": "2026-11-25T16:34:38+0000",
+      "type": "CODE_SMELL",
+      "scope": "MAIN",
+      "quickFixAvailable": true,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "COMPLETE",
+      "cleanCodeAttributeCategory": "INTENTIONAL",
+      "impacts": [
+        {
+          "softwareQuality": "MAINTAINABILITY",
+          "severity": "HIGH"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "81570d59-0993-4003-abf5-8579e1183006",
+      "rule": "java:S1186",
+      "severity": "CRITICAL",
+      "component": "thesis_owasp_cwe89_e_spring_20261125_v1:src/main/java/org/owasp/benchmark/helpers/filters/HTTPResponseHeaderFilter.java",
+      "project": "thesis_owasp_cwe89_e_spring_20261125_v1",
+      "line": 65,
+      "hash": "1fa264c4250124c0fc0a99bbc4e0c9df",
+      "textRange": {
+        "startLine": 65,
+        "endLine": 65,
+        "startOffset": 16,
+        "endOffset": 23
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.",
+      "effort": "5min",
+      "debt": "5min",
+      "author": "",
+      "tags": [
+        "suspicious"
+      ],
+      "creationDate": "2026-11-25T16:34:38+0000",
+      "updateDate": "2026-11-25T16:34:38+0000",
+      "type": "CODE_SMELL",
+      "scope": "MAIN",
+      "quickFixAvailable": true,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "COMPLETE",
+      "cleanCodeAttributeCategory": "INTENTIONAL",
+      "impacts": [
+        {
+          "softwareQuality": "MAINTAINABILITY",
+          "severity": "HIGH"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "a00a0191-e53d-46c8-8703-0d31baca711c",
+      "rule": "java:S2068",
+      "severity": "MAJOR",
+      "component": "thesis_owasp_cwe89_e_spring_20261125_v1:src/main/java/org/owasp/benchmark/report/sonarqube/SonarReport.java",
+      "project": "thesis_owasp_cwe89_e_spring_20261125_v1",
+      "line": 25,
+      "hash": "b806f43a293b07b290c31fdb779ce8f0",
+      "textRange": {
+        "startLine": 25,
+        "endLine": 25,
+        "startOffset": 32,
+        "endOffset": 46
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "'PASSWORD' detected in this expression, review this potentially hard-coded password.",
+      "effort": "30min",
+      "debt": "30min",
+      "author": "",
+      "tags": [
+        "cwe",
+        "cert"
+      ],
+      "creationDate": "2026-11-25T16:34:38+0000",
+      "updateDate": "2026-11-25T16:34:38+0000",
+      "type": "VULNERABILITY",
+      "scope": "MAIN",
+      "quickFixAvailable": false,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "TRUSTWORTHY",
+      "cleanCodeAttributeCategory": "RESPONSIBLE",
+      "impacts": [
+        {
+          "softwareQuality": "SECURITY",
+          "severity": "MEDIUM"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "557b0db6-001c-4dc4-a65e-8265f4a48e55",
+      "rule": "java:S115",
+      "severity": "CRITICAL",
+      "component": "thesis_owasp_cwe89_e_spring_20261125_v1:src/main/java/org/owasp/benchmark/report/sonarqube/SonarReport.java",
+      "project": "thesis_owasp_cwe89_e_spring_20261125_v1",
+      "line": 32,
+      "hash": "ce9b7056a0eec74bdaffb67e51ddd6fa",
+      "textRange": {
+        "startLine": 32,
+        "endLine": 32,
+        "startOffset": 32,
+        "endOffset": 41
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "Rename this constant name to match the regular expression '^[A-Z][A-Z0-9]*(_[A-Z0-9]+)*$'.",
+      "effort": "2min",
+      "debt": "2min",
+      "author": "",
+      "tags": [
+        "convention"
+      ],
+      "creationDate": "2026-11-25T16:34:38+0000",
+      "updateDate": "2026-11-25T16:34:38+0000",
+      "type": "CODE_SMELL",
+      "scope": "MAIN",
+      "quickFixAvailable": false,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "IDENTIFIABLE",
+      "cleanCodeAttributeCategory": "CONSISTENT",
+      "impacts": [
+        {
+          "softwareQuality": "MAINTAINABILITY",
+          "severity": "HIGH"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "5b7d5199-e03f-4221-af73-793167d4ca3b",
+      "rule": "findsecbugs:PATH_TRAVERSAL_IN",
+      "severity": "MAJOR",
+      "component": "thesis_owasp_cwe89_e_spring_20261125_v1:src/main/java/org/owasp/benchmark/report/sonarqube/SonarReport.java",
+      "project": "thesis_owasp_cwe89_e_spring_20261125_v1",
+      "line": 56,
+      "hash": "01f3ae958d9cca05a8004eec537cf0f5",
+      "textRange": {
+        "startLine": 56,
+        "endLine": 56,
+        "startOffset": 0,
+        "endOffset": 66
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "This API (java/io/File.<init>(Ljava/lang/String;)V) reads a file whose location might be specified by user input",
+      "author": "",
+      "tags": [
+        "cwe",
+        "owasp-a4",
+        "wasc"
+      ],
+      "creationDate": "2026-11-25T16:34:38+0000",
+      "updateDate": "2026-11-25T16:34:38+0000",
+      "type": "VULNERABILITY",
+      "scope": "MAIN",
+      "quickFixAvailable": false,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "CONVENTIONAL",
+      "cleanCodeAttributeCategory": "CONSISTENT",
+      "impacts": [
+        {
+          "softwareQuality": "SECURITY",
+          "severity": "MEDIUM"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "8610ea9f-723b-4177-9817-b3a11ddb146e",
+      "rule": "java:S1611",
+      "severity": "MINOR",
+      "component": "thesis_owasp_cwe89_e_spring_20261125_v1:src/main/java/org/owasp/benchmark/report/sonarqube/SonarReport.java",
+      "project": "thesis_owasp_cwe89_e_spring_20261125_v1",
+      "line": 79,
+      "hash": "caa545933900847ac96756f239ab64c0",
+      "textRange": {
+        "startLine": 79,
+        "endLine": 79,
+        "startOffset": 16,
+        "endOffset": 17
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "Remove the parentheses around the \"result\" parameter (sonar.java.source not set. Assuming 8 or greater.)",
+      "effort": "2min",
+      "debt": "2min",
+      "author": "",
+      "tags": [
+        "java8"
+      ],
+      "creationDate": "2026-11-25T16:34:38+0000",
+      "updateDate": "2026-11-25T16:34:38+0000",
+      "type": "CODE_SMELL",
+      "scope": "MAIN",
+      "quickFixAvailable": false,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "CLEAR",
+      "cleanCodeAttributeCategory": "INTENTIONAL",
+      "impacts": [
+        {
+          "softwareQuality": "MAINTAINABILITY",
+          "severity": "LOW"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "934002bb-a169-40b4-9a88-6447b0840020",
+      "rule": "java:S1874",
+      "severity": "MINOR",
+      "component": "thesis_owasp_cwe89_e_spring_20261125_v1:src/main/java/org/owasp/benchmark/report/sonarqube/SonarReport.java",
+      "project": "thesis_owasp_cwe89_e_spring_20261125_v1",
+      "line": 112,
+      "hash": "f757a65716003e20eaf6195d438c725f",
+      "textRange": {
+        "startLine": 112,
+        "endLine": 112,
+        "startOffset": 22,
+        "endOffset": 25
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "Remove this use of \"URL\"; it is deprecated.",
+      "effort": "15min",
+      "debt": "15min",
+      "author": "",
+      "tags": [
+        "cwe",
+        "obsolete",
+        "cert"
+      ],
+      "creationDate": "2026-11-25T16:34:38+0000",
+      "updateDate": "2026-11-25T16:34:38+0000",
+      "type": "CODE_SMELL",
+      "scope": "MAIN",
+      "quickFixAvailable": false,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "CONVENTIONAL",
+      "cleanCodeAttributeCategory": "CONSISTENT",
+      "impacts": [
+        {
+          "softwareQuality": "MAINTAINABILITY",
+          "severity": "LOW"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "184c4fe1-c94c-4940-bdc3-b0a303bad57b",
+      "rule": "java:S1104",
+      "severity": "MINOR",
+      "component": "thesis_owasp_cwe89_e_spring_20261125_v1:src/main/java/org/owasp/benchmark/report/sonarqube/dto/SonarQubeResult.java",
+      "project": "thesis_owasp_cwe89_e_spring_20261125_v1",
+      "line": 11,
+      "hash": "71cfe8274a947044975d50784fe454c5",
+      "textRange": {
+        "startLine": 11,
+        "endLine": 11,
+        "startOffset": 18,
+        "endOffset": 24
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "Make paging a static final constant or non-public and provide accessors if needed.",
+      "effort": "10min",
+      "debt": "10min",
+      "author": "",
+      "tags": [
+        "cwe"
+      ],
+      "creationDate": "2026-11-25T16:34:38+0000",
+      "updateDate": "2026-11-25T16:34:38+0000",
+      "type": "CODE_SMELL",
+      "scope": "MAIN",
+      "quickFixAvailable": false,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "MODULAR",
+      "cleanCodeAttributeCategory": "ADAPTABLE",
+      "impacts": [
+        {
+          "softwareQuality": "MAINTAINABILITY",
+          "severity": "LOW"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "6ecec80a-fa31-4697-8470-e1b82321e849",
+      "rule": "java:S1104",
+      "severity": "MINOR",
+      "component": "thesis_owasp_cwe89_e_spring_20261125_v1:src/main/java/org/owasp/benchmark/report/sonarqube/dto/SonarQubeResult.java",
+      "project": "thesis_owasp_cwe89_e_spring_20261125_v1",
+      "line": 13,
+      "hash": "c438539cde1d9236a4a2480a0dd57861",
+      "textRange": {
+        "startLine": 13,
+        "endLine": 13,
+        "startOffset": 22,
+        "endOffset": 27
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "Make rules a static final constant or non-public and provide accessors if needed.",
+      "effort": "10min",
+      "debt": "10min",
+      "author": "",
+      "tags": [
+        "cwe"
+      ],
+      "creationDate": "2026-11-25T16:34:38+0000",
+      "updateDate": "2026-11-25T16:34:38+0000",
+      "type": "CODE_SMELL",
+      "scope": "MAIN",
+      "quickFixAvailable": false,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "MODULAR",
+      "cleanCodeAttributeCategory": "ADAPTABLE",
+      "impacts": [
+        {
+          "softwareQuality": "MAINTAINABILITY",
+          "severity": "LOW"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "7177776e-7dff-4b6f-8fa8-dd6a1fd46258",
+      "rule": "java:S1172",
+      "severity": "MAJOR",
+      "component": "thesis_owasp_cwe89_e_spring_20261125_v1:src/main/java/org/owasp/benchmark/service/pojo/Person.java",
+      "project": "thesis_owasp_cwe89_e_spring_20261125_v1",
+      "line": 34,
+      "hash": "723758071b6e7998e7cfcb073bc5ed06",
+      "textRange": {
+        "startLine": 34,
+        "endLine": 34,
+        "startOffset": 52,
+        "endOffset": 60
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "Remove this unused method parameter \"lastName\".",
+      "effort": "5min",
+      "debt": "5min",
+      "author": "",
+      "tags": [
+        "cert",
+        "unused"
+      ],
+      "creationDate": "2026-11-25T16:34:38+0000",
+      "updateDate": "2026-11-25T16:34:38+0000",
+      "type": "CODE_SMELL",
+      "scope": "MAIN",
+      "quickFixAvailable": true,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "CLEAR",
+      "cleanCodeAttributeCategory": "INTENTIONAL",
+      "impacts": [
+        {
+          "softwareQuality": "MAINTAINABILITY",
+          "severity": "MEDIUM"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "a2fec5cc-2b00-4c25-971f-7c8a52d58fec",
+      "rule": "java:S125",
+      "severity": "MAJOR",
+      "component": "thesis_owasp_cwe89_e_spring_20261125_v1:src/main/java/org/owasp/benchmark/service/pojo/XMLMessage.java",
+      "project": "thesis_owasp_cwe89_e_spring_20261125_v1",
+      "line": 30,
+      "hash": "19ba6cf8d7871c01f34caa7c0e21d172",
+      "textRange": {
+        "startLine": 30,
+        "endLine": 30,
+        "startOffset": 18,
+        "endOffset": 33
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "This block of commented-out lines of code should be removed.",
+      "effort": "5min",
+      "debt": "5min",
+      "author": "",
+      "tags": [
+        "unused"
+      ],
+      "creationDate": "2026-11-25T16:34:38+0000",
+      "updateDate": "2026-11-25T16:34:38+0000",
+      "type": "CODE_SMELL",
+      "scope": "MAIN",
+      "quickFixAvailable": false,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "CLEAR",
+      "cleanCodeAttributeCategory": "INTENTIONAL",
+      "impacts": [
+        {
+          "softwareQuality": "MAINTAINABILITY",
+          "severity": "MEDIUM"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "64669902-ec79-47c9-86c2-999e33c83e0b",
+      "rule": "java:S1874",
+      "severity": "MINOR",
+      "component": "thesis_owasp_cwe89_e_spring_20261125_v1:src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00101.java",
+      "project": "thesis_owasp_cwe89_e_spring_20261125_v1",
+      "line": 42,
+      "hash": "77024657ef1c5bea3d5776ebefde9fd3",
+      "textRange": {
+        "startLine": 42,
+        "endLine": 42,
+        "startOffset": 42,
+        "endOffset": 45
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "Remove this use of \"<init>\"; it is deprecated.",
+      "effort": "15min",
+      "debt": "15min",
+      "author": "",
+      "tags": [
+        "cwe",
+        "obsolete",
+        "cert"
+      ],
+      "creationDate": "2026-11-25T16:34:38+0000",
+      "updateDate": "2026-11-25T16:34:38+0000",
+      "type": "CODE_SMELL",
+      "scope": "MAIN",
+      "quickFixAvailable": false,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "CONVENTIONAL",
+      "cleanCodeAttributeCategory": "CONSISTENT",
+      "impacts": [
+        {
+          "softwareQuality": "MAINTAINABILITY",
+          "severity": "LOW"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "e2338694-76dd-41e4-9757-5da29dd3d840",
+      "rule": "java:S1989",
+      "severity": "MINOR",
+      "component": "thesis_owasp_cwe89_e_spring_20261125_v1:src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00101.java",
+      "project": "thesis_owasp_cwe89_e_spring_20261125_v1",
+      "line": 46,
+      "hash": "22eb2eea11490df700886697bc103cfa",
+      "textRange": {
+        "startLine": 46,
+        "endLine": 46,
+        "startOffset": 11,
+        "endOffset": 18
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "Handle the following exceptions that could be thrown by \"include\": ServletException, IOException.",
+      "effort": "20min",
+      "debt": "20min",
+      "author": "",
+      "tags": [
+        "cwe",
+        "error-handling",
+        "cert"
+      ],
+      "creationDate": "2026-11-25T16:34:38+0000",
+      "updateDate": "2026-11-25T16:34:38+0000",
+      "type": "VULNERABILITY",
+      "scope": "MAIN",
+      "quickFixAvailable": false,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "CONVENTIONAL",
+      "cleanCodeAttributeCategory": "CONSISTENT",
+      "impacts": [
+        {
+          "softwareQuality": "SECURITY",
+          "severity": "LOW"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "3e5de199-9665-4f25-9ddb-89b70863c721",
+      "rule": "java:S1989",
+      "severity": "MINOR",
+      "component": "thesis_owasp_cwe89_e_spring_20261125_v1:src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00101.java",
+      "project": "thesis_owasp_cwe89_e_spring_20261125_v1",
+      "line": 60,
+      "hash": "ded69fc029fe5f488d4fcf3ad6648e68",
+      "textRange": {
+        "startLine": 60,
+        "endLine": 60,
+        "startOffset": 48,
+        "endOffset": 54
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "Handle the following exception that could be thrown by \"decode\": UnsupportedEncodingException.",
+      "effort": "20min",
+      "debt": "20min",
+      "author": "",
+      "tags": [
+        "cwe",
+        "error-handling",
+        "cert"
+      ],
+      "creationDate": "2026-11-25T16:34:38+0000",
+      "updateDate": "2026-11-25T16:34:38+0000",
+      "type": "VULNERABILITY",
+      "scope": "MAIN",
+      "quickFixAvailable": false,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "CONVENTIONAL",
+      "cleanCodeAttributeCategory": "CONSISTENT",
+      "impacts": [
+        {
+          "softwareQuality": "SECURITY",
+          "severity": "LOW"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "2e11075b-9f08-4fee-b6c0-56d8f931a423",
+      "rule": "java:S2293",
+      "severity": "MINOR",
+      "component": "thesis_owasp_cwe89_e_spring_20261125_v1:src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00101.java",
+      "project": "thesis_owasp_cwe89_e_spring_20261125_v1",
+      "line": 68,
+      "hash": "11c5792aa5b79bd6a0c915150be6e7fb",
+      "textRange": {
+        "startLine": 68,
+        "endLine": 68,
+        "startOffset": 71,
+        "endOffset": 79
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "Replace the type specification in this constructor call with the diamond operator (\"<>\"). (sonar.java.source not set. Assuming 7 or greater.)",
+      "effort": "1min",
+      "debt": "1min",
+      "author": "",
+      "tags": [
+        "clumsy"
+      ],
+      "creationDate": "2026-11-25T16:34:38+0000",
+      "updateDate": "2026-11-25T16:34:38+0000",
+      "type": "CODE_SMELL",
+      "scope": "MAIN",
+      "quickFixAvailable": true,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "CLEAR",
+      "cleanCodeAttributeCategory": "INTENTIONAL",
+      "impacts": [
+        {
+          "softwareQuality": "MAINTAINABILITY",
+          "severity": "LOW"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "51f3a85f-9d5a-466d-87aa-2e467a84701f",
+      "rule": "findsecbugs:SQL_INJECTION_JDBC",
+      "severity": "CRITICAL",
+      "component": "thesis_owasp_cwe89_e_spring_20261125_v1:src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00101.java",
+      "project": "thesis_owasp_cwe89_e_spring_20261125_v1",
+      "line": 84,
+      "hash": "f20e0defb02d9206e082496f647d0511",
+      "textRange": {
+        "startLine": 84,
+        "endLine": 84,
+        "startOffset": 0,
+        "endOffset": 90
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "This use of java/sql/Connection.prepareStatement(Ljava/lang/String;[Ljava/lang/String;)Ljava/sql/PreparedStatement; can be vulnerable to SQL injection (with JDBC)",
+      "author": "",
+      "tags": [
+        "cwe",
+        "owasp-a1",
+        "injection",
+        "wasc"
+      ],
+      "creationDate": "2026-11-25T16:34:38+0000",
+      "updateDate": "2026-11-25T16:34:38+0000",
+      "type": "VULNERABILITY",
+      "scope": "MAIN",
+      "quickFixAvailable": false,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "CONVENTIONAL",
+      "cleanCodeAttributeCategory": "CONSISTENT",
+      "impacts": [
+        {
+          "softwareQuality": "SECURITY",
+          "severity": "HIGH"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "c8d3d137-a17d-4e33-9521-7b8106bca245",
+      "rule": "java:S2095",
+      "severity": "BLOCKER",
+      "component": "thesis_owasp_cwe89_e_spring_20261125_v1:src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00101.java",
+      "project": "thesis_owasp_cwe89_e_spring_20261125_v1",
+      "line": 84,
+      "hash": "f20e0defb02d9206e082496f647d0511",
+      "textRange": {
+        "startLine": 84,
+        "endLine": 84,
+        "startOffset": 20,
+        "endOffset": 89
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "Use try-with-resources or close this \"PreparedStatement\" in a \"finally\" clause.",
+      "effort": "5min",
+      "debt": "5min",
+      "author": "",
+      "tags": [
+        "cwe",
+        "symbolic-execution",
+        "leak",
+        "denial-of-service",
+        "cert"
+      ],
+      "creationDate": "2026-11-25T16:34:38+0000",
+      "updateDate": "2026-11-25T16:34:38+0000",
+      "type": "BUG",
+      "scope": "MAIN",
+      "quickFixAvailable": false,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "COMPLETE",
+      "cleanCodeAttributeCategory": "INTENTIONAL",
+      "impacts": [
+        {
+          "softwareQuality": "RELIABILITY",
+          "severity": "HIGH"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "75a083b4-956d-432c-b20b-ec8d7d722e4d",
+      "rule": "java:S1989",
+      "severity": "MINOR",
+      "component": "thesis_owasp_cwe89_e_spring_20261125_v1:src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00101.java",
+      "project": "thesis_owasp_cwe89_e_spring_20261125_v1",
+      "line": 87,
+      "hash": "f0cc671d1e097cdad6cc726eb5aad47e",
+      "textRange": {
+        "startLine": 87,
+        "endLine": 87,
+        "startOffset": 55,
+        "endOffset": 67
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "Handle the following exception that could be thrown by \"printResults\": IOException.",
+      "effort": "20min",
+      "debt": "20min",
+      "author": "",
+      "tags": [
+        "cwe",
+        "error-handling",
+        "cert"
+      ],
+      "creationDate": "2026-11-25T16:34:38+0000",
+      "updateDate": "2026-11-25T16:34:38+0000",
+      "type": "VULNERABILITY",
+      "scope": "MAIN",
+      "quickFixAvailable": false,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "CONVENTIONAL",
+      "cleanCodeAttributeCategory": "CONSISTENT",
+      "impacts": [
+        {
+          "softwareQuality": "SECURITY",
+          "severity": "LOW"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "1639e9a0-6f3e-4ec4-9b8c-a87bf2c4bd7d",
+      "rule": "java:S1989",
+      "severity": "MINOR",
+      "component": "thesis_owasp_cwe89_e_spring_20261125_v1:src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00101.java",
+      "project": "thesis_owasp_cwe89_e_spring_20261125_v1",
+      "line": 90,
+      "hash": "2bea58772874235b43aebe5b6080ba12",
+      "textRange": {
+        "startLine": 90,
+        "endLine": 90,
+        "startOffset": 25,
+        "endOffset": 34
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "Handle the following exception that could be thrown by \"getWriter\": IOException.",
+      "effort": "20min",
+      "debt": "20min",
+      "author": "",
+      "tags": [
+        "cwe",
+        "error-handling",
+        "cert"
+      ],
+      "creationDate": "2026-11-25T16:34:38+0000",
+      "updateDate": "2026-11-25T16:34:38+0000",
+      "type": "VULNERABILITY",
+      "scope": "MAIN",
+      "quickFixAvailable": false,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "CONVENTIONAL",
+      "cleanCodeAttributeCategory": "CONSISTENT",
+      "impacts": [
+        {
+          "softwareQuality": "SECURITY",
+          "severity": "LOW"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "97bd9da9-49be-4710-b218-dd64e82b84d7",
+      "rule": "java:S1989",
+      "severity": "MINOR",
+      "component": "thesis_owasp_cwe89_e_spring_20261125_v1:src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00101.java",
+      "project": "thesis_owasp_cwe89_e_spring_20261125_v1",
+      "line": 91,
+      "hash": "4ee5ecd517403c3a8c55c64ead74cc17",
+      "textRange": {
+        "startLine": 91,
+        "endLine": 91,
+        "startOffset": 19,
+        "endOffset": 49
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "Handle the \"ServletException\" thrown here in a \"try/catch\" block.",
+      "effort": "20min",
+      "debt": "20min",
+      "author": "",
+      "tags": [
+        "cwe",
+        "error-handling",
+        "cert"
+      ],
+      "creationDate": "2026-11-25T16:34:38+0000",
+      "updateDate": "2026-11-25T16:34:38+0000",
+      "type": "VULNERABILITY",
+      "scope": "MAIN",
+      "quickFixAvailable": false,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "CONVENTIONAL",
+      "cleanCodeAttributeCategory": "CONSISTENT",
+      "impacts": [
+        {
+          "softwareQuality": "SECURITY",
+          "severity": "LOW"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "9a2185d2-2fc2-4b71-a28b-6e1340b9c1e3",
+      "rule": "java:S1989",
+      "severity": "MINOR",
+      "component": "thesis_owasp_cwe89_e_spring_20261125_v1:src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00192.java",
+      "project": "thesis_owasp_cwe89_e_spring_20261125_v1",
+      "line": 35,
+      "hash": "35e9a324f9b4b1dcf45f27500ecb6ca7",
+      "textRange": {
+        "startLine": 35,
+        "endLine": 35,
+        "startOffset": 8,
+        "endOffset": 14
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "Handle the following exceptions that could be thrown by \"doPost\": ServletException, IOException.",
+      "effort": "20min",
+      "debt": "20min",
+      "author": "",
+      "tags": [
+        "cwe",
+        "error-handling",
+        "cert"
+      ],
+      "creationDate": "2026-11-25T16:34:38+0000",
+      "updateDate": "2026-11-25T16:34:38+0000",
+      "type": "VULNERABILITY",
+      "scope": "MAIN",
+      "quickFixAvailable": false,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "CONVENTIONAL",
+      "cleanCodeAttributeCategory": "CONSISTENT",
+      "impacts": [
+        {
+          "softwareQuality": "SECURITY",
+          "severity": "LOW"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "55efb688-a549-4563-921b-3432e9a7159c",
+      "rule": "java:S1989",
+      "severity": "MINOR",
+      "component": "thesis_owasp_cwe89_e_spring_20261125_v1:src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00192.java",
+      "project": "thesis_owasp_cwe89_e_spring_20261125_v1",
+      "line": 49,
+      "hash": "d07d9cafc6df0599f8578c00652a2ff1",
+      "textRange": {
+        "startLine": 49,
+        "endLine": 49,
+        "startOffset": 36,
+        "endOffset": 42
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "Handle the following exception that could be thrown by \"decode\": UnsupportedEncodingException.",
+      "effort": "20min",
+      "debt": "20min",
+      "author": "",
+      "tags": [
+        "cwe",
+        "error-handling",
+        "cert"
+      ],
+      "creationDate": "2026-11-25T16:34:38+0000",
+      "updateDate": "2026-11-25T16:34:38+0000",
+      "type": "VULNERABILITY",
+      "scope": "MAIN",
+      "quickFixAvailable": false,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "CONVENTIONAL",
+      "cleanCodeAttributeCategory": "CONSISTENT",
+      "impacts": [
+        {
+          "softwareQuality": "SECURITY",
+          "severity": "LOW"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "2dc382ae-4ad8-4f35-b674-9b803aecba24",
+      "rule": "findsecbugs:SQL_INJECTION_JDBC",
+      "severity": "CRITICAL",
+      "component": "thesis_owasp_cwe89_e_spring_20261125_v1:src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00192.java",
+      "project": "thesis_owasp_cwe89_e_spring_20261125_v1",
+      "line": 77,
+      "hash": "fdd47b0d315ef51907f54d657a3104b1",
+      "textRange": {
+        "startLine": 77,
+        "endLine": 77,
+        "startOffset": 0,
+        "endOffset": 84
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "This use of java/sql/Connection.prepareStatement(Ljava/lang/String;)Ljava/sql/PreparedStatement; can be vulnerable to SQL injection (with JDBC)",
+      "author": "",
+      "tags": [
+        "cwe",
+        "owasp-a1",
+        "injection",
+        "wasc"
+      ],
+      "creationDate": "2026-11-25T16:34:38+0000",
+      "updateDate": "2026-11-25T16:34:38+0000",
+      "type": "VULNERABILITY",
+      "scope": "MAIN",
+      "quickFixAvailable": false,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "CONVENTIONAL",
+      "cleanCodeAttributeCategory": "CONSISTENT",
+      "impacts": [
+        {
+          "softwareQuality": "SECURITY",
+          "severity": "HIGH"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "d8adffdf-2e0a-47ce-9753-189363667db4",
+      "rule": "java:S2095",
+      "severity": "BLOCKER",
+      "component": "thesis_owasp_cwe89_e_spring_20261125_v1:src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00192.java",
+      "project": "thesis_owasp_cwe89_e_spring_20261125_v1",
+      "line": 77,
+      "hash": "fdd47b0d315ef51907f54d657a3104b1",
+      "textRange": {
+        "startLine": 77,
+        "endLine": 77,
+        "startOffset": 51,
+        "endOffset": 83
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "Use try-with-resources or close this \"PreparedStatement\" in a \"finally\" clause.",
+      "effort": "5min",
+      "debt": "5min",
+      "author": "",
+      "tags": [
+        "cwe",
+        "symbolic-execution",
+        "leak",
+        "denial-of-service",
+        "cert"
+      ],
+      "creationDate": "2026-11-25T16:34:38+0000",
+      "updateDate": "2026-11-25T16:34:38+0000",
+      "type": "BUG",
+      "scope": "MAIN",
+      "quickFixAvailable": false,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "COMPLETE",
+      "cleanCodeAttributeCategory": "INTENTIONAL",
+      "impacts": [
+        {
+          "softwareQuality": "RELIABILITY",
+          "severity": "HIGH"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "45b392fc-e5fd-4c00-812b-a1a1f4168a31",
+      "rule": "java:S1989",
+      "severity": "MINOR",
+      "component": "thesis_owasp_cwe89_e_spring_20261125_v1:src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00192.java",
+      "project": "thesis_owasp_cwe89_e_spring_20261125_v1",
+      "line": 80,
+      "hash": "f0cc671d1e097cdad6cc726eb5aad47e",
+      "textRange": {
+        "startLine": 80,
+        "endLine": 80,
+        "startOffset": 55,
+        "endOffset": 67
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "Handle the following exception that could be thrown by \"printResults\": IOException.",
+      "effort": "20min",
+      "debt": "20min",
+      "author": "",
+      "tags": [
+        "cwe",
+        "error-handling",
+        "cert"
+      ],
+      "creationDate": "2026-11-25T16:34:38+0000",
+      "updateDate": "2026-11-25T16:34:38+0000",
+      "type": "VULNERABILITY",
+      "scope": "MAIN",
+      "quickFixAvailable": false,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "CONVENTIONAL",
+      "cleanCodeAttributeCategory": "CONSISTENT",
+      "impacts": [
+        {
+          "softwareQuality": "SECURITY",
+          "severity": "LOW"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "a769f348-dc58-4a2b-8873-75bb9cce6d69",
+      "rule": "java:S1989",
+      "severity": "MINOR",
+      "component": "thesis_owasp_cwe89_e_spring_20261125_v1:src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00192.java",
+      "project": "thesis_owasp_cwe89_e_spring_20261125_v1",
+      "line": 83,
+      "hash": "2bea58772874235b43aebe5b6080ba12",
+      "textRange": {
+        "startLine": 83,
+        "endLine": 83,
+        "startOffset": 25,
+        "endOffset": 34
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "Handle the following exception that could be thrown by \"getWriter\": IOException.",
+      "effort": "20min",
+      "debt": "20min",
+      "author": "",
+      "tags": [
+        "cwe",
+        "error-handling",
+        "cert"
+      ],
+      "creationDate": "2026-11-25T16:34:38+0000",
+      "updateDate": "2026-11-25T16:34:38+0000",
+      "type": "VULNERABILITY",
+      "scope": "MAIN",
+      "quickFixAvailable": false,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "CONVENTIONAL",
+      "cleanCodeAttributeCategory": "CONSISTENT",
+      "impacts": [
+        {
+          "softwareQuality": "SECURITY",
+          "severity": "LOW"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "eb2b8f9e-f1d9-41f7-b66f-e76087302524",
+      "rule": "java:S1989",
+      "severity": "MINOR",
+      "component": "thesis_owasp_cwe89_e_spring_20261125_v1:src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00192.java",
+      "project": "thesis_owasp_cwe89_e_spring_20261125_v1",
+      "line": 84,
+      "hash": "4ee5ecd517403c3a8c55c64ead74cc17",
+      "textRange": {
+        "startLine": 84,
+        "endLine": 84,
+        "startOffset": 19,
+        "endOffset": 49
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "Handle the \"ServletException\" thrown here in a \"try/catch\" block.",
+      "effort": "20min",
+      "debt": "20min",
+      "author": "",
+      "tags": [
+        "cwe",
+        "error-handling",
+        "cert"
+      ],
+      "creationDate": "2026-11-25T16:34:38+0000",
+      "updateDate": "2026-11-25T16:34:38+0000",
+      "type": "VULNERABILITY",
+      "scope": "MAIN",
+      "quickFixAvailable": false,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "CONVENTIONAL",
+      "cleanCodeAttributeCategory": "CONSISTENT",
+      "impacts": [
+        {
+          "softwareQuality": "SECURITY",
+          "severity": "LOW"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "7bf837ac-771f-45f8-ae53-d593f008967c",
+      "rule": "java:S1989",
+      "severity": "MINOR",
+      "component": "thesis_owasp_cwe89_e_spring_20261125_v1:src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00195.java",
+      "project": "thesis_owasp_cwe89_e_spring_20261125_v1",
+      "line": 35,
+      "hash": "35e9a324f9b4b1dcf45f27500ecb6ca7",
+      "textRange": {
+        "startLine": 35,
+        "endLine": 35,
+        "startOffset": 8,
+        "endOffset": 14
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "Handle the following exceptions that could be thrown by \"doPost\": ServletException, IOException.",
+      "effort": "20min",
+      "debt": "20min",
+      "author": "",
+      "tags": [
+        "cwe",
+        "error-handling",
+        "cert"
+      ],
+      "creationDate": "2026-11-25T16:34:38+0000",
+      "updateDate": "2026-11-25T16:34:38+0000",
+      "type": "VULNERABILITY",
+      "scope": "MAIN",
+      "quickFixAvailable": false,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "CONVENTIONAL",
+      "cleanCodeAttributeCategory": "CONSISTENT",
+      "impacts": [
+        {
+          "softwareQuality": "SECURITY",
+          "severity": "LOW"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    }
+  ],
+  "components": [
+    {
+      "key": "thesis_owasp_cwe89_e_spring_20261125_v1:src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00192.java",
+      "enabled": true,
+      "qualifier": "FIL",
+      "name": "BenchmarkTest00192.java",
+      "longName": "src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00192.java",
+      "path": "src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00192.java"
+    },
+    {
+      "key": "thesis_owasp_cwe89_e_spring_20261125_v1",
+      "enabled": true,
+      "qualifier": "TRK",
+      "name": "Thesis OWASP CWE-89 E Spring 20261125",
+      "longName": "Thesis OWASP CWE-89 E Spring 20261125"
+    },
+    {
+      "key": "thesis_owasp_cwe89_e_spring_20261125_v1:src/main/java/org/owasp/benchmark/helpers/entities/Certificate.java",
+      "enabled": true,
+      "qualifier": "FIL",
+      "name": "Certificate.java",
+      "longName": "src/main/java/org/owasp/benchmark/helpers/entities/Certificate.java",
+      "path": "src/main/java/org/owasp/benchmark/helpers/entities/Certificate.java"
+    },
+    {
+      "key": "thesis_owasp_cwe89_e_spring_20261125_v1:src/main/java/org/owasp/benchmark/service/pojo/Person.java",
+      "enabled": true,
+      "qualifier": "FIL",
+      "name": "Person.java",
+      "longName": "src/main/java/org/owasp/benchmark/service/pojo/Person.java",
+      "path": "src/main/java/org/owasp/benchmark/service/pojo/Person.java"
+    },
+    {
+      "key": "thesis_owasp_cwe89_e_spring_20261125_v1:src/main/java/org/owasp/benchmark/helpers/PropertiesManager.java",
+      "enabled": true,
+      "qualifier": "FIL",
+      "name": "PropertiesManager.java",
+      "longName": "src/main/java/org/owasp/benchmark/helpers/PropertiesManager.java",
+      "path": "src/main/java/org/owasp/benchmark/helpers/PropertiesManager.java"
+    },
+    {
+      "key": "thesis_owasp_cwe89_e_spring_20261125_v1:src/main/java/org/owasp/benchmark/service/pojo/XMLMessage.java",
+      "enabled": true,
+      "qualifier": "FIL",
+      "name": "XMLMessage.java",
+      "longName": "src/main/java/org/owasp/benchmark/service/pojo/XMLMessage.java",
+      "path": "src/main/java/org/owasp/benchmark/service/pojo/XMLMessage.java"
+    },
+    {
+      "key": "thesis_owasp_cwe89_e_spring_20261125_v1:src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00195.java",
+      "enabled": true,
+      "qualifier": "FIL",
+      "name": "BenchmarkTest00195.java",
+      "longName": "src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00195.java",
+      "path": "src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00195.java"
+    },
+    {
+      "key": "thesis_owasp_cwe89_e_spring_20261125_v1:src/main/java/org/owasp/benchmark/helpers/ThingFactory.java",
+      "enabled": true,
+      "qualifier": "FIL",
+      "name": "ThingFactory.java",
+      "longName": "src/main/java/org/owasp/benchmark/helpers/ThingFactory.java",
+      "path": "src/main/java/org/owasp/benchmark/helpers/ThingFactory.java"
+    },
+    {
+      "key": "thesis_owasp_cwe89_e_spring_20261125_v1:src/main/java/org/owasp/benchmark/helpers/Utils.java",
+      "enabled": true,
+      "qualifier": "FIL",
+      "name": "Utils.java",
+      "longName": "src/main/java/org/owasp/benchmark/helpers/Utils.java",
+      "path": "src/main/java/org/owasp/benchmark/helpers/Utils.java"
+    },
+    {
+      "key": "thesis_owasp_cwe89_e_spring_20261125_v1:src/main/java/org/owasp/benchmark/report/sonarqube/dto/SonarQubeResult.java",
+      "enabled": true,
+      "qualifier": "FIL",
+      "name": "SonarQubeResult.java",
+      "longName": "src/main/java/org/owasp/benchmark/report/sonarqube/dto/SonarQubeResult.java",
+      "path": "src/main/java/org/owasp/benchmark/report/sonarqube/dto/SonarQubeResult.java"
+    },
+    {
+      "key": "thesis_owasp_cwe89_e_spring_20261125_v1:src/main/java/org/owasp/benchmark/helpers/entities/Employee.java",
+      "enabled": true,
+      "qualifier": "FIL",
+      "name": "Employee.java",
+      "longName": "src/main/java/org/owasp/benchmark/helpers/entities/Employee.java",
+      "path": "src/main/java/org/owasp/benchmark/helpers/entities/Employee.java"
+    },
+    {
+      "key": "thesis_owasp_cwe89_e_spring_20261125_v1:src/main/java/org/owasp/benchmark/helpers/Thing1.java",
+      "enabled": true,
+      "qualifier": "FIL",
+      "name": "Thing1.java",
+      "longName": "src/main/java/org/owasp/benchmark/helpers/Thing1.java",
+      "path": "src/main/java/org/owasp/benchmark/helpers/Thing1.java"
+    },
+    {
+      "key": "thesis_owasp_cwe89_e_spring_20261125_v1:src/main/java/org/owasp/benchmark/helpers/filters/HTTPResponseHeaderFilter.java",
+      "enabled": true,
+      "qualifier": "FIL",
+      "name": "HTTPResponseHeaderFilter.java",
+      "longName": "src/main/java/org/owasp/benchmark/helpers/filters/HTTPResponseHeaderFilter.java",
+      "path": "src/main/java/org/owasp/benchmark/helpers/filters/HTTPResponseHeaderFilter.java"
+    },
+    {
+      "key": "thesis_owasp_cwe89_e_spring_20261125_v1:src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00101.java",
+      "enabled": true,
+      "qualifier": "FIL",
+      "name": "BenchmarkTest00101.java",
+      "longName": "src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00101.java",
+      "path": "src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00101.java"
+    },
+    {
+      "key": "thesis_owasp_cwe89_e_spring_20261125_v1:src/main/java/org/owasp/benchmark/helpers/Thing2.java",
+      "enabled": true,
+      "qualifier": "FIL",
+      "name": "Thing2.java",
+      "longName": "src/main/java/org/owasp/benchmark/helpers/Thing2.java",
+      "path": "src/main/java/org/owasp/benchmark/helpers/Thing2.java"
+    },
+    {
+      "key": "thesis_owasp_cwe89_e_spring_20261125_v1:src/main/java/org/owasp/benchmark/helpers/LDAPServer.java",
+      "enabled": true,
+      "qualifier": "FIL",
+      "name": "LDAPServer.java",
+      "longName": "src/main/java/org/owasp/benchmark/helpers/LDAPServer.java",
+      "path": "src/main/java/org/owasp/benchmark/helpers/LDAPServer.java"
+    },
+    {
+      "key": "thesis_owasp_cwe89_e_spring_20261125_v1:src/main/java/org/owasp/benchmark/helpers/SeparateClassRequest.java",
+      "enabled": true,
+      "qualifier": "FIL",
+      "name": "SeparateClassRequest.java",
+      "longName": "src/main/java/org/owasp/benchmark/helpers/SeparateClassRequest.java",
+      "path": "src/main/java/org/owasp/benchmark/helpers/SeparateClassRequest.java"
+    },
+    {
+      "key": "thesis_owasp_cwe89_e_spring_20261125_v1:src/main/java/org/owasp/benchmark/helpers/Startup.java",
+      "enabled": true,
+      "qualifier": "FIL",
+      "name": "Startup.java",
+      "longName": "src/main/java/org/owasp/benchmark/helpers/Startup.java",
+      "path": "src/main/java/org/owasp/benchmark/helpers/Startup.java"
+    },
+    {
+      "key": "thesis_owasp_cwe89_e_spring_20261125_v1:src/main/java/org/owasp/benchmark/helpers/filters/DataBaseFilter.java",
+      "enabled": true,
+      "qualifier": "FIL",
+      "name": "DataBaseFilter.java",
+      "longName": "src/main/java/org/owasp/benchmark/helpers/filters/DataBaseFilter.java",
+      "path": "src/main/java/org/owasp/benchmark/helpers/filters/DataBaseFilter.java"
+    },
+    {
+      "key": "thesis_owasp_cwe89_e_spring_20261125_v1:src/main/java/org/owasp/benchmark/report/sonarqube/SonarReport.java",
+      "enabled": true,
+      "qualifier": "FIL",
+      "name": "SonarReport.java",
+      "longName": "src/main/java/org/owasp/benchmark/report/sonarqube/SonarReport.java",
+      "path": "src/main/java/org/owasp/benchmark/report/sonarqube/SonarReport.java"
+    }
+  ],
+  "facets": []
+}

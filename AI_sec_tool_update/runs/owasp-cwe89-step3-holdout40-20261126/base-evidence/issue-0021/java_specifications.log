@@ -1,0 +1,26 @@
+STATUS	0
+Q	F0	56	32	java.sql.Connection	prepareCall(java.lang.String,int,int,int)	57
+V	56	32	fixed_sql_alternatives	bounded_java_evaluation
+E	56	32	F0	50	constant_expression
+E	56	32	F0	80	constant_expression
+E	56	32	F0	77	collection_initialization
+E	56	32	F0	77	local_definition
+E	56	32	F0	78	collection_append
+E	56	32	F0	79	collection_append
+E	56	32	F0	80	collection_append
+E	56	32	F0	82	collection_remove
+E	56	32	F0	84	constant_expression
+E	56	32	F0	84	collection_read
+E	56	32	F0	84	local_assignment
+E	56	32	F0	75	constant_expression
+E	56	32	F0	75	local_definition
+E	56	32	F0	76	fixed_values_from_branches
+E	56	32	F0	87	helper_return
+E	56	32	F0	48	helper_call
+E	56	32	F0	48	local_definition
+E	56	32	F0	50	string_concatenation
+E	56	32	F0	50	local_definition
+S	43	35	javax.servlet.ServletRequest	getParameterValues(java.lang.String)	true
+
+[STDERR]
+Picked up JAVA_TOOL_OPTIONS: -XX:-UsePerfData

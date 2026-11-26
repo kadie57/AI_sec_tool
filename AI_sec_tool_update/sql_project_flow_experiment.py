@@ -14,6 +14,7 @@ from sql_pipeline.evidence.sql_project_paths import (
     SCOPE, VERSION, case_files, query_snapshot, read_servlet_sites, stage_classpath, stage_snapshot, trace_files,
 )
 from sql_pipeline.evidence.sql_source_paths import endpoints, select_paths
+from sql_pipeline.evidence.sql_endpoint_specifications import refresh_dispatch_evidence
 
 
 WARNING_IDENTITY = ("issue_id", "component", "rule", "start_line", "end_line", "source_sha256")
@@ -48,7 +49,8 @@ def update_evidence(row, files, trace):
     return True
 
 
-def run_project(base, collection, source_root, output, *, comparison=None, inventory=None, labels=None, jars=()):
+def run_project(base, collection, source_root, output, *, comparison=None, inventory=None, labels=None, jars=(),
+                experimental_dispatch_evidence=False):
     base, output = base.resolve(), output.resolve()
     base_sha, base_rows = read_evidence(base)
     base_manifest = read(base.with_name("manifest.json"))
@@ -112,6 +114,7 @@ def run_project(base, collection, source_root, output, *, comparison=None, inven
     started = monotonic()
     traces = query_snapshot(project, graph, dependencies, image, tasks)
     elapsed = round(monotonic() - started, 3)
+    classpath = [{"path": str(path)} for path in dependencies]
     for index, files, sources, sink in tasks:
         output_rows = traces[index]
         files, _ = case_files(files, snapshot, trace_files(output_rows, snapshot))
@@ -119,10 +122,13 @@ def run_project(base, collection, source_root, output, *, comparison=None, inven
         trace.update(version=VERSION, scope=SCOPE,
                      interpretation="Candidate dataflow. Runtime branch and dispatch feasibility require separate evidence.")
         write(output / f"issue-{index:04d}.json", trace)
-        changed = update_evidence(comparison_rows[index - 1], files, trace)
+        row = comparison_rows[index - 1]
+        changed = update_evidence(row, files, trace)
+        dispatch_changed = experimental_dispatch_evidence and refresh_dispatch_evidence(
+            row, classpath, output / f"dispatch-{index:04d}.log")
         cases[index - 1].update(status=trace["status"], candidate_paths_found=trace["candidate_paths_found"],
                                 matched_sources=trace["matched_sources"], displayed_paths=len(trace["paths"]),
-                                changed_evidence=changed)
+                                changed_evidence=changed or dispatch_changed)
 
     with (output / "sql_evidence.jsonl").open("x", encoding="utf-8") as stream:
         for row in comparison_rows:
@@ -150,10 +156,13 @@ def main():
     parser.add_argument("--inventory", type=Path)
     parser.add_argument("--labels", type=Path)
     parser.add_argument("--java-classpath", type=Path, action="append", default=[])
+    parser.add_argument("--experimental-dispatch-evidence", action="store_true",
+                        help="Thử phân tích đích gọi interface từ đường đi trong CPG.")
     parser.add_argument("--out", type=Path, required=True)
     args = parser.parse_args()
     cases = run_project(args.base, args.collection, args.source_root, args.out, comparison=args.comparison,
-                        inventory=args.inventory, labels=args.labels, jars=args.java_classpath)
+                        inventory=args.inventory, labels=args.labels, jars=args.java_classpath,
+                        experimental_dispatch_evidence=args.experimental_dispatch_evidence)
     print(f"Completed {len(cases)} alerts. {sum(bool(case.get('displayed_paths')) for case in cases)} have project paths.")
 
 

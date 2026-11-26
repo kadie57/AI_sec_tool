@@ -1,0 +1,198 @@
+02:39:11.053 INFO  Scanner configuration file: /home/khanh/.local/share/Trash/files/sonar-scanner-8.0.1.6346-linux-x64/conf/sonar-scanner.properties
+02:39:11.056 INFO  Project root configuration file: NONE
+02:39:11.071 INFO  SonarScanner CLI 8.0.1.6346
+02:39:11.074 INFO  Linux 7.0.0-43-generic amd64
+02:39:14.033 INFO  Communicating with SonarQube Community Build 26.4.0.121862
+02:39:14.034 INFO  JRE provisioning: os[linux], arch[x86_64]
+02:39:14.443 INFO  Starting SonarScanner Engine...
+02:39:14.443 INFO  Java 21.0.9 Eclipse Adoptium (64-bit)
+02:39:17.797 INFO  Load global settings
+02:39:17.884 INFO  Load global settings (done) | time=88ms
+02:39:17.887 INFO  Server id: 4F833BF3-AZ3FLkwzsNhSbbNHKBtO
+02:39:17.895 INFO  Loading required plugins
+02:39:17.896 INFO  Load plugins index
+02:39:17.907 INFO  Load plugins index (done) | time=12ms
+02:39:17.908 INFO  Load/download plugins
+02:39:17.944 INFO  Load/download plugins (done) | time=36ms
+02:39:18.269 INFO  Process project properties
+02:39:18.294 INFO  Process project properties (done) | time=25ms
+02:39:18.310 INFO  Project key: thesis_owasp_cwe89_step3_holdout40_20261126_v1
+02:39:18.311 INFO  Base dir: /home/khanh/AI_sec_tool/AI_sec_tool_update/runs/owasp-cwe89-step3-holdout40-20261126/project
+02:39:18.311 INFO  Working dir: /home/khanh/AI_sec_tool/AI_sec_tool_update/runs/owasp-cwe89-step3-holdout40-20261126/project/.scannerwork
+02:39:18.322 INFO  Load project settings for component key: 'thesis_owasp_cwe89_step3_holdout40_20261126_v1'
+02:39:18.341 INFO  Load project settings for component key: 'thesis_owasp_cwe89_step3_holdout40_20261126_v1' (done) | time=19ms
+02:39:18.365 INFO  Load quality profiles
+02:39:18.409 INFO  Load quality profiles (done) | time=43ms
+02:39:18.487 INFO  Load active rules
+02:39:18.753 INFO  Load active rules (done) | time=266ms
+02:39:18.761 INFO  Load analysis cache
+02:39:18.772 INFO  Load analysis cache (404) | time=12ms
+02:39:18.971 INFO  Preprocessing files...
+02:39:19.101 INFO  1 language detected in 66 preprocessed files (done) | time=130ms
+02:39:19.105 INFO  0 files ignored because of inclusion/exclusion patterns
+02:39:19.105 INFO  0 files ignored because of scm ignore settings
+02:39:19.105 INFO  Loading plugins for detected languages
+02:39:19.106 INFO  Load/download plugins
+02:39:19.148 INFO  Load/download plugins (done) | time=45ms
+02:39:19.165 INFO  SonarQube plugin API version is 13.5.0.4319, disabling the deprecated SpotBugs profile exporter
+02:39:19.247 INFO  Load project repositories
+02:39:19.357 INFO  Load project repositories (done) | time=109ms
+02:39:19.382 INFO  Indexing files...
+02:39:19.383 INFO  Project configuration:
+02:39:19.383 INFO    Included sources: **/*.java
+02:39:19.395 INFO  66 files indexed (done) | time=13ms
+02:39:19.397 INFO  Quality profile for java: KhoaLuan-Java-SQLi-Spring-20261125
+02:39:19.398 INFO  ------------- Run sensors on module thesis_owasp_cwe89_step3_holdout40_20261126_v1
+02:39:19.403 INFO  SonarQube plugin API version is 13.5.0.4319, disabling the deprecated SpotBugs profile exporter
+02:39:19.473 INFO  Load metrics repository
+02:39:19.496 INFO  Load metrics repository (done) | time=24ms
+02:39:20.096 INFO  Sensor JavaSensor [java]
+02:39:20.120 INFO  Server-side caching is enabled. The Java analyzer will not try to leverage data from a previous analysis.
+02:39:20.121 INFO  Using ECJ batch to parse 66 Main java source files with batch size 417 KB.
+02:39:20.442 INFO  Starting batch processing.
+02:39:21.043 INFO  The Java analyzer cannot skip unchanged files in this context. A full analysis is performed for all files.
+02:39:26.374 INFO  100% analyzed
+02:39:26.374 INFO  Batch processing: Done.
+02:39:26.375 INFO  Did not optimize analysis for any files, performed a full analysis for all 66 files.
+02:39:26.376 WARN  Unresolved imports/types have been detected during analysis. Enable DEBUG mode to see them.
+02:39:26.377 WARN  Use of preview features have been detected during analysis. Enable DEBUG mode to see them.
+02:39:26.377 INFO  No "Test" source files to scan.
+02:39:26.377 INFO  No "Generated" source files to scan.
+02:39:26.378 INFO  Sensor JavaSensor [java] (done) | time=6283ms
+02:39:26.379 INFO  Sensor FindBugs Sensor [findbugs]
+02:39:26.379 INFO  Findbugs plugin version: 4.6.0
+02:39:27.254 INFO  Loading findbugs plugin: /home/khanh/AI_sec_tool/AI_sec_tool_update/runs/owasp-cwe89-step3-holdout40-20261126/project/.scannerwork/findbugs/findsecbugs-plugin.jar
+02:39:27.290 INFO  Findbugs output report: /home/khanh/AI_sec_tool/AI_sec_tool_update/runs/owasp-cwe89-step3-holdout40-20261126/project/.scannerwork/findbugs-result.xml
+02:39:33.484 INFO  Sensor FindBugs Sensor [findbugs] (done) | time=7105ms
+02:39:33.484 INFO  Sensor SurefireSensor [java]
+02:39:33.485 INFO  parsing [/home/khanh/AI_sec_tool/AI_sec_tool_update/runs/owasp-cwe89-step3-holdout40-20261126/project/target/surefire-reports]
+02:39:33.485 INFO  Sensor SurefireSensor [java] (done) | time=2ms
+02:39:33.485 INFO  Sensor JaCoCo XML Report Importer [jacoco]
+02:39:33.487 INFO  'sonar.coverage.jacoco.xmlReportPaths' is not defined. Using default locations: target/site/jacoco/jacoco.xml,target/site/jacoco-it/jacoco.xml,build/reports/jacoco/test/jacocoTestReport.xml
+02:39:33.488 INFO  No report imported, no coverage information will be imported by JaCoCo XML Report Importer
+02:39:33.488 INFO  Sensor JaCoCo XML Report Importer [jacoco] (done) | time=2ms
+02:39:33.488 INFO  Sensor IaC hadolint report Sensor [iac]
+02:39:33.489 INFO  Sensor IaC hadolint report Sensor [iac] (done) | time=0ms
+02:39:33.489 INFO  Sensor Java Config Sensor [iac]
+02:39:33.495 INFO  There are no files to be analyzed for the Java language
+02:39:33.496 INFO  Sensor Java Config Sensor [iac] (done) | time=7ms
+02:39:33.496 INFO  Sensor IaC Docker Sensor [iac]
+02:39:33.499 INFO  There are no files to be analyzed for the Docker language
+02:39:33.500 INFO  Sensor IaC Docker Sensor [iac] (done) | time=4ms
+02:39:33.500 INFO  Sensor TextAndSecretsSensor [text]
+02:39:33.503 INFO  Available processors: 8
+02:39:33.503 INFO  Using 8 threads for analysis.
+02:39:33.787 INFO  The property "sonar.tests" is not set. To improve the analysis accuracy, we categorize a file as a test file if any of the following is true:
+  * The filename starts with "test"
+  * The filename contains "test." or "tests."
+  * Any directory in the file path is named: "doc", "docs", "test", "tests", "mock" or "mocks"
+  * Any directory in the file path has a name ending in "test" or "tests"
+
+02:39:33.815 INFO  Start fetching files for the text and secrets analysis
+02:39:33.821 INFO  Using Git CLI to retrieve dirty files
+02:39:33.885 INFO  Retrieving language associated files and files included via "sonar.text.inclusions" that are tracked by git
+02:39:33.885 INFO  Starting the text and secrets analysis
+02:39:33.887 INFO  66 source files to be analyzed for the text and secrets analysis
+02:39:34.050 INFO  66/66 source files have been analyzed for the text and secrets analysis
+02:39:34.053 INFO  Sensor TextAndSecretsSensor [text] (done) | time=554ms
+02:39:34.059 INFO  ------------- Run sensors on project
+02:39:34.210 INFO  Sensor JaCoCo Aggregate XML Report Importer [jacoco]
+02:39:34.210 INFO  Sensor JaCoCo Aggregate XML Report Importer [jacoco] (done) | time=1ms
+02:39:34.210 INFO  Sensor JavaProjectSensor [java]
+02:39:34.213 INFO  Sensor JavaProjectSensor [java] (done) | time=3ms
+02:39:34.213 INFO  Sensor Zero Coverage Sensor
+02:39:34.235 INFO  Sensor Zero Coverage Sensor (done) | time=21ms
+02:39:34.235 INFO  Sensor Java CPD Block Indexer
+02:39:34.299 INFO  Sensor Java CPD Block Indexer (done) | time=64ms
+02:39:34.299 INFO  ------------- Gather SCA dependencies on project
+02:39:34.302 INFO  Dependency analysis skipped
+02:39:34.305 INFO  SCM Publisher SCM provider for this project is: git
+02:39:34.305 INFO  SCM Publisher 66 source files to be analyzed
+02:39:34.548 INFO  SCM Publisher 0/66 source files have been analyzed (done) | time=243ms
+02:39:34.549 WARN  Missing blame information for the following files:
+02:39:34.549 WARN    * src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01884.java
+02:39:34.549 WARN    * src/main/java/org/owasp/benchmark/helpers/entities/User.java
+02:39:34.549 WARN    * src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00204.java
+02:39:34.549 WARN    * src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01723.java
+02:39:34.550 WARN    * src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02173.java
+02:39:34.550 WARN    * src/main/java/org/owasp/benchmark/helpers/PropertiesManager.java
+02:39:34.550 WARN    * src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01962.java
+02:39:34.550 WARN    * src/main/java/org/owasp/benchmark/helpers/entities/Employee.java
+02:39:34.550 WARN    * src/main/java/org/owasp/benchmark/helpers/ThingInterface.java
+02:39:34.550 WARN    * src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01622.java
+02:39:34.551 WARN    * src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00595.java
+02:39:34.551 WARN    * src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00342.java
+02:39:34.551 WARN    * src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01815.java
+02:39:34.551 WARN    * src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01459.java
+02:39:34.551 WARN    * src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02187.java
+02:39:34.551 WARN    * src/main/java/org/owasp/benchmark/helpers/entities/Certificate.java
+02:39:34.552 WARN    * src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00591.java
+02:39:34.552 WARN    * src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02655.java
+02:39:34.552 WARN    * src/main/java/org/owasp/benchmark/helpers/LDAPManager.java
+02:39:34.552 WARN    * src/main/java/org/owasp/benchmark/service/pojo/Person.java
+02:39:34.552 WARN    * src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02644.java
+02:39:34.552 WARN    * src/main/java/org/owasp/benchmark/helpers/LDAPPerson.java
+02:39:34.552 WARN    * src/main/java/org/owasp/benchmark/service/pojo/XMLMessage.java
+02:39:34.553 WARN    * src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01010.java
+02:39:34.553 WARN    * src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00674.java
+02:39:34.554 WARN    * src/main/java/org/owasp/benchmark/helpers/DataBaseServer.java
+02:39:34.554 WARN    * src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00682.java
+02:39:34.554 WARN    * src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02535.java
+02:39:34.555 WARN    * src/main/java/org/owasp/benchmark/helpers/Thing2.java
+02:39:34.555 WARN    * src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02532.java
+02:39:34.555 WARN    * src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01008.java
+02:39:34.555 WARN    * src/main/java/org/owasp/benchmark/report/sonarqube/SonarReport.java
+02:39:34.556 WARN    * src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02727.java
+02:39:34.556 WARN    * src/main/java/org/owasp/benchmark/helpers/LDAPServer.java
+02:39:34.556 WARN    * src/main/java/org/owasp/benchmark/helpers/filters/DataBaseFilter.java
+02:39:34.556 WARN    * src/main/java/org/owasp/benchmark/helpers/ExpressionEvaluator.java
+02:39:34.556 WARN    * src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01396.java
+02:39:34.556 WARN    * src/main/java/org/owasp/benchmark/helpers/entities/Hobby.java
+02:39:34.557 WARN    * src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02368.java
+02:39:34.557 WARN    * src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01817.java
+02:39:34.557 WARN    * src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02276.java
+02:39:34.557 WARN    * src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01009.java
+02:39:34.557 WARN    * src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02098.java
+02:39:34.557 WARN    * src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01381.java
+02:39:34.557 WARN    * src/main/java/org/owasp/benchmark/helpers/Thing1.java
+02:39:34.557 WARN    * src/main/java/org/owasp/benchmark/helpers/Utils.java
+02:39:34.558 WARN    * src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01880.java
+02:39:34.558 WARN    * src/main/java/org/owasp/benchmark/helpers/HibernateUtil.java
+02:39:34.558 WARN    * src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02283.java
+02:39:34.558 WARN    * src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01389.java
+02:39:34.558 WARN    * src/main/java/org/owasp/benchmark/helpers/filters/HTTPResponseHeaderFilter.java
+02:39:34.558 WARN    * src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01383.java
+02:39:34.558 WARN    * src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00336.java
+02:39:34.558 WARN    * src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00675.java
+02:39:34.558 WARN    * src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00936.java
+02:39:34.560 WARN    * src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01471.java
+02:39:34.561 WARN    * src/main/java/org/owasp/benchmark/helpers/ThingFactory.java
+02:39:34.561 WARN    * src/main/java/org/owasp/benchmark/report/sonarqube/dto/KeepAsJsonDeserializer.java
+02:39:34.561 WARN    * src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00933.java
+02:39:34.561 WARN    * src/main/java/org/owasp/benchmark/helpers/Startup.java
+02:39:34.561 WARN    * src/main/java/org/owasp/benchmark/helpers/SeparateClassRequest.java
+02:39:34.562 WARN    * src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01466.java
+02:39:34.563 WARN    * src/main/java/org/owasp/benchmark/helpers/DatabaseHelper.java
+02:39:34.564 WARN    * src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01721.java
+02:39:34.565 WARN    * src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01474.java
+02:39:34.566 WARN    * src/main/java/org/owasp/benchmark/report/sonarqube/dto/SonarQubeResult.java
+02:39:34.567 WARN  This may lead to missing/broken features in SonarQube
+02:39:34.567 INFO  CPD Executor 4 files had no CPD blocks
+02:39:34.568 INFO  CPD Executor Calculating CPD for 62 files
+02:39:34.618 INFO  CPD Executor CPD calculation finished (done) | time=54ms
+02:39:34.626 INFO  SCM revision ID '69bdb81d088abcbc5e62dae085f89e97cba9c896'
+02:39:34.756 INFO  Analysis report generated in 122ms, dir size=791.9 kB
+02:39:34.868 INFO  Analysis report compressed in 111ms, zip size=307.9 kB
+02:39:34.916 INFO  Analysis report uploaded in 47ms
+02:39:34.918 INFO  ANALYSIS SUCCESSFUL, you can find the results at: http://127.0.0.1:9000/dashboard?id=thesis_owasp_cwe89_step3_holdout40_20261126_v1
+02:39:34.919 INFO  Note that you will be able to access the updated dashboard once the server has processed the submitted analysis report
+02:39:34.919 INFO  More about the report processing at http://127.0.0.1:9000/api/ce/task?id=cec5de94-8d70-4939-bc12-de8eb404aac7
+02:39:34.939 INFO  Analysis total time: 16.958 s
+02:39:34.939 INFO  SonarScanner Engine completed successfully
+02:39:35.047 INFO  EXECUTION SUCCESS
+02:39:35.048 INFO  Total time: 23.998s
+
+[STDERR]
+Picked up JAVA_TOOL_OPTIONS: -XX:-UsePerfData
+02:39:14.075 ERROR [stderr] Picked up JAVA_TOOL_OPTIONS: -XX:-UsePerfData
+02:39:14.114 ERROR [stderr] Picked up JAVA_TOOL_OPTIONS: -XX:-UsePerfData

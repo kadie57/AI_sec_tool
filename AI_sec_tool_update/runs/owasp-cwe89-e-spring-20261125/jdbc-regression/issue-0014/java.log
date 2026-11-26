@@ -1,0 +1,22 @@
+STATUS	3
+Q	F0	60	23	java.sql.Statement	execute(java.lang.String,int)	60
+V	60	23	constant_sql_text	bounded_java_evaluation
+E	60	23	F0	55	constant_expression
+E	60	23	F0	74	constant_expression
+E	60	23	F0	73	collection_initialization
+E	60	23	F0	73	local_definition
+E	60	23	F0	74	collection_put
+E	60	23	F0	75	collection_put
+E	60	23	F0	76	collection_put
+E	60	23	F0	78	constant_expression
+E	60	23	F0	78	collection_read
+E	60	23	F0	78	local_assignment
+E	60	23	F0	80	helper_return
+E	60	23	F0	53	helper_call
+E	60	23	F0	53	local_definition
+E	60	23	F0	55	string_concatenation
+E	60	23	F0	55	local_definition
+S	44	57	javax.servlet.http.HttpServletRequest	getHeaders(java.lang.String)	true
+
+[STDERR]
+Picked up JAVA_TOOL_OPTIONS: -XX:-UsePerfData

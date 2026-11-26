@@ -16,7 +16,7 @@ from sql_pipeline.evidence.source_text import mask_java
 from sql_pipeline.evidence.sql_context_bundle_v1 import Repository, build as build_sql_context
 from sql_pipeline.evidence.sql_endpoint_specifications import VERSION as SPECIFICATION_VERSION
 from sql_pipeline.evidence.sql_endpoint_specifications import VALUE_VERSION
-from sql_pipeline.evidence.sql_endpoint_specifications import infer_specifications, java_dependencies
+from sql_pipeline.evidence.sql_endpoint_specifications import infer_specifications, java_dependencies, refresh_dispatch_evidence
 from sql_pipeline.evidence.sql_evidence_selection import select_evidence
 from sql_pipeline.evidence.sql_snapshot_callers import VERSION as SNAPSHOT_CALLERS_VERSION
 from sql_pipeline.evidence.sql_snapshot_callers import add_snapshot_callers
@@ -171,7 +171,10 @@ def prepare_source_context(inputs, commit, benchmark_root):
 
 
 def export_evidence(inputs, provenance, output, bundles, recorded, specification_dependencies=None, *,
-                    jdbc_values=False, joern_source_paths=False, snapshot_callers=False):
+                    jdbc_values=False, joern_source_paths=False, snapshot_callers=False,
+                    experimental_dispatch_evidence=False):
+    if experimental_dispatch_evidence and (not jdbc_values or not joern_source_paths or specification_dependencies is None):
+        raise ValueError("Bằng chứng interface thử nghiệm cần phân tích giá trị JDBC và đường nguồn Joern.")
     if joern_source_paths and recorded is not None:
         image_id = recorded[0]
         if not isinstance(image_id, str) or not re.fullmatch(r"sha256:[0-9a-f]{64}", image_id):
@@ -192,6 +195,8 @@ def export_evidence(inputs, provenance, output, bundles, recorded, specification
         manifest["endpoint_specifications"] = {"version": SPECIFICATION_VERSION, "java_classpath": specification_dependencies}
     if jdbc_values:
         manifest["jdbc_value_evidence"] = {"version": VALUE_VERSION}
+    if experimental_dispatch_evidence:
+        manifest["experimental_dispatch_evidence"] = True
     if snapshot_callers:
         manifest["snapshot_callers"] = {"version": SNAPSHOT_CALLERS_VERSION}
     if joern_source_paths:
@@ -252,8 +257,10 @@ def export_evidence(inputs, provenance, output, bundles, recorded, specification
                     anchored.mkdir()
                     selected_evidence["anchored_paths"] = infer_source_paths(bundle, specifications, anchored, image_id)
             records.append(record)
-            dataset.append({**record, "source_context": bundle, "joern": flow,
-                            "selected_evidence": selected_evidence})
+            row = {**record, "source_context": bundle, "joern": flow, "selected_evidence": selected_evidence}
+            if experimental_dispatch_evidence:
+                refresh_dispatch_evidence(row, specification_dependencies, artifact / "java_dispatch.log")
+            dataset.append(row)
         manifest["state"] = "COMPLETED"
     except (OSError, ValueError, RuntimeError, KeyError, IndexError) as exc:
         manifest.update(state="FAILED", error=redact(str(exc)))
@@ -277,10 +284,12 @@ def main():
                         help="Chạy Joern trên gói Java để nối các API đọc HTTP đã xác minh tới JDBC.")
     parser.add_argument("--infer-specifications", action="store_true", help="Xác minh source/sink của từng cảnh báo bằng JDK.")
     parser.add_argument("--infer-jdbc-values", action="store_true", help="Bổ sung bằng chứng nhánh và giá trị tới đối số SQL.")
+    parser.add_argument("--experimental-dispatch-evidence", action="store_true",
+                        help="Thử phân tích đích gọi interface. Cần --infer-jdbc-values và --joern-source-paths.")
     parser.add_argument("--snapshot-callers", action="store_true",
                         help="Đối chiếu đối số ở tệp gọi trong snapshot Java của lượt thu thập.")
     parser.add_argument("--java-classpath", type=Path, action="append", default=[], metavar="JAR",
-                        help="JAR cục bộ dùng phân giải chữ ký Java, có thể lặp lại.")
+                        help="JAR thư viện hoặc kiểu Java đã biên dịch của snapshot. Có thể lặp lại.")
     default_benchmark = Path.home() / "AI_sec_benchmarks" / "BenchmarkJava"
     parser.add_argument("--benchmark-root", type=Path,
                         default=Path(os.getenv("OWASP_BENCHMARK_ROOT", str(default_benchmark))))
@@ -296,6 +305,8 @@ def main():
         parser.error("--snapshot-callers cần --infer-jdbc-values")
     if args.joern_source_paths and not args.infer_specifications:
         parser.error("--joern-source-paths cần --infer-specifications")
+    if args.experimental_dispatch_evidence and not (args.infer_jdbc_values and args.joern_source_paths):
+        parser.error("--experimental-dispatch-evidence cần --infer-jdbc-values và --joern-source-paths")
     collection = args.from_run.resolve()
     try:
         source_root = args.source_root.resolve()
@@ -316,7 +327,8 @@ def main():
             raise ValueError("Đặt đầu ra bên ngoài thư mục lượt thu thập.")
         export_evidence(inputs, provenance, output, bundles, recorded, dependencies,
                         jdbc_values=args.infer_jdbc_values, joern_source_paths=args.joern_source_paths,
-                        snapshot_callers=args.snapshot_callers)
+                        snapshot_callers=args.snapshot_callers,
+                        experimental_dispatch_evidence=args.experimental_dispatch_evidence)
         print(f"SQL_EVIDENCE_OK: {len(inputs)} cảnh báo. Kết quả: {output / 'sql_evidence.jsonl'}")
         return 0
     except (OSError, ValueError, RuntimeError, KeyError, IndexError) as exc:

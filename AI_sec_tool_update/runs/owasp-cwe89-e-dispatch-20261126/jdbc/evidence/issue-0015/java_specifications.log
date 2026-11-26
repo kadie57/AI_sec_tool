@@ -1,0 +1,26 @@
+STATUS	3
+Q	F0	53	23	java.sql.Statement	addBatch(java.lang.String)	53
+V	53	23	fixed_sql_alternatives	bounded_java_evaluation
+E	53	23	F0	48	constant_expression
+E	53	23	F0	71	constant_expression
+E	53	23	F0	68	collection_initialization
+E	53	23	F0	68	local_definition
+E	53	23	F0	69	collection_append
+E	53	23	F0	70	collection_append
+E	53	23	F0	71	collection_append
+E	53	23	F0	73	collection_remove
+E	53	23	F0	75	constant_expression
+E	53	23	F0	75	collection_read
+E	53	23	F0	75	local_assignment
+E	53	23	F0	66	constant_expression
+E	53	23	F0	66	local_definition
+E	53	23	F0	67	fixed_values_from_branches
+E	53	23	F0	78	helper_return
+E	53	23	F0	46	helper_call
+E	53	23	F0	46	local_definition
+E	53	23	F0	48	string_concatenation
+E	53	23	F0	48	local_definition
+S	43	32	javax.servlet.ServletRequest	getParameter(java.lang.String)	true
+
+[STDERR]
+Picked up JAVA_TOOL_OPTIONS: -XX:-UsePerfData

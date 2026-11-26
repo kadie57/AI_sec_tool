@@ -1,0 +1,88 @@
+{
+  "status": "candidate_paths",
+  "matched_sources": 42,
+  "source_count": 42,
+  "candidate_paths_found": 1,
+  "search_limit_hit": false,
+  "paths": [
+    {
+      "source": {
+        "file_id": "F0",
+        "line": 45,
+        "method": "doPost",
+        "method_start": 38,
+        "method_end": 73,
+        "node_type": "Call",
+        "api_owner": "org.owasp.benchmark.helpers.SeparateClassRequest",
+        "api_signature": "getTheValue(java.lang.String)",
+        "semantic_status": "qwen_candidate",
+        "input_kind": "file"
+      },
+      "steps": [
+        {
+          "file_id": "F0",
+          "line": 48,
+          "method": "doPost",
+          "method_start": 38,
+          "method_end": 73,
+          "node_type": "Identifier"
+        },
+        {
+          "file_id": "F0",
+          "line": 53,
+          "method": "doPost",
+          "method_start": 38,
+          "method_end": 73,
+          "node_type": "Identifier"
+        },
+        {
+          "file_id": "F0",
+          "line": 52,
+          "method": "doPost",
+          "method_start": 38,
+          "method_end": 73,
+          "node_type": "Call"
+        },
+        {
+          "file_id": "F0",
+          "line": 51,
+          "method": "doPost",
+          "method_start": 38,
+          "method_end": 73,
+          "node_type": "Call"
+        },
+        {
+          "file_id": "F0",
+          "line": 49,
+          "method": "doPost",
+          "method_start": 38,
+          "method_end": 73,
+          "node_type": "Identifier"
+        },
+        {
+          "file_id": "F0",
+          "line": 57,
+          "method": "doPost",
+          "method_start": 38,
+          "method_end": 73,
+          "node_type": "Call"
+        }
+      ],
+      "sink": {
+        "file_id": "F0",
+        "line": 59,
+        "name": "batchUpdate",
+        "method": "doPost",
+        "method_start": 38,
+        "method_end": 73
+      },
+      "omitted_steps": 0,
+      "unlocated_nodes": 0,
+      "dispatch": []
+    }
+  ],
+  "paths_not_shown": 0,
+  "version": "sql-project-paths-v2",
+  "scope": "verified_java_snapshot",
+  "interpretation": "Candidate dataflow. Runtime branch and dispatch feasibility require separate evidence."
+}

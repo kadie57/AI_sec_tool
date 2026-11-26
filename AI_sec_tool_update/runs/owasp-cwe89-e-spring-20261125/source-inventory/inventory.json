@@ -1,0 +1,2065 @@
+{
+  "version": "sql-source-proposals-v1",
+  "evidence_sha256": "a652f547bbd1be9fb43751e23f5cd0301015f8d6fac65acda3ecc1ed794ec6cf",
+  "joern_image_id": "sha256:f47692f8334d2eeca9fc83395023773da566ce8397563ff7c66d34a23bfc75c4",
+  "candidates": {
+    "110b44bb6648eff6": {
+      "path": "src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00195.java",
+      "sha256": "0f7dfc19b5b0734c7a038bca438b588804afb7c2f40b984a9839cc7088193065",
+      "line": 44,
+      "column": 21,
+      "owner": "javax.servlet.http.HttpServletRequest",
+      "signature": "getHeader(java.lang.String)",
+      "context": {
+        "call": [
+          {
+            "line": 34,
+            "code": "throws ServletException, IOException {"
+          },
+          {
+            "line": 35,
+            "code": "doPost(request, response);"
+          },
+          {
+            "line": 36,
+            "code": "}"
+          },
+          {
+            "line": 38,
+            "code": "@Override"
+          },
+          {
+            "line": 39,
+            "code": "public void doPost(HttpServletRequest request, HttpServletResponse response)"
+          },
+          {
+            "line": 40,
+            "code": "throws ServletException, IOException {"
+          },
+          {
+            "line": 41,
+            "code": "response.setContentType(\"text/html;charset=UTF-8\");"
+          },
+          {
+            "line": 43,
+            "code": "String param = \"\";"
+          },
+          {
+            "line": 44,
+            "code": "if (request.getHeader(\"BenchmarkTest00195\") != null) {"
+          },
+          {
+            "line": 45,
+            "code": "param = request.getHeader(\"BenchmarkTest00195\");"
+          },
+          {
+            "line": 46,
+            "code": "}"
+          }
+        ],
+        "definition": []
+      }
+    },
+    "61f3c8d676abe4c6": {
+      "path": "src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00195.java",
+      "sha256": "0f7dfc19b5b0734c7a038bca438b588804afb7c2f40b984a9839cc7088193065",
+      "line": 45,
+      "column": 29,
+      "owner": "javax.servlet.http.HttpServletRequest",
+      "signature": "getHeader(java.lang.String)",
+      "context": {
+        "call": [
+          {
+            "line": 35,
+            "code": "doPost(request, response);"
+          },
+          {
+            "line": 36,
+            "code": "}"
+          },
+          {
+            "line": 38,
+            "code": "@Override"
+          },
+          {
+            "line": 39,
+            "code": "public void doPost(HttpServletRequest request, HttpServletResponse response)"
+          },
+          {
+            "line": 40,
+            "code": "throws ServletException, IOException {"
+          },
+          {
+            "line": 41,
+            "code": "response.setContentType(\"text/html;charset=UTF-8\");"
+          },
+          {
+            "line": 43,
+            "code": "String param = \"\";"
+          },
+          {
+            "line": 44,
+            "code": "if (request.getHeader(\"BenchmarkTest00195\") != null) {"
+          },
+          {
+            "line": 45,
+            "code": "param = request.getHeader(\"BenchmarkTest00195\");"
+          },
+          {
+            "line": 46,
+            "code": "}"
+          }
+        ],
+        "definition": []
+      }
+    },
+    "a94dcb6e3dde030c": {
+      "path": "src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00195.java",
+      "sha256": "0f7dfc19b5b0734c7a038bca438b588804afb7c2f40b984a9839cc7088193065",
+      "line": 49,
+      "column": 37,
+      "owner": "java.net.URLDecoder",
+      "signature": "decode(java.lang.String,java.lang.String)",
+      "context": {
+        "call": [
+          {
+            "line": 39,
+            "code": "public void doPost(HttpServletRequest request, HttpServletResponse response)"
+          },
+          {
+            "line": 40,
+            "code": "throws ServletException, IOException {"
+          },
+          {
+            "line": 41,
+            "code": "response.setContentType(\"text/html;charset=UTF-8\");"
+          },
+          {
+            "line": 43,
+            "code": "String param = \"\";"
+          },
+          {
+            "line": 44,
+            "code": "if (request.getHeader(\"BenchmarkTest00195\") != null) {"
+          },
+          {
+            "line": 45,
+            "code": "param = request.getHeader(\"BenchmarkTest00195\");"
+          },
+          {
+            "line": 46,
+            "code": "}"
+          },
+          {
+            "line": 49,
+            "code": "param = java.net.URLDecoder.decode(param, \"UTF-8\");"
+          },
+          {
+            "line": 51,
+            "code": "String bar;"
+          }
+        ],
+        "definition": []
+      }
+    },
+    "e27b78383e6fba48": {
+      "path": "src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00431.java",
+      "sha256": "cf0acd23a04bb0931762707129a457ecceb97d31fc80e23f089cb87f6169bd14",
+      "line": 43,
+      "column": 32,
+      "owner": "javax.servlet.ServletRequest",
+      "signature": "getParameter(java.lang.String)",
+      "context": {
+        "call": [
+          {
+            "line": 33,
+            "code": "public void doGet(HttpServletRequest request, HttpServletResponse response)"
+          },
+          {
+            "line": 34,
+            "code": "throws ServletException, IOException {"
+          },
+          {
+            "line": 35,
+            "code": "doPost(request, response);"
+          },
+          {
+            "line": 36,
+            "code": "}"
+          },
+          {
+            "line": 38,
+            "code": "@Override"
+          },
+          {
+            "line": 39,
+            "code": "public void doPost(HttpServletRequest request, HttpServletResponse response)"
+          },
+          {
+            "line": 40,
+            "code": "throws ServletException, IOException {"
+          },
+          {
+            "line": 41,
+            "code": "response.setContentType(\"text/html;charset=UTF-8\");"
+          },
+          {
+            "line": 43,
+            "code": "String param = request.getParameter(\"BenchmarkTest00431\");"
+          },
+          {
+            "line": 44,
+            "code": "if (param == null) param = \"\";"
+          }
+        ],
+        "definition": []
+      }
+    },
+    "a27e3accd80d9c0a": {
+      "path": "src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00432.java",
+      "sha256": "b990c74d63744887149a1026b026d2813916456f962306537c556a38c15c8fba",
+      "line": 43,
+      "column": 32,
+      "owner": "javax.servlet.ServletRequest",
+      "signature": "getParameter(java.lang.String)",
+      "context": {
+        "call": [
+          {
+            "line": 33,
+            "code": "public void doGet(HttpServletRequest request, HttpServletResponse response)"
+          },
+          {
+            "line": 34,
+            "code": "throws ServletException, IOException {"
+          },
+          {
+            "line": 35,
+            "code": "doPost(request, response);"
+          },
+          {
+            "line": 36,
+            "code": "}"
+          },
+          {
+            "line": 38,
+            "code": "@Override"
+          },
+          {
+            "line": 39,
+            "code": "public void doPost(HttpServletRequest request, HttpServletResponse response)"
+          },
+          {
+            "line": 40,
+            "code": "throws ServletException, IOException {"
+          },
+          {
+            "line": 41,
+            "code": "response.setContentType(\"text/html;charset=UTF-8\");"
+          },
+          {
+            "line": 43,
+            "code": "String param = request.getParameter(\"BenchmarkTest00432\");"
+          },
+          {
+            "line": 44,
+            "code": "if (param == null) param = \"\";"
+          }
+        ],
+        "definition": []
+      }
+    },
+    "0fdf38f83a9e0f85": {
+      "path": "src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00432.java",
+      "sha256": "b990c74d63744887149a1026b026d2813916456f962306537c556a38c15c8fba",
+      "line": 53,
+      "column": 24,
+      "owner": "java.util.List",
+      "signature": "remove(int)",
+      "context": {
+        "call": [
+          {
+            "line": 43,
+            "code": "String param = request.getParameter(\"BenchmarkTest00432\");"
+          },
+          {
+            "line": 44,
+            "code": "if (param == null) param = \"\";"
+          },
+          {
+            "line": 46,
+            "code": "String bar = \"alsosafe\";"
+          },
+          {
+            "line": 47,
+            "code": "if (param != null) {"
+          },
+          {
+            "line": 48,
+            "code": "java.util.List<String> valuesList = new java.util.ArrayList<String>();"
+          },
+          {
+            "line": 49,
+            "code": "valuesList.add(\"safe\");"
+          },
+          {
+            "line": 50,
+            "code": "valuesList.add(param);"
+          },
+          {
+            "line": 51,
+            "code": "valuesList.add(\"moresafe\");"
+          },
+          {
+            "line": 53,
+            "code": "valuesList.remove(0);"
+          },
+          {
+            "line": 55,
+            "code": "bar = valuesList.get(1);"
+          }
+        ],
+        "definition": []
+      }
+    },
+    "2e0eba749ea2a9da": {
+      "path": "src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00432.java",
+      "sha256": "b990c74d63744887149a1026b026d2813916456f962306537c556a38c15c8fba",
+      "line": 55,
+      "column": 30,
+      "owner": "java.util.List",
+      "signature": "get(int)",
+      "context": {
+        "call": [
+          {
+            "line": 46,
+            "code": "String bar = \"alsosafe\";"
+          },
+          {
+            "line": 47,
+            "code": "if (param != null) {"
+          },
+          {
+            "line": 48,
+            "code": "java.util.List<String> valuesList = new java.util.ArrayList<String>();"
+          },
+          {
+            "line": 49,
+            "code": "valuesList.add(\"safe\");"
+          },
+          {
+            "line": 50,
+            "code": "valuesList.add(param);"
+          },
+          {
+            "line": 51,
+            "code": "valuesList.add(\"moresafe\");"
+          },
+          {
+            "line": 53,
+            "code": "valuesList.remove(0);"
+          },
+          {
+            "line": 55,
+            "code": "bar = valuesList.get(1);"
+          },
+          {
+            "line": 56,
+            "code": "}"
+          }
+        ],
+        "definition": []
+      }
+    },
+    "df3425a81b829e38": {
+      "path": "src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00597.java",
+      "sha256": "33b3c251425db4433260f56a689eeb369e8868e2493e01e7d5ee23c925a2cf9b",
+      "line": 47,
+      "column": 42,
+      "owner": "java.util.Enumeration",
+      "signature": "nextElement()",
+      "context": {
+        "call": [
+          {
+            "line": 38,
+            "code": "@Override"
+          },
+          {
+            "line": 39,
+            "code": "public void doPost(HttpServletRequest request, HttpServletResponse response)"
+          },
+          {
+            "line": 40,
+            "code": "throws ServletException, IOException {"
+          },
+          {
+            "line": 41,
+            "code": "response.setContentType(\"text/html;charset=UTF-8\");"
+          },
+          {
+            "line": 43,
+            "code": "String param = \"\";"
+          },
+          {
+            "line": 44,
+            "code": "boolean flag = true;"
+          },
+          {
+            "line": 45,
+            "code": "java.util.Enumeration<String> names = request.getParameterNames();"
+          },
+          {
+            "line": 46,
+            "code": "while (names.hasMoreElements() && flag) {"
+          },
+          {
+            "line": 47,
+            "code": "String name = (String) names.nextElement();"
+          },
+          {
+            "line": 48,
+            "code": "String[] values = request.getParameterValues(name);"
+          },
+          {
+            "line": 49,
+            "code": "if (values != null) {"
+          }
+        ],
+        "definition": []
+      }
+    },
+    "f56615fbe10bcb44": {
+      "path": "src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00842.java",
+      "sha256": "a01848d1c8380da96774e8dff6ba83d91f97568693d617144b79a3a87c011c46",
+      "line": 43,
+      "column": 38,
+      "owner": "javax.servlet.http.HttpServletRequest",
+      "signature": "getQueryString()",
+      "context": {
+        "call": [
+          {
+            "line": 33,
+            "code": "public void doGet(HttpServletRequest request, HttpServletResponse response)"
+          },
+          {
+            "line": 34,
+            "code": "throws ServletException, IOException {"
+          },
+          {
+            "line": 35,
+            "code": "doPost(request, response);"
+          },
+          {
+            "line": 36,
+            "code": "}"
+          },
+          {
+            "line": 38,
+            "code": "@Override"
+          },
+          {
+            "line": 39,
+            "code": "public void doPost(HttpServletRequest request, HttpServletResponse response)"
+          },
+          {
+            "line": 40,
+            "code": "throws ServletException, IOException {"
+          },
+          {
+            "line": 41,
+            "code": "response.setContentType(\"text/html;charset=UTF-8\");"
+          },
+          {
+            "line": 43,
+            "code": "String queryString = request.getQueryString();"
+          },
+          {
+            "line": 44,
+            "code": "String paramval = \"BenchmarkTest00842\" + \"=\";"
+          },
+          {
+            "line": 45,
+            "code": "int paramLoc = -1;"
+          }
+        ],
+        "definition": []
+      }
+    },
+    "5b92d39a62f3ce7e": {
+      "path": "src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00842.java",
+      "sha256": "a01848d1c8380da96774e8dff6ba83d91f97568693d617144b79a3a87c011c46",
+      "line": 57,
+      "column": 29,
+      "owner": "java.lang.String",
+      "signature": "substring(int)",
+      "context": {
+        "call": [
+          {
+            "line": 47,
+            "code": "if (paramLoc == -1) {"
+          },
+          {
+            "line": 48,
+            "code": "response.getWriter()"
+          },
+          {
+            "line": 49,
+            "code": ".println("
+          },
+          {
+            "line": 50,
+            "code": "\"getQueryString() couldn't find expected parameter '\""
+          },
+          {
+            "line": 51,
+            "code": "+ \"BenchmarkTest00842\""
+          },
+          {
+            "line": 52,
+            "code": "+ \"' in query string.\");"
+          },
+          {
+            "line": 53,
+            "code": "return;"
+          },
+          {
+            "line": 54,
+            "code": "}"
+          },
+          {
+            "line": 56,
+            "code": "String param ="
+          },
+          {
+            "line": 57,
+            "code": "queryString.substring("
+          },
+          {
+            "line": 58,
+            "code": "paramLoc"
+          },
+          {
+            "line": 59,
+            "code": "+ paramval"
+          }
+        ],
+        "definition": []
+      }
+    },
+    "d076a2f5caa6c4a1": {
+      "path": "src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00842.java",
+      "sha256": "a01848d1c8380da96774e8dff6ba83d91f97568693d617144b79a3a87c011c46",
+      "line": 66,
+      "column": 33,
+      "owner": "java.lang.String",
+      "signature": "substring(int,int)",
+      "context": {
+        "call": [
+          {
+            "line": 56,
+            "code": "String param ="
+          },
+          {
+            "line": 57,
+            "code": "queryString.substring("
+          },
+          {
+            "line": 58,
+            "code": "paramLoc"
+          },
+          {
+            "line": 59,
+            "code": "+ paramval"
+          },
+          {
+            "line": 60,
+            "code": ".length());"
+          },
+          {
+            "line": 64,
+            "code": "int ampersandLoc = queryString.indexOf(\"&\", paramLoc);"
+          },
+          {
+            "line": 65,
+            "code": "if (ampersandLoc != -1) {"
+          },
+          {
+            "line": 66,
+            "code": "param = queryString.substring(paramLoc + paramval.length(), ampersandLoc);"
+          },
+          {
+            "line": 67,
+            "code": "}"
+          },
+          {
+            "line": 68,
+            "code": "param = java.net.URLDecoder.decode(param, \"UTF-8\");"
+          }
+        ],
+        "definition": []
+      }
+    },
+    "8a414c6c170c8bd7": {
+      "path": "src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00842.java",
+      "sha256": "a01848d1c8380da96774e8dff6ba83d91f97568693d617144b79a3a87c011c46",
+      "line": 68,
+      "column": 37,
+      "owner": "java.net.URLDecoder",
+      "signature": "decode(java.lang.String,java.lang.String)",
+      "context": {
+        "call": [
+          {
+            "line": 58,
+            "code": "paramLoc"
+          },
+          {
+            "line": 59,
+            "code": "+ paramval"
+          },
+          {
+            "line": 60,
+            "code": ".length());"
+          },
+          {
+            "line": 64,
+            "code": "int ampersandLoc = queryString.indexOf(\"&\", paramLoc);"
+          },
+          {
+            "line": 65,
+            "code": "if (ampersandLoc != -1) {"
+          },
+          {
+            "line": 66,
+            "code": "param = queryString.substring(paramLoc + paramval.length(), ampersandLoc);"
+          },
+          {
+            "line": 67,
+            "code": "}"
+          },
+          {
+            "line": 68,
+            "code": "param = java.net.URLDecoder.decode(param, \"UTF-8\");"
+          },
+          {
+            "line": 70,
+            "code": "String bar = \"\";"
+          }
+        ],
+        "definition": []
+      }
+    },
+    "868fef72df793000": {
+      "path": "src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00842.java",
+      "sha256": "a01848d1c8380da96774e8dff6ba83d91f97568693d617144b79a3a87c011c46",
+      "line": 77,
+      "column": 24,
+      "owner": "java.util.List",
+      "signature": "remove(int)",
+      "context": {
+        "call": [
+          {
+            "line": 67,
+            "code": "}"
+          },
+          {
+            "line": 68,
+            "code": "param = java.net.URLDecoder.decode(param, \"UTF-8\");"
+          },
+          {
+            "line": 70,
+            "code": "String bar = \"\";"
+          },
+          {
+            "line": 71,
+            "code": "if (param != null) {"
+          },
+          {
+            "line": 72,
+            "code": "java.util.List<String> valuesList = new java.util.ArrayList<String>();"
+          },
+          {
+            "line": 73,
+            "code": "valuesList.add(\"safe\");"
+          },
+          {
+            "line": 74,
+            "code": "valuesList.add(param);"
+          },
+          {
+            "line": 75,
+            "code": "valuesList.add(\"moresafe\");"
+          },
+          {
+            "line": 77,
+            "code": "valuesList.remove(0);"
+          },
+          {
+            "line": 79,
+            "code": "bar = valuesList.get(0);"
+          }
+        ],
+        "definition": []
+      }
+    },
+    "ac66414f94e756fa": {
+      "path": "src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00842.java",
+      "sha256": "a01848d1c8380da96774e8dff6ba83d91f97568693d617144b79a3a87c011c46",
+      "line": 79,
+      "column": 30,
+      "owner": "java.util.List",
+      "signature": "get(int)",
+      "context": {
+        "call": [
+          {
+            "line": 70,
+            "code": "String bar = \"\";"
+          },
+          {
+            "line": 71,
+            "code": "if (param != null) {"
+          },
+          {
+            "line": 72,
+            "code": "java.util.List<String> valuesList = new java.util.ArrayList<String>();"
+          },
+          {
+            "line": 73,
+            "code": "valuesList.add(\"safe\");"
+          },
+          {
+            "line": 74,
+            "code": "valuesList.add(param);"
+          },
+          {
+            "line": 75,
+            "code": "valuesList.add(\"moresafe\");"
+          },
+          {
+            "line": 77,
+            "code": "valuesList.remove(0);"
+          },
+          {
+            "line": 79,
+            "code": "bar = valuesList.get(0);"
+          },
+          {
+            "line": 80,
+            "code": "}"
+          }
+        ],
+        "definition": []
+      }
+    },
+    "367c72f4772561ad": {
+      "path": "src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00930.java",
+      "sha256": "1c318f3b118dc686a65edb1ff44324eda0cf98f4105059bdfdbc700b9e7c1f94",
+      "line": 45,
+      "column": 28,
+      "owner": "org.owasp.benchmark.helpers.SeparateClassRequest",
+      "signature": "getTheValue(java.lang.String)",
+      "definition": {
+        "path": "src/main/java/org/owasp/benchmark/helpers/SeparateClassRequest.java",
+        "sha256": "8ec6b1867d27ebe55c79180755447ece6f98746dcfbf0127b2e4ea5646399739",
+        "line": 52,
+        "end_line": 54
+      },
+      "context": {
+        "call": [
+          {
+            "line": 35,
+            "code": "doPost(request, response);"
+          },
+          {
+            "line": 36,
+            "code": "}"
+          },
+          {
+            "line": 38,
+            "code": "@Override"
+          },
+          {
+            "line": 39,
+            "code": "public void doPost(HttpServletRequest request, HttpServletResponse response)"
+          },
+          {
+            "line": 40,
+            "code": "throws ServletException, IOException {"
+          },
+          {
+            "line": 41,
+            "code": "response.setContentType(\"text/html;charset=UTF-8\");"
+          },
+          {
+            "line": 43,
+            "code": "org.owasp.benchmark.helpers.SeparateClassRequest scr ="
+          },
+          {
+            "line": 44,
+            "code": "new org.owasp.benchmark.helpers.SeparateClassRequest(request);"
+          },
+          {
+            "line": 45,
+            "code": "String param = scr.getTheValue(\"BenchmarkTest00930\");"
+          },
+          {
+            "line": 47,
+            "code": "String bar = \"\";"
+          }
+        ],
+        "definition": [
+          {
+            "line": 52,
+            "code": "public String getTheValue(String p) {"
+          },
+          {
+            "line": 53,
+            "code": "return \"bar\";"
+          },
+          {
+            "line": 54,
+            "code": "}"
+          }
+        ]
+      }
+    },
+    "fca50665afe034d5": {
+      "path": "src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01085.java",
+      "sha256": "47fce56105247369d3e0038d472713e9ae2ab73f28a36a1a93bfb8e5855dac5a",
+      "line": 44,
+      "column": 21,
+      "owner": "javax.servlet.http.HttpServletRequest",
+      "signature": "getHeader(java.lang.String)",
+      "context": {
+        "call": [
+          {
+            "line": 34,
+            "code": "throws ServletException, IOException {"
+          },
+          {
+            "line": 35,
+            "code": "doPost(request, response);"
+          },
+          {
+            "line": 36,
+            "code": "}"
+          },
+          {
+            "line": 38,
+            "code": "@Override"
+          },
+          {
+            "line": 39,
+            "code": "public void doPost(HttpServletRequest request, HttpServletResponse response)"
+          },
+          {
+            "line": 40,
+            "code": "throws ServletException, IOException {"
+          },
+          {
+            "line": 41,
+            "code": "response.setContentType(\"text/html;charset=UTF-8\");"
+          },
+          {
+            "line": 43,
+            "code": "String param = \"\";"
+          },
+          {
+            "line": 44,
+            "code": "if (request.getHeader(\"BenchmarkTest01085\") != null) {"
+          },
+          {
+            "line": 45,
+            "code": "param = request.getHeader(\"BenchmarkTest01085\");"
+          },
+          {
+            "line": 46,
+            "code": "}"
+          }
+        ],
+        "definition": []
+      }
+    },
+    "b8a9eff22a3933e1": {
+      "path": "src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01085.java",
+      "sha256": "47fce56105247369d3e0038d472713e9ae2ab73f28a36a1a93bfb8e5855dac5a",
+      "line": 45,
+      "column": 29,
+      "owner": "javax.servlet.http.HttpServletRequest",
+      "signature": "getHeader(java.lang.String)",
+      "context": {
+        "call": [
+          {
+            "line": 35,
+            "code": "doPost(request, response);"
+          },
+          {
+            "line": 36,
+            "code": "}"
+          },
+          {
+            "line": 38,
+            "code": "@Override"
+          },
+          {
+            "line": 39,
+            "code": "public void doPost(HttpServletRequest request, HttpServletResponse response)"
+          },
+          {
+            "line": 40,
+            "code": "throws ServletException, IOException {"
+          },
+          {
+            "line": 41,
+            "code": "response.setContentType(\"text/html;charset=UTF-8\");"
+          },
+          {
+            "line": 43,
+            "code": "String param = \"\";"
+          },
+          {
+            "line": 44,
+            "code": "if (request.getHeader(\"BenchmarkTest01085\") != null) {"
+          },
+          {
+            "line": 45,
+            "code": "param = request.getHeader(\"BenchmarkTest01085\");"
+          },
+          {
+            "line": 46,
+            "code": "}"
+          }
+        ],
+        "definition": []
+      }
+    },
+    "3336dd4dd9d7f5c9": {
+      "path": "src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01085.java",
+      "sha256": "47fce56105247369d3e0038d472713e9ae2ab73f28a36a1a93bfb8e5855dac5a",
+      "line": 49,
+      "column": 37,
+      "owner": "java.net.URLDecoder",
+      "signature": "decode(java.lang.String,java.lang.String)",
+      "context": {
+        "call": [
+          {
+            "line": 39,
+            "code": "public void doPost(HttpServletRequest request, HttpServletResponse response)"
+          },
+          {
+            "line": 40,
+            "code": "throws ServletException, IOException {"
+          },
+          {
+            "line": 41,
+            "code": "response.setContentType(\"text/html;charset=UTF-8\");"
+          },
+          {
+            "line": 43,
+            "code": "String param = \"\";"
+          },
+          {
+            "line": 44,
+            "code": "if (request.getHeader(\"BenchmarkTest01085\") != null) {"
+          },
+          {
+            "line": 45,
+            "code": "param = request.getHeader(\"BenchmarkTest01085\");"
+          },
+          {
+            "line": 46,
+            "code": "}"
+          },
+          {
+            "line": 49,
+            "code": "param = java.net.URLDecoder.decode(param, \"UTF-8\");"
+          },
+          {
+            "line": 51,
+            "code": "String bar = new Test().doSomething(request, param);"
+          }
+        ],
+        "definition": []
+      }
+    },
+    "e9b908167a1f80a5": {
+      "path": "src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01085.java",
+      "sha256": "47fce56105247369d3e0038d472713e9ae2ab73f28a36a1a93bfb8e5855dac5a",
+      "line": 51,
+      "column": 33,
+      "owner": "org.owasp.benchmark.testcode.BenchmarkTest01085.Test",
+      "signature": "doSomething(javax.servlet.http.HttpServletRequest,java.lang.String)",
+      "definition": {
+        "path": "src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01085.java",
+        "sha256": "47fce56105247369d3e0038d472713e9ae2ab73f28a36a1a93bfb8e5855dac5a",
+        "line": 73,
+        "end_line": 89
+      },
+      "context": {
+        "call": [
+          {
+            "line": 41,
+            "code": "response.setContentType(\"text/html;charset=UTF-8\");"
+          },
+          {
+            "line": 43,
+            "code": "String param = \"\";"
+          },
+          {
+            "line": 44,
+            "code": "if (request.getHeader(\"BenchmarkTest01085\") != null) {"
+          },
+          {
+            "line": 45,
+            "code": "param = request.getHeader(\"BenchmarkTest01085\");"
+          },
+          {
+            "line": 46,
+            "code": "}"
+          },
+          {
+            "line": 49,
+            "code": "param = java.net.URLDecoder.decode(param, \"UTF-8\");"
+          },
+          {
+            "line": 51,
+            "code": "String bar = new Test().doSomething(request, param);"
+          },
+          {
+            "line": 53,
+            "code": "try {"
+          }
+        ],
+        "definition": [
+          {
+            "line": 73,
+            "code": "public String doSomething(HttpServletRequest request, String param)"
+          },
+          {
+            "line": 74,
+            "code": "throws ServletException, IOException {"
+          },
+          {
+            "line": 76,
+            "code": "String bar = \"alsosafe\";"
+          },
+          {
+            "line": 77,
+            "code": "if (param != null) {"
+          },
+          {
+            "line": 78,
+            "code": "java.util.List<String> valuesList = new java.util.ArrayList<String>();"
+          },
+          {
+            "line": 79,
+            "code": "valuesList.add(\"safe\");"
+          },
+          {
+            "line": 80,
+            "code": "valuesList.add(param);"
+          },
+          {
+            "line": 81,
+            "code": "valuesList.add(\"moresafe\");"
+          },
+          {
+            "line": 83,
+            "code": "valuesList.remove(0);"
+          },
+          {
+            "line": 85,
+            "code": "bar = valuesList.get(1);"
+          },
+          {
+            "line": 86,
+            "code": "}"
+          },
+          {
+            "line": 88,
+            "code": "return bar;"
+          },
+          {
+            "line": 89,
+            "code": "}"
+          }
+        ]
+      }
+    },
+    "efb1fcc0911e4922": {
+      "path": "src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01086.java",
+      "sha256": "b36671b61e68e5685e3b3f16c7b7c96e0956649a835acc0b4847fa4445b3a282",
+      "line": 44,
+      "column": 21,
+      "owner": "javax.servlet.http.HttpServletRequest",
+      "signature": "getHeader(java.lang.String)",
+      "context": {
+        "call": [
+          {
+            "line": 34,
+            "code": "throws ServletException, IOException {"
+          },
+          {
+            "line": 35,
+            "code": "doPost(request, response);"
+          },
+          {
+            "line": 36,
+            "code": "}"
+          },
+          {
+            "line": 38,
+            "code": "@Override"
+          },
+          {
+            "line": 39,
+            "code": "public void doPost(HttpServletRequest request, HttpServletResponse response)"
+          },
+          {
+            "line": 40,
+            "code": "throws ServletException, IOException {"
+          },
+          {
+            "line": 41,
+            "code": "response.setContentType(\"text/html;charset=UTF-8\");"
+          },
+          {
+            "line": 43,
+            "code": "String param = \"\";"
+          },
+          {
+            "line": 44,
+            "code": "if (request.getHeader(\"BenchmarkTest01086\") != null) {"
+          },
+          {
+            "line": 45,
+            "code": "param = request.getHeader(\"BenchmarkTest01086\");"
+          },
+          {
+            "line": 46,
+            "code": "}"
+          }
+        ],
+        "definition": []
+      }
+    },
+    "c6cd002a661330e9": {
+      "path": "src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01086.java",
+      "sha256": "b36671b61e68e5685e3b3f16c7b7c96e0956649a835acc0b4847fa4445b3a282",
+      "line": 45,
+      "column": 29,
+      "owner": "javax.servlet.http.HttpServletRequest",
+      "signature": "getHeader(java.lang.String)",
+      "context": {
+        "call": [
+          {
+            "line": 35,
+            "code": "doPost(request, response);"
+          },
+          {
+            "line": 36,
+            "code": "}"
+          },
+          {
+            "line": 38,
+            "code": "@Override"
+          },
+          {
+            "line": 39,
+            "code": "public void doPost(HttpServletRequest request, HttpServletResponse response)"
+          },
+          {
+            "line": 40,
+            "code": "throws ServletException, IOException {"
+          },
+          {
+            "line": 41,
+            "code": "response.setContentType(\"text/html;charset=UTF-8\");"
+          },
+          {
+            "line": 43,
+            "code": "String param = \"\";"
+          },
+          {
+            "line": 44,
+            "code": "if (request.getHeader(\"BenchmarkTest01086\") != null) {"
+          },
+          {
+            "line": 45,
+            "code": "param = request.getHeader(\"BenchmarkTest01086\");"
+          },
+          {
+            "line": 46,
+            "code": "}"
+          }
+        ],
+        "definition": []
+      }
+    },
+    "be6d4038a18cd5a8": {
+      "path": "src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01086.java",
+      "sha256": "b36671b61e68e5685e3b3f16c7b7c96e0956649a835acc0b4847fa4445b3a282",
+      "line": 49,
+      "column": 37,
+      "owner": "java.net.URLDecoder",
+      "signature": "decode(java.lang.String,java.lang.String)",
+      "context": {
+        "call": [
+          {
+            "line": 39,
+            "code": "public void doPost(HttpServletRequest request, HttpServletResponse response)"
+          },
+          {
+            "line": 40,
+            "code": "throws ServletException, IOException {"
+          },
+          {
+            "line": 41,
+            "code": "response.setContentType(\"text/html;charset=UTF-8\");"
+          },
+          {
+            "line": 43,
+            "code": "String param = \"\";"
+          },
+          {
+            "line": 44,
+            "code": "if (request.getHeader(\"BenchmarkTest01086\") != null) {"
+          },
+          {
+            "line": 45,
+            "code": "param = request.getHeader(\"BenchmarkTest01086\");"
+          },
+          {
+            "line": 46,
+            "code": "}"
+          },
+          {
+            "line": 49,
+            "code": "param = java.net.URLDecoder.decode(param, \"UTF-8\");"
+          },
+          {
+            "line": 51,
+            "code": "String bar = new Test().doSomething(request, param);"
+          }
+        ],
+        "definition": []
+      }
+    },
+    "175fa023a114335e": {
+      "path": "src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01086.java",
+      "sha256": "b36671b61e68e5685e3b3f16c7b7c96e0956649a835acc0b4847fa4445b3a282",
+      "line": 51,
+      "column": 33,
+      "owner": "org.owasp.benchmark.testcode.BenchmarkTest01086.Test",
+      "signature": "doSomething(javax.servlet.http.HttpServletRequest,java.lang.String)",
+      "definition": {
+        "path": "src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01086.java",
+        "sha256": "b36671b61e68e5685e3b3f16c7b7c96e0956649a835acc0b4847fa4445b3a282",
+        "line": 73,
+        "end_line": 84
+      },
+      "context": {
+        "call": [
+          {
+            "line": 41,
+            "code": "response.setContentType(\"text/html;charset=UTF-8\");"
+          },
+          {
+            "line": 43,
+            "code": "String param = \"\";"
+          },
+          {
+            "line": 44,
+            "code": "if (request.getHeader(\"BenchmarkTest01086\") != null) {"
+          },
+          {
+            "line": 45,
+            "code": "param = request.getHeader(\"BenchmarkTest01086\");"
+          },
+          {
+            "line": 46,
+            "code": "}"
+          },
+          {
+            "line": 49,
+            "code": "param = java.net.URLDecoder.decode(param, \"UTF-8\");"
+          },
+          {
+            "line": 51,
+            "code": "String bar = new Test().doSomething(request, param);"
+          },
+          {
+            "line": 53,
+            "code": "try {"
+          }
+        ],
+        "definition": [
+          {
+            "line": 73,
+            "code": "public String doSomething(HttpServletRequest request, String param)"
+          },
+          {
+            "line": 74,
+            "code": "throws ServletException, IOException {"
+          },
+          {
+            "line": 76,
+            "code": "String bar;"
+          },
+          {
+            "line": 79,
+            "code": "int num = 106;"
+          },
+          {
+            "line": 81,
+            "code": "bar = (7 * 18) + num > 200 ? \"This_should_always_happen\" : param;"
+          },
+          {
+            "line": 83,
+            "code": "return bar;"
+          },
+          {
+            "line": 84,
+            "code": "}"
+          }
+        ]
+      }
+    },
+    "27e5c9b2634a826f": {
+      "path": "src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01725.java",
+      "sha256": "ce1447af5b6fff502e81ffcb8b91e7d3daea7e8fc2b93b1db7db818d257b60da",
+      "line": 43,
+      "column": 38,
+      "owner": "javax.servlet.http.HttpServletRequest",
+      "signature": "getQueryString()",
+      "context": {
+        "call": [
+          {
+            "line": 33,
+            "code": "public void doGet(HttpServletRequest request, HttpServletResponse response)"
+          },
+          {
+            "line": 34,
+            "code": "throws ServletException, IOException {"
+          },
+          {
+            "line": 35,
+            "code": "doPost(request, response);"
+          },
+          {
+            "line": 36,
+            "code": "}"
+          },
+          {
+            "line": 38,
+            "code": "@Override"
+          },
+          {
+            "line": 39,
+            "code": "public void doPost(HttpServletRequest request, HttpServletResponse response)"
+          },
+          {
+            "line": 40,
+            "code": "throws ServletException, IOException {"
+          },
+          {
+            "line": 41,
+            "code": "response.setContentType(\"text/html;charset=UTF-8\");"
+          },
+          {
+            "line": 43,
+            "code": "String queryString = request.getQueryString();"
+          },
+          {
+            "line": 44,
+            "code": "String paramval = \"BenchmarkTest01725\" + \"=\";"
+          },
+          {
+            "line": 45,
+            "code": "int paramLoc = -1;"
+          }
+        ],
+        "definition": []
+      }
+    },
+    "ed84de16cb968576": {
+      "path": "src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01725.java",
+      "sha256": "ce1447af5b6fff502e81ffcb8b91e7d3daea7e8fc2b93b1db7db818d257b60da",
+      "line": 57,
+      "column": 29,
+      "owner": "java.lang.String",
+      "signature": "substring(int)",
+      "context": {
+        "call": [
+          {
+            "line": 47,
+            "code": "if (paramLoc == -1) {"
+          },
+          {
+            "line": 48,
+            "code": "response.getWriter()"
+          },
+          {
+            "line": 49,
+            "code": ".println("
+          },
+          {
+            "line": 50,
+            "code": "\"getQueryString() couldn't find expected parameter '\""
+          },
+          {
+            "line": 51,
+            "code": "+ \"BenchmarkTest01725\""
+          },
+          {
+            "line": 52,
+            "code": "+ \"' in query string.\");"
+          },
+          {
+            "line": 53,
+            "code": "return;"
+          },
+          {
+            "line": 54,
+            "code": "}"
+          },
+          {
+            "line": 56,
+            "code": "String param ="
+          },
+          {
+            "line": 57,
+            "code": "queryString.substring("
+          },
+          {
+            "line": 58,
+            "code": "paramLoc"
+          },
+          {
+            "line": 59,
+            "code": "+ paramval"
+          }
+        ],
+        "definition": []
+      }
+    },
+    "53f5677528f0ffa5": {
+      "path": "src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01725.java",
+      "sha256": "ce1447af5b6fff502e81ffcb8b91e7d3daea7e8fc2b93b1db7db818d257b60da",
+      "line": 66,
+      "column": 33,
+      "owner": "java.lang.String",
+      "signature": "substring(int,int)",
+      "context": {
+        "call": [
+          {
+            "line": 56,
+            "code": "String param ="
+          },
+          {
+            "line": 57,
+            "code": "queryString.substring("
+          },
+          {
+            "line": 58,
+            "code": "paramLoc"
+          },
+          {
+            "line": 59,
+            "code": "+ paramval"
+          },
+          {
+            "line": 60,
+            "code": ".length());"
+          },
+          {
+            "line": 64,
+            "code": "int ampersandLoc = queryString.indexOf(\"&\", paramLoc);"
+          },
+          {
+            "line": 65,
+            "code": "if (ampersandLoc != -1) {"
+          },
+          {
+            "line": 66,
+            "code": "param = queryString.substring(paramLoc + paramval.length(), ampersandLoc);"
+          },
+          {
+            "line": 67,
+            "code": "}"
+          },
+          {
+            "line": 68,
+            "code": "param = java.net.URLDecoder.decode(param, \"UTF-8\");"
+          }
+        ],
+        "definition": []
+      }
+    },
+    "2b370b0222f52a68": {
+      "path": "src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01725.java",
+      "sha256": "ce1447af5b6fff502e81ffcb8b91e7d3daea7e8fc2b93b1db7db818d257b60da",
+      "line": 68,
+      "column": 37,
+      "owner": "java.net.URLDecoder",
+      "signature": "decode(java.lang.String,java.lang.String)",
+      "context": {
+        "call": [
+          {
+            "line": 58,
+            "code": "paramLoc"
+          },
+          {
+            "line": 59,
+            "code": "+ paramval"
+          },
+          {
+            "line": 60,
+            "code": ".length());"
+          },
+          {
+            "line": 64,
+            "code": "int ampersandLoc = queryString.indexOf(\"&\", paramLoc);"
+          },
+          {
+            "line": 65,
+            "code": "if (ampersandLoc != -1) {"
+          },
+          {
+            "line": 66,
+            "code": "param = queryString.substring(paramLoc + paramval.length(), ampersandLoc);"
+          },
+          {
+            "line": 67,
+            "code": "}"
+          },
+          {
+            "line": 68,
+            "code": "param = java.net.URLDecoder.decode(param, \"UTF-8\");"
+          },
+          {
+            "line": 70,
+            "code": "String bar = new Test().doSomething(request, param);"
+          }
+        ],
+        "definition": []
+      }
+    },
+    "b605c4f73a2c5a95": {
+      "path": "src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01725.java",
+      "sha256": "ce1447af5b6fff502e81ffcb8b91e7d3daea7e8fc2b93b1db7db818d257b60da",
+      "line": 70,
+      "column": 33,
+      "owner": "org.owasp.benchmark.testcode.BenchmarkTest01725.Test",
+      "signature": "doSomething(javax.servlet.http.HttpServletRequest,java.lang.String)",
+      "definition": {
+        "path": "src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01725.java",
+        "sha256": "ce1447af5b6fff502e81ffcb8b91e7d3daea7e8fc2b93b1db7db818d257b60da",
+        "line": 96,
+        "end_line": 104
+      },
+      "context": {
+        "call": [
+          {
+            "line": 60,
+            "code": ".length());"
+          },
+          {
+            "line": 64,
+            "code": "int ampersandLoc = queryString.indexOf(\"&\", paramLoc);"
+          },
+          {
+            "line": 65,
+            "code": "if (ampersandLoc != -1) {"
+          },
+          {
+            "line": 66,
+            "code": "param = queryString.substring(paramLoc + paramval.length(), ampersandLoc);"
+          },
+          {
+            "line": 67,
+            "code": "}"
+          },
+          {
+            "line": 68,
+            "code": "param = java.net.URLDecoder.decode(param, \"UTF-8\");"
+          },
+          {
+            "line": 70,
+            "code": "String bar = new Test().doSomething(request, param);"
+          },
+          {
+            "line": 72,
+            "code": "String sql ="
+          }
+        ],
+        "definition": [
+          {
+            "line": 96,
+            "code": "public String doSomething(HttpServletRequest request, String param)"
+          },
+          {
+            "line": 97,
+            "code": "throws ServletException, IOException {"
+          },
+          {
+            "line": 99,
+            "code": "org.owasp.benchmark.helpers.ThingInterface thing ="
+          },
+          {
+            "line": 100,
+            "code": "org.owasp.benchmark.helpers.ThingFactory.createThing();"
+          },
+          {
+            "line": 101,
+            "code": "String bar = thing.doSomething(param);"
+          },
+          {
+            "line": 103,
+            "code": "return bar;"
+          },
+          {
+            "line": 104,
+            "code": "}"
+          }
+        ]
+      }
+    },
+    "427faf8c52a83cfc": {
+      "path": "src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02362.java",
+      "sha256": "4894cfa5f88ba2af5d81c1a6816fee1b436a62ed27cae2b3697521ef8ff12938",
+      "line": 47,
+      "column": 42,
+      "owner": "java.util.Enumeration",
+      "signature": "nextElement()",
+      "context": {
+        "call": [
+          {
+            "line": 38,
+            "code": "@Override"
+          },
+          {
+            "line": 39,
+            "code": "public void doPost(HttpServletRequest request, HttpServletResponse response)"
+          },
+          {
+            "line": 40,
+            "code": "throws ServletException, IOException {"
+          },
+          {
+            "line": 41,
+            "code": "response.setContentType(\"text/html;charset=UTF-8\");"
+          },
+          {
+            "line": 43,
+            "code": "String param = \"\";"
+          },
+          {
+            "line": 44,
+            "code": "boolean flag = true;"
+          },
+          {
+            "line": 45,
+            "code": "java.util.Enumeration<String> names = request.getParameterNames();"
+          },
+          {
+            "line": 46,
+            "code": "while (names.hasMoreElements() && flag) {"
+          },
+          {
+            "line": 47,
+            "code": "String name = (String) names.nextElement();"
+          },
+          {
+            "line": 48,
+            "code": "String[] values = request.getParameterValues(name);"
+          },
+          {
+            "line": 49,
+            "code": "if (values != null) {"
+          }
+        ],
+        "definition": []
+      }
+    },
+    "e0c046d0a2a35659": {
+      "path": "src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02362.java",
+      "sha256": "4894cfa5f88ba2af5d81c1a6816fee1b436a62ed27cae2b3697521ef8ff12938",
+      "line": 60,
+      "column": 22,
+      "owner": "org.owasp.benchmark.testcode.BenchmarkTest02362",
+      "signature": "doSomething(javax.servlet.http.HttpServletRequest,java.lang.String)",
+      "definition": {
+        "path": "src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02362.java",
+        "sha256": "4894cfa5f88ba2af5d81c1a6816fee1b436a62ed27cae2b3697521ef8ff12938",
+        "line": 90,
+        "end_line": 101
+      },
+      "context": {
+        "call": [
+          {
+            "line": 50,
+            "code": "for (int i = 0; i < values.length && flag; i++) {"
+          },
+          {
+            "line": 51,
+            "code": "String value = values[i];"
+          },
+          {
+            "line": 52,
+            "code": "if (value.equals(\"BenchmarkTest02362\")) {"
+          },
+          {
+            "line": 53,
+            "code": "param = name;"
+          },
+          {
+            "line": 54,
+            "code": "flag = false;"
+          },
+          {
+            "line": 55,
+            "code": "}"
+          },
+          {
+            "line": 56,
+            "code": "}"
+          },
+          {
+            "line": 57,
+            "code": "}"
+          },
+          {
+            "line": 58,
+            "code": "}"
+          },
+          {
+            "line": 60,
+            "code": "String bar = doSomething(request, param);"
+          },
+          {
+            "line": 62,
+            "code": "String sql = \"SELECT  * from USERS where USERNAME='foo' and PASSWORD='\" + bar + \"'\";"
+          }
+        ],
+        "definition": [
+          {
+            "line": 90,
+            "code": "private static String doSomething(HttpServletRequest request, String param)"
+          },
+          {
+            "line": 91,
+            "code": "throws ServletException, IOException {"
+          },
+          {
+            "line": 93,
+            "code": "String bar;"
+          },
+          {
+            "line": 96,
+            "code": "int num = 106;"
+          },
+          {
+            "line": 98,
+            "code": "bar = (7 * 42) - num > 200 ? \"This should never happen\" : param;"
+          },
+          {
+            "line": 100,
+            "code": "return bar;"
+          },
+          {
+            "line": 101,
+            "code": "}"
+          }
+        ]
+      }
+    }
+  },
+  "by_alert": {
+    "89d39a42-5072-4012-b4ee-bee89efe3bb1": {
+      "110b44bb6648eff6": {
+        "file_id": "F0",
+        "line": 44,
+        "column": 21,
+        "owner": "javax.servlet.http.HttpServletRequest",
+        "signature": "getHeader(java.lang.String)",
+        "fixed_dispatch": false
+      },
+      "61f3c8d676abe4c6": {
+        "file_id": "F0",
+        "line": 45,
+        "column": 29,
+        "owner": "javax.servlet.http.HttpServletRequest",
+        "signature": "getHeader(java.lang.String)",
+        "fixed_dispatch": false
+      },
+      "a94dcb6e3dde030c": {
+        "file_id": "F0",
+        "line": 49,
+        "column": 37,
+        "owner": "java.net.URLDecoder",
+        "signature": "decode(java.lang.String,java.lang.String)",
+        "fixed_dispatch": true
+      }
+    },
+    "b0c1f1f6-8a01-4ec4-b7df-a0d392318441": {
+      "e27b78383e6fba48": {
+        "file_id": "F0",
+        "line": 43,
+        "column": 32,
+        "owner": "javax.servlet.ServletRequest",
+        "signature": "getParameter(java.lang.String)",
+        "fixed_dispatch": false
+      }
+    },
+    "5907927a-c5c1-4d37-9c5e-3b84fc549c99": {
+      "a27e3accd80d9c0a": {
+        "file_id": "F0",
+        "line": 43,
+        "column": 32,
+        "owner": "javax.servlet.ServletRequest",
+        "signature": "getParameter(java.lang.String)",
+        "fixed_dispatch": false
+      },
+      "0fdf38f83a9e0f85": {
+        "file_id": "F0",
+        "line": 53,
+        "column": 24,
+        "owner": "java.util.List",
+        "signature": "remove(int)",
+        "fixed_dispatch": false
+      },
+      "2e0eba749ea2a9da": {
+        "file_id": "F0",
+        "line": 55,
+        "column": 30,
+        "owner": "java.util.List",
+        "signature": "get(int)",
+        "fixed_dispatch": false
+      }
+    },
+    "8709eeb4-ade3-4d4f-808c-5c89455ef7a5": {},
+    "395d2fa4-c4a3-468b-b72e-1a54df0f2eff": {
+      "df3425a81b829e38": {
+        "file_id": "F0",
+        "line": 47,
+        "column": 42,
+        "owner": "java.util.Enumeration",
+        "signature": "nextElement()",
+        "fixed_dispatch": false
+      }
+    },
+    "7b722367-6ec2-47b1-b8aa-537245ecaa8a": {
+      "f56615fbe10bcb44": {
+        "file_id": "F0",
+        "line": 43,
+        "column": 38,
+        "owner": "javax.servlet.http.HttpServletRequest",
+        "signature": "getQueryString()",
+        "fixed_dispatch": false
+      },
+      "5b92d39a62f3ce7e": {
+        "file_id": "F0",
+        "line": 57,
+        "column": 29,
+        "owner": "java.lang.String",
+        "signature": "substring(int)",
+        "fixed_dispatch": true
+      },
+      "d076a2f5caa6c4a1": {
+        "file_id": "F0",
+        "line": 66,
+        "column": 33,
+        "owner": "java.lang.String",
+        "signature": "substring(int,int)",
+        "fixed_dispatch": true
+      },
+      "8a414c6c170c8bd7": {
+        "file_id": "F0",
+        "line": 68,
+        "column": 37,
+        "owner": "java.net.URLDecoder",
+        "signature": "decode(java.lang.String,java.lang.String)",
+        "fixed_dispatch": true
+      },
+      "868fef72df793000": {
+        "file_id": "F0",
+        "line": 77,
+        "column": 24,
+        "owner": "java.util.List",
+        "signature": "remove(int)",
+        "fixed_dispatch": false
+      },
+      "ac66414f94e756fa": {
+        "file_id": "F0",
+        "line": 79,
+        "column": 30,
+        "owner": "java.util.List",
+        "signature": "get(int)",
+        "fixed_dispatch": false
+      }
+    },
+    "bb08990d-8d4d-4854-aec2-e93221c1aacb": {
+      "367c72f4772561ad": {
+        "file_id": "F0",
+        "line": 45,
+        "column": 28,
+        "owner": "org.owasp.benchmark.helpers.SeparateClassRequest",
+        "signature": "getTheValue(java.lang.String)",
+        "fixed_dispatch": true,
+        "definition": {
+          "file_id": "F1",
+          "line": 52,
+          "end_line": 54
+        }
+      }
+    },
+    "f8ee910d-26bb-4a08-9c9c-9d7620b408f5": {
+      "fca50665afe034d5": {
+        "file_id": "F0",
+        "line": 44,
+        "column": 21,
+        "owner": "javax.servlet.http.HttpServletRequest",
+        "signature": "getHeader(java.lang.String)",
+        "fixed_dispatch": false
+      },
+      "b8a9eff22a3933e1": {
+        "file_id": "F0",
+        "line": 45,
+        "column": 29,
+        "owner": "javax.servlet.http.HttpServletRequest",
+        "signature": "getHeader(java.lang.String)",
+        "fixed_dispatch": false
+      },
+      "3336dd4dd9d7f5c9": {
+        "file_id": "F0",
+        "line": 49,
+        "column": 37,
+        "owner": "java.net.URLDecoder",
+        "signature": "decode(java.lang.String,java.lang.String)",
+        "fixed_dispatch": true
+      },
+      "e9b908167a1f80a5": {
+        "file_id": "F0",
+        "line": 51,
+        "column": 33,
+        "owner": "org.owasp.benchmark.testcode.BenchmarkTest01085.Test",
+        "signature": "doSomething(javax.servlet.http.HttpServletRequest,java.lang.String)",
+        "fixed_dispatch": true,
+        "definition": {
+          "file_id": "F0",
+          "line": 73,
+          "end_line": 89
+        }
+      }
+    },
+    "5d50d4d7-1b4c-4102-8fd8-26a08a44163f": {
+      "efb1fcc0911e4922": {
+        "file_id": "F0",
+        "line": 44,
+        "column": 21,
+        "owner": "javax.servlet.http.HttpServletRequest",
+        "signature": "getHeader(java.lang.String)",
+        "fixed_dispatch": false
+      },
+      "c6cd002a661330e9": {
+        "file_id": "F0",
+        "line": 45,
+        "column": 29,
+        "owner": "javax.servlet.http.HttpServletRequest",
+        "signature": "getHeader(java.lang.String)",
+        "fixed_dispatch": false
+      },
+      "be6d4038a18cd5a8": {
+        "file_id": "F0",
+        "line": 49,
+        "column": 37,
+        "owner": "java.net.URLDecoder",
+        "signature": "decode(java.lang.String,java.lang.String)",
+        "fixed_dispatch": true
+      },
+      "175fa023a114335e": {
+        "file_id": "F0",
+        "line": 51,
+        "column": 33,
+        "owner": "org.owasp.benchmark.testcode.BenchmarkTest01086.Test",
+        "signature": "doSomething(javax.servlet.http.HttpServletRequest,java.lang.String)",
+        "fixed_dispatch": true,
+        "definition": {
+          "file_id": "F0",
+          "line": 73,
+          "end_line": 84
+        }
+      }
+    },
+    "bd6d044c-0a69-4cae-a101-364368511867": {
+      "27e5c9b2634a826f": {
+        "file_id": "F0",
+        "line": 43,
+        "column": 38,
+        "owner": "javax.servlet.http.HttpServletRequest",
+        "signature": "getQueryString()",
+        "fixed_dispatch": false
+      },
+      "ed84de16cb968576": {
+        "file_id": "F0",
+        "line": 57,
+        "column": 29,
+        "owner": "java.lang.String",
+        "signature": "substring(int)",
+        "fixed_dispatch": true
+      },
+      "53f5677528f0ffa5": {
+        "file_id": "F0",
+        "line": 66,
+        "column": 33,
+        "owner": "java.lang.String",
+        "signature": "substring(int,int)",
+        "fixed_dispatch": true
+      },
+      "2b370b0222f52a68": {
+        "file_id": "F0",
+        "line": 68,
+        "column": 37,
+        "owner": "java.net.URLDecoder",
+        "signature": "decode(java.lang.String,java.lang.String)",
+        "fixed_dispatch": true
+      },
+      "b605c4f73a2c5a95": {
+        "file_id": "F0",
+        "line": 70,
+        "column": 33,
+        "owner": "org.owasp.benchmark.testcode.BenchmarkTest01725.Test",
+        "signature": "doSomething(javax.servlet.http.HttpServletRequest,java.lang.String)",
+        "fixed_dispatch": true,
+        "definition": {
+          "file_id": "F0",
+          "line": 96,
+          "end_line": 104
+        }
+      }
+    },
+    "597d0708-60f2-48d3-9e5a-d513bbf84681": {
+      "427faf8c52a83cfc": {
+        "file_id": "F0",
+        "line": 47,
+        "column": 42,
+        "owner": "java.util.Enumeration",
+        "signature": "nextElement()",
+        "fixed_dispatch": false
+      },
+      "e0c046d0a2a35659": {
+        "file_id": "F0",
+        "line": 60,
+        "column": 22,
+        "owner": "org.owasp.benchmark.testcode.BenchmarkTest02362",
+        "signature": "doSomething(javax.servlet.http.HttpServletRequest,java.lang.String)",
+        "fixed_dispatch": true,
+        "definition": {
+          "file_id": "F0",
+          "line": 90,
+          "end_line": 101
+        }
+      }
+    }
+  },
+  "controls": []
+}

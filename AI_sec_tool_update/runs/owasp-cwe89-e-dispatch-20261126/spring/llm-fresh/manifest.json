@@ -1,0 +1,45 @@
+{
+  "model": "qwen2.5-coder:14b-instruct-q4_K_M",
+  "prompt_sha256": "26e84205a559fb429adba9c87a3a28fdf6a4c6135f4d301f784acee12637a442",
+  "schema_sha256": "2fb9849c6f59240d72ac291beed80f95a0385c5fcfa56376fa905a3efdecc725",
+  "options": {
+    "temperature": 0,
+    "seed": 42,
+    "num_ctx": 8192,
+    "num_predict": 1024
+  },
+  "request_version": 3,
+  "validation_version": 2,
+  "prompt_profile": "iris-contextual",
+  "warning_citation_binding": "sonarqube_alert_start_line",
+  "cases": [
+    {
+      "issue_id": "395d2fa4-c4a3-468b-b72e-1a54df0f2eff",
+      "alert": {
+        "issue_id": "395d2fa4-c4a3-468b-b72e-1a54df0f2eff",
+        "component": "thesis_owasp_cwe89_e_spring_20261125_v1:src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00597.java",
+        "rule": "findsecbugs:SQL_INJECTION_SPRING_JDBC",
+        "cwe": "CWE-89",
+        "start_line": 68,
+        "end_line": 68
+      },
+      "source": "33b3c251425db4433260f56a689eeb369e8868e2493e01e7d5ee23c925a2cf9b",
+      "request_sha256": "5e99c249a23b9cb46c87f5998e942b6332cc7c6ec6a6835636ff72f5dccbb96e"
+    },
+    {
+      "issue_id": "bd6d044c-0a69-4cae-a101-364368511867",
+      "alert": {
+        "issue_id": "bd6d044c-0a69-4cae-a101-364368511867",
+        "component": "thesis_owasp_cwe89_e_spring_20261125_v1:src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01725.java",
+        "rule": "findsecbugs:SQL_INJECTION_SPRING_JDBC",
+        "cwe": "CWE-89",
+        "start_line": 76,
+        "end_line": 76
+      },
+      "source": "ce1447af5b6fff502e81ffcb8b91e7d3daea7e8fc2b93b1db7db818d257b60da",
+      "request_sha256": "34f56a71cd4125e818146f3c495226737c3b1cff2ad879e2a6ce2db4fd2cabb3"
+    }
+  ],
+  "model_digest": "9ec8897f747e246e970bc5cfdda85d22f1123dc2e3d34978a010a75968716849",
+  "mode": "ollama"
+}

@@ -8,8 +8,13 @@ from .joern_sql import run_joern_script
 from .sql_evidence_selection import CONTEXT_RADIUS, MAX_PATHS, select_steps
 from ..run_io import save_json
 
-VERSION = "sql-anchored-paths-v1"
+VERSION = "sql-anchored-paths-v2"
 PATH_LIMIT = 12
+
+
+def java_method_name(signature):
+    """Translate javac signatures such as <T>query(...) to their Joern call name."""
+    return signature.partition("(")[0].rsplit(">", 1)[-1]
 
 
 def endpoints(specifications):
@@ -22,12 +27,12 @@ def endpoints(specifications):
             read = source["return_evidence"]
         else:
             continue
-        name = read["signature"].partition("(")[0]
+        name = java_method_name(read["signature"])
         sources[read["file_id"], read["line"], name] = {
             **read, "name": name,
         }
     for source in specifications.get("source_proposals", []):
-        name = source["signature"].partition("(")[0]
+        name = java_method_name(source["signature"])
         sources.setdefault((source["file_id"], source["line"], name), {**source, "name": name})
     sinks = specifications["sinks"]
     sink = sinks[0] if specifications["sink_resolution"] == "one_verified_signature" and len(sinks) == 1 else None
@@ -41,7 +46,7 @@ def query(files, sources, sink):
         return f"({json.dumps(files[file_id]['path'])}, {line}, {json.dumps(name)})"
 
     origins = ", ".join(tuple_for(s["file_id"], s["line"], s["name"]) for s in sources)
-    target = tuple_for(sink["file_id"], sink["line"], sink["signature"].partition("(")[0])
+    target = tuple_for(sink["file_id"], sink["line"], java_method_name(sink["signature"]))
     return path_script('importCode("/project")', f"  trace(List({origins}), {target})")
 
 
@@ -163,7 +168,7 @@ def select_paths(stdout, files, sources, sink):
             raise ValueError("Đường Joern lệch vị trí nguồn đã đối chiếu.")
         # The final node is the queried argument. Its CPG position can be synthetic,
         # so display its source position from the verified Java signature instead.
-        argument = {**sink["argument"], "name": sink["signature"].partition("(")[0]}
+        argument = {**sink["argument"], "name": java_method_name(sink["signature"])}
         last = path[-1]
         if len(path) > 1 and last and last["file_id"] == argument["file_id"]:
             argument.update({key: last[key] for key in ("method", "method_start", "method_end")})

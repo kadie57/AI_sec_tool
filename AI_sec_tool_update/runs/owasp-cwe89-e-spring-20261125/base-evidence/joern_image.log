@@ -1,0 +1,73 @@
+[
+    {
+        "Id": "sha256:f47692f8334d2eeca9fc83395023773da566ce8397563ff7c66d34a23bfc75c4",
+        "RepoTags": [
+            "ghcr.io/joernio/joern:nightly"
+        ],
+        "RepoDigests": [
+            "ghcr.io/joernio/joern@sha256:f47692f8334d2eeca9fc83395023773da566ce8397563ff7c66d34a23bfc75c4"
+        ],
+        "Comment": "buildkit.dockerfile.v0",
+        "Created": "2026-07-03T09:00:21.650669309Z",
+        "Config": {
+            "Env": [
+                "PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/opt/joern/joern-cli:/opt/joern/joern-cli/bin:/bin:/usr/local/go/bin:/usr/local/bin:/root/.local/bin:/bin:",
+                "JOERN_HOME=/opt/joern/joern-cli",
+                "LC_ALL=en_US.UTF-8",
+                "LANG=en_US.UTF-8",
+                "LANGUAGE=en_US.UTF-8",
+                "JAVA_HOME=/etc/alternatives/jre_17",
+                "JAVA_17_HOME=/etc/alternatives/jre_17",
+                "JOERN_DATAFLOW_TRACKED_WIDTH=128",
+                "CLASSPATH=:/usr/local/bin:"
+            ],
+            "Cmd": [
+                "joern"
+            ],
+            "WorkingDir": "/app",
+            "Labels": {
+                "maintainer": "joern",
+                "org.opencontainers.docker.cmd": "docker run --rm -it -v /tmp:/tmp -v $(pwd):/app:rw -w /app -t ghcr.io/joernio/joern joern",
+                "org.opencontainers.image.authors": "Team Joern",
+                "org.opencontainers.image.created": "2026-07-03T08:59:00.242Z",
+                "org.opencontainers.image.description": "Open-source code analysis platform for C/C++/Java/Binary/Javascript/Python/Kotlin based on code property graphs. Discord https://discord.gg/vv4MH284Hc",
+                "org.opencontainers.image.licenses": "Apache-2.0",
+                "org.opencontainers.image.revision": "c377f545b266706962244a64a975cfe94f753743",
+                "org.opencontainers.image.source": "https://github.com/joernio/joern",
+                "org.opencontainers.image.title": "joern",
+                "org.opencontainers.image.url": "https://github.com/joernio/joern",
+                "org.opencontainers.image.vendor": "Joern",
+                "org.opencontainers.image.version": "nightly"
+            },
+            "ArgsEscaped": true
+        },
+        "Architecture": "amd64",
+        "Os": "linux",
+        "Size": 2645882511,
+        "RootFS": {
+            "Type": "layers",
+            "Layers": [
+                "sha256:24ea674ede2f1b3c4335b7a9945e6b2c7510ab3fc88876dee9e609f412d0536c",
+                "sha256:996555fdc3b7e54680affbabe98a80a158fb4718f29e7f9188c21849421b96bd",
+                "sha256:b1f86703888a09c7c1e8ae2ed1e24dc6f46e39d3cb4c6d6e124ddbd0f269c036"
+            ]
+        },
+        "Metadata": {
+            "LastTagTime": "2026-07-03T16:20:26.27340185Z"
+        },
+        "Descriptor": {
+            "mediaType": "application/vnd.oci.image.index.v1+json",
+            "digest": "sha256:f47692f8334d2eeca9fc83395023773da566ce8397563ff7c66d34a23bfc75c4",
+            "size": 1607
+        },
+        "Identity": {
+            "Pull": [
+                {
+                    "Repository": "ghcr.io/joernio/joern"
+                }
+            ]
+        }
+    }
+]
+
+[STDERR]

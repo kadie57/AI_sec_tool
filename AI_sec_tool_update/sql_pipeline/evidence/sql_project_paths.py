@@ -8,11 +8,11 @@ from pathlib import Path
 from .joern_sql import run_joern_script
 from .source_text import mask_java
 from .sql_endpoint_specifications import PROBE, java_dependencies
-from .sql_source_paths import path_script
+from .sql_source_paths import java_method_name, path_script
 from ..run_io import run_command
 
 
-VERSION = "sql-project-paths-v1"
+VERSION = "sql-project-paths-v2"
 SCOPE = "verified_java_snapshot"
 
 
@@ -83,7 +83,7 @@ def read_servlet_sites(files, project, jars, output):
             if not 1 <= line <= len(code) or not code[line - 1].strip():
                 raise ValueError("Servlet API has no coordinate in the verified snapshot")
             sources[name, line, column] = {"path": name, "line": line, "column": column, "owner": owner,
-                                          "signature": signature, "name": signature.partition("(")[0]}
+                                          "signature": signature, "name": java_method_name(signature)}
         else:
             raise ValueError("Unexpected Java project probe output")
     if errors is None:
@@ -126,7 +126,7 @@ def trace_files(stdout, snapshot):
 def write_batch(artifact, tasks, jars):
     def rows():
         for index, files, sources, sink in tasks:
-            yield ("sink", index, files[sink["file_id"]]["path"], sink["line"], sink["signature"].partition("(")[0])
+            yield ("sink", index, files[sink["file_id"]]["path"], sink["line"], java_method_name(sink["signature"]))
             for source in sources:
                 yield ("source", index, files[source["file_id"]]["path"], source["line"], source["name"])
 

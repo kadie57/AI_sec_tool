@@ -1,0 +1,27 @@
+STATUS	0
+Q	F0	56	69	org.springframework.jdbc.core.JdbcTemplate	execute(java.lang.String)	56
+V	56	69	fixed_sql_alternatives	bounded_java_evaluation
+E	56	69	F0	54	constant_expression
+E	56	69	F0	81	constant_expression
+E	56	69	F0	78	collection_initialization
+E	56	69	F0	78	local_definition
+E	56	69	F0	79	collection_append
+E	56	69	F0	80	collection_append
+E	56	69	F0	81	collection_append
+E	56	69	F0	83	collection_remove
+E	56	69	F0	85	constant_expression
+E	56	69	F0	85	collection_read
+E	56	69	F0	85	local_assignment
+E	56	69	F0	76	constant_expression
+E	56	69	F0	76	local_definition
+E	56	69	F0	77	fixed_values_from_branches
+E	56	69	F0	88	helper_return
+E	56	69	F0	51	helper_call
+E	56	69	F0	51	local_definition
+E	56	69	F0	54	string_concatenation
+E	56	69	F0	54	local_definition
+S	44	21	javax.servlet.http.HttpServletRequest	getHeader(java.lang.String)	true
+S	45	29	javax.servlet.http.HttpServletRequest	getHeader(java.lang.String)	true
+
+[STDERR]
+Picked up JAVA_TOOL_OPTIONS: -XX:-UsePerfData

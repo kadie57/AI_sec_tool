@@ -1,0 +1,19 @@
+STATUS	0
+Q	F0	60	35	java.sql.Statement	executeUpdate(java.lang.String,java.lang.String[])	60
+C	F0	44	21	javax.servlet.http.HttpServletRequest	getHeader(java.lang.String)	false
+C	F0	45	29	javax.servlet.http.HttpServletRequest	getHeader(java.lang.String)	false
+C	F0	49	37	java.net.URLDecoder	decode(java.lang.String,java.lang.String)	true
+V	60	35	unknown	unsupported_or_runtime_value
+E	60	35	F0	55	constant_expression
+E	60	35	F0	53	call_result_not_modeled
+E	60	35	F0	53	local_definition
+E	60	35	F0	55	value_at_reference_unresolved
+E	60	35	F0	55	string_concatenation_with_unresolved_operand
+E	60	35	F0	55	local_definition
+E	60	35	F0	60	value_at_reference_unresolved
+E	60	35	F0	55	sql_argument_variable_declaration
+S	44	21	javax.servlet.http.HttpServletRequest	getHeader(java.lang.String)	true
+S	45	29	javax.servlet.http.HttpServletRequest	getHeader(java.lang.String)	true
+
+[STDERR]
+Picked up JAVA_TOOL_OPTIONS: -XX:-UsePerfData

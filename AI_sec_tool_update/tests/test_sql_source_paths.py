@@ -3,7 +3,7 @@ from tempfile import TemporaryDirectory
 import unittest
 
 from prepare_sql_evidence import export_evidence
-from sql_pipeline.evidence.sql_source_paths import endpoints, select_paths
+from sql_pipeline.evidence.sql_source_paths import endpoints, query, select_paths
 
 
 class SqlSourcePathsTest(unittest.TestCase):
@@ -58,6 +58,13 @@ class SqlSourcePathsTest(unittest.TestCase):
                 result = select_paths(output, self.files, [self.read], self.sink)
                 self.assertEqual(result["status"], status)
                 self.assertEqual(result["paths"], [])
+
+    def test_uses_call_name_for_generic_spring_signature(self):
+        sink = {**self.sink, "signature": "<T>queryForObject(java.lang.String,java.lang.Class<T>)"}
+        source = {**self.read, "name": "getParameter"}
+        script = query(self.files, [source], sink)
+        self.assertIn('("app/Main.java", 2, "queryForObject")', script)
+        self.assertNotIn("<T>queryForObject", script)
 
     def test_live_stage_requires_immutable_image_id_in_recorded_index(self):
         with TemporaryDirectory() as directory:

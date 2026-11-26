@@ -1,0 +1,564 @@
+{
+  "collection": "/home/khanh/AI_sec_tool/AI_sec_tool_update/runs/owasp-cwe89-e-spring-20261125/collection",
+  "collection_manifest_sha256": "6c529a7ed190768ccff5a7146242210c3ce02bcdf97b29bf07c7f5e3f1ba7ee6",
+  "collection_issues_sha256": "1b763a6e901a98e5390f03ee48caaf74d7ab0241e0856f9d67a06876f445dc0a",
+  "analysis_id": "6a71f52b-b5a1-470d-a12d-375e667b31d6",
+  "project": "thesis_owasp_cwe89_e_spring_20261125_v1",
+  "mapping_version": "sql89-v3",
+  "benchmark_commit": "a452b3aafd232245d0753e54eb243d6651f8ef96",
+  "state": "COMPLETED",
+  "issue_count": 11,
+  "joern_mode": "live",
+  "limitations": [
+    "Truy vấn Joern nền phân tích phạm vi một tệp Java.",
+    "Luồng từ tham số là một ứng viên, chưa xác nhận nguồn bên ngoài.",
+    "Không tìm thấy luồng trong truy vấn hiện tại chưa xác nhận mã an toàn.",
+    "Đường liên tệp là ứng viên. Cần bằng chứng riêng cho nhánh và đích gọi lúc chạy."
+  ],
+  "endpoint_specifications": {
+    "version": "sql-endpoint-specifications-v2",
+    "java_classpath": [
+      {
+        "path": "/home/khanh/.m2/repository/javax/javaee-api/8.0.1/javaee-api-8.0.1.jar",
+        "sha256": "8c81515555e9be70f3760af53075dcc4fbbf4ca5f882fb1cb28fa113437d977d"
+      },
+      {
+        "path": "/home/khanh/.m2/repository/com/sun/mail/javax.mail/1.6.2/javax.mail-1.6.2.jar",
+        "sha256": "45b515e7104944c09e45b9c7bb1ce5dff640486374852dd2b2e80cc3752dfa11"
+      },
+      {
+        "path": "/home/khanh/.m2/repository/javax/activation/activation/1.1/activation-1.1.jar",
+        "sha256": "2881c79c9d6ef01c58e62beea13e9d1ac8b8baa16f2fc198ad6e6776defdcdd3"
+      },
+      {
+        "path": "/home/khanh/.m2/repository/javax/xml/bind/jaxb-api/2.3.1/jaxb-api-2.3.1.jar",
+        "sha256": "88b955a0df57880a26a74708bc34f74dcaf8ebf4e78843a28b50eae945732b06"
+      },
+      {
+        "path": "/home/khanh/.m2/repository/javax/activation/javax.activation-api/1.2.0/javax.activation-api-1.2.0.jar",
+        "sha256": "43fdef0b5b6ceb31b0424b208b930c74ab58fac2ceeb7b3f6fd3aeb8b5ca4393"
+      },
+      {
+        "path": "/home/khanh/.m2/repository/com/sun/xml/bind/jaxb-impl/2.3.9/jaxb-impl-2.3.9.jar",
+        "sha256": "3ba42e1fe670bc9d04409f2493f5482dc96cac21caa11adb27b897e57386fef6"
+      },
+      {
+        "path": "/home/khanh/.m2/repository/jakarta/xml/bind/jakarta.xml.bind-api/2.3.3/jakarta.xml.bind-api-2.3.3.jar",
+        "sha256": "c04539f472e9a6dd0c7685ea82d677282269ab8e7baca2e14500e381e0c6cec5"
+      },
+      {
+        "path": "/home/khanh/.m2/repository/com/sun/activation/jakarta.activation/1.2.2/jakarta.activation-1.2.2.jar",
+        "sha256": "02156773e4ae9d048d14a56ad35d644bee9f1052a791d072df3ded3c656e6e1a"
+      },
+      {
+        "path": "/home/khanh/.m2/repository/com/sun/jersey/jersey-servlet/1.19.4/jersey-servlet-1.19.4.jar",
+        "sha256": "08c80d4e83ad8d20dcfbc633235bfa68f8519ceddb8ad2d6d112e95f43288e90"
+      },
+      {
+        "path": "/home/khanh/.m2/repository/com/sun/jersey/jersey-server/1.19.4/jersey-server-1.19.4.jar",
+        "sha256": "afc0f6cd21d4742d312cb511a8fa2a253213285f5425dda005708fd5928504e6"
+      },
+      {
+        "path": "/home/khanh/.m2/repository/com/sun/jersey/jersey-core/1.19.4/jersey-core-1.19.4.jar",
+        "sha256": "64b03198e0264849d0fc341857ebcc9c882b1909a2dc35a0972fe7d901b826e5"
+      },
+      {
+        "path": "/home/khanh/.m2/repository/javax/ws/rs/jsr311-api/1.1.1/jsr311-api-1.1.1.jar",
+        "sha256": "ab1534b73b5fa055808e6598a5e73b599ccda28c3159c3c0908977809422ee4a"
+      },
+      {
+        "path": "/home/khanh/.m2/repository/commons-codec/commons-codec/1.23.0/commons-codec-1.23.0.jar",
+        "sha256": "47504a3ce71d73a1b0af07675546b8d8c5af87f82ef12b6381f9eb3c17dd5a5b"
+      },
+      {
+        "path": "/home/khanh/.m2/repository/commons-dbcp/commons-dbcp/1.4/commons-dbcp-1.4.jar",
+        "sha256": "a6e2d83551d0e5b59aa942359f3010d35e79365e6552ad3dbaa6776e4851e4f6"
+      },
+      {
+        "path": "/home/khanh/.m2/repository/commons-pool/commons-pool/1.5.4/commons-pool-1.5.4.jar",
+        "sha256": "22095672ac3ad6503e42ec6d4cbc330cd1318040223f6c5d9605473b6d2aa0fd"
+      },
+      {
+        "path": "/home/khanh/.m2/repository/commons-io/commons-io/2.22.0/commons-io-2.22.0.jar",
+        "sha256": "2b9a7b1f726fb86216dbd2c8321eabe0221dbd5b1be81c18e1cb53811b104758"
+      },
+      {
+        "path": "/home/khanh/.m2/repository/commons-lang/commons-lang/2.6/commons-lang-2.6.jar",
+        "sha256": "50f11b09f877c294d56f24463f47d28f929cf5044f648661c0f0cfbae9a2f49c"
+      },
+      {
+        "path": "/home/khanh/.m2/repository/org/slf4j/slf4j-reload4j/2.0.20/slf4j-reload4j-2.0.20.jar",
+        "sha256": "194277130731fe0ef2a7237759f31a71dc62c116aa4fce26effeb371576ee85b"
+      },
+      {
+        "path": "/home/khanh/.m2/repository/org/slf4j/slf4j-api/2.0.20/slf4j-api-2.0.20.jar",
+        "sha256": "7e1446499b359675d8aabe6af2de86b85e72ae8a2a932c0b40d0e5ba57097439"
+      },
+      {
+        "path": "/home/khanh/.m2/repository/ch/qos/reload4j/reload4j/1.2.22/reload4j-1.2.22.jar",
+        "sha256": "222f90d3e69541218ef6e70547749d693bd4c1846817e5bd7949b3e28950f99f"
+      },
+      {
+        "path": "/home/khanh/.m2/repository/org/apache/directory/api/api-ldap-model/2.1.7/api-ldap-model-2.1.7.jar",
+        "sha256": "6a80bbb400654eb160d0447253d51e432af98cd2f3767aefce04a248f19d784d"
+      },
+      {
+        "path": "/home/khanh/.m2/repository/org/apache/directory/api/api-util/2.1.7/api-util-2.1.7.jar",
+        "sha256": "c63fb606c84759f5fc2a4612c8479278a54d1baf9e73473cbf0df32cb9c66ba7"
+      },
+      {
+        "path": "/home/khanh/.m2/repository/org/apache/directory/api/api-asn1-api/2.1.7/api-asn1-api-2.1.7.jar",
+        "sha256": "1dd63125beb379406ee15365aa3e5e8eddd2113991271a3305e2ef7dfb7b38fe"
+      },
+      {
+        "path": "/home/khanh/.m2/repository/org/apache/directory/api/api-asn1-ber/2.1.7/api-asn1-ber-2.1.7.jar",
+        "sha256": "0e3566a76fa7a5e8eaeaddc54f24c078b5792fa118c9859bf8afc382e918d5ee"
+      },
+      {
+        "path": "/home/khanh/.m2/repository/org/apache/directory/api/api-i18n/2.1.7/api-i18n-2.1.7.jar",
+        "sha256": "3ef86d83182cb402c03defa5fbb833759ad2776fc8e72d224140f754a34cc39b"
+      },
+      {
+        "path": "/home/khanh/.m2/repository/org/apache/mina/mina-core/2.2.3/mina-core-2.2.3.jar",
+        "sha256": "974518e8388a973682323388f35b9a3ccf567d958addde837de1e69b74602952"
+      },
+      {
+        "path": "/home/khanh/.m2/repository/org/apache/servicemix/bundles/org.apache.servicemix.bundles.antlr/2.7.7_5/org.apache.servicemix.bundles.antlr-2.7.7_5.jar",
+        "sha256": "3902794d36d9b81da1b7e697f21ed04ccae276cc116eecc640a4cd0fff2691f2"
+      },
+      {
+        "path": "/home/khanh/.m2/repository/org/apache/commons/commons-lang3/3.15.0/commons-lang3-3.15.0.jar",
+        "sha256": "4905090022def3809e97963832fc8b2421fda800853c94d3cdbf1ad3011d9756"
+      },
+      {
+        "path": "/home/khanh/.m2/repository/org/apache/commons/commons-collections4/4.4/commons-collections4-4.4.jar",
+        "sha256": "1df8b9430b5c8ed143d7815e403e33ef5371b2400aadbe9bda0883762e0846d1"
+      },
+      {
+        "path": "/home/khanh/.m2/repository/com/github/ben-manes/caffeine/caffeine/2.9.3/caffeine-2.9.3.jar",
+        "sha256": "1e0a7bbef1dd791653143f3f05d0e489934bf5481e58a87c9e619cd46b68729b"
+      },
+      {
+        "path": "/home/khanh/.m2/repository/org/apache/directory/api/api-ldap-schema-data/2.1.9/api-ldap-schema-data-2.1.9.jar",
+        "sha256": "37f2f7a318a966dfe486995b207c987a93a8164e2069001f9764d63509515dd3"
+      },
+      {
+        "path": "/home/khanh/.m2/repository/org/apache/directory/server/apacheds-core/2.0.0.AM27/apacheds-core-2.0.0.AM27.jar",
+        "sha256": "f1be7d5a614b7c7eb1303ed74c3ac593181d670e1c215dba35e0d16a9319c06b"
+      },
+      {
+        "path": "/home/khanh/.m2/repository/org/apache/directory/server/apacheds-i18n/2.0.0.AM27/apacheds-i18n-2.0.0.AM27.jar",
+        "sha256": "65c67b69502f0a9cadf761888a80efc71b9b027f4d74a186d83bbd18237d7bf0"
+      },
+      {
+        "path": "/home/khanh/.m2/repository/org/apache/directory/server/apacheds-core-shared/2.0.0.AM27/apacheds-core-shared-2.0.0.AM27.jar",
+        "sha256": "188b6ba061544ee266bba9ca40474c4b4b2269b79a359a8b584b18f647a8a27f"
+      },
+      {
+        "path": "/home/khanh/.m2/repository/org/apache/directory/server/apacheds-interceptors-admin/2.0.0.AM27/apacheds-interceptors-admin-2.0.0.AM27.jar",
+        "sha256": "266ca19a5ac92a8fc87ab6566abb7bbe108815b8463f268db11067570d210153"
+      },
+      {
+        "path": "/home/khanh/.m2/repository/org/apache/directory/server/apacheds-interceptors-authn/2.0.0.AM27/apacheds-interceptors-authn-2.0.0.AM27.jar",
+        "sha256": "0dd877ec12b3a4adfd1c44ecb0f12db16788995d77507afd84b9e801a1d03cfe"
+      },
+      {
+        "path": "/home/khanh/.m2/repository/org/apache/directory/server/apacheds-interceptors-number/2.0.0.AM27/apacheds-interceptors-number-2.0.0.AM27.jar",
+        "sha256": "9770676c84a1bed5ca14b27c4a54e5713327ae16bd35616f4222e56f11ae4f50"
+      },
+      {
+        "path": "/home/khanh/.m2/repository/org/apache/directory/server/apacheds-interceptors-authz/2.0.0.AM27/apacheds-interceptors-authz-2.0.0.AM27.jar",
+        "sha256": "edcbb210e2589078c685e722988a0cc4ca33237c5a870ba30aae9f1fff2a44e2"
+      },
+      {
+        "path": "/home/khanh/.m2/repository/org/apache/directory/server/apacheds-interceptors-changelog/2.0.0.AM27/apacheds-interceptors-changelog-2.0.0.AM27.jar",
+        "sha256": "56719178a90054d469ca0425d8422fac399043de5cd9e100a29bd7baea93f85e"
+      },
+      {
+        "path": "/home/khanh/.m2/repository/org/apache/directory/server/apacheds-interceptors-collective/2.0.0.AM27/apacheds-interceptors-collective-2.0.0.AM27.jar",
+        "sha256": "c5e2ce24c5851de59e833a7d4bd35b4d6b7ec279eadd6172cdea8624a79fc69c"
+      },
+      {
+        "path": "/home/khanh/.m2/repository/org/apache/directory/server/apacheds-interceptors-event/2.0.0.AM27/apacheds-interceptors-event-2.0.0.AM27.jar",
+        "sha256": "4beb751712b4b8a3166e514fc655985d4a28c0c696753183601e759bb6f95261"
+      },
+      {
+        "path": "/home/khanh/.m2/repository/org/apache/directory/server/apacheds-interceptors-exception/2.0.0.AM27/apacheds-interceptors-exception-2.0.0.AM27.jar",
+        "sha256": "28da37edc3433eecd3e543be650fe664ca31e140bddbf1b0f34d86caf2764c2b"
+      },
+      {
+        "path": "/home/khanh/.m2/repository/org/apache/directory/server/apacheds-interceptors-journal/2.0.0.AM27/apacheds-interceptors-journal-2.0.0.AM27.jar",
+        "sha256": "5d400ef5db07fdcc27420c711b845e57cc8b29762b8e379eeed1427e4d62c5a1"
+      },
+      {
+        "path": "/home/khanh/.m2/repository/org/apache/directory/server/apacheds-interceptors-normalization/2.0.0.AM27/apacheds-interceptors-normalization-2.0.0.AM27.jar",
+        "sha256": "9fbe1eaa4b3ae68f00577f107265350771f5f8d3b34385f48261bea0f367c83f"
+      },
+      {
+        "path": "/home/khanh/.m2/repository/org/apache/directory/server/apacheds-interceptors-operational/2.0.0.AM27/apacheds-interceptors-operational-2.0.0.AM27.jar",
+        "sha256": "cc10dd9cf7c61901cef85358213a07e06e14ec9334b1c6c8f193497385def05e"
+      },
+      {
+        "path": "/home/khanh/.m2/repository/org/apache/directory/server/apacheds-interceptors-referral/2.0.0.AM27/apacheds-interceptors-referral-2.0.0.AM27.jar",
+        "sha256": "3844db676599ff4420573f8b26ec445e5d9152332480a2908c68b9b35b61674b"
+      },
+      {
+        "path": "/home/khanh/.m2/repository/org/apache/directory/server/apacheds-interceptors-schema/2.0.0.AM27/apacheds-interceptors-schema-2.0.0.AM27.jar",
+        "sha256": "d24cf9b12ed094908d69596b09ea06cafd96ab4963991d2798d1438c79eafb06"
+      },
+      {
+        "path": "/home/khanh/.m2/repository/org/apache/directory/server/apacheds-interceptors-subtree/2.0.0.AM27/apacheds-interceptors-subtree-2.0.0.AM27.jar",
+        "sha256": "9d31f94b4d906443d25a55534a617316dbf652b7848e0b2ec8acbcef515eac86"
+      },
+      {
+        "path": "/home/khanh/.m2/repository/org/apache/directory/server/apacheds-interceptors-trigger/2.0.0.AM27/apacheds-interceptors-trigger-2.0.0.AM27.jar",
+        "sha256": "445c4c772ca1be4fedb18dca1fef9498b4b37bcc217b330097aa0ecb19e464d7"
+      },
+      {
+        "path": "/home/khanh/.m2/repository/org/apache/directory/api/api-ldap-extras-trigger/2.1.5/api-ldap-extras-trigger-2.1.5.jar",
+        "sha256": "a6ceccf39bc6ca05ef9064b48370445d91744664dec72715a929d9cfce0ab876"
+      },
+      {
+        "path": "/home/khanh/.m2/repository/org/apache/directory/api/api-ldap-codec-core/2.1.5/api-ldap-codec-core-2.1.5.jar",
+        "sha256": "8f960a95eaf9666ede34964c2f47d0458e7b8c7330069ae5ceb5bc65589aedcd"
+      },
+      {
+        "path": "/home/khanh/.m2/repository/org/apache/directory/api/api-ldap-extras-util/2.1.5/api-ldap-extras-util-2.1.5.jar",
+        "sha256": "730d7b589aa8803af56104cb4437da57d0dc9ea1da9275f4af1f3de34495c3fd"
+      },
+      {
+        "path": "/home/khanh/.m2/repository/org/bouncycastle/bcpkix-jdk15on/1.70/bcpkix-jdk15on-1.70.jar",
+        "sha256": "e5b9cb821df57f70b0593358e89c0e8d7266515da9d088af6c646f63d433c07c"
+      },
+      {
+        "path": "/home/khanh/.m2/repository/org/bouncycastle/bcutil-jdk15on/1.70/bcutil-jdk15on-1.70.jar",
+        "sha256": "52dc5551b0257666526c5095424567fed7dc7b00d2b1ba7bd52298411112b1d0"
+      },
+      {
+        "path": "/home/khanh/.m2/repository/org/apache/directory/server/apacheds-core-annotations/2.0.0.AM27/apacheds-core-annotations-2.0.0.AM27.jar",
+        "sha256": "41d79bb9e10da963b4d5cf94694d3b0caf8c5f9d8b7d5164efb9b21509418710"
+      },
+      {
+        "path": "/home/khanh/.m2/repository/org/apache/directory/mavibot/mavibot/1.0.0-M8/mavibot-1.0.0-M8.jar",
+        "sha256": "76b991aa38dd491974b4fc2f5aef226d83e8ef85e0fab8fe71b067a97a8c753f"
+      },
+      {
+        "path": "/home/khanh/.m2/repository/commons-collections/commons-collections/3.2.2/commons-collections-3.2.2.jar",
+        "sha256": "eeeae917917144a68a741d4c0dff66aa5c5c5fd85593ff217bced3fc8ca783b8"
+      },
+      {
+        "path": "/home/khanh/.m2/repository/org/apache/directory/server/apacheds-mavibot-partition/2.0.0.AM27/apacheds-mavibot-partition-2.0.0.AM27.jar",
+        "sha256": "e98205ee2a87878daf0e35979e8e2dd31839372ad04d4e11c2e3513880f20e21"
+      },
+      {
+        "path": "/home/khanh/.m2/repository/org/apache/directory/server/apacheds-core-api/2.0.0.AM27/apacheds-core-api-2.0.0.AM27.jar",
+        "sha256": "e0d142bf7894db779d8723ea758d97243c81aa9ecc9d1b5a3e0851a441197f59"
+      },
+      {
+        "path": "/home/khanh/.m2/repository/org/apache/directory/api/api-ldap-client-api/2.1.5/api-ldap-client-api-2.1.5.jar",
+        "sha256": "4ba744ee5b9488ed1ba3032684314d9346a4fd8ec6883da8077a33d910aa6ebe"
+      },
+      {
+        "path": "/home/khanh/.m2/repository/org/apache/commons/commons-pool2/2.12.0/commons-pool2-2.12.0.jar",
+        "sha256": "6d3bd18df8410f3e31b031aca582cc109342358a62a2759ebd0c4cdf30d06f8b"
+      },
+      {
+        "path": "/home/khanh/.m2/repository/org/apache/directory/api/api-ldap-extras-aci/2.1.5/api-ldap-extras-aci-2.1.5.jar",
+        "sha256": "a93fa6da377fdead54271e78af73373cbfefd69e67f57a3127ce22f35ee93278"
+      },
+      {
+        "path": "/home/khanh/.m2/repository/org/apache/directory/server/apacheds-core-avl/2.0.0.AM27/apacheds-core-avl-2.0.0.AM27.jar",
+        "sha256": "a90b41b78053328d23a310246197a82c2580cf927200fd9f65080e95e7e0a0c5"
+      },
+      {
+        "path": "/home/khanh/.m2/repository/org/apache/directory/server/apacheds-core-constants/2.0.0.AM27/apacheds-core-constants-2.0.0.AM27.jar",
+        "sha256": "e6d60de401cc14cd2e4188710a49b20b950dbeb6c2090121020be79338873ba9"
+      },
+      {
+        "path": "/home/khanh/.m2/repository/org/apache/directory/server/apacheds-core-jndi/2.0.0.AM27/apacheds-core-jndi-2.0.0.AM27.jar",
+        "sha256": "37de7c637644a5d251f1e3d44b100f7c6857bc35fb8c7591693397008b81ead4"
+      },
+      {
+        "path": "/home/khanh/.m2/repository/org/apache/directory/server/apacheds-interceptor-kerberos/2.0.0.AM27/apacheds-interceptor-kerberos-2.0.0.AM27.jar",
+        "sha256": "3008e69b0d8aec87d41691b3ce10e21144fa2d7550a3052052db9729566550e8"
+      },
+      {
+        "path": "/home/khanh/.m2/repository/org/apache/directory/server/apacheds-jdbm-partition/2.0.0.AM27/apacheds-jdbm-partition-2.0.0.AM27.jar",
+        "sha256": "3d5553f96aa6a52a6073df9b4fc8a2777fba110c317c4bc64dd6dcc408ff9a78"
+      },
+      {
+        "path": "/home/khanh/.m2/repository/org/apache/directory/jdbm/apacheds-jdbm1/2.0.0-M3/apacheds-jdbm1-2.0.0-M3.jar",
+        "sha256": "9eeab7949fb6a1589164aee185bdbf89156fa20c3fd5d155b424069485d0ff78"
+      },
+      {
+        "path": "/home/khanh/.m2/repository/org/apache/directory/server/apacheds-kerberos-codec/2.0.0.AM27/apacheds-kerberos-codec-2.0.0.AM27.jar",
+        "sha256": "fc4af762efa8a220cfa00df36ca5447bcf2790b719bb3dd001627bd9e197d1af"
+      },
+      {
+        "path": "/home/khanh/.m2/repository/org/apache/directory/server/apacheds-ldif-partition/2.0.0.AM27/apacheds-ldif-partition-2.0.0.AM27.jar",
+        "sha256": "0a1212df48f23614f2daaa7b98c39745e781bd7514e70d446326f04303ebd0ed"
+      },
+      {
+        "path": "/home/khanh/.m2/repository/org/apache/directory/server/apacheds-protocol-ldap/2.0.0.AM27/apacheds-protocol-ldap-2.0.0.AM27.jar",
+        "sha256": "ac98f295a37529f5dd1c0944f9c18f62089fa0cd51821f920139d184c821f847"
+      },
+      {
+        "path": "/home/khanh/.m2/repository/org/apache/directory/api/api-ldap-extras-codec-api/2.1.5/api-ldap-extras-codec-api-2.1.5.jar",
+        "sha256": "8343c8b18c5499d9b855bf8cb63613f83867f33cbd997693885d2da40e7db29b"
+      },
+      {
+        "path": "/home/khanh/.m2/repository/org/apache/directory/api/api-ldap-extras-codec/2.1.5/api-ldap-extras-codec-2.1.5.jar",
+        "sha256": "9602820702726ed42910d46c161bb3a2ee10f340bd785ead6d39a14c89419567"
+      },
+      {
+        "path": "/home/khanh/.m2/repository/org/apache/directory/api/api-ldap-extras-sp/2.1.5/api-ldap-extras-sp-2.1.5.jar",
+        "sha256": "9dc836388433de131b61f2a55964f25c7361154a2e1e452550346b84424c6776"
+      },
+      {
+        "path": "/home/khanh/.m2/repository/org/apache/directory/server/apacheds-protocol-shared/2.0.0.AM27/apacheds-protocol-shared-2.0.0.AM27.jar",
+        "sha256": "e31b013e5c45bdf21bc749db8c75f1f70eb45926f2a96a13aa997b898192e49a"
+      },
+      {
+        "path": "/home/khanh/.m2/repository/org/apache/directory/server/apacheds-server-annotations/2.0.0.AM27/apacheds-server-annotations-2.0.0.AM27.jar",
+        "sha256": "39d16c7d9d1cd3a35c97f2b0954a15d48f544e53e0a47e62b144cebd3f03df19"
+      },
+      {
+        "path": "/home/khanh/.m2/repository/org/apache/directory/server/apacheds-server-jndi/2.0.0.AM27/apacheds-server-jndi-2.0.0.AM27.jar",
+        "sha256": "cd5373a0324da29b86e76e4918597906e17934e52db03a68023d912bb4e27365"
+      },
+      {
+        "path": "/home/khanh/.m2/repository/org/apache/directory/server/apacheds-test-framework/2.0.0.AM27/apacheds-test-framework-2.0.0.AM27.jar",
+        "sha256": "904a59d6d12d6f4217117abee0aa82f9d792a4ffa1d057c21a003268fc48692d"
+      },
+      {
+        "path": "/home/khanh/.m2/repository/org/apache/directory/api/api-ldap-codec-standalone/2.1.5/api-ldap-codec-standalone-2.1.5.jar",
+        "sha256": "1a9ef0e12d2b202c43304d460671e6b4523005a4a8016666661d7511ff1365ba"
+      },
+      {
+        "path": "/home/khanh/.m2/repository/org/apache/directory/api/api-ldap-net-mina/2.1.5/api-ldap-net-mina-2.1.5.jar",
+        "sha256": "a4d058377b7567f09ddc64279f229b52a23c51b3bba21f57180aabc57026ddee"
+      },
+      {
+        "path": "/home/khanh/.m2/repository/org/apache/directory/server/apacheds-xdbm-partition/2.0.0.AM27/apacheds-xdbm-partition-2.0.0.AM27.jar",
+        "sha256": "c32ba53e819e2e319db3d0931a15fb167bae9418d646edf0d031ade240dc83df"
+      },
+      {
+        "path": "/home/khanh/.m2/repository/org/apache/httpcomponents/client5/httpclient5/5.6.5/httpclient5-5.6.5.jar",
+        "sha256": "a10b555f7c85a720d1011a086d679d854b155816cde91a40198cc98c2b0867e8"
+      },
+      {
+        "path": "/home/khanh/.m2/repository/org/apache/httpcomponents/core5/httpcore5-h2/5.4.4/httpcore5-h2-5.4.4.jar",
+        "sha256": "9a61441889f9b222ce99581977cc549b4dfca7ac9d2841582c1e57a31fa65b48"
+      },
+      {
+        "path": "/home/khanh/.m2/repository/org/apache/httpcomponents/core5/httpcore5/5.4.4/httpcore5-5.4.4.jar",
+        "sha256": "b08e3c3a440fec2029e89980134c7c787dd6796454641ad1eafb81478d7e8b0b"
+      },
+      {
+        "path": "/home/khanh/.m2/repository/org/bouncycastle/bcprov-jdk15on/1.70/bcprov-jdk15on-1.70.jar",
+        "sha256": "8f3c20e3e2d565d26f33e8d4857a37d0d7f8ac39b62a7026496fcab1bdac30d4"
+      },
+      {
+        "path": "/home/khanh/.m2/repository/org/hibernate/hibernate-core/3.6.10.Final/hibernate-core-3.6.10.Final.jar",
+        "sha256": "99abcfa253d24c2c3ee3c146927dc72afdc21e84b658b2632dc685ed1ff3094f"
+      },
+      {
+        "path": "/home/khanh/.m2/repository/antlr/antlr/2.7.6/antlr-2.7.6.jar",
+        "sha256": "df74f330d36526ff9e717731fd855152fcff51618f0b5785d0049022f89d568b"
+      },
+      {
+        "path": "/home/khanh/.m2/repository/dom4j/dom4j/1.6.1/dom4j-1.6.1.jar",
+        "sha256": "593552ffea3c5823c6602478b5002a7c525fd904a3c44f1abe4065c22edfac73"
+      },
+      {
+        "path": "/home/khanh/.m2/repository/org/hibernate/hibernate-commons-annotations/3.2.0.Final/hibernate-commons-annotations-3.2.0.Final.jar",
+        "sha256": "b9abf4d76da72dc06a24399ebd9e55a7ab2e58d53ca766e7fd562c32fde45464"
+      },
+      {
+        "path": "/home/khanh/.m2/repository/org/hibernate/javax/persistence/hibernate-jpa-2.0-api/1.0.1.Final/hibernate-jpa-2.0-api-1.0.1.Final.jar",
+        "sha256": "bacfb6460317d421aa2906d9e63c293b69dc1a5dac480d0f6416df50796a4bb3"
+      },
+      {
+        "path": "/home/khanh/.m2/repository/javax/transaction/jta/1.1/jta-1.1.jar",
+        "sha256": "b8ec163b4a47bad16f9a0b7d03c3210c6b0a29216d768031073ac20817c0ba50"
+      },
+      {
+        "path": "/home/khanh/.m2/repository/org/hibernate/hibernate-entitymanager/3.6.10.Final/hibernate-entitymanager-3.6.10.Final.jar",
+        "sha256": "6f82589bb3d07e7f592f07780c8be2bf638652872ce4f1b8a52055e6ecc91cb6"
+      },
+      {
+        "path": "/home/khanh/.m2/repository/cglib/cglib/2.2/cglib-2.2.jar",
+        "sha256": "602c787ef273aad0cc94832c3d074bef359cf3ea0d54736774ac4a56d5f465d6"
+      },
+      {
+        "path": "/home/khanh/.m2/repository/asm/asm/3.1/asm-3.1.jar",
+        "sha256": "333ff5369043975b7e031b8b27206937441854738e038c1f47f98d072a20437a"
+      },
+      {
+        "path": "/home/khanh/.m2/repository/javassist/javassist/3.12.0.GA/javassist-3.12.0.GA.jar",
+        "sha256": "10028b631fc36fd7ac73b76db04688060b175a2046c23bf74f404b3923f49c81"
+      },
+      {
+        "path": "/home/khanh/.m2/repository/org/hsqldb/hsqldb/2.7.4/hsqldb-2.7.4.jar",
+        "sha256": "5fab2bb4384ac06b762638c8fa2740c944b8d080e4796c0c6c2af8b90dd4e5ad"
+      },
+      {
+        "path": "/home/khanh/.m2/repository/org/owasp/esapi/esapi/2.7.0.0/esapi-2.7.0.0.jar",
+        "sha256": "2288e84a6c93a457c5215eb8028c87ebd4326a515e21545d2e02db8356d6ccff"
+      },
+      {
+        "path": "/home/khanh/.m2/repository/xom/xom/1.3.9/xom-1.3.9.jar",
+        "sha256": "2b45f6d5b882ec3c13de86cf23512d01377c1943e8f8ad767298f67e03e561c5"
+      },
+      {
+        "path": "/home/khanh/.m2/repository/commons-beanutils/commons-beanutils/1.11.0/commons-beanutils-1.11.0.jar",
+        "sha256": "9e44ba68ec9a3f21286fa2a8bbb003b735c0f69101bb43144b79f4f8aaa74709"
+      },
+      {
+        "path": "/home/khanh/.m2/repository/commons-logging/commons-logging/1.3.5/commons-logging-1.3.5.jar",
+        "sha256": "6d7a744e4027649fbb50895df9497d109f98c766a637062fe8d2eabbb3140ba4"
+      },
+      {
+        "path": "/home/khanh/.m2/repository/commons-configuration/commons-configuration/1.10/commons-configuration-1.10.jar",
+        "sha256": "95d4e6711e88ce78992c82c25bc03c8df9ecf5a357f0de0bec72a26db3399374"
+      },
+      {
+        "path": "/home/khanh/.m2/repository/commons-fileupload/commons-fileupload/1.6.0/commons-fileupload-1.6.0.jar",
+        "sha256": "9383272c93569afeabedb16923a94a6dc8a5bd7a2f9f83bf326af4ee68434629"
+      },
+      {
+        "path": "/home/khanh/.m2/repository/org/apache-extras/beanshell/bsh/2.0b6/bsh-2.0b6.jar",
+        "sha256": "a17955976070c0573235ee662f2794a78082758b61accffce8d3f8aedcd91047"
+      },
+      {
+        "path": "/home/khanh/.m2/repository/org/owasp/antisamy/antisamy/1.7.8/antisamy-1.7.8.jar",
+        "sha256": "5c4d4d81d9945c178c2ed557131b4005ec4513365dc9bd400afc2ed778aa3eef"
+      },
+      {
+        "path": "/home/khanh/.m2/repository/org/apache/xmlgraphics/batik-css/1.19/batik-css-1.19.jar",
+        "sha256": "c66afd6ac61d630e62e859db03670fa7a4f7241daaee29b531614e6900b9c6a9"
+      },
+      {
+        "path": "/home/khanh/.m2/repository/org/apache/xmlgraphics/batik-shared-resources/1.19/batik-shared-resources-1.19.jar",
+        "sha256": "e2dad47cfeff5c7d686e97787996accf85a5b19f602acb30b83fce9c247deecd"
+      },
+      {
+        "path": "/home/khanh/.m2/repository/org/apache/xmlgraphics/batik-util/1.19/batik-util-1.19.jar",
+        "sha256": "3f1389bbdbed3c4659a58a50ce12166fd31e3d066994dd63b5144d9245fd3db6"
+      },
+      {
+        "path": "/home/khanh/.m2/repository/org/apache/xmlgraphics/batik-constants/1.19/batik-constants-1.19.jar",
+        "sha256": "e1d42c4da56dd8b7a3a794285fe3ed05f932d0a2b5ce3face198f02cc501331f"
+      },
+      {
+        "path": "/home/khanh/.m2/repository/org/apache/xmlgraphics/batik-i18n/1.19/batik-i18n-1.19.jar",
+        "sha256": "eb95e07c29feb276cf91aca9cf5362b43fe17601395aab5d8a6147a6d0859716"
+      },
+      {
+        "path": "/home/khanh/.m2/repository/org/apache/xmlgraphics/xmlgraphics-commons/2.11/xmlgraphics-commons-2.11.jar",
+        "sha256": "1a37948ebfedab0cd292cfc5007e65c2fa16a701b94c206152720d3a738561bc"
+      },
+      {
+        "path": "/home/khanh/.m2/repository/org/htmlunit/neko-htmlunit/4.11.0/neko-htmlunit-4.11.0.jar",
+        "sha256": "422e61f0aed27b415251d539bb0f286de522c693db1dcb06e82eddc61810d33a"
+      },
+      {
+        "path": "/home/khanh/.m2/repository/xerces/xercesImpl/2.12.2/xercesImpl-2.12.2.jar",
+        "sha256": "6fc991829af1708d15aea50c66f0beadcd2cfeb6968e0b2f55c1b0909883fe16"
+      },
+      {
+        "path": "/home/khanh/.m2/repository/xml-apis/xml-apis-ext/1.3.04/xml-apis-ext-1.3.04.jar",
+        "sha256": "d0b4887dc34d57de49074a58affad439a013d0baffa1a8034f8ef2a5ea191646"
+      },
+      {
+        "path": "/home/khanh/.m2/repository/org/springframework/spring-context/5.3.39/spring-context-5.3.39.jar",
+        "sha256": "9e644fc33bece9a9cb82538167a1b9640ae7b7d80252e893d89b8926a2f81633"
+      },
+      {
+        "path": "/home/khanh/.m2/repository/org/springframework/spring-aop/5.3.39/spring-aop-5.3.39.jar",
+        "sha256": "aa706e4f749982c0bae5fa637433c44c24f0fff5d16dc41deea6d30c3dfa7c85"
+      },
+      {
+        "path": "/home/khanh/.m2/repository/org/springframework/spring-beans/5.3.39/spring-beans-5.3.39.jar",
+        "sha256": "b6697a5d8facb81aa75e5a46d959d4256da9ce3b40d33f3b5bbd42a8b1ed5722"
+      },
+      {
+        "path": "/home/khanh/.m2/repository/org/springframework/spring-core/5.3.39/spring-core-5.3.39.jar",
+        "sha256": "3a1ddcf05420a9181bd9cacb6062a3edc493e14d555961ad50e1a6360eb1e75f"
+      },
+      {
+        "path": "/home/khanh/.m2/repository/org/springframework/spring-jcl/5.3.39/spring-jcl-5.3.39.jar",
+        "sha256": "adbe656fc622e2457fefa09529d4b7c1126a3c4ff1c9306907764fcc93f1b725"
+      },
+      {
+        "path": "/home/khanh/.m2/repository/org/springframework/spring-expression/5.3.39/spring-expression-5.3.39.jar",
+        "sha256": "d5337774d889fcdc9c08b0c8b8aaa1018d4c95b9b441db0118f7ae4d328f2810"
+      },
+      {
+        "path": "/home/khanh/.m2/repository/org/springframework/spring-jdbc/5.3.39/spring-jdbc-5.3.39.jar",
+        "sha256": "f314077e4196a4199a1d7b252db644f39fa6541bb7dc6e92bbb9001d6714d7d9"
+      },
+      {
+        "path": "/home/khanh/.m2/repository/org/springframework/spring-tx/5.3.39/spring-tx-5.3.39.jar",
+        "sha256": "defdd2e72eb88729e40bc6773c6860d3c52136c46861d27806379562ffc4b21b"
+      },
+      {
+        "path": "/home/khanh/.m2/repository/org/springframework/spring-web/5.3.39/spring-web-5.3.39.jar",
+        "sha256": "444f243b936119b5488029f2d9399a3980855c60b493b9e2811464c6433a2b71"
+      },
+      {
+        "path": "/home/khanh/.m2/repository/org/springframework/spring-webmvc/5.3.39/spring-webmvc-5.3.39.jar",
+        "sha256": "1ad8a2ba468c07024ba63cb7681bb30a2ecf8d91124f00fdb4a3d184131b87ed"
+      },
+      {
+        "path": "/home/khanh/.m2/repository/xml-apis/xml-apis/1.4.01/xml-apis-1.4.01.jar",
+        "sha256": "a840968176645684bb01aed376e067ab39614885f9eee44abe35a5f20ebe7fad"
+      },
+      {
+        "path": "/home/khanh/.m2/repository/com/fasterxml/jackson/core/jackson-databind/2.23.0/jackson-databind-2.23.0.jar",
+        "sha256": "abd1edd2736c764da03fe6cb7a9de70d48dd0a198aed131604c564bff62f9cc1"
+      },
+      {
+        "path": "/home/khanh/.m2/repository/com/fasterxml/jackson/core/jackson-annotations/2.23/jackson-annotations-2.23.jar",
+        "sha256": "e5b60c3088e0887b290ff9226394354589a1dad583743944b7f5538661056b4c"
+      },
+      {
+        "path": "/home/khanh/.m2/repository/com/fasterxml/jackson/core/jackson-core/2.23.0/jackson-core-2.23.0.jar",
+        "sha256": "449798beb4c4ec26de9cc25b39ca2198036883fb905ca968cbef7136d19a25d9"
+      },
+      {
+        "path": "/home/khanh/.m2/repository/org/junit/jupiter/junit-jupiter-api/5.14.4/junit-jupiter-api-5.14.4.jar",
+        "sha256": "aa1ae085fd92dfdbf85d867e60e59adc599bac183b46fc7e0698198bf426ad3f"
+      },
+      {
+        "path": "/home/khanh/.m2/repository/org/opentest4j/opentest4j/1.3.0/opentest4j-1.3.0.jar",
+        "sha256": "48e2df636cab6563ced64dcdff8abb2355627cb236ef0bf37598682ddf742f1b"
+      },
+      {
+        "path": "/home/khanh/.m2/repository/org/junit/platform/junit-platform-commons/1.14.4/junit-platform-commons-1.14.4.jar",
+        "sha256": "55c8a0c069ac1bc4e1f8bbb26b5eae95cbd10e4ff1b23248441ab61a607381e1"
+      },
+      {
+        "path": "/home/khanh/.m2/repository/org/apiguardian/apiguardian-api/1.1.2/apiguardian-api-1.1.2.jar",
+        "sha256": "b509448ac506d607319f182537f0b35d71007582ec741832a1f111e5b5b70b38"
+      },
+      {
+        "path": "/home/khanh/.m2/repository/org/junit/jupiter/junit-jupiter-params/5.14.4/junit-jupiter-params-5.14.4.jar",
+        "sha256": "28f2a8dab5b9d259b18fa6b0ba5a6f302cbc70dd875f42032ea9e3afea09a870"
+      },
+      {
+        "path": "/home/khanh/AI_sec_tool/AI_sec_tool_update/runs/owasp-cwe89-e-spring-20261125/snapshot-java-types.jar",
+        "sha256": "2a1f7677fbe73116d65887e8f2a1e09650ac782a7fd47ca85d780cfc591d5f71"
+      }
+    ]
+  },
+  "jdbc_value_evidence": {
+    "version": "jdbc-value-evidence-v6"
+  },
+  "joern_source_paths": {
+    "version": "sql-anchored-paths-v1",
+    "mode": "live"
+  },
+  "joern_image_id": "sha256:f47692f8334d2eeca9fc83395023773da566ce8397563ff7c66d34a23bfc75c4",
+  "result_count": 11
+}

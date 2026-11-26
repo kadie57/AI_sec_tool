@@ -2,10 +2,17 @@ import com.sun.source.tree.*;
 import com.sun.source.util.TreePath;
 import com.sun.source.util.TreePathScanner;
 import com.sun.source.util.TreeScanner;
+import java.io.IOException;
+import java.io.UncheckedIOException;
+import java.nio.charset.Charset;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
+import java.nio.file.Path;
 import java.util.*;
 import javax.lang.model.element.Element;
 import javax.lang.model.element.ElementKind;
 import javax.lang.model.element.ExecutableElement;
+import javax.lang.model.element.Modifier;
 import javax.lang.model.element.TypeElement;
 import javax.lang.model.element.VariableElement;
 import javax.lang.model.type.TypeKind;
@@ -17,6 +24,8 @@ class SqlValueEvidence {
     private static final int MAX_REFERENCES = 32;
     private static final int MAX_FIXED_STRINGS = 4;
     private static final int MAX_COLLECTION_ENTRIES = 16;
+    private static final String REQUEST_INDEPENDENT_TEXT = "request_independent_sql_text";
+    private static final String NONNULL_INPUT = "symbolic_nonnull_string_argument";
     private static final Set<Tree.Kind> WRITE_EXPRESSIONS = EnumSet.of(
         Tree.Kind.ASSIGNMENT, Tree.Kind.AND_ASSIGNMENT, Tree.Kind.OR_ASSIGNMENT, Tree.Kind.XOR_ASSIGNMENT,
         Tree.Kind.PLUS_ASSIGNMENT, Tree.Kind.MINUS_ASSIGNMENT, Tree.Kind.MULTIPLY_ASSIGNMENT,
@@ -26,6 +35,8 @@ class SqlValueEvidence {
         Tree.Kind.POSTFIX_DECREMENT);
 
     private record Step(String file, long line, String role) {}
+    private record MethodSite(String file, long line, String name) {}
+    private record DispatchTarget(ExecutableElement method, Step returned) {}
     private record LocalList(List<Value> elements) {}
     private record LocalMap(Map<Object, Value> entries) {}
     private record FixedStrings(Set<String> choices) {}
@@ -52,6 +63,7 @@ class SqlValueEvidence {
     private final Map<Tree, SqlEndpointProbe.Call> calls = new IdentityHashMap<>();
     private final Map<Element, Boolean> collectionUses = new HashMap<>();
     private int remaining = BUDGET;
+    private boolean checkingDispatch;
 
     private SqlValueEvidence(SqlEndpointProbe probe) {
         this.probe = probe;
@@ -63,6 +75,13 @@ class SqlValueEvidence {
     }
 
     private static TreePath child(TreePath parent, Tree tree) { return new TreePath(parent, tree); }
+
+    private static TreePath unparenthesized(TreePath path) {
+        while (path.getLeaf() instanceof ParenthesizedTree parentheses) {
+            path = child(path, parentheses.getExpression());
+        }
+        return path;
+    }
 
     private List<Step> step(TreePath path, String role) {
         var unit = path.getCompilationUnit();
@@ -172,8 +191,10 @@ class SqlValueEvidence {
         var leftStrings = concatenationOperands(left);
         var rightStrings = concatenationOperands(right);
         Value result;
-        if (leftStrings.isEmpty() || rightStrings.isEmpty()) {
+        if (left.status().equals("external_input_contributes") || right.status().equals("external_input_contributes")) {
             result = new Value("external_input_contributes", null, List.of());
+        } else if (left.status().equals(REQUEST_INDEPENDENT_TEXT) || right.status().equals(REQUEST_INDEPENDENT_TEXT)) {
+            result = new Value(REQUEST_INDEPENDENT_TEXT, null, List.of());
         } else {
             var choices = new LinkedHashSet<String>();
             for (String first : leftStrings) for (String second : rightStrings) choices.add(first + second);
@@ -185,6 +206,10 @@ class SqlValueEvidence {
     private static boolean isNullLiteral(Tree tree) {
         while (tree instanceof ParenthesizedTree parentheses) tree = parentheses.getExpression();
         return tree.getKind() == Tree.Kind.NULL_LITERAL;
+    }
+
+    private static boolean modeledNonNull(Value value) {
+        return value.isConstant() || value.literal() instanceof FixedStrings || value.status().equals(NONNULL_INPUT);
     }
 
     private Value expression(TreePath path, Map<Element, Value> env, int depth) {
@@ -236,8 +261,8 @@ class SqlValueEvidence {
                 return concatenate(path, left, right);
             }
             if (binary.getKind() == Tree.Kind.EQUAL_TO || binary.getKind() == Tree.Kind.NOT_EQUAL_TO) {
-                if ((isNullLiteral(binary.getLeftOperand()) && (right.isConstant() || right.literal() instanceof FixedStrings))
-                        || (isNullLiteral(binary.getRightOperand()) && (left.isConstant() || left.literal() instanceof FixedStrings))) {
+                if ((isNullLiteral(binary.getLeftOperand()) && modeledNonNull(right))
+                        || (isNullLiteral(binary.getRightOperand()) && modeledNonNull(left))) {
                     return literal(path, binary.getKind() == Tree.Kind.NOT_EQUAL_TO).with(left.steps()).with(right.steps());
                 }
             }
@@ -264,7 +289,78 @@ class SqlValueEvidence {
             return expression(selected, env, depth).with(condition.steps()).with(step(selected, "conditional_value_selected"));
         }
         if (tree instanceof MethodInvocationTree method) return invocation(path, method, env, depth);
+        if (tree instanceof NewClassTree created) return stringRoundTrip(path, created, env, depth);
         return unknownAt(path, "expression_not_modeled");
+    }
+
+    private TreePath base64Operand(TreePath path, String name) {
+        var call = calls.get(path.getLeaf());
+        if (call == null || !call.owner().equals("org.apache.commons.codec.binary.Base64")
+                || !call.name().equals(name) || call.target().getParameters().size() != 1
+                || call.tree().getArguments().size() != 1
+                || !call.firstParameter("byte[]") || !call.target().getReturnType().toString().equals("byte[]")
+                || !call.target().getModifiers().contains(Modifier.STATIC)
+                || probe.trees.getPath(call.target()) != null) return null;
+        return unparenthesized(child(path, call.tree().getArguments().get(0)));
+    }
+
+    private Charset standardCharset(TreePath path) {
+        if (!(probe.trees.getElement(unparenthesized(path)) instanceof VariableElement field)
+                || !(field.getEnclosingElement() instanceof TypeElement owner)
+                || !owner.getQualifiedName().contentEquals("java.nio.charset.StandardCharsets")) return null;
+        return switch (field.getSimpleName().toString()) {
+            case "UTF_8" -> StandardCharsets.UTF_8;
+            case "US_ASCII" -> StandardCharsets.US_ASCII;
+            case "ISO_8859_1" -> StandardCharsets.ISO_8859_1;
+            case "UTF_16" -> StandardCharsets.UTF_16;
+            case "UTF_16BE" -> StandardCharsets.UTF_16BE;
+            case "UTF_16LE" -> StandardCharsets.UTF_16LE;
+            default -> null;
+        };
+    }
+
+    private Value stringRoundTrip(TreePath path, NewClassTree created, Map<Element, Value> env, int depth) {
+        var args = created.getArguments();
+        if (args.isEmpty() || args.size() > 2 || !(probe.trees.getElement(path) instanceof ExecutableElement constructor)
+                || !constructor.getEnclosingElement().toString().equals("java.lang.String")
+                || constructor.getParameters().size() != args.size()
+                || !constructor.getParameters().get(0).asType().toString().equals("byte[]")) {
+            return unknownAt(path, "expression_not_modeled");
+        }
+        var decoded = unparenthesized(child(path, args.get(0)));
+        var encoded = base64Operand(decoded, "decodeBase64");
+        var bytes = encoded == null ? null : base64Operand(encoded, "encodeBase64");
+        var getBytes = bytes == null ? null : calls.get(bytes.getLeaf());
+        if (getBytes == null || !getBytes.owner().equals("java.lang.String") || !getBytes.name().equals("getBytes")
+                || getBytes.tree().getArguments().size() != args.size() - 1
+                || !(getBytes.tree().getMethodSelect() instanceof MemberSelectTree member)) {
+            return unknownAt(path, "expression_not_modeled");
+        }
+        Charset charset = null;
+        if (args.size() == 2) {
+            charset = standardCharset(child(path, args.get(1)));
+            var encoderCharset = standardCharset(child(bytes, getBytes.tree().getArguments().get(0)));
+            if (charset == null || charset != encoderCharset) return unknownAt(path, "string_charset_unresolved");
+        }
+
+        // Match only fresh nested arrays so intermediate bytes cannot have been mutated or aliased.
+        var receiver = child(child(bytes, member), member.getExpression());
+        var input = expression(receiver, env, depth);
+        if (input.status().equals(NONNULL_INPUT)) return UNKNOWN;
+        var fixed = fixedStrings(input);
+        Value output = input;
+        if (!fixed.isEmpty()) {
+            if (charset == null) {
+                // The default charset is a deployment property, so do not claim exact characters.
+                output = new Value(REQUEST_INDEPENDENT_TEXT, null, List.of());
+            } else {
+                var values = new LinkedHashSet<String>();
+                for (String text : fixed) values.add(new String(text.getBytes(charset), charset));
+                output = fixedValue(values);
+            }
+        }
+        return output.with(input.steps()).with(step(bytes, "string_to_bytes")).with(step(encoded, "base64_encode"))
+            .with(step(decoded, "base64_decode")).with(step(path, "bytes_to_string"));
     }
 
     private static CollectionOperation collectionOperation(SqlEndpointProbe.Call call) {
@@ -387,6 +483,18 @@ class SqlValueEvidence {
             return readCollection(path, operation, receiverValue, index);
         }
         var definition = probe.trees.getPath(call.target());
+        if (checkingDispatch && call.owner().equals("java.lang.StringBuilder") && call.name().equals("toString")
+                && method.getArguments().isEmpty() && method.getMethodSelect() instanceof MemberSelectTree member) {
+            var receiver = unparenthesized(child(child(path, member), member.getExpression()));
+            if (receiver.getLeaf() instanceof NewClassTree created && created.getClassBody() == null
+                    && created.getArguments().size() == 1
+                    && probe.trees.getElement(receiver) instanceof ExecutableElement constructor
+                    && constructor.getParameters().size() == 1
+                    && constructor.getParameters().get(0).asType().toString().equals("java.lang.String")) {
+                var input = expression(child(receiver, created.getArguments().get(0)), env, depth);
+                if (input.status().equals(NONNULL_INPUT)) return input.with(step(path, "string_builder_copy"));
+            }
+        }
         if (call.readsRequest() && definition == null
                 && call.target().getReturnType().toString().equals("java.lang.String")) {
             return new Value("external_input_contributes", null, step(path, "servlet_request_read"));
@@ -429,10 +537,7 @@ class SqlValueEvidence {
     private boolean fixedDispatch(SqlEndpointProbe.Call call) {
         if (!probe.dispatch(call).equals("declaration_only")) return true;
         if (!(call.tree().getMethodSelect() instanceof MemberSelectTree member)) return false;
-        var receiver = child(child(call.path(), member), member.getExpression());
-        while (receiver.getLeaf() instanceof ParenthesizedTree parenthesized) {
-            receiver = child(receiver, parenthesized.getExpression());
-        }
+        var receiver = unparenthesized(child(child(call.path(), member), member.getExpression()));
         if (!(receiver.getLeaf() instanceof NewClassTree created) || created.getClassBody() != null) return false;
         var type = probe.trees.getTypeMirror(receiver);
         return type != null && type.toString().equals(call.owner());
@@ -772,6 +877,146 @@ class SqlValueEvidence {
         }
     }
 
+    private Map<MethodSite, List<TreePath>> methodDeclarations() {
+        var sites = new HashMap<MethodSite, List<TreePath>>();
+        for (var unit : probe.units.keySet()) {
+            new TreePathScanner<Void, Void>() {
+                @Override public Void visitMethod(MethodTree method, Void unused) {
+                    var site = new MethodSite(probe.units.get(unit), probe.line(unit, method), method.getName().toString());
+                    sites.computeIfAbsent(site, key -> new ArrayList<>()).add(getCurrentPath());
+                    return super.visitMethod(method, unused);
+                }
+            }.scan(unit, null);
+        }
+        return sites;
+    }
+
+    private static boolean stringForwarder(ExecutableElement method) {
+        var parameters = method.getParameters();
+        return parameters.size() == 1 && parameters.get(0).asType().toString().equals("java.lang.String")
+            && method.getReturnType().toString().equals("java.lang.String") && !method.isVarArgs()
+            && !method.getModifiers().contains(Modifier.STATIC);
+    }
+
+    private DispatchTarget verifyImplementation(TreePath path, ExecutableElement target) {
+        var method = (MethodTree) path.getLeaf();
+        if (method.getBody() == null || !(probe.trees.getElement(path) instanceof ExecutableElement element)
+                || !stringForwarder(element)
+                || !(element.getEnclosingElement() instanceof TypeElement owner)
+                || !probe.elements.overrides(element, target, owner)) return null;
+        var argument = element.getParameters().get(0);
+        remaining = BUDGET;
+        var value = execute(child(path, method.getBody()), new HashMap<>(Map.of(argument,
+            new Value(NONNULL_INPUT, null, List.of()))), List.of(), 1);
+        if (value.transfer() != Transfer.RETURN || !value.value().status().equals(NONNULL_INPUT)) return null;
+        var facts = value.value().steps();
+        for (int i = facts.size() - 1; i >= 0; i--) {
+            var fact = facts.get(i);
+            if (fact.file().equals(probe.units.get(path.getCompilationUnit())) && fact.role().equals("helper_return")) {
+                return new DispatchTarget(element, fact);
+            }
+        }
+        return null;
+    }
+
+    private boolean sealedCoverage(TypeElement owner, Collection<DispatchTarget> resolved) {
+        if (!owner.getModifiers().contains(Modifier.SEALED)) return false;
+        var actual = new HashSet<String>();
+        for (var target : resolved) actual.add(target.method().getEnclosingElement().asType().toString());
+        var permits = owner.getPermittedSubclasses();
+        return permits.size() == actual.size() && permits.stream().allMatch(type -> {
+            var impl = probe.elements.getTypeElement(type.toString());
+            return impl != null && impl.getModifiers().contains(Modifier.FINAL) && actual.contains(type.toString());
+        });
+    }
+
+    private void reportReceiverFactory(SqlEndpointProbe.Call sink, MethodSite site, SqlEndpointProbe.Call call) {
+        var local = probe.stableLocal(call.receiver());
+        if (local == null || local.getInitializer() == null) return;
+        var declaration = probe.trees.getPath(call.receiver());
+        var initializer = unparenthesized(child(declaration, local.getInitializer()));
+        var factory = calls.get(initializer.getLeaf());
+        if (factory == null || !factory.target().getModifiers().contains(Modifier.STATIC)) return;
+        var factoryPath = probe.trees.getPath(factory.target());
+        if (factoryPath == null || !(factoryPath.getLeaf() instanceof MethodTree method) || method.getBody() == null) return;
+        var unit = factoryPath.getCompilationUnit();
+        var file = probe.units.get(unit);
+        if (file == null) return;
+        SqlEndpointProbe.emit("F", sink.line(), sink.column(), site.file(), site.line(), site.name(),
+            factory.file(), factory.line(), file, probe.line(unit, method), factory.owner(), factory.signature());
+        for (var read : probe.calls) {
+            if (read.enclosing() == method && read.owner().equals("java.lang.ClassLoader")
+                    && read.name().equals("getResourceAsStream") && read.firstParameter("java.lang.String")
+                    && read.tree().getArguments().size() == 1
+                    && read.tree().getArguments().get(0) instanceof LiteralTree literal
+                    && literal.getValue() instanceof String resource && resource.matches("[A-Za-z0-9_.-]+\\.properties")) {
+                SqlEndpointProbe.emit("R", sink.line(), sink.column(), site.file(), site.line(), site.name(),
+                    read.file(), read.line(), resource);
+            }
+        }
+        new TreePathScanner<Void, Void>() {
+            @Override public Void visitClass(ClassTree nested, Void unused) { return null; }
+            @Override public Void visitLambdaExpression(LambdaExpressionTree nested, Void unused) { return null; }
+            @Override public Void visitReturn(ReturnTree returned, Void unused) {
+                if (returned.getExpression() != null) {
+                    var expression = unparenthesized(child(getCurrentPath(), returned.getExpression()));
+                    if (expression.getLeaf() instanceof NewClassTree created && created.getClassBody() == null
+                            && probe.trees.getElement(expression) instanceof ExecutableElement constructor) {
+                        SqlEndpointProbe.emit("N", sink.line(), sink.column(), site.file(), site.line(), site.name(),
+                            file, probe.line(unit, returned), constructor.getEnclosingElement());
+                    }
+                }
+                return null;
+            }
+        }.scan(child(factoryPath, method.getBody()), null);
+    }
+
+    private void reportDispatchGroup(SqlEndpointProbe.Call sink, MethodSite site, Set<MethodSite> proposed,
+                                     Map<MethodSite, List<TreePath>> declarations) {
+        var matches = probe.calls.stream().filter(call -> call.file().equals(site.file()) && call.line() == site.line()
+            && call.name().equals(site.name())).toList();
+        if (matches.size() != 1 || proposed.size() > 4) return;
+        var call = matches.get(0);
+        if (!(call.target().getEnclosingElement() instanceof TypeElement owner) || !owner.getKind().isInterface()
+                || !stringForwarder(call.target())) return;
+        var verified = new LinkedHashMap<MethodSite, DispatchTarget>();
+        for (var candidate : proposed) {
+            var paths = declarations.getOrDefault(candidate, List.of());
+            if (paths.size() != 1) return;
+            var path = paths.get(0);
+            if (call.target().equals(probe.trees.getElement(path)) && ((MethodTree) path.getLeaf()).getBody() == null) continue;
+            var implementation = verifyImplementation(path, call.target());
+            if (implementation == null) return;
+            verified.put(candidate, implementation);
+        }
+        if (verified.size() < 2) return;
+        var coverage = sealedCoverage(owner, verified.values()) ? "sealed_final_targets" : "listed_candidates_only";
+        for (var entry : verified.entrySet()) {
+            var candidate = entry.getKey();
+            var implementation = entry.getValue();
+            SqlEndpointProbe.emit("D", sink.line(), sink.column(), site.file(), site.line(), site.name(), coverage,
+                candidate.file(), candidate.line(), implementation.method().getEnclosingElement(), implementation.returned().line());
+        }
+        reportReceiverFactory(sink, site, call);
+    }
+
+    private void reportDispatch(SqlEndpointProbe.Call sink, Path sites) {
+        var groups = new LinkedHashMap<MethodSite, Set<MethodSite>>();
+        try {
+            for (String row : Files.readAllLines(sites)) {
+                var fields = row.split("\t", -1);
+                var call = new MethodSite(fields[0], Long.parseLong(fields[1]), fields[2]);
+                var implementation = new MethodSite(fields[3], Long.parseLong(fields[4]), fields[2]);
+                groups.computeIfAbsent(call, key -> new LinkedHashSet<>()).add(implementation);
+            }
+        } catch (IOException error) {
+            throw new UncheckedIOException(error);
+        }
+        var declarations = methodDeclarations();
+        checkingDispatch = true;
+        for (var group : groups.entrySet()) reportDispatchGroup(sink, group.getKey(), group.getValue(), declarations);
+    }
+
     private void report(SqlEndpointProbe.Call sink) {
         var method = enclosingMethod(sink);
         Value result = UNKNOWN;
@@ -799,5 +1044,7 @@ class SqlValueEvidence {
             facts = facts.subList(Math.max(0, facts.size() - 10), facts.size());
         }
         for (var fact : facts) SqlEndpointProbe.emit("E", sink.line(), sink.column(), fact.file(), fact.line(), fact.role());
+        var dispatchSites = System.getProperty("sql.evidence.dispatchSites");
+        if (result.isUnknown() && dispatchSites != null) reportDispatch(sink, Path.of(dispatchSites));
     }
 }

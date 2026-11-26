@@ -1,0 +1,52 @@
+{
+  "scope": "Same E warnings and Joern paths. Paired replay of conditional interface dispatch evidence.",
+  "baseline": "runs/owasp-cwe89-e-string-provenance-20261126/spring",
+  "labels": "runs/owasp-cwe89-e-spring-20261125/reference-labels.json",
+  "review_configuration": {
+    "model": "qwen2.5-coder:14b-instruct-q4_K_M",
+    "prompt_sha256": "26e84205a559fb429adba9c87a3a28fdf6a4c6135f4d301f784acee12637a442",
+    "schema_sha256": "2fb9849c6f59240d72ac291beed80f95a0385c5fcfa56376fa905a3efdecc725",
+    "options": {
+      "temperature": 0,
+      "seed": 42,
+      "num_ctx": 8192,
+      "num_predict": 1024
+    },
+    "request_version": 3,
+    "validation_version": 2,
+    "prompt_profile": "iris-contextual",
+    "warning_citation_binding": "sonarqube_alert_start_line",
+    "model_digest": "9ec8897f747e246e970bc5cfdda85d22f1123dc2e3d34978a010a75968716849",
+    "mode": "ollama"
+  },
+  "jdk_value_changes": [],
+  "before": {
+    "counts": {
+      "TP": 5,
+      "TN": 5,
+      "UNKNOWN_POS": 1
+    },
+    "correct": 10
+  },
+  "after": {
+    "counts": {
+      "TP": 4,
+      "TN": 5,
+      "UNKNOWN_POS": 2
+    },
+    "correct": 9
+  },
+  "fresh_ollama_calls": 2,
+  "responses_reused": 9,
+  "changed_verdicts": [
+    {
+      "issue_id": "395d2fa4-c4a3-468b-b72e-1a54df0f2eff",
+      "component": "thesis_owasp_cwe89_e_spring_20261125_v1:src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00597.java",
+      "evidence_changed": true,
+      "before": "LIKELY_TP",
+      "after": "UNKNOWN",
+      "sample": "BenchmarkTest00597",
+      "reference_vulnerability": true
+    }
+  ]
+}

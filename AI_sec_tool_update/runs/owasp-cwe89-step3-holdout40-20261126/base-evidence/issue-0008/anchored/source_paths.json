@@ -1,0 +1,90 @@
+{
+  "status": "candidate_paths",
+  "matched_sources": 1,
+  "source_count": 1,
+  "candidate_paths_found": 1,
+  "search_limit_hit": false,
+  "paths": [
+    {
+      "source": {
+        "file_id": "F1",
+        "line": 31,
+        "method": "getTheParameter",
+        "method_start": 30,
+        "method_end": 32,
+        "node_type": "Call",
+        "api_owner": "javax.servlet.ServletRequest",
+        "api_signature": "getParameter(java.lang.String)"
+      },
+      "steps": [
+        {
+          "file_id": "F1",
+          "line": 30,
+          "method": "getTheParameter",
+          "method_start": 30,
+          "method_end": 32,
+          "node_type": "MethodReturn"
+        },
+        {
+          "file_id": "F0",
+          "line": 45,
+          "method": "doPost",
+          "method_start": 38,
+          "method_end": 81,
+          "node_type": "Call"
+        },
+        {
+          "file_id": "F0",
+          "line": 46,
+          "method": "doPost",
+          "method_start": 38,
+          "method_end": 81,
+          "node_type": "Identifier"
+        },
+        {
+          "file_id": "F0",
+          "line": 55,
+          "method": "doPost",
+          "method_start": 38,
+          "method_end": 81,
+          "node_type": "Identifier"
+        },
+        {
+          "file_id": "F0",
+          "line": 69,
+          "method": "doPost",
+          "method_start": 38,
+          "method_end": 81,
+          "node_type": "Call"
+        }
+      ],
+      "sink": {
+        "file_id": "F0",
+        "line": 74,
+        "name": "executeUpdate",
+        "method": "doPost",
+        "method_start": 38,
+        "method_end": 81
+      },
+      "omitted_steps": 0,
+      "unlocated_nodes": 0,
+      "dispatch": []
+    }
+  ],
+  "paths_not_shown": 0,
+  "version": "sql-anchored-paths-v2",
+  "scope": "verified_java_bundle",
+  "inputs": {
+    "F0": {
+      "path": "src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00682.java",
+      "source_sha256": "15fb4e67356104fdd0f6461f3861a294213a752d5b034c3e3fd0f741ec5b6725",
+      "staged_sha256": "8c4954a16231d444eff5374f8f1a913b1fe7bd57e78bc5631b65bbe4b98af17b"
+    },
+    "F1": {
+      "path": "src/main/java/org/owasp/benchmark/helpers/SeparateClassRequest.java",
+      "source_sha256": "8ec6b1867d27ebe55c79180755447ece6f98746dcfbf0127b2e4ea5646399739",
+      "staged_sha256": "51a05167990fc969337259f6acd1e481ecbc3e0407008b17163e09fe800ede2b"
+    }
+  },
+  "interpretation": "Candidate dataflow. Runtime branch and dispatch feasibility require separate evidence."
+}

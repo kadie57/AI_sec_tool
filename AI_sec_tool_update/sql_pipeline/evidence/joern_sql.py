@@ -7,7 +7,12 @@ import re
 import subprocess
 import uuid
 
+from ..cwe_mapper import SONAR_SQL_TAINT_RULES, SPRING_JDBC_RULES
 from ..run_io import run_command, save_json
+
+
+JDBC_SINK_NAMES = "executeQuery|executeUpdate|execute|prepareStatement|prepareCall"
+SPRING_SINK_NAMES = "execute|update|query|queryForList|queryForMap|queryForObject|queryForRowSet|queryForStream|batchUpdate"
 
 
 def path_locations(flow):
@@ -92,11 +97,17 @@ def parse_joern_output(stdout):
 def run_joern_slicing(file_path, issue, root, artifact, image):
     start, end = issue_range(issue)
     container_file = "/project/" + file_path.relative_to(root).as_posix()
+    rule = issue.get("rule")
+    names = JDBC_SINK_NAMES
+    if rule in SPRING_JDBC_RULES:
+        names = SPRING_SINK_NAMES
+    elif rule in SONAR_SQL_TAINT_RULES:
+        names = JDBC_SINK_NAMES + "|" + SPRING_SINK_NAMES
     # Exact issue range; never fall back to unrelated sinks elsewhere in file.
     script = f'''@main def exec() = {{
   importCode({json.dumps(container_file)})
   def source = cpg.method.parameter.filter(_.index > 0)
-  def sinkCalls = cpg.call.name("executeQuery|executeUpdate|execute|prepareStatement|prepareCall")
+  def sinkCalls = cpg.call.name({json.dumps(names)})
     .filter(c => c.lineNumber.exists(n => n >= {start} && n <= {end}))
   def sink = sinkCalls.argument(1)
   val paths = sink.reachableByFlows(source).l

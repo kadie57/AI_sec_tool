@@ -1,0 +1,96 @@
+{
+  "state": "COMPLETED",
+  "scope": "Paired replay on the same 29 warnings and frozen Joern paths. Only JDK string provenance changed.",
+  "profile": {
+    "model": "qwen2.5-coder:14b-instruct-q4_K_M",
+    "prompt_sha256": "26e84205a559fb429adba9c87a3a28fdf6a4c6135f4d301f784acee12637a442",
+    "schema_sha256": "2fb9849c6f59240d72ac291beed80f95a0385c5fcfa56376fa905a3efdecc725",
+    "options": {
+      "temperature": 0,
+      "seed": 42,
+      "num_ctx": 8192,
+      "num_predict": 1024
+    },
+    "request_version": 3,
+    "validation_version": 2,
+    "prompt_profile": "iris-contextual",
+    "warning_citation_binding": "sonarqube_alert_start_line",
+    "model_digest": "9ec8897f747e246e970bc5cfdda85d22f1123dc2e3d34978a010a75968716849",
+    "mode": "ollama"
+  },
+  "implementation_sha256": {
+    "sql_pipeline/evidence/SqlValueEvidence.java": "f61b2a1ea4215c6cd61e0ac4c761287c17b3de8df16df79ab90d6d2e26bf99cc",
+    "sql_pipeline/evidence/sql_endpoint_specifications.py": "51c329586b323de2e38a08dfdea770c385a0ef5e1a0775bdb3ac1c936f8960d0",
+    "sql_pipeline/evidence/sql_path_presentation.py": "9c4f7d4ee432a4ceb5f18d4023c6d8682d36d69444fa79ea8db3051849bdae6c",
+    "sql_llm_experiment.py": "29d89ea9918fe4f9ffc7eab7348fcdf84ed4e133309a68d781e6cb0720cf0cce"
+  },
+  "fresh_ollama_calls": 1,
+  "responses_reused": 28,
+  "combined": {
+    "before": {
+      "counts": {
+        "TP": 13,
+        "UNKNOWN_NEG": 2,
+        "TN": 10,
+        "UNKNOWN_POS": 2,
+        "FP": 2
+      },
+      "correct": 23,
+      "warnings": 29
+    },
+    "after": {
+      "counts": {
+        "TP": 13,
+        "UNKNOWN_NEG": 2,
+        "TN": 11,
+        "UNKNOWN_POS": 2,
+        "FP": 1
+      },
+      "correct": 24,
+      "warnings": 29
+    }
+  },
+  "spring": {
+    "before": {
+      "counts": {
+        "TP": 5,
+        "TN": 4,
+        "FP": 1,
+        "UNKNOWN_POS": 1
+      },
+      "correct": 9
+    },
+    "after": {
+      "counts": {
+        "TP": 5,
+        "TN": 5,
+        "UNKNOWN_POS": 1
+      },
+      "correct": 10
+    }
+  },
+  "jdk_value_changes": [
+    {
+      "issue_id": "bb08990d-8d4d-4854-aec2-e93221c1aacb",
+      "component": "thesis_owasp_cwe89_e_spring_20261125_v1:src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00930.java",
+      "line": 59,
+      "before": [
+        "unknown"
+      ],
+      "after": [
+        "request_independent_sql_text"
+      ]
+    }
+  ],
+  "changed_verdicts": [
+    {
+      "issue_id": "bb08990d-8d4d-4854-aec2-e93221c1aacb",
+      "component": "thesis_owasp_cwe89_e_spring_20261125_v1:src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00930.java",
+      "evidence_changed": true,
+      "before": "LIKELY_TP",
+      "after": "LIKELY_FP",
+      "sample": "BenchmarkTest00930",
+      "reference_vulnerability": false
+    }
+  ]
+}

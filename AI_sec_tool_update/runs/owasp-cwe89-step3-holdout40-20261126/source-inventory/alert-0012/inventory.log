@@ -1,0 +1,15 @@
+STATUS	0
+Q	F0	71	69	org.springframework.jdbc.core.JdbcTemplate	batchUpdate(java.lang.String...)	71
+C	F0	59	31	javax.servlet.http.Cookie	getName()	false
+C	F0	60	49	java.net.URLDecoder	decode(java.lang.String,java.lang.String)	true
+C	F0	60	66	javax.servlet.http.Cookie	getValue()	false
+C	F0	66	33	org.owasp.benchmark.testcode.BenchmarkTest01010.Test	doSomething(javax.servlet.http.HttpServletRequest,java.lang.String)	true	F0	87	103
+V	71	69	unknown	unsupported_or_runtime_value
+E	71	69	F0	57	runtime_if_changes_control_flow
+E	71	69	F0	57	analysis_stopped_before_call
+E	71	69	F0	69	sql_argument_variable_declaration
+S	41	36	javax.servlet.http.HttpServletRequest	getRequestURI()	false
+S	54	58	javax.servlet.http.HttpServletRequest	getCookies()	true
+
+[STDERR]
+Picked up JAVA_TOOL_OPTIONS: -XX:-UsePerfData

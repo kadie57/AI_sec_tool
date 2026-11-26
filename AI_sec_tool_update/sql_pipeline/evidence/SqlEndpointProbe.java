@@ -6,6 +6,7 @@ import java.util.*;
 import java.util.function.BiConsumer;
 import javax.lang.model.element.*;
 import javax.lang.model.type.TypeKind;
+import javax.lang.model.util.Elements;
 import javax.tools.*;
 
 /** Attribute calls in a supplied Java snapshot without running or generating application code. */
@@ -21,12 +22,18 @@ class SqlEndpointProbe {
         "execute", "executeQuery", "executeUpdate", "executeLargeUpdate", "addBatch");
     private static final Set<String> JDBC = Set.of(
         "java.sql.Connection", "java.sql.Statement", "java.sql.PreparedStatement", "java.sql.CallableStatement");
+    private static final Set<String> SPRING_JDBC = Set.of(
+        "org.springframework.jdbc.core.JdbcOperations", "org.springframework.jdbc.core.JdbcTemplate");
+    private static final Set<String> SPRING_SQL_EXECUTIONS = Set.of(
+        "execute", "update", "query", "queryForList", "queryForMap", "queryForObject", "queryForRowSet",
+        "queryForStream", "batchUpdate");
     private static final Set<String> PARAMETER_BINDINGS = Set.of(
         "setString", "setNString", "setInt", "setLong", "setShort", "setByte", "setObject",
         "setNull", "setBoolean", "setDate", "setTime", "setTimestamp", "setBigDecimal",
         "setBytes", "setDouble", "setFloat", "setArray", "setBinaryStream", "setCharacterStream");
 
     final Trees trees;
+    final Elements elements;
     final Map<CompilationUnitTree, String> units;
     final List<Call> calls = new ArrayList<>();
     private final Set<Element> reassigned = new HashSet<>();
@@ -37,9 +44,16 @@ class SqlEndpointProbe {
         String name() { return target.getSimpleName().toString(); }
         String signature() { return target.toString(); }
         boolean readsRequest() { return REQUEST.contains(owner()) && READS.contains(name()); }
+        boolean springSql() { return SPRING_JDBC.contains(owner()) && SPRING_SQL_EXECUTIONS.contains(name()); }
         boolean sqlArgument() {
-            if (!firstParameter("java.lang.String") || tree.getArguments().isEmpty()) return false;
-            return (owner().equals("java.sql.Connection") && Set.of("prepareStatement", "prepareCall").contains(name()))
+            if (tree.getArguments().isEmpty()) return false;
+            // The evidence pipeline anchors a single SQL text argument per call.
+            if (springSql() && target.isVarArgs() && firstParameter("java.lang.String[]")) {
+                return tree.getArguments().size() == 1;
+            }
+            if (!firstParameter("java.lang.String")) return false;
+            return springSql()
+                || (owner().equals("java.sql.Connection") && Set.of("prepareStatement", "prepareCall").contains(name()))
                 || (JDBC.contains(owner()) && SQL_EXECUTIONS.contains(name()));
         }
         boolean binding() {
@@ -52,8 +66,9 @@ class SqlEndpointProbe {
         }
     }
 
-    private SqlEndpointProbe(Trees trees, Map<CompilationUnitTree, String> units) {
+    private SqlEndpointProbe(Trees trees, Elements elements, Map<CompilationUnitTree, String> units) {
         this.trees = trees;
+        this.elements = elements;
         this.units = units;
     }
 
@@ -96,7 +111,7 @@ class SqlEndpointProbe {
         }
     }
 
-    private VariableTree stableLocal(Element symbol) {
+    VariableTree stableLocal(Element symbol) {
         if (symbol == null || symbol.getKind() != ElementKind.LOCAL_VARIABLE || reassigned.contains(symbol)) return null;
         return trees.getTree(symbol) instanceof VariableTree variable ? variable : null;
     }
@@ -126,6 +141,21 @@ class SqlEndpointProbe {
         return line(call.path().getCompilationUnit(), call.tree().getArguments().get(index));
     }
 
+    private void reportSpringBindings(Call sink) {
+        var parameters = sink.target().getParameters();
+        if (parameters.size() < 2) return;
+        int last = parameters.size() - 1;
+        // Spring overloads accept either an explicit Object[] after SQL or trailing Object varargs.
+        // Result types, callbacks and JDBC type arrays have different roles.
+        if (sink.target().isVarArgs() && parameters.get(last).asType().toString().equals("java.lang.Object[]")) {
+            for (int index = last; index < sink.tree().getArguments().size(); index++) {
+                emit("T", sink.line(), sink.column(), index + 1, argumentLine(sink, index));
+            }
+        } else if (parameters.get(1).asType().toString().equals("java.lang.Object[]")) {
+            emit("T", sink.line(), sink.column(), 2, argumentLine(sink, 1));
+        }
+    }
+
     private void report(long start, long end, BiConsumer<SqlEndpointProbe, Call> inspectValue) {
         var sinks = calls.stream().filter(c -> c.file().equals("F0") && c.line() >= start && c.line() <= end
             && c.sqlArgument() && trees.getPath(c.target()) == null).filter(c -> {
@@ -135,6 +165,7 @@ class SqlEndpointProbe {
         for (Call sink : sinks) {
             emit("Q", sink.file(), sink.line(), sink.column(), sink.owner(), sink.signature(), argumentLine(sink, 0));
             if (inspectValue != null) inspectValue.accept(this, sink);
+            if (sink.springSql()) reportSpringBindings(sink);
             for (Call binding : calls) {
                 if (binding.enclosing() != sink.enclosing() || !binding.binding() || binding.line() < sink.line()) continue;
                 var variable = stableLocal(binding.receiver());
@@ -187,7 +218,7 @@ class SqlEndpointProbe {
             var units = new LinkedHashMap<CompilationUnitTree, String>();
             for (var unit : task.parse()) units.put(unit, files.get(Path.of(unit.getSourceFile().toUri())));
             task.analyze();
-            var probe = new SqlEndpointProbe(Trees.instance(task), units);
+            var probe = new SqlEndpointProbe(Trees.instance(task), task.getElements(), units);
             var scanner = probe.new Scan();
             for (var unit : units.keySet()) scanner.scan(unit, null);
             long errors = diagnostics.getDiagnostics().stream().filter(d -> d.getKind() == Diagnostic.Kind.ERROR).count();

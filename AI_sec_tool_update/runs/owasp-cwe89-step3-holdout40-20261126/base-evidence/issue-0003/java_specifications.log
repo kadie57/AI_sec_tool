@@ -1,0 +1,14 @@
+STATUS	0
+Q	F0	70	23	java.sql.Statement	execute(java.lang.String,java.lang.String[])	70
+V	70	23	unknown	unsupported_or_runtime_value
+E	70	23	F0	65	constant_expression
+E	70	23	F0	54	runtime_if_merges_assignments
+E	70	23	F0	65	value_at_reference_unresolved
+E	70	23	F0	65	string_concatenation_with_unresolved_operand
+E	70	23	F0	65	local_definition
+E	70	23	F0	70	value_at_reference_unresolved
+E	70	23	F0	65	sql_argument_variable_declaration
+S	44	57	javax.servlet.http.HttpServletRequest	getHeaders(java.lang.String)	true
+
+[STDERR]
+Picked up JAVA_TOOL_OPTIONS: -XX:-UsePerfData

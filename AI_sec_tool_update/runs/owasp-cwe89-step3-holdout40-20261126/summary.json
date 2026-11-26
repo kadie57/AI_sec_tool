@@ -1,0 +1,147 @@
+{
+  "state": "COMPLETED",
+  "scope": "Fresh static pipeline on 40 unseen OWASP CWE-89 samples. With and without the Step 3 flag use the exact same Qwen assessments.",
+  "ground_truth_scope": "Official sample label applied to supported warnings within each sample, evaluated separately from source-level SonarQube coverage.",
+  "plan_sha256": "b9dfcb92bfc23f60ac149a103cbba333530fa7b24134a04fe71cb0cde7a85805",
+  "sonarqube": {
+    "analysis_id": "dc414b1d-10d2-474d-b464-55ef791e97d2",
+    "project": "thesis_owasp_cwe89_step3_holdout40_20261126_v1",
+    "java_profile": "KhoaLuan-Java-SQLi-Spring-20261125",
+    "samples": 40,
+    "warnings": 36,
+    "samples_with_warning": 36,
+    "sample_confusion": {
+      "TP": 20,
+      "FP": 16,
+      "FN": 0,
+      "TN": 4
+    },
+    "sample_confusion_by_api_group": {
+      "spring_jdbc": {
+        "TP": 7,
+        "FP": 6,
+        "FN": 0,
+        "TN": 1
+      },
+      "jdbc_prepare": {
+        "TP": 7,
+        "FP": 6,
+        "FN": 0,
+        "TN": 1
+      },
+      "other_jdbc": {
+        "TP": 6,
+        "FP": 4,
+        "FN": 0,
+        "TN": 2
+      }
+    },
+    "warning_rules": {
+      "findsecbugs:SQL_INJECTION_JDBC": 23,
+      "findsecbugs:SQL_INJECTION_SPRING_JDBC": 13
+    },
+    "samples_without_warning": [
+      "BenchmarkTest00936",
+      "BenchmarkTest01815",
+      "BenchmarkTest01817",
+      "BenchmarkTest02727"
+    ],
+    "positive_samples_without_warning": []
+  },
+  "qwen": {
+    "warnings": 36,
+    "model_calls": 36,
+    "outcomes": {
+      "TP": 16,
+      "TN": 11,
+      "UNKNOWN_POS": 4,
+      "UNKNOWN_NEG": 2,
+      "FP": 3
+    },
+    "correct": 27,
+    "decisive": 30,
+    "unknown": 6,
+    "configuration": {
+      "model": "qwen2.5-coder:14b-instruct-q4_K_M",
+      "prompt_sha256": "26e84205a559fb429adba9c87a3a28fdf6a4c6135f4d301f784acee12637a442",
+      "schema_sha256": "2fb9849c6f59240d72ac291beed80f95a0385c5fcfa56376fa905a3efdecc725",
+      "options": {
+        "temperature": 0,
+        "seed": 42,
+        "num_ctx": 8192,
+        "num_predict": 1024
+      },
+      "request_version": 3,
+      "validation_version": 2,
+      "prompt_profile": "iris-contextual",
+      "warning_citation_binding": "sonarqube_alert_start_line",
+      "model_digest": "9ec8897f747e246e970bc5cfdda85d22f1123dc2e3d34978a010a75968716849",
+      "mode": "ollama"
+    },
+    "outcomes_by_api_group": {
+      "spring_jdbc": {
+        "TN": 3,
+        "FP": 3,
+        "TP": 5,
+        "UNKNOWN_POS": 2
+      },
+      "jdbc_prepare": {
+        "UNKNOWN_POS": 1,
+        "TP": 6,
+        "UNKNOWN_NEG": 2,
+        "TN": 4
+      },
+      "other_jdbc": {
+        "TP": 5,
+        "TN": 4,
+        "UNKNOWN_POS": 1
+      }
+    }
+  },
+  "step3": {
+    "status_counts": {
+      "NO_CONFLICT_FLAGGED": 36
+    },
+    "model_verdicts_changed": 0,
+    "model_false_positives": 3,
+    "flagged_false_positives": 0,
+    "model_true_positives": 16,
+    "flagged_true_positives": 0,
+    "flagged_cases": []
+  },
+  "evidence": {
+    "joern_image_id": "sha256:f47692f8334d2eeca9fc83395023773da566ce8397563ff7c66d34a23bfc75c4",
+    "project_java_files": 66,
+    "jdk_symbol_errors": 0,
+    "unique_sink": 36,
+    "warnings_with_candidate_path": 34,
+    "warnings_with_verified_sql_argument_value": 11,
+    "value_evidence_statuses": {
+      "unknown": 25,
+      "constant_sql_text": 8,
+      "fixed_sql_alternatives": 3
+    },
+    "qwen_source_proposals_total": 87,
+    "source_decisions": {
+      "external_read": 33,
+      "forwards_input": 38,
+      "unknown": 15,
+      "constant": 1
+    },
+    "validation_abstentions": 15,
+    "noncorrect_cases_with_verified_value": 0,
+    "noncorrect_cases_with_candidate_path": 7
+  },
+  "inputs_sha256": {
+    "plan.json": "b9dfcb92bfc23f60ac149a103cbba333530fa7b24134a04fe71cb0cde7a85805",
+    "reference-labels.json": "5d11cf23fbbf43b621d1303b87386c490f9175c6c2ac35a80c0ed4f30b212510",
+    "collection/manifest.json": "855511406170ff254a3351de29e03068ce1b8550f271fac5434753c89268869f",
+    "collection/sql-issues.json": "d999412bdedc967d6b125ccb2066a691980762fe3210a7bc231ffd470f39486d",
+    "evidence/manifest.json": "7b2324cbfdabdebf006dd759971df5de26557a7beb211e90e8cf7edc8efdca08",
+    "evidence/sql_evidence.jsonl": "f77f23ec12305f36175eeb34ce1d19c86442cd465136310417a63ad7517907aa",
+    "source-labels/manifest.json": "59c66afbe41238878dcedc4b8af0dd7f64a12784a2bf29fd57fabb203406b71f",
+    "llm/manifest.json": "02e43b0e72ad37e8ce52ae143b7d5479c027c8c9878fdae9de8ee4373fadc52b",
+    "review-audit.json": "468f4e16eaa1187bc807a59c69ef7ea99aa6dd0586d85e61ac8f90d0fc4fac24"
+  },
+  "case_details_file": "cases.json"
+}

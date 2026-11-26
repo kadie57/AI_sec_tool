@@ -8,11 +8,12 @@ from sql_pipeline.evidence.sql_endpoint_specifications import infer_specificatio
 
 
 SERVLET_JAR = Path.home() / ".m2/repository/javax/javaee-api/8.0.1/javaee-api-8.0.1.jar"
+CODEC_JAR = Path.home() / ".m2/repository/commons-codec/commons-codec/1.23.0/commons-codec-1.23.0.jar"
 
 
 @unittest.skipUnless(shutil.which("java") and shutil.which("javac"), "A full JDK is required")
 class SqlJdbcValueEvidenceTest(unittest.TestCase):
-    def probe(self, source, dependencies=(), caller=None):
+    def probe(self, source, dependencies=(), caller=None, *, selected=None, experimental_dispatch_evidence=False):
         alert, = (n for n, line in enumerate(source.splitlines(), 1) if "sink.execute(" in line)
         item = SimpleNamespace(start=alert, end=alert)
         bundle = {"files": {"F0": {"kind": "JAVA", "path": "Example.java", "masked_source": source}}}
@@ -21,11 +22,129 @@ class SqlJdbcValueEvidenceTest(unittest.TestCase):
             bundle["snapshot_callers"] = ["F1"]
         deps = [{"path": str(jar)} for jar in dependencies]
         with tempfile.TemporaryDirectory() as directory:
-            result = infer_specifications(item, bundle, {}, deps, Path(directory) / "java.log", value_evidence=True)
+            result = infer_specifications(item, bundle, selected or {}, deps, Path(directory) / "java.log",
+                                          value_evidence=True, experimental_dispatch_evidence=experimental_dispatch_evidence)
         self.assertEqual(result["sink_resolution"], "one_verified_signature")
         argument, = result["jdbc_value_evidence"]["arguments"]
         self.assertEqual(argument["call"]["line"], alert)
         return argument
+
+    def dispatch_example(self, declaration, second_body, *, factory=False):
+        source = """import java.sql.Statement;
+class Example {
+  KIND interface Formatter PERMITS { String format(String input); }
+  static final class Copy implements Formatter {
+    public String format(String input) { return input; }
+  }
+  static final class Builder implements Formatter {
+    boolean replace;
+    public String format(String input) { SECOND_BODY }
+  }
+  void run(Statement sink, Formatter formatter, String outside) throws Exception {
+    String text = formatter.format(outside);
+    sink.execute("SELECT " + text);
+  }
+}
+""".replace("KIND", "sealed" if declaration == "sealed" else "")
+        source = source.replace("PERMITS", "permits Copy, Builder" if declaration == "sealed" else "")
+        source = source.replace("SECOND_BODY", second_body)
+        if factory:
+            source = source.replace("String text = formatter.format(outside);",
+                                    "Formatter local = create(); String text = local.format(outside);")
+            source = source.rstrip().removesuffix("}") + "  static Formatter create() { return new Copy(); }\n}\n"
+        edge = {"file_id": "F0", "line": 12, "name": "format", "possible_targets": [
+            {"file_id": "F0", "line": line} for line in (3, 5, 9)]}
+        return self.probe(source, selected={"anchored_paths": {"paths": [{"dispatch": [edge]}]}},
+                          experimental_dispatch_evidence=True)
+
+    def test_agreeing_dispatch_targets_report_their_proven_scope(self):
+        for kind, scope in (("sealed", "sealed_final_targets"), ("open", "listed_candidates_only")):
+            with self.subTest(kind=kind):
+                result = self.dispatch_example(kind, 'if (input == null) return ""; return new StringBuilder(input).toString();')
+                self.assertEqual(result["status"], "unknown")
+                group, = result["dispatch_evidence"]
+                self.assertEqual(group["scope"], scope)
+                self.assertEqual(group["condition"], "non_null_string_argument")
+                self.assertEqual([target["owner"] for target in group["targets"]], ["Example.Copy", "Example.Builder"])
+
+    def test_disagreeing_or_runtime_dependent_dispatch_keeps_unknown(self):
+        for body in ('return "fixed";', 'if (replace) return "fixed"; return input;'):
+            with self.subTest(body=body):
+                result = self.dispatch_example("sealed", body)
+                self.assertEqual(result["status"], "unknown")
+                self.assertNotIn("dispatch_evidence", result)
+
+    def test_dispatch_factory_context_tracks_the_bound_local_and_direct_return(self):
+        result = self.dispatch_example("open", "return input;", factory=True)
+        group, = result["dispatch_evidence"]
+        factory = group["receiver_factory"]
+        self.assertEqual(group["scope"], "listed_candidates_only")
+        self.assertEqual(factory["initializer"], {"file_id": "F0", "line": 12})
+        self.assertEqual(factory["direct_returns"], [{"file_id": "F0", "line": 15, "allocated_type": "Example.Copy"}])
+
+    @unittest.skipUnless(CODEC_JAR.is_file(), "Commons Codec library is unavailable")
+    def test_base64_roundtrip_preserves_fixed_origin_with_default_charset(self):
+        result = self.probe("""import java.sql.Statement;
+import org.apache.commons.codec.binary.Base64;
+class Example {
+  void run(Statement sink) throws Exception {
+    String label = "internal";
+    String text = new String(Base64.decodeBase64((Base64.encodeBase64(label.getBytes()))));
+    sink.execute("SELECT " + text);
+  }
+}
+""", (CODEC_JAR,))
+        self.assertEqual(result["status"], "request_independent_sql_text")
+        roles = {fact["role"] for fact in result["evidence"]}
+        self.assertTrue({"string_to_bytes", "base64_encode", "base64_decode", "bytes_to_string"} <= roles)
+
+    @unittest.skipUnless(CODEC_JAR.is_file(), "Commons Codec library is unavailable")
+    def test_base64_roundtrip_uses_known_charset_and_refuses_mismatched_charset(self):
+        source = """import java.sql.Statement;
+import java.nio.charset.StandardCharsets;
+import org.apache.commons.codec.binary.Base64;
+class Example {
+  void run(Statement sink, String outside) throws Exception {
+    String text = new String(Base64.decodeBase64(Base64.encodeBase64("café".getBytes(StandardCharsets.UTF_8))),
+                             StandardCharsets.CHARSET);
+    sink.execute(text.equals("café") ? "SELECT 1" : outside);
+  }
+}
+"""
+        expected = self.probe(source.replace("CHARSET", "UTF_8"), (CODEC_JAR,))
+        self.assertEqual(expected["status"], "constant_sql_text")
+        mismatched = self.probe(source.replace("CHARSET", "US_ASCII"), (CODEC_JAR,))
+        self.assertEqual(mismatched["status"], "unknown")
+
+    @unittest.skipUnless(CODEC_JAR.is_file() and SERVLET_JAR.is_file(), "Commons Codec and Servlet jars are required")
+    def test_base64_roundtrip_preserves_verified_request_origin(self):
+        result = self.probe("""import java.sql.Statement;
+import javax.servlet.ServletRequest;
+import org.apache.commons.codec.binary.Base64;
+class Example {
+  void run(Statement sink, ServletRequest request) throws Exception {
+    String text = request.getParameter("label");
+    String transformed = new String(Base64.decodeBase64(Base64.encodeBase64(text.getBytes())));
+    sink.execute("SELECT " + transformed);
+  }
+}
+""", (CODEC_JAR, SERVLET_JAR))
+        self.assertEqual(result["status"], "external_input_contributes")
+        self.assertIn({"file_id": "F0", "line": 6, "role": "servlet_request_read"}, result["evidence"])
+        self.assertIn({"file_id": "F0", "line": 7, "role": "base64_decode"}, result["evidence"])
+
+    @unittest.skipUnless(CODEC_JAR.is_file(), "Commons Codec library is unavailable")
+    def test_base64_from_an_unresolved_argument_stays_unknown(self):
+        result = self.probe("""import java.sql.Statement;
+import org.apache.commons.codec.binary.Base64;
+class Example {
+  void run(Statement sink, String outside) throws Exception {
+    byte[] encoded = Base64.encodeBase64(outside.getBytes());
+    sink.execute("SELECT " + new String(Base64.decodeBase64(encoded)));
+  }
+}
+""", (CODEC_JAR,))
+        self.assertEqual(result["status"], "unknown")
 
     def test_incoming_call_uses_symbol_and_propagates_the_argument(self):
         result = self.probe("""import java.sql.Statement;

@@ -1,0 +1,153 @@
+{
+  "status": "candidate_paths",
+  "matched_sources": 50,
+  "source_count": 50,
+  "candidate_paths_found": 2,
+  "search_limit_hit": false,
+  "paths": [
+    {
+      "source": {
+        "file_id": "F0",
+        "line": 45,
+        "method": "doPost",
+        "method_start": 38,
+        "method_end": 76,
+        "node_type": "Call",
+        "api_owner": "javax.servlet.ServletRequest",
+        "api_signature": "getParameterNames()"
+      },
+      "steps": [
+        {
+          "file_id": "F0",
+          "line": 46,
+          "method": "doPost",
+          "method_start": 38,
+          "method_end": 76,
+          "node_type": "Identifier"
+        },
+        {
+          "file_id": "F0",
+          "line": 47,
+          "method": "doPost",
+          "method_start": 38,
+          "method_end": 76,
+          "node_type": "Identifier"
+        },
+        {
+          "file_id": "F0",
+          "line": 53,
+          "method": "doPost",
+          "method_start": 38,
+          "method_end": 76,
+          "node_type": "Identifier"
+        },
+        {
+          "file_id": "F0",
+          "line": 60,
+          "method": "doPost",
+          "method_start": 38,
+          "method_end": 76,
+          "node_type": "Identifier"
+        },
+        {
+          "file_id": "F0",
+          "line": 84,
+          "method": "doSomething",
+          "method_start": 80,
+          "method_end": 96,
+          "node_type": "Identifier"
+        },
+        {
+          "file_id": "F0",
+          "line": 87,
+          "method": "doSomething",
+          "method_start": 80,
+          "method_end": 96,
+          "node_type": "Identifier"
+        },
+        {
+          "file_id": "F0",
+          "line": 90,
+          "method": "doSomething",
+          "method_start": 80,
+          "method_end": 96,
+          "node_type": "Identifier"
+        },
+        {
+          "file_id": "F0",
+          "line": 92,
+          "method": "doSomething",
+          "method_start": 80,
+          "method_end": 96,
+          "node_type": "Identifier"
+        },
+        {
+          "file_id": "F0",
+          "line": 80,
+          "method": "doSomething",
+          "method_start": 80,
+          "method_end": 96,
+          "node_type": "MethodReturn"
+        },
+        {
+          "file_id": "F0",
+          "line": 60,
+          "method": "doPost",
+          "method_start": 38,
+          "method_end": 76,
+          "node_type": "Call"
+        }
+      ],
+      "sink": {
+        "file_id": "F0",
+        "line": 67,
+        "name": "prepareCall",
+        "method": "doPost",
+        "method_start": 38,
+        "method_end": 76
+      },
+      "omitted_steps": 5,
+      "unlocated_nodes": 0,
+      "dispatch": []
+    },
+    {
+      "source": {
+        "file_id": "F0",
+        "line": 60,
+        "method": "doPost",
+        "method_start": 38,
+        "method_end": 76,
+        "node_type": "Call",
+        "api_owner": "org.owasp.benchmark.testcode.BenchmarkTest01459.Test",
+        "api_signature": "doSomething(javax.servlet.http.HttpServletRequest,java.lang.String)",
+        "semantic_status": "qwen_candidate",
+        "input_kind": "file"
+      },
+      "steps": [
+        {
+          "file_id": "F0",
+          "line": 62,
+          "method": "doPost",
+          "method_start": 38,
+          "method_end": 76,
+          "node_type": "Call"
+        }
+      ],
+      "sink": {
+        "file_id": "F0",
+        "line": 67,
+        "name": "prepareCall",
+        "method": "doPost",
+        "method_start": 38,
+        "method_end": 76
+      },
+      "omitted_steps": 0,
+      "unlocated_nodes": 0,
+      "dispatch": []
+    }
+  ],
+  "paths_not_shown": 0,
+  "version": "sql-project-paths-v2",
+  "scope": "verified_java_snapshot",
+  "interpretation": "Candidate dataflow. Runtime branch and dispatch feasibility require separate evidence."
+}

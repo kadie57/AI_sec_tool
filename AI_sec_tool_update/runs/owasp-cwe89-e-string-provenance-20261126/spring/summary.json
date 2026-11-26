@@ -1,0 +1,65 @@
+{
+  "scope": "Same E warnings and Joern paths. Paired replay of string provenance across the verified Base64 round trip.",
+  "baseline": "runs/owasp-cwe89-e-spring-20261125/E",
+  "labels": "runs/owasp-cwe89-e-spring-20261125/reference-labels.json",
+  "review_configuration": {
+    "model": "qwen2.5-coder:14b-instruct-q4_K_M",
+    "prompt_sha256": "26e84205a559fb429adba9c87a3a28fdf6a4c6135f4d301f784acee12637a442",
+    "schema_sha256": "2fb9849c6f59240d72ac291beed80f95a0385c5fcfa56376fa905a3efdecc725",
+    "options": {
+      "temperature": 0,
+      "seed": 42,
+      "num_ctx": 8192,
+      "num_predict": 1024
+    },
+    "request_version": 3,
+    "validation_version": 2,
+    "prompt_profile": "iris-contextual",
+    "warning_citation_binding": "sonarqube_alert_start_line",
+    "model_digest": "9ec8897f747e246e970bc5cfdda85d22f1123dc2e3d34978a010a75968716849",
+    "mode": "ollama"
+  },
+  "jdk_value_changes": [
+    {
+      "issue_id": "bb08990d-8d4d-4854-aec2-e93221c1aacb",
+      "component": "thesis_owasp_cwe89_e_spring_20261125_v1:src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00930.java",
+      "line": 59,
+      "before": [
+        "unknown"
+      ],
+      "after": [
+        "request_independent_sql_text"
+      ]
+    }
+  ],
+  "before": {
+    "counts": {
+      "TP": 5,
+      "TN": 4,
+      "FP": 1,
+      "UNKNOWN_POS": 1
+    },
+    "correct": 9
+  },
+  "after": {
+    "counts": {
+      "TP": 5,
+      "TN": 5,
+      "UNKNOWN_POS": 1
+    },
+    "correct": 10
+  },
+  "fresh_ollama_calls": 1,
+  "responses_reused": 10,
+  "changed_verdicts": [
+    {
+      "issue_id": "bb08990d-8d4d-4854-aec2-e93221c1aacb",
+      "component": "thesis_owasp_cwe89_e_spring_20261125_v1:src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00930.java",
+      "evidence_changed": true,
+      "before": "LIKELY_TP",
+      "after": "LIKELY_FP",
+      "sample": "BenchmarkTest00930",
+      "reference_vulnerability": false
+    }
+  ]
+}

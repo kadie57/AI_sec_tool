@@ -1,0 +1,29 @@
+{
+  "implementation_sha256": {
+    "sql_pipeline/evidence/sql_source_paths.py": "baae8fdeb03db7ef36fbb4841367773a575585e5fbf5fa082120c5f5e497ed88",
+    "sql_pipeline/evidence/sql_project_paths.py": "da3d1b59dc269c757aa1b44f214c84b5b6b913493bc0201d6053c9ab034c0e89"
+  },
+  "cases": [
+    {
+      "sample": "BenchmarkTest00431",
+      "signature": "<T>query(java.lang.String,org.springframework.jdbc.core.RowMapper<T>)",
+      "before": "sink_not_unique_in_cpg",
+      "after": "candidate_paths",
+      "path_count": 1
+    },
+    {
+      "sample": "BenchmarkTest00842",
+      "signature": "<T>queryForObject(java.lang.String,java.lang.Class<T>)",
+      "before": "sink_not_unique_in_cpg",
+      "after": "candidate_paths",
+      "path_count": 1
+    },
+    {
+      "sample": "BenchmarkTest01725",
+      "signature": "<T>queryForObject(java.lang.String,java.lang.Object[],java.lang.Class<T>)",
+      "before": "sink_not_unique_in_cpg",
+      "after": "candidate_paths",
+      "path_count": 1
+    }
+  ]
+}

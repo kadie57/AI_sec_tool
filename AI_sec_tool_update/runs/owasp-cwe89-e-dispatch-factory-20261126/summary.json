@@ -1,0 +1,220 @@
+{
+  "state": "COMPLETED",
+  "scope": "Paired replay with frozen warning list, Joern traces, and Qwen review settings. Conditional Java behavior proof for interface candidates with verified receiver factory context.",
+  "review_configuration": {
+    "model": "qwen2.5-coder:14b-instruct-q4_K_M",
+    "prompt_sha256": "26e84205a559fb429adba9c87a3a28fdf6a4c6135f4d301f784acee12637a442",
+    "schema_sha256": "2fb9849c6f59240d72ac291beed80f95a0385c5fcfa56376fa905a3efdecc725",
+    "options": {
+      "temperature": 0,
+      "seed": 42,
+      "num_ctx": 8192,
+      "num_predict": 1024
+    },
+    "request_version": 3,
+    "validation_version": 2,
+    "prompt_profile": "iris-contextual",
+    "warning_citation_binding": "sonarqube_alert_start_line",
+    "model_digest": "9ec8897f747e246e970bc5cfdda85d22f1123dc2e3d34978a010a75968716849",
+    "mode": "ollama"
+  },
+  "implementation": {
+    "value_evidence_version": "jdbc-value-evidence-v9",
+    "sha256": {
+      "sql_pipeline/evidence/SqlValueEvidence.java": "64a8ff3f198fe6c2f187463d4076a72a48c6aa6b3c5a8ac1c5a7779fc87d511c",
+      "sql_pipeline/evidence/SqlEndpointProbe.java": "4fcf3d261b677c5cd44bb6d6e29f5dd12bb239a9d56ca1957f583d3c0d3914b5",
+      "sql_pipeline/evidence/sql_endpoint_specifications.py": "27c197d1b8faf82d7bdfae25a8492858fc9b52611dec52e817f455f8faa89e17",
+      "sql_pipeline/evidence/sql_path_presentation.py": "e8dd075be1b94546180b1e648c5bd707ea714bb0b4390088edc9f3edb08e6e01",
+      "prepare_sql_evidence.py": "09558f90b36a3222817dbd4fa42b30ca9421ef3d9fa01c0f7b398bb3a1aff0a7",
+      "sql_project_flow_experiment.py": "d0c8cd71f0edcb6982be5d05da885d8dde7466512d0d849f32509b8aff0cfa93"
+    }
+  },
+  "pilot_without_factory_context": {
+    "counts": {
+      "TP": 12,
+      "UNKNOWN_NEG": 2,
+      "TN": 11,
+      "UNKNOWN_POS": 3,
+      "FP": 1
+    },
+    "correct": 23,
+    "warnings": 29
+  },
+  "combined": {
+    "before": {
+      "counts": {
+        "TP": 13,
+        "UNKNOWN_NEG": 2,
+        "TN": 11,
+        "UNKNOWN_POS": 2,
+        "FP": 1
+      },
+      "correct": 24,
+      "warnings": 29
+    },
+    "after": {
+      "counts": {
+        "TP": 13,
+        "UNKNOWN_NEG": 2,
+        "TN": 11,
+        "UNKNOWN_POS": 2,
+        "FP": 1
+      },
+      "correct": 24,
+      "warnings": 29
+    }
+  },
+  "spring": {
+    "before": {
+      "counts": {
+        "TP": 5,
+        "TN": 5,
+        "UNKNOWN_POS": 1
+      },
+      "correct": 10
+    },
+    "after": {
+      "counts": {
+        "TP": 5,
+        "TN": 5,
+        "UNKNOWN_POS": 1
+      },
+      "correct": 10
+    }
+  },
+  "fresh_ollama_calls": 2,
+  "responses_reused": 27,
+  "dispatch_evidence": {
+    "BenchmarkTest00597": [
+      {
+        "file_id": "F0",
+        "line": 62,
+        "name": "doSomething",
+        "argument_index": 1,
+        "scope": "listed_candidates_only",
+        "condition": "non_null_string_argument",
+        "behavior": "returns_argument_unchanged",
+        "targets": [
+          {
+            "file_id": "F1",
+            "line": 22,
+            "owner": "org.owasp.benchmark.helpers.Thing1",
+            "return": {
+              "file_id": "F1",
+              "line": 26
+            }
+          },
+          {
+            "file_id": "F2",
+            "line": 22,
+            "owner": "org.owasp.benchmark.helpers.Thing2",
+            "return": {
+              "file_id": "F2",
+              "line": 26
+            }
+          }
+        ],
+        "receiver_factory": {
+          "initializer": {
+            "file_id": "F0",
+            "line": 61
+          },
+          "declaration": {
+            "file_id": "F3",
+            "line": 26
+          },
+          "owner": "org.owasp.benchmark.helpers.ThingFactory",
+          "signature": "createThing()",
+          "packaged_resources": [
+            {
+              "read": {
+                "file_id": "F3",
+                "line": 32
+              },
+              "resource_file_id": "F5",
+              "scope": "packaged_snapshot"
+            }
+          ],
+          "direct_returns": [
+            {
+              "file_id": "F3",
+              "line": 35,
+              "allocated_type": "org.owasp.benchmark.helpers.Thing2"
+            },
+            {
+              "file_id": "F3",
+              "line": 49,
+              "allocated_type": "org.owasp.benchmark.helpers.Thing1"
+            }
+          ]
+        }
+      }
+    ],
+    "BenchmarkTest01725": [
+      {
+        "file_id": "F0",
+        "line": 101,
+        "name": "doSomething",
+        "argument_index": 1,
+        "scope": "listed_candidates_only",
+        "condition": "non_null_string_argument",
+        "behavior": "returns_argument_unchanged",
+        "targets": [
+          {
+            "file_id": "F1",
+            "line": 22,
+            "owner": "org.owasp.benchmark.helpers.Thing1",
+            "return": {
+              "file_id": "F1",
+              "line": 26
+            }
+          },
+          {
+            "file_id": "F2",
+            "line": 22,
+            "owner": "org.owasp.benchmark.helpers.Thing2",
+            "return": {
+              "file_id": "F2",
+              "line": 26
+            }
+          }
+        ],
+        "receiver_factory": {
+          "initializer": {
+            "file_id": "F0",
+            "line": 100
+          },
+          "declaration": {
+            "file_id": "F3",
+            "line": 26
+          },
+          "owner": "org.owasp.benchmark.helpers.ThingFactory",
+          "signature": "createThing()",
+          "packaged_resources": [
+            {
+              "read": {
+                "file_id": "F3",
+                "line": 32
+              },
+              "resource_file_id": "F5",
+              "scope": "packaged_snapshot"
+            }
+          ],
+          "direct_returns": [
+            {
+              "file_id": "F3",
+              "line": 35,
+              "allocated_type": "org.owasp.benchmark.helpers.Thing2"
+            },
+            {
+              "file_id": "F3",
+              "line": 49,
+              "allocated_type": "org.owasp.benchmark.helpers.Thing1"
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "changed_verdicts": []
+}

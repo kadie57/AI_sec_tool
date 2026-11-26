@@ -1,0 +1,246 @@
+{
+  "state": "COMPLETED",
+  "scope": "Same 30 OWASP cases with the Spring JDBC rule added",
+  "configuration": {
+    "model": "qwen2.5-coder:14b-instruct-q4_K_M",
+    "prompt_sha256": "26e84205a559fb429adba9c87a3a28fdf6a4c6135f4d301f784acee12637a442",
+    "schema_sha256": "2fb9849c6f59240d72ac291beed80f95a0385c5fcfa56376fa905a3efdecc725",
+    "options": {
+      "temperature": 0,
+      "seed": 42,
+      "num_ctx": 8192,
+      "num_predict": 1024
+    },
+    "request_version": 3,
+    "validation_version": 2,
+    "prompt_profile": "iris-contextual",
+    "warning_citation_binding": "sonarqube_alert_start_line",
+    "model_digest": "9ec8897f747e246e970bc5cfdda85d22f1123dc2e3d34978a010a75968716849"
+  },
+  "sonarqube": {
+    "scope": "Exact source snapshot and one additional FindSecBugs rule",
+    "baseline_analysis_id": "280b66e6-5ffa-45b8-954e-a30ba09e8262",
+    "spring_analysis_id": "6a71f52b-b5a1-470d-a12d-375e667b31d6",
+    "baseline": {
+      "warnings": 18,
+      "samples_with_warning": 18,
+      "positive_with_warning": 9,
+      "negative_with_warning": 9
+    },
+    "profile_with_spring": {
+      "warnings": 29,
+      "samples_with_warning": 29,
+      "positive_with_warning": 15,
+      "negative_with_warning": 14
+    },
+    "new_spring": {
+      "warnings": 11,
+      "samples_with_warning": 11,
+      "positive_with_warning": 6,
+      "negative_with_warning": 5
+    }
+  },
+  "prior_E_jdbc": {
+    "outcomes": {
+      "TP": 8,
+      "UNKNOWN_NEG": 2,
+      "TN": 6,
+      "UNKNOWN_POS": 1,
+      "FP": 1
+    },
+    "correct": 14,
+    "warnings": 18
+  },
+  "fresh_E_spring": {
+    "outcomes": {
+      "TP": 5,
+      "TN": 4,
+      "FP": 1,
+      "UNKNOWN_POS": 1
+    },
+    "correct": 9,
+    "warnings": 11
+  },
+  "combined_E": {
+    "outcomes": {
+      "TP": 13,
+      "UNKNOWN_NEG": 2,
+      "TN": 10,
+      "UNKNOWN_POS": 2,
+      "FP": 2
+    },
+    "correct": 23,
+    "warnings": 29
+  },
+  "fresh_ollama_calls": 11,
+  "prior_responses_reused": 18,
+  "positive_samples_total": 15,
+  "negative_samples_total": 15,
+  "new_spring_cases": [
+    {
+      "sample": "BenchmarkTest00195",
+      "issue_id": "89d39a42-5072-4012-b4ee-bee89efe3bb1",
+      "verdict": "LIKELY_TP",
+      "outcome": "TP",
+      "reference_vulnerability": true,
+      "evaluation_mode": "fresh_E_ollama",
+      "review_issue_id": "89d39a42-5072-4012-b4ee-bee89efe3bb1",
+      "request_sha256": "24b5885de0c4ca5856b8c80692cf49bbbe25755b97283c0088598f0ae2d074f4",
+      "typed_sink": "one_verified_signature",
+      "path_found": true,
+      "value_evidence": [
+        "unknown"
+      ]
+    },
+    {
+      "sample": "BenchmarkTest00431",
+      "issue_id": "b0c1f1f6-8a01-4ec4-b7df-a0d392318441",
+      "verdict": "LIKELY_TP",
+      "outcome": "TP",
+      "reference_vulnerability": true,
+      "evaluation_mode": "fresh_E_ollama",
+      "review_issue_id": "b0c1f1f6-8a01-4ec4-b7df-a0d392318441",
+      "request_sha256": "0ee312ffe70be4f7dcc81e0dd82b60446c8e0d3d036ff034d96e62ea5ce09a56",
+      "typed_sink": "one_verified_signature",
+      "path_found": true,
+      "value_evidence": [
+        "unknown"
+      ]
+    },
+    {
+      "sample": "BenchmarkTest00432",
+      "issue_id": "5907927a-c5c1-4d37-9c5e-3b84fc549c99",
+      "verdict": "LIKELY_FP",
+      "outcome": "TN",
+      "reference_vulnerability": false,
+      "evaluation_mode": "fresh_E_ollama",
+      "review_issue_id": "5907927a-c5c1-4d37-9c5e-3b84fc549c99",
+      "request_sha256": "c52dc64d363ff805b8803e2280336df67d4705b9dc94cef457e32a63ac036896",
+      "typed_sink": "one_verified_signature",
+      "path_found": true,
+      "value_evidence": [
+        "fixed_sql_alternatives"
+      ]
+    },
+    {
+      "sample": "BenchmarkTest00511",
+      "issue_id": "8709eeb4-ade3-4d4f-808c-5c89455ef7a5",
+      "verdict": "LIKELY_FP",
+      "outcome": "TN",
+      "reference_vulnerability": false,
+      "evaluation_mode": "fresh_E_ollama",
+      "review_issue_id": "8709eeb4-ade3-4d4f-808c-5c89455ef7a5",
+      "request_sha256": "d0980620a8068274ee03710f8b6f0aac10e1ebc72af572f7434fb9b2326463a2",
+      "typed_sink": "one_verified_signature",
+      "path_found": true,
+      "value_evidence": [
+        "constant_sql_text"
+      ]
+    },
+    {
+      "sample": "BenchmarkTest00597",
+      "issue_id": "395d2fa4-c4a3-468b-b72e-1a54df0f2eff",
+      "verdict": "LIKELY_TP",
+      "outcome": "TP",
+      "reference_vulnerability": true,
+      "evaluation_mode": "fresh_E_ollama",
+      "review_issue_id": "395d2fa4-c4a3-468b-b72e-1a54df0f2eff",
+      "request_sha256": "bde1fadf05c215d455038e851f62e456610702f5b3e23256ff128f3f83ba9af6",
+      "typed_sink": "one_verified_signature",
+      "path_found": true,
+      "value_evidence": [
+        "unknown"
+      ]
+    },
+    {
+      "sample": "BenchmarkTest00842",
+      "issue_id": "7b722367-6ec2-47b1-b8aa-537245ecaa8a",
+      "verdict": "LIKELY_TP",
+      "outcome": "TP",
+      "reference_vulnerability": true,
+      "evaluation_mode": "fresh_E_ollama",
+      "review_issue_id": "7b722367-6ec2-47b1-b8aa-537245ecaa8a",
+      "request_sha256": "422771c4914dd205241660e5c238b9bac831b655e0fc8c402e492061f011cb72",
+      "typed_sink": "one_verified_signature",
+      "path_found": true,
+      "value_evidence": [
+        "unknown"
+      ]
+    },
+    {
+      "sample": "BenchmarkTest00930",
+      "issue_id": "bb08990d-8d4d-4854-aec2-e93221c1aacb",
+      "verdict": "LIKELY_TP",
+      "outcome": "FP",
+      "reference_vulnerability": false,
+      "evaluation_mode": "fresh_E_ollama",
+      "review_issue_id": "bb08990d-8d4d-4854-aec2-e93221c1aacb",
+      "request_sha256": "e4a998aefa44882e4458647c533593234db44e5b384508c93b97607cd475102d",
+      "typed_sink": "one_verified_signature",
+      "path_found": true,
+      "value_evidence": [
+        "unknown"
+      ]
+    },
+    {
+      "sample": "BenchmarkTest01085",
+      "issue_id": "f8ee910d-26bb-4a08-9c9c-9d7620b408f5",
+      "verdict": "LIKELY_FP",
+      "outcome": "TN",
+      "reference_vulnerability": false,
+      "evaluation_mode": "fresh_E_ollama",
+      "review_issue_id": "f8ee910d-26bb-4a08-9c9c-9d7620b408f5",
+      "request_sha256": "66f703361dd3abafb4ec15def85d75552d31826c99c261d03a05d7572f037316",
+      "typed_sink": "one_verified_signature",
+      "path_found": true,
+      "value_evidence": [
+        "fixed_sql_alternatives"
+      ]
+    },
+    {
+      "sample": "BenchmarkTest01086",
+      "issue_id": "5d50d4d7-1b4c-4102-8fd8-26a08a44163f",
+      "verdict": "LIKELY_FP",
+      "outcome": "TN",
+      "reference_vulnerability": false,
+      "evaluation_mode": "fresh_E_ollama",
+      "review_issue_id": "5d50d4d7-1b4c-4102-8fd8-26a08a44163f",
+      "request_sha256": "c85b6403090011469f94275992eec1407cd1da3ad411f378545acb26eddfdff8",
+      "typed_sink": "one_verified_signature",
+      "path_found": true,
+      "value_evidence": [
+        "constant_sql_text"
+      ]
+    },
+    {
+      "sample": "BenchmarkTest01725",
+      "issue_id": "bd6d044c-0a69-4cae-a101-364368511867",
+      "verdict": "UNKNOWN",
+      "outcome": "UNKNOWN_POS",
+      "reference_vulnerability": true,
+      "evaluation_mode": "fresh_E_ollama",
+      "review_issue_id": "bd6d044c-0a69-4cae-a101-364368511867",
+      "request_sha256": "a2038a8dde4062696f6835b0c7e88a00e763f7a3d3af6295a76895516a3f8d80",
+      "typed_sink": "one_verified_signature",
+      "path_found": true,
+      "value_evidence": [
+        "unknown"
+      ]
+    },
+    {
+      "sample": "BenchmarkTest02362",
+      "issue_id": "597d0708-60f2-48d3-9e5a-d513bbf84681",
+      "verdict": "LIKELY_TP",
+      "outcome": "TP",
+      "reference_vulnerability": true,
+      "evaluation_mode": "fresh_E_ollama",
+      "review_issue_id": "597d0708-60f2-48d3-9e5a-d513bbf84681",
+      "request_sha256": "5bb2232bcb85a59d2ccc53c56b32f6eb14ad2241834c8a37bb981cacf589524d",
+      "typed_sink": "one_verified_signature",
+      "path_found": true,
+      "value_evidence": [
+        "unknown"
+      ]
+    }
+  ]
+}

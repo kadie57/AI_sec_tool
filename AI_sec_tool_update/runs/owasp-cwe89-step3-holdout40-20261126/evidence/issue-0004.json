@@ -1,0 +1,271 @@
+{
+  "status": "candidate_paths",
+  "matched_sources": 50,
+  "source_count": 50,
+  "candidate_paths_found": 2,
+  "search_limit_hit": false,
+  "paths": [
+    {
+      "source": {
+        "file_id": "F0",
+        "line": 45,
+        "method": "doPost",
+        "method_start": 38,
+        "method_end": 79,
+        "node_type": "Call",
+        "api_owner": "javax.servlet.ServletRequest",
+        "api_signature": "getParameterNames()"
+      },
+      "steps": [
+        {
+          "file_id": "F0",
+          "line": 46,
+          "method": "doPost",
+          "method_start": 38,
+          "method_end": 79,
+          "node_type": "Identifier"
+        },
+        {
+          "file_id": "F0",
+          "line": 47,
+          "method": "doPost",
+          "method_start": 38,
+          "method_end": 79,
+          "node_type": "Identifier"
+        },
+        {
+          "file_id": "F0",
+          "line": 48,
+          "method": "doPost",
+          "method_start": 38,
+          "method_end": 79,
+          "node_type": "Identifier"
+        },
+        {
+          "file_id": "F0",
+          "line": 53,
+          "method": "doPost",
+          "method_start": 38,
+          "method_end": 79,
+          "node_type": "Identifier"
+        },
+        {
+          "file_id": "F0",
+          "line": 62,
+          "method": "doPost",
+          "method_start": 38,
+          "method_end": 79,
+          "node_type": "Identifier"
+        },
+        {
+          "file_id": "F2",
+          "line": 24,
+          "method": "doSomething",
+          "method_start": 22,
+          "method_end": 27,
+          "node_type": "Identifier"
+        },
+        {
+          "file_id": "F2",
+          "line": 25,
+          "method": "doSomething",
+          "method_start": 22,
+          "method_end": 27,
+          "node_type": "Identifier"
+        },
+        {
+          "file_id": "F2",
+          "line": 26,
+          "method": "doSomething",
+          "method_start": 22,
+          "method_end": 27,
+          "node_type": "Identifier"
+        },
+        {
+          "file_id": "F2",
+          "line": 23,
+          "method": "doSomething",
+          "method_start": 22,
+          "method_end": 27,
+          "node_type": "MethodReturn"
+        },
+        {
+          "file_id": "F0",
+          "line": 62,
+          "method": "doPost",
+          "method_start": 38,
+          "method_end": 79,
+          "node_type": "Call"
+        }
+      ],
+      "sink": {
+        "file_id": "F0",
+        "line": 70,
+        "name": "prepareStatement",
+        "method": "doPost",
+        "method_start": 38,
+        "method_end": 79
+      },
+      "omitted_steps": 2,
+      "unlocated_nodes": 0,
+      "dispatch": [
+        {
+          "file_id": "F0",
+          "line": 62,
+          "name": "doSomething",
+          "possible_targets": [
+            {
+              "file_id": "F1",
+              "line": 22,
+              "method": "org.owasp.benchmark.helpers.Thing1.doSomething:<unresolvedSignature>(1)"
+            },
+            {
+              "file_id": "F2",
+              "line": 22,
+              "method": "org.owasp.benchmark.helpers.Thing2.doSomething:<unresolvedSignature>(1)"
+            },
+            {
+              "file_id": "F4",
+              "line": 21,
+              "method": "org.owasp.benchmark.helpers.ThingInterface.doSomething:<unresolvedSignature>(1)"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "source": {
+        "file_id": "F0",
+        "line": 47,
+        "method": "doPost",
+        "method_start": 38,
+        "method_end": 79,
+        "node_type": "Call",
+        "api_owner": "java.util.Enumeration",
+        "api_signature": "nextElement()",
+        "semantic_status": "qwen_candidate",
+        "input_kind": "request"
+      },
+      "steps": [
+        {
+          "file_id": "F0",
+          "line": 48,
+          "method": "doPost",
+          "method_start": 38,
+          "method_end": 79,
+          "node_type": "Identifier"
+        },
+        {
+          "file_id": "F0",
+          "line": 53,
+          "method": "doPost",
+          "method_start": 38,
+          "method_end": 79,
+          "node_type": "Identifier"
+        },
+        {
+          "file_id": "F0",
+          "line": 62,
+          "method": "doPost",
+          "method_start": 38,
+          "method_end": 79,
+          "node_type": "Identifier"
+        },
+        {
+          "file_id": "F2",
+          "line": 23,
+          "method": "doSomething",
+          "method_start": 22,
+          "method_end": 27,
+          "node_type": "MethodParameterIn"
+        },
+        {
+          "file_id": "F2",
+          "line": 24,
+          "method": "doSomething",
+          "method_start": 22,
+          "method_end": 27,
+          "node_type": "Identifier"
+        },
+        {
+          "file_id": "F2",
+          "line": 25,
+          "method": "doSomething",
+          "method_start": 22,
+          "method_end": 27,
+          "node_type": "Identifier"
+        },
+        {
+          "file_id": "F2",
+          "line": 26,
+          "method": "doSomething",
+          "method_start": 22,
+          "method_end": 27,
+          "node_type": "Identifier"
+        },
+        {
+          "file_id": "F2",
+          "line": 23,
+          "method": "doSomething",
+          "method_start": 22,
+          "method_end": 27,
+          "node_type": "MethodReturn"
+        },
+        {
+          "file_id": "F0",
+          "line": 62,
+          "method": "doPost",
+          "method_start": 38,
+          "method_end": 79,
+          "node_type": "Call"
+        },
+        {
+          "file_id": "F0",
+          "line": 64,
+          "method": "doPost",
+          "method_start": 38,
+          "method_end": 79,
+          "node_type": "Call"
+        }
+      ],
+      "sink": {
+        "file_id": "F0",
+        "line": 70,
+        "name": "prepareStatement",
+        "method": "doPost",
+        "method_start": 38,
+        "method_end": 79
+      },
+      "omitted_steps": 0,
+      "unlocated_nodes": 0,
+      "dispatch": [
+        {
+          "file_id": "F0",
+          "line": 62,
+          "name": "doSomething",
+          "possible_targets": [
+            {
+              "file_id": "F1",
+              "line": 22,
+              "method": "org.owasp.benchmark.helpers.Thing1.doSomething:<unresolvedSignature>(1)"
+            },
+            {
+              "file_id": "F2",
+              "line": 22,
+              "method": "org.owasp.benchmark.helpers.Thing2.doSomething:<unresolvedSignature>(1)"
+            },
+            {
+              "file_id": "F4",
+              "line": 21,
+              "method": "org.owasp.benchmark.helpers.ThingInterface.doSomething:<unresolvedSignature>(1)"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "paths_not_shown": 0,
+  "version": "sql-project-paths-v2",
+  "scope": "verified_java_snapshot",
+  "interpretation": "Candidate dataflow. Runtime branch and dispatch feasibility require separate evidence."
+}

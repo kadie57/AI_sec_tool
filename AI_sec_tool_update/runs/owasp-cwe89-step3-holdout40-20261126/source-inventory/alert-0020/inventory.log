@@ -1,0 +1,20 @@
+STATUS	0
+Q	F0	67	35	java.sql.Statement	executeUpdate(java.lang.String,int)	67
+C	F0	47	42	java.util.Enumeration	nextElement()	false
+C	F0	60	33	org.owasp.benchmark.testcode.BenchmarkTest01474.Test	doSomething(javax.servlet.http.HttpServletRequest,java.lang.String)	true	F0	78	91
+V	67	35	unknown	unsupported_or_runtime_value
+E	67	35	F0	90	value_at_reference_unresolved
+E	67	35	F0	90	helper_return
+E	67	35	F0	60	helper_call
+E	67	35	F0	46	loop_local_values_invalidated
+E	67	35	F0	60	local_definition
+E	67	35	F0	62	value_at_reference_unresolved
+E	67	35	F0	62	string_concatenation_with_unresolved_operand
+E	67	35	F0	62	local_definition
+E	67	35	F0	67	value_at_reference_unresolved
+E	67	35	F0	62	sql_argument_variable_declaration
+S	45	55	javax.servlet.ServletRequest	getParameterNames()	true
+S	48	39	javax.servlet.ServletRequest	getParameterValues(java.lang.String)	true
+
+[STDERR]
+Picked up JAVA_TOOL_OPTIONS: -XX:-UsePerfData

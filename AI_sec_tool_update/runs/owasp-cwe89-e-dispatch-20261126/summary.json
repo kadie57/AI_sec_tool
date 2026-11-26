@@ -1,0 +1,141 @@
+{
+  "state": "COMPLETED",
+  "scope": "Paired replay with frozen warning list, Joern traces, and Qwen review settings. Conditional Java behavior proof for interface candidates.",
+  "review_configuration": {
+    "model": "qwen2.5-coder:14b-instruct-q4_K_M",
+    "prompt_sha256": "26e84205a559fb429adba9c87a3a28fdf6a4c6135f4d301f784acee12637a442",
+    "schema_sha256": "2fb9849c6f59240d72ac291beed80f95a0385c5fcfa56376fa905a3efdecc725",
+    "options": {
+      "temperature": 0,
+      "seed": 42,
+      "num_ctx": 8192,
+      "num_predict": 1024
+    },
+    "request_version": 3,
+    "validation_version": 2,
+    "prompt_profile": "iris-contextual",
+    "warning_citation_binding": "sonarqube_alert_start_line",
+    "model_digest": "9ec8897f747e246e970bc5cfdda85d22f1123dc2e3d34978a010a75968716849",
+    "mode": "ollama"
+  },
+  "combined": {
+    "before": {
+      "counts": {
+        "TP": 13,
+        "UNKNOWN_NEG": 2,
+        "TN": 11,
+        "UNKNOWN_POS": 2,
+        "FP": 1
+      },
+      "correct": 24,
+      "warnings": 29
+    },
+    "after": {
+      "counts": {
+        "TP": 12,
+        "UNKNOWN_NEG": 2,
+        "TN": 11,
+        "UNKNOWN_POS": 3,
+        "FP": 1
+      },
+      "correct": 23,
+      "warnings": 29
+    }
+  },
+  "spring": {
+    "before": {
+      "counts": {
+        "TP": 5,
+        "TN": 5,
+        "UNKNOWN_POS": 1
+      },
+      "correct": 10
+    },
+    "after": {
+      "counts": {
+        "TP": 4,
+        "TN": 5,
+        "UNKNOWN_POS": 2
+      },
+      "correct": 9
+    }
+  },
+  "fresh_ollama_calls": 2,
+  "responses_reused": 27,
+  "dispatch_evidence": {
+    "BenchmarkTest00597": [
+      {
+        "file_id": "F0",
+        "line": 62,
+        "name": "doSomething",
+        "argument_index": 1,
+        "scope": "listed_candidates_only",
+        "condition": "non_null_string_argument",
+        "behavior": "returns_argument_unchanged",
+        "targets": [
+          {
+            "file_id": "F1",
+            "line": 22,
+            "owner": "org.owasp.benchmark.helpers.Thing1",
+            "return": {
+              "file_id": "F1",
+              "line": 26
+            }
+          },
+          {
+            "file_id": "F2",
+            "line": 22,
+            "owner": "org.owasp.benchmark.helpers.Thing2",
+            "return": {
+              "file_id": "F2",
+              "line": 26
+            }
+          }
+        ]
+      }
+    ],
+    "BenchmarkTest01725": [
+      {
+        "file_id": "F0",
+        "line": 101,
+        "name": "doSomething",
+        "argument_index": 1,
+        "scope": "listed_candidates_only",
+        "condition": "non_null_string_argument",
+        "behavior": "returns_argument_unchanged",
+        "targets": [
+          {
+            "file_id": "F1",
+            "line": 22,
+            "owner": "org.owasp.benchmark.helpers.Thing1",
+            "return": {
+              "file_id": "F1",
+              "line": 26
+            }
+          },
+          {
+            "file_id": "F2",
+            "line": 22,
+            "owner": "org.owasp.benchmark.helpers.Thing2",
+            "return": {
+              "file_id": "F2",
+              "line": 26
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "changed_verdicts": [
+    {
+      "issue_id": "395d2fa4-c4a3-468b-b72e-1a54df0f2eff",
+      "component": "thesis_owasp_cwe89_e_spring_20261125_v1:src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00597.java",
+      "evidence_changed": true,
+      "before": "LIKELY_TP",
+      "after": "UNKNOWN",
+      "sample": "BenchmarkTest00597",
+      "reference_vulnerability": true
+    }
+  ],
+  "value_evidence_version": "jdbc-value-evidence-v8"
+}

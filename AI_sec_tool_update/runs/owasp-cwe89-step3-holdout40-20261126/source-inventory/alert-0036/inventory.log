@@ -1,0 +1,22 @@
+STATUS	0
+Q	F0	77	35	java.sql.Statement	executeUpdate(java.lang.String)	77
+C	F0	43	38	javax.servlet.http.HttpServletRequest	getQueryString()	false
+C	F0	57	29	java.lang.String	substring(int)	true
+C	F0	66	33	java.lang.String	substring(int,int)	true
+C	F0	68	37	java.net.URLDecoder	decode(java.lang.String,java.lang.String)	true
+C	F0	70	22	org.owasp.benchmark.testcode.BenchmarkTest02655	doSomething(javax.servlet.http.HttpServletRequest,java.lang.String)	true	F0	86	92
+V	77	35	unknown	unsupported_or_runtime_value
+E	77	35	F0	89	local_definition
+E	77	35	F0	91	value_at_reference_unresolved
+E	77	35	F0	91	helper_return
+E	77	35	F0	70	helper_call
+E	77	35	F0	70	local_definition
+E	77	35	F0	72	value_at_reference_unresolved
+E	77	35	F0	72	string_concatenation_with_unresolved_operand
+E	77	35	F0	72	local_definition
+E	77	35	F0	77	value_at_reference_unresolved
+E	77	35	F0	72	sql_argument_variable_declaration
+S	43	38	javax.servlet.http.HttpServletRequest	getQueryString()	true
+
+[STDERR]
+Picked up JAVA_TOOL_OPTIONS: -XX:-UsePerfData

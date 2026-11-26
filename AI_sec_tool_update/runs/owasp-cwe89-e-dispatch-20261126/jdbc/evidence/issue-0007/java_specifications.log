@@ -1,0 +1,21 @@
+STATUS	3
+Q	F0	61	32	java.sql.Connection	prepareStatement(java.lang.String,java.lang.String[])	61
+V	61	32	constant_sql_text	bounded_java_evaluation
+E	61	32	F0	55	constant_expression
+E	61	32	F0	81	constant_expression
+E	61	32	F0	81	integer_arithmetic
+E	61	32	F0	80	constant_expression
+E	61	32	F0	80	local_definition
+E	61	32	F0	81	integer_comparison
+E	61	32	F0	81	if_true
+E	61	32	F0	81	local_assignment
+E	61	32	F0	84	helper_return
+E	61	32	F0	53	helper_call
+E	61	32	F0	53	local_definition
+E	61	32	F0	55	string_concatenation
+E	61	32	F0	55	local_definition
+B	61	32	62	java.sql.PreparedStatement	setString(int,java.lang.String)	62
+S	44	57	javax.servlet.http.HttpServletRequest	getHeaders(java.lang.String)	true
+
+[STDERR]
+Picked up JAVA_TOOL_OPTIONS: -XX:-UsePerfData

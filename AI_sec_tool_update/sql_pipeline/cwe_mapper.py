@@ -1,14 +1,17 @@
-"""Explicit rule registry for the initial JDBC SQL-injection scope.
+"""Explicit rule registry for JDBC and Spring JDBC SQL injection.
 
 Unknown rules are NOT classified as code smells. Metadata from the actual
 SonarQube installation is retained by the pipeline for subsequent review.
 """
-MAPPING_VERSION = "sql89-v2"
+MAPPING_VERSION = "sql89-v3"
+SPRING_JDBC_RULES = frozenset({"findbugs:SQL_INJECTION_SPRING_JDBC", "findsecbugs:SQL_INJECTION_SPRING_JDBC"})
+SONAR_SQL_TAINT_RULES = frozenset({"java:S3649", "javasecurity:S3649"})
 SONAR_TO_CWE = {
-    "java:S3649": {
-        "cwe_id": "CWE-89", "name": "SQL Injection",
-        "supported": True, "mapping_source": "SonarSource java:S3649",
-    },
+    **{rule: {"cwe_id": "CWE-89", "name": "SQL Injection", "supported": True,
+              "mapping_source": f"SonarSource {rule}"} for rule in SONAR_SQL_TAINT_RULES},
+    **{rule: {"cwe_id": "CWE-89", "name": "SQL Injection in Spring JDBC", "supported": True,
+              "mapping_source": "https://find-sec-bugs.github.io/bugs.htm#SQL_INJECTION_SPRING_JDBC"}
+       for rule in SPRING_JDBC_RULES},
     "findbugs:SQL_INJECTION_JDBC": {
         "cwe_id": "CWE-89", "name": "SQL Injection in JDBC",
         "supported": True,

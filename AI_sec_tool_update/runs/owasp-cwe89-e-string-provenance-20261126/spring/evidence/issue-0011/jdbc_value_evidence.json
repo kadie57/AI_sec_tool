@@ -1,0 +1,72 @@
+{
+  "version": "jdbc-value-evidence-v7",
+  "scope": "modeled_java_execution_up_to_the_reported_call",
+  "status": "evaluated",
+  "arguments": [
+    {
+      "call": {
+        "file_id": "F0",
+        "line": 65,
+        "column": 77
+      },
+      "sql_argument": {
+        "file_id": "F0",
+        "line": 65
+      },
+      "status": "unknown",
+      "reason": "unsupported_or_runtime_value",
+      "evidence": [
+        {
+          "file_id": "F0",
+          "line": 98,
+          "role": "local_assignment"
+        },
+        {
+          "file_id": "F0",
+          "line": 100,
+          "role": "value_at_reference_unresolved"
+        },
+        {
+          "file_id": "F0",
+          "line": 100,
+          "role": "helper_return"
+        },
+        {
+          "file_id": "F0",
+          "line": 60,
+          "role": "helper_call"
+        },
+        {
+          "file_id": "F0",
+          "line": 60,
+          "role": "local_definition"
+        },
+        {
+          "file_id": "F0",
+          "line": 62,
+          "role": "value_at_reference_unresolved"
+        },
+        {
+          "file_id": "F0",
+          "line": 62,
+          "role": "string_concatenation_with_unresolved_operand"
+        },
+        {
+          "file_id": "F0",
+          "line": 62,
+          "role": "local_definition"
+        },
+        {
+          "file_id": "F0",
+          "line": 65,
+          "role": "value_at_reference_unresolved"
+        },
+        {
+          "file_id": "F0",
+          "line": 62,
+          "role": "sql_argument_variable_declaration"
+        }
+      ]
+    }
+  ]
+}

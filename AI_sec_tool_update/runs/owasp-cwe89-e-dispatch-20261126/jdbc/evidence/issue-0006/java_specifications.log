@@ -1,0 +1,12 @@
+STATUS	3
+Q	F0	74	32	java.sql.Connection	prepareStatement(java.lang.String,java.lang.String[])	74
+V	74	32	unknown	unsupported_or_runtime_value
+E	74	32	F0	57	runtime_if_changes_control_flow
+E	74	32	F0	57	analysis_stopped_before_call
+E	74	32	F0	68	sql_argument_variable_declaration
+B	74	32	75	java.sql.PreparedStatement	setString(int,java.lang.String)	75
+S	41	36	javax.servlet.http.HttpServletRequest	getRequestURI()	false
+S	54	58	javax.servlet.http.HttpServletRequest	getCookies()	true
+
+[STDERR]
+Picked up JAVA_TOOL_OPTIONS: -XX:-UsePerfData

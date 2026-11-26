@@ -1,0 +1,45 @@
+{
+  "analysis_id": "dc414b1d-10d2-474d-b464-55ef791e97d2",
+  "project": "thesis_owasp_cwe89_step3_holdout40_20261126_v1",
+  "java_profile": "KhoaLuan-Java-SQLi-Spring-20261125",
+  "samples": 40,
+  "warnings": 36,
+  "samples_with_warning": 36,
+  "sample_confusion": {
+    "TP": 20,
+    "FP": 16,
+    "FN": 0,
+    "TN": 4
+  },
+  "sample_confusion_by_api_group": {
+    "spring_jdbc": {
+      "TP": 7,
+      "FP": 6,
+      "FN": 0,
+      "TN": 1
+    },
+    "jdbc_prepare": {
+      "TP": 7,
+      "FP": 6,
+      "FN": 0,
+      "TN": 1
+    },
+    "other_jdbc": {
+      "TP": 6,
+      "FP": 4,
+      "FN": 0,
+      "TN": 2
+    }
+  },
+  "warning_rules": {
+    "findsecbugs:SQL_INJECTION_JDBC": 23,
+    "findsecbugs:SQL_INJECTION_SPRING_JDBC": 13
+  },
+  "samples_without_warning": [
+    "BenchmarkTest00936",
+    "BenchmarkTest01815",
+    "BenchmarkTest01817",
+    "BenchmarkTest02727"
+  ],
+  "positive_samples_without_warning": []
+}

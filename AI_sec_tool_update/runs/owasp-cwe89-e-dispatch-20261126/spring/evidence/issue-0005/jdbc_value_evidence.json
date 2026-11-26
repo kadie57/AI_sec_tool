@@ -1,0 +1,98 @@
+{
+  "version": "jdbc-value-evidence-v8",
+  "scope": "modeled_java_execution_up_to_the_reported_call",
+  "status": "evaluated",
+  "arguments": [
+    {
+      "call": {
+        "file_id": "F0",
+        "line": 68,
+        "column": 77
+      },
+      "sql_argument": {
+        "file_id": "F0",
+        "line": 68
+      },
+      "status": "unknown",
+      "reason": "unsupported_or_runtime_value",
+      "evidence": [
+        {
+          "file_id": "F0",
+          "line": 64,
+          "role": "constant_expression"
+        },
+        {
+          "file_id": "F0",
+          "line": 62,
+          "role": "call_result_not_modeled"
+        },
+        {
+          "file_id": "F0",
+          "line": 46,
+          "role": "loop_local_values_invalidated"
+        },
+        {
+          "file_id": "F0",
+          "line": 62,
+          "role": "local_definition"
+        },
+        {
+          "file_id": "F0",
+          "line": 64,
+          "role": "value_at_reference_unresolved"
+        },
+        {
+          "file_id": "F0",
+          "line": 64,
+          "role": "string_concatenation_with_unresolved_operand"
+        },
+        {
+          "file_id": "F0",
+          "line": 64,
+          "role": "local_definition"
+        },
+        {
+          "file_id": "F0",
+          "line": 68,
+          "role": "value_at_reference_unresolved"
+        },
+        {
+          "file_id": "F0",
+          "line": 64,
+          "role": "sql_argument_variable_declaration"
+        }
+      ],
+      "dispatch_evidence": [
+        {
+          "file_id": "F0",
+          "line": 62,
+          "name": "doSomething",
+          "argument_index": 1,
+          "scope": "listed_candidates_only",
+          "condition": "non_null_string_argument",
+          "behavior": "returns_argument_unchanged",
+          "targets": [
+            {
+              "file_id": "F1",
+              "line": 22,
+              "owner": "org.owasp.benchmark.helpers.Thing1",
+              "return": {
+                "file_id": "F1",
+                "line": 26
+              }
+            },
+            {
+              "file_id": "F2",
+              "line": 22,
+              "owner": "org.owasp.benchmark.helpers.Thing2",
+              "return": {
+                "file_id": "F2",
+                "line": 26
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

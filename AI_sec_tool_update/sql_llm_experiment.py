@@ -9,6 +9,7 @@ from pathlib import Path
 import requests
 
 from sql_pipeline.evidence.sql_path_presentation import render_path_snippets
+from sql_pipeline.evidence.sql_review_consistency import VERSION as REVIEW_CONSISTENCY_VERSION, check_review
 
 MODEL = "qwen2.5-coder:14b-instruct-q4_K_M"
 URL = "http://127.0.0.1:11434"
@@ -130,7 +131,7 @@ def normalize_row(row):
     return normalized
 
 
-def request_for(row, *, confirmed_jdbc_values_only=False, prompt_profile="baseline"):
+def request_for(row, *, confirmed_jdbc_values_only=False, prompt_profile="baseline", experimental_dispatch_evidence=False):
     files = [row["source"], *row["helpers"]]
     evidence = {
         "alert": row["alert"],
@@ -141,10 +142,16 @@ def request_for(row, *, confirmed_jdbc_values_only=False, prompt_profile="baseli
     # The selector supplies source coordinates. Raw audit tables and labels stay local.
     if "selected_evidence" in row:
         selected = row["selected_evidence"]
+        values = selected.get("jdbc_value_evidence") if isinstance(selected, dict) else None
+        if values and not experimental_dispatch_evidence and any("dispatch_evidence" in arg for arg in values["arguments"]):
+            arguments = [{key: value for key, value in arg.items() if key != "dispatch_evidence"}
+                         for arg in values["arguments"]]
+            selected = {**selected, "jdbc_value_evidence": {**values, "arguments": arguments}}
         if confirmed_jdbc_values_only and isinstance(selected, dict) and (values := selected.get("jdbc_value_evidence")):
             arguments = values["arguments"]
             if (len(arguments) != 1
-                    or arguments[0]["status"] not in {"constant_sql_text", "fixed_sql_alternatives", "external_input_contributes"}):
+                    or arguments[0]["status"] not in {"constant_sql_text", "fixed_sql_alternatives",
+                                                       "request_independent_sql_text", "external_input_contributes"}):
                 selected = {key: value for key, value in selected.items() if key != "jdbc_value_evidence"}
         evidence["selected_evidence"] = selected
     system, schema = PROMPT_PROFILES[prompt_profile]
@@ -186,7 +193,8 @@ def validate(data, row, *, bind_warning_citation=False):
 
 
 def plan(path, *, confirmed_jdbc_values_only=False, path_snippets=False,
-         verified_sink_note=False, structured_sink_evidence=False, prompt_profile="baseline"):
+         verified_sink_note=False, structured_sink_evidence=False, prompt_profile="baseline",
+         experimental_dispatch_evidence=False):
     if verified_sink_note and structured_sink_evidence:
         raise ValueError("Chọn một trong --verified-sink-note và --structured-sink-evidence")
     if (verified_sink_note or structured_sink_evidence) and not path_snippets:
@@ -202,7 +210,7 @@ def plan(path, *, confirmed_jdbc_values_only=False, path_snippets=False,
         if not path_snippets and any(file.get("path_context_only") for file in row["helpers"]):
             raise ValueError("Project path evidence requires --path-snippets")
         request = request_for(row, confirmed_jdbc_values_only=confirmed_jdbc_values_only,
-                              prompt_profile=prompt_profile)
+                              prompt_profile=prompt_profile, experimental_dispatch_evidence=experimental_dispatch_evidence)
         if path_snippets:
             helper_visibility = {}
             display, visible = render_path_snippets(json.loads(request["prompt"]),
@@ -246,6 +254,7 @@ def assess_response(result, row, *, bind_warning_citation=False):
     response = json.loads(body["response"])
     assessment = validate(response, row, bind_warning_citation=bind_warning_citation)
     result["assessment"] = assessment
+    result["review_consistency"] = check_review(row, assessment)
     if assessment["citations"] != response["citations"]:
         result["warning_citation_added"] = {"origin": "sonarqube_alert",
                                             "reference": assessment["citations"][0]}
@@ -308,6 +317,32 @@ def read_results(folder):
     return manifest, records
 
 
+def audit_saved_reviews(evidence, folder, **layout):
+    manifest, records = read_results(folder)
+    items = plan(evidence, prompt_profile=manifest.get("prompt_profile", "baseline"), **layout)
+    if items.keys() != records.keys():
+        raise ValueError("The evidence and saved reviews cover different warnings.")
+    cases = []
+    bind_warning = manifest.get("warning_citation_binding") == "sonarqube_alert_start_line"
+    for issue_id, (row, request) in items.items():
+        meta, saved = records[issue_id]
+        if (meta["alert"] != row["alert"] or meta["source"] != row["source"]["sha256"]
+                or meta["request_sha256"] != digest(request)):
+            raise ValueError(f"The evidence differs from the saved request: {issue_id}")
+        case = {"issue_id": issue_id, "component": row["alert"]["component"], "request_sha256": meta["request_sha256"]}
+        if saved is None or "error" in saved:
+            case["review_consistency"] = {"status": "REVIEW_NOT_AVAILABLE"}
+        else:
+            checked = {"ollama_response": saved["ollama_response"]}
+            assess_response(checked, row, bind_warning_citation=bind_warning)
+            if checked["assessment"] != saved["assessment"]:
+                raise ValueError(f"The saved assessment differs from the validated model response: {issue_id}")
+            case.update(model_verdict=saved["assessment"]["verdict"], review_consistency=checked["review_consistency"])
+        cases.append(case)
+    return {"version": REVIEW_CONSISTENCY_VERSION, "evidence": str(evidence), "source_review": str(folder),
+            "counts": dict(Counter(case["review_consistency"]["status"] for case in cases)), "cases": cases}
+
+
 def compare(before, after):
     a, x = read_results(before)
     b, y = read_results(after)
@@ -332,21 +367,27 @@ def compare(before, after):
             "note": "Differences are not correctness; compare separately with reference labels."}
 
 
-def main():
-    p = argparse.ArgumentParser(description=__doc__)
-    modes = p.add_subparsers(dest="mode", required=True)
-    r = modes.add_parser("run")
-    r.add_argument("evidence", type=Path)
-    r.add_argument("--out", type=Path, required=True)
-    r.add_argument("--dry-run", action="store_true")
-    r.add_argument("--path-snippets", action="store_true", help="Trình bày đoạn mã theo Source → Steps → Sink.")
-    sink_layout = r.add_mutually_exclusive_group()
+def presentation_options(parser):
+    parser.add_argument("evidence", type=Path)
+    parser.add_argument("--path-snippets", action="store_true", help="Trình bày đoạn mã theo Source → Steps → Sink.")
+    sink_layout = parser.add_mutually_exclusive_group()
     sink_layout.add_argument("--verified-sink-note", action="store_true",
                              help="Kèm nhận định giá trị đã xác minh ở Sink, dùng cùng --path-snippets.")
     sink_layout.add_argument("--structured-sink-evidence", action="store_true",
                              help="Tách dòng cảnh báo, nhánh và chuỗi giá trị ở Sink, dùng cùng --path-snippets.")
-    r.add_argument("--confirmed-jdbc-values-only", action="store_true",
-                   help="Chỉ thêm bằng chứng giá trị khi đã xác minh được đúng một đối số JDBC.")
+    parser.add_argument("--confirmed-jdbc-values-only", action="store_true",
+                        help="Chỉ thêm bằng chứng giá trị khi đã xác minh được đúng một đối số JDBC.")
+    parser.add_argument("--experimental-dispatch-evidence", action="store_true",
+                        help="Thêm bằng chứng interface thử nghiệm nếu đã có trong hồ sơ.")
+
+
+def main():
+    p = argparse.ArgumentParser(description=__doc__)
+    modes = p.add_subparsers(dest="mode", required=True)
+    r = modes.add_parser("run")
+    presentation_options(r)
+    r.add_argument("--out", type=Path, required=True)
+    r.add_argument("--dry-run", action="store_true")
     r.add_argument("--bind-warning-citation", action="store_true",
                    help="Gắn dòng đầu của cảnh báo khi LLM đã trích được bằng chứng hỗ trợ hợp lệ.")
     r.add_argument("--prompt-profile", choices=PROMPT_PROFILES, default="baseline",
@@ -355,13 +396,25 @@ def main():
     c = modes.add_parser("compare")
     c.add_argument("before", type=Path)
     c.add_argument("after", type=Path)
+    a = modes.add_parser("audit-review", help="Kiểm tra tính nhất quán của các phản hồi Qwen đã lưu.")
+    presentation_options(a)
+    a.add_argument("results", type=Path)
+    a.add_argument("--out", type=Path, required=True, help="Tệp JSON mới để lưu kết quả kiểm tra.")
     args = p.parse_args()
+    if args.mode in {"run", "audit-review"}:
+        layout = {name: getattr(args, name) for name in ("confirmed_jdbc_values_only", "path_snippets",
+                                                        "verified_sink_note", "structured_sink_evidence",
+                                                        "experimental_dispatch_evidence")}
     if args.mode == "run":
-        run(plan(args.evidence, confirmed_jdbc_values_only=args.confirmed_jdbc_values_only,
-                 path_snippets=args.path_snippets, verified_sink_note=args.verified_sink_note,
-                 structured_sink_evidence=args.structured_sink_evidence, prompt_profile=args.prompt_profile),
+        run(plan(args.evidence, prompt_profile=args.prompt_profile, **layout),
             args.out, args.timeout, args.dry_run, bind_warning_citation=args.bind_warning_citation,
             prompt_profile=args.prompt_profile)
+    elif args.mode == "audit-review":
+        report = audit_saved_reviews(args.evidence, args.results, **layout)
+        with args.out.open("x", encoding="utf-8") as stream:
+            json.dump(report, stream, ensure_ascii=False, indent=2)
+            stream.write("\n")
+        print(args.out)
     else:
         print(json.dumps(compare(args.before, args.after), ensure_ascii=False, indent=2))
 

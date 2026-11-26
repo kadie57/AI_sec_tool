@@ -1,0 +1,19 @@
+STATUS	0
+Q	F0	56	32	java.sql.Connection	prepareStatement(java.lang.String,int,int,int)	57
+C	F0	48	22	org.owasp.benchmark.testcode.BenchmarkTest02535	doSomething(javax.servlet.http.HttpServletRequest,java.lang.String)	true	F0	71	84
+V	56	32	unknown	unsupported_or_runtime_value
+E	56	32	F0	75	runtime_if_merges_assignments
+E	56	32	F0	83	value_at_reference_unresolved
+E	56	32	F0	83	helper_return
+E	56	32	F0	48	helper_call
+E	56	32	F0	48	local_definition
+E	56	32	F0	50	value_at_reference_unresolved
+E	56	32	F0	50	string_concatenation_with_unresolved_operand
+E	56	32	F0	50	local_definition
+E	56	32	F0	57	value_at_reference_unresolved
+E	56	32	F0	50	sql_argument_variable_declaration
+B	56	32	61	java.sql.PreparedStatement	setString(int,java.lang.String)	61
+S	43	35	javax.servlet.ServletRequest	getParameterValues(java.lang.String)	true
+
+[STDERR]
+Picked up JAVA_TOOL_OPTIONS: -XX:-UsePerfData
