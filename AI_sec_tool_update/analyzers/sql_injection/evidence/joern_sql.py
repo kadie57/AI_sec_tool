@@ -1,14 +1,12 @@
 """Single-file JDBC evidence extracted from the existing Joern stage."""
 
 import json
-import os
-from pathlib import Path
 import re
-import subprocess
-import uuid
 
 from common.cwe_mapper import SONAR_SQL_TAINT_RULES, SPRING_JDBC_RULES
-from common.run_io import run_command, save_json
+from common.joern_project import run_joern_script
+from common.run_io import save_json
+from common.sonar_artifacts import issue_range, resolve_issue_path
 
 
 JDBC_SINK_NAMES = "executeQuery|executeUpdate|execute|prepareStatement|prepareCall"
@@ -46,31 +44,6 @@ def path_locations(flow):
     if nodes is not None or len(paths) != flow["flow_count"]:
         raise ValueError("Joern path table count differs from flow_count")
     return paths
-
-
-def resolve_issue_path(issue, project, root):
-    component = issue.get("component", "")
-    prefix = project + ":"
-    if not component.startswith(prefix):
-        raise ValueError("Component không thuộc project đã cấu hình.")
-    relative = Path(component[len(prefix):])
-    if relative.is_absolute():
-        raise ValueError("Đường dẫn component phải tương đối.")
-    candidate = (root / relative).resolve()
-    if not candidate.is_relative_to(root.resolve()) or candidate.suffix != ".java":
-        raise ValueError("Component không phải file Java trong project.")
-    if not candidate.is_file():
-        raise ValueError("Không tìm thấy file của cảnh báo.")
-    return candidate
-
-
-def issue_range(issue):
-    span = issue.get("textRange") or {}
-    start = span.get("startLine", issue.get("line"))
-    end = span.get("endLine", start)
-    if type(start) is not int or type(end) is not int or start < 1 or end < start:
-        raise ValueError("Cảnh báo thiếu vùng dòng hợp lệ.")
-    return start, end
 
 
 def parse_joern_output(stdout):
@@ -126,22 +99,3 @@ def run_joern_slicing(file_path, issue, root, artifact, image):
     result = parse_joern_output(output)
     save_json(artifact / "cpg_evidence.json", result)
     return result
-
-
-def run_joern_script(root, artifact, image):
-    """Run the staged slice against read-only sources in the pinned local image."""
-    container_name = "thesis-joern-" + uuid.uuid4().hex[:12]
-    try:
-        return run_command([
-            "docker", "run", "--rm", "--name", container_name, "--pull=never", "--network=none",
-            "-v", f"{root}:/project:ro", "-v", f"{artifact}:/work", "-w", "/work",
-            image, "joern", "--script", "/work/slice.sc",
-        ], artifact / "joern.log", int(os.getenv("JOERN_TIMEOUT", "300")))
-    finally:
-        # Killing a timed-out docker CLI may leave its container running.
-        # Remove only this invocation's uniquely named container.
-        try:
-            subprocess.run(["docker", "rm", "-f", container_name],
-                           capture_output=True, timeout=15)
-        except (OSError, subprocess.TimeoutExpired):
-            pass

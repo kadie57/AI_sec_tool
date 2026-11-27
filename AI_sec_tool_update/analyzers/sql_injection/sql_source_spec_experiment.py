@@ -10,11 +10,11 @@ from types import SimpleNamespace
 
 import requests
 
+from common.ollama_review import MODEL, OPTIONS, URL, digest, read, write
 from common.source_text import mask_java
 
 from .evidence.sql_endpoint_specifications import infer_specifications, java_dependencies
 from .evidence.sql_source_paths import endpoints, infer_source_paths
-from .sql_llm_experiment import MODEL, OPTIONS, URL, digest, read, write
 
 
 SYSTEM = """Label the return value of each resolved Java call for defensive source analysis.

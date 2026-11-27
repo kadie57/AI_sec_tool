@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="page-heading">
+  <div>
+    <h1>Các lượt phân tích</h1>
+    <p>Tra cứu cảnh báo SonarQube, bằng chứng và nhận định Qwen đã lưu.</p>
+  </div>
+</div>
+
+<div class="stats" aria-label="Tổng quan lượt phân tích">
+  <article><span>Tổng lượt chạy</span><strong>{{ all_count }}</strong></article>
+  <article><span>Đã lưu đủ kết quả</span><strong>{{ complete }}</strong></article>
+  <article><span>Chưa đủ kết quả</span><strong>{{ incomplete }}</strong></article>
+</div>
+
+<section class="panel" aria-labelledby="history-title">
+  <div class="panel-heading">
+    <h2 id="history-title">Lịch sử chạy</h2>
+    <form class="filters" method="get">
+      <label for="q" class="sr-only">Tìm theo tên lượt chạy</label>
+      <input id="q" name="q" type="search" value="{{ query }}" placeholder="Tìm theo tên lượt chạy">
+      <label for="cwe" class="sr-only">Nhóm lỗ hổng</label>
+      <select id="cwe" name="cwe">
+        <option value="">Tất cả nhóm lỗi</option>
+        {% for id, category in categories.items() %}
+        <option value="{{ id }}" {% if id == cwe %}selected{% endif %}>{{ category }}</option>
+        {% endfor %}
+      </select>
+      <button>Lọc</button>
+      {% if cwe or query %}<a href="{{ url_for('index') }}">Xóa lọc</a>{% endif %}
+    </form>
+  </div>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th scope="col">Lượt chạy</th><th scope="col">Nhóm lỗi</th><th scope="col">Ca có kết quả lưu</th><th scope="col">Giờ lưu manifest</th></tr></thead>
+      <tbody>
+      {% for run in runs %}
+      <tr>
+        <td><a class="run-link" href="{{ url_for('run_detail', name=run.name) }}">{{ run.name }}</a></td>
+        <td><span class="category cwe-{{ run.cwe }}">{{ run.category }}</span></td>
+        <td>
+          <div class="table-progress"><strong>{{ run.saved }} / {{ run.total }}</strong>
+            <progress value="{{ run.saved }}" max="{{ run.total }}" aria-label="Ca có kết quả lưu"></progress>
+          </div>
+        </td>
+        <td class="date">{{ run.updated | local_time }}</td>
+      </tr>
+      {% else %}
+      <tr><td colspan="4" class="empty">Chưa có lượt chạy phù hợp.</td></tr>
+      {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</section>
+{% endblock %}

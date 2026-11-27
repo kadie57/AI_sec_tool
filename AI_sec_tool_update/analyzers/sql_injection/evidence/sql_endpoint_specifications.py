@@ -4,10 +4,10 @@ from hashlib import sha256
 import os
 from pathlib import Path
 import re
-import shutil
 from tempfile import TemporaryDirectory
 from types import SimpleNamespace
 
+from common.joern_project import java_dependencies
 from common.run_io import run_command
 
 
@@ -16,22 +16,6 @@ PROBE = Path(__file__).with_name("SqlEndpointProbe.java")
 VALUE_PROBE = Path(__file__).with_name("SqlValueEvidence.java")
 VALUE_VERSION = "jdbc-value-evidence-v10"
 MAX_SOURCES = 8
-
-
-def java_dependencies(jars):
-    if shutil.which("java") is None:
-        raise ValueError("Cần JDK 17 trở lên để xác minh chữ ký source/sink.")
-    entries = []
-    for value in jars:
-        jar = value.expanduser().resolve()
-        if jar.suffix != ".jar" or not jar.is_file() or os.pathsep in str(jar):
-            raise ValueError(f"Classpath cần đường dẫn đến tệp JAR cục bộ: {jar}")
-        with jar.open("rb") as stream:
-            digest = sha256()
-            for block in iter(lambda: stream.read(65536), b""):
-                digest.update(block)
-        entries.append({"path": str(jar), "sha256": digest.hexdigest()})
-    return entries
 
 
 def parse_probe(stdout, bundle, selected, value_evidence=False, *, source_candidates=False):

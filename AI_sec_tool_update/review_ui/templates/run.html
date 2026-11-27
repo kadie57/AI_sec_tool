@@ -1,0 +1,292 @@
+{% extends "base.html" %}
+{% block title %}{{ run.name }}{% endblock %}
+{% block scripts %}<script defer src="{{ url_for('static', filename='review.js') }}"></script>{% endblock %}
+{% macro location(ref) -%}
+  {% if ref.file_id and ref.line -%}
+    {% if (ref.file_id, ref.line) in visible_lines %}
+      <a class="coordinate" href="#{{ ref.file_id }}-L{{ ref.line }}">{{ ref.file_id }}:{{ ref.line }}</a>
+    {% else %}
+      <span class="coordinate muted">{{ ref.file_id }}:{{ ref.line }}</span>
+    {% endif %}
+  {%- endif %}
+{%- endmacro %}
+{% macro verdict(status) -%}
+  <span class="verdict verdict-{{ status }}">{{ labels[status] }}</span>
+{%- endmacro %}
+{% block content %}
+<a class="back-link" href="{{ url_for('index') }}">Tất cả lượt phân tích</a>
+<div class="page-heading">
+  <div>
+    <p class="heading-meta"><span class="category cwe-{{ run.cwe }}">{{ run.category }}</span><span>{{ run.updated | local_time }}</span></p>
+    <h1 class="run-heading">{{ run.name }}</h1>
+    <p>{{ run.manifest.model }}</p>
+  </div>
+  <div class="progress-block">
+    <strong>{{ counts.saved }} / {{ run.total }} ca đã lưu</strong>
+    <progress value="{{ counts.saved }}" max="{{ run.total }}" aria-label="Tiến độ lưu kết quả"></progress>
+    {% if counts.counts.error %}<span>{{ counts.counts.error }} ca lỗi kết quả</span>{% endif %}
+    <a class="download-link" href="{{ url_for('export_csv', name=run.name) }}">Xuất CSV</a>
+  </div>
+</div>
+
+<div class="stats run-stats" aria-label="Thống kê lượt chạy">
+  <article><span>Cảnh báo SonarQube</span><strong>{{ run.total }}</strong>{% if sonar.samples %}<small>Trên {{ sonar.samples }} mẫu</small>{% endif %}</article>
+  <article><span>Qwen · LIKELY_TP</span><strong>{{ counts.counts.LIKELY_TP }}</strong></article>
+  <article><span>Qwen · LIKELY_FP</span><strong>{{ counts.counts.LIKELY_FP }}</strong></article>
+  <article><span>Qwen · UNKNOWN</span><strong>{{ counts.counts.UNKNOWN }}</strong></article>
+  <article><span>Đã thẩm định</span><strong>{{ history | length }} / {{ run.total }}</strong></article>
+  {% if counts.correct is not none %}
+  <article><span>Khớp nhãn tham chiếu</span><strong>{{ counts.correct }}</strong>{% if counts.reference_count %}<small>{{ counts.reference_count }} ca có nhãn hiển thị</small>{% endif %}</article>
+  {% endif %}
+</div>
+
+{% if comparable %}
+<section class="panel comparison" aria-labelledby="compare-title">
+  <div class="panel-heading">
+    <h2 id="compare-title">So sánh lượt chạy</h2>
+    <form class="filters" method="get">
+      {% if case %}<input type="hidden" name="case" value="{{ case.number }}">{% endif %}
+      {% if status %}<input type="hidden" name="status" value="{{ status }}">{% endif %}
+      <label for="compare" class="sr-only">Lượt đối chiếu có cùng cảnh báo và mã nguồn</label>
+      <select id="compare" name="compare">
+        <option value="">Chọn lượt có cùng bộ cảnh báo</option>
+        {% for other in comparable %}
+          <option value="{{ other.name }}" {% if comparison and other.name == comparison.name %}selected{% endif %}>{{ other.name }}</option>
+        {% endfor %}
+      </select>
+      <button>Đối chiếu</button>
+    </form>
+  </div>
+  {% if comparison %}
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Lượt chạy</th><th>LIKELY_TP</th><th>LIKELY_FP</th><th>UNKNOWN</th><th>Kết quả hợp lệ</th></tr></thead>
+      <tbody>
+        {% for entry, stats in [(run, counts), (comparison, comparison_totals)] %}
+          <tr><th scope="row">{{ entry.name }}</th>{% for state in ("LIKELY_TP", "LIKELY_FP", "UNKNOWN") %}<td>{{ stats.counts[state] }}</td>{% endfor %}<td>{{ stats.answered }} / {{ entry.total }}</td></tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+  {% endif %}
+</section>
+{% endif %}
+
+<div class="review-grid">
+  <aside class="panel cases" aria-label="Danh sách cảnh báo">
+    <div class="cases-heading">
+      <h2>Cảnh báo <span>{{ cases | length }}</span></h2>
+      <form class="filters" method="get">
+        {% if comparison %}<input type="hidden" name="compare" value="{{ comparison.name }}">{% endif %}
+        <label for="status" class="sr-only">Lọc theo kết quả Qwen</label>
+        <select id="status" name="status">
+          <option value="">Mọi kết quả</option>
+          {% for code, label in labels.items() %}
+            <option value="{{ code }}" {% if code == status %}selected{% endif %}>{{ label }}</option>
+          {% endfor %}
+        </select>
+        <button>Lọc</button>
+      </form>
+    </div>
+    <ul>
+      {% for entry in cases %}
+        <li><a class="case-link" href="{{ url_for('run_detail', name=run.name, case=entry.number, status=status or none, compare=comparison.name if comparison else none) }}#warning" {% if case and case.number == entry.number %}aria-current="page"{% endif %}>
+          <strong>{{ entry.name }}</strong>
+          <span class="case-row"><span>Dòng {{ entry.alert.start_line }}</span>{{ verdict(entry.status) }}</span>
+          {% if entry.key in history %}<span class="case-reviewed">{{ decisions[history[entry.key][0].decision] }}</span>{% endif %}
+        </a></li>
+      {% else %}
+        <li class="empty">Chưa có cảnh báo khớp bộ lọc.</li>
+      {% endfor %}
+    </ul>
+  </aside>
+
+  <div class="inspector">
+    {% if case %}
+    <section id="warning" class="panel padded">
+      <h2>{{ case.name }}</h2>
+      <p class="muted filepath">{{ case.file }}</p>
+      <dl class="details-grid">
+        <div><dt>Quy tắc SonarQube</dt><dd><code>{{ case.alert.rule }}</code></dd></div>
+        <div><dt>Vị trí cảnh báo</dt><dd>Dòng {{ case.alert.start_line }}{% if case.alert.end_line != case.alert.start_line %}–{{ case.alert.end_line }}{% endif %} {{ location({"file_id": "F0", "line": case.alert.start_line}) }}</dd></div>
+      </dl>
+      <nav class="section-nav" aria-label="Nội dung cảnh báo">
+        <a href="#flow">Luồng Joern</a>
+        <a href="#java">Bằng chứng Java</a>
+        <a href="#qwen">Nhận định Qwen</a>
+        <a href="#human-review">Thẩm định</a>
+        <a href="#source">Mã nguồn</a>
+      </nav>
+    </section>
+
+    <section id="flow" class="panel padded">
+      <h2>Đường đi ứng viên của Joern</h2>
+      {% for group in groups %}
+        <div class="evidence-group">
+          <h3>{{ group.title }} {{ location(group.target or {}) }}</h3>
+          {% if group.role or group.status %}<p class="muted">{{ [group.role, group.status] | select | join(" · ") }}</p>{% endif %}
+          {% if group.limited %}<p>Đã chạm giới hạn tìm kiếm đường đi.</p>{% endif %}
+          {% for path in group.paths %}
+          <details {% if loop.first %}open{% endif %}>
+            <summary>Đường đi {{ loop.index }} · {{ path | length }} vị trí</summary>
+            <ol class="flow-steps">
+              {% for node in path %}
+              <li>
+                <span class="step-role">{{ "Nguồn" if loop.first else "Đích" if loop.last else "Qua" }}</span>
+                {{ location(node) }}
+                <code>{{ node.label or ([node.owner, node.method] | select | join(".")) or node.node_type or "" }}</code>
+              </li>
+              {% endfor %}
+            </ol>
+          </details>
+          {% else %}
+            <p class="muted">Không có đường đi ứng viên trong dữ liệu gửi đi.</p>
+          {% endfor %}
+        </div>
+      {% else %}
+        {% if prompt.joern_summary %}
+          <p class="muted">Tóm tắt Joern lưu trong yêu cầu ghi nhận {{ prompt.joern_summary.flow_count }} luồng. Yêu cầu lưu phần tóm tắt.</p>
+        {% else %}
+          <p class="muted">Chưa có đường đi chi tiết trong yêu cầu đã lưu.</p>
+        {% endif %}
+      {% endfor %}
+    </section>
+
+    <section id="java" class="panel padded">
+      <h2>Bằng chứng Java</h2>
+      {% for fact in facts %}
+        <div class="evidence-group">
+          {% if fact.title %}<h3><code>{{ fact.title }}</code></h3>{% endif %}
+          {% if fact.text %}<p>{{ fact.text }}</p>{% endif %}
+          {% if fact.refs %}
+            <ul class="reference-list">
+            {% for ref in fact.refs %}
+              <li>{{ location(ref) }} {% if ref.role or ref.decision %}<span>{{ ref.role or ref.decision }}</span>{% endif %}</li>
+            {% endfor %}
+            </ul>
+          {% endif %}
+        </div>
+      {% else %}
+        <p class="muted">Chưa có bằng chứng Java có cấu trúc trong yêu cầu đã lưu.</p>
+      {% endfor %}
+    </section>
+
+    <section id="qwen" class="panel padded">
+      <div class="section-heading"><h2>Nhận định Qwen</h2>{{ verdict(case.status) }}</div>
+      {% if case.assessment %}
+        <p class="explanation">{{ case.assessment.explanation }}</p>
+        {% if case.assessment.citations %}
+          <ul class="reference-list" aria-label="Dẫn chứng của Qwen">
+            {% for ref in case.assessment.citations %}<li>{{ location(ref) }}</li>{% endfor %}
+          </ul>
+        {% endif %}
+      {% elif case.status == "pending" %}
+        <p class="muted">Chưa lưu phản hồi cho cảnh báo này.</p>
+      {% else %}
+        <p class="muted">Chưa có nhận định hợp lệ cho cảnh báo này.</p>
+      {% endif %}
+      {% if case.reference is not none or previous %}
+      <dl class="details-grid">
+        {% if case.reference is not none %}
+        <div><dt>Nhãn tham chiếu</dt><dd>{{ "Có lỗ hổng" if case.reference else "Không có lỗ hổng" }}</dd></div>
+        {% if case.outcome %}<div><dt>Đối chiếu</dt><dd>{{ case.outcome }} · {{ case.outcome_label }}</dd></div>{% endif %}
+        {% endif %}
+        {% if previous %}<div><dt>Nhận định ở lượt đối chiếu</dt><dd>{{ verdict(previous.status) }}</dd></div>{% endif %}
+      </dl>
+      {% endif %}
+    </section>
+
+    <section id="human-review" class="panel padded">
+      <h2>Thẩm định cảnh báo</h2>
+      <dl class="review-context">
+        <div><dt>Nhận định Qwen</dt><dd>{{ verdict(case.status) }}</dd></div>
+        <div><dt>Thẩm định mới nhất</dt><dd>
+          {% if latest_review %}
+            <span class="human-decision human-{{ latest_review.decision }}">{{ decisions[latest_review.decision] }}</span>
+          {% else %}
+            <span class="muted">Chưa thẩm định</span>
+          {% endif %}
+        </dd></div>
+      </dl>
+      {% for message in get_flashed_messages(category_filter=["human-review"]) %}
+        <p class="review-feedback review-success" role="status">{{ message }}</p>
+      {% endfor %}
+      {% if review_error %}<p class="review-feedback review-error" role="alert">{{ review_error }}</p>{% endif %}
+      {% if review_revision %}
+      <form class="manual-review" method="post" action="{{ url_for('run_detail', name=run.name, case=case.number, status=status or none, compare=comparison.name if comparison else none, _anchor='human-review') }}">
+        <input type="hidden" name="review_token" value="{{ session.review_token }}">
+        <input type="hidden" name="case_revision" value="{{ review_revision }}">
+        <div class="review-field">
+          <label for="review-decision">Kết luận thẩm định</label>
+          <select id="review-decision" name="decision" required>
+            <option value="">Chọn kết luận</option>
+            {% for code, label in decisions.items() %}
+              <option value="{{ code }}"{% if review_form.decision == code %} selected{% endif %}>{{ label }}</option>
+            {% endfor %}
+          </select>
+        </div>
+        <div class="review-field">
+          <label for="review-reason">Lý do</label>
+          <textarea id="review-reason" name="reason" rows="3" maxlength="{{ reason_limit }}" required>{{ review_form.reason }}</textarea>
+        </div>
+        <div class="review-field">
+          <label for="review-citations">Dòng dẫn chứng <span class="muted">· Tùy chọn</span></label>
+          <input id="review-citations" name="citations" type="text" maxlength="{{ citation_limit }}" value="{{ review_form.citations }}" placeholder="F0:42, F1:18">
+        </div>
+        <button class="save-review">{{ "Lưu thay đổi" if latest_review else "Lưu thẩm định" }}</button>
+      </form>
+      {% else %}
+        <p class="muted">Biểu mẫu mở khi ca có nhận định Qwen hợp lệ.</p>
+      {% endif %}
+
+      {% if case_history %}
+      <details class="review-history" open>
+        <summary>Lịch sử thẩm định · {{ case_history | length }}</summary>
+        <ol>
+          {% for item in case_history %}
+          <li>
+            <div class="history-heading">
+              <span class="human-decision human-{{ item.decision }}">{{ decisions[item.decision] }}</span>
+              <span class="date">{{ item.saved_at | local_time }}</span>
+            </div>
+            <p class="explanation">{{ item.reason }}</p>
+            {% if item.citations %}
+            <ul class="reference-list" aria-label="Dẫn chứng thẩm định">
+              {% for ref in item.citations %}<li>{{ location(ref) }}</li>{% endfor %}
+            </ul>
+            {% endif %}
+          </li>
+          {% endfor %}
+        </ol>
+      </details>
+      {% endif %}
+    </section>
+
+    <section id="source" class="panel padded">
+      <h2>Mã nguồn trong yêu cầu</h2>
+      {% for file in sources %}
+        <details class="source" {% if loop.first %}open{% endif %}>
+          <summary><span class="coordinate">{{ file.id }}</span> {{ file.path }}</summary>
+          {% if file.lines %}
+          <div class="codeblock" role="region" tabindex="0" aria-label="Mã nguồn {{ file.id }}">
+            {% for n, code in file.lines %}
+            <div id="{{ file.id }}-L{{ n }}" class="code-row{% if file.id == 'F0' and n == case.alert.start_line %} warning-line{% endif %}"><a href="#{{ file.id }}-L{{ n }}" aria-label="Dòng {{ n }}">{{ n }}</a><code>{{ code }}</code></div>
+            {% endfor %}
+          </div>
+          {% else %}
+          <p class="muted">Tệp xuất hiện trong danh mục của yêu cầu.</p>
+          {% endif %}
+        </details>
+      {% else %}
+        <p class="muted">Chưa có đoạn mã từ yêu cầu đã lưu.</p>
+      {% endfor %}
+      {% if prompt %}
+      <details class="payload"><summary>Dữ liệu bằng chứng dạng JSON</summary><pre tabindex="0">{{ prompt | tojson(indent=2) }}</pre></details>
+      {% endif %}
+    </section>
+    {% else %}
+    <section class="panel padded"><p class="muted">Chọn một cảnh báo để xem bằng chứng và kết quả.</p></section>
+    {% endif %}
+  </div>
+</div>
+{% endblock %}

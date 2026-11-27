@@ -1,64 +1,16 @@
 """Build and query one Joern CPG for a hash-verified Java snapshot."""
 
-from hashlib import sha256
-import json
 import os
-from pathlib import Path
 
+from common.joern_project import run_joern_script, snapshot_import, stage_classpath, stage_snapshot
 from common.run_io import run_command
-from common.source_text import mask_java
 
-from .joern_sql import run_joern_script
-from .sql_endpoint_specifications import PROBE, java_dependencies
+from .sql_endpoint_specifications import PROBE
 from .sql_source_paths import java_method_name, path_script
 
 
 VERSION = "sql-project-paths-v2"
 SCOPE = "verified_java_snapshot"
-
-
-def stage_snapshot(root, hashes, target):
-    root, target = root.resolve(), target.resolve()
-    files = {}
-    for name, expected in sorted(hashes.items()):
-        relative = Path(name)
-        if relative.suffix != ".java":
-            continue
-        if relative.is_absolute() or ".." in relative.parts or relative.as_posix() != name or any(c in name for c in "\t\r\n"):
-            raise ValueError(f"Invalid snapshot path: {name}")
-        original = (root / relative).resolve()
-        if not original.is_relative_to(root):
-            raise ValueError(f"Source is outside the snapshot: {name}")
-        raw = original.read_bytes()
-        if sha256(raw).hexdigest() != expected:
-            raise ValueError(f"Source hash differs from the scan: {name}")
-        source = mask_java(raw.decode("utf-8"))
-        staged = target / relative
-        staged.parent.mkdir(parents=True, exist_ok=True)
-        with staged.open("xb") as stream:
-            stream.write(source.encode("utf-8"))
-        files[name] = {"path": name, "kind": "JAVA", "sha256": expected, "masked_source": source}
-    if not files:
-        raise ValueError("The collection has no Java sources in its snapshot manifest")
-    return files
-
-
-def stage_classpath(recorded, replacements, output):
-    paths = replacements or [Path(entry["path"]) for entry in recorded]
-    actual = java_dependencies(paths)
-    if [entry["sha256"] for entry in actual] != [entry["sha256"] for entry in recorded]:
-        raise ValueError("Java classpath hashes or order differ from the baseline")
-    target = output / "type-jars"
-    target.mkdir()
-    staged = []
-    for n, entry in enumerate(actual, 1):
-        raw = Path(entry["path"]).read_bytes()
-        if sha256(raw).hexdigest() != entry["sha256"]:
-            raise ValueError("Classpath JAR changed while staging")
-        path = target / f"{n:04d}.jar"
-        path.write_bytes(raw)
-        staged.append(path)
-    return staged
 
 
 def read_servlet_sites(files, project, jars, output):
@@ -137,14 +89,7 @@ def write_batch(artifact, tasks, jars):
             if any(any(c in field for c in "\t\r\n") for field in fields):
                 raise ValueError("Invalid endpoint coordinate in Joern batch")
             stream.write("\t".join(fields) + "\n")
-    command = ["joern-parse", "/project", "--language", "JAVASRC", "-o", "/work/snapshot.bin",
-               "--frontend-args", "--delombok-mode", "no-delombok"]
-    if jars:
-        command.extend(["--inference-jar-paths", ",".join(f"/work/type-jars/{path.name}" for path in jars)])
-    options = ", ".join(json.dumps(arg) for arg in command)
-    load = f'''val build = scala.sys.process.Process(Seq({options})).!
-  require(build == 0, "Java snapshot parse failed")
-  importCpg("/work/snapshot.bin", "snapshot")'''
+    load = snapshot_import(jars)
     batch = '''  val input = scala.io.Source.fromFile("/work/queries.tsv", "UTF-8")
   val entries = try input.getLines().map(_.split("\\t", -1)).toList finally input.close()
   val byCase = entries.groupBy(_(1).toInt)
